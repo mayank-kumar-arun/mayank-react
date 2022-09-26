@@ -1,2 +1,1 @@
-#Ignoring node_modules from raaghu-mfe
-/node_modules
+node_modules/

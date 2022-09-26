@@ -1,0 +1,14 @@
+{
+  "name": "page1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "dev": "concurrently \"npm run start\" \"npm run serve\"",
+    "start": "webpack serve"
+    
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
