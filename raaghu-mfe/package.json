@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"cd rds_component && npm run dev\" \"cd rds_pages\\page1 && npm run dev\""
+    "start": "concurrently \"cd rds_component && npm run dev\" \"cd rds_pages\\Login && npm run dev\" \"cd rds_pages\\Dashboard && npm run dev\" \"cd rds_pages\\Host && npm run dev\""
   },
   "keywords": [],
   "author": "",
