@@ -32,7 +32,7 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         // expose each component
-        "./ComponentOne": "./src/components/componentOne",
+        "./Rdscomplogin": "./src/components/rds-comp-login",
       },
 
       shared: {

@@ -1,16 +1,15 @@
-
 import React, { Suspense } from "react";
 
 
-const CompoOne = React.lazy(() => import("rds_component/ComponentOne"));
+const LoginCompo = React.lazy(() => import("rds_component/Rdscomplogin"));
 
 var version = process.env.BUILD_DATE;
 
-const App = () => (
+const Login = () => (
 	<Suspense>
 		Latest Build Date:{version}
-		<CompoOne />					
+		<LoginCompo />					
 	</Suspense>
 );
 
-export default App;
+export default Login;

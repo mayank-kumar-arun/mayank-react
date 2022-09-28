@@ -1,13 +1,13 @@
 import {AuthGuard} from '../../../libs/public.api' 
 
-const ComponentOne = () => {
+const Rdscomplogin = () => {
 
 	return (   
          <div>
             <AuthGuard></AuthGuard>
-			 <p>component one</p>
+			 <p>Login component one</p>
 		 </div>
 	);
 };
 
-export default ComponentOne;
+export default Rdscomplogin;

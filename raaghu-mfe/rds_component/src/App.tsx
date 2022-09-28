@@ -1,10 +1,10 @@
 
 import React from "react";
-import ComponentOne from "./components/componentOne";
+import Rdscomplogin from "./components/rds-comp-login";
 
 const App = () => (
     <div>
-        <ComponentOne></ComponentOne>
+        <Rdscomplogin></Rdscomplogin>
 
     </div>
 		
