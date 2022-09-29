@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import RdsCheckbox from "./rds-checkbox";
 
 export default {
-  title: "Elements/RdsCheckbox",
+  title: "Elements/Checkbox",
   component: RdsCheckbox,
 } as ComponentMeta<typeof RdsCheckbox>;
 
