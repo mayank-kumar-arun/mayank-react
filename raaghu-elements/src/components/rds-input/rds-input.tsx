@@ -18,15 +18,23 @@ export interface RdsInputProps {
 }
 
 const RdsInput = (props: RdsInputProps) => {
+  let size: "sm" | "lg" | undefined = undefined;
+
+  if (props.size == "small") {
+
+    size = "sm";
+
+  } else if (props.size == "large") {
+
+    size = "lg";
+
+  }
   return (
     <div>
-      <FormGroup
-        size={
-          props.size === "small" ? "sm" : props.size === "large" ? "lg" : ""
-        }
-      >
+      <FormGroup>
         {props.titleType === "top" && <Form.Label>{props.title}</Form.Label>}
         <Form.Control
+          size={size}
           disabled={props.isDisabled}
           value={props.value}
           readOnly={props.readonly}

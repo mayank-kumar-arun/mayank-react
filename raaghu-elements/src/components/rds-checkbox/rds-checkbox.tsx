@@ -15,8 +15,8 @@ const RdsCheckbox = (props: RdsCheckboxProps) => {
   const check: boolean = props.checked || false;
   //const label1 = `${(props.withlabel === false)? "" : props.label}`;
 
-  
-    
+
+
   const [doubleApproval, setDoubleApproval] = useState<boolean>(check);
   const handleOnCheck = () => {
     setDoubleApproval(!doubleApproval);
@@ -56,7 +56,7 @@ const RdsCheckbox = (props: RdsCheckboxProps) => {
             <label className="form-check-label" htmlFor="flexCheckDefault">
             {props.label}
           </label>
-          
+
         </div>
       </form>
     </Fragment>

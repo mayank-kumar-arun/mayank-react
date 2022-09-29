@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip, { TooltipProps } from "react-bootstrap/Tooltip";
 
+import PropTypes from "prop-types";
+import classNames from "classnames";
 import { Colors, Placements } from "../Types";
 
 export interface RdsButtonProps {
@@ -31,6 +33,17 @@ const RdsButton = (props: RdsButtonProps) => {
 
   const outlineColorVariant =
     `${props.outlineButton === true ? "outline-" : ""}` + props.colorVariant;
+    let size: "sm" | "lg" | undefined = undefined;
+
+    if (props.size == "small") {
+
+      size = "sm";
+
+    } else if (props.size == "large") {
+
+      size = "lg";
+
+    }
 
   return (
     <div className={props.block ? "d-grid gap-2" : ""}>
@@ -38,9 +51,7 @@ const RdsButton = (props: RdsButtonProps) => {
         <Button
           variant={outlineColorVariant}
           disabled={props.isDisabled}
-          size={
-            props.size === "small" ? "sm" : props.size === "large" ? "lg" : ""
-          }
+          size={size}
           // onClick={props.onClick}
           style={{
             borderRadius:
@@ -70,9 +81,7 @@ const RdsButton = (props: RdsButtonProps) => {
           <Button
             variant={outlineColorVariant}
             disabled={props.isDisabled}
-            size={
-              props.size === "small" ? "sm" : props.size === "large" ? "lg" : ""
-            }
+            size={size}
             // onClick={props.onClick}
             style={{
               borderRadius:
