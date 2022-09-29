@@ -14,8 +14,6 @@ const Template: ComponentStory<typeof RdsCheckbox> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   label: "default checkbox",
-  Switch: true,
-  checked:false,
-  Disabled: false
+  checked:false
 };
 
