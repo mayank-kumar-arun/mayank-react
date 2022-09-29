@@ -1,1 +1,1 @@
-export { default as Avatar } from "./rds-avatar";
+export { default } from "./rds-avatar";

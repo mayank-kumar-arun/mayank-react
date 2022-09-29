@@ -1,19 +1,21 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import RdsCheckbox from "./rds-checkbox";
+import Checkbox from "./rds-checkbox";
 
 export default {
   title: "Elements/Checkbox",
-  component: RdsCheckbox,
-} as ComponentMeta<typeof RdsCheckbox>;
+  component: Checkbox,
+} as ComponentMeta<typeof Checkbox>;
 
-const Template: ComponentStory<typeof RdsCheckbox> = (args) => (
-  <RdsCheckbox {...args} />
+const Template: ComponentStory<typeof Checkbox> = (args) => (
+  <Checkbox {...args} />
 );
                                                                                                                                                                                               
 export const Default = Template.bind({});
 Default.args = {
   label: "default checkbox",
-  checked: false,
+  Switch: true,
+  checked:false,
+  Disabled: false
 };
 
