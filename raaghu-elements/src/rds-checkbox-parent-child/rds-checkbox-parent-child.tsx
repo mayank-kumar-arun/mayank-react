@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Fragment, useEffect, useState } from "react";
+import './rds-checkbox-parent-child.scss';
 
 const userData = [
   { name: "Child checkbox 1", isChecked: false },

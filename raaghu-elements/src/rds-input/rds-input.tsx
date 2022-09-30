@@ -3,6 +3,7 @@ import { FormGroup } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import './rds-input.scss';
 
 export interface RdsInputProps {
   onChange: ChangeEventHandler<FormControlElement> | undefined;
@@ -19,18 +20,26 @@ export interface RdsInputProps {
 }
 
 const RdsInput = (props: RdsInputProps) => {
+  let size: "sm" | "lg" | undefined = undefined;
+
+  if (props.size == "small") {
+
+    size = "sm";
+
+  } else if (props.size == "large") {
+
+    size = "lg";
+
+  }
 
   const [tempEmail, setTempEmail] = useState('')
 
   return (
     <div>
-      <FormGroup
-        size={
-          props.size === "small" ? "sm" : props.size === "large" ? "lg" : ""
-        }
-      >
+      <FormGroup>
         {props.titleType === "top" && <Form.Label>{props.title}</Form.Label>}
         <Form.Control
+          size={size}
           onChange={props.onChange}
           disabled={props.isDisabled}
           value={props.value}

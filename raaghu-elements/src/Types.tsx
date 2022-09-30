@@ -13,6 +13,7 @@ export type Colors =
   | 'light'
   | string
 
+
 // export const colorPropType = PropTypes.oneOfType([
 //   PropTypes.oneOf([
 //     'primary',
@@ -63,6 +64,10 @@ export type Placements =
 //   'left-end',
 // ])
 
+export type size = 
+|'small'
+|'medium'
+|'large'
 // export type Shapes =
 //   | 'rounded'
 //   | 'rounded-top'
@@ -93,6 +98,7 @@ export type Placements =
 //   ]),
 //   PropTypes.string,
 // ])
+
 
 // export type TextColors =
 //   | Colors

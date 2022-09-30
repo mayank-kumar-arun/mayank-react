@@ -1,19 +1,21 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import RdsCheckbox from "./rds-checkbox";
+import RdsColorPicker from "./rds-color-picker";
 
 export default {
-  title: "Elements/Checkbox",
-  component: RdsCheckbox,
-} as ComponentMeta<typeof RdsCheckbox>;
+  title: "Elements/ColorPicker",
+  component: RdsColorPicker,
 
-const Template: ComponentStory<typeof RdsCheckbox> = (args) => (
-  <RdsCheckbox {...args} />
+} as ComponentMeta<typeof RdsColorPicker>;
+
+const Template: ComponentStory<typeof RdsColorPicker> = (args) => (
+  <RdsColorPicker {...args} />
 );
                                                                                                                                                                                               
 export const Default = Template.bind({});
 Default.args = {
-  label: "default checkbox",
-  checked: false,
+    value:"#e1e1e1",
+    isDisabled:false,
+    label: "Color-Picker" 
 };
 
