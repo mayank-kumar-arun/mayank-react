@@ -10,7 +10,7 @@ export interface RdsButtonGroupProps {
     size?:string;
     colorVariant?:Colors;
     outlineButton?:boolean;
-    role?: 'checkbox' | 'radio' ;
+    role?: 'checkbox' | 'radio';
     buttonGroupItems: any[];
 }
 
