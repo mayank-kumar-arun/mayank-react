@@ -3,6 +3,7 @@ import { FormGroup } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import './rds-input.scss';
 
 export interface RdsInputProps {
   size?: "sm" | "lg" | string;
