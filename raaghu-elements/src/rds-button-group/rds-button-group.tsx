@@ -9,7 +9,7 @@ export interface RdsButtonGroupProps {
     size?:string;
     colorVariant?:Colors;
     outlineButton?:boolean;
-    role?: 'checkbox' | 'radio' |'button';
+    role?: 'checkbox' | 'radio';
     buttonGroupItems: any[];
 }
 
@@ -17,14 +17,23 @@ const RdsButtonGroup = (props: RdsButtonGroupProps) => {
 
   const outlineColorVariant =
     `${props.outlineButton === true ? "outline-" : ""}` + props.colorVariant;
+    let size: "sm" | "lg" | undefined = undefined;
+
+    if (props.size == "small") {
+
+      size = "sm";
+
+    } else if (props.size == "large") {
+
+      size = "lg";
+
+    }
 
 
     return (
       <div>
         <ToggleButtonGroup name="options" type={props.role} vertical={props.vertical} 
-        size={
-          props.size === "small" ? "sm" : props.size === "large" ? "lg" : ""
-        }
+        size={size}
          aria-label="Basic example">
           {
             props.buttonGroupItems.map((buttonGroupItem, idx)=>
