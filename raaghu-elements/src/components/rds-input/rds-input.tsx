@@ -1,10 +1,11 @@
-import React from "react";
+import React, { ChangeEventHandler, useState } from "react";
 import { FormGroup } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
 export interface RdsInputProps {
+  onChange: ChangeEventHandler<FormControlElement> | undefined;
   size?: "sm" | "lg" | string;
   isDisabled?: boolean;
   readonly?: boolean;
@@ -18,6 +19,9 @@ export interface RdsInputProps {
 }
 
 const RdsInput = (props: RdsInputProps) => {
+
+  const [tempEmail, setTempEmail] = useState('')
+
   return (
     <div>
       <FormGroup
@@ -27,6 +31,7 @@ const RdsInput = (props: RdsInputProps) => {
       >
         {props.titleType === "top" && <Form.Label>{props.title}</Form.Label>}
         <Form.Control
+          onChange={props.onChange}
           disabled={props.isDisabled}
           value={props.value}
           readOnly={props.readonly}
