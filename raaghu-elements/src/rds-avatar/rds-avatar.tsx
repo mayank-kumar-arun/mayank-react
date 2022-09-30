@@ -3,8 +3,6 @@ import "./rds-avatar.css";
 
 import validator from 'validator';
   
-import { Colors } from "../Types";
-import { isValidMotionProp } from "framer-motion";
 
 export interface RdsAvatarProps {
   profilePic?: string;
