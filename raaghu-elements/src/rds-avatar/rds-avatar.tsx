@@ -1,9 +1,8 @@
 import React, { Fragment } from "react";
-import "./rds-avatar.css";
+import "./rds-avatar.scss";
 
 import validator from 'validator';
   
-
 export interface RdsAvatarProps {
   profilePic?: string;
   withProfilePic?:boolean;

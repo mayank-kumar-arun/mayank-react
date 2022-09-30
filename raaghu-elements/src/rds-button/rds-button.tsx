@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./rds-button.css";
+import "./rds-button.scss";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";

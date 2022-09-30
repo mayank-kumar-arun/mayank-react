@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Badge from "react-bootstrap/Badge";
+import './rds-badge.scss'
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export interface RdsBadgeProps {

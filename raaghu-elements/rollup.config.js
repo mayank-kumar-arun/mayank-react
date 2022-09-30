@@ -38,6 +38,6 @@ export default [
     plugins: [dts()],
 
     // NEW
-    external: [/\.css$/],
+    external: [/\.css$/, /\.scss$/],
   },
 ];

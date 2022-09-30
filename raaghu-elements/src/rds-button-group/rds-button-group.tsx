@@ -3,6 +3,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import { Colors } from '../Types';
+import './rds-button-group.scss';
 
 export interface RdsButtonGroupProps {
     vertical?: boolean;
