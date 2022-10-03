@@ -20,16 +20,16 @@ export default {
       ],
       control: { type: "select" },
     },
-}
+  }
 } as ComponentMeta<typeof RdsAlert>;
 
 const Template: ComponentStory<typeof RdsAlert> = (args) => (
   <RdsAlert {...args} />
 );
-                                                                                                                                                                                              
+
 export const Default = Template.bind({});
 Default.args = {
-  alertmessage:"this is close alert",
-  dismisable:false
+  alertmessage: "this is close alert",
+  dismisable: false
 };
 

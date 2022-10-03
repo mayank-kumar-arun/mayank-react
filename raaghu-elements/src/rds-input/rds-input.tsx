@@ -1,8 +1,8 @@
 import React from "react";
-import { FormGroup } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
+// import { FormGroup } from "react-bootstrap";
+// import Button from "react-bootstrap/Button";
+// import Form from "react-bootstrap/Form";
+// import InputGroup from "react-bootstrap/InputGroup";
 import './rds-input.scss';
 
 export interface RdsInputProps {
@@ -14,25 +14,24 @@ export interface RdsInputProps {
   placeholder?: string;
   title?: string;
   titleType?: string;
-  tooltipPlacement?:string;
-  tooltipTitle?:string;
+  tooltipPlacement?: string;
+  tooltipTitle?: string;
 }
 
 const RdsInput = (props: RdsInputProps) => {
   let size: "sm" | "lg" | undefined = undefined;
 
   if (props.size == "small") {
-
     size = "sm";
-
   } else if (props.size == "large") {
-
     size = "lg";
-
   }
   return (
     <div>
-      <FormGroup>
+      <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
+      <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"></input>
+
+      {/* <FormGroup>
         {props.titleType === "top" && <Form.Label>{props.title}</Form.Label>}
         <Form.Control
           size={size}
@@ -48,8 +47,8 @@ const RdsInput = (props: RdsInputProps) => {
           aria-describedby="basic-addon2"
         />
         {props.titleType === "bottom" && <Form.Label>{props.title}</Form.Label>}
-      </FormGroup>
-    </div>
+      </FormGroup> */}
+    </div >
   );
 };
 

@@ -1,4 +1,4 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Fragment, useEffect, useState } from "react";
 import './rds-checkbox-parent-child.scss';
 

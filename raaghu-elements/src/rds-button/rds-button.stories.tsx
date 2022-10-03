@@ -2,8 +2,8 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import RdsButton, { RdsButtonProps } from "./rds-button";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Button from "react-bootstrap/Button";
-import { Colors } from "../Types";
+// import Button from "react-bootstrap/Button";
+// import { Colors } from "../Types";
 
 export default {
   title: "Elements/Button",
