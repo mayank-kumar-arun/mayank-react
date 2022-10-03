@@ -6,6 +6,7 @@ import React from "react";
 import './rds-input.scss';
 
 export interface RdsInputProps {
+  onChange: ChangeEventHandler<FormControlElement> | undefined;
   size?: "sm" | "lg" | string;
   isDisabled?: boolean;
   readonly?: boolean;
@@ -26,6 +27,9 @@ const RdsInput = (props: RdsInputProps) => {
   } else if (props.size == "large") {
     size = "lg";
   }
+
+  const [tempEmail, setTempEmail] = useState('')
+
   return (
     <div>
       <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
@@ -35,6 +39,7 @@ const RdsInput = (props: RdsInputProps) => {
         {props.titleType === "top" && <Form.Label>{props.title}</Form.Label>}
         <Form.Control
           size={size}
+          onChange={props.onChange}
           disabled={props.isDisabled}
           value={props.value}
           readOnly={props.readonly}
