@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import ToggleButton from 'react-bootstrap/ToggleButton';
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+// import ButtonGroup from 'react-bootstrap/ButtonGroup';
+// import ToggleButton from 'react-bootstrap/ToggleButton';
+// import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import { Colors } from '../Types';
 import './rds-button-group.scss';
 
@@ -21,34 +21,31 @@ const RdsButtonGroup = (props: RdsButtonGroupProps) => {
     let size: "sm" | "lg" | undefined = undefined;
 
     if (props.size == "small") {
-
       size = "sm";
-
     } else if (props.size == "large") {
-
       size = "lg";
-
     }
 
 
     return (
       <div>
-        <ToggleButtonGroup name="options" type={props.role} vertical={props.vertical} 
-        size={size}
+        <div className='btn-group' itemType={props.role} 
+        // vertical={props.vertical} 
+        // size={size}
          aria-label="Basic example">
           {
             props.buttonGroupItems.map((buttonGroupItem, idx)=>
-            <ToggleButton 
-            variant={outlineColorVariant}
+            <button type="button" 
+            // variant={outlineColorVariant}
             key={idx}
             id={buttonGroupItem.id}
             value={buttonGroupItem.id}
             >
               {buttonGroupItem.icon}{buttonGroupItem.label}
-            </ToggleButton>
+            </button>
             )
           }
-        </ToggleButtonGroup>
+        </div>
 
       </div>
       );
