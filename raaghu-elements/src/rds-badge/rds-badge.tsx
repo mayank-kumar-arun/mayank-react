@@ -1,6 +1,6 @@
 import React from "react";
-// import Button from "bootstrap/Button";
-// import Badge from "bootstrap/Badge";
+// import Button from "rect-bootstrap/Button";
+// import Badge from "rect-bootstrap/Badge";
 import './rds-badge.scss'
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -24,10 +24,10 @@ const RdsBadge = (props: RdsBadgeProps) => {
 
   return (
     <>
-      {/* <Button variant="light" size={size}>
+      {/* <button variant="light" size={size}>
         {props.label} {space}
-        <Badge bg={props.colorVariant}> {props.number} </Badge>
-      </Button> */}
+        <span class="badge" bg={props.colorVariant}> {props.number} </span>
+      </button> */}
     </>
   );
 };
