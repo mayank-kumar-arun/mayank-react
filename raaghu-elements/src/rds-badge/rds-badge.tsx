@@ -3,7 +3,6 @@ import { useState } from "react";
 import "./rds-badge.scss";
 import  RdsBadgeWithIcon from "./rds-badge.stories"
 
-
 export interface RdsBadgeProps {
   label: string;
   number: number;
