@@ -10,21 +10,28 @@ export default {
   argTypes: {
     size: {
         options: ["small","mid","large"],
-        control: { type: "select" },
-      },
-      DropdownType: {
-        options: ["rectangle","circle","pill"],
-        control: { type: "select" },
-      },
-      buttonColor: {
-        options: ["primary", "secondary","success","danger","warning","info","light","dark","white"],
-        control: { type: "select" },
+        control: { type: "radio" },
       },
       colorVariant: {
         options: ["primary", "secondary","success","danger","warning","info","light","dark","white"],
         control: { type: "select" },
       },
-  }
+      direction: {
+        options: ["Drop-Up", "Drop-Right","Drop-Down","Drop-Left"],
+        control: { type: "radio" },
+      },
+      role:{
+        options: ["Dropdown-Button without split", "Dropdown-Button with split"],
+        control: { type: "radio" },
+      }
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ margin:"150px 0", textAlign:"center" }}>
+        <Story />
+      </div>
+    ),
+  ],
 } as ComponentMeta<typeof RdsDropdown>;
 
 
@@ -33,23 +40,24 @@ const Template: ComponentStory<typeof RdsDropdown> = (args) => <RdsDropdown {...
 export const RdsDropdownDefault = Template.bind({});
 
 RdsDropdownDefault.args = {
-    label:"Button",
-  number: 9,
-  size: "Choose option...",
-  buttonColor: "primary",
-  DropdownColor: "secondary",
-  DropdownType:"Choose option...",
+    colorVariant: "primary",
+    size: "mid",
+    darkDropdown:false,
+    label:"Dropdown Button",
+    direction:"Drop-Down",
+    role:"Dropdown-Button without split",
+   
 };
 
 export const RdsDropdownWithSplit = Template.bind({});
 
-
 RdsDropdownWithSplit.args = {
-//   icon:"Button",
-//   number: 9,
-//   size: "Choose option...",
-//   DropdownType:"Choose option...",
-//   buttonColor: "primary",
-//   DropdownColor: "secondary",
-  
+    colorVariant: "primary",
+    size: "mid",
+    darkDropdown:false,
+    label:"Dropdown Button",
+    direction:"Drop-Down",
+    role:"Dropdown-Button with split",
+   
 };
+
