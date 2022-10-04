@@ -1,4 +1,5 @@
 import { AuthGuard } from '../../../../libs/public.api'
+import AuthContext from '../../../../../shared/store/auth-context'
 
 // import RdsInput from '../../../../../raaghu-elements/src/components/rds-input'
 // import RdsButton from '../../../../../raaghu-elements/src/components/rds-button'
@@ -7,6 +8,7 @@ import RdsButton from '../../../../../raaghu-elements/src/rds-button'
 
 import "./rds-comp-login.scss";
 import { useState } from '@storybook/addons';
+import { useReducer, useRef } from 'react';
 
 
 
@@ -36,9 +38,31 @@ const RdsCompLogin = () => {
 		TenantName: string;
 	}
 
-	// const onClickHandler = () => {
-	// 	// console.log(e.target.value)
-	// }
+	const submitHandler = () => {
+		// console.log(e.target.value)
+
+		// if (formIsValid) {
+		// 	authCtx.onLogin(emailState.value, passwordState.value);
+		//   } else if (!emailIsValid) {
+		// 	emailInputRef.current.focus();
+		//   } else {
+		// 	passwordInputRef.current.focus();
+		//   }
+
+		console.log(emailInputRef)
+		console.log(passwordInputRef)
+
+		const login_details = {
+			user_email: emailInputRef,
+			user_pass: passwordInputRef
+		}
+
+		//
+		/* Validation and API processing can be done here */
+		//
+
+	}
+
 	// const EmailChangeHandler = (v: string | ((prevState: string) => string)) => {
 	// 	setTempEmail(v)
 	// }
@@ -50,6 +74,38 @@ const RdsCompLogin = () => {
 	// const [tempPass, setTempPass] = useState('')
 
 
+	const emailInputRef = useRef();
+	const passwordInputRef = useRef();
+
+	// const emailReducer = (state: { value: string; }, action: { type: string; val: string | string[]; }) => {
+	// 	if (action.type === 'USER_INPUT') {
+	// 		return { value: action.val, isValid: action.val.includes('@') };
+	// 	}
+	// 	if (action.type === 'INPUT_BLUR') {
+	// 		return { value: state.value, isValid: state.value.includes('@') };
+	// 	}
+	// 	return { value: '', isValid: false };
+	// };
+
+	// const passwordReducer = (state: { value: string ; }, action: { type: string; val: string }) => {
+	// 	if (action.type === 'USER_INPUT') {
+	// 		return { value: action.val, isValid: action.val.trim().length > 6 };
+	// 	}
+	// 	if (action.type === 'INPUT_BLUR') {
+	// 		return { value: state.value, isValid: state.value.trim().length > 6 };
+	// 	}
+	// 	return { value: '', isValid: false };
+	// };
+
+	// const [emailState, dispatchEmail] = useReducer(emailReducer, {
+	// 	value: '',
+	// 	isValid: false,
+	// });
+	// const [passwordState, dispatchPassword] = useReducer(passwordReducer, {
+	// 	value: ' ',
+	// 	isValid: false,
+	// });
+
 	return (
 		<div>
 			{/* <AuthGuard></AuthGuard> */}
@@ -58,17 +114,24 @@ const RdsCompLogin = () => {
 				<div>
 					<label >Email: </label>
 					<RdsInput
+						ref={emailInputRef}
 						placeholder='Email'
 						inputType='email'
+						// onChange={undefined}
 						// onChange={EmailChangeHandler}
+						// isValid={EmailIsValid}
+						// value={emailState.value}
 					></RdsInput>
 				</div>
 				<div>
 					<label>Password: </label>
 					<RdsInput
+						ref={passwordInputRef}
 						placeholder='Password'
 						inputType='password'
+						// onChange={undefined}
 						// onChange={PassChangeHandler}
+						// value={passwordState.value}
 					></RdsInput>
 				</div>
 				{/* <div onClick={onLoginClick}> */}
@@ -76,8 +139,8 @@ const RdsCompLogin = () => {
 					label='Login'
 					colorVariant='primary'
 					block={true}
-					onClick={undefined}
-					// onClick={onClickHandler}
+					// onClick={undefined}
+					onClick={submitHandler}
 				/>
 
 				{/* <button>login</button> */}

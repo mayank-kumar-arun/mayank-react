@@ -6,6 +6,7 @@ export {default as RdsCheckboxParentChild} from './rds-checkbox-parent-child';
 export {default as RdsAvatar} from './rds-avatar';
 export {default as RdsLabel} from './rds-label';
 export {default as RdsColorPicker} from './rds-color-picker';
+export {default as RdsAddressDetail} from './rds-address-detail';
 export {default as RdsBreadcrumb} from './rds-breadcrumb';
 export {default as RdsSelectList} from './rds-select-list';
 export {default as RdsDowndrop} from './rds-dropdown';
