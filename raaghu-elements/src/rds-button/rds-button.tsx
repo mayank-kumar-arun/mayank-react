@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import "./rds-button.scss";
-import Button from "react-bootstrap/Button";
-import "bootstrap/dist/css/bootstrap.min.css";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip, { TooltipProps } from "react-bootstrap/Tooltip";
-
-import PropTypes from "prop-types";
-import classNames from "classnames";
+// import Button from "react-bootstrap/Button";
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+// import Tooltip, { TooltipProps } from "react-bootstrap/Tooltip";
+// import PropTypes from "prop-types";
+// import classNames from "classnames";
 import { Colors, Placements } from "../Types";
 
 export interface RdsButtonProps {
@@ -33,71 +32,68 @@ const RdsButton = (props: RdsButtonProps) => {
 
   const outlineColorVariant =
     `${props.outlineButton === true ? "outline-" : ""}` + props.colorVariant;
-    let size: "sm" | "lg" | undefined = undefined;
+  // let size: "sm" | "lg" | undefined = undefined;
+  let size = "";
 
-    if (props.size == "small") {
-
-      size = "sm";
-
-    } else if (props.size == "large") {
-
-      size = "lg";
-
-    }
+  if (props.size == "small") {
+    size = "btn-sm";
+  } else if (props.size == "large") {
+    size = "btn-lg";
+  }
 
   return (
     <div className={props.block ? "d-grid gap-2" : ""}>
       {!props.tooltip && (
-        <Button
-          variant={outlineColorVariant}
+        <button type="button"
+          // variant={outlineColorVariant}
           disabled={props.isDisabled}
-          size={size}
+          className={size}
           // onClick={props.onClick}
           style={{
             borderRadius:
               props.roundedButton === true && props.roundedCorner === false
                 ? "50%"
                 : props.roundedButton === false && props.roundedCorner === true
-                ? "100px"
-                : props.roundedButton === true && props.roundedCorner === true
-                ? "50%"
-                : "",
+                  ? "100px"
+                  : props.roundedButton === true && props.roundedCorner === true
+                    ? "50%"
+                    : "",
           }}
         >
           {props.icon}
           {!props.roundedButton && props.label}
-        </Button>
+        </button>
       )}
 
       {/* Tooltip */}
       {props.tooltip && (
-        <OverlayTrigger
-          placement={props.tooltipPlacement}
-          delay={{ show: 250, hide: 400 }}
-          overlay={
-            <Tooltip id="button-tooltip-2">{props.tooltipTitle}</Tooltip>
-          }
-        >
-          <Button
-            variant={outlineColorVariant}
-            disabled={props.isDisabled}
-            size={size}
-            // onClick={props.onClick}
-            style={{
-              borderRadius:
-                props.roundedButton === true && props.roundedCorner === false
-                  ? "50%"
-                  : props.roundedButton === false &&
-                    props.roundedCorner === true
+        // <OverlayTrigger
+        //   placement={props.tooltipPlacement}
+        //   delay={{ show: 250, hide: 400 }}
+        //   overlay={
+        //     <Tooltip id="button-tooltip-2">{props.tooltipTitle}</Tooltip>
+        //   }
+        // >
+        <button type="button"
+          // variant={outlineColorVariant}
+          disabled={props.isDisabled}
+          className={size}
+          // onClick={props.onClick}
+          style={{
+            borderRadius:
+              props.roundedButton === true && props.roundedCorner === false
+                ? "50%"
+                : props.roundedButton === false &&
+                  props.roundedCorner === true
                   ? "100px"
                   : props.roundedButton === true && props.roundedCorner === true
-                  ? "50%"
-                  : "",
-            }}
-          >
-            {props.label}
-          </Button>
-        </OverlayTrigger>
+                    ? "50%"
+                    : "",
+          }}
+        >
+          {props.label}
+        </button>
+        // </OverlayTrigger>
       )}
     </div>
   );
