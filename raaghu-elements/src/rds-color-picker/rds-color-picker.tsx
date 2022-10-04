@@ -1,4 +1,3 @@
-
 import React, { useState, Fragment, useEffect } from "react";
 
 export interface RdsColorPickerProps {
@@ -61,10 +60,12 @@ else {
      <div style={{marginLeft:'10px'}}>
      <input
         type="color"
+        className="form-control form-control-color"
         value={Color}
         id="color"
         disabled={props.isDisabled}
         onChange={HandlerChangecolor}
+        title="Choose your color"
 
       />
       </div>
