@@ -49,6 +49,18 @@ const RdsCompLogin = () => {
 		// 	passwordInputRef.current.focus();
 		//   }
 
+		console.log(emailInputRef)
+		console.log(passwordInputRef)
+
+		const login_details = {
+			user_email: emailInputRef,
+			user_pass: passwordInputRef
+		}
+
+		//
+		/* Validation and API processing can be done here */
+		//
+
 	}
 
 	// const EmailChangeHandler = (v: string | ((prevState: string) => string)) => {
@@ -65,34 +77,34 @@ const RdsCompLogin = () => {
 	const emailInputRef = useRef();
 	const passwordInputRef = useRef();
 
-	const emailReducer = (state: { value: string; }, action: { type: string; val: string | string[]; }) => {
-		if (action.type === 'USER_INPUT') {
-			return { value: action.val, isValid: action.val.includes('@') };
-		}
-		if (action.type === 'INPUT_BLUR') {
-			return { value: state.value, isValid: state.value.includes('@') };
-		}
-		return { value: '', isValid: false };
-	};
+	// const emailReducer = (state: { value: string; }, action: { type: string; val: string | string[]; }) => {
+	// 	if (action.type === 'USER_INPUT') {
+	// 		return { value: action.val, isValid: action.val.includes('@') };
+	// 	}
+	// 	if (action.type === 'INPUT_BLUR') {
+	// 		return { value: state.value, isValid: state.value.includes('@') };
+	// 	}
+	// 	return { value: '', isValid: false };
+	// };
 
-	const passwordReducer = (state: { value: string ; }, action: { type: string; val: string }) => {
-		if (action.type === 'USER_INPUT') {
-			return { value: action.val, isValid: action.val.trim().length > 6 };
-		}
-		if (action.type === 'INPUT_BLUR') {
-			return { value: state.value, isValid: state.value.trim().length > 6 };
-		}
-		return { value: '', isValid: false };
-	};
+	// const passwordReducer = (state: { value: string ; }, action: { type: string; val: string }) => {
+	// 	if (action.type === 'USER_INPUT') {
+	// 		return { value: action.val, isValid: action.val.trim().length > 6 };
+	// 	}
+	// 	if (action.type === 'INPUT_BLUR') {
+	// 		return { value: state.value, isValid: state.value.trim().length > 6 };
+	// 	}
+	// 	return { value: '', isValid: false };
+	// };
 
-	const [emailState, dispatchEmail] = useReducer(emailReducer, {
-		value: '',
-		isValid: false,
-	});
-	const [passwordState, dispatchPassword] = useReducer(passwordReducer, {
-		value: ' ',
-		isValid: false,
-	});
+	// const [emailState, dispatchEmail] = useReducer(emailReducer, {
+	// 	value: '',
+	// 	isValid: false,
+	// });
+	// const [passwordState, dispatchPassword] = useReducer(passwordReducer, {
+	// 	value: ' ',
+	// 	isValid: false,
+	// });
 
 	return (
 		<div>
@@ -108,7 +120,7 @@ const RdsCompLogin = () => {
 						// onChange={undefined}
 						// onChange={EmailChangeHandler}
 						// isValid={EmailIsValid}
-						value={emailState.value}
+						// value={emailState.value}
 					></RdsInput>
 				</div>
 				<div>
@@ -119,7 +131,7 @@ const RdsCompLogin = () => {
 						inputType='password'
 						// onChange={undefined}
 						// onChange={PassChangeHandler}
-						value={passwordState.value}
+						// value={passwordState.value}
 					></RdsInput>
 				</div>
 				{/* <div onClick={onLoginClick}> */}
