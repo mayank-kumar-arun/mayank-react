@@ -24,13 +24,25 @@ export default {
   // }
 } as ComponentMeta<typeof RdsCompLogin>;
 
-const Template: ComponentStory<typeof RdsCompLogin> = (args: JSX.IntrinsicAttributes) => (
-  <RdsCompLogin {...args} />
-);
 
-export const Default = Template.bind({});
-Default.args = {
-  // alertmessage:"this is close alert",
-  // dismisable:false
-};
+// const Template: Story<RdsCompLogin> = (args: RdsCompLogin) => ({
+//   props:{
+//     ...args
+//   }
+// });
+
+// export const Default = Template.bind({});
+
+// Default.args ={
+//   userNameData:[],
+//  userPasswordData: '',
+//  rememeberMe: '',
+//  TenantNameData: '',
+//  TenancyName: '',
+//  TenantName: '',
+//  UserName: 'Email/Username',
+//  Password: 'Password',
+//  userNameInputType:  'email',
+//  userPasswordInputType: ''
+// }
 
