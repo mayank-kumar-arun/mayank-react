@@ -1,1 +1,1 @@
-export {default} from "./rds-color-picker"
+export {default} from './rds-color-picker'
