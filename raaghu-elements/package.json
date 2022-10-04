@@ -30,6 +30,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
+    "@types/bootstrap": "^5.2.5",
     "@types/jest": "^29.0.3",
     "@types/react": "^18.0.20",
     "@types/styled-components": "^5.1.26",
@@ -53,8 +54,11 @@
     "webpack": "^5.74.0"
   },
   "dependencies": {
+
+    "bootstrap": "^5.2.2",
+
     "@popperjs/core": "^2.11.6",
-    "bootstrap": "^5.2.1",
+
     "postcss": "^8.4.16",
     "react-dom": "^18.2.0",
     "validator": "^13.7.0"
