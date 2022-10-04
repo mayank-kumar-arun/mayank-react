@@ -1,2 +1,36 @@
+# Compiled output
+rds-elements/
+/projects/libs/rds-elements
 dist/
+tmp/
+out-tsc/
+bazel-out/
+package-lock.json
+yarn.lock
+npm
+
+# Node
+/node_modules
 node_modules/
+npm-debug.log
+yarn-error.log
+
+# SDK output
+.vs/
+.vscode/
+.angular/
+
+# Storybook
+/storybook-static
+storybook-static/
+/documentation
+documentation/
+documentation.json
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Output file
+$null
+output*.log
