@@ -1,18 +1,18 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import RdsBadge from "./rds-badge";
+import RdsDropdown from "./rds-dropdown"
 
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Elements/Badge",
-  component: RdsBadge,
+  title: "Elements/Dropdown",
+  component: RdsDropdown,
   argTypes: {
     size: {
         options: ["small","mid","large"],
         control: { type: "select" },
       },
-      badgeType: {
+      DropdownType: {
         options: ["rectangle","circle","pill"],
         control: { type: "select" },
       },
@@ -20,36 +20,36 @@ export default {
         options: ["primary", "secondary","success","danger","warning","info","light","dark","white"],
         control: { type: "select" },
       },
-      badgeColor: {
+      colorVariant: {
         options: ["primary", "secondary","success","danger","warning","info","light","dark","white"],
         control: { type: "select" },
       },
   }
-} as ComponentMeta<typeof RdsBadge>;
+} as ComponentMeta<typeof RdsDropdown>;
 
 
-const Template: ComponentStory<typeof RdsBadge> = (args) => <RdsBadge {...args} />;
+const Template: ComponentStory<typeof RdsDropdown> = (args) => <RdsDropdown {...args} />;
 
-export const RdsBadgeAsButton = Template.bind({});
+export const RdsDropdownDefault = Template.bind({});
 
-RdsBadgeAsButton.args = {
+RdsDropdownDefault.args = {
     label:"Button",
   number: 9,
   size: "Choose option...",
   buttonColor: "primary",
-  badgeColor: "secondary",
-  badgeType:"Choose option...",
+  DropdownColor: "secondary",
+  DropdownType:"Choose option...",
 };
 
-export const RdsBadgeWithIcon = Template.bind({});
+export const RdsDropdownWithSplit = Template.bind({});
 
-onclick 
-RdsBadgeWithIcon.args = {
-  icon:"Button",
-  number: 9,
-  size: "Choose option...",
-  badgeType:"Choose option...",
-  buttonColor: "primary",
-  badgeColor: "secondary",
+
+RdsDropdownWithSplit.args = {
+//   icon:"Button",
+//   number: 9,
+//   size: "Choose option...",
+//   DropdownType:"Choose option...",
+//   buttonColor: "primary",
+//   DropdownColor: "secondary",
   
 };
