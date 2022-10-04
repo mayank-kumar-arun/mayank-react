@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 // import { FormGroup } from "react-bootstrap";
 // import Button from "react-bootstrap/Button";
 // import Form from "react-bootstrap/Form";
@@ -6,7 +6,7 @@ import React from "react";
 import './rds-input.scss';
 
 export interface RdsInputProps {
-  onChange: ChangeEventHandler<FormControlElement> | undefined;
+  // onChange: ChangeEventHandler<FormControlElement> | undefined;
   size?: "sm" | "lg" | string;
   isDisabled?: boolean;
   readonly?: boolean;
