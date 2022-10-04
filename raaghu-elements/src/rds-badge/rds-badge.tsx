@@ -1,33 +1,62 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
-import Badge from "react-bootstrap/Badge";
-import './rds-badge.scss'
-import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
+import "./rds-badge.scss";
+import  RdsBadgeWithIcon from "./rds-badge.stories"
+
 
 export interface RdsBadgeProps {
   label: string;
-  number:number;
+  number: number;
   size?: "small" | "large" | string;
-  colorVariant: string;
+  buttonColor: string;
+  badgeColor: string;
+  badgeType?: string;
+  icon: string;
+
+  
 }
 
 const RdsBadge = (props: RdsBadgeProps) => {
-    
-  let size: "sm" | "lg" | undefined = undefined;
+  let size: "btn-sm" | "btn-lg" | undefined = undefined;
   if (props.size == "small") {
-    size = "sm";
+    size = "btn-sm";
   } else if (props.size == "large") {
-    size = "lg";
+    size = "btn-lg";
   }
 
+  let shape: "rounded-pill" | "rounded-circle" | undefined = undefined;
+  if (props.badgeType == "pill") {
+    shape = "rounded-pill";
+  } else if (props.badgeType == "circle") {
+    shape = "rounded-circle";
+  }
+
+  // if () {
+    
+  // }
+
+  
+
+  // const [buttonClassForIcon, setButtonClassForIcon] = useState<string>(" ");
+
+  // const handleOnCheck = () => {
+  //  setButtonClassForIcon("position-relative");};
+  //  setButtonClassForIcon;
+ 
+  
   let space!: " ";
 
   return (
     <>
-      <Button variant="light" size={size}>
+      {/* <button type="button" className="btn btn-primary">
         {props.label} {space}
-        <Badge bg={props.colorVariant}> {props.number} </Badge>
-      </Button>
+        <Badge bg={props.buttonColor}> {props.number} </Badge>
+      </button> */}
+
+      <button type="button" className={ "btn btn-"+ `${props.buttonColor} `+ ` ${size} `}>
+        {props.label}{space} <span className={ "badge bg-"+ `${props.badgeColor} ` + ` ${shape}`}>{props.number}</span>
+      </button>
+      
     </>
   );
 };
