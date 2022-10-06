@@ -1,11 +1,8 @@
 import React, { Fragment } from "react";
-import "./rds-avatar.css";
+import "./rds-avatar.scss";
 
 import validator from 'validator';
   
-import { Colors } from "../Types";
-import { isValidMotionProp } from "framer-motion";
-
 export interface RdsAvatarProps {
   profilePic?: string;
   withProfilePic?:boolean;

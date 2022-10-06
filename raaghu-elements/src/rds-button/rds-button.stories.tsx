@@ -1,13 +1,22 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import RdsButton, { RdsButtonProps } from "./rds-button";
+import RdsButton from "./rds-button";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Button from "react-bootstrap/Button";
 import { Colors } from "../Types";
 
 export default {
   title: "Elements/Button",
   component: RdsButton,
+  decorators: [
+    (Story) => (
+      <div style={{ padding:'70px 0' ,
+      textAlign:'center'
+      }}>
+        <Story/>
+      </div>
+    ),
+  ],
+  // margin: '10em', 
   argTypes: {
     colorVariant: {
       options: [
@@ -61,7 +70,7 @@ IconWithLabel.args = {
   // roundedCorner: false,
   icon: "+",
   colorVariant: "primary",
-  label: "BUTTON",
+  label: "",
   block: false,
   size: "medium",
 };

@@ -12,7 +12,15 @@ export default {
         options: ["small","mid","large"],
         control: { type: "select" },
       },
-      colorVariant: {
+      badgeType: {
+        options: ["rectangle","circle","pill"],
+        control: { type: "select" },
+      },
+      buttonColor: {
+        options: ["primary", "secondary","success","danger","warning","info","light","dark","white"],
+        control: { type: "select" },
+      },
+      badgeColor: {
         options: ["primary", "secondary","success","danger","warning","info","light","dark","white"],
         control: { type: "select" },
       },
@@ -28,5 +36,20 @@ RdsBadgeAsButton.args = {
     label:"Button",
   number: 9,
   size: "Choose option...",
-  colorVariant: "primary"
+  buttonColor: "primary",
+  badgeColor: "secondary",
+  badgeType:"Choose option...",
+};
+
+export const RdsBadgeWithIcon = Template.bind({});
+
+onclick 
+RdsBadgeWithIcon.args = {
+  icon:"Button",
+  number: 9,
+  size: "Choose option...",
+  badgeType:"Choose option...",
+  buttonColor: "primary",
+  badgeColor: "secondary",
+  
 };

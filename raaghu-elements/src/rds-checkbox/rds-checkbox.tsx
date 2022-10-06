@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
+import './rds-checkbox.scss';
 
 export interface RdsCheckboxProps {
   label: string;
