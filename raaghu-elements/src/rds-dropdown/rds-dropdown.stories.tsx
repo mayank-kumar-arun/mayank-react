@@ -46,6 +46,23 @@ RdsDropdownDefault.args = {
     label:"Dropdown Button",
     direction:"Drop-Down",
     role:"Dropdown-Button without split",
+    listItems: [
+      {
+        value: "Export To Excel",
+        id: "1",
+        href: "",
+      },
+      {
+        value: "Import From Excel",
+        id: "2",
+        href: "",
+      },
+      {
+        value: "Click here download sample import file",
+        id: "3",
+        href: "",
+      },
+    ],
    
 };
 
@@ -58,6 +75,23 @@ RdsDropdownWithSplit.args = {
     label:"Dropdown Button",
     direction:"Drop-Down",
     role:"Dropdown-Button with split",
+    listItems: [
+      {
+        value: "Export To Excel",
+        id: "1",
+        href: "",
+      },
+      {
+        value: "Import From Excel",
+        id: "2",
+        href: "",
+      },
+      {
+        value: "Click here download sample import file",
+        id: "3",
+        href: "",
+      },
+    ],
    
 };
 
