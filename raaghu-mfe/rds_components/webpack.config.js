@@ -28,11 +28,11 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "rds_component",
+      name: "rds_components",
       filename: "remoteEntry.js",
       exposes: {
         // expose each component
-        "./Rdscomplogin": "./src/components/rds-comp-login",
+        "./Rdscomplogin": "./src/login/rds-comp-login",
       },
 
       shared: {

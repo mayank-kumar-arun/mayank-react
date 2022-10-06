@@ -1,15 +1,35 @@
-import React, { Suspense } from "react";
+import React from "react";
+
+// import ReactPlayer from "react-player";
 
 
-const LoginCompo = React.lazy(() => import("rds_component/Rdscomplogin"));
+
+import Rdscomplogin from '../../../../rds_components/src/login/rds-comp-login'
+
+
+
 
 var version = process.env.BUILD_DATE;
 
-const Login = () => (
-	<Suspense>
-		Latest Build Date:{version}
-		<LoginCompo />					
-	</Suspense>
-);
+
+
+const Login = () => {
+
+		
+
+
+    return(
+
+
+
+    <div>
+
+        Latest Build Date:{version}
+
+        <Rdscomplogin />
+
+	</div>
+	)
+}
 
 export default Login;

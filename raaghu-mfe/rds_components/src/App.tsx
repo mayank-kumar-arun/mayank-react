@@ -1,6 +1,6 @@
 
 import React from "react";
-import Rdscomplogin from "./components/rds-comp-login";
+import Rdscomplogin from "./login/rds-comp-login";
 
 const App = () => (
     <div>
