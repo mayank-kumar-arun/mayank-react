@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "bootstrap/dist/js/bootstrap.min.js";
 
 export interface RdsDropdownProps {
@@ -7,9 +7,8 @@ export interface RdsDropdownProps {
   darkDropdown: boolean;
   label: string;
   direction: string;
-//   dropdownAlignment: [];
   role: string;
-  listItems: string;
+  listItems:any [];
   splitButton: boolean;
 }
 
@@ -62,21 +61,11 @@ if (props.direction=="Drop-Up") {
             {props.role=="Dropdown-Button without split" && `${props.label}`}
         </button>
         <ul className={`dropdown-menu ${props.darkDropdown?"dropdown-menu-dark":""}`  } aria-labelledby="dropdownMenuButton1">
-          <li>
-            <a className="dropdown-item" href="#">
-              Action
+          {props.listItems.map((listItem)=><li id={listItem.id}>
+            <a className="dropdown-item" href={listItem.href}>
+              {listItem.value}
             </a>
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Another action
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Something else here
-            </a>
-          </li>
+          </li>)}
         </ul>
       </div>
     </>
