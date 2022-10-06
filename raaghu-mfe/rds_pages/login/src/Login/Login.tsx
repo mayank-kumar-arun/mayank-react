@@ -4,7 +4,7 @@ import React from "react";
 
 
 
-import Rdscomplogin from '../../../../rds_component/src/components/login/rds-comp-login'
+import Rdscomplogin from '../../../../rds_components/src/login/rds-comp-login'
 
 
 
