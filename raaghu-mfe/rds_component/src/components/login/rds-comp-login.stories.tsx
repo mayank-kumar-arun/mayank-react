@@ -5,35 +5,17 @@ import RdsCompLogin from "./rds-comp-login";
 export default {
   title: "Components/Login",
   component: RdsCompLogin,
-  //,
-  // argTypes: {
-  //   colorVariant: {
-  //     options: [
-  //       "primary",
-  //       "secondary",
-  //       "success",
-  //       "info",
-  //       "warning",
-  //       "danger",
-  //       "dark",
-  //       "light",
-  //       "review",
-  //     ],
-  //     control: { type: "select" },
-  //   },
-  // }
+
 } as ComponentMeta<typeof RdsCompLogin>;
 
 
-// const Template: Story<RdsCompLogin> = (args: RdsCompLogin) => ({
-//   props:{
-//     ...args
-//   }
-// });
+const Template: ComponentStory<typeof RdsCompLogin> = (args) => 
+  <RdsCompLogin {...args} />;
 
-// export const Default = Template.bind({});
 
-// Default.args ={
+export const Default = Template.bind({});
+
+Default.args ={
 //   userNameData:[],
 //  userPasswordData: '',
 //  rememeberMe: '',
@@ -44,5 +26,5 @@ export default {
 //  Password: 'Password',
 //  userNameInputType:  'email',
 //  userPasswordInputType: ''
-// }
+}
 
