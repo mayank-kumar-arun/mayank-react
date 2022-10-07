@@ -34,7 +34,7 @@ const RdsButtonGroup = (props: RdsButtonGroupProps) => {
           role="group"
           aria-label="Basic button toggle button group"
         >
-          {props.buttonGroupItems.map((buttonGroupItem, idx) => (
+          {props.buttonGroupItems.map((buttonGroupItem ) => (
             <>
               <input
                 type={props.role}
@@ -43,11 +43,14 @@ const RdsButtonGroup = (props: RdsButtonGroupProps) => {
                     ? "btn-check"
                     : "btn btn-primary"
                 }`}
-                name={props.role == "radio" ? "btnradio" : ""}
+                name={props.role == "radio" ? `${buttonGroupItem.name}` : ""}
                 id={buttonGroupItem.id}
                 autoComplete="off"
               ></input>
-              <label className={outlineColorVariant} htmlFor={buttonGroupItem.id}>
+              <label
+                className={outlineColorVariant}
+                htmlFor={buttonGroupItem.id}
+              >
                 {buttonGroupItem.label}
               </label>
             </>
@@ -63,15 +66,11 @@ const RdsButtonGroup = (props: RdsButtonGroupProps) => {
           role="group"
           aria-label="Basic example"
         >
-          <button type="button" className={outlineColorVariant}>
-            Left
-          </button>
-          <button type="button" className={outlineColorVariant}>
-            Middle
-          </button>
-          <button type="button" className={outlineColorVariant}>
-            Right
-          </button>
+          {props.buttonGroupItems.map((buttonGroupItem, idx) => (
+            <button type="button" className={outlineColorVariant}>
+              {buttonGroupItem.label}
+            </button>
+          ))}
         </div>
       )}
     </>

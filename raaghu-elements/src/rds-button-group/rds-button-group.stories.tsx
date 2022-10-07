@@ -61,3 +61,82 @@ CheckboxButtonGroup.args = {
 
   ]
 }
+
+export const Default = Template.bind({});
+Default.args = {
+  vertical: false,
+  size: "medium",
+  colorVariant:"primary",
+  role:"button",
+  buttonGroupItems: [
+    {
+      label: "Left",
+      id: "",
+      name: "",
+    },
+    {
+      label: "Middle",
+      id: "",
+      name: "",
+    },
+    {
+      label: "Right",
+      id: "",
+      name: "",
+    }
+
+  ]
+}
+
+export const RadioButtonGroup = Template.bind({});
+RadioButtonGroup.args = {
+  vertical: false,
+  size: "medium",
+  colorVariant:"primary",
+  outlineButton:true,
+  role:"radio",
+  buttonGroupItems: [
+    {
+      label: "radio1",
+      id: "radio1",
+      name: "btnradio",
+    },
+    {
+      label: "radio2",
+      id: "radio2",
+      name: "btnradio",
+    },
+    {
+      label: "radio3",
+      id: "radio3",
+      name: "btnradio",
+    }
+
+  ]
+}
+
+export const Vertical = Template.bind({});
+Vertical.args = {
+  vertical: true,
+  size: "medium",
+  colorVariant:"primary",
+  role:"button",
+  buttonGroupItems: [
+    {
+      label: "Left",
+      id: "",
+      name: "",
+    },
+    {
+      label: "Middle",
+      id: "",
+      name: "",
+    },
+    {
+      label: "Right",
+      id: "",
+      name: "",
+    }
+
+  ]
+}
