@@ -54,11 +54,8 @@
     "webpack": "^5.74.0"
   },
   "dependencies": {
-
-    "bootstrap": "^5.2.2",
-
     "@popperjs/core": "^2.11.6",
-
+    "bootstrap": "^5.2.2",
     "postcss": "^8.4.16",
     "react-dom": "^18.2.0",
     "validator": "^13.7.0"
