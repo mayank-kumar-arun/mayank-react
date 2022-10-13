@@ -19,7 +19,8 @@ export interface RdsInputProps {
   titleType?: string;
   tooltipPlacement?: string;
   tooltipTitle?: string;
-  form?: string
+  changeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  name: string;
 }
 
 const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown> | undefined) => {
@@ -47,12 +48,14 @@ const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown>
 
   return (
     <div>
-        {props.titleType === "top" && <label>{props.title}</label>}
-        <input
-          form={props.form}
-          ref={InputRef}
-          // size={size}
-          // onChange={props.onChange}
+      <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
+      <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" onChange={props.changeHandler} name={props.name}></input>
+
+      {/* <FormGroup>
+        {props.titleType === "top" && <Form.Label>{props.title}</Form.Label>}
+        <Form.Control
+          size={size}
+          onChange={props.onChange}
           disabled={props.isDisabled}
           value={props.value}
           readOnly={props.readonly}
