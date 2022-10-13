@@ -24,6 +24,7 @@ export interface RdsButtonProps {
   tooltip?: boolean;
   tooltipPlacement?: Placements;
   tooltipTitle: string;
+  type: "button"|"submit" 
 }
 
 
@@ -41,10 +42,12 @@ const RdsButton = (props: RdsButtonProps) => {
     props.size == "small" ? "btn-sm" : props.size == "large" ? "btn-lg" : "";
 
   return (
+
+     
     <div className={props.block ? "d-grid gap-2" : ""}> 
     {props.tooltip && <Tooltip text={props.tooltipTitle} place={props.tooltipPlacement}>
     <button
-        type="button"
+        type={props.type}
         className={`btn ${outlineColorVariant} ${size}`}
         disabled={props.isDisabled}
         // data-bs-toggle={props.tooltip == true?"tooltip":""}
@@ -56,7 +59,7 @@ const RdsButton = (props: RdsButtonProps) => {
       </button>
     </Tooltip>}
     {!props.tooltip && <button
-        type="button"
+        type={props.type}
         className={`btn ${outlineColorVariant} ${size}`}
         disabled={props.isDisabled}
         // data-bs-toggle={props.tooltip == true?"tooltip":""}
@@ -67,6 +70,7 @@ const RdsButton = (props: RdsButtonProps) => {
         {props.label}
       </button>}
       
+
     </div>
   );
 };

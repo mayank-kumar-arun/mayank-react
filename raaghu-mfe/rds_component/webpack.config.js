@@ -20,6 +20,15 @@ module.exports = {
   module: {
     rules: [
       {
+
+        test: /\.(scss|css)$/,
+
+        use: [ 'style-loader' , 'css-loader' , 'sass-loader' ],
+
+        exclude: '/node_modules/',
+
+    },
+      {
         test: /\.(js|jsx|tsx|ts)$/,
         loader: "ts-loader",
         exclude: /node_modules/,
@@ -32,7 +41,7 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         // expose each component
-        "./Rdscomplogin": "./src/components/rds-comp-login",
+        "./Rdscomplogin": "./src/login/rds-comp-login",
       },
 
       shared: {

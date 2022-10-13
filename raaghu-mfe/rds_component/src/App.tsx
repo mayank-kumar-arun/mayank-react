@@ -1,14 +1,22 @@
 
 import React from "react";
-import Rdscomplogin from "./components/rds-comp-login";
+import Rdscomplogin from "./login/rds-comp-login";
 
-const App = () => (
+const App = () => {
+
+    const loginHandler =(email:string,password:string)=>{
+        console.log(email);
+        console.log(password);
+    }
+    return (
+
     <div>
-        <Rdscomplogin></Rdscomplogin>
+        <Rdscomplogin onLogin = {loginHandler}></Rdscomplogin>
 
     </div>
+    )
 		
 
-);
+    };
 
 export default App;
