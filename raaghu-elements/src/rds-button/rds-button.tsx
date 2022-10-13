@@ -50,9 +50,6 @@ const RdsButton = (props: RdsButtonProps) => {
         type={props.type}
         className={`btn ${outlineColorVariant} ${size}`}
         disabled={props.isDisabled}
-        // data-bs-toggle={props.tooltip == true?"tooltip":""}
-        // data-bs-placement={props.tooltipPlacement}
-        // title={props.tooltipTitle}
       >
         {props.icon}
         {props.label}
@@ -62,9 +59,6 @@ const RdsButton = (props: RdsButtonProps) => {
         type={props.type}
         className={`btn ${outlineColorVariant} ${size}`}
         disabled={props.isDisabled}
-        // data-bs-toggle={props.tooltip == true?"tooltip":""}
-        // data-bs-placement={props.tooltipPlacement}
-        // title={props.tooltipTitle}
       >
         {props.icon}
         {props.label}

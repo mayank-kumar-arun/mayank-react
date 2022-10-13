@@ -1,11 +1,10 @@
 
-import React,{useState} from "react";
-
+import React, { ChangeEventHandler, useRef, useState, useImperativeHandle } from "react";
 
 // import { FormGroup } from "react-bootstrap";
 // import Button from "react-bootstrap/Button";
 // import Form from "react-bootstrap/Form";
-// import InputGroup from "react-bootstrap/InputGroup";
+// import InputGroup from "react-bootstrap/InputGroup"; changes
 import './rds-input.scss';
 
 export interface RdsInputProps {
@@ -24,7 +23,7 @@ export interface RdsInputProps {
   name: string;
 }
 
-const RdsInput = (props: RdsInputProps) => {
+const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown> | undefined) => {
   let size: "sm" | "lg" | undefined = undefined;
 
   if (props.size == "small") {
@@ -34,6 +33,18 @@ const RdsInput = (props: RdsInputProps) => {
   }
 
   const [tempEmail, setTempEmail] = useState('')
+
+  const InputRef = useRef<HTMLInputElement>(null);
+
+  // const activate = () => {
+  //   InputRef.current.focus();
+  // }
+
+  useImperativeHandle(ref , () => {
+    return { 
+      InputRef: InputRef
+    };
+  } );
 
   return (
     <div>
@@ -50,16 +61,18 @@ const RdsInput = (props: RdsInputProps) => {
           readOnly={props.readonly}
           type={props.inputType}
           placeholder={props.placeholder}
-          data-bs-toggle="tooltip" 
-          data-bs-placement={props.tooltipPlacement} 
+          data-bs-toggle="tooltip"
+          data-bs-placement={props.tooltipPlacement}
           title={props.tooltipTitle}
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
         />
-        {props.titleType === "bottom" && <Form.Label>{props.title}</Form.Label>}
-      </FormGroup> */}
-    </div >
+        {props.titleType === "bottom" && <label>{props.title}</label>}
+      {/* </FormGroup>  */}
+    </ div>
+
+     
   );
-};
+});
 
 export default RdsInput;

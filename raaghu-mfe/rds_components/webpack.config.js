@@ -37,7 +37,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "rds_component",
+      name: "rds_components",
       filename: "remoteEntry.js",
       exposes: {
         // expose each component

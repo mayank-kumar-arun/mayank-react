@@ -72,7 +72,7 @@ module.exports = (env, argv) => {
         "./Login": "./src/Login/Login",
       },
         remotes: {
-          rds_component: isProduction ? process.env.PROD_APP1 : process.env.DEV_APP1,
+          rds_components: isProduction ? process.env.PROD_APP1 : process.env.DEV_APP1,
           
         },
         shared: {
