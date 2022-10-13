@@ -11,9 +11,9 @@ export interface RdsAlertProps {
 }
 
 const RdsAlert = (props: RdsAlertProps) => {
-  //const label1 = `${(props.withlabel === false)? "" : props.label}`;
+  
   const alertColor = "alert alert-" + (props.colorVariant || 'primary');
-  //const fontSize = {"font-size:" + props.Size }
+  
   return (
     <Fragment>
       <div className={alertColor} role="alert">
