@@ -10,3 +10,5 @@ export {default as RdsAddressDetail} from './rds-address-detail';
 export {default as RdsBreadcrumb} from './rds-breadcrumb';
 export {default as RdsSelectList} from './rds-select-list';
 export {default as RdsDowndrop} from './rds-dropdown';
+export {default as RdsDatePicker} from './rds-datepicker';
+export {default as RdsCounter} from './rds-counter'
