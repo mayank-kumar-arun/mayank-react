@@ -10,3 +10,6 @@ export {default as RdsAddressDetail} from './rds-address-detail';
 export {default as RdsBreadcrumb} from './rds-breadcrumb';
 export {default as RdsSelectList} from './rds-select-list';
 export {default as RdsDowndrop} from './rds-dropdown';
+export {default as RdsCard} from './rds-card';
+export {default as RdsRange} from './rds-range';
+export {default as RdsDoubleRange} from './rds-double-range';
