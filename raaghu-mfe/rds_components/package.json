@@ -15,5 +15,6 @@
   "license": "ISC",
   "devDependencies": {
     "@types/react-dom": "^18.0.6"
+    
   }
 }

@@ -11,4 +11,7 @@ export {default as RdsBreadcrumb} from './rds-breadcrumb';
 export {default as RdsSelectList} from './rds-select-list';
 export {default as RdsDowndrop} from './rds-dropdown';
 export {default as RdsDatePicker} from './rds-datepicker';
-export {default as RdsCounter} from './rds-counter'
+export {default as RdsCounter} from './rds-counter';
+export {default as RdsCard} from './rds-card';
+export {default as RdsRange} from './rds-range';
+export {default as RdsDoubleRange} from './rds-double-range';

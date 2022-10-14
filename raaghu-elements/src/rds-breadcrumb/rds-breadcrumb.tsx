@@ -50,9 +50,6 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
           ))}
         </ol>
       </nav>}
-      
-       
-      
     </Fragment>
   );
 };

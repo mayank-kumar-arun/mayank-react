@@ -1,73 +1,88 @@
-import React from 'react';
+import React, { useState } from 'react'
 
-import RdsInput from '../../../../raaghu-elements/src/rds-input'
-import RdsButton from '../../../../raaghu-elements/src/rds-button'
+// import RdsInput from '../../../../../raaghu-elements/src/components/rds-input'
+// import RdsButton from '../../../../../raaghu-elements/src/components/rds-button'
+import RdsInput from '../../../../raaghu-elements/src/rds-input';
+import RdsButton from '../../../../raaghu-elements/src/rds-button';
+import "./rds-comp-login.scss";
+export interface RdsCompLoginProps {
+    onLogin:(email:string, password:string)=>void
+  };
 
-import "./rds-comp-login.scss"; 
 
+const RdsCompLogin = (props:RdsCompLoginProps) => {
 
-
-interface RdsCompLoginProps {
-        email?: string,
-        password?: string
+	type Values = {
+        email : string,
+        password : string,
     }
+    const [values,setValues] = useState<Values>({
+        email : "",
+        password : "",
+    });
 
-
-const RdsCompLogin = (props: RdsCompLoginProps) => {    
-
-    const loginFormId = "loginForm";
-
-    function loginFormSubmitHandler(event: any){
-
+	const handleChange = (event : React.ChangeEvent<HTMLInputElement>) => {
+        setValues({...values,[event.target.name] : event.target.value});
+    }
+    const handleSubmit = (event : React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        console.log(event);
-        console.log(event.target[0].value);
-        
-        const mailValue = event.target[0].value;
-        console.log('Email -- ' + mailValue);
-
-        const passValue = event.target[1].value;
-        console.log('Password -- ' + passValue);
+        console.log(values);
+        props.onLogin(values.email,values.password);
     }
 
+	
+	return (
+		<div>
+			
+			<h3 className='heading'>Login</h3>
+			<form>
+				<div>
+					
+					<label >Email: </label>
+					<RdsInput
+						
+						placeholder='Email'
+						inputType='email'
+						changeHandler={handleChange}
+						name = {"email"}
+						// onChange={undefined}
+						// onChange={EmailChangeHandler}
+						// isValid={EmailIsValid}
+						// value={emailState.value}
+					></RdsInput>
+				</div>
+				<div>
+					<label>Password: </label>
+					<RdsInput
+						
+						placeholder='Password'
+						inputType='password'
+						changeHandler={handleChange}
+						name = {"password"}
+						
+						// onChange={undefined}
+						// onChange={PassChangeHandler}
+						// value={passwordState.value}
+					></RdsInput>
+				</div>
+				{/* <div onClick={onLoginClick}> */}
+				<RdsButton
+					label='Login'
+					colorVariant='primary'
+					block={true} tooltipTitle={''} // onClick={undefined}
+					type="submit"					
+				/>
 
-    return (
-        <div>
-            {/* <AuthGuard></AuthGuard> */}
-            <h3 className='heading'>Login</h3>
-            <form id={loginFormId} onSubmit={loginFormSubmitHandler}>
-                <div>
-                    <label >Email: </label>
-                    <RdsInput
-                        form={loginFormId}
-                        placeholder='Email'
-                        inputType='email'
-                    ></RdsInput>
-                </div>
-                <div>
-                    <label>Password: </label>
-                    <RdsInput
-                        form={loginFormId}
-                        placeholder='Password'
-                        inputType='password'
-                    ></RdsInput>
-                </div>
-                <RdsButton
-                    type='submit'
-                    form={loginFormId}
-                    label='Login'
-                    colorVariant='primary'
-                    block={true}
-                />
+				{/* <button>login</button> */}
+				{/* </div> */}
+				{/* <span> surprise </span> */}
+				{/* {lol && <span> surprise </span>} */}
 
-            </form>
+			</form>
 
-        </div>
-    );
-
-}
+			{/* <p>Login component one</p> */}
+		</div>
+	);
+};
 
 export default RdsCompLogin;
-
-
-
