@@ -1,6 +1,6 @@
 ///<reference types="react" />
 
-declare module "rds_component/RdsComplogin" {
+declare module "rds_components/RdscompLogin" {
 	const LoginComponent: React.ComponentType;
 
 	export default LoginComponent;

@@ -3,19 +3,19 @@ import React, { Suspense } from "react";
 import Main from "./Main";
 
 
-
+import Login from '../../login/src/Login/Login'
 
 const App = () => {
 	return (
 		
 
       <div>
-        <ul>
+        {/* <ul>
         
           <li><Link to='/Dashboard'>Dashboard</Link></li>
-          <li><Link to='/Login'>Login</Link></li>
+          <li><Link to='/'>Login</Link></li>
         </ul>
-        <hr />
+        <hr /> */}
 
 
         <Main />     

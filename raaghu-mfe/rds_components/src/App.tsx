@@ -1,6 +1,6 @@
 
 import React from "react";
-import Rdscomplogin from "./login/rds-comp-login";
+import RdsCompLogin from "./login/rds-comp-login";
 
 const App = () => {
 
@@ -11,7 +11,7 @@ const App = () => {
     return (
 
     <div>
-        <Rdscomplogin onLogin = {loginHandler}></Rdscomplogin>
+        <RdsCompLogin ></RdsCompLogin>
 
     </div>
     )

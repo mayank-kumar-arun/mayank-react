@@ -10,7 +10,7 @@ const Main = () =>{
         <Suspense>
     <Routes>	
     <Route path='/Dashboard' element={<DashboardCompo/>}/>
-    <Route path='/Login' element={<LoginCompo/>}></Route>
+    <Route path='/' element={<LoginCompo/>}></Route>
      </Routes>
 
         </Suspense>
