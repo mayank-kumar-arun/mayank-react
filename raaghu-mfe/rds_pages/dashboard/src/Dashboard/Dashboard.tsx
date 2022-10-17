@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 
 
-const LoginCompo = React.lazy(() => import("rds_components/Rdscomplogin"));
+const LoginCompo = React.lazy(() => import("rds_components/RdscompLogin"));
 
 var version = process.env.BUILD_DATE;
 
