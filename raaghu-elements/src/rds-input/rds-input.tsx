@@ -1,5 +1,5 @@
 
-import React, { ChangeEventHandler, useRef, useState, useImperativeHandle } from "react";
+import React from "react";
 
 // import { FormGroup } from "react-bootstrap";
 // import Button from "react-bootstrap/Button";
@@ -19,8 +19,11 @@ export interface RdsInputProps {
   titleType?: string;
   tooltipPlacement?: string;
   tooltipTitle?: string;
-  changeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   name: string;
+  label?: string;
+  id?:string
+  
 }
 
 const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown> | undefined) => {
@@ -32,24 +35,11 @@ const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown>
     size = "lg";
   }
 
-  const [tempEmail, setTempEmail] = useState('')
-
-  const InputRef = useRef<HTMLInputElement>(null);
-
-  // const activate = () => {
-  //   InputRef.current.focus();
-  // }
-
-  useImperativeHandle(ref , () => {
-    return { 
-      InputRef: InputRef
-    };
-  } );
 
   return (
     <div>
-      <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
-      <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" onChange={props.changeHandler} name={props.name}></input>
+      <label htmlFor={props.id} className="form-label">{props.label}</label>
+      <input type={props.inputType} className="form-control" id={props.id} placeholder={props.placeholder} onChange={props.onChange} name={props.name}></input>
 
       {/* <FormGroup>
         {props.titleType === "top" && <Form.Label>{props.title}</Form.Label>}

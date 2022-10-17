@@ -1,86 +1,118 @@
-import React, { useState } from 'react'
 
+import React, { useState } from 'react'
 // import RdsInput from '../../../../../raaghu-elements/src/components/rds-input'
 // import RdsButton from '../../../../../raaghu-elements/src/components/rds-button'
-import RdsInput from '../../../../raaghu-elements/src/rds-input';
-import RdsButton from '../../../../raaghu-elements/src/rds-button';
+import {RdsInput} from '../rds-elements';
+import {RdsButton} from '../rds-elements';
+import {RdsCheckbox} from '../rds-elements';
 import "./rds-comp-login.scss";
+import { useReducer, useRef , } from 'react';
 export interface RdsCompLoginProps {
-    onLogin:(email:string, password:string)=>void
+    email?:string,
+    password?:string
   };
 
 
-const RdsCompLogin = (props:RdsCompLoginProps) => {
+const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => {
 
-	type Values = {
-        email : string,
-        password : string,
+	const [email,setEmail] = useState('');
+	const [password , setPassword] = useState('');
+	const [error1, setError1] = useState('');
+    const [error2, setError2] = useState('');
+	
+	const isEmailValid = (email: any) => {
+		if (!email || email.length === 0) {
+			return false;	  
+		}
+		return true;
+	}
+	const isPasswordValid = (password : any) =>{
+		if (!password || password.length === 0) {
+			return false;
+		  }
+		  return true;
+	}
+	const emailhandleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+		if (!isEmailValid(event.target.value)) {
+			setError1('Email is invalid');
+		  } else {
+			setError1('');
+		  }
+        setEmail(event.target.value);
     }
-    const [values,setValues] = useState<Values>({
-        email : "",
-        password : "",
-    });
+	const passwordhandleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+		if (!isPasswordValid(event.target.value)) {
+			setError2('Password is invalid');
+		} else {
+			setError2('');
+		}
+		setPassword(event.target.value);
+    }
+ 
+	const isFormValid = isPasswordValid(password) && isEmailValid(email)
 
-	const handleChange = (event : React.ChangeEvent<HTMLInputElement>) => {
-        setValues({...values,[event.target.name] : event.target.value});
-    }
     const handleSubmit = (event : React.FormEvent<HTMLFormElement>) => {
+        console.log(email);
+        console.log(password);
         event.preventDefault();
-        console.log(values);
-        props.onLogin(values.email,values.password);
+		props.email;
+		props.password;
+		setEmail('');
+		setPassword('');
     }
 
 	
 	return (
-		<div>
-			
-			<h3 className='heading'>Login</h3>
-			<form>
-				<div>
-					
-					<label >Email: </label>
+		
+		<div >
+			<div style={{textAlign : 'center' , paddingBottom : 48}}>
+			<h3 className='heading ' style={{fontWeight: 'bolder'}}>Log in</h3>
+			<p style={{fontSize : 13 ,fontWeight: 550 , marginBottom : 5}} >Please Login for an account</p>
+			<span style={{fontSize : 13}}>Current Tenant : Not Selected (<a href='#'>Change</a>)</span></div>
+			<form onSubmit={handleSubmit}>
+				<div>				
 					<RdsInput
-						
-						placeholder='Email'
+						label='Email/Username'
+						placeholder='Email/Username'
 						inputType='email'
-						changeHandler={handleChange}
-						name = {"email"}
-						// onChange={undefined}
-						// onChange={EmailChangeHandler}
-						// isValid={EmailIsValid}
-						// value={emailState.value}
+						onChange={emailhandleChange}
+						value = {email}
+						name = {'email'}
 					></RdsInput>
+				    {error1 && <span style={{color: 'red'}}>{error1}</span>}
 				</div>
+				
+					
+
+				
 				<div>
-					<label>Password: </label>
 					<RdsInput
-						
+						label='Password'
 						placeholder='Password'
 						inputType='password'
-						changeHandler={handleChange}
-						name = {"password"}
-						
-						// onChange={undefined}
-						// onChange={PassChangeHandler}
-						// value={passwordState.value}
+						onChange={passwordhandleChange}
+						name ={'password'}
+						value={password}
 					></RdsInput>
+					{error2 && <span style={{color: 'red'}}>{error2}</span>}
 				</div>
-				{/* <div onClick={onLoginClick}> */}
-				<RdsButton
+                <div style={{display : 'flex' , justifyContent:'space-between', marginBottom : 30}}>
+				<RdsCheckbox label={'Remember me'} checked></RdsCheckbox>
+				<a  href='#' style={{textDecoration : 'none'}}>Forgot password ?</a>
+
+				</div>
+				
+			  <RdsButton
 					label='Login'
 					colorVariant='primary'
-					block={true} tooltipTitle={''} // onClick={undefined}
+					isDisabled ={!isFormValid}
+					block={true} tooltipTitle={''}
 					type="submit"					
 				/>
 
-				{/* <button>login</button> */}
-				{/* </div> */}
-				{/* <span> surprise </span> */}
-				{/* {lol && <span> surprise </span>} */}
-
+              
 			</form>
 
-			{/* <p>Login component one</p> */}
 		</div>
 	);
 };
