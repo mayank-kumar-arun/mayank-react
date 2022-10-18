@@ -2,6 +2,8 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import React, { useState } from "react";
 import "./rds-datepicker.scss";
 
+// import * as LibDatePicker from "./lib"
+
 export interface RdsDatepickerProps {
 
 }
@@ -28,18 +30,21 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
     // const monthArray = [[],[]]
 
 
-    const[starting, setStarting] =useState (date.day);
-    setStarting(date.day-date.weekday);
-    while(starting>1){
-        setStarting(prev => prev-7)
-    }
-    const firstDayOfMonth = 7-starting    //weekday of first day of the month, sunday-->0
+    // const[starting, setStarting] =useState (date.day);
+    // setStarting(date.day-date.weekday);
+    // while(starting>1){
+    //     setStarting(prev => prev-7)
+    // }
+    // const firstDayOfMonth = 7-starting    //weekday of first day of the month, sunday-->0
 
-    const weeks= [0,1,2,3,4,5 ]
+    // const weeks= [0,1,2,3,4,5 ]
+
+    // let dayOne = 7-((date.day-date.weekday-1)%7) //weekday (0-starting) of first day of the month
+
+    const dayOneWeekday = (new Date(date.year,date.month,1)).getDay();
+    const noOfDaysInPreviousMonth = (new Date(date.year,date.month-1,0)).getDate();
 
     
-
-
 
     
 
