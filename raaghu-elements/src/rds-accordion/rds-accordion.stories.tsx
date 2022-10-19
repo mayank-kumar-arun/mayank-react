@@ -37,5 +37,24 @@ const Template: ComponentStory<typeof RdsAccordion> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  
+  buttonGroupItems:[
+    {
+      id:"accordionOne",
+      bId:"collapseOne",
+      hId:"headingOne",
+      title: "Section 1 title",
+    },
+    {
+      id:"accordiontwo",
+      bId:"collapseTwo",
+      hId:"headingTwo",
+      title: "Section 2 title",
+    },
+    {
+      id:"accordionThree",
+      bId:"collapseThree",
+      hId:"headingThree",
+      title: "Section 3 title",
+    }
+  ]
 }
