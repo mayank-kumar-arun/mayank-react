@@ -15,3 +15,5 @@ export {default as RdsCounter} from './rds-counter';
 export {default as RdsCard} from './rds-card';
 export {default as RdsRange} from './rds-range';
 export {default as RdsDoubleRange} from './rds-double-range';
+
+import "../node_modules/bootstrap/dist/js/bootstrap.min.js"

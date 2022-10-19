@@ -24,7 +24,8 @@ export interface RdsButtonProps {
   tooltip?: boolean;
   tooltipPlacement?: Placements;
   tooltipTitle: string;
-  type: "button"|"submit" 
+  type: "button"|"submit" ;
+  onClick?: () => void;
 }
 
 
@@ -50,6 +51,7 @@ const RdsButton = (props: RdsButtonProps) => {
         type={props.type}
         className={`btn ${outlineColorVariant} ${size}`}
         disabled={props.isDisabled}
+        onClick={props.onClick}
       >
         {props.icon}
         {props.label}
@@ -59,12 +61,11 @@ const RdsButton = (props: RdsButtonProps) => {
         type={props.type}
         className={`btn ${outlineColorVariant} ${size}`}
         disabled={props.isDisabled}
+        onClick={props.onClick}
       >
         {props.icon}
         {props.label}
       </button>}
-      
-
     </div>
   );
 };
