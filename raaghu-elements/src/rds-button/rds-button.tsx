@@ -24,7 +24,8 @@ export interface RdsButtonProps {
   tooltip?: boolean;
   tooltipPlacement?: Placements;
   tooltipTitle: string;
-  type: "button"|"submit" 
+  type: "button"|"submit" ;
+  onClick?: ( React.MouseEventHandler<HTMLButtonElement>);
 }
 
 
@@ -50,15 +51,18 @@ const RdsButton = (props: RdsButtonProps) => {
         type={props.type}
         className={`btn ${outlineColorVariant} ${size}`}
         disabled={props.isDisabled}
+        onClick= {props.onClick}
       >
         {props.icon}
         {props.label}
+      
       </button>
     </Tooltip>}
     {!props.tooltip && <button
         type={props.type}
         className={`btn ${outlineColorVariant} ${size}`}
         disabled={props.isDisabled}
+        onClick= {props.onClick}
       >
         {props.icon}
         {props.label}

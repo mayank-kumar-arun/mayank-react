@@ -1,7 +1,7 @@
 ///<reference types="react" />
 
-declare module "rds_components/RdscompLogin" {
-	const LoginComponent: React.ComponentType;
+declare module "rds_components/RdsCompAdminDashboard" {
+	const DashboardComponent: React.ComponentType;
 
-	export default LoginComponent;
+	export default DashboardComponent;
 }

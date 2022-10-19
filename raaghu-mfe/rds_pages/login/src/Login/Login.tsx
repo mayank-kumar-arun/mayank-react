@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactPlayer from "react-player";
 // import RdsCompLogin from '../../../../rds_components/src/login/rds-comp-login'
 const RdsCompLogin = React.lazy (() => import("rds_components/RdscompLogin"));
@@ -25,7 +25,7 @@ const Login = (props: JSX.IntrinsicAttributes | (JSX.IntrinsicAttributes & React
 				            <div  className="text-center">
 					         <img src="Raaghu-logo-mfe-black.png"></img>
 					        </div>
-				         </div>
+				         </div>					 
 		                 <RdsCompLogin  onLogin = {loginHandler}/>
 	                 </div>
 			 </div>
