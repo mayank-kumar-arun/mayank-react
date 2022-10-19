@@ -9,7 +9,7 @@ import './rds-input.scss';
 
 export interface RdsInputProps {
   // onChange: ChangeEventHandler<FormControlElement> | undefined;
-  size?: "sm" | "lg" | string;
+  size?: "small" | "large" | "medium" | string;
   isDisabled?: boolean;
   readonly?: boolean;
   value?: string;
@@ -20,10 +20,13 @@ export interface RdsInputProps {
   tooltipPlacement?: string;
   tooltipTitle?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  name: string;
+  name?: string;
   label?: string;
-  id?:string
-  
+  id?: string
+
+  customClasses?: string;
+  formName?: string;
+
 }
 
 const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown> | undefined) => {
@@ -35,11 +38,21 @@ const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown>
     size = "lg";
   }
 
+  const inputClasses = "form-control form-control-" + size + " flex-grow-1 " + props.customClasses;
+
 
   return (
     <div>
-      <label htmlFor={props.id} className="form-label">{props.label}</label>
-      <input type={props.inputType} className="form-control" id={props.id} placeholder={props.placeholder} onChange={props.onChange} name={props.name}></input>
+      {props.label && <label htmlFor={props.id} className="form-label">{props.label}</label>}
+      <input
+        type={props.inputType}
+        className={inputClasses}
+        id={props.id}
+        placeholder={props.placeholder}
+        onChange={props.onChange}
+        name={props.name}
+        form={props.formName}
+      ></input>
 
       {/* <FormGroup>
         {props.titleType === "top" && <Form.Label>{props.title}</Form.Label>}
@@ -61,7 +74,7 @@ const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown>
       {/* </FormGroup>  */}
     </ div>
 
-     
+
   );
 });
 
