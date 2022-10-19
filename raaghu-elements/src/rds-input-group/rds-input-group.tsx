@@ -16,16 +16,18 @@ export interface RdsInputGroupProps {
     buttonLabel: string,
     buttonColorVariant: Colors
     placeholder?: string
-    size?: "sm" | "md" | "lg"
+    size?: "small" | "medium" | "large"
+    inputGroupLabel?: string
     outline?: boolean
-    inputValue(arg: string):any
+    inputValue(arg: string): any;
 }
 
 const RdsInputGroup = (props: RdsInputGroupProps) => {
 
-    const inputClasses = "form-control";
-    const buttonClasses = "btn " + (props.outline? "btn-outline-" : "btn-") + props.buttonColorVariant;
-    const inputGroupDivClasses = "input-group input-group-" + props.size
+    // const inputClasses = "form-control";
+    // const buttonClasses = "btn " + (props.outline ? "btn-outline-" : "btn-") + props.buttonColorVariant;
+    const inputGroupDivClasses = "d-flex input-group input-group-" + ( props.size==="small" ? "sm" : ( props.size==="large" ? "lg" : "md" ))
+    const inputGroupLabelClasses = ( props.size==="small" ? "fs-6" : ( props.size==="large" ? "fs-5" : "" ))
 
     const buttonClickHandler = (e: any) => {
         e.preventDefault();
@@ -36,13 +38,43 @@ const RdsInputGroup = (props: RdsInputGroupProps) => {
 
     return (
         <Fragment>
+            {/* <form id={formName} onSubmit={buttonClickHandler}>
+
+                <label>Field Label</label>
+                <div className={inputGroupDivClasses} >
+
+                    <input type="text" form={formName} className={inputClasses} placeholder={props.placeholder} />
+                    <button type="submit" form={formName} className={buttonClasses}> {props.buttonLabel} </button>
+                </div>
+            </form>
+
+            <hr></hr> */}
+
             <form id={formName} onSubmit={buttonClickHandler}>
 
-            <label>Field Label</label>
-            <div className={inputGroupDivClasses} >
-                <input type="text" form={formName} className={inputClasses} placeholder={props.placeholder} />
-                <button type="submit" form={formName}  className={buttonClasses}> {props.buttonLabel} </button>
-            </div>
+                {props.inputGroupLabel && <label className={inputGroupLabelClasses} > {props.inputGroupLabel} </label>}
+                <div className={inputGroupDivClasses} >
+                    <div className="flex-grow-1">
+                    <RdsInput
+                        name={""}
+                        placeholder={props.placeholder}
+                        customClasses=" input-for-rds-input-group"   //its css defined in RdsInput.css
+                        formName={formName}
+                        size={props.size}
+                    ></RdsInput>
+                    </div>
+                    <RdsButton
+                        label={props.buttonLabel}
+                        tooltipTitle={""}
+                        type={"submit"}
+                        colorVariant={props.buttonColorVariant}
+                        outlineButton={props.outline}
+                        customClasses="button-for-rds-input-group"   //its css defined n RdsButton
+                        formName={formName}
+                        size={props.size}
+                    ></RdsButton>
+
+                </div>
             </form>
         </Fragment>
     )

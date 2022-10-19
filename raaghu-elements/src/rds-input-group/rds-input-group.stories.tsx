@@ -22,9 +22,9 @@ export default {
     },
     size: {
         options: [ 
-            "sm",
-            "md",
-            "lg"
+            "small",
+            "medium",
+            "large"
         ],
         control: { type: "select" },
       },
@@ -42,7 +42,8 @@ Default.args = {
     buttonLabel: "BUTTON",
     buttonColorVariant: "primary",
     placeholder: "Placeholder text",
-    size: "md",
-    outline: true
+    size: "medium",
+    outline: true,
+    inputGroupLabel: "Field Label yoyo"
 };
 
