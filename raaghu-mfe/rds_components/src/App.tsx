@@ -1,5 +1,6 @@
 
 import React from "react";
+import RdsCompAdminDashboard from "./admin-dashboard/rds-comp-admin-dashboard";
 import RdsCompLogin from "./login/rds-comp-login";
 
 const App = () => {
@@ -12,7 +13,7 @@ const App = () => {
 
     <div>
         <RdsCompLogin  onLogin={loginHandler}></RdsCompLogin>
-
+        <RdsCompAdminDashboard></RdsCompAdminDashboard>
     </div>
     )
 		

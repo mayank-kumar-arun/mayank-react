@@ -3,6 +3,7 @@ import {RdsInput} from '../rds-elements';
 import {RdsButton} from '../rds-elements';
 import {RdsCheckbox} from '../rds-elements';
 import "./rds-comp-login.scss";
+import AuthGuard from '../../../libs/shared/AuthGuard'
 export interface RdsCompLoginProps {
    onLogin:(email?:string,password?:string) => any
   };
@@ -53,6 +54,7 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
 		props.onLogin(email,password)
 		setEmail('');
 		setPassword('');
+		
     }
 
 	
@@ -98,7 +100,7 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
 					colorVariant='primary'
 					isDisabled ={!isFormValid}
 					block={true} tooltipTitle={''}
-					type="submit"					
+					type="submit"				
 				/>           
 			</form>
 
