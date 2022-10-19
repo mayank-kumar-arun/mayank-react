@@ -1,19 +1,19 @@
 import React from "react";
 import ReactPlayer from "react-player";
 // import RdsCompLogin from '../../../../rds_components/src/login/rds-comp-login'
-const RdsCompLogin = React.lazy(() => import("rds_components/RdscompLogin"));
+const RdsCompLogin = React.lazy (() => import("rds_components/RdscompLogin"));
 
+// export interface Loginprops  {
+//   onLogin : {email : string  , password : string}
+// }
 const Login = (props: JSX.IntrinsicAttributes | (JSX.IntrinsicAttributes & React.RefAttributes<React.Component<{}, any, any>>)) => {
 
-	const emailloginHandler =(email:string)=>{
+	const loginHandler =(email?:string , password? : string)=>{
         console.log(email);
-        
+		console.log(password);     
     }
 
-	const passwordloginHandler =(password:string)=>{
-        console.log(password);
-        
-    }
+	
 	return(	
 		<div  style={{backgroundImage: "url(/body-backgroud.svg)"}}>
 		    <div className="align-items-center d-flex justify-content-center login m-auto" style={{width: 900, height: '100%'}} >
@@ -26,7 +26,7 @@ const Login = (props: JSX.IntrinsicAttributes | (JSX.IntrinsicAttributes & React
 					         <img src="Raaghu-logo-mfe-black.png"></img>
 					        </div>
 				         </div>
-		                 <RdsCompLogin  password = {passwordloginHandler}  email= {emailloginHandler}/>
+		                 <RdsCompLogin  onLogin = {loginHandler}/>
 	                 </div>
 			 </div>
 			  <div className="col-md-6 order-1 order-sm-2 rounded-end position-relative align-items-center p-0" 

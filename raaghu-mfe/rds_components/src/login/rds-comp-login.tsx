@@ -1,15 +1,10 @@
-
-import React, { useState } from 'react'
-// import RdsInput from '../../../../../raaghu-elements/src/components/rds-input'
-// import RdsButton from '../../../../../raaghu-elements/src/components/rds-button'
+import React,  { useState } from 'react'
 import {RdsInput} from '../rds-elements';
 import {RdsButton} from '../rds-elements';
 import {RdsCheckbox} from '../rds-elements';
 import "./rds-comp-login.scss";
-import { useReducer, useRef , } from 'react';
 export interface RdsCompLoginProps {
-    email?:string,
-    password?:string
+   onLogin:(email?:string,password?:string) => any
   };
 
 
@@ -55,8 +50,7 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
         console.log(email);
         console.log(password);
         event.preventDefault();
-		props.email;
-		props.password;
+		props.onLogin(email,password)
 		setEmail('');
 		setPassword('');
     }
@@ -81,10 +75,7 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
 					></RdsInput>
 				    {error1 && <span style={{color: 'red'}}>{error1}</span>}
 				</div>
-				
-					
 
-				
 				<div>
 					<RdsInput
 						label='Password'
@@ -108,9 +99,7 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
 					isDisabled ={!isFormValid}
 					block={true} tooltipTitle={''}
 					type="submit"					
-				/>
-
-              
+				/>           
 			</form>
 
 		</div>
@@ -118,3 +107,4 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
 };
 
 export default RdsCompLogin;
+

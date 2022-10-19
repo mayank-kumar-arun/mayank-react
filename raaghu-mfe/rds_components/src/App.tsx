@@ -4,14 +4,14 @@ import RdsCompLogin from "./login/rds-comp-login";
 
 const App = () => {
 
-    const loginHandler =(email:string,password:string)=>{
+    const loginHandler =(email?:string,password?:string)=>{
         console.log(email);
         console.log(password);
     }
     return (
 
     <div>
-        <RdsCompLogin ></RdsCompLogin>
+        <RdsCompLogin  onLogin={loginHandler}></RdsCompLogin>
 
     </div>
     )
