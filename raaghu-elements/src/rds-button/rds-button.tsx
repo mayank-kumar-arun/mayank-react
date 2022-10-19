@@ -26,7 +26,6 @@ export interface RdsButtonProps {
   tooltipTitle: string;
   type: "button"|"submit" ;
   onClick?: ( React.MouseEventHandler<HTMLButtonElement>);
-
   customClasses?: string;
   formName?: string
 }
@@ -72,8 +71,6 @@ const RdsButton = (props: RdsButtonProps) => {
         {props.icon}
         {props.label}
       </button>}
-      
-
     </div>
   );
 };

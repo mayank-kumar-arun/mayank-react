@@ -24,7 +24,7 @@ const RdsIconLabel = (props: RdsIconLabelProps) => {
     <>
       <div className="d-flex justify-content-start">
         <div style={{
-            marginRight: 2
+            marginRight: 4
         }}>
           <RdsIcon
             name={props.icon}
