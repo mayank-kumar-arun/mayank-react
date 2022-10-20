@@ -1,8 +1,8 @@
 import React, { useEffect} from "react";
 import Chart from 'chart.js/auto';
-import "./rds-chart-area.scss"
+import "./rds-chart-line.scss"
 
-export interface lineprops {
+export interface Rdslineprops {
   ChartLabels:any[],
   ChartOptions:any,
   chartDataSets:any[],
@@ -11,7 +11,7 @@ export interface lineprops {
   chartStyle:string,
 }
 
-const RdsAreaChart = (props: lineprops) => {
+const RdsLineChart = (props:Rdslineprops) => {
  const CanvasId = "myChart";
   let ctx;
  
@@ -39,4 +39,4 @@ const RdsAreaChart = (props: lineprops) => {
   );
 };
 
-export default RdsAreaChart;
+export default RdsLineChart;
