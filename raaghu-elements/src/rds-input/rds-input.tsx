@@ -20,6 +20,9 @@ export interface RdsInputProps {
   titleType?: string;
   tooltipPlacement?: string;
   tooltipTitle?: string;
+  ref?:{current:HTMLInputElement};
+  changeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  name: string;
 }
 
 const RdsInput = (props: RdsInputProps) => {
@@ -36,7 +39,7 @@ const RdsInput = (props: RdsInputProps) => {
   return (
     <div>
       <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
-      <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"></input>
+      <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"  onChange={props.changeHandler} name={props.name}></input>
 
       {/* <FormGroup>
         {props.titleType === "top" && <Form.Label>{props.title}</Form.Label>}
