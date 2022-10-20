@@ -3,12 +3,9 @@ import Chart from 'chart.js/auto';
 import "./rds-chart-line.scss"
 
 export interface Rdslineprops {
-  ChartLabels:any[],
-  ChartOptions:any,
+  chartLabels:any[],
+  chartOptions:any,
   chartDataSets:any[],
-  chartdata: any[],
-  chartWidth: number,
-  chartStyle:string,
 }
 
 const RdsLineChart = (props:Rdslineprops) => {
@@ -25,10 +22,10 @@ const RdsLineChart = (props:Rdslineprops) => {
     const lineCanvas = new Chart(ctx, {
       type: "line",
       data: {
-        labels: props.ChartLabels,
+        labels: props.chartLabels,
         datasets:props.chartDataSets
       },
-      options: props.ChartOptions,
+      options: props.chartOptions,
     });
   });
 

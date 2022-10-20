@@ -1,14 +1,15 @@
 import React, { useEffect} from "react";
 import Chart from 'chart.js/auto';
-import "./rds-chart-area.scss"
+//import "./rds-chart-Stacked.scss"
 
-export interface lineprops {
+export interface RdsStackedprops {
   chartLabels:any[],
   chartOptions:any,
   chartDataSets:any[],
+  
 }
 
-const RdsAreaChart = (props: lineprops) => {
+const RdsStackedChart = (props:RdsStackedprops) => {
  const CanvasId = "myChart";
   let ctx;
  
@@ -19,7 +20,7 @@ const RdsAreaChart = (props: lineprops) => {
     ) as HTMLCanvasElement | null;
     ctx = canvasElm?.getContext("2d") as CanvasRenderingContext2D;
     
-    const lineCanvas = new Chart(ctx, {
+    const StackedCanvas = new Chart(ctx, {
       type: "line",
       data: {
         labels: props.chartLabels,
@@ -36,4 +37,4 @@ const RdsAreaChart = (props: lineprops) => {
   );
 };
 
-export default RdsAreaChart;
+export default RdsStackedChart;

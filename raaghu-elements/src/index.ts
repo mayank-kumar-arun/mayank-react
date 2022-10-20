@@ -22,3 +22,5 @@ export {default as RdsSideNav} from "./rds-side-nav";
 //Charts
 export {default as RdsAreaChart} from "./rds-chart-area";
 export {default as RdsLineChart} from './rds-chart-line';
+export {default as RdsPieChart} from './rds-chart-radar';
+export {default as  RdsDoughnutChart} from './rds-chart-doughnut';

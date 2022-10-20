@@ -12,8 +12,8 @@ const Template: ComponentStory<typeof RdsAreaChart> = (args) => <RdsAreaChart {.
 
 export const Default = Template.bind({});
 Default.args = {
-  ChartLabels:["January", "February", "March", "April", "May", "Jun", "July"],
-  ChartOptions: {
+  chartLabels:["January", "February", "March", "April", "May", "Jun", "July"],
+  chartOptions: {
     pointStyle: "star",
     radius: 7,
     responsive: true,
