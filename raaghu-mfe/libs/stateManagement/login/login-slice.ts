@@ -1,6 +1,7 @@
 import {createSlice,createAsyncThunk} from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { AccountServiceProxy, IsTenantAvailableInput} from '../../shared/service-proxies';
+import { TokenAuthServiceProxy,AuthenticateModel,AuthenticateResultModel } from '../../shared/public.api';
 export interface ValidateTenantState {
     Tenant: any;
     error: string|undefined|null;
@@ -8,18 +9,30 @@ export interface ValidateTenantState {
     status: 'pending' | 'loading' | 'error' | 'success';
     profilePic: any;
     loginInfo: any;
+    accessToken: string| undefined;
+    tenantId:number|undefined;
 }
 const AccountService = new AccountServiceProxy();
+const TokenAuthService = new TokenAuthServiceProxy();
 export const ValidateTenantInitialState: ValidateTenantState = {    
     Tenant: { result:{} },
     tenancyName: null,
     error: null,
     status: 'pending',
     profilePic: null,
-    loginInfo: null
+    loginInfo: null,
+    accessToken: undefined,
+    tenantId:undefined
 };
+export const Authenticate = createAsyncThunk('login/Authenticate',
+        async(authenticateModal:any)=>{            
+            const result =  await TokenAuthService.authenticate(authenticateModal);
+	           
+            return result.accessToken;}
+)
 export const ValidateTenantName = createAsyncThunk('tenants/ValidateTenantName',
         async(tenant:any) => {
+            tenant = {tenancyName : tenant};
             const response = await AccountService.isTenantAvailable(tenant);  
             const data = response.tenantId;
             const obj:{data:number|undefined,tenant:any} = {data,tenant} 
@@ -33,6 +46,7 @@ export const ValidateTenantName = createAsyncThunk('tenants/ValidateTenantName',
         async() => {
             const response = await fetch('https://swapi.dev/api/planets/3/');
             const data = await response.json();
+            
             return data.name;
         }
     )
@@ -83,7 +97,7 @@ export const ValidateTenantReducer = createSlice({
     extraReducers:(builder) => {
         builder.addCase(ValidateTenantName.fulfilled,
             (state, action) =>{
-                state.Tenant = action.payload.data,
+                state.tenantId = action.payload.data,
                 state.tenancyName = action.payload.tenant.tenancyName,
                 state.error = null,
                 state.status = 'success'
@@ -97,6 +111,13 @@ export const ValidateTenantReducer = createSlice({
             (state,action) =>{
                 state.tenancyName = action.payload;
             })
+        builder.addCase(Authenticate.fulfilled,
+            (state, action) =>{       
+              
+                state.accessToken = action.payload;
+               
+            })
+        
     }
 });
 

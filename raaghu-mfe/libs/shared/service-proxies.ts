@@ -9,7 +9,7 @@
 // ReSharper disable InconsistentNaming
 
 import { DateTime, Duration } from "luxon";
-
+const BASE_URL:string = "https://anzdemoapi.raaghu.io";
 export class AccountServiceProxy {
     private http: { fetch(url: RequestInfo, init?: RequestInit): Promise<Response> };
     private baseUrl: string;
@@ -24,8 +24,9 @@ export class AccountServiceProxy {
      * @param body (optional) 
      * @return Success
      */
+    //  https://cors-anywhere.herokuapp.com/
     isTenantAvailable(body: IsTenantAvailableInput | undefined): Promise<IsTenantAvailableOutput> {
-        let url_ = this.baseUrl + "/api/services/app/Account/IsTenantAvailable";
+        let url_ = BASE_URL + "/api/services/app/Account/IsTenantAvailable";
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = JSON.stringify(body);
@@ -34,7 +35,7 @@ export class AccountServiceProxy {
             body: content_,
             method: "POST",
             headers: {
-                "Content-Type": "application/json-patch+json",
+                "Content-Type": "application/json-patch+json",              
                 "Accept": "text/plain"
             }
         };
@@ -8787,7 +8788,7 @@ export class TokenAuthServiceProxy {
      * @return Success
      */
     authenticate(body: AuthenticateModel | undefined): Promise<AuthenticateResultModel> {
-        let url_ = this.baseUrl + "/api/TokenAuth/Authenticate";
+        let url_ = BASE_URL + "/api/TokenAuth/Authenticate";
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = JSON.stringify(body);
