@@ -1,16 +1,15 @@
 
-import React,{useState} from "react";
-
+import React from "react";
 
 // import { FormGroup } from "react-bootstrap";
 // import Button from "react-bootstrap/Button";
 // import Form from "react-bootstrap/Form";
-// import InputGroup from "react-bootstrap/InputGroup";
+// import InputGroup from "react-bootstrap/InputGroup"; changes
 import './rds-input.scss';
 
 export interface RdsInputProps {
   // onChange: ChangeEventHandler<FormControlElement> | undefined;
-  size?: "sm" | "lg" | string;
+  size?: "small" | "large" | "medium" | string;
   isDisabled?: boolean;
   readonly?: boolean;
   value?: string;
@@ -20,12 +19,17 @@ export interface RdsInputProps {
   titleType?: string;
   tooltipPlacement?: string;
   tooltipTitle?: string;
-  ref?:{current:HTMLInputElement};
-  changeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  name: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  name?: string;
+  label?: string;
+  id?: string
+
+  customClasses?: string;
+  formName?: string;
+
 }
 
-const RdsInput = (props: RdsInputProps) => {
+const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown> | undefined) => {
   let size: "sm" | "lg" | undefined = undefined;
 
   if (props.size == "small") {
@@ -34,12 +38,21 @@ const RdsInput = (props: RdsInputProps) => {
     size = "lg";
   }
 
-  const [tempEmail, setTempEmail] = useState('')
+  const inputClasses = "form-control form-control-" + size + " flex-grow-1 " + props.customClasses;
+
 
   return (
     <div>
-      <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
-      <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"  onChange={props.changeHandler} name={props.name}></input>
+      {props.label && <label htmlFor={props.id} className="form-label">{props.label}</label>}
+      <input
+        type={props.inputType}
+        className={inputClasses}
+        id={props.id}
+        placeholder={props.placeholder}
+        onChange={props.onChange}
+        name={props.name}
+        form={props.formName}
+      ></input>
 
       {/* <FormGroup>
         {props.titleType === "top" && <Form.Label>{props.title}</Form.Label>}
@@ -51,16 +64,18 @@ const RdsInput = (props: RdsInputProps) => {
           readOnly={props.readonly}
           type={props.inputType}
           placeholder={props.placeholder}
-          data-bs-toggle="tooltip" 
-          data-bs-placement={props.tooltipPlacement} 
+          data-bs-toggle="tooltip"
+          data-bs-placement={props.tooltipPlacement}
           title={props.tooltipTitle}
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
         />
-        {props.titleType === "bottom" && <Form.Label>{props.title}</Form.Label>}
-      </FormGroup> */}
-    </div >
+        {props.titleType === "bottom" && <label>{props.title}</label>}
+      {/* </FormGroup>  */}
+    </ div>
+
+
   );
-};
+});
 
 export default RdsInput;

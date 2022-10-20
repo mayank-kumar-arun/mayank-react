@@ -37,27 +37,61 @@ export default {
 
 const Template: ComponentStory<typeof RdsDropdown> = (args) => <RdsDropdown {...args} />;
 
-export const RdsDropdownDefault = Template.bind({});
+export const Default = Template.bind({});
 
-RdsDropdownDefault.args = {
+Default.args = {
     colorVariant: "primary",
     size: "mid",
     darkDropdown:false,
     label:"Dropdown Button",
     direction:"Drop-Down",
     role:"Dropdown-Button without split",
+    listItems: [
+      {
+        value: "Export To Excel",
+        id: "1",
+        href: "",
+      },
+      {
+        value: "Import From Excel",
+        id: "2",
+        href: "",
+      },
+      {
+        value: "Click here download sample import file",
+        id: "3",
+        href: "",
+      },
+    ],
    
 };
 
-export const RdsDropdownWithSplit = Template.bind({});
+export const WithSplit = Template.bind({});
 
-RdsDropdownWithSplit.args = {
+WithSplit.args = {
     colorVariant: "primary",
     size: "mid",
     darkDropdown:false,
     label:"Dropdown Button",
     direction:"Drop-Down",
     role:"Dropdown-Button with split",
+    listItems: [
+      {
+        value: "Export To Excel",
+        id: "1",
+        href: "",
+      },
+      {
+        value: "Import From Excel",
+        id: "2",
+        href: "",
+      },
+      {
+        value: "Click here download sample import file",
+        id: "3",
+        href: "",
+      },
+    ],
    
 };
 

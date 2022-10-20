@@ -24,7 +24,10 @@ export interface RdsButtonProps {
   tooltip?: boolean;
   tooltipPlacement?: Placements;
   tooltipTitle: string;
-  type:"button"| "submit" ;
+  type: "button"|"submit" ;
+  onClick?: ( React.MouseEventHandler<HTMLButtonElement>);
+  customClasses?: string;
+  formName?: string
 }
 
 
@@ -42,32 +45,32 @@ const RdsButton = (props: RdsButtonProps) => {
     props.size == "small" ? "btn-sm" : props.size == "large" ? "btn-lg" : "";
 
   return (
+
+     
     <div className={props.block ? "d-grid gap-2" : ""}> 
     {props.tooltip && <Tooltip text={props.tooltipTitle} place={props.tooltipPlacement}>
     <button
         type={props.type}
-        className={`btn ${outlineColorVariant} ${size}`}
+        className={`btn ${outlineColorVariant} ${size} ${props.customClasses}`}
         disabled={props.isDisabled}
-        // data-bs-toggle={props.tooltip == true?"tooltip":""}
-        // data-bs-placement={props.tooltipPlacement}
-        // title={props.tooltipTitle}
+        onClick= {props.onClick}
+        form={props.formName}
       >
         {props.icon}
         {props.label}
+      
       </button>
     </Tooltip>}
     {!props.tooltip && <button
         type={props.type}
-        className={`btn ${outlineColorVariant} ${size}`}
+        className={`btn ${outlineColorVariant} ${size} ${props.customClasses}`}
         disabled={props.isDisabled}
-        // data-bs-toggle={props.tooltip == true?"tooltip":""}
-        // data-bs-placement={props.tooltipPlacement}
-        // title={props.tooltipTitle}
+        onClick= {props.onClick}
+        form={props.formName}
       >
         {props.icon}
         {props.label}
       </button>}
-      
     </div>
   );
 };
