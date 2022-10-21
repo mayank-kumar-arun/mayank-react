@@ -1,14 +1,14 @@
 import React, { useEffect} from "react";
 import Chart from 'chart.js/auto';
-import "./rds-chart-area.scss"
+//import "./rds-chart-doughnut.scss"
 
-export interface lineprops {
+export interface RdsDoughnutprops {
   chartLabels:any[],
   chartOptions:any,
   chartDataSets:any[],
 }
 
-const RdsAreaChart = (props: lineprops) => {
+const RdsDoughnutChart = (props:RdsDoughnutprops) => {
  const CanvasId = "myChart";
   let ctx;
  
@@ -19,8 +19,8 @@ const RdsAreaChart = (props: lineprops) => {
     ) as HTMLCanvasElement | null;
     ctx = canvasElm?.getContext("2d") as CanvasRenderingContext2D;
     
-    const lineCanvas = new Chart(ctx, {
-      type: "line",
+    const DoughnutCanvas = new Chart(ctx, {
+      type:'doughnut',
       data: {
         labels: props.chartLabels,
         datasets:props.chartDataSets
@@ -36,4 +36,4 @@ const RdsAreaChart = (props: lineprops) => {
   );
 };
 
-export default RdsAreaChart;
+export default RdsDoughnutChart;
