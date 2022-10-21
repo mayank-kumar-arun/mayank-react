@@ -18,12 +18,8 @@ const Main = () =>{
      </Routes>
 
         </Suspense>
-        
-      
-    
-    )
-
-    
+             
+    )    
 }
 
 export default Main;
