@@ -1,16 +1,15 @@
 import React, { useEffect} from "react";
 import Chart from 'chart.js/auto';
+import "./rds-chart-pie.scss"
 
-export interface RdsBubbleChartProps {
-  ChartLabels:any[],
-  ChartOptions:any,
+export interface RdsPieprops {
+  chartLabels:any[],
+  chartOptions:any,
   chartDataSets:any[],
-  chartdata: any[],
-  chartWidth: number,
-  chartStyle:string,
+  
 }
 
-const RdsBubbleChart = (props: RdsBubbleChartProps) => {
+const RdsPieChart = (props:RdsPieprops) => {
  const CanvasId = "myChart";
   let ctx;
  
@@ -21,13 +20,13 @@ const RdsBubbleChart = (props: RdsBubbleChartProps) => {
     ) as HTMLCanvasElement | null;
     ctx = canvasElm?.getContext("2d") as CanvasRenderingContext2D;
     
-    const lineCanvas = new Chart(ctx, {
-      type: "bubble",
+    const pieCanvas = new Chart(ctx, {
+      type: "pie",
       data: {
-        labels: props.ChartLabels,
+        labels: props.chartLabels,
         datasets:props.chartDataSets
       },
-      options: props.ChartOptions,
+      options: props.chartOptions,
     });
   });
 
@@ -38,4 +37,4 @@ const RdsBubbleChart = (props: RdsBubbleChartProps) => {
   );
 };
 
-export default RdsBubbleChart;
+export default RdsPieChart;

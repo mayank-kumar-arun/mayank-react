@@ -1,14 +1,16 @@
 import React, { useEffect} from "react";
 import Chart from 'chart.js/auto';
-import "./rds-chart-area.scss"
 
-export interface lineprops {
+export interface RdsBubbleChartProps {
   chartLabels:any[],
   chartOptions:any,
   chartDataSets:any[],
+  chartdata: any[],
+  chartWidth: number,
+  chartStyle:string,
 }
 
-const RdsAreaChart = (props: lineprops) => {
+const RdsBubbleChart = (props: RdsBubbleChartProps) => {
  const CanvasId = "myChart";
   let ctx;
  
@@ -20,7 +22,7 @@ const RdsAreaChart = (props: lineprops) => {
     ctx = canvasElm?.getContext("2d") as CanvasRenderingContext2D;
     
     const lineCanvas = new Chart(ctx, {
-      type: "line",
+      type: "bubble",
       data: {
         labels: props.chartLabels,
         datasets:props.chartDataSets
@@ -36,4 +38,5 @@ const RdsAreaChart = (props: lineprops) => {
   );
 };
 
-export default RdsAreaChart;
+export default RdsBubbleChart;
+      

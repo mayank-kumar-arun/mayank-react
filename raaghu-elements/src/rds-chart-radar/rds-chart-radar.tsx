@@ -1,14 +1,15 @@
 import React, { useEffect} from "react";
 import Chart from 'chart.js/auto';
-import "./rds-chart-area.scss"
+//import "./rds-chart-Radar.scss"
 
-export interface lineprops {
+export interface RdsRadarprops {
   chartLabels:any[],
   chartOptions:any,
   chartDataSets:any[],
+  
 }
 
-const RdsAreaChart = (props: lineprops) => {
+const RdsRadarChart = (props:RdsRadarprops) => {
  const CanvasId = "myChart";
   let ctx;
  
@@ -19,8 +20,8 @@ const RdsAreaChart = (props: lineprops) => {
     ) as HTMLCanvasElement | null;
     ctx = canvasElm?.getContext("2d") as CanvasRenderingContext2D;
     
-    const lineCanvas = new Chart(ctx, {
-      type: "line",
+    const RadarCanvas = new Chart(ctx, {
+      type: "radar",
       data: {
         labels: props.chartLabels,
         datasets:props.chartDataSets
@@ -36,4 +37,4 @@ const RdsAreaChart = (props: lineprops) => {
   );
 };
 
-export default RdsAreaChart;
+export default RdsRadarChart;
