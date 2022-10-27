@@ -17,5 +17,10 @@ export {default as RdsRange} from './rds-range';
 export {default as RdsDoubleRange} from './rds-double-range';
 export {default as RdsInputGroup} from './rds-input-group';
 export {default as RdsCarousel} from './rds-carousel';
-export {default as RdsSideNav} from "./rds-side-nav"
-export {default as RdsAreaChart} from "./rds-chart-area"
+export {default as RdsSideNav} from "./rds-side-nav";
+
+//Charts
+export {default as RdsAreaChart} from "./rds-chart-area";
+export {default as RdsLineChart} from './rds-chart-line';
+export {default as RdsPieChart} from './rds-chart-radar';
+export {default as  RdsDoughnutChart} from './rds-chart-doughnut';

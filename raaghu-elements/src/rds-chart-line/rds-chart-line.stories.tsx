@@ -1,14 +1,14 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import RdsAreaChart from "./rds-chart-area";
+import RdsLineChart from "./rds-chart-line";
 
 
 export default {
-  title: "Charts/Area Chart",
-  component: RdsAreaChart,
-} as ComponentMeta<typeof RdsAreaChart>;
+  title: "Charts/Line Chart",
+  component: RdsLineChart,
+} as ComponentMeta<typeof RdsLineChart>;
 
-const Template: ComponentStory<typeof RdsAreaChart> = (args) => <RdsAreaChart {...args} />;
+const Template: ComponentStory<typeof RdsLineChart> = (args) => <RdsLineChart {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -48,12 +48,9 @@ Default.args = {
     {
       label: "My First Dataset",
       data: [65, 59, 80, 81, 56, 55, 40],
-      fill: true,
+      fill: false,
       borderColor: "rgb(75, 192, 192)",
       tension: 0.1,
     },
   ],
-  
-  chartWidth:600 ,
-  chartStyle:"light",
 };
