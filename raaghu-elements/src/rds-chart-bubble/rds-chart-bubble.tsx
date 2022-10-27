@@ -2,8 +2,8 @@ import React, { useEffect} from "react";
 import Chart from 'chart.js/auto';
 
 export interface RdsBubbleChartProps {
-  ChartLabels:any[],
-  ChartOptions:any,
+  chartLabels:any[],
+  chartOptions:any,
   chartDataSets:any[],
   chartdata: any[],
   chartWidth: number,
@@ -24,10 +24,10 @@ const RdsBubbleChart = (props: RdsBubbleChartProps) => {
     const lineCanvas = new Chart(ctx, {
       type: "bubble",
       data: {
-        labels: props.ChartLabels,
+        labels: props.chartLabels,
         datasets:props.chartDataSets
       },
-      options: props.ChartOptions,
+      options: props.chartOptions,
     });
   });
 
@@ -39,3 +39,4 @@ const RdsBubbleChart = (props: RdsBubbleChartProps) => {
 };
 
 export default RdsBubbleChart;
+      
