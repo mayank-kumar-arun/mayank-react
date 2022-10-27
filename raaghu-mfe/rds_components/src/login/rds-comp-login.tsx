@@ -70,7 +70,7 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
 					<RdsInput
 						label='Email/Username'
 						placeholder='Email/Username'
-						inputType='email'
+						inputType='text'
 						onChange={emailhandleChange}
 						value = {email}
 						name = {'email'}
@@ -90,7 +90,7 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
 					{error2 && <span style={{color: 'red'}}>{error2}</span>}
 				</div>
                 <div style={{display : 'flex' , justifyContent:'space-between', marginBottom : 30}}>
-				<RdsCheckbox label={'Remember me'} checked></RdsCheckbox>
+				<RdsCheckbox label={'Remember me'} checked ></RdsCheckbox>
 				<a  href='#' style={{textDecoration : 'none'}}>Forgot password ?</a>
 
 				</div>

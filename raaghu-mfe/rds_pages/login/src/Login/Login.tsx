@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import ReactPlayer from "react-player";
 import { ValidateTenantName,trial, Authenticate, RootState, AppDispatch, useAppDispatch } from '../../../../libs/public.api'
 import { IsTenantAvailableInput,TokenAuthServiceProxy,AuthenticateModel,AuthenticateResultModel } from '../../../../libs/public.api';
 import { useSelector } from 'react-redux'

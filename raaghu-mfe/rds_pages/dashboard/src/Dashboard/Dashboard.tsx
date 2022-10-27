@@ -2,14 +2,17 @@ import React, { Suspense } from "react";
 
 
 const DashboardCompo = React.lazy(() => import("rds_components/RdsCompAdminDashboard"));
+const SideNavCompo = React.lazy(() => import("rds_components/RdsCompSideNavigation"));
+const TopNavCompo = React.lazy(() => import("rds_components/RdsCompTopNavigation"));
 
-var version = process.env.BUILD_DATE;
 
 const Dashboard = () => (
 	<Suspense>
-		Latest Build Date:{version}
+		<TopNavCompo></TopNavCompo>
+		<SideNavCompo></SideNavCompo>
 		<DashboardCompo />					
 	</Suspense>
 );
 
 export default Dashboard;
+

@@ -78,6 +78,10 @@ module.exports = (env, argv) => {
         shared: {
             ...devdeps,
           ...deps,
+          'luxon': {
+            singleton: true,
+            requiredVersion: deps['luxon'],
+        },
           react: { singleton: true, eager: true, requiredVersion: deps.react },
           "react-dom": {
             singleton: true,

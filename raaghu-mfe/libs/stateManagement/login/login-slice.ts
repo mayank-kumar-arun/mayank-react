@@ -27,7 +27,7 @@ export const ValidateTenantInitialState: ValidateTenantState = {
 export const Authenticate = createAsyncThunk('login/Authenticate',
         async(authenticateModal:any)=>{            
             const result =  await TokenAuthService.authenticate(authenticateModal);
-	           
+	           console.log(result.accessToken);
             return result.accessToken;}
 )
 export const ValidateTenantName = createAsyncThunk('tenants/ValidateTenantName',
