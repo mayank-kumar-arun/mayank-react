@@ -9,11 +9,12 @@ export interface RdsIconProps {
   name: string;
   fill?: boolean;
   stroke?: boolean;
+  strokeColor?: string;
 }
 
 const RdsIcon = (props: RdsIconProps) => {
   let fillProps = props.fill ? "black" : "none";
-  let strokeProps = props.stroke ? "black" : "none";
+  let strokeProps = props.stroke ? "black" : props.strokeColor;
   let name:string = (props.name).toLowerCase();
   let icon= Icons.hasOwnProperty(name) ? Icons[name] : Flags[name];
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import RdsBubbleChart  from "./rds-bubble-chart";
-import "./rds-bubble-chart.scss"
+import RdsBubbleChart  from "./rds-chart-bubble";
+
 
 export default {
   title: "Charts/BubbleChart",
