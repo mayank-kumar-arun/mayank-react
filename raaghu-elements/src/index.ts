@@ -26,6 +26,7 @@ export {default as RdsIcon} from './rds-icon';
 export {default as RdsIconLabel} from './rds-icon-label';
 export {default as RdsSearch} from './rds-search';
 export {default as RdsNavbar} from './rds-navbar';
+export {default as RdsDropdownList} from './rds-dropdown-list';
 
 //Charts
 export {default as RdsAreaChart} from "./rds-chart-area";
