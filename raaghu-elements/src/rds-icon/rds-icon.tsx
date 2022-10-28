@@ -9,7 +9,7 @@ export interface RdsIconProps {
   name: string;
   fill?: boolean;
   stroke?: boolean;
-  strokeColor?: string;
+  strokeColor?:string;
 }
 
 const RdsIcon = (props: RdsIconProps) => {

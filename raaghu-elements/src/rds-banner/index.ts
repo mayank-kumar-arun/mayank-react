@@ -1,1 +1,1 @@
-export {default} from './rds-banner'
+export {default} from "./rds-banner"
