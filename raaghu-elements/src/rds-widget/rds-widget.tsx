@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, ReactNode } from "react";
 
 import RdsIcon from "../rds-icon/rds-icon";
 //import { Colors} from "../Types";
@@ -6,8 +6,7 @@ import RdsIcon from "../rds-icon/rds-icon";
 export interface RdsWidgetProps {
   // colorVarient?:Colors,
   headerTitle: string;
-  content:any;
- 
+  children?:ReactNode
   onClick?: ( React.MouseEventHandler<HTMLElement>);
 }
 const RdsWidget = (props:RdsWidgetProps) => {
@@ -31,7 +30,7 @@ const RdsWidget = (props:RdsWidgetProps) => {
             ></RdsIcon>
           </div>
          </div>
-        <div className="Content"> {props.content}</div>
+        <div className="Content"> {props.children}</div>
       </div>
     </Fragment>
   );
