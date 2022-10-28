@@ -26,6 +26,7 @@ export {default as RdsIcon} from './rds-icon';
 export {default as RdsIconLabel} from './rds-icon-label';
 export {default as RdsSearch} from './rds-search';
 export {default as RdsNavbar} from './rds-navbar';
+export {default as RdsFabMenu} from './rds-fab-menu';
 export {default as RdsWidget} from './rds-widget';
 export {default as RdsIllustration} from './rds-illustration';
 export {default as RdsBigNumber} from './rds-big-number';
