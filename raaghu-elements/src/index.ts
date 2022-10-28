@@ -26,13 +26,19 @@ export {default as RdsIcon} from './rds-icon';
 export {default as RdsIconLabel} from './rds-icon-label';
 export {default as RdsSearch} from './rds-search';
 export {default as RdsNavbar} from './rds-navbar';
+export {default as RdsWidget} from './rds-widget';
+export {default as RdsIllustration} from './rds-illustration';
+export {default as RdsBigNumber} from './rds-big-number';
+export {default as RdsSpinner} from './rds-spinner-re';
+export {default as RdsLikeDislike} from './rds-like-dislike';
+export {default as RdsTextArea} from './rds-text-area';
 
 
 //Charts
 export {default as RdsAreaChart} from "./rds-chart-area";
 export {default as RdsLineChart} from './rds-chart-line';
 export {default as RdsPieChart} from './rds-chart-radar';
-export {default as  RdsDoughnutChart} from './rds-chart-doughnut';
+export {default as RdsDoughnutChart} from './rds-chart-doughnut';
 export {default as RdsBarChart} from './rds-chart-bar';
 export {default as RdsBooleanChart} from './rds-chart-boolean';
 export {default as RdsMixedChart} from './rds-chart-mixed';
