@@ -30,7 +30,7 @@ export {default as RdsDropdownList} from './rds-dropdown-list';
 export {default as RdsWidget} from './rds-widget';
 export {default as RdsIllustration} from './rds-illustration';
 export {default as RdsBigNumber} from './rds-big-number';
-export {default as RdsSpinner} from './rds-spinner-re';
+export {default as RdsSpinner} from './rds-spinner';
 export {default as RdsLikeDislike} from './rds-like-dislike';
 export {default as RdsTextArea} from './rds-text-area';
 
