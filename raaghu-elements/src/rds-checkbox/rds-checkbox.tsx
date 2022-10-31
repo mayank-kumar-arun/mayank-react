@@ -9,6 +9,7 @@ export interface RdsCheckboxProps {
   isSwitch?: boolean;
 }
 
+
 const RdsCheckbox = (props: RdsCheckboxProps) => {
   //  const checkedtake =(props :CheckboxProps)=>{
   //   isChecked = checked in props ?'yes':'no';
