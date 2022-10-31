@@ -33,6 +33,7 @@ export {default as RdsBigNumber} from './rds-big-number';
 export {default as RdsSpinner} from './rds-spinner';
 export {default as RdsLikeDislike} from './rds-like-dislike';
 export {default as RdsTextArea} from './rds-text-area';
+export {default as RdsOffcanvas} from './rds-offcanvas'
 
 
 //Charts
