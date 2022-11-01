@@ -14,47 +14,36 @@ const RdsCheckbox = (props: RdsCheckboxProps) => {
   //  const checkedtake =(props :CheckboxProps)=>{
   //   isChecked = checked in props ?'yes':'no';
   //  }`
-  const check: boolean = props.checked || false;
+  //const check: boolean = props.checked || false;
   //const label1 = `${(props.withlabel === false)? "" : props.label}`;
 
 
 
-  const [doubleApproval, setDoubleApproval] = useState<boolean>(check);
-  const handleOnCheck = () => {
-    setDoubleApproval(!doubleApproval);
-    {
-      props.checked;
-    }
-    setDoubleApproval;
-  };
+  //const [doubleApproval, setDoubleApproval] = useState<boolean>(check);
+  // const handleOnCheck = () => {
+  //   setDoubleApproval(!doubleApproval);
+  //   {
+  //     props.checked;
+  //   }
+  //   setDoubleApproval;
+  // };
   const SWITCH = `${props.isSwitch !== true ? "form-check" : "form-switch"}`;
 
   return (
     <Fragment>
       <form>
         <div className={SWITCH}>
-          {check === true ? (
+         
             <input
               type="checkbox"
               className="form-check-input"
-              value=""
+              value=" "
               //id={`$props.isSwitch === true? "flexSwitchCheckDefault":"flexCheckDefault"`}
               disabled={props.isDisabled}
-              onClick={handleOnCheck}
-              checked
+           //   onClick={handleOnCheck}
+             defaultChecked ={props.checked}
             />
-          ) : (
-            <input
-              type="checkbox"
-              className="form-check-input"
-              value=""
-              //id={`$props.isSwitch === true? "flexSwitchCheckDefault":"flexCheckDefault"`}
-
-              disabled={props.isDisabled}
-              onClick={handleOnCheck}
-            />
-          )}
-
+           
             <label className="form-check-label" htmlFor="flexCheckDefault">
             {props.label}
           </label>

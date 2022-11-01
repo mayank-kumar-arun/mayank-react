@@ -4,15 +4,16 @@
     border-radius: 8px;
     opacity: 1;
 }
-#rds-size{
-    display: flex;
-    flex-wrap: wrap;
-}
+
 .border{
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 2px solid #AAAAAA;
     border-radius: 8px;
     opacity: 1;
+}
+#rds-size{
+    display: flex;
+    flex-wrap: wrap;
 }
 .size{
     font: normal normal 600 22px/35px Poppins;
