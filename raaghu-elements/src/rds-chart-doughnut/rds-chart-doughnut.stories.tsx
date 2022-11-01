@@ -15,7 +15,7 @@ Default.args = {
   chartLabels:['Red',
   'Blue',
   'Yellow'],
-  chartOptions: {},
+  chartOptions: { },
   chartDataSets:[{
     label: 'My First Dataset',
     data: [300, 50, 100],
@@ -26,5 +26,10 @@ Default.args = {
     ],
     hoverOffset: 4
   }],
+
+  titleText: "35 k",
+  subTitleText:"deioj",
+
+ 
   
 };

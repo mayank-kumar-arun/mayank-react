@@ -7,10 +7,11 @@ export interface RdsWidgetProps {
   // colorVarient?:Colors,
   headerTitle: string;
   content:any;
- 
-  onClick?: ( React.MouseEventHandler<HTMLElement>);
+  isRefreshRequired?: boolean ;
+  onRefresh?: ( React.MouseEventHandler<HTMLElement>);
 }
 const RdsWidget = (props:RdsWidgetProps) => {
+  let isRefreshIcon =props.isRefreshRequired ||false;
   let background = `linear-gradient(90deg,#7e2eef 0%, #01ae9d 100% )`;
 
   return (
@@ -21,14 +22,14 @@ const RdsWidget = (props:RdsWidgetProps) => {
       >
         <div className="cardHeader d-flex justify-content-between">
           <h5 className="card-title">{props.headerTitle}</h5>
-          <div className="card-toolbar" style={{ cursor: "pointer" }}  onClick={props.onClick}>
-            <RdsIcon
+          <div className="card-toolbar" style={{ cursor: "pointer" }}  onClick={props.onRefresh}>
+            {isRefreshIcon ==true &&<RdsIcon
               name="refresh"
               height="20px"
               width="20px"
               fill={false}
               stroke={true}
-            ></RdsIcon>
+            ></RdsIcon>}
           </div>
          </div>
         <div className="Content"> {props.content}</div>
