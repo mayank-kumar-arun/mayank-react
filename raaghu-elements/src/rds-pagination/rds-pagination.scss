@@ -1,19 +1,14 @@
-.border-color{
-  border: 2px solid #336CFF;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  border-radius: 8px;
-  opacity: 1;
+@import "../style.scss";
+.rounds{
+  border: none !important;
+  border-radius: 50% !important;
+//  background: none !important;
 }
-
-.border{
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  border: 2px solid #AAAAAA;
-  border-radius: 8px;
-  opacity: 1;
+.roundeds{
+ // border: none !important;
+  border-radius: 50% !important;
+  //background: none !important;
 }
-
-
-
 /*// new styling pagination rounded
 .item {
   width: 10rem;

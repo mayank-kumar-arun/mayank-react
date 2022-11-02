@@ -55,8 +55,10 @@ const RdsAccordion = (props: RdsAccordionProps) => {
           </div>
         ))}
       </div>
-    </>
+   </>
+
   );
 };
+
 
 export default RdsAccordion;
