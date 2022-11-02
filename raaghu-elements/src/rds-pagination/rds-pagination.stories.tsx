@@ -5,6 +5,23 @@ import RdsPagination from "./rds-pagination";
 export default {
   title: "Elements/Pagination",
   component: RdsPagination,
+  argTypes: {
+    paginationType:{
+        options:[
+            'default',
+            'advance'
+        ],
+        control: { type: "select" },
+    },
+    alignmentType:{
+      options:[
+          'start',
+          'center',
+          'end'
+      ],
+      control: { type: "select" },
+  }
+  }
 } as ComponentMeta<typeof RdsPagination>;
 
 const Template: ComponentStory<typeof RdsPagination> = (args) => (
@@ -13,8 +30,18 @@ const Template: ComponentStory<typeof RdsPagination> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-
+  paginationType : "default",
   totalRecords:10,
   recordsPerPage:3,
-  recodes:['a','b','c','d','e','f','g','h','i','j','k']
+  size:"lg",
+  alignmentType: "start"
+};
+
+export const Advanced = Template.bind({});
+Advanced.args = {
+  paginationType : "advance",
+  totalRecords:10,
+  recordsPerPage:3,
+  size:"lg",
+  alignmentType: "start"
 };

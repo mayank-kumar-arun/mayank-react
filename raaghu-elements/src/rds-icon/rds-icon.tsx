@@ -47,8 +47,8 @@ const RdsIcon = (props: RdsIconProps) => {
     strokeColor='#E3A300';
   }
 
-  console.log(fillColor!);
-  console.log(strokeColor!);
+  // console.log(fillColor!);
+  // console.log(strokeColor!);
 
   let fillProps = props.fill ? fillColor! : "none";
   let strokeProps = props.stroke ? strokeColor! : "none";
