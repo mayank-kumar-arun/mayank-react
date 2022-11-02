@@ -33,6 +33,7 @@
     "@types/bootstrap": "^5.2.5",
     "@types/jest": "^29.0.3",
     "@types/react": "^18.0.20",
+    "@types/react-datepicker": "^4.8.0",
     "@types/styled-components": "^5.1.26",
     "@types/validator": "^13.7.7",
     "babel-loader": "^8.2.5",
@@ -58,6 +59,7 @@
     "bootstrap": "^5.2.2",
     "chart.js": "^3.9.1",
     "postcss": "^8.4.16",
+    "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
     "validator": "^13.7.0"
   }
