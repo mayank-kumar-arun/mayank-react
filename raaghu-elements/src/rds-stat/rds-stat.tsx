@@ -5,6 +5,7 @@ import "./rds-stat.scss";
 export interface RdsStatProps {
   displayType: string;
   items: any[];
+  colorVariant:string,
 }
 
 const RdsStat = (props: RdsStatProps) => {
@@ -19,11 +20,11 @@ const RdsStat = (props: RdsStatProps) => {
                   <RdsIcon
                     name={item.icon}
                     fill={item.iconFill}
-                    colorVariant={item.colorFill}
+                    colorVariant={props.colorVariant}
                     //stroke={item.iconStroke}
                     height={item.iconHeight}
                     width={item.iconWidth}
-                    strokeColor={item.strokeColor}
+                    strokeColor={props.colorVariant}
                   />
                 </div>
                 <h1 className="fw-bold mt-4 text-center">{item.value}</h1>
