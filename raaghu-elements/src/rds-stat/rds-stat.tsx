@@ -19,7 +19,7 @@ const RdsStat = (props: RdsStatProps) => {
                   <RdsIcon
                     name={item.icon}
                     fill={item.iconFill}
-                    colorFill={item.colorFill}
+                    colorVariant={item.colorFill}
                     //stroke={item.iconStroke}
                     height={item.iconHeight}
                     width={item.iconWidth}
