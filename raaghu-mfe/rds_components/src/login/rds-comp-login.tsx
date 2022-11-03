@@ -4,12 +4,14 @@ import {RdsButton} from '../rds-elements';
 import {RdsCheckbox} from '../rds-elements';
 import "./rds-comp-login.scss";
 import AuthGuard from '../../../libs/shared/AuthGuard'
+import {useNavigate} from 'react-router-dom';
 export interface RdsCompLoginProps {
    onLogin:(email?:string,password?:string) => any
   };
 
 
 const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => {
+	const navigate = useNavigate()
 
 	const [email,setEmail] = useState('');
 	const [password , setPassword] = useState('');
@@ -47,13 +49,14 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
  
 	const isFormValid = isPasswordValid(password) && isEmailValid(email)
 
-    const handleSubmit = (event : React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (event : any) => {
         console.log(email);
         console.log(password);
         event.preventDefault();
 		props.onLogin(email,password)
 		setEmail('');
 		setPassword('');
+		navigate("/Dashboard")
 		
     }
 
@@ -100,7 +103,8 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
 					colorVariant='primary'
 					isDisabled ={!isFormValid}
 					block={true} tooltipTitle={''}
-					type="submit"				
+					type="submit"	
+					onClick={handleSubmit}			
 				/>           
 			</form>
 

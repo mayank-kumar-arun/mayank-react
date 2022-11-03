@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof RdsWidget>;
 
 const Template: ComponentStory<typeof RdsWidget> = (args) => (
-  <RdsWidget {...args}>{args.content}</RdsWidget>
+  <RdsWidget {...args}>{args.children}</RdsWidget>
 );
 
 export const Default = Template.bind({});

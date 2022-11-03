@@ -12,8 +12,11 @@ const Template: ComponentStory<typeof RdsLineChart> = (args) => <RdsLineChart {.
 
 export const Default = Template.bind({});
 Default.args = {
-  chartLabels:["January", "February", "March", "April", "May", "Jun", "July"],
-  chartOptions: {
+  id:1,
+  height:250,
+  width:650,
+  labels:["January", "February", "March", "April", "May", "Jun", "July"],
+  options: {
     pointStyle: "star",
     radius: 7,
     responsive: true,
@@ -44,7 +47,7 @@ Default.args = {
       intersect: false,
     }
   },
-  chartDataSets: [
+  dataSets: [
     {
       label: "My First Dataset",
       data: [65, 59, 80, 81, 56, 55, 40],

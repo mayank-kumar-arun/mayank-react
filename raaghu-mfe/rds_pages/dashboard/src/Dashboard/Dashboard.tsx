@@ -8,9 +8,12 @@ const TopNavCompo = React.lazy(() => import("rds_components/RdsCompTopNavigation
 
 const Dashboard = () => (
 	<Suspense>
-		<TopNavCompo></TopNavCompo>
+		<TopNavCompo ></TopNavCompo>
+		<div style={{display:"flex"}}>
 		<SideNavCompo></SideNavCompo>
 		<DashboardCompo />					
+
+		</div>
 	</Suspense>
 );
 

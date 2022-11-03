@@ -5,13 +5,14 @@ export interface RdsBarChartProps {
   chartLabels:any[],
   chartOptions:any,
   chartDataSets:any[],
-  chartdata: any[],
   chartWidth: number,
+  chartHeight:number,
   chartStyle:string,
+  id:string
 }
 
 const RdsBarChart = (props: RdsBarChartProps) => {
- const CanvasId = "myChart";
+ const CanvasId = props.id;
   let ctx;
  
 
@@ -33,7 +34,7 @@ const RdsBarChart = (props: RdsBarChartProps) => {
 
   return (
     <div>
-      <canvas id={CanvasId} ref={ctx} />
+      <canvas id={CanvasId} height={props.chartHeight} width={props.chartWidth} ref={ctx} />
     </div>
   );
 };

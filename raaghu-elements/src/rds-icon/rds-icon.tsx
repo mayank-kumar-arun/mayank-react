@@ -10,6 +10,7 @@ export interface RdsIconProps {
   fill?: boolean;
   stroke?: boolean;
   strokeColor?:string;
+  className?:string
 }
 
 const RdsIcon = (props: RdsIconProps) => {
@@ -21,7 +22,7 @@ const RdsIcon = (props: RdsIconProps) => {
   return (
     <>
 
-     <svg style={{
+     <svg className={props.className} style={{
       width: props.width ,
       height: props.height,
       fill: fillProps,

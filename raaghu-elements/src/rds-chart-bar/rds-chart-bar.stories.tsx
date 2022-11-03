@@ -12,6 +12,9 @@ const Template: ComponentStory<typeof RdsBarChart> = (args) => <RdsBarChart {...
 
 export const HorizontalBarChart = Template.bind({});
 HorizontalBarChart.args = {
+  id:1,
+  chartHeight:300,
+  chartWidth:300,
   chartDataSets: [
     {
       label: 'Dataset 1',

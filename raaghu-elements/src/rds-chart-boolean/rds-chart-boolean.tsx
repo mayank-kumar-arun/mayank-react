@@ -5,13 +5,14 @@ export interface RdsBooleanChartProps {
   ChartLabels:any[],
   ChartOptions:any,
   chartDataSets:any[],
-  chartdata: any[],
-  chartWidth: number,
+  chartWidth?: number,
   chartStyle:string,
+  id:string,
+  chartHeight?:number
 }
 
 const RdsBooleanChart = (props: RdsBooleanChartProps) => {
- const CanvasId = "myChart";
+ const CanvasId = props.id;
   let ctx;
  
 
@@ -33,7 +34,7 @@ const RdsBooleanChart = (props: RdsBooleanChartProps) => {
 
   return (
     <div>
-      <canvas id={CanvasId} ref={ctx} />
+      <canvas id={CanvasId} width={props.chartWidth} height={props.chartHeight} ref={ctx} />
     </div>
   );
 };
