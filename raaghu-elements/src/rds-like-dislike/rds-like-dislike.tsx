@@ -10,6 +10,7 @@ export interface RdsLikeDislikeProps {
 const RdsLikeDislike = (props: RdsLikeDislikeProps) => {
   const [like, setLike] = useState(0);
   const [dislike, setDislike] = useState(0);
+
   const likeHandler = () => {
     setLike(like + 1);
     console.log(setLike);
@@ -32,6 +33,7 @@ const RdsLikeDislike = (props: RdsLikeDislikeProps) => {
               width="20px"
               fill={false}
               stroke={true}
+              colorVariant ={props.colorVariant ||"dark"}
             ></RdsIcon>
 
             <span className="ms-2 me-2 ">
@@ -47,6 +49,7 @@ const RdsLikeDislike = (props: RdsLikeDislikeProps) => {
                 width="20px"
                 fill={false}
                 stroke={true}
+                colorVariant ={props.colorVariant ||"dark"}
               ></RdsIcon>
             </div>
             <span className="ms-2">
