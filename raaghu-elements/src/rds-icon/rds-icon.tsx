@@ -19,29 +19,29 @@ const RdsIcon = (props: RdsIconProps) => {
 
   if (props.colorVariant == 'primary') {
     // svg.setAttribute('class', 'icon-' + props.colorVariant);
-    fillColor = '#7E2EEf';
-    strokeColor='#7E2EEf';
+    fillColor = '#007bff';
+    strokeColor='#007bff';
   } else if (props.colorVariant == 'secondary') {
-    fillColor = '#2B0066';
-    strokeColor='#2B0066';
+    fillColor = '#6c757d';
+    strokeColor='#6c757d';
   } else if (props.colorVariant == 'success') {
-    fillColor = '#2EEF59';
-    strokeColor='#2EEF59';
+    fillColor = '#28a745';
+    strokeColor='#28a745';
   } else if (props.colorVariant == 'info') {
-    fillColor = '#3ef1e8';
-    strokeColor='#3ef1e8';
+    fillColor = '#17a2b8';
+    strokeColor='#17a2b8';
   } else if (props.colorVariant == 'warning') {
-    fillColor = '#E3A300';
-    strokeColor='#E3A300';
+    fillColor = '#ffc107';
+    strokeColor='#ffc107';
   } else if (props.colorVariant == 'danger') {
-    fillColor = '#EF2E2E';
-    strokeColor='#EF2E2E';
+    fillColor = '#dc3545';
+    strokeColor='#dc3545';
   } else if (props.colorVariant == 'dark') {
-    fillColor = '#363636';
-    strokeColor='#363636';
+    fillColor = '#343a40';
+    strokeColor='#343a40';
   } else if (props.colorVariant == 'light') {
-    fillColor = '#F8F9FA';
-    strokeColor='#F8F9FA';
+    fillColor = '#f8f9fa';
+    strokeColor='#f8f9fa';
   } else if (props.colorVariant == 'review') {
     fillColor = '#E3A300';
     strokeColor='#E3A300';
