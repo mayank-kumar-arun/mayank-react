@@ -1,14 +1,14 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import RdsCheckbox from "./rds-checkbox";
+import Todos from "./rds-checkbox";
 
 export default {
   title: "Elements/Checkbox",
-  component: RdsCheckbox,
-} as ComponentMeta<typeof RdsCheckbox>;
+  component: Todos,
+} as ComponentMeta<typeof Todos>;
 
-const Template: ComponentStory<typeof RdsCheckbox> = (args) => (
-  <RdsCheckbox {...args} />
+const Template: ComponentStory<typeof Todos> = (args) => (
+  <Todos {...args} />
 );
                                                                                                                                                                                               
 export const Default = Template.bind({});

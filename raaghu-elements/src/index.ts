@@ -27,12 +27,15 @@ export {default as RdsIconLabel} from './rds-icon-label';
 export {default as RdsSearch} from './rds-search';
 export {default as RdsNavbar} from './rds-navbar';
 export {default as RdsDropdownList} from './rds-dropdown-list';
+export {default as RdsFabMenu} from './rds-fab-menu';
 export {default as RdsWidget} from './rds-widget';
 export {default as RdsIllustration} from './rds-illustration';
 export {default as RdsBigNumber} from './rds-big-number';
 export {default as RdsSpinner} from './rds-spinner';
 export {default as RdsLikeDislike} from './rds-like-dislike';
 export {default as RdsTextArea} from './rds-text-area';
+export {default as RdsOffcanvas} from './rds-offcanvas';
+export {default as RdsTable} from './rds-table';
 
 
 //Charts

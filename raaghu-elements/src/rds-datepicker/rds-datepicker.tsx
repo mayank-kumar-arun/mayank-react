@@ -2,123 +2,57 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import React, { useState } from "react";
 import "./rds-datepicker.scss";
 
-// import * as LibDatePicker from "./lib"
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export interface RdsDatepickerProps {
-
+    DatePickerLabel: string
 }
 
 const RdsDatepicker = (props: RdsDatepickerProps) => {
 
-    const today = new Date();
-
-    const weekdaysList = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-
-    const[date, setdate] = useState({
-        weekday: today.getDay(),  //it returns weekday as a number starting from 0
-        day: today.getDate(),
-        month: today.getMonth() + 1,
-        year: today.getFullYear(),
-    })
-
-    // const a=today.getDate();
-    
-    // while(a<0){}
-
-    // for (let a=today.getDate(); a<0; a-=7){}
-
-    // const monthArray = [[],[]]
-
-
-    // const[starting, setStarting] =useState (date.day);
-    // setStarting(date.day-date.weekday);
-    // while(starting>1){
-    //     setStarting(prev => prev-7)
-    // }
-    // const firstDayOfMonth = 7-starting    //weekday of first day of the month, sunday-->0
-
-    // const weeks= [0,1,2,3,4,5 ]
-
-    // let dayOne = 7-((date.day-date.weekday-1)%7) //weekday (0-starting) of first day of the month
-
-    const dayOneWeekday = (new Date(date.year,date.month,1)).getDay();
-    const noOfDaysInPreviousMonth = (new Date(date.year,date.month-1,0)).getDate();
-
-    
-
-    
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(null);
+    const onChange = (dates: [any, any]) => {
+        const [start, end] = dates;
+        setStartDate(start);
+        setEndDate(end);
+    };
 
     return (
         <div>
+            <div>{props.DatePickerLabel}</div>
+            <div className="input-group mb-3">
+                {/* <input type="text" className="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"> */}
+                {/* <input type="text" className="alpha"></input> */}
+                <DatePicker
+                    selected={startDate}
+                    onChange={
+                        (date) => {
+                            if (date != null)
+                                setStartDate(date)
+                            else
+                                setStartDate(new Date())
+                        }}
+                    className="datepicker__input"
+                    wrapperClassName="datepicker__wrapper"
 
-            <div>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-2 text-center">
-                            <span className="btn"> &lt; </span>
-                        </div>
-                        <div className="col-8 text-center"> Selected_date </div>
-                        <div className="col-2 text-center">
-                            <span className="btn"> &gt; </span>
-                        </div>
-                    </div>
-                    <div>
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Sun</th>
-                                    <th scope="col">Mon</th>
-                                    <th scope="col">Tue</th>
-                                    <th scope="col">Wed</th>
-                                    <th scope="col">Thu</th>
-                                    <th scope="col">Fri</th>
-                                    <th scope="col">Sat</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                
-                                <tr>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <td>Larry the Bird</td>
-                                    <td>@fat</td>
-                                    <td>@fat</td>
-                                    <td>@fat</td>
-                                    <td>@fat</td>
-                                    <td>@twitter</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                />
+                <div className="input-group-append datepicker__icon-box">
+                    <span className="input-group-text" id="basic-addon2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-calendar3" viewBox="0 0 16 16">
+                            <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
+                            <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                        </svg>
+                    </span>
                 </div>
             </div>
-
-
-
-            <div>Today: {weekdaysList[date.weekday]} {date.day} {date.month} {date.year} </div>
-
-
-
         </div>
     );
 
 };
 
+
 export default RdsDatepicker;
+
+

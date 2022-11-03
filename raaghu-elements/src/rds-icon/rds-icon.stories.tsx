@@ -21,5 +21,5 @@ Default.args = {
   height:"20px",
   fill: true,
   stroke: true,
-  strokeColor:"red",
+  colorVariant:"primary"
 };
