@@ -18,9 +18,35 @@ export {default as RdsDoubleRange} from './rds-double-range';
 export {default as RdsInputGroup} from './rds-input-group';
 export {default as RdsCarousel} from './rds-carousel';
 export {default as RdsSideNav} from "./rds-side-nav";
+export {default as RdsAccordion} from "./rds-accordion";
+export {default as RdsAlert} from "./rds-alert";
+export {default as RdsBadge} from "./rds-badge";
+export {default as RdsBanner} from "./rds-banner";
+export {default as RdsIcon} from './rds-icon';
+export {default as RdsIconLabel} from './rds-icon-label';
+export {default as RdsSearch} from './rds-search';
+export {default as RdsNavbar} from './rds-navbar';
+export {default as RdsFabMenu} from './rds-fab-menu';
+export {default as RdsWidget} from './rds-widget';
+export {default as RdsIllustration} from './rds-illustration';
+export {default as RdsBigNumber} from './rds-big-number';
+export {default as RdsSpinner} from './rds-spinner';
+export {default as RdsLikeDislike} from './rds-like-dislike';
+export {default as RdsTextArea} from './rds-text-area';
+export {default as RdsOffcanvas} from './rds-offcanvas';
+export {default as RdsTable} from './rds-table';
+
 
 //Charts
 export {default as RdsAreaChart} from "./rds-chart-area";
 export {default as RdsLineChart} from './rds-chart-line';
 export {default as RdsPieChart} from './rds-chart-radar';
-export {default as  RdsDoughnutChart} from './rds-chart-doughnut';
+export {default as RdsDoughnutChart} from './rds-chart-doughnut';
+export {default as RdsBarChart} from './rds-chart-bar';
+export {default as RdsBooleanChart} from './rds-chart-boolean';
+export {default as RdsMixedChart} from './rds-chart-mixed';
+export {default as RdsPolarAreaChart} from './rds-chart-polar-area';
+export {default as RdsRadarChart} from './rds-chart-radar';
+export {default as RdsScatterChart} from './rds-chart-scatter';
+export {default as RdsStackedChart} from './rds-chart-stacked';
+export {default as RdsBubbleChart} from "./rds-chart-bubble";

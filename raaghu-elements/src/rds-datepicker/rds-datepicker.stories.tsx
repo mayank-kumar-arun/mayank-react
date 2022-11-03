@@ -17,5 +17,5 @@ const Template: ComponentStory<typeof RdsDatepicker> = (args) => <RdsDatepicker 
 //👇 Each story then reuses that template
 export const Default = Template.bind({});
 Default.args = {
-
+    DatePickerLabel : "Select Date"
 };
