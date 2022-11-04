@@ -17,7 +17,7 @@ const Main = () =>{
         if( accessToken){
             navigate('/Dashboard');
         }
-    });
+    },[]);
     
     
     return (

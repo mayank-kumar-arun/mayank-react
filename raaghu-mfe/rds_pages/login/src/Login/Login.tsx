@@ -17,6 +17,8 @@ const Login = (props: JSX.IntrinsicAttributes | (JSX.IntrinsicAttributes & React
 
 	
 		const loginHandler = (email:string , password : string)=>{	
+		localStorage.setItem("email", JSON.stringify(email));
+		localStorage.setItem("password", JSON.stringify(password));
 		const authenticateModal = new AuthenticateModel();
 		authenticateModal.userNameOrEmailAddress = email;
 		authenticateModal.password = password;
