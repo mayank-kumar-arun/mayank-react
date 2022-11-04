@@ -1,7 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import RdsWidget from "./rds-widget";
-import "./rds-widget.scss";
 
 export default {
   title: "Elements/Widget",
