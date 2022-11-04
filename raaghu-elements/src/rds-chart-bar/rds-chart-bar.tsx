@@ -2,11 +2,11 @@ import React, { useEffect} from "react";
 import Chart from 'chart.js/auto';
 
 export interface RdsBarChartProps {
-  chartLabels:any[],
-  chartOptions:any,
-  chartDataSets:any[],
-  chartWidth: number,
-  chartHeight:number,
+  labels:any[],
+  options:any,
+  dataSets:any[],
+  width: number,
+  height:number,
   chartStyle:string,
   id:string
 }
@@ -22,19 +22,21 @@ const RdsBarChart = (props: RdsBarChartProps) => {
     ) as HTMLCanvasElement | null;
     ctx = canvasElm?.getContext("2d") as CanvasRenderingContext2D;
     
-    const lineCanvas = new Chart(ctx, {
+    const BarCanvas = new Chart(ctx, {
       type: "bar",
       data: {
-        labels: props.chartLabels,
-        datasets:props.chartDataSets
+        labels: props.labels,
+        datasets:props.dataSets
       },
-      options: props.chartOptions,
+      options: props.options,
     });
+      BarCanvas.canvas.style.height = props.height + 'px';
+      BarCanvas.canvas.style.width = props.width + "px";
   });
 
   return (
     <div>
-      <canvas id={CanvasId} height={props.chartHeight} width={props.chartWidth} ref={ctx} />
+      <canvas id={CanvasId} ref={ctx} />
     </div>
   );
 };

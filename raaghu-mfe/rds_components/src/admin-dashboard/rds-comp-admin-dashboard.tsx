@@ -1,5 +1,5 @@
 import {RdsWidget} from '../rds-elements'
-import {RdsLineChart , RdsBigNumber , RdsDoughnutChart, RdsBooleanChart, RdsBarChart} from '../rds-elements'
+import {RdsLineChart , RdsBigNumber , RdsDoughnutChart, RdsBooleanChart, RdsBarChart,RdsTable} from '../rds-elements'
 const RdsCompAdminDashboard = () =>{
 
     const monthlySummaryChartOptions = () =>{
@@ -12,9 +12,9 @@ const RdsCompAdminDashboard = () =>{
         <div className="dark">
             <div className="row">
                 <div className="col-md-6">
-                    <RdsWidget headerTitle={'Monthly Summary'} className="card-stretch" >
+                    <RdsWidget headerTitle={'Monthly Summary'} isRefreshRequired={true}  class="card-stretch" >
                       <div  >
-                        <RdsLineChart id='LineChart' height={250} width={458} labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']} options={[{radius: 0,
+                        <RdsLineChart id='LineChart'  height={250} width={458} labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']} options={[{radius: 0,
                                                                                                                                                                                                                 pointStyle: 'circle',
                                                                                                                                                                                                                 responsive: true,
                                                                                                                                                                                                                 borderWidth:1,
@@ -90,10 +90,10 @@ const RdsCompAdminDashboard = () =>{
                     <div className="row">
                         <div className="col-md-6">
                             <div>
-                                <RdsWidget headerTitle={'Sales'} className="card-stretch-half">
+                                <RdsWidget headerTitle={'Sales'} isRefreshRequired={false} class="card-stretch-half">
                                 
-                                        <RdsBigNumber className='border-0'  bigNumberItems={[{"icon":"triangle_up","iconHeight":"12px","iconWidth":"12px","iconFill":true ,}]} bigNumber={'$ 3,32,230.00'} subTitle={'+$ 2203.00'} subTitleColorVariant="success" textAlign="start" colorVariant='white' ></RdsBigNumber>
-                                    
+                                    <RdsBigNumber class='border-0'  bigNumberItems={[{"icon":"triangle_up","iconHeight":"12px","iconWidth":"12px","iconFill":true ,}]} bigNumber={'$3,32,230.00'} subTitle={'+$ 2203.00'} subTitleColorVariant="success" textAlign="start" colorVariant='white' ></RdsBigNumber>
+                                 
                                 </RdsWidget>
                                 {/* <rds-widget [isRefreshRequired]="false" [headerTitle]="translate.instant('Sales')" cardheight = 'card-stretch-half'
                                     (onRefresh)="LoadSalesData()">  
@@ -105,7 +105,7 @@ const RdsCompAdminDashboard = () =>{
                                 </rds-widget> */}
                             </div>
                             <div>
-                                <RdsWidget headerTitle={'Revenue'} >
+                                <RdsWidget headerTitle={'Revenue'} isRefreshRequired={false} >
                                     <div>
                                     <RdsBigNumber  bigNumberItems={[{"icon":"triangle_down","iconHeight":"12px","iconWidth":"12px","iconFill":true}]} bigNumber={'$ 9,72,900'} colorVariant="primary" subTitle="-$ 1203.00" textAlign="start" subTitleColorVariant='warning' ></RdsBigNumber>
 
@@ -115,11 +115,11 @@ const RdsCompAdminDashboard = () =>{
                             </div>
                         </div>
                         <div className="col-md-6">
-                            <RdsWidget headerTitle={'Profit Share'}>
+                            <RdsWidget headerTitle={'Profit Share'} isRefreshRequired={true}>
                                 <div>
-                                    < RdsBigNumber bigNumber={'$ 39,330'} textAlign="start" bigNumberItems={[]}  ></RdsBigNumber>
+                                    < RdsBigNumber bigNumber={'$39,330.00'} class="border-0" textAlign="start" bigNumberItems={[]}   ></RdsBigNumber>
                                     <div className="col col-sm-12">
-                                       <RdsDoughnutChart id="doughnutId"  chartHeight={200} chartWidth={255} chartLabels={['Total Sales - 60 %', 'Revenue - 25 %', 'Expenses - 15 %']} chartOptions={{cutoutPercentage: 40,legend: {display: false },responsive: true,  maintainAspectRatio: false,
+                                       <RdsDoughnutChart id="doughnutId" titleText='35K' subTitleText='Profit' height={200} width={255} labels={['Total Sales - 60 %', 'Revenue - 25 %', 'Expenses - 15 %']} options={{cutoutPercentage: 40,legend: {display: false },responsive: true,  maintainAspectRatio: false,
                                                                                                                                                         plugins: {
 
                                                                                                                                                         series: {
@@ -151,7 +151,7 @@ const RdsCompAdminDashboard = () =>{
                                                                                                                                                             },
                                                                                                                                                         },
                                                                                                                                                         }
-                                                                                                                                                        }} chartDataSets={[{
+                                                                                                                                                        }} dataSets={[{
                                                                                                         label: 'Dataset 1',
                                                                                                         data: [60,25,15],
                                                                                                         backgroundColor: [
@@ -187,11 +187,11 @@ const RdsCompAdminDashboard = () =>{
                     <div className="row">
                         <div className="col-md-6">
                             <div>
-                                <RdsWidget headerTitle={'call Overview'}>
+                                <RdsWidget headerTitle={'call Overview'} isRefreshRequired={false}>
                                     <div>
                                         <div className="d-flex align-items-center"> 
                                             <div className="">
-                                                <RdsBooleanChart id='Boolean1' chartHeight={100} chartWidth={100} ChartLabels={['Total Connected calls', 'Total calls']} ChartOptions={{
+                                                <RdsBooleanChart id='Boolean1' height={100} width={100} labels={['Total Connected calls', 'Total calls']} options={{
                                                                                                                                                 elements: {
                                                                                                                                                 center: {
                                                                                                                                                     text: '50%'  //set as you wish
@@ -230,7 +230,7 @@ const RdsCompAdminDashboard = () =>{
                                                                                                                                                 },
                                                                                                                                                 tooltip: { enabled: false },
                                                                                                                                                 }
-                                                                                                                                            }} chartDataSets={[{
+                                                                                                                                            }} dataSets={[{
                                                                                                                     label: 'Dataset 1',
                                                                                                                     data: [80, 100 - 80],
                                                                                                                     fillStyle: '#E1E1E1',
@@ -259,7 +259,7 @@ const RdsCompAdminDashboard = () =>{
                                         </div>
                                         <div className="d-flex align-items-center mt-3">
                                             <div className="">
-                                                <RdsBooleanChart id='Boolean2' chartHeight={100} chartWidth={100} ChartLabels={['Total Client calls connected', 'Total Client calls disconnected']} ChartOptions={{
+                                                <RdsBooleanChart id='Boolean2' height={100} width={100} labels={['Total Client calls connected', 'Total Client calls disconnected']} options={{
                                                                                                                                                                                                                         elements: {
                                                                                                                                                                                                                         center: {
                                                                                                                                                                                                                             text: '50%'  //set as you wish
@@ -299,7 +299,7 @@ const RdsCompAdminDashboard = () =>{
                                                                                                                                                                                                                         },
                                                                                                                                                                                                                         tooltip: { enabled: false },
                                                                                                                                                                                                                         },
-                                                                                                                                                                                                                    }} chartDataSets={[{
+                                                                                                                                                                                                                    }} dataSets={[{
                                                             
                                                                 label: 'Dataset 1',
                                                                 data: [65, 100 - 65],
@@ -333,7 +333,7 @@ const RdsCompAdminDashboard = () =>{
                                 </RdsWidget>
                             </div>
                             <div>
-                                <RdsWidget headerTitle={'Sales'}>
+                                <RdsWidget headerTitle={'Sales'} isRefreshRequired={false}>
                                     <div>
                                     <RdsBigNumber  bigNumberItems={[{"icon":"triangle_up","iconHeight":"12px","iconWidth":"12px","iconFill":true}]} subTitle='-$2203.00' subTitleColorVariant='success' bigNumber={'$3,32,230.00'} textAlign="start"  ></RdsBigNumber>
                                     </div>
@@ -342,10 +342,10 @@ const RdsCompAdminDashboard = () =>{
                         </div>
 
                         <div className="col-md-6">
-                            <RdsWidget headerTitle={'Daily Sales Growth'}>
+                            <RdsWidget headerTitle={'Daily Sales Growth'} isRefreshRequired={true}>
                                 <div >
-                                   <RdsBigNumber  bigNumberItems={[{"icon":"triangle_down","iconHeight":"12px","iconWidth":"12px","iconFill":true}]} bigNumber={'$3,73,960.412'} subTitle="-$5850.75" subTitleColorVariant='danger' textAlign="start"  ></RdsBigNumber>
-                                    <RdsBarChart id='Bar' chartLabels={['10k', '20k','25k', '30k', '40k', '50k', '60k', '70k', '75k', '80k', '90k', '95k']} chartOptions={{
+                                   <RdsBigNumber class='border-0 '  bigNumberItems={[{"icon":"triangle_down","iconHeight":"12px","iconWidth":"12px","iconFill":true}]} bigNumber={'$3,73,960.412'} subTitle="-$5850.75" subTitleColorVariant='danger' textAlign="start"  ></RdsBigNumber>
+                                    <RdsBarChart id='Bar' labels={['10k', '20k','25k', '30k', '40k', '50k', '60k', '70k', '75k', '80k', '90k', '95k']} options={{
                                                                                                                                                                             indexAxis: 'x',
                                                                                                                                                                             elements: {
                                                                                                                                                                             bar: {
@@ -377,7 +377,7 @@ const RdsCompAdminDashboard = () =>{
                                                                                                                                                                                 text: 'Daily Sales Growth'
                                                                                                                                                                             }
                                                                                                                                                                             },
-                                                                                                                                                                        }} chartDataSets={[{
+                                                                                                                                                                        }} dataSets={[{
                                                                                                                                                                             label: 'Sales Growth',
                                                                                                                                                                             data: [15, 67, 34, 78, 45, 87, 76, 32, 50, 14, 35, 22],
                                                                                                                                                                             backgroundColor: 'rgba(54, 162, 235, 1)',
@@ -386,16 +386,24 @@ const RdsCompAdminDashboard = () =>{
                                                                                                                                                                             borderRadius: 10,
                                                                                                                                                                             barThickness : 7,
                                                                                                                                                                             borderSkipped: false,
-                                                                                                                                                                          }]} chartHeight={300} chartWidth={300} chartStyle={''}></RdsBarChart>
+                                                                                                                                                                          }]} height={300} width={300} chartStyle={''}></RdsBarChart>
                                 </div>
                             </RdsWidget>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-6">
-                    <RdsWidget headerTitle={'Member Activity'}>
+                    <RdsWidget headerTitle={'Member Activity'} isRefreshRequired={true}>
                         <div>
-                               Rds Data Table
+                               <RdsTable headerDatas={[{ displayName: 'Member', key: 'member', dataType: 'html' },
+                                                    { displayName: 'Cases', key: 'cases', dataType: 'html' },
+                                                    { displayName: 'Active', key: 'active', dataType: 'html' },
+                                                    { displayName: 'Closed', key: 'closed', dataType: 'html' },
+                                                    { displayName: 'Rate', key: 'rate', dataType: 'html' }]} tableDatas={[{ "cases": <div className="d-flex align-items-center justify-content-center\"><div> 10 </div></div>, "member": <div className="d-flex align-items-center"><div> <img src="dashboard-data.png" width="40px" /></div><div className="ms-2 mt-2\"><p className="mb-0\"><b>Brian</b></p><small className="text-muted\">Software Developer </small></div></div>, "active": <div className="d-flex align-items-center justify-content-center\"><div> 38 </div></div>, "closed": <div className="d-flex align-items-center justify-content-center\"><div> 10 </div></div>, "rate": <div className="\HighRate d-flex align-items-center justify-content-center\">92%</div> }
+                                                    , { "cases": <div className="d-flex align-items-center justify-content-center\"><div> 18 </div></div>, "member": <div className="d-flex align-items-center\"><div> <img src="dashboard-data.png" width="40px"/></div><div className="ms-2 mt-2"><p className="mb-0"><b>Kim</b></p><small className="text-muted\">Senior Developer </small></div></div>, "active": <div className="d-flex align-items-center justify-content-center\"><div> 342 </div></div>, "closed": <div className="d-flex align-items-center justify-content-center\"><div> 25 </div></div>, "rate": <div className="MidRate d-flex align-items-center justify-content-center\">42%</div> }
+                                                    , { "cases": <div className="d-flex align-items-center justify-content-center\"><div> 7 </div></div>, "member": <div className="d-flex align-items-center\"><div> <img src="dashboard-data.png" width="40px\"/></div><div className="ms-2 mt-2\"><p className="mb-0\"><b>Jane</b></p><small className="text-muted\">Sales Executive </small></div></div>, "active": <div className="d-flex align-items-center justify-content-center\"><div> 25 </div></div>, "closed": <div className="d-flex align-items-center justify-content-center\"><div> 5 </div></div>, "rate": <div className="HighRate d-flex align-items-center justify-content-center\">96%</div>}
+                                                    , { "cases": <div className="d-flex align-items-center justify-content-center\"><div> 14 </div></div>, "member": <div className="d-flex align-items-center\"><div> <img src="dashboard-data.png" width="40px\"/></div><div className="ms-2 mt-2\"><p className="mb-0\"><b>Brian</b></p><small className="text-muted\">Software Developer</small></div></div>, "active": <div className="d-flex align-items-center justify-content-center\"><div> 42 </div></div>, "closed": <div className="d-flex align-items-center justify-content-center\"><div> 42 </div></div>, "rate": <div className="LowRate d-flex align-items-center justify-content-center\">16%</div>}
+                                                    , { "cases": <div className="d-flex align-items-center justify-content-center\"><div> 13 </div></div>, "member": <div className="d-flex align-items-center\"><div> <img src="dashboard-data.png" width="40px\"/></div><div className="ms-2 mt-2\"><p className="mb-0\"><b>Kath</b></p><small className="text-muted\">Manager </small></div></div>, "active": <div className="d-flex align-items-center justify-content-center\"><div> 10 </div></div>, "closed": <div className="d-flex align-items-center justify-content-center\"><div> 3 </div></div>, "rate": <div className="MidRate d-flex align-items-center justify-content-center\">52%</div>}]}></RdsTable>
                         </div>
                         
                     </RdsWidget>

@@ -55,7 +55,7 @@ const RdsCompTopNavigation = () =>{
                                     <a className="nav-link py-0" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
                                         <span>
-                                            <RdsButton className="position-relative" tooltipTitle={''} type={'button'} roundedButton colorVariant='default'>
+                                            <RdsButton class="position-relative" tooltipTitle={''} type={'button'} roundedButton colorVariant='default'>
                                                 <RdsIcon name={'notification'} width="20px" height='20px'></RdsIcon>
                                                 {/* <RdsBadge label={''} number={0}  size="smallest" badgeType='primary' icon={''} buttonColor={''} badgeColor={''}></RdsBadge> */}
                                             </RdsButton>
@@ -112,7 +112,7 @@ const RdsCompTopNavigation = () =>{
                                     <div className="pe-auto">
                                         <span className="text-decoration-none"  onClick={redirect}>
                                             <span>Host Admin</span>
-                                            <RdsIcon name={'chevron_down_arrow'} height="15px" width='15px' className='ms-3'></RdsIcon>
+                                            <RdsIcon name={'chevron_down_arrow'} height="15px" width='15px' class='ms-3'></RdsIcon>
                                             <p className="mb-0  text-muted user-role">
                                                admin
                                             </p>

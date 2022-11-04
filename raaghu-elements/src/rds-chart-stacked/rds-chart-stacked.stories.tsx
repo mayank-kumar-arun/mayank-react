@@ -12,7 +12,10 @@ const Template: ComponentStory<typeof RdsStackedChart> = (args) => <RdsStackedCh
 
 export const Default = Template.bind({});
 Default.args = {
-  chartLabels:[
+  id:"Stacked Chart",
+  width:300,
+  height:300,
+  labels:[
     "Jan",
     "Feb",
     "Mar",
@@ -26,7 +29,7 @@ Default.args = {
     "Nov",
     "Dec"
   ],
-  chartOptions:{
+  options:{
     "radius": 3,
     "pointStyle": "triangle",
     "plugins": {
@@ -166,7 +169,7 @@ Default.args = {
       }
     }
   },
-  chartDataSets:[
+  dataSets:[
     {
       "label": "My Second dataset",
       "data": [

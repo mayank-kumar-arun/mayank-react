@@ -2,13 +2,13 @@ import React, { useEffect} from "react";
 import Chart from 'chart.js/auto';
 
 export interface RdsBooleanChartProps {
-  ChartLabels:any[],
-  ChartOptions:any,
-  chartDataSets:any[],
-  chartWidth?: number,
+  labels:any[],
+  options:any,
+  dataSets:any[],
+  width?: number,
   chartStyle:string,
   id:string,
-  chartHeight?:number
+  height?:number
 }
 
 const RdsBooleanChart = (props: RdsBooleanChartProps) => {
@@ -22,19 +22,21 @@ const RdsBooleanChart = (props: RdsBooleanChartProps) => {
     ) as HTMLCanvasElement | null;
     ctx = canvasElm?.getContext("2d") as CanvasRenderingContext2D;
     
-    const lineCanvas = new Chart(ctx, {
+    const BoolCanvas = new Chart(ctx, {
       type: "doughnut",
       data: {
-        labels: props.ChartLabels,
-        datasets:props.chartDataSets
+        labels: props.labels,
+        datasets:props.dataSets
       },
-      options: props.ChartOptions,
+      options: props.options,
     });
+      BoolCanvas.canvas.style.height = props.height + 'px';
+      BoolCanvas.canvas.style.width = props.width + "px";
   });
 
   return (
     <div>
-      <canvas id={CanvasId} width={props.chartWidth} height={props.chartHeight} ref={ctx} />
+      <canvas id={CanvasId} ref={ctx} />
     </div>
   );
 };

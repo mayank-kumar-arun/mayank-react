@@ -10,8 +10,8 @@ export interface RdsBigNumberProps {
   bigNumber:string 
   subTitle?:string,
   bigNumberItems:any[],
-  className?:string
-
+  class?:string,
+  style?:any,
   //isBackground?:boolean;
 }
 
@@ -25,38 +25,40 @@ const RdsBigNumber = (props: RdsBigNumberProps) => {
   let subTitleColor = "text-" +(props.subTitleColorVariant || "primary");
   return (
     <Fragment>
-    {isBg==="true" && <div className={`card ${Align} ${bgColor} ${props.className}`} > 
-    {props.bigNumberItems.map((item: any) => (
-        <div className="card-body">
+    {isBg==="true" && <div className={`card ${Align} ${bgColor} ${props.class} `} > 
+    <div className="card-body ">
           <h1 className="card-title">{props.bigNumber}</h1>
           <h6 className={`card-text ${subTitleColor}`}> 
+    {props.bigNumberItems.map((item: any) => (
+        
           <RdsIcon
                     name={item.icon}
                     fill={item.iconFill}
-                    colorFill={item.colorFill}
                     stroke={item.iconStroke}
                     height={item.iconHeight}
                     width={item.iconWidth}
                     strokeColor={item.strokeColor}
                     
-                  />{props.subTitle}</h6>
-        </div>))}
+                  />))}
+                  {props.subTitle}</h6>
+        </div>
       </div>}
-      { isBg==="false" && <div className={`card ${Align}`}>  
-      {props.bigNumberItems.map((item: any) => (
-        <div className="card-body">
+      { isBg==="false" && <div className={`card ${Align} ${props.class}`}>  
+      <div className="card-body p-0">
           <h1 className="card-title">{props.bigNumber}</h1>
           <h6 className={`card-text ${subTitleColor}`}> 
+      {props.bigNumberItems.map((item: any) => (
+       
           <RdsIcon
                     name={item.icon}
                     fill={item.iconFill}
-                    colorFill={item.colorFill}
                     stroke={item.iconStroke}
                     height={item.iconHeight}
                     width={item.iconWidth}
                     strokeColor={item.strokeColor}
-                  />{props.subTitle}</h6>
-        </div>))}
+                  />))}
+                  {props.subTitle}</h6>
+        </div>
       </div>}
     </Fragment>
   );

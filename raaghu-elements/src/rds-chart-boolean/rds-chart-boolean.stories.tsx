@@ -13,9 +13,9 @@ const Template: ComponentStory<typeof RdsBooleanChart> = (args) => <RdsBooleanCh
 export const Default = Template.bind({});
 Default.args = {
   id:1,
-  chartHeight:100,
-  chartWidht:100,
-  chartDataSets: [
+  height:100,
+  widht:100,
+  dataSets: [
     {
       label: 'Dataset 1',
       data: [20, 10],
@@ -38,9 +38,9 @@ Default.args = {
       },
     }
   ],
-  ChartLabels: ['green', 'grey'],
+  labels: ['green', 'grey'],
 
-  ChartOptions: {
+  options: {
     maintainAspectRatio: false,
     elements: {
       center: {

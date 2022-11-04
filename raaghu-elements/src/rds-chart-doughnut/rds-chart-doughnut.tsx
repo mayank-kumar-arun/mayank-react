@@ -4,15 +4,14 @@ import Chart from 'chart.js/auto';
 
 export interface RdsDoughnutprops {
   children: ReactNode;
-  chartLabels:any[],
-  chartOptions:any,
-  chartDataSets:any[],
+  labels:any[],
+  options:any,
+  dataSets:any[],
   id:string,
-  chartHeight?:number,
-  chartWidth?:number,
-  
-  titleText:string,
-  subTitleText:string,
+  height?:number,
+  width?:number,
+  titleText?:string,
+  subTitleText?:string,
 }
 
 const RdsDoughnutChart = (props:RdsDoughnutprops) => {
@@ -47,16 +46,18 @@ const RdsDoughnutChart = (props:RdsDoughnutprops) => {
       type:'doughnut',
       plugins:[centerText] ,
       data: {
-        labels: props.chartLabels,
-        datasets:props.chartDataSets
+        labels: props.labels,
+        datasets:props.dataSets
       },
-      options: props.chartOptions,
+      options: props.options,
     });
+      DoughnutCanvas.canvas.style.height = props.height + 'px';
+      DoughnutCanvas.canvas.style.width = props.width + "px";
   });
 
   return (
     <div>
-      <canvas id={CanvasId}  ref={ctx} height={props.chartHeight} width={props.chartWidth}>{props.children}</canvas>
+      <canvas id={CanvasId}  ref={ctx}>{props.children}</canvas>
     </div>
   );
 };

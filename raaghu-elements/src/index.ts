@@ -41,7 +41,7 @@ export {default as RdsTable} from './rds-table';
 //Charts
 export {default as RdsAreaChart} from "./rds-chart-area";
 export {default as RdsLineChart} from './rds-chart-line';
-export {default as RdsPieChart} from './rds-chart-radar';
+export {default as RdsPieChart} from './rds-chart-Pie';
 export {default as RdsDoughnutChart} from './rds-chart-doughnut';
 export {default as RdsBarChart} from './rds-chart-bar';
 export {default as RdsBooleanChart} from './rds-chart-boolean';

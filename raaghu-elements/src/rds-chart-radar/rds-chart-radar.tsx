@@ -1,16 +1,18 @@
 import React, { useEffect} from "react";
 import Chart from 'chart.js/auto';
-//import "./rds-chart-Radar.scss"
+import "./rds-chart-radar.scss";
 
 export interface RdsRadarprops {
-  chartLabels:any[],
-  chartOptions:any,
-  chartDataSets:any[],
-  
+  labels:any[],
+  options:any,
+  dataSets:any[],
+  height?:number,
+  width?:number,
+  id:string
 }
 
 const RdsRadarChart = (props:RdsRadarprops) => {
- const CanvasId = "myChart";
+ const CanvasId = props.id;
   let ctx;
  
 
@@ -23,11 +25,13 @@ const RdsRadarChart = (props:RdsRadarprops) => {
     const RadarCanvas = new Chart(ctx, {
       type: "radar",
       data: {
-        labels: props.chartLabels,
-        datasets:props.chartDataSets
+        labels: props.labels,
+        datasets:props.dataSets
       },
-      options: props.chartOptions,
+      options: props.options,
     });
+      RadarCanvas.canvas.style.height = props.height + 'px';
+      RadarCanvas.canvas.style.width = props.width + "px";
   });
 
   return (
