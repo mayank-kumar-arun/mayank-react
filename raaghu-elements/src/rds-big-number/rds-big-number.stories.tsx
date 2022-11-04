@@ -52,13 +52,6 @@ const Template: ComponentStory<typeof RdsBigNumber> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   bigNumberItems:[
-{"icon": "star",
-"iconHeight": "20px",
-"iconWidth": "20px",
-"iconFill": false,
-"colorFill": "#7e2eef",
-"strokeColor":"#7e2eef"
-}
   ],
   colorVariant: "light",
   textAlign: "center",

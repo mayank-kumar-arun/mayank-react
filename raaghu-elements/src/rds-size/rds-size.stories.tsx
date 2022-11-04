@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Todos from "./rds-size";
 
 export default {
-  title: "Elements/Size11",
+  title: "Elements/Size",
   component: Todos,
   argTypes: {
     colorVariant: {

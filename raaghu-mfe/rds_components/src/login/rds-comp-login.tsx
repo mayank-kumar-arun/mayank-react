@@ -1,4 +1,4 @@
-import React,  { useState } from 'react'
+import React,  { useEffect, useState } from 'react'
 import {RdsInput} from '../rds-elements';
 import {RdsButton} from '../rds-elements';
 import {RdsCheckbox} from '../rds-elements';
@@ -11,10 +11,22 @@ export interface RdsCompLoginProps {
 
 const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => {
 
-	const [email,setEmail] = useState('');
-	const [password , setPassword] = useState('');
+	const [email, setEmail] = useState('');
+
+	const [password, setPassword] = useState('');
+	// const [password , setPassword] = useState('');
 	const [error1, setError1] = useState('');
     const [error2, setError2] = useState('');
+
+	// useEffect(() => {
+	// 	// storing input email
+	// 	localStorage.setItem("email", JSON.stringify(email));
+	//   }, [email]);
+
+	// useEffect(() => {
+	// 	// storing input password
+	// 	localStorage.setItem("password", JSON.stringify(password));
+	//   }, [password]);
 	
 	const isEmailValid = (email: any) => {
 		if (!email || email.length === 0) {
