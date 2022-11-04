@@ -6,7 +6,7 @@ import RdsIcon from "../rds-icon/rds-icon";
 export interface RdsWidgetProps {
   // colorVarient?:Colors,
   headerTitle: string;
-  content:any;
+  children:any;
   isRefreshRequired?: boolean ;
   onRefresh?: ( React.MouseEventHandler<HTMLElement>);
 }
@@ -32,7 +32,7 @@ const RdsWidget = (props:RdsWidgetProps) => {
             ></RdsIcon>}
           </div>
          </div>
-        <div className="Content"> {props.content}</div>
+        <div className="Content"> {props.children}</div>
       </div>
     </Fragment>
   );

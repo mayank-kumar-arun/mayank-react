@@ -25,36 +25,41 @@ const RdsBigNumber = (props: RdsBigNumberProps) => {
   return (
     <Fragment>
     {isBg==="true" && <div className={`card ${Align} ${bgColor}`} > 
-    {props.bigNumberItems.map((item: any) => (
-        <div className="card-body">
+    <div className="card-body">
           <h1 className="card-title">{props.bigNumber}</h1>
           <h6 className={`card-text ${subTitleColor}`}> 
+    {props.bigNumberItems.map((item: any) => (
+        
           <RdsIcon
                     name={item.icon}
                     fill={item.iconFill}
-                    // colorFill={item.colorFill}
+                    colorVariant={item.colorFill}
                     stroke={item.iconStroke}
                     height={item.iconHeight}
                     width={item.iconWidth}
                     
-                  />{props.subTitle}</h6>
-        </div>))}
+                  />
+        ))}
+        {props.subTitle}</h6>
+        </div>
       </div>}
       { isBg==="false" && <div className={`card ${Align}`}  style={{ background: background }}>  
-      {props.bigNumberItems.map((item: any) => (
-        <div className="card-body">
+      <div className="card-body">
           <h1 className="card-title">{props.bigNumber}</h1>
           <h6 className={`card-text ${subTitleColor}`}> 
+      {props.bigNumberItems.map((item: any) => (
+        
           <RdsIcon
                     name={item.icon}
                     fill={item.iconFill}
-                    // colorFill={item.colorFill}
+                    colorVariant={item.colorFill}
                     stroke={item.iconStroke}
                     height={item.iconHeight}
                     width={item.iconWidth}
                     
-                  />{props.subTitle}</h6>
-        </div>))}
+                  />))}
+                  {props.subTitle}</h6>
+        </div>
       </div>}
     </Fragment>
   );

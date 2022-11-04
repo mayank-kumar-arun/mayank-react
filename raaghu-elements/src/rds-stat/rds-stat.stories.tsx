@@ -37,6 +37,7 @@ const Template: ComponentStory<typeof RdsStat> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
     displayType:"basic",
+    colorVariant: "primary",
     items: [
         {
           "title": "SAM SMITH",
@@ -45,8 +46,7 @@ Default.args = {
           "iconHeight": "80px",
           "iconWidth": "80px",
           "iconFill": true,
-          "colorFill": "#7e2eef",
-          "strokeColor":"#7e2eef"
+          
         },
       ]
 };

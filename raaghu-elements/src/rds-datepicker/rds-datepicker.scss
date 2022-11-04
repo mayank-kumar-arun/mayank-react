@@ -29,3 +29,16 @@ input{
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
 }
+
+
+.dropClass{
+    display: none;
+}
+
+.daterange__dropdown-item{
+    background-color: white;
+}
+.daterange__dropdown-item:hover{
+    background-color: lightblue;
+    color: white;
+}
