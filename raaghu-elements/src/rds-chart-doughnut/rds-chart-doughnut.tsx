@@ -53,7 +53,10 @@ const RdsDoughnutChart = (props:RdsDoughnutprops) => {
     });
       DoughnutCanvas.canvas.style.height = props.height + 'px';
       DoughnutCanvas.canvas.style.width = props.width + "px";
-  });
+      return () => {
+        DoughnutCanvas.destroy()
+      }
+  },[]);
 
   return (
     <div>

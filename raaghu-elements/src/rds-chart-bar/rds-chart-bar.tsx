@@ -32,7 +32,10 @@ const RdsBarChart = (props: RdsBarChartProps) => {
     });
       BarCanvas.canvas.style.height = props.height + 'px';
       BarCanvas.canvas.style.width = props.width + "px";
-  });
+      return () => {
+        BarCanvas.destroy()
+      }
+  },[]);
 
   return (
     <div>

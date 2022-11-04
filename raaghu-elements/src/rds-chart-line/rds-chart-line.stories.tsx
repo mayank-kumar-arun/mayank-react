@@ -12,7 +12,6 @@ const Template: ComponentStory<typeof RdsLineChart> = (args) => <RdsLineChart {.
 
 export const Default = Template.bind({});
 Default.args = {
-  id:1,
   height:250,
   width:650,
   labels:["January", "February", "March", "April", "May", "Jun", "July"],

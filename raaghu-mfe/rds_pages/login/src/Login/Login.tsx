@@ -48,8 +48,6 @@ const Login = (props: JSX.IntrinsicAttributes | (JSX.IntrinsicAttributes & React
 								<source src = "building_lights.mp4" type="video/mp4"></source>
 							</video>
 							<img className="position-absolute" style={{zIndex: '3' ,  backgroundSize: "cover" , top: 240 , left:196,width:50, height:50}} src="raaghu_icon.png"></img>
-							
-							
 			            </div>	
 
 			    </div>

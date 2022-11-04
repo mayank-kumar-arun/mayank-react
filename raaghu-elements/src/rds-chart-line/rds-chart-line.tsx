@@ -12,7 +12,7 @@ export interface Rdslineprops {
 }
 
 const RdsLineChart = (props:Rdslineprops) => {
- const CanvasId = props.id;
+ let CanvasId = props.id;
   let ctx;
  
 
@@ -30,10 +30,12 @@ const RdsLineChart = (props:Rdslineprops) => {
       },
       options: props.options,
     });
-
-      lineCanvas.canvas.style.height = props.height + 'px';
-      lineCanvas.canvas.style.width = props.width + "px";
-  });
+    lineCanvas.canvas.style.height = props.height + 'px';
+    lineCanvas.canvas.style.width = props.width + "px";
+    return () => {
+      lineCanvas.destroy()
+    }
+  },[]);
   
 
   return (

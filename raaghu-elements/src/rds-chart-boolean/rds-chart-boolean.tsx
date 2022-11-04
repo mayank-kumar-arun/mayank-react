@@ -32,7 +32,10 @@ const RdsBooleanChart = (props: RdsBooleanChartProps) => {
     });
       BoolCanvas.canvas.style.height = props.height + 'px';
       BoolCanvas.canvas.style.width = props.width + "px";
-  });
+      return () => {
+        BoolCanvas.destroy()
+      }
+  },[]);
 
   return (
     <div>

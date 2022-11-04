@@ -14,7 +14,7 @@ const RdsCompAdminDashboard = () =>{
                 <div className="col-md-6">
                     <RdsWidget headerTitle={'Monthly Summary'} isRefreshRequired={true}  class="card-stretch" >
                       <div  >
-                        <RdsLineChart id='LineChart'  height={250} width={458} labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']} options={[{radius: 0,
+                        <RdsLineChart id='line chart'  height={250} width={458} labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']} options={[{radius: 0,
                                                                                                                                                                                                                 pointStyle: 'circle',
                                                                                                                                                                                                                 responsive: true,
                                                                                                                                                                                                                 borderWidth:1,
