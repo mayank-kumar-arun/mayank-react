@@ -52,7 +52,7 @@ export class AccountServiceProxy {
             return response.text().then((_responseText) => {
             let result200: any = null;
             let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = IsTenantAvailableOutput.fromJS(resultData200);
+            result200 = IsTenantAvailableOutput.fromJS(resultData200.result);
             return result200;
             });
         } else if (status !== 200 && status !== 204) {
@@ -8814,7 +8814,7 @@ export class TokenAuthServiceProxy {
             return response.text().then((_responseText) => {
             let result200: any = null;
             let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = AuthenticateResultModel.fromJS(resultData200);
+            result200 = AuthenticateResultModel.fromJS(resultData200.result);
             return result200;
             });
         } else if (status !== 200 && status !== 204) {

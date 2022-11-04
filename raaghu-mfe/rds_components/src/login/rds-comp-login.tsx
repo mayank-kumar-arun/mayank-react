@@ -49,18 +49,12 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
  
 	const isFormValid = isPasswordValid(password) && isEmailValid(email)
 
-    const handleSubmit = (event : any) => {
-        console.log(email);
-        console.log(password);
+    const handleSubmit = (event : React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 		props.onLogin(email,password)
 		setEmail('');
-		setPassword('');
-		navigate("/Dashboard")
-		
+		setPassword('');		
     }
-
-	
 	return (
 		
 		<div >
@@ -73,7 +67,7 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
 					<RdsInput
 						label='Email/Username'
 						placeholder='Email/Username'
-						inputType='text'
+						inputType='email/text'
 						onChange={emailhandleChange}
 						value = {email}
 						name = {'email'}
@@ -85,29 +79,26 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
 					<RdsInput
 						label='Password'
 						placeholder='Password'
-						inputType='password'
-						onChange={passwordhandleChange}
-						name ={'password'}
-						value={password}
+						inputType = 'password'
+						onChange = {passwordhandleChange}
+						name = {'password'}
+						value = {password}
 					></RdsInput>
 					{error2 && <span style={{color: 'red'}}>{error2}</span>}
 				</div>
-                <div style={{display : 'flex' , justifyContent:'space-between', marginBottom : 30}}>
-				<RdsCheckbox label={'Remember me'} checked ></RdsCheckbox>
-				<a  href='#' style={{textDecoration : 'none'}}>Forgot password ?</a>
+                <div style = {{display : 'flex' , justifyContent:'space-between', marginBottom : 30}}>
+				<RdsCheckbox label = {'Remember me'} checked></RdsCheckbox>
+				<a  href='#' style = {{textDecoration : 'none'}}>Forgot password ?</a>
 
-				</div>
-				
+				</div>				
 			  <RdsButton
-					label='Login'
-					colorVariant='primary'
-					isDisabled ={!isFormValid}
-					block={true} tooltipTitle={''}
-					type="submit"	
-					onClick={handleSubmit}			
+					label = 'Login'
+					colorVariant ='primary'
+					isDisabled = {!isFormValid}
+					block = {true} tooltipTitle={''}
+					type = "submit"				
 				/>           
 			</form>
-
 		</div>
 	);
 };
