@@ -8,16 +8,14 @@ export interface RdsOffcanvasProps {
 }
 
 const RdsOffcanvas = (props: RdsOffcanvasProps) => {
-  let offcanvasPlacement =
-    props.placement == "top"
+  let offcanvasPlacement =`${ props.placement == "top"
       ? "offcanvasTop"
       : props.placement == "end"
       ? "offcanvasRight"
       : props.placement == "bottom"
       ? "offcanvasBottom"
-      : (props.placement = "start" ? "offcanvasStart" : "offcanvasRight");
+      : props.placement == "start" ? "offcanvasStart" : "offcanvasRight"}`;
 
-      console.log(`#${offcanvasPlacement}`)
   return (
     <>
       <button
