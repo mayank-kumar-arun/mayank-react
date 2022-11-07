@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { Colors } from "../Types";
+import "./rds-spinner.scss"
 
 export interface RdsSpinnerProps {
   spinnerType?: string;
@@ -16,6 +17,7 @@ const RdsSpinner = (props: RdsSpinnerProps) => {
       {spinner=="grow"&& <div className={"spinner-grow"+` ${txtColor}`} role="status">
         <span className="visually-hidden">Loading...</span>
       </div>}
+     
     </Fragment>
   );
 };

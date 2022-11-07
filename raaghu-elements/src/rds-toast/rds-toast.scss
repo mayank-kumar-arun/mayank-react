@@ -1,0 +1,13 @@
+@import "../style.scss";
+
+.closed{
+    display: none !important;
+}
+.showed{
+    display: block !important;
+}
+.toastbody{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

@@ -33,8 +33,8 @@ const RdsBigNumber = (props: RdsBigNumberProps) => {
         
           <RdsIcon
                     name={item.icon}
+                    colorVariant={item.colorVariant}
                     fill={item.iconFill}
-                    colorVariant={item.colorFill}
                     stroke={item.iconStroke}
                     height={item.iconHeight}
                     width={item.iconWidth}
@@ -52,6 +52,7 @@ const RdsBigNumber = (props: RdsBigNumberProps) => {
        
           <RdsIcon
                     name={item.icon}
+                    colorVariant={item.colorVariant}
                     fill={item.iconFill}
                     stroke={item.iconStroke}
                     height={item.iconHeight}
