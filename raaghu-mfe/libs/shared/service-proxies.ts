@@ -9,7 +9,7 @@
 // ReSharper disable InconsistentNaming
 
 import { DateTime, Duration } from "luxon";
-const BASE_URL:string = "https://anzdemoapi.raaghu.io";
+export const BASE_URL:string = "https://anzdemoapi.raaghu.io";
 export class AccountServiceProxy {
     private http: { fetch(url: RequestInfo, init?: RequestInit): Promise<Response> };
     private baseUrl: string;

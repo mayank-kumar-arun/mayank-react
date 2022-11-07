@@ -1,23 +1,23 @@
 import React, { Suspense, useEffect } from "react";
-import {  Route,useNavigate,Routes} from "react-router-dom";
+import {  Route,useNavigate,Routes, Navigate} from "react-router-dom";
 const DashboardCompo = React.lazy(() => import("Dashboard/Dashboard"));
 const LoginCompo = React.lazy(() => import("Login/Login"));
 const Main = () =>{
     const navigate = useNavigate();
-    const loginCredentials = localStorage.getItem('persist:root');
-    if(loginCredentials != null){
+    var accessToken:string|undefined = undefined;
+   
+    useEffect(() => {
+        const loginCredentials = localStorage.getItem('persist:root');
+        if(loginCredentials != null){
         var credentials = JSON.parse(loginCredentials);
         var parsedCredentials = JSON.parse(credentials.login);
-        var accessToken = parsedCredentials.accessToken;
+        accessToken = parsedCredentials.accessToken;
+       
     }
-    // if( accessToken){
-    //     navigate('/Dashboard');
-    // }
-    useEffect(() => {
-        if( accessToken){
+        if(accessToken){
             navigate('/Dashboard');
         }
-    },[]);
+    },[accessToken]);
     
     
     return (
