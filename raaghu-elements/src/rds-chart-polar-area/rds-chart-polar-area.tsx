@@ -2,16 +2,17 @@ import React, { useEffect} from "react";
 import Chart from 'chart.js/auto';
 
 export interface RdsPolarAreaChartProps {
-  chartLabels:any[],
-  chartOptions:any,
-  chartDataSets:any[],
-  chartdata: any[],
-  chartWidth: number,
+  labels:any[],
+  options:any,
+  dataSets:any[],
+  width?: number,
+  height?:number,
   chartStyle:string,
+  id:string
 }
 
 const RdsPolarAreaChart = (props: RdsPolarAreaChartProps) => {
- const CanvasId = "myChart";
+ const CanvasId = props.id;
   let ctx;
  
 
@@ -21,14 +22,16 @@ const RdsPolarAreaChart = (props: RdsPolarAreaChartProps) => {
     ) as HTMLCanvasElement | null;
     ctx = canvasElm?.getContext("2d") as CanvasRenderingContext2D;
     
-    const lineCanvas = new Chart(ctx, {
+    const PolarCanvas = new Chart(ctx, {
       type: "polarArea",
       data: {
-        labels: props.chartLabels,
-        datasets:props.chartDataSets
+        labels: props.labels,
+        datasets:props.dataSets
       },
-      options: props.chartOptions,
+      options: props.options,
     });
+    PolarCanvas.canvas.style.height = props.height + 'px';
+    PolarCanvas.canvas.style.width = props.width + "px";
   });
 
   return (

@@ -58,7 +58,7 @@ const RdsIcon = (props: RdsIconProps) => {
   return (
     <>
 
-     <svg style={{
+     <svg  style={{
       width: props.width ,
       height: props.height,
       fill: fillProps!,

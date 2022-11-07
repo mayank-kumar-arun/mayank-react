@@ -4,29 +4,20 @@ import { useNavigate } from "react-router-dom";
 
 
 const DashboardCompo = React.lazy(() => import("rds_components/RdsCompAdminDashboard"));
+const SideNavCompo = React.lazy(() => import("rds_components/RdsCompSideNavigation"));
+const TopNavCompo = React.lazy(() => import("rds_components/RdsCompTopNavigation"));
 
-var version = process.env.BUILD_DATE;
 
+const Dashboard = () => (
+	<Suspense>
+		<TopNavCompo ></TopNavCompo>
+		<div style={{display:"flex"}}>
+		<SideNavCompo></SideNavCompo>
+		<DashboardCompo />					
 
-const Dashboard = () => {
-	const navigate =	useNavigate();
-	const logout = ()=>{ 
-	
-		localStorage.removeItem("email");
-		localStorage.removeItem("password");
-		localStorage.removeItem("persist:root");
-		// localStorage.removeItem("LoginCredential");
-		
-		navigate('/')
-	}
-	
-return (
-	<Suspense> 
-		
-		Latest Build Date:{version}
-	<button className="btn btn-primary" onClick = {logout}>Log out</button>
-		<DashboardCompo />				
-	</Suspense>)
-}
+		</div>
+	</Suspense>
+);
 
 export default Dashboard;
+

@@ -15,7 +15,7 @@ module.exports = (env, argv) => {
     entry: "./src/index.ts",
     mode: process.env.NODE_ENV || "development",
     devServer: {
-      port: 8004,
+      port: 8003,
       open: true,
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -65,11 +65,11 @@ module.exports = (env, argv) => {
         "process.env": JSON.stringify(process.env),
       }),
       new ModuleFederationPlugin({
-        name: "Login",
+        name: "ForgotPassword",
         filename: "remoteEntry.js",
         exposes: {
         // expose each page
-        "./Login": "./src/Login/Login"
+        "./ForgotPassword": "./src/forgot-password/forgot-password"
       },
         remotes: {
           rds_components: isProduction ? process.env.PROD_APP1 : process.env.DEV_APP1,

@@ -33,25 +33,29 @@ const Login = (props: JSX.IntrinsicAttributes | (JSX.IntrinsicAttributes & React
 			{/* {accessToken!=undefined && <h1>Loggedin</h1>} */}
 		    <div className="align-items-center d-flex justify-content-center login m-auto" style={{width: 900, height: '100%'}} >
 		      <div className="container-fluid m-2">
-			    <div className="bg-white row rounded-3 ">
+			    <div className="bg-white row rounded-3 " style={{height: 524}}>
 			      <div className="col-md-6">
                      <div className="py-4 px-3">
-                          <div className="pb-2">
+                          <div className="pb-4">
 				            <div  className="text-center">
-					         <img src="Raaghu-logo-mfe-black.png"></img>
+					         <img src="raaghu_text_logo.svg"></img>
 					        </div>
 				         </div>					 
 		                 <RdsCompLogin  onLogin = {loginHandler}/>
 	                 </div>
-			 </div>
-			  <div className="col-md-6 order-1 order-sm-2 rounded-end position-relative align-items-center p-0" 
-			    style={{backgroundImage: "url(/bg_1.png)" , backgroundSize: "cover" ,  backgroundPosition: "bottom" ,  backgroundRepeat: "no-repeat" ,  backgroundColor: "#000"}}>
-				 <div className="raghu1" style={{zIndex:3 ,  backgroundImage: "url(raaghu_icon.png)" , backgroundSize: "cover"}}></div>
-			  </div>	
+			      </div>
+						<div className="col-md-6 order-1 order-sm-2 rounded-end position-relative align-items-center p-0" 
+						   style={{  backgroundRepeat: "no-repeat" ,  backgroundColor: "#000" , height : 524}}>
+         						
+							<video className="video position-relative" autoPlay muted loop style={{width: 442 , height : 524}}>
+								<source src = "building_lights.mp4" type="video/mp4"></source>
+							</video>
+							<img className="position-absolute" style={{zIndex: '3' ,  backgroundSize: "cover" , top: 240 , left:196,width:50, height:50}} src="raaghu_icon.png"></img>
+			            </div>	
 
-			</div>
-		  </div>
-		</div>
+			    </div>
+		      </div>
+		    </div>
 		</div>
 
 

@@ -42,7 +42,10 @@ module.exports = {
       exposes: {
         // expose each component
         "./RdscompLogin": "./src/login/rds-comp-login",
-        "./RdsCompAdminDashboard":"./src/admin-dashboard/rds-comp-admin-dashboard"
+        "./RdsCompAdminDashboard":"./src/admin-dashboard/rds-comp-admin-dashboard",
+        "./RdsCompSideNavigation":"./src/side-navigation/rds-comp-side-navigation",
+        "./RdsCompTopNavigation":"./src/top-navigation/rds-comp-top-navigation",
+        "./RdsCompForgotPassword":"./src/forgot-password/rds-comp-forgot-password"
       },
 
       shared: {

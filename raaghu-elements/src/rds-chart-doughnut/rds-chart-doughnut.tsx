@@ -1,17 +1,21 @@
-import React, { useEffect} from "react";
+import React, { ReactNode, useEffect} from "react";
 import Chart from 'chart.js/auto';
 //import "./rds-chart-doughnut.scss"
 
 export interface RdsDoughnutprops {
-  chartLabels:any[],
-  chartOptions:any,
-  chartDataSets:any[],
-  titleText:string,
-  subTitleText:string,
+  children: ReactNode;
+  labels:any[],
+  options:any,
+  dataSets:any[],
+  id:string,
+  height?:number,
+  width?:number,
+  titleText?:string,
+  subTitleText?:string,
 }
 
 const RdsDoughnutChart = (props:RdsDoughnutprops) => {
- const CanvasId = "myChart";
+ const CanvasId = props.id;
   let ctx;
  
 
@@ -42,16 +46,21 @@ const RdsDoughnutChart = (props:RdsDoughnutprops) => {
       type:'doughnut',
       plugins:[centerText] ,
       data: {
-        labels: props.chartLabels,
-        datasets:props.chartDataSets
+        labels: props.labels,
+        datasets:props.dataSets
       },
-      options: props.chartOptions,
+      options: props.options,
     });
-  });
+      DoughnutCanvas.canvas.style.height = props.height + 'px';
+      DoughnutCanvas.canvas.style.width = props.width + "px";
+      return () => {
+        DoughnutCanvas.destroy()
+      }
+  },[]);
 
   return (
     <div>
-      <canvas id={CanvasId} ref={ctx} />
+      <canvas id={CanvasId}  ref={ctx}>{props.children}</canvas>
     </div>
   );
 };

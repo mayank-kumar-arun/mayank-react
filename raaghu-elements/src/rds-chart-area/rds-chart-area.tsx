@@ -3,13 +3,16 @@ import Chart from 'chart.js/auto';
 import "./rds-chart-area.scss"
 
 export interface lineprops {
-  chartLabels:any[],
-  chartOptions:any,
-  chartDataSets:any[],
+  labels:any[],
+  options:any,
+  dataSets:any[],
+  height?:number,
+  width?:number,
+  id:string
 }
 
 const RdsAreaChart = (props: lineprops) => {
- const CanvasId = "myChart";
+ const CanvasId = props.id;
   let ctx;
  
 
@@ -19,14 +22,16 @@ const RdsAreaChart = (props: lineprops) => {
     ) as HTMLCanvasElement | null;
     ctx = canvasElm?.getContext("2d") as CanvasRenderingContext2D;
     
-    const lineCanvas = new Chart(ctx, {
+    const AreaCanvas = new Chart(ctx, {
       type: "line",
       data: {
-        labels: props.chartLabels,
-        datasets:props.chartDataSets
+        labels: props.labels,
+        datasets:props.dataSets
       },
-      options: props.chartOptions,
+      options: props.options,
     });
+      AreaCanvas.canvas.style.height = props.height + 'px';
+      AreaCanvas.canvas.style.width = props.width + "px";
   });
 
   return (

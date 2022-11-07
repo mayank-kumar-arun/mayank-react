@@ -1,1 +1,1 @@
-export {default} from '../rds-chart-Pie/rds-chart-pie'
+export {default} from './rds-chart-stacked'

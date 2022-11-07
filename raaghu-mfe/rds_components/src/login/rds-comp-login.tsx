@@ -63,7 +63,8 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
         event.preventDefault();
 		props.onLogin(email,password)
 		setEmail('');
-		setPassword('');		
+		setPassword('');
+				
     }
 	return (
 		

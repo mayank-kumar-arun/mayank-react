@@ -5,4 +5,3 @@ declare module "rds_components/RdscompLogin" {
 
 	export default LoginComponent;
 }
-

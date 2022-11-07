@@ -69,7 +69,7 @@ const RdsInputGroup = (props: RdsInputGroupProps) => {
                         type={"submit"}
                         colorVariant={props.buttonColorVariant}
                         outlineButton={props.outline}
-                        customClasses="button-for-rds-input-group"   //its css defined n RdsButton
+                        class="button-for-rds-input-group"   //its css defined n RdsButton
                         formName={formName}
                         size={props.size}
                     ></RdsButton>

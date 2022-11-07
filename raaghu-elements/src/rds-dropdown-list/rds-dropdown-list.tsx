@@ -7,6 +7,7 @@ export interface RdsDropdownListProps {
   multiSelect: string;
   colorVariant: string;
   listItems: any[];
+  className?:string;
   //   darkDropdown: boolean;
   //   label: string;
   //   direction: string;
@@ -24,17 +25,13 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
 
   return (
     <>
-      <select className={`form-select ${size}` } aria-label="Default select example">
+      <select className={`form-select ${size} ${props.className}` }  aria-label="Default select example">
       <option selected>{props.placeholder}</option>
         {props.listItems.map((listItem)=><option key={listItem.id} value={listItem.value}><a href={listItem.href}>{listItem.value}</a></option>)}
         
         {/* <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option> */}
-
-
-
-        
       </select>
     </>
   );
