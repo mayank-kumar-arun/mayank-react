@@ -1,6 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import RdsNavtabs from "./rds-navtabs"
+import { type } from "os";
 
 export default {
     title: "Elements/Navtabs",
@@ -24,7 +25,7 @@ export default {
 } as ComponentMeta<typeof RdsNavtabs>;
 
 const Template: ComponentStory<typeof RdsNavtabs> = (args) => (
-    <RdsNavtabs {...args} />
+    <RdsNavtabs  {...args} />
 );
 
 export const Default = Template.bind({});
@@ -35,6 +36,8 @@ Default.args = {
         { label: 'Link', tablink: '#nav-profile', ariacontrols: 'nav-profile' },
         { label: 'Link', tablink: '#nav-contact', ariacontrols: 'nav-contact', icon: 'setting', subText: 'Home subtext' },
         { label: 'Disabled', tablink: '#nav-deabled', disabled: "true", icon: 'users', subText: 'Disble subtext' },
-    ]
+    ],
+
+    // type : "default"
 };
 
