@@ -2,6 +2,8 @@ import React, { Suspense, useEffect } from "react";
 import {  Route,useNavigate,Routes} from "react-router-dom";
 const DashboardCompo = React.lazy(() => import("Dashboard/Dashboard"));
 const LoginCompo = React.lazy(() => import("Login/Login"));
+const ForgotPassCompo = React.lazy(() => import("ForgotPassword/ForgotPassword"))
+
 const Main = () =>{
     const navigate = useNavigate();
     const loginCredentials = localStorage.getItem('persist:root');
@@ -25,12 +27,11 @@ const Main = () =>{
             <Routes>
                 {/* <Route path="/" element={accessToken && <Navigate to="/Dashboard" replace />} /> */}
                 <Route path='/Dashboard' element={<DashboardCompo/>}></Route> :
-                 <Route path='/' element={<LoginCompo/>}></Route>               
+                <Route path='/' element={<LoginCompo/>}></Route>
+                <Route path='/forgot-password' element={<ForgotPassCompo/>}></Route>               
             </Routes>
         </Suspense>
     )
-
-    
 }
 
 export default Main;

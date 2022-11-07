@@ -4,6 +4,7 @@ import {RdsButton} from '../rds-elements';
 import {RdsCheckbox} from '../rds-elements';
 import "./rds-comp-login.scss";
 import AuthGuard from '../../../libs/shared/AuthGuard'
+import { Link } from 'react-router-dom';
 export interface RdsCompLoginProps {
    onLogin:(email?:string,password?:string) => any
   };
@@ -99,7 +100,8 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
 				</div>
                 <div style = {{display : 'flex' , justifyContent:'space-between', marginBottom : 30}}>
 				<RdsCheckbox label = {'Remember me'} checked></RdsCheckbox>
-				<a  href='#' style = {{textDecoration : 'none'}}>Forgot password ?</a>
+				{/* <RdsButton tooltipTitle={''} type={'button'} label="Forgot Password ?"></RdsButton> */}
+				<a  href={'/forgot-password'} style = {{textDecoration : 'none'}}>Forgot password ?</a>
 
 				</div>				
 			  <RdsButton
