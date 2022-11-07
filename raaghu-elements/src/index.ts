@@ -33,7 +33,15 @@ export {default as RdsBigNumber} from './rds-big-number';
 export {default as RdsSpinner} from './rds-spinner';
 export {default as RdsLikeDislike} from './rds-like-dislike';
 export {default as RdsTextArea} from './rds-text-area';
-
+export {default as RdsBenefit} from './rds-benefit';
+export {default as RdsBankCardDetail} from './rds-bank-card-detail';
+export {default as RdsPagination} from './rds-pagination';
+export {default as RdsStat} from './rds-stat';
+export {default as RdsNotification} from './rds-notification';
+export {default as RdsToast} from './rds-toast';
+export {default as RdsSize} from './rds-size';
+export {default as RdsRadioButton} from './rds-radio-button';
+export {default as RdsAppDetail} from './rds-app-detail';
 
 //Charts
 export {default as RdsAreaChart} from "./rds-chart-area";
