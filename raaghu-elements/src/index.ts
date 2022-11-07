@@ -26,6 +26,7 @@ export {default as RdsIcon} from './rds-icon';
 export {default as RdsIconLabel} from './rds-icon-label';
 export {default as RdsSearch} from './rds-search';
 export {default as RdsNavbar} from './rds-navbar';
+export {default as RdsDropdownList} from './rds-dropdown-list';
 export {default as RdsFabMenu} from './rds-fab-menu';
 export {default as RdsWidget} from './rds-widget';
 export {default as RdsIllustration} from './rds-illustration';
@@ -42,11 +43,14 @@ export {default as RdsToast} from './rds-toast';
 export {default as RdsSize} from './rds-size';
 export {default as RdsRadioButton} from './rds-radio-button';
 export {default as RdsAppDetail} from './rds-app-detail';
+export {default as RdsOffcanvas} from './rds-offcanvas';
+export {default as RdsTable} from './rds-table';
+
 
 //Charts
 export {default as RdsAreaChart} from "./rds-chart-area";
 export {default as RdsLineChart} from './rds-chart-line';
-export {default as RdsPieChart} from './rds-chart-radar';
+export {default as RdsPieChart} from './rds-chart-Pie';
 export {default as RdsDoughnutChart} from './rds-chart-doughnut';
 export {default as RdsBarChart} from './rds-chart-bar';
 export {default as RdsBooleanChart} from './rds-chart-boolean';

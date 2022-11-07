@@ -12,7 +12,10 @@ const Template: ComponentStory<typeof RdsRadarChart> = (args) => <RdsRadarChart 
 
 export const Default = Template.bind({});
 Default.args = {
-  chartLabels:[
+  id:"Radar Chart",
+  width:300,
+  height:300,
+  labels:[
     "Jan",
     "Feb",
     "Mar",
@@ -21,7 +24,7 @@ Default.args = {
     "June",
     "July"
   ],
-  chartOptions: {
+  options: {
     "responsive": false,
     "chartArea": {
       "backgroundColor": "rgba(251, 85, 85, 0.4)"
@@ -128,7 +131,7 @@ Default.args = {
       }
     }
   },
-  chartDataSets:[
+  dataSets:[
     {
       "label": "Dataset 1",
       "data": [

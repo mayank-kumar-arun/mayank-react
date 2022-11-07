@@ -12,7 +12,10 @@ const Template: ComponentStory<typeof RdsPolarAreaChart> = (args) => <RdsPolarAr
 
 export const Default = Template.bind({});
 Default.args = {
-  chartDataSets: [
+  id:"Polar Area chart",
+  width:300,
+  height:300,
+  dataSets: [
     {
       label: 'Dataset 1',
       data: [100, 70, 80, 96, 87, 77],
@@ -29,10 +32,8 @@ Default.args = {
       ],
     }
   ],
-  chartLabels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-  chartWidth: 400,
-  chartHeight:400,
-  chartOptions: {
+  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  options: {
     maintainAspectRatio:false,
     animation: {
       animateRotate: true,

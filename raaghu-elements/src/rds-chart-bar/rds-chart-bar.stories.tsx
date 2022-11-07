@@ -12,7 +12,10 @@ const Template: ComponentStory<typeof RdsBarChart> = (args) => <RdsBarChart {...
 
 export const HorizontalBarChart = Template.bind({});
 HorizontalBarChart.args = {
-  chartDataSets: [
+  id:1,
+  height:300,
+  width:300,
+  dataSets: [
     {
       label: 'Dataset 1',
       data: [20, 30, 50, 80, 98, 95, 55],
@@ -30,9 +33,9 @@ HorizontalBarChart.args = {
       backgroundColor: 'rgba(255, 159, 64, 1)',
     }
   ],
-  chartLabels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 
-  chartOptions: {
+  options: {
     responsive: true,
     aspectRatio: 2,
     maintainAspectRatio: false,
@@ -67,7 +70,7 @@ HorizontalBarChart.args = {
 };
 export const VerticalBarChart = Template.bind({});
 VerticalBarChart.args = {
-  chartDataSets: [
+  dataSets: [
     {
       label: 'Dataset 1',
       data: [20, 30, 50, 80, 98, 95, 55],
@@ -85,9 +88,9 @@ VerticalBarChart.args = {
       backgroundColor: 'rgba(255, 159, 64, 1)',
     }
   ],
-  chartLabels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 
-  chartOptions: {
+  options: {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
@@ -103,7 +106,7 @@ VerticalBarChart.args = {
 };
 export const StackedBarChart = Template.bind({});
 StackedBarChart.args = {
-  chartDataSets: [
+  dataSets: [
     {
       label: 'Dataset 1',
       data: [20, 30, 50, 80, 98, 95, 55],
@@ -121,9 +124,9 @@ StackedBarChart.args = {
       backgroundColor: 'rgba(255, 159, 64, 1)',
     }
   ],
-  chartLabels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 
-  chartOptions: {
+  options: {
     plugins: {
       title: {
         display: true,
@@ -144,7 +147,7 @@ StackedBarChart.args = {
 };
 export const BarChartWithBorderRadius = Template.bind({});
 BarChartWithBorderRadius.args = {
-  chartDataSets: [
+  dataSets: [
     {
       label: 'Fully Rounded',
       data: [20, 30, 50, 80, 98, 95, 55],
@@ -164,9 +167,9 @@ BarChartWithBorderRadius.args = {
       borderSkipped: false,
     }
   ],
-  chartLabels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
  
-  chartOptions: {
+  options: {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {

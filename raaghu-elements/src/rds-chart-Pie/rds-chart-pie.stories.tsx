@@ -12,11 +12,14 @@ const Template: ComponentStory<typeof RdsPieChart> = (args) => <RdsPieChart {...
 
 export const Default = Template.bind({});
 Default.args = {
-  chartLabels:['Red',
+  id:"chart pie",
+  width:300,
+  height:300,
+  labels:['Red',
   'Blue',
   'Yellow'],
-  chartOptions: {},
-  chartDataSets:[{
+  options: {},
+  dataSets:[{
     label: 'My First Dataset',
     data: [300, 50, 100],
     backgroundColor: [

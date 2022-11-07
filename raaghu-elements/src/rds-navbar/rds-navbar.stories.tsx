@@ -19,12 +19,14 @@ const Template: ComponentStory<typeof RdsNavbar> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
+  title:"Navbar",
     size:"small",
     navbarItems: [{
         label: "Home",
         isActive: true,
         navclass: '',
         href: '',
+        
       },
       {
         label: "Features",

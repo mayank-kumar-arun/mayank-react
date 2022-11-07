@@ -12,7 +12,10 @@ const Template: ComponentStory<typeof RdsMixedChart> = (args) => <RdsMixedChart 
 
 export const Default = Template.bind({});
 Default.args = {
-  chartDataSets: [
+  id:"mixed chart",
+  height:300,
+  width:300,
+  dataSets: [
     {
       type: 'bar',
       label: 'Bar Dataset',
@@ -31,9 +34,9 @@ Default.args = {
     }
   ],
 
-  chartLabels: ['January', 'February', 'March', 'April','May','June'],
+  labels: ['January', 'February', 'March', 'April','May','June'],
 
-  chartOptions: {
+  options: {
     radius: 10,
     pointStyle: 'triangle',
     plugins: {

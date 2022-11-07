@@ -12,11 +12,13 @@ const Template: ComponentStory<typeof RdsDoughnutChart> = (args) => <RdsDoughnut
 
 export const Default = Template.bind({});
 Default.args = {
-  chartLabels:['Red',
+  height:200,
+  width:255,
+  labels:['Red',
   'Blue',
   'Yellow'],
-  chartOptions: { },
-  chartDataSets:[{
+  options: { },
+  dataSets:[{
     label: 'My First Dataset',
     data: [300, 50, 100],
     backgroundColor: [

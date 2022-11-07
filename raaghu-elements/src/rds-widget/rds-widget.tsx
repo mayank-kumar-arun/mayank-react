@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, ReactNode } from "react";
 
 import RdsIcon from "../rds-icon/rds-icon";
 //import { Colors} from "../Types";
@@ -6,21 +6,22 @@ import RdsIcon from "../rds-icon/rds-icon";
 export interface RdsWidgetProps {
   // colorVarient?:Colors,
   headerTitle: string;
-  children:any;
+  children?:ReactNode;
+  class?:string;
   isRefreshRequired?: boolean ;
   onRefresh?: ( React.MouseEventHandler<HTMLElement>);
 }
+
 const RdsWidget = (props:RdsWidgetProps) => {
   let isRefreshIcon =props.isRefreshRequired ||false;
-  let background = `linear-gradient(90deg,#7e2eef 0%, #01ae9d 100% )`;
-
+   
   return (
     <Fragment>
       <div
-        className="card shadow-sm card-stretch  gutter-b "
-        style={{ background: background }}
+         className={`card shadow-sm ${props.class} gutter-b`  }
+        // style={{ background: background }}
       >
-        <div className="cardHeader d-flex justify-content-between">
+        <div className="card-header bg-white border-0 d-flex justify-content-between">
           <h5 className="card-title">{props.headerTitle}</h5>
           <div className="card-toolbar" style={{ cursor: "pointer" }}  onClick={props.onRefresh}>
             {isRefreshIcon ==true &&<RdsIcon
@@ -32,7 +33,7 @@ const RdsWidget = (props:RdsWidgetProps) => {
             ></RdsIcon>}
           </div>
          </div>
-        <div className="Content"> {props.children}</div>
+        <div className="card-body pt-0"> {props.children}</div>
       </div>
     </Fragment>
   );

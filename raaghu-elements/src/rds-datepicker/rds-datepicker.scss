@@ -8,3 +8,37 @@ input{
     border: 2px solid blue;
     border-radius: 5px;
 }
+
+.datepicker__input{
+    width: fit-content !important;
+    background-color: white;
+    border: 2px solid lightgrey;
+}
+
+.datepicker__wrapper{
+    width: max-content !important;
+    display: flex;
+}
+
+.datepicker__icon-box{
+    display: flex;
+    height: fit-content;
+}
+
+.datepicker__icon-box .input-group-text{
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+
+.dropClass{
+    display: none;
+}
+
+.daterange__dropdown-item{
+    background-color: white;
+}
+.daterange__dropdown-item:hover{
+    background-color: lightblue;
+    color: white;
+}

@@ -15,7 +15,7 @@ module.exports = (env, argv) => {
     entry: "./src/index.ts",
     mode: process.env.NODE_ENV || "development",
     devServer: {
-      port: 8003,
+      port: 8080,
       open: true,
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -65,6 +65,10 @@ module.exports = (env, argv) => {
         shared: {
             ...devdeps,
           ...deps,
+          'luxon': {
+            singleton: true,
+            requiredVersion: deps['luxon'],
+        },
           react: { singleton: true, eager: true, requiredVersion: deps.react },
           "react-dom": {
             singleton: true,
