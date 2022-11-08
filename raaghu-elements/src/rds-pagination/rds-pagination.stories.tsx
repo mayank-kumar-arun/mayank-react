@@ -34,7 +34,8 @@ Default.args = {
   totalRecords:10,
   recordsPerPage:3,
   size:"lg",
-  alignmentType: "start"
+  alignmentType: "start",
+  
 };
 
 export const Advanced = Template.bind({});
