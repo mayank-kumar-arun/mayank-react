@@ -59,6 +59,7 @@
     "chart.js": "^3.9.1",
     "postcss": "^8.4.16",
     "react-dom": "^18.2.0",
+    "react-popper": "^2.3.0",
     "validator": "^13.7.0"
   }
 }

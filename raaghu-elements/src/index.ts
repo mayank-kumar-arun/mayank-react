@@ -35,6 +35,7 @@ export {default as RdsLikeDislike} from './rds-like-dislike';
 export {default as RdsTextArea} from './rds-text-area';
 export {default as RdsOffcanvas} from './rds-offcanvas';
 export {default as RdsTable} from './rds-table';
+export {default as RdsListGroup} from './rds-list-group';
 
 
 //Charts

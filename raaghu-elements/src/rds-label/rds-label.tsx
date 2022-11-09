@@ -7,6 +7,7 @@ export interface RdsLabelProps{
     bold?: boolean;
     italic?: boolean;
     size?: string;
+    className?: string;
 }
 
 
@@ -15,7 +16,7 @@ const RdsLabel = (props: RdsLabelProps) => {
 
 
     return(
-        <p className={`${!props.multiline?"singleLine":""} ${props.bold ? "bold":""} ${props.italic? "italic":""}`} 
+        <p className={`${!props.multiline?"singleLine":""} ${props.bold ? "bold":""} ${props.italic? "italic":""} ${props.className}`} 
         style={{fontSize:props.size}}
         ><label>{props.label}</label></p>
     );
