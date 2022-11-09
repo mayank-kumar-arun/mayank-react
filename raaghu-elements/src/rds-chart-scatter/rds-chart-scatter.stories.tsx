@@ -12,7 +12,10 @@ const Template: ComponentStory<typeof RdsScatterChart> = (args) => <RdsScatterCh
 
 export const Default = Template.bind({});
 Default.args = {
-  chartDataSets: [
+  id:"Scatter Chart",
+  width:300,
+  height:300,
+  dataSets: [
     {
       type: 'scatter',
       label: 'Scatter Dataset',
@@ -49,9 +52,9 @@ Default.args = {
       backgroundColor: 'rgb(255, 99, 132)'
     }
   ],
-  chartLabels: ['January', 'February', 'March', 'April'],
+  labels: ['January', 'February', 'March', 'April'],
 
-  chartOptions: {
+  options: {
     responsive: true,
     maintainAspectRatio: false, pointStyle: "triangle",
     radius: 10,
@@ -78,7 +81,10 @@ Default.args = {
 };
 export const ScatterChartWithMultiAxis = Template.bind({});
 ScatterChartWithMultiAxis.args = {
-  chartDataSets: [
+  id:"Radar Chart",
+  width:300,
+  height:300,
+  dataSets: [
     {
       label: 'Scatter Dataset 1',
       data: [
@@ -126,9 +132,9 @@ ScatterChartWithMultiAxis.args = {
       yAxisID: 'y',
     }
   ],
-  chartLabels: ['January', 'February', 'March', 'April'],
+  labels: ['January', 'February', 'March', 'April'],
 
-  chartOptions: {
+  options: {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {

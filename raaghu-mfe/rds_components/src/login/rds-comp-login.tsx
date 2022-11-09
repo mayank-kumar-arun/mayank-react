@@ -1,4 +1,4 @@
-import React,  { useState } from 'react'
+import React,  { useEffect, useState } from 'react'
 import {RdsInput} from '../rds-elements';
 import {RdsButton} from '../rds-elements';
 import {RdsCheckbox} from '../rds-elements';
@@ -11,10 +11,22 @@ export interface RdsCompLoginProps {
 
 const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => {
 
-	const [email,setEmail] = useState('');
-	const [password , setPassword] = useState('');
+	const [email, setEmail] = useState('');
+
+	const [password, setPassword] = useState('');
+	// const [password , setPassword] = useState('');
 	const [error1, setError1] = useState('');
     const [error2, setError2] = useState('');
+
+	// useEffect(() => {
+	// 	// storing input email
+	// 	localStorage.setItem("email", JSON.stringify(email));
+	//   }, [email]);
+
+	// useEffect(() => {
+	// 	// storing input password
+	// 	localStorage.setItem("password", JSON.stringify(password));
+	//   }, [password]);
 	
 	const isEmailValid = (email: any) => {
 		if (!email || email.length === 0) {
@@ -48,16 +60,12 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
 	const isFormValid = isPasswordValid(password) && isEmailValid(email)
 
     const handleSubmit = (event : React.FormEvent<HTMLFormElement>) => {
-        console.log(email);
-        console.log(password);
         event.preventDefault();
 		props.onLogin(email,password)
 		setEmail('');
 		setPassword('');
-		
+				
     }
-
-	
 	return (
 		
 		<div >
@@ -70,7 +78,7 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
 					<RdsInput
 						label='Email/Username'
 						placeholder='Email/Username'
-						inputType='email'
+						inputType='email/text'
 						onChange={emailhandleChange}
 						value = {email}
 						name = {'email'}
@@ -82,28 +90,26 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
 					<RdsInput
 						label='Password'
 						placeholder='Password'
-						inputType='password'
-						onChange={passwordhandleChange}
-						name ={'password'}
-						value={password}
+						inputType = 'password'
+						onChange = {passwordhandleChange}
+						name = {'password'}
+						value = {password}
 					></RdsInput>
 					{error2 && <span style={{color: 'red'}}>{error2}</span>}
 				</div>
-                <div style={{display : 'flex' , justifyContent:'space-between', marginBottom : 30}}>
-				<RdsCheckbox label={'Remember me'} checked></RdsCheckbox>
-				<a  href='#' style={{textDecoration : 'none'}}>Forgot password ?</a>
+                <div style = {{display : 'flex' , justifyContent:'space-between', marginBottom : 30}}>
+				<RdsCheckbox label = {'Remember me'} checked></RdsCheckbox>
+				<a  href='#' style = {{textDecoration : 'none'}}>Forgot password ?</a>
 
-				</div>
-				
+				</div>				
 			  <RdsButton
-					label='Login'
-					colorVariant='primary'
-					isDisabled ={!isFormValid}
-					block={true} tooltipTitle={''}
-					type="submit"				
+					label = 'Login'
+					colorVariant ='primary'
+					isDisabled = {!isFormValid}
+					block = {true} tooltipTitle={''}
+					type = "submit"				
 				/>           
 			</form>
-
 		</div>
 	);
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import "./rds-button.scss";
 import { Colors, Placements } from "../Types";
 // Bootstrap CSS
@@ -12,6 +12,7 @@ import Tooltip from "../rds-tooltip/rds-tooltip";
 
 
 export interface RdsButtonProps {
+  children?: ReactNode;
   isDisabled?: boolean;
   colorVariant?: Colors;
   label?: string;
@@ -25,9 +26,9 @@ export interface RdsButtonProps {
   tooltipPlacement?: Placements;
   tooltipTitle: string;
   type: "button"|"submit" ;
-  onClick?: ( React.MouseEventHandler<HTMLButtonElement>);
-  customClasses?: string;
-  formName?: string
+  onClick?:(React.MouseEventHandler<HTMLButtonElement>);
+  formName?: string;
+  class?:string
 }
 
 
@@ -51,25 +52,26 @@ const RdsButton = (props: RdsButtonProps) => {
     {props.tooltip && <Tooltip text={props.tooltipTitle} place={props.tooltipPlacement}>
     <button
         type={props.type}
-        className={`btn ${outlineColorVariant} ${size} ${props.customClasses}`}
+        className={`btn ${outlineColorVariant} ${size}  ${props.class}`}
         disabled={props.isDisabled}
         onClick= {props.onClick}
         form={props.formName}
       >
         {props.icon}
         {props.label}
-      
+        {props.children}      
       </button>
     </Tooltip>}
     {!props.tooltip && <button
         type={props.type}
-        className={`btn ${outlineColorVariant} ${size} ${props.customClasses}`}
+        className={`btn ${outlineColorVariant} ${size} ${props.class}`}
         disabled={props.isDisabled}
         onClick= {props.onClick}
         form={props.formName}
       >
         {props.icon}
         {props.label}
+        {props.children}
       </button>}
     </div>
   );

@@ -44,6 +44,6 @@ Default.args = {
     placeholder: "Placeholder text",
     size: "medium",
     outline: true,
-    inputGroupLabel: "Field Label yoyo"
+    inputGroupLabel: "Field Label"
 };
 

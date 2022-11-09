@@ -7,55 +7,34 @@ export interface RdsCheckboxProps {
   checked?: boolean;
   isDisabled?: boolean;
   isSwitch?: boolean;
+  withlabel?:boolean;
 }
 
+
 const RdsCheckbox = (props: RdsCheckboxProps) => {
-  //  const checkedtake =(props :CheckboxProps)=>{
-  //   isChecked = checked in props ?'yes':'no';
-  //  }`
-  const check: boolean = props.checked || false;
-  //const label1 = `${(props.withlabel === false)? "" : props.label}`;
 
+  const islabel = `${(props.withlabel === false)? "" : props.label}`;
+  
 
-
-  const [doubleApproval, setDoubleApproval] = useState<boolean>(check);
-  const handleOnCheck = () => {
-    setDoubleApproval(!doubleApproval);
-    {
-      props.checked;
-    }
-    setDoubleApproval;
-  };
-  const SWITCH = `${props.isSwitch !== true ? "form-check" : "form-switch"}`;
+  const SWITCH = `${props.isSwitch !== true ? " form-check " : " form-switch "}`;
 
   return (
     <Fragment>
       <form>
         <div className={SWITCH}>
-          {check === true ? (
+         
             <input
               type="checkbox"
               className="form-check-input"
-              value=""
+              value=" "
               //id={`$props.isSwitch === true? "flexSwitchCheckDefault":"flexCheckDefault"`}
               disabled={props.isDisabled}
-              onClick={handleOnCheck}
-              checked
+           //   onClick={handleOnCheck}
+             defaultChecked ={props.checked}
             />
-          ) : (
-            <input
-              type="checkbox"
-              className="form-check-input"
-              value=""
-              //id={`$props.isSwitch === true? "flexSwitchCheckDefault":"flexCheckDefault"`}
-
-              disabled={props.isDisabled}
-              onClick={handleOnCheck}
-            />
-          )}
-
-            <label className="form-check-label" htmlFor="flexCheckDefault">
-            {props.label}
+           
+            <label className="form-check-label d-inline me-5 ms-2 " htmlFor="flexCheckDefault">
+            {islabel}
           </label>
 
         </div>

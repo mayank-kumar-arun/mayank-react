@@ -4,15 +4,16 @@ import './rds-navbar.scss'
 export interface RdsNavbarProps {
     size?:string;
     navbarItems:any[];
+    title?:string;
 }
 
 const RdsNavbar = (props: RdsNavbarProps) => {
   return (
     <>
-      <nav className={`navbar navbar-expand-md navbar-light bg-light ${props.size=="small"?"py-0":props.size=="large"?"py-3":""}`}>
+      <nav className={`navbar navbar-expand-lg navbar-light bg-light ${props.size=="small"?"py-0":props.size=="large"?"py-3":""}`} >
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            Navbar
+            {props.title}
           </a>
           <button
             className="navbar-toggler"

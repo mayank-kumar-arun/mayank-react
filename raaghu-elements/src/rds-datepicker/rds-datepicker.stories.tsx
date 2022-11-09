@@ -9,6 +9,12 @@ export default {
     */
     title: 'Elements/Datepicker',
     component: RdsDatepicker,
+    argTypes: {
+        type: {
+            options: ["default", "advanced"],
+            control: { type: "radio" },
+        },
+    }
 } as ComponentMeta<typeof RdsDatepicker>;
 
 //👇 We create a “template” of how args map to rendering
@@ -17,5 +23,6 @@ const Template: ComponentStory<typeof RdsDatepicker> = (args) => <RdsDatepicker 
 //👇 Each story then reuses that template
 export const Default = Template.bind({});
 Default.args = {
-
+    DatePickerLabel: "Select Date",
+    type: "default"
 };
