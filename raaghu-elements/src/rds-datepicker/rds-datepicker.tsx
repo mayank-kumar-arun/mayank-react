@@ -58,7 +58,6 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
         setDropdownDisplayValue(newDate.toDateString().slice(4) + " - " + today.toDateString().slice(4))
     }
 
-    console.log(dropdownDisplayValue)
 
 
 
