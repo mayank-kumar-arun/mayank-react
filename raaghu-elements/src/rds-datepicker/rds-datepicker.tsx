@@ -44,6 +44,7 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
     }
     const todayClickHandler = () => {
         const newDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        onRangeChange([newDate, null])
         setDropdownDisplayValue(newDate.toDateString().slice(4))
     }
     const lastSevenDaysClickHandler = () => {
@@ -56,6 +57,8 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
         onRangeChange([newDate, today])
         setDropdownDisplayValue(newDate.toDateString().slice(4) + " - " + today.toDateString().slice(4))
     }
+
+    console.log(dropdownDisplayValue)
 
 
 
