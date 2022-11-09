@@ -5,6 +5,7 @@ export interface RdsOffcanvasProps {
   children?: ReactNode;
   placement?: string;
   canvasTitle?: string;
+  width?:string
 }
 
 const RdsOffcanvas = (props: RdsOffcanvasProps) => {
@@ -33,6 +34,7 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
         tabIndex={-1}
         id={offcanvasPlacement}
         aria-labelledby={`${offcanvasPlacement}Label1`}
+        style={{width:props.width}}
       >
         <div className="offcanvas-header">
           <h5 id={`${offcanvasPlacement}Label1`}>{props.canvasTitle}</h5>
