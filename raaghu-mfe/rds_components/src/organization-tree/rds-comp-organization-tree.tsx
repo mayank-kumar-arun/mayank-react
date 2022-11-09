@@ -55,8 +55,7 @@ const RdsCompOrganizationTree = () => {
       <RdsIcon name={"pencil"} stroke={true} colorVariant={"success"} height={"15px"} width={"15px"} class={"mx-2"}></RdsIcon>
       <RdsIcon name={"delete"} stroke={true} colorVariant={"success"} height={"15px"} width={"15px"} class={"mx-2"}></RdsIcon>{show}</div>
          {/* lists.map() */}
-      {/* <button onClick={()=>setShowList(!showList)}>click me</button> 
-    {showList && lists.map((list:IList) => <p>{list.name}</p>)} */}
+      
 
     <div>
 
