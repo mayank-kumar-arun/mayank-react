@@ -7,9 +7,9 @@ const RdsCompTenantInformation = () =>{
                 <form >
                 <div className="row align-items-center">
                     <div className="col-md-3 text-center cursor-pointer sm-p-0">
-                    <img width="100" src="edit-pic.png" />
+                        <img width="100" src="edit-pic.png" />
 
-                    <input type="file"   accept="image/*" style={{display: "none"}} />
+                        <input type="file" accept="image/*" style={{display: "none"}} />
 
                     </div>
                     <div className="col-md-9 sm-p-0">

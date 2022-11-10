@@ -1,5 +1,8 @@
-import {RdsButton,RdsIcon,RdsFabMenu,RdsOffcanvas} from '../rds-elements';
+import {RdsButton,RdsIcon,RdsFabMenu,RdsOffcanvas,RdsNavtabs} from '../rds-elements';
 import RdsCompDataTable from '../data-table/rds-comp-data-table';
+import RdsCompTenantInformation from '../tenant-information/rds-comp-tenant-information';
+import RdsCompTenantSettings from '../tenant-settings/rds-comp-tenant-settings';
+import RdsCompPermissionTree from '../permission-tree/rds-comp-permission-tree';
 
 const RdsCompTenantList =() =>{
     return (
@@ -17,7 +20,7 @@ const RdsCompTenantList =() =>{
                 </div>
                 <div className="col-md-12">
                     <div className="card p-2 h-100 border-0 rounded-0 card-full-stretch">
-                        <RdsCompDataTable></RdsCompDataTable>
+                        <RdsCompDataTable tableHeaders={[]} tableactions={[{id:"loginAsTenant",displayname:"Login as Tenant"},{id:"edit",displayname:"Edit"},{id:"delete",displayname:"Delete"}]} pagination={true} nodatatitle="Currently you do not have tenant"></RdsCompDataTable>
                         {/* <app-rds-data-table [tableData]="tableData" [inlineEdit]="false" [pagination]="true"
                             [recordsPerPage]="10" [actions]="actions" (onActionSelection)="onActionSelect($event)"
                             noDataTitle="Currently you do not have tenant" [tableHeaders]="tenantHeaders"
@@ -26,23 +29,45 @@ const RdsCompTenantList =() =>{
                 </div>
             </div>
             <div className="mobile-btn position-absolute bottom-0 end-0 my-5 me-5">
-                <RdsFabMenu listItems={[{ value: 'New Tenant', some: 'value', key: 'new', icon: 'plus', iconWidth: '20px', iconHeight: '20px' },]} colorVariant="primary" menuiconHeight='12px' menuiconWidth='12px' menuIcon='plus' onClick={}></RdsFabMenu>
+                <RdsFabMenu listItems={[{ value: 'New Tenant', some: 'value', key: 'new', icon: 'plus', iconWidth: '20px', iconHeight: '20px' },]} colorVariant="primary" menuiconHeight='12px' menuiconWidth='12px' menuIcon='plus' ></RdsFabMenu>
                 {/* <rds-fab-menu [listItems]="listItems" [menuicon]="'plus'" [colorVariant]="'primary'" [menuiconWidth]="'12px'"
                     [menuiconHeight]="'12px'" (onSelect)="onSelectMenu($event)"></rds-fab-menu> */}
             </div>
         </div>
         <RdsOffcanvas canvasTitle='New Tenant' width='650px' placement='end'>
-            <
+            <RdsNavtabs navtabsItems={[{ label: 'Tenant Information', tablink: '#tenant-information', ariacontrols: 'tenant-information'},{label:"Settings"}]}>
+                <div className="row tab-content m-2" id="nav-tabContent">
+                    <div className="tab-pane fade show active px-0" id="tenant-information" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <RdsCompTenantInformation></RdsCompTenantInformation>
+                    </div>
+                    <div className="tab-pane fade show px-0" id="settings" role="tabpanel" aria-labelledby="nav-home-tab">
+                        
+                        <RdsCompTenantSettings></RdsCompTenantSettings>
+                    </div>
+                    <div className="tab-pane fade"  id="features"  role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div className="tab-content features py-4">
+                            <RdsCompPermissionTree></RdsCompPermissionTree>
+                        </div>
+                        <div className="footer-buttons">
+                            <div className="col-md-12 ">
+                                <RdsButton label='Cancel' size='small' colorVariant='outline-primary' tooltipTitle={''} type={'button'}></RdsButton>
+                                <RdsButton label='Save' size='small' colorVariant='primary' class='ms-2' tooltipTitle={''} type={'button'}></RdsButton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </RdsNavtabs>
             
         </RdsOffcanvas>
-        <rds-offcanvas [canvasTitle]="translate.instant(canvasTitle)" [offId]="'tenantOffcanvas'" [offcanvaswidth]="650"
+
+        {/* <rds-offcanvas [canvasTitle]="translate.instant(canvasTitle)" [offId]="'tenantOffcanvas'" [offcanvaswidth]="650"
             [placement]="'end'" *ngIf="viewCanvas" [bodySpacing]="true" (onClose)="close()">
             <rds-nav-tab [navtabsItems]="navtabsItems" (onClicktab)="getSelectedNavTab($event)" [activepage]="activePage"
                 [horizontalAlignment]="'start'" [verticalAlignment]="false" [pills]="false" [tabs]="true" [fill]="false"
                 [justified]="false">
                 <div naveContent class="row tab-content m-2" id="nav-tabContent">
                     <div class="tab-pane fade px-0" [ngClass]="{'show active': activePage === 0}" id="tenant-information"
-                        role="tabpanel" aria-labelledby="nav-home-tab">
+                        role="tabpanel" aria-labelledby="nav-home-tab"> 
                         <app-rds-comp-tenant-information (tenantInfo)="getTenantData($event)" [editionList]="editionList"
                             [tenantData]="tenantData" (onCancel)="close()" [editShimmer]="editShimmer"
                             [showEmail]="showEmailList">
@@ -79,6 +104,9 @@ const RdsCompTenantList =() =>{
                 </div>
             </rds-nav-tab>
         </rds-offcanvas>
+    </div> */}
     </div>
     )
 }
+
+export default RdsCompTenantList;

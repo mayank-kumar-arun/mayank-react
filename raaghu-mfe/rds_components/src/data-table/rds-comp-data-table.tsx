@@ -1,142 +1,133 @@
-import {RdsIcon,RdsInput} from '../rds-elements'
+import {RdsIcon,RdsInput,RdsCheckbox,RdsButton , RdsPagination , RdsLabel} from '../rds-elements'
 
-const RdsCompDataTable = () =>{
+export interface RdsCompDataTableProps{
+    tableHeaders :{displayname:string,key:string,datatype:string,dataLength?: number,required?: boolean,sortable?: boolean,filterable?: boolean,colWidth?: string,disabled?: boolean}[];
+    tableactions : {displayname:string,id:string}[];
+    nodatatitle? : string;
+    pagination ? : boolean;
+}
+
+const RdsCompDataTable = (props:RdsCompDataTableProps) =>{
+    var datasubtitle : boolean =  true;
+    var  tabledata : any = [];
+    var datasource : any = [];
+    var enablecheckboxselection : boolean = true;
+    let filteredarray : any = [];
+    const gettotalrecords = () =>{
+        if(filteredarray && filteredarray.length>0){
+            return filteredarray.lenght;
+        }
+        if(tabledata){
+            return tabledata.length
+        }
+    };
     return(
         <div>
-            <div className="sm-datatable table-responsive">
-                <table className="table table-hover table-bordered h-100" id="sortTable" width="400px">
-                    <thead>
-                        <tr>
-                        {/* <ng-container *ngFor="let header of tableHeaders"> */}
-                            <th scope="col">
-                            <div className="header d-flex">
-                                <span>Tenant</span>
-                                <div className="header-options mobile-header-option cursor-pointer ps-1">
-                                    <span  className="text-right sort-icons mobile-sort" >
-                                    <RdsIcon name={'up_arrow'} width="12px" height='12px'></RdsIcon> 
-                                    <RdsIcon name={'down_arrow'} width="12px" height='12px'></RdsIcon> 
-                                        {/* <rds-icon [name]="'up_arrow'" [width]="'12px'" [height]="'12px'"
-                                        [ngClass]="getDescIconClass(header)"></rds-icon> */}
-                                        {/* <rds-icon [name]="'down_arrow'" [width]="'12px'" [height]="'12px'"
-                                        [ngClass]="getAscIconClass(header)"></rds-icon> */}
-                                    </span>
-                                    <div className="btn-group dropend">
-                                        <span className="text-right sort-icons sortable" id="search-dropdown"  data-bs-toggle="dropdown" aria-expanded="false">
-                                            <RdsIcon name={'filter'} height="12px" width='12px'></RdsIcon>
-                                        
-                                        </span>
-                                        <ul className="dropdown-menu searchModal p-1 border-0" aria-labelledby="dropdownMenuButton1">
-                                            <div>
-                                                <div>
-                                                    <RdsInput placeholder='Search here ...' size='small'></RdsInput>
-                                                {/* <rds-input [placeholder]="translate.instant('Search here')+' ...'"
-                                                    [inputType]="header.dataType" [icon]="'search'" [name]="header.key" [size]="'small'"
-                                                    [(ngModel)]="header[header.key+'Filter']" ngDefaultControl
-                                                    (keyup)="onKeyup($event,header)"></rds-input> */}
+        
+            {(tabledata && tabledata.length>0) ? 
+                <div>
+                    <div className="sm-datatable table-responsive">
+                        <table className="table table-hover table-bordered h-100" id="sortTable" width="400px">
+                            <thead>
+                                <tr>
+                                    <>
+                                        {enablecheckboxselection && 
+                                        <th>
+                                            <RdsCheckbox label={''}></RdsCheckbox>
+                                        </th>} 
+                                    
+                                     
+                                        {props.tableHeaders.map((a:any)=>{
+                                            <th scope="col">
+                                            <div className="header d-flex">
+                                                <span>{a.displayname}</span>
+                                                <div className="header-options mobile-header-option cursor-pointer ps-1">
+                                                    {a.sortable && <span  className="text-right sort-icons mobile-sort" >
+                                                    <RdsIcon name={'up_arrow'} width="12px" height='12px'></RdsIcon> 
+                                                    <RdsIcon name={'down_arrow'} width="12px" height='12px'></RdsIcon> 
+                                                    </span> }
+                                                    
+                                                    <div className="btn-group dropend">
+                                                        {a.filterable && <span className="text-right sort-icons sortable" id="search-dropdown"  data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <RdsIcon name={'filter'} height="12px" width='12px'></RdsIcon>
+                                                        
+                                                        </span>}
+                                                        
+                                                        <ul className="dropdown-menu searchModal p-1 border-0" aria-labelledby="dropdownMenuButton1">
+                                                            <div>
+                                                                <div>
+                                                                    <RdsInput placeholder='Search here ...' size='small' name={a.key}></RdsInput>
+                                                                </div>
+                                                            </div>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            </th>
-                           <th > "Actions"</th>
-                        </tr>
-                    </thead>
+                                        </th>
 
-                    <tbody>
-                        <tr >
-                            <ng-container *ngFor="let column of tableHeaders">
-                            <ng-container *ngIf="column.dataType.toLowerCase()==='html'&&!data.isEdit; else iconTemplate">
-                                <td [innerHTML]="data[column.key]" class="align-middle"></td>
-                            </ng-container>
+                                        })}
+                                    <div>
 
-                            <td>
-                                <RdsIcon name={''} width="" height="" colorVariant='' ></RdsIcon>
-                                <rds-icon [name]="data[column.key].icon" [width]="data[column.key].width"
-                                [colorVariant]="data[column.key].colorVariant" [height]="data[column.key].height"></rds-icon>
-                            </td>
-                            <ng-template #iconTemplate>
-                                <ng-container *ngIf="column.dataType.toLowerCase()==='icon'&&!data.isEdit; else nonTemplateData">
-                                </ng-container>
-                            </ng-template>
+                                    {props.tableHeaders && props.tableHeaders.length>0 && props.tableactions && props.tableactions.length>0 && <th className="text-center">Actions</th>}
+                                        </div>
+                                
+                                   </>
+                                </tr>
+                            </thead>
 
-                            <ng-template #nonTemplateData>
-                                <td className="align-middle" (click)="onSelectData(data)">
-                                <ng-container *ngIf="!data.isEdit; else editTemplate">
-                                    {{data[column.key]}}
-                                </ng-container>
-                                <ng-template #editTemplate>
-                                    <ng-container [ngSwitch]="column.dataType.toLowerCase()">
-                                    <ng-container *ngSwitchCase="'number'">
-                                        <rds-input [(ngModel)]="data[column.key]" #numberField="ngModel" [disabled]="column.disabled"
-                                        [value]="data[column.key]" [inputType]="'number'" ngDefaultControl>
-                                        </rds-input>
-                                        <small className="error"
-                                        *ngIf="(numberField.dirty || numberField.touched)&&column.required&&(data[column.key]===''||data[column.key]===undefined)">
-                                        {{translate.instant(column.displayName)}} {{translate.instant('is required')}}</small>
-                                    </ng-container>
-                                    <ng-container *ngSwitchCase="'text'">
-                                        <rds-input required [(ngModel)]="data[column.key]" [value]="data[column.key]"
-                                        [disabled]="column.disabled" [placeholder]=column.displayName #textField="ngModel"
-                                        [inputType]="'text'" ngDefaultControl></rds-input>
-                                        <small class="error"
-                                        *ngIf="(textField.dirty || textField.touched)&&column.required&&(data[column.key]===''||!data[column.key])">
-                                        {{translate.instant(column.displayName)}} {{translate.instant('is required')}}</small>
+                            {tabledata && tabledata.length>0 && 
+                            <tbody>
+                            {datasource.map((data:any)=>{
+                                <tr >
+                                    <>
+                                    {enablecheckboxselection && 
+                                    <th>
+                                    <RdsCheckbox label={''}></RdsCheckbox>
 
-                                    </ng-container>
-                                    <ng-container *ngSwitchCase="'html'">
-                                        <rds-input required [(ngModel)]="data[column.key]" [value]="data[column.key]"
-                                        [disabled]="column.disabled" [inputType]="'text'" ngDefaultControl>
-                                        </rds-input>
-                                        <small class="error" *ngIf="column.required&&(data[column.key]===''||!data[column.key])">
-                                        {{translate.instant(column.displayName)}} {{translate.instant('is required')}}</small>
+                                    </th>}
+                                    {props.tableHeaders.map((column)=>{
+                                        {column.datatype.toLowerCase()==="html" && !data.isEdit ? <td className='align-middle'></td> : 
+                                        <>{column.datatype.toLowerCase()==="icon" && !data.isEdit ? <td> <RdsIcon name={data[column.key].icon} width={data[column.key].width} colorVariant={data[column.key].colorVariant} height={data[column.key].height}></RdsIcon></td> : 
+                                        <td className='align-middle'>
+                                            {!data.isEdit ? <div>{data[column.key]}</div> : <> switch(column.datatype.toLowerCase()){<>
+                                                case 'number': return <div><RdsInput isDisabled={column.disabled} inputType="number" value={data[column.key]}></RdsInput>{column.required && (data[column.key]===""||data[column.key]===undefined) && <small className='error'>{column.displayname} is Reqiured</small>}</div>;
+                                                case 'text': return <div><RdsInput isDisabled={column.disabled} inputType="text" value={data[column.key]}></RdsInput>{column.required && (data[column.key]===""||!data[column.key]) && <small className='error'>{column.displayname} is Reqiured</small>}</div>;
+                                                case 'html': return <div><RdsInput isDisabled={column.disabled} inputType="number" value={data[column.key]}></RdsInput>{column.required && (data[column.key]===""||!data[column.key]) && <small className='error'>{column.displayname} is Reqiured</small>}</div>;
+                                                
+                                           </> }</>}
+                                        </td>}</>}})
+                                    }
 
-                                    </ng-container>
-                                    </ng-container>
-                                </ng-template>
-                                </td>
-                            </ng-template>
-                            </ng-container>
-                            <td *ngIf="actions.length>0" class="align-middle">
-                            <div class="d-flex align-items-center">
-                                <div class="dropdown" *ngIf="!data.isEdit; else editActionTemplate">
-                                <rds-button [colorVariant]="'default'" [submit]="false" [block]="false" [size]="'small'"
-                                    [iconFill]="true" [iconStroke]="false" [disabled]="false" [outlineButton]="true"
-                                    [roundedButton]="true" icon="three_dots" [iconHeight]="'16px'" [iconWidth]="'16px'"
-                                    [label]="data?.name+'_action'" tooltipTitle="" tooltipPlacement="bottom" (click)="openAction()"
-                                    id="action-dropdown" data-bs-toggle="dropdown" aria-expanded="false"></rds-button>
-                                <div class="dropdown-menu" aria-labelledby="action-dropdown">
-                                    <ng-container *ngFor="let action of actions">
-                                    <a class="dropdown-item" [attr.aria-label]="'Update'+action.displayName+data?.name"
-                                        (click)="onActionSelect(action,data)">{{translate.instant(action.displayName)}}</a>
-                                    </ng-container>
-                                </div>
-                                </div>
-                                <ng-container *ngIf="showConfirmationPopup">
-                                <app-rds-comp-alert-popup [alertID]="'deleteModal'" (onCancel)="close()" (onDelete)="delete()"
-                                    [alertData]="alertData">
-                                </app-rds-comp-alert-popup>
-                                </ng-container>
-                                <ng-template #editActionTemplate>
-                                <rds-button class="action" [colorVariant]="'primary'" [roundedButton]="true" [size]="'medium'"
-                                    [icon]="'check_mark'" [iconHeight]="'10px'" [iconWidth]="'20px'" (click)="saveChanges(data)">
-                                </rds-button>
+                                    {props.tableactions.length>0 && 
+                                    <td className='align-middle text-center'>
+                                            {!data.isEdit ? <div className='dropdown'><RdsButton colorVariant='default' size='small' icon='tree_dots' tooltipTitle={''} type={'button'} ></RdsButton> <div className='dropdown-menu' aria-labelledby='action-dropdown'><>{props.tableactions.map((action)=>{<li><a className='dropdown-item'>{action.displayname}</a></li>})}</> </div></div> : 
+                                            <div className='d-flex'><RdsButton class='action' colorVariant='primary' icon='check' size='medium' tooltipTitle={''} type={'button'}></RdsButton><RdsButton class="ms-2 text-white" colorVariant='danger' tooltipPlacement='top' icon='close' size='medium' tooltipTitle={''} type={'button'}></RdsButton></div>}
+                                        
 
-                                <rds-button class="ms-2" (click)="closeEdit(data)" [roundedButton]="true" [tooltipPlacement]="'top'"
-                                    [colorVariant]="'danger'" [size]="'medium'" [icon]="'cross_mark'" [iconHeight]="'10px'"
-                                    [iconWidth]="'20px'">
-                                </rds-button>
-                                </ng-template>
-                            </div>
-                            </td>
+                                        </td>}
+                                    </>
+                                </tr>} )}
+                            </tbody>}
+                        </table>
+                    </div> <div> {props.pagination && tabledata && <RdsPagination alignmentType='end' totalRecords={gettotalrecords()} recordsPerPage={10}></RdsPagination>} </div> 
+                </div>
+                : 
+        
+            <div className="my-5 py-5 d-flex align-items-center justify-content-center">
+                <div className="text-center">
+                    <div className="mb-3">
+                        <RdsIcon name={'file_plus'} height="100px" width='100px'></RdsIcon>
+                    </div>
+                    <div>
+                        <h5><RdsLabel label={props.nodatatitle}></RdsLabel></h5>
+                        {datasubtitle && <small className='text-muted'>Click on the button above to add</small>}
+                    </div>
+                </div>
+            </div>}   
 
-                        </tr>
-                        </tbody>
-                </table>
-            </div>
-        </div>
+    </div>    
     )
 }
+
 
 export default RdsCompDataTable;

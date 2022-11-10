@@ -4,6 +4,7 @@ import RdsCompAdminDashboard from "./admin-dashboard/rds-comp-admin-dashboard";
 import RdsCompForgotPassword from "./forgot-password/rds-comp-forgot-password";
 import RdsCompLogin from "./login/rds-comp-login";
 import RdsCompSideNavigation from "./side-navigation/rds-comp-side-navigation";
+import RdsCompTenantList from "./tenant-list/rds-comp-tenant-list";
 import RdsCompTopNavigation from "./top-navigation/rds-comp-top-navigation";
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <RdsCompSideNavigation></RdsCompSideNavigation>
         <RdsCompTopNavigation></RdsCompTopNavigation>
         <RdsCompForgotPassword></RdsCompForgotPassword>
+        <RdsCompTenantList></RdsCompTenantList>
     </div>
     )
 		

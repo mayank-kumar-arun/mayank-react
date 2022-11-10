@@ -2,8 +2,8 @@ import { Fragment, ReactNode } from 'react';
 import {RdsSearch,RdsCheckbox, RdsIcon, RdsCounter} from '../rds-elements'
 
 const RdsCompPermissionTree = () =>{
-   let list : any;
-   let Permissions : any
+   let list : any =[];
+   let Permissions : any=[]
     let multiselectTree = true;
     return (
         <div >

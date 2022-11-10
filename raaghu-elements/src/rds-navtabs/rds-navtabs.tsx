@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, ReactNode, useState } from "react";
 import { Colors, Placements } from "../Types";
 import RdsButton from "../rds-button/rds-button";
 
@@ -9,6 +9,7 @@ import RdsIcon from "../rds-icon";
 
 
 export interface RdsNavtabsProps {
+    children: ReactNode;
     // type?: "default" | "pills" | "tabs" | "vertical"
     navtabsItems: {
         label: string,
@@ -16,6 +17,7 @@ export interface RdsNavtabsProps {
         ariacontrols?: string,
         icon?: string,
         subText?: string,
+    
     }[]
 }
 
@@ -47,7 +49,7 @@ const RdsNavtabs = (props: RdsNavtabsProps) => {
 
             <hr/>
 
-
+             {props.children}
         </div >
     )
 

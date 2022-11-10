@@ -45,7 +45,7 @@ export {default as RdsRadioButton} from './rds-radio-button';
 export {default as RdsAppDetail} from './rds-app-detail';
 export {default as RdsOffcanvas} from './rds-offcanvas';
 export {default as RdsTable} from './rds-table';
-
+export {default as RdsNavtabs} from './rds-navtabs'
 
 //Charts
 export {default as RdsAreaChart} from "./rds-chart-area";
