@@ -8,7 +8,7 @@ export interface RdsPaginationProps {
   paginationType?: string;
   alignmentType?: string;
   size?: string;
-  onPageChange:(currentPage:number,recordsPerPage:number)=>void;
+ onPageChange :( currentPage:number ,recordsPerPage:number) => void;
 }
 const RdsPagination = (props: RdsPaginationProps) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -41,7 +41,7 @@ const RdsPagination = (props: RdsPaginationProps) => {
   const align =
     " pagination justify-content-" + `${props.alignmentType || "start"}`;
 
-    // props.onPageChange(currentPage,recordsPerPage)
+    //<button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
   return (
     <div>
       {paginType == "default" && (
@@ -57,7 +57,7 @@ const RdsPagination = (props: RdsPaginationProps) => {
                 href="javascript:void(0);"
                 onClick={() => {
                   setCurrentPage(currentPage - 1);
-                  props.onPageChange(currentPage,recordsPerPage)
+                  props.onPageChange(currentPage, recordsPerPage)
                   //console.log("currentPage -  " + currentPage);
                 }}
               >
@@ -84,7 +84,7 @@ const RdsPagination = (props: RdsPaginationProps) => {
                 <a
                   onClick={() => {
                     setCurrentPage(number);
-                    props.onPageChange(currentPage,recordsPerPage)
+                    props.onPageChange(currentPage, recordsPerPage)
                    // console.log("currentPage -  " + currentPage);
                   }}
                   className="page-link"
@@ -104,7 +104,7 @@ const RdsPagination = (props: RdsPaginationProps) => {
                 href="javascript:void(0);"
                 onClick={() => {
                   setCurrentPage(currentPage + 1);
-                  props.onPageChange(currentPage,recordsPerPage)
+                  props.onPageChange(currentPage, recordsPerPage)
                   //console.log("currentPage -  " + currentPage);
                 }}
               >
@@ -135,9 +135,8 @@ const RdsPagination = (props: RdsPaginationProps) => {
                 href="javascript:void(0);"
                 onClick={() => {
                   setCurrentPage(currentPage - 1);
-                  props.onPageChange(currentPage,recordsPerPage)
-
-                  //console.log("currentPage -  " + currentPage);
+                  props.onPageChange(currentPage, recordsPerPage)
+                 // console.log("currentPage -  " + currentPage);
                 }}
               >
                 <RdsIcon
@@ -162,8 +161,8 @@ const RdsPagination = (props: RdsPaginationProps) => {
                 <a
                   onClick={() => {
                     setCurrentPage(number);
-                    props.onPageChange(currentPage,recordsPerPage)
-                   // console.log("currentPage -  " + currentPage);
+                    props.onPageChange(currentPage, recordsPerPage)
+                    //console.log("currentPage -  " + currentPage);
                   }}
                   className="page-link roundeds"
                   href="javascript:void(0);"
@@ -182,8 +181,8 @@ const RdsPagination = (props: RdsPaginationProps) => {
                 href="javascript:void(0);"
                 onClick={() => {
                   setCurrentPage(currentPage + 1);
-                  props.onPageChange(currentPage,recordsPerPage)
-                  //console.log("currentPage -  " + currentPage);
+                  props.onPageChange(currentPage, recordsPerPage)
+                 // console.log("currentPage -  " + currentPage);
                 }}
               >
                 <RdsIcon
@@ -201,9 +200,12 @@ const RdsPagination = (props: RdsPaginationProps) => {
               <div className="btn-group dropdown page-counter">
                 <select
                   className="form-select form-select-sm custom-select py-2" 
-                  onChange={()=>
-                   { setItemsPerPage
-                    props.onPageChange(currentPage,recordsPerPage)}}
+                  
+                  onChange={() => {
+                    setItemsPerPage
+                    props.onPageChange(currentPage, recordsPerPage)
+                  
+                  }}
                    >
                   <option value="All">All</option>
                   <option defaultValue="5">

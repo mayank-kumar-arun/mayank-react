@@ -26,7 +26,6 @@ const Main = () =>{
         </Suspense>
     )   
 }
-
 export default Main;
 
 

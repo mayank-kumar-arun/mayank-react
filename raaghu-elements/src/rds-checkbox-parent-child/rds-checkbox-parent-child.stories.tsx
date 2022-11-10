@@ -13,6 +13,75 @@ const Template: ComponentStory<typeof RdsCheckboxParentChild> = (args) => <RdsCh
 
 export const Default = Template.bind({})
 Default.args = {
-    
+  userData:[
+        {
+          "id": 1,
+          "label": "Parent Checkbox 1",
+          "isChecked": false,
+          "isIntermediate": false,
+          "isClosed": false,
+          "disabled": false,
+          "childList": [
+            {
+              "id": 1,
+              "parent_id": 1,
+              "label": "Child Checkbox 1",
+              "isChecked": false,
+              "disabled": false
+            },
+            {
+              "id": 2,
+              "parent_id": 1,
+              "label": "Child Checkbox 2",
+              "isChecked": false,
+              "disabled": false
+            },
+            {
+              "id": 3,
+              "parent_id": 1,
+              "label": "Child Checkbox 3",
+              "isChecked": false,
+              "disabled": false
+            },
+            {
+              "id": 4,
+              "parent_id": 1,
+              "label": "Child Checkbox 4",
+              "isChecked": false,
+              "disabled": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "label": "Parent Checkbox 2",
+          "isChecked": false,
+          "isIntermediate": false,
+          "isClosed": false,
+          "disabled": false,
+          "childList": [
+            {
+              "id": 1,
+              "parent_id": 1,
+              "label": "Child Checkbox 1",
+              "isChecked": false,
+              "disabled": false
+            },
+            {
+              "id": 2,
+              "parent_id": 1,
+              "label": "Child Checkbox 2",
+              "isChecked": false,
+              "disabled": false
+            }
+          ]
+        }
+      ],
+      // userData : [
+      //   { name: "Child checkbox 1", isChecked: false },
+      //   { name: "Child checkbox 2", isChecked: false },
+      //   { name: "Child checkbox 3", isChecked: false },
+      //   { name: "Child checkbox 4", isChecked: false },
+      // ],
 }
 

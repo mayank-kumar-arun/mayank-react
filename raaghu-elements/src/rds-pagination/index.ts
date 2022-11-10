@@ -1,1 +1,1 @@
-export {default} from './rds-pagination';
+export {default} from "./rds-pagination";
