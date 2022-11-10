@@ -36,8 +36,8 @@ export {default as RdsLikeDislike} from './rds-like-dislike';
 export {default as RdsTextArea} from './rds-text-area';
 export {default as RdsOffcanvas} from './rds-offcanvas';
 export {default as RdsTable} from './rds-table';
-
-
+export {default as RdsPagination} from './rds-pagination';
+export {default as RdsModal} from './rds-modal';
 //Charts
 export {default as RdsAreaChart} from "./rds-chart-area";
 export {default as RdsLineChart} from './rds-chart-line';

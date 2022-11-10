@@ -4,33 +4,27 @@ const DashboardCompo = React.lazy(() => import("Dashboard/Dashboard"));
 const LoginCompo = React.lazy(() => import("Login/Login"));
 const Main = () =>{
     const navigate = useNavigate();
-    var accessToken:string|undefined = undefined;
-   
+    var accessToken:string|undefined = undefined;  
     useEffect(() => {
         const loginCredentials = localStorage.getItem('persist:root');
         if(loginCredentials != null){
         var credentials = JSON.parse(loginCredentials);
         var parsedCredentials = JSON.parse(credentials.login);
-        accessToken = parsedCredentials.accessToken;
-       
+        accessToken = parsedCredentials.accessToken;      
     }
         if(accessToken){
             navigate('/Dashboard');
         }
-    },[accessToken]);
-    
-    
+    },[accessToken]);   
     return (
         <Suspense fallback="loading...">
             <Routes>
                 {/* <Route path="/" element={accessToken && <Navigate to="/Dashboard" replace />} /> */}
                 <Route path='/Dashboard' element={<DashboardCompo/>}></Route> :
-                 <Route path='/' element={<LoginCompo/>}></Route>               
+                 <Route path='/' element={<LoginCompo/>} ></Route>               
             </Routes>
         </Suspense>
-    )
-
-    
+    )   
 }
 
 export default Main;

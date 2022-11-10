@@ -45,7 +45,9 @@ module.exports = {
         "./RdsCompAdminDashboard":"./src/admin-dashboard/rds-comp-admin-dashboard",
         "./RdsCompSideNavigation":"./src/side-navigation/rds-comp-side-navigation",
         "./RdsCompTopNavigation":"./src/top-navigation/rds-comp-top-navigation",
-        "./RdsCompForgotPassword":"./src/forgot-password/rds-comp-forgot-password"
+        "./RdsCompForgotPassword":"./src/forgot-password/rds-comp-forgot-password",
+        "./RdsCompWebsiteLog":"./src/website-log/rds-comp-website-log",
+        "./RdsCompAlertPopup":"./src/alert-popup/rds-comp-alert-popup"
       },
 
       shared: {
