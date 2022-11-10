@@ -13,7 +13,7 @@ const RdsIllustration = (props: RdsIllustrationProps) => {
     <Fragment>
       <div className="text-center illustration-margin">
         <div className="d-block">
-          <RdsIcon name="file_plus" width="168px" height="168px"></RdsIcon>
+          <RdsIcon name="file_plus" width="155px" height="155px" fill={false} stroke={true} colorVariant ={props.colorVariant||"dark"}></RdsIcon>
         </div>
         <label className="mt-4">{props.label}</label>
         <div className="mt-2 opacity-25">{props.subLabel}</div>
