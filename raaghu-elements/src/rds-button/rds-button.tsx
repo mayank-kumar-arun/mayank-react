@@ -28,7 +28,9 @@ export interface RdsButtonProps {
   type: "button"|"submit" ;
   onClick?:(React.MouseEventHandler<HTMLButtonElement>);
   formName?: string;
-  class?:string
+  class?:string;
+  arialabel?:string;
+  databsdismiss?:string
 }
 
 
@@ -56,6 +58,8 @@ const RdsButton = (props: RdsButtonProps) => {
         disabled={props.isDisabled}
         onClick= {props.onClick}
         form={props.formName}
+        aria-label={props.arialabel}
+        data-bs-dismiss={props.databsdismiss}
       >
         {props.icon}
         {props.label}
@@ -68,6 +72,8 @@ const RdsButton = (props: RdsButtonProps) => {
         disabled={props.isDisabled}
         onClick= {props.onClick}
         form={props.formName}
+        aria-label={props.arialabel}
+        data-bs-dismiss={props.databsdismiss}
       >
         {props.icon}
         {props.label}

@@ -2,7 +2,6 @@
 import React, { Fragment, useState } from "react";
 import RdsIcon from "../rds-icon";
 import "./rds-pagination.scss";
-
 export interface RdsPaginationProps {
   totalRecords: number;
   recordsPerPage: any;
@@ -17,7 +16,6 @@ export interface RdsPaginationProps {
     recordsPerPage: number
   ) => void;
 }
-
 const RdsPagination = (props: RdsPaginationProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage, setRecordsPerPage] = useState(props.recordsPerPage);
