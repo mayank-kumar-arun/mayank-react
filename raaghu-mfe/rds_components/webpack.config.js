@@ -45,7 +45,8 @@ module.exports = {
         "./RdsCompAdminDashboard":"./src/admin-dashboard/rds-comp-admin-dashboard",
         "./RdsCompSideNavigation":"./src/side-navigation/rds-comp-side-navigation",
         "./RdsCompTopNavigation":"./src/top-navigation/rds-comp-top-navigation",
-        "./RdsCompForgotPassword":"./src/forgot-password/rds-comp-forgot-password"
+        "./RdsCompForgotPassword":"./src/forgot-password/rds-comp-forgot-password",
+        "./RdsCompOrganizationTree":"./src/organization-tree/rds-comp-organization-tree"
       },
 
       shared: {
