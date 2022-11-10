@@ -1,7 +1,6 @@
-import { useEffect } from "@storybook/addons";
+
 import React, { Fragment, useState } from "react";
 import RdsIcon from "../rds-icon";
-
 import "./rds-pagination.scss";
 
 export interface RdsPaginationProps {
@@ -26,20 +25,20 @@ const RdsPagination = (props: RdsPaginationProps) => {
   let paginType = props.paginationType || "default";
 
   const setItemsPerPage = (e: any, current: any) => {
-    console.log("value - " + e.target.value);
+   // console.log("value - " + e.target.value);
     if (e.target.value > props.totalRecords || e.target.value == "All") {
       setRecordsPerPage(props.totalRecords);
-      console.log(" value > tr " + recordsPerPage);
+     // console.log(" value > tr " + recordsPerPage);
     } else {
       setRecordsPerPage(e.target.value);
-      console.log(" value " + recordsPerPage);
+      //console.log(" value " + recordsPerPage);
     }
     props.onPageChange(e, current, recordsPerPage);
   };
 
   const PageNumbers = [];
   let int: any;
-  console.log("records pp " + recordsPerPage);
+ // console.log("records pp " + recordsPerPage);
 
   if (paginType == "default") {
     int = Math.ceil(props.totalRecords / props.recordsPerPage);
@@ -53,7 +52,7 @@ const RdsPagination = (props: RdsPaginationProps) => {
     }
   }
   const onNext = (e: any, current: any) => {
-    console.log("current -  " + current);
+   // console.log("current -  " + current);
     setCurrentPage(current + 1);
     props.onPageChange(e, current, recordsPerPage);
   };
@@ -63,7 +62,7 @@ const RdsPagination = (props: RdsPaginationProps) => {
     props.onPageChange(e, current, recordsPerPage);
   };
   const onPrevious = (e: any, current: any) => {
-    console.log("current -  " + current);
+    //console.log("current -  " + current);
     setCurrentPage(current - 1);
     props.onPageChange(e, current, recordsPerPage);
   };
