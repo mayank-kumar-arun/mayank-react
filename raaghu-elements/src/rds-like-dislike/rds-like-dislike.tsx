@@ -5,11 +5,13 @@ import "./rds-like-dislike.scss";
 
 export interface RdsLikeDislikeProps {
   colorVariant?: Colors;
+  like:number;
+  dislike:number;
 }
 
 const RdsLikeDislike = (props: RdsLikeDislikeProps) => {
-  const [like, setLike] = useState(0);
-  const [dislike, setDislike] = useState(0);
+  const [like, setLike] = useState(props.like);
+  const [dislike, setDislike] = useState(props.dislike);
 
   const likeHandler = () => {
     setLike(like + 1);
