@@ -12,9 +12,8 @@ const RdsBenefit =(props:RdsBenefitProps) =>{
     return(
         <>
         
-    {/* Default  */}
-  
-   {props.displayType=="default"&& <div className="pt-1 mb-4">
+    {/* Default  */} 
+    {props.displayType=="default"&& <div className="pt-1 mb-4">
       <div className="border p-4 text-center bg-light rounded">
         <div>
            <RdsIcon name ={props.item.icon} height={props.item.iconHeight} width={props.item.iconWidth} fill={props.item.iconFill} stroke={props.item.iconstroke} colorVariant={props.item.iconColorVarient} />
@@ -30,7 +29,6 @@ const RdsBenefit =(props:RdsBenefitProps) =>{
     </div>}
 
       {/* Left Aligned */}
-
      {props.displayType=="Left Aligned"&&  <div className="pt-1 ">
         <div  className="border p-4 text-left bg-light rounded">
           <div>
@@ -46,7 +44,7 @@ const RdsBenefit =(props:RdsBenefitProps) =>{
       </div>}
 
       {/* Center Aligned  */}
-     {props.displayType =="Center Aligned"  && 
+      {props.displayType =="Center Aligned"  && 
       <div className="pt-1" >
        <div className="border p-4 text-center bg-light rounded">
           <div>
@@ -84,7 +82,7 @@ const RdsBenefit =(props:RdsBenefitProps) =>{
       </div>}
 
       {/* Without Label */}
-{ props.displayType =='Without Label' && <div className="pt-1" 
+     { props.displayType =='Without Label' && <div className="pt-1" 
       >
         <div className="d-flex">
           <div className="d-flex align-items-center">
@@ -104,7 +102,7 @@ const RdsBenefit =(props:RdsBenefitProps) =>{
       </div>}
 
       {/* Heading With Icon  */}
-     {props.displayType =='Heading With Icon' && <div className="pt-1">
+      {props.displayType =='Heading With Icon' && <div className="pt-1">
         <div className="d-flex align-items-center">
           <div className="d-flex align-items-center">
           <span className="rounded-circle p-2 bg-secondary bg-opacity-10">
