@@ -4,7 +4,8 @@ export interface RdsCompDataTableProps{
     tableHeaders :{displayname:string,key:string,datatype:string,dataLength?: number,required?: boolean,sortable?: boolean,filterable?: boolean,colWidth?: string,disabled?: boolean}[];
     tableactions : {displayname:string,id:string}[];
     nodatatitle? : string;
-    pagination ? : boolean;
+    pagination? : boolean;
+    recordsPerPage? : number
 }
 
 const RdsCompDataTable = (props:RdsCompDataTableProps) =>{
@@ -21,6 +22,9 @@ const RdsCompDataTable = (props:RdsCompDataTableProps) =>{
             return tabledata.length
         }
     };
+    const onPagination =() =>{
+
+    }
     return(
         <div>
         
@@ -109,7 +113,7 @@ const RdsCompDataTable = (props:RdsCompDataTableProps) =>{
                                 </tr>} )}
                             </tbody>}
                         </table>
-                    </div> <div> {props.pagination && tabledata && <RdsPagination alignmentType='end' totalRecords={gettotalrecords()} recordsPerPage={10}></RdsPagination>} </div> 
+                    </div> <div> {props.pagination && tabledata && <RdsPagination alignmentType='end' onPageChange={onPagination} totalRecords={gettotalrecords()} recordsPerPage={props.recordsPerPage}></RdsPagination>} </div> 
                 </div>
                 : 
         

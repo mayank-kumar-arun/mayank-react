@@ -20,7 +20,7 @@ const RdsCompTenantList =() =>{
                 </div>
                 <div className="col-md-12">
                     <div className="card p-2 h-100 border-0 rounded-0 card-full-stretch">
-                        <RdsCompDataTable tableHeaders={[]} tableactions={[{id:"loginAsTenant",displayname:"Login as Tenant"},{id:"edit",displayname:"Edit"},{id:"delete",displayname:"Delete"}]} pagination={true} nodatatitle="Currently you do not have tenant"></RdsCompDataTable>
+                        <RdsCompDataTable tableHeaders={[]} recordsPerPage={10} tableactions={[{id:"loginAsTenant",displayname:"Login as Tenant"},{id:"edit",displayname:"Edit"},{id:"delete",displayname:"Delete"}]} pagination={true} nodatatitle="Currently you do not have tenant"></RdsCompDataTable>
                         {/* <app-rds-data-table [tableData]="tableData" [inlineEdit]="false" [pagination]="true"
                             [recordsPerPage]="10" [actions]="actions" (onActionSelection)="onActionSelect($event)"
                             noDataTitle="Currently you do not have tenant" [tableHeaders]="tenantHeaders"
