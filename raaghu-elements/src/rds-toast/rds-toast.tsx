@@ -15,7 +15,7 @@ const RdsToast = (props: RdsToastProps) => {
    const[clicked, setClicked] = useState(false)
    let delay = props.delay || 5000;
    const handler = props.hasOwnProperty("autohide")&&props.autohide==true;
-  console.log("delay - " + delay)
+   console.log("delay - " + delay)
 
    useEffect(() => {
     if(handler==true){

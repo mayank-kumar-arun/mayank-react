@@ -29,7 +29,15 @@ const Template: ComponentStory<typeof RdsAlert> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  alertmessage: "this is close alert",
-  dismisable: false
+  alertmessage: "This is close alert",
+  dismisable: false ,
+  //delay:10000,
+  icon: "information",
+  iconFill: false,
+  iconStroke: true,
+  iconHeight: "20px",
+  iconWidth: "20px",
+  position: "top" ,
+  iconColor:"info"
 };
 
