@@ -13,7 +13,7 @@ const Login = (props: JSX.IntrinsicAttributes | (JSX.IntrinsicAttributes & React
 			// dispatch(loginActions.getProfilePicture());
 			// dispatch(loginActions.GetSubscriptionExpiringData());
 			getUserConfiguration('login');
-			navigate('/Dashboard');
+			// navigate('/Dashboard');
 		}
 
 	

@@ -1,71 +1,420 @@
 import React, { useState } from "react";
-import { RdsIcon } from "../../../../raaghu-elements/src";
-
+import { RdsButton, RdsIcon } from "../../../../raaghu-elements/src";
 
 const RdsCompOrganizationTree = () => {
-
-    interface IList {
-        name: string;
-        image: string;
-        id: number;
-      }
-      
-      interface IProps {
-        list : IList;
-        key: string;
-      }
-
-    let lists= [
-      
-          {
-            name: "a",
-            image: "red",
-            id: 1
-          },
-          {
-            name: "b",
-            image: "blue",
-            id: 2
-          },
-          {
-            name: "c",
-            image: "green",
-            id: 3
-          }
-    ]
-
-    const show:any =lists.map((list)=>{ return <div>{list.name}</div>});
-    // const List: React.FC<{ list: IList }> = ({ list }) => {
-    //     console.log("from list",list)
-    //     return <div>{list.name}</div>;
-    //   };
-      
-      // const renderLists = () => {
-      //   return lists.map(list => <p>{list.name}</p> )
-      // }
   return (
     <div>
+      <div style={{marginLeft:28}}>
+      <div className="position-relative" style={{ marginLeft: 6 }}>
+        <div className="d-flex align-items-center">
+          <div className="dot"></div>
+          <span className="mt-1 d-flex align-items-center">
+            <span className="mr-5">qwerty</span>
 
-      <div className="position-relative node dottedstyle">
-      <div className="vertical-dotted-line"></div>
+            <RdsIcon
+              name={"plus"}
+              stroke={true}
+              colorVariant={"success"}
+              height={"15px"}
+              width={"15px"}
+              class={"mx-2"}
+            ></RdsIcon>
+            <RdsIcon
+              name={"pencil"}
+              stroke={true}
+              colorVariant={"success"}
+              height={"15px"}
+              width={"15px"}
+              class={"mx-2"}
+            ></RdsIcon>
+            <RdsIcon
+              name={"delete"}
+              stroke={true}
+              colorVariant={"success"}
+              height={"15px"}
+              width={"15px"}
+              class={"mx-2"}
+            ></RdsIcon>
+          </span>
+        </div>
+        <span className="text-muted">(0 Member)</span>
 
+        <div>
+          <div
+            className="position-relative"
+            style={{ marginLeft: 35, marginTop: 10 }}
+          >
+            <div className="d-flex align-items-center">
+              <div className="dot"></div>
+              <span className="mt-1 d-flex align-items-center">
+                <span className="mr-5">test</span>
+
+                <RdsIcon
+                  name={"plus"}
+                  stroke={true}
+                  colorVariant={"success"}
+                  height={"15px"}
+                  width={"15px"}
+                  class={"mx-2"}
+                ></RdsIcon>
+                <RdsIcon
+                  name={"pencil"}
+                  stroke={true}
+                  colorVariant={"success"}
+                  height={"15px"}
+                  width={"15px"}
+                  class={"mx-2"}
+                ></RdsIcon>
+                <RdsIcon
+                  name={"delete"}
+                  stroke={true}
+                  colorVariant={"success"}
+                  height={"15px"}
+                  width={"15px"}
+                  class={"mx-2"}
+                ></RdsIcon>
+              </span>
+            </div>
+            <span className="text-muted">(14 Members)</span>
+            <div>
+              <div
+                className="position-relative"
+                style={{ marginLeft: 35, marginTop: 10 }}
+              >
+                <div className="d-flex align-items-center">
+                  <div className="dot"></div>
+                  <span className="mt-1 d-flex align-items-center">
+                    <span className="mr-5">child</span>
+
+                    <RdsIcon
+                      name={"plus"}
+                      stroke={true}
+                      colorVariant={"success"}
+                      height={"15px"}
+                      width={"15px"}
+                      class={"mx-2"}
+                    ></RdsIcon>
+                    <RdsIcon
+                      name={"pencil"}
+                      stroke={true}
+                      colorVariant={"success"}
+                      height={"15px"}
+                      width={"15px"}
+                      class={"mx-2"}
+                    ></RdsIcon>
+                    <RdsIcon
+                      name={"delete"}
+                      stroke={true}
+                      colorVariant={"success"}
+                      height={"15px"}
+                      width={"15px"}
+                      class={"mx-2"}
+                    ></RdsIcon>
+                  </span>
+                </div>
+                <span className="text-muted">(0 Member)</span>
+                <div>
+                  <div
+                    className="position-relative"
+                    style={{ marginLeft: 35, marginTop: 10 }}
+                  >
+                    <div className="d-flex align-items-center">
+                      <div className="dot"></div>
+
+                      <span className="mt-1 d-flex align-items-center">
+                        <span className="mr-5">child</span>
+
+                        <RdsIcon
+                          name={"plus"}
+                          stroke={true}
+                          colorVariant={"success"}
+                          height={"15px"}
+                          width={"15px"}
+                          class={"mx-2"}
+                        ></RdsIcon>
+                        <RdsIcon
+                          name={"pencil"}
+                          stroke={true}
+                          colorVariant={"success"}
+                          height={"15px"}
+                          width={"15px"}
+                          class={"mx-2"}
+                        ></RdsIcon>
+                        <RdsIcon
+                          name={"delete"}
+                          stroke={true}
+                          colorVariant={"success"}
+                          height={"15px"}
+                          width={"15px"}
+                          class={"mx-2"}
+                        ></RdsIcon>
+                      </span>
+                    </div>
+                    <span className="text-muted">(0 Member)</span>
+                  </div>
+                </div>
+                <div>
+                  <div
+                    className="position-relative"
+                    style={{ marginLeft: 35, marginTop: 10 }}
+                  >
+                    <div className="d-flex align-items-center">
+                      <div className="dot"></div>
+
+                      <span className="mt-1 d-flex align-items-center">
+                        <span className="mr-5">child 1</span>
+
+                        <RdsIcon
+                          name={"plus"}
+                          stroke={true}
+                          colorVariant={"success"}
+                          height={"15px"}
+                          width={"15px"}
+                          class={"mx-2"}
+                        ></RdsIcon>
+                        <RdsIcon
+                          name={"pencil"}
+                          stroke={true}
+                          colorVariant={"success"}
+                          height={"15px"}
+                          width={"15px"}
+                          class={"mx-2"}
+                        ></RdsIcon>
+                        <RdsIcon
+                          name={"delete"}
+                          stroke={true}
+                          colorVariant={"success"}
+                          height={"15px"}
+                          width={"15px"}
+                          class={"mx-2"}
+                        ></RdsIcon>
+                      </span>
+                    </div>
+                    <span className="text-muted">(0 Member)</span>
+                  </div>
+
+                  <div className="position-relative" style={{ marginTop: 10 }}>
+                    <RdsButton tooltipTitle={"top"} type={"button"}>
+                      <button className="btn btn-primary btn-sm">
+                        <span className="me-2 align-middle">
+                          <RdsIcon
+                            name={"plus"}
+                            height="12px"
+                            width="12px"
+                            colorVariant="light"
+                            stroke={true}
+                            fill={true}
+                          ></RdsIcon>
+                        </span>
+                        <span className="btn-text">SUB-UNIT</span>
+                      </button>
+                    </RdsButton>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="position-relative"
+              style={{ marginLeft: 35, marginTop: 10 }}
+            >
+              <div className="d-flex align-items-center">
+                <div className="dot"></div>
+                <span className="mt-1 d-flex align-items-center">
+                  <span className="mr-5">122</span>
+
+                  <RdsIcon
+                    name={"plus"}
+                    stroke={true}
+                    colorVariant={"success"}
+                    height={"15px"}
+                    width={"15px"}
+                    class={"mx-2"}
+                  ></RdsIcon>
+                  <RdsIcon
+                    name={"pencil"}
+                    stroke={true}
+                    colorVariant={"success"}
+                    height={"15px"}
+                    width={"15px"}
+                    class={"mx-2"}
+                  ></RdsIcon>
+                  <RdsIcon
+                    name={"delete"}
+                    stroke={true}
+                    colorVariant={"success"}
+                    height={"15px"}
+                    width={"15px"}
+                    class={"mx-2"}
+                  ></RdsIcon>
+                </span>
+              </div>
+              <span className="text-muted">(0 Member)</span>
+            </div>
+            <div
+              className="position-relative"
+              style={{ marginLeft: 35, marginTop: 10 }}
+            >
+              <div className="d-flex align-items-center">
+                <div className="dot"></div>
+                <span className="mt-1 d-flex align-items-center">
+                  <span className="mr-5">test1</span>
+
+                  <RdsIcon
+                    name={"plus"}
+                    stroke={true}
+                    colorVariant={"success"}
+                    height={"15px"}
+                    width={"15px"}
+                    class={"mx-2"}
+                  ></RdsIcon>
+                  <RdsIcon
+                    name={"pencil"}
+                    stroke={true}
+                    colorVariant={"success"}
+                    height={"15px"}
+                    width={"15px"}
+                    class={"mx-2"}
+                  ></RdsIcon>
+                  <RdsIcon
+                    name={"delete"}
+                    stroke={true}
+                    colorVariant={"success"}
+                    height={"15px"}
+                    width={"15px"}
+                    class={"mx-2"}
+                  ></RdsIcon>
+                </span>
+              </div>
+              <span className="text-muted">(0 Member)</span>
+            </div>
+            <div className="position-relative" style={{ marginTop: 10 }}>
+              <RdsButton tooltipTitle={"top"} type={"button"}>
+                <button className="btn btn-primary btn-sm">
+                  <span className="me-2 align-middle">
+                    <RdsIcon
+                      name={"plus"}
+                      height="12px"
+                      width="12px"
+                      colorVariant="light"
+                      stroke={true}
+                      fill={true}
+                    ></RdsIcon>
+                  </span>
+                  <span className="btn-text">SUB-UNIT</span>
+                </button>
+              </RdsButton>
+            </div>
+          </div>
+          <div
+            className="position-relative"
+            style={{ marginLeft: 35, marginTop: 10 }}
+          >
+            <div className="d-flex align-items-center">
+              <div className="dot"></div>
+              <span className="mt-1 d-flex align-items-center">
+                <span className="mr-5">admin</span>
+
+                <RdsIcon
+                  name={"plus"}
+                  stroke={true}
+                  colorVariant={"success"}
+                  height={"15px"}
+                  width={"15px"}
+                  class={"mx-2"}
+                ></RdsIcon>
+                <RdsIcon
+                  name={"pencil"}
+                  stroke={true}
+                  colorVariant={"success"}
+                  height={"15px"}
+                  width={"15px"}
+                  class={"mx-2"}
+                ></RdsIcon>
+                <RdsIcon
+                  name={"delete"}
+                  stroke={true}
+                  colorVariant={"success"}
+                  height={"15px"}
+                  width={"15px"}
+                  class={"mx-2"}
+                ></RdsIcon>
+              </span>
+            </div>
+            <span className="text-muted">(0 Member)</span>
+          </div>
+          <div className="position-relative" style={{ marginTop: 10 }}>
+              <RdsButton tooltipTitle={"top"} type={"button"}>
+                <button className="btn btn-primary btn-sm">
+                  <span className="me-2 align-middle">
+                    <RdsIcon
+                      name={"plus"}
+                      height="12px"
+                      width="12px"
+                      colorVariant="light"
+                      stroke={true}
+                      fill={true}
+                    ></RdsIcon>
+                  </span>
+                  <span className="btn-text">SUB-UNIT</span>
+                </button>
+              </RdsButton>
+            </div>
+        </div>
       </div>
-      <div>
-      <RdsIcon name={"plus"} stroke={true} colorVariant={"success"} height={"15px"} width={"15px"} class={"mx-2"}></RdsIcon>
-      <RdsIcon name={"pencil"} stroke={true} colorVariant={"success"} height={"15px"} width={"15px"} class={"mx-2"}></RdsIcon>
-      <RdsIcon name={"delete"} stroke={true} colorVariant={"success"} height={"15px"} width={"15px"} class={"mx-2"}></RdsIcon>{show}</div>
-         {/* lists.map() */}
-      
+      <div className="position-relative" style={{ marginLeft: 6 }}>
+        <div className="d-flex align-items-center">
+          <div className="dot"></div>
+          <span className="mt-1 d-flex align-items-center">
+            <span className="mr-5">test 1</span>
 
-    <div>
-
+            <RdsIcon
+              name={"plus"}
+              stroke={true}
+              colorVariant={"success"}
+              height={"15px"}
+              width={"15px"}
+              class={"mx-2"}
+            ></RdsIcon>
+            <RdsIcon
+              name={"pencil"}
+              stroke={true}
+              colorVariant={"success"}
+              height={"15px"}
+              width={"15px"}
+              class={"mx-2"}
+            ></RdsIcon>
+            <RdsIcon
+              name={"delete"}
+              stroke={true}
+              colorVariant={"success"}
+              height={"15px"}
+              width={"15px"}
+              class={"mx-2"}
+            ></RdsIcon>
+          </span>
+        </div>
+        <span className="text-muted">(0 Member)</span>
+      </div>
+            </div>
+      <div className="position-relative" style={{ marginTop: 10}}>
+              <RdsButton tooltipTitle={"top"} type={"button"}>
+                <button className="btn btn-primary btn-sm">
+                  <span className="me-2 align-middle">
+                    <RdsIcon
+                      name={"plus"}
+                      height="12px"
+                      width="12px"
+                      colorVariant="light"
+                      stroke={true}
+                      fill={true}
+                    ></RdsIcon>
+                  </span>
+                  <span className="btn-text">NEW-ROOT-UNIT</span>
+                </button>
+              </RdsButton>
+            </div>
     </div>
-     
-  </div>
-    )
-   
+  );
 };
-
-
 
 export default RdsCompOrganizationTree;
