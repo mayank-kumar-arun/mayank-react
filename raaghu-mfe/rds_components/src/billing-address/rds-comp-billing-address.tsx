@@ -1,8 +1,10 @@
-import { useState } from 'react';
-import {countryListForRdsSelectList, IndianStateList} from '../../../../raaghu-elements/src/data-for-export'
+
 import { RdsInput, RdsButton, RdsSelectList } from '../rds-elements'
 
-export interface RdsCompBillingAddressProps { }
+export interface RdsCompBillingAddressProps { 
+    countryList: {option:string}[],
+    IndianStateList: {option:string}[]
+}
 
 const RdsCompBillingAddress = (props: RdsCompBillingAddressProps) => {
 
@@ -94,7 +96,7 @@ const RdsCompBillingAddress = (props: RdsCompBillingAddressProps) => {
                                 // (change)="SelectCountry($event)" 
                                 // name="countryInfo" 
                                 // required
-                                selectItems={countryListForRdsSelectList}
+                                selectItems={props.IndianStateList}
                             />
                             {/* <div className="form-control-feedback" * ngIf= "country.errors && (country.dirty || country.touched)" >
 
@@ -114,7 +116,7 @@ const RdsCompBillingAddress = (props: RdsCompBillingAddressProps) => {
                                 // (change)="SelectState($event)" 
                                 // name="countryInfo" 
                                 // required 
-                                selectItems={IndianStateList} 
+                                selectItems={props.IndianStateList} 
                                 />
                             {/* <div className="form-control-feedback" *ngIf="state.errors && (state.dirty || state.touched)">
 
