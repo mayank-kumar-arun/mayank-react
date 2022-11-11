@@ -1,10 +1,19 @@
 import React, { useState } from "react";
 import { RdsButton, RdsIcon } from "../../../../raaghu-elements/src";
+import organizationChild from "./organization-child";
+import OrganizationParent from "./organization-parent";
 
 const RdsCompOrganizationTree = () => {
+
+ 
   return (
     <div>
-      <div style={{marginLeft:28}}>
+
+      <div style={{ marginLeft: 6 }}>
+      <OrganizationParent organizationChild={organizationChild}/>
+      </div>
+
+      {/* <div style={{marginLeft:28}}>
       <div className="position-relative" style={{ marginLeft: 6 }}>
         <div className="d-flex align-items-center">
           <div className="dot"></div>
@@ -412,9 +421,10 @@ const RdsCompOrganizationTree = () => {
                   <span className="btn-text">NEW-ROOT-UNIT</span>
                 </button>
               </RdsButton>
-            </div>
+            </div> */}
+            
     </div>
   );
-};
+  }
 
 export default RdsCompOrganizationTree;
