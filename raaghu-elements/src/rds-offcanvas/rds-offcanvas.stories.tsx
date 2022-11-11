@@ -21,5 +21,5 @@ export const Default = Template.bind({});
 Default.args = {
   placement :"start",
   canvasTitle:"Canvas Title",
-  width:"650px"
+  width: "650px",
 };

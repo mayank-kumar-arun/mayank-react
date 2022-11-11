@@ -1,6 +1,4 @@
 import React, { Fragment, ReactNode, useState } from "react";
-import { Colors, IconName, Placements } from "../Types";
-import RdsButton from "../rds-button/rds-button";
 
 import "./rds-navtabs.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -15,27 +13,25 @@ export interface RdsNavtabsProps {
         label: string,
         tablink?: string,
         ariacontrols?: string,
-        icon?: IconName,
+        icon?: string,
         subText?: string,
         disabled?: boolean,
     }[]
     type?: "default" | "pills" | "tabs" | "vertical"
     fill?:boolean,
     justified?:boolean
+    activeNavtabOrder(arg:number):number
+
 }
 
 const RdsNavtabs = (props: RdsNavtabsProps) => {
 
-    // const ulClasses = "nav "+ "nav-" + props.type
 
     const [activeTabKey, setActiveTabKey] = useState(0)
 
 
-
-
-
     return (
-        <div>
+        <div className="navtabs-wrapper-div">
             <ul className={"nav"
                 + (props.type === "pills" ? " nav-pills" :
                     (props.type==="tabs"? " nav-tabs-our-custom":
@@ -43,12 +39,12 @@ const RdsNavtabs = (props: RdsNavtabsProps) => {
                 + (props.fill?" nav-fill":"")
                 + (props.justified?" nav-justified":"")}>
                 {props.navtabsItems.map((navtabsItem, i) =>
-                    <li className="nav-item pe-2 ps-2" key={i}>
-                        <a className={"nav-link " + (i === activeTabKey ? "active " : "") + (navtabsItem.disabled ? "disabled " : "")}
+                    <li className="nav-item" key={i}>
+                        <a className={"nav-link pe-4 ps-4 " + (i === activeTabKey ? "active " : "") + (navtabsItem.disabled ? "disabled " : "")}
                             aria-current="page"
                             data-bs-target={navtabsItem.tablink}
                             aria-controls={navtabsItem.ariacontrols}
-                            onClick={() => { setActiveTabKey(i) }}
+                            onClick={() => { setActiveTabKey(i); props.activeNavtabOrder(i) }}
                         >
                             {navtabsItem.icon&&<span className="pe-3"><RdsIcon name={navtabsItem.icon} height="20px" width="20px" stroke={true} /></span>}
                             <span>{navtabsItem.label}</span>
