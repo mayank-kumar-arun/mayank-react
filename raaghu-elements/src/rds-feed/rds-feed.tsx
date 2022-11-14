@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import RdsAvatar from "../rds-avatar";
 import RdsIcon from "../rds-icon";
 import RdsLikeDislike from "../rds-like-dislike";
+import RdsRating from "../rds-rating";
 import { Colors } from "../Types";
 import "./rds-feed.scss";
 
@@ -21,19 +22,19 @@ const RdsFeed = (props: RdsFeedProps) => {
         <div className="border-bottom py-4">
           <div className="d-flex">
             <div>
-                <RdsAvatar ></RdsAvatar>
-              {/* <rds-avatar [withProfilePic]="true" [profilePic]="item.profilePic" [size]="'large'"
+                <RdsAvatar profilePic={item.profilePic} withProfilePic = {true}></RdsAvatar>
+              {/* <rds-avatar [withProfilePic]="true" [profilePic]="" [size]="'large'"
             [verticallyAlligned]="false"></rds-avatar> */}
             </div>
             <div className="ps-3">
+              <div >
               <b>
                 <label className="text-left ">{item.actor} </label>
               </b>
-              ""
-              <RdsIcon
+              {/* <RdsIcon
                 name={item.feedIcon}
                 height="15" //className="ms-2"
-              />
+              /> */}
               <small>
                 <label className="text-muted"> {item.username}</label>
               </small>
@@ -41,8 +42,11 @@ const RdsFeed = (props: RdsFeedProps) => {
                 <span className="dot text-muted ">&#8901;</span>
                 <label className="text-muted ">{props.date}</label>
               </small>
+
+              </div>
               <div className="h-25 mt-1">
-                {/* <rds-rating [rating]="1" [colorVariant]="'primary'" [noOfReview]="123" [size]="'medium'"></rds-rating> */}
+                <RdsRating rating={1} colorVariant ='primary' ></RdsRating>
+                {/* <rds-rating [rating]= [colorVariant]="'primary'" [noOfReview]="123" [size]="'medium'"></rds-rating> */}
               </div>
             </div>
           </div>
