@@ -52,6 +52,7 @@ const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown>
         onChange={props.onChange}
         name={props.name}
         form={props.formName}
+        value={props.value}
       ></input>
 
       {/* <FormGroup>
