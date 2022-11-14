@@ -9,7 +9,7 @@ export const RdsTestimonial = (props: RdsTestimmonialProps) => {
   return (
     <div className="row">
       {props.testimonialItems.map((testimonialItem) => (
-        <div className="col-md-3">
+        <div className="col-md-4 mb-2">
           <div className="card text-center p-4">
             <div>
               <RdsIcon
