@@ -19,10 +19,15 @@ export interface RdsInputProps {
   titleType?: string;
   tooltipPlacement?: string;
   tooltipTitle?: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   name?: string;
   label?: string;
   id?: string
+  
+  required?: boolean
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
+
 
   customClasses?: string;
   formName?: string;
@@ -52,6 +57,9 @@ const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown>
         onChange={props.onChange}
         name={props.name}
         form={props.formName}
+        required={props.required}
+        onFocus={props.onFocus}
+        onBlur={props.onBlur}
         value={props.value}
       ></input>
 
