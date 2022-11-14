@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
- const organizationChild = {
+ const organizationchildren = {
   //Grandfather
   name: "John",
   age: 90,
-  child: [
+  children: [
     {
       name: "Mary",
       age: 60,
@@ -12,11 +12,11 @@ import React, { useState } from 'react'
     {
       name: "Arthur",
       age: 60,
-      child: [
+      children: [
         {
           name: "Lily",
           age: 35,
-          child: [
+          children: [
             {
               name: "Hank",
               age: 60,
@@ -40,4 +40,4 @@ import React, { useState } from 'react'
   ],
 };
 
-export default organizationChild
+export default organizationchildren
