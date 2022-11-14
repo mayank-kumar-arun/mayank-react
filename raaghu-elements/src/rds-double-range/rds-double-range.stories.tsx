@@ -31,6 +31,6 @@ export const Default = Template.bind({});
 Default.args = {
     max:200,
     min:10,
-  
+    doubleRangeType:"default"
 };
 
