@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import RdsFeed from "./rds-Feed";
+import RdsFeed from "./rds-feed";
 
 export default {
   title: "Elements/Feed",
