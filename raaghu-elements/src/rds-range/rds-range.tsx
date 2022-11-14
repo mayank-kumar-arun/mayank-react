@@ -47,7 +47,6 @@ const RdsRange = (props: RdsRangeProps) => {
         </div>
 
         <input
-          id="slider"
           className="slider_0 "
           type="range"
           style={{ width: "100%" }}
