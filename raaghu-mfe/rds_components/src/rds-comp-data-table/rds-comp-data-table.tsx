@@ -1,8 +1,9 @@
-import {RdsIcon,RdsInput,RdsCheckbox,RdsButton , RdsPagination , RdsLabel} from '../rds-elements'
+import {RdsIcon,RdsInput,RdsCheckbox,RdsButton,RdsPagination,RdsLabel} from '../rds-elements'
 
 export interface RdsCompDataTableProps{
-    tableHeaders :{displayname:string,key:string,datatype:string,dataLength?: number,required?: boolean,sortable?: boolean,filterable?: boolean,colWidth?: string,disabled?: boolean}[];
-    tableactions : {displayname:string,id:string}[];
+    tableHeaders :{displayName:string,key:string,datatype:string,dataLength?: number,required?: boolean,sortable?: boolean,filterable?: boolean,colWidth?: string,disabled?: boolean}[];
+    actions : {displayName:string,id:string}[];
+    tableData: any[];
     nodatatitle? : string;
     pagination? : boolean;
     recordsPerPage? : number
@@ -10,16 +11,15 @@ export interface RdsCompDataTableProps{
 
 const RdsCompDataTable = (props:RdsCompDataTableProps) =>{
     var datasubtitle : boolean =  true;
-    var  tabledata : any = [];
     var datasource : any = [];
-    var enablecheckboxselection : boolean = true;
+    var enablecheckboxselection : boolean = false;
     let filteredarray : any = [];
     const gettotalrecords = () =>{
         if(filteredarray && filteredarray.length>0){
-            return filteredarray.lenght;
+            return filteredarray.length;
         }
-        if(tabledata){
-            return tabledata.length
+        if(props.tableData){
+            return props.tableData.length
         }
     };
     const onPagination =() =>{
@@ -28,7 +28,7 @@ const RdsCompDataTable = (props:RdsCompDataTableProps) =>{
     return(
         <div>
         
-            {(tabledata && tabledata.length>0) ? 
+            {(props.tableData && props.tableData.length>0) ? 
                 <div>
                     <div className="sm-datatable table-responsive">
                         <table className="table table-hover table-bordered h-100" id="sortTable" width="400px">
@@ -41,7 +41,7 @@ const RdsCompDataTable = (props:RdsCompDataTableProps) =>{
                                         </th>} 
                                     
                                      
-                                        {props.tableHeaders.map((a:any)=>{
+                                        {props.tableHeaders?.map((a:any)=>{
                                             <th scope="col">
                                             <div className="header d-flex">
                                                 <span>{a.displayname}</span>
@@ -72,14 +72,14 @@ const RdsCompDataTable = (props:RdsCompDataTableProps) =>{
                                         })}
                                     <div>
 
-                                    {props.tableHeaders && props.tableHeaders.length>0 && props.tableactions && props.tableactions.length>0 && <th className="text-center">Actions</th>}
+                                    {props.tableHeaders && props.tableHeaders.length>0 && props.actions && props.actions.length>0 && <th className="text-center">Actions</th>}
                                         </div>
                                 
                                    </>
                                 </tr>
                             </thead>
 
-                            {tabledata && tabledata.length>0 && 
+                            {props.tableData && props.tableData.length>0 && 
                             <tbody>
                             {datasource.map((data:any)=>{
                                 <tr >
@@ -93,18 +93,18 @@ const RdsCompDataTable = (props:RdsCompDataTableProps) =>{
                                         {column.datatype.toLowerCase()==="html" && !data.isEdit ? <td className='align-middle'></td> : 
                                         <>{column.datatype.toLowerCase()==="icon" && !data.isEdit ? <td> <RdsIcon name={data[column.key].icon} width={data[column.key].width} colorVariant={data[column.key].colorVariant} height={data[column.key].height}></RdsIcon></td> : 
                                         <td className='align-middle'>
-                                            {!data.isEdit ? <div>{data[column.key]}</div> : <> switch(column.datatype.toLowerCase()){<>
-                                                case 'number': return <div><RdsInput isDisabled={column.disabled} inputType="number" value={data[column.key]}></RdsInput>{column.required && (data[column.key]===""||data[column.key]===undefined) && <small className='error'>{column.displayname} is Reqiured</small>}</div>;
-                                                case 'text': return <div><RdsInput isDisabled={column.disabled} inputType="text" value={data[column.key]}></RdsInput>{column.required && (data[column.key]===""||!data[column.key]) && <small className='error'>{column.displayname} is Reqiured</small>}</div>;
-                                                case 'html': return <div><RdsInput isDisabled={column.disabled} inputType="number" value={data[column.key]}></RdsInput>{column.required && (data[column.key]===""||!data[column.key]) && <small className='error'>{column.displayname} is Reqiured</small>}</div>;
+                                            {!data.isEdit ? <div>{data[column.key]}</div> :  <>switch(column.datatype.toLowerCase()){<>
+                                                case 'number': return <div><RdsInput isDisabled={column.disabled} inputType="number" value={data[column.key]}></RdsInput>{column.required && (data[column.key]===""||data[column.key]===undefined) && <small className='error'>{column.displayName} is Reqiured</small>}</div> break;
+                                                case 'text': return <div><RdsInput isDisabled={column.disabled} inputType="text" value={data[column.key]}></RdsInput>{column.required && (data[column.key]===""||!data[column.key]) && <small className='error'>{column.displayName} is Reqiured</small>}</div>;
+                                                case 'html': return <div><RdsInput isDisabled={column.disabled} inputType="number" value={data[column.key]}></RdsInput>{column.required && (data[column.key]===""||!data[column.key]) && <small className='error'>{column.displayName} is Reqiured</small>}</div>;
                                                 
-                                           </> }</>}
+                                            </>}</>}
                                         </td>}</>}})
                                     }
 
-                                    {props.tableactions.length>0 && 
+                                    {props.actions.length>0 && 
                                     <td className='align-middle text-center'>
-                                            {!data.isEdit ? <div className='dropdown'><RdsButton colorVariant='default' size='small' icon='tree_dots' tooltipTitle={''} type={'button'} ></RdsButton> <div className='dropdown-menu' aria-labelledby='action-dropdown'><>{props.tableactions.map((action)=>{<li><a className='dropdown-item'>{action.displayname}</a></li>})}</> </div></div> : 
+                                            {!data.isEdit ? <div className='dropdown'><RdsButton colorVariant='default' size='small' icon='tree_dots' tooltipTitle={''} type={'button'} ></RdsButton> <div className='dropdown-menu' aria-labelledby='action-dropdown'><>{props.actions.map((action)=>{<li><a className='dropdown-item'>{action.displayName}</a></li>})}</> </div></div> : 
                                             <div className='d-flex'><RdsButton class='action' colorVariant='primary' icon='check' size='medium' tooltipTitle={''} type={'button'}></RdsButton><RdsButton class="ms-2 text-white" colorVariant='danger' tooltipPlacement='top' icon='close' size='medium' tooltipTitle={''} type={'button'}></RdsButton></div>}
                                         
 
@@ -113,7 +113,7 @@ const RdsCompDataTable = (props:RdsCompDataTableProps) =>{
                                 </tr>} )}
                             </tbody>}
                         </table>
-                    </div> <div> {props.pagination && tabledata && <RdsPagination alignmentType='end' onPageChange={onPagination} totalRecords={gettotalrecords()} recordsPerPage={props.recordsPerPage}></RdsPagination>} </div> 
+                    </div> <div> {props.pagination && props.tableData && <RdsPagination alignmentType='end' onPageChange={onPagination} totalRecords={gettotalrecords()} recordsPerPage={props.recordsPerPage}></RdsPagination>} </div> 
                 </div>
                 : 
         

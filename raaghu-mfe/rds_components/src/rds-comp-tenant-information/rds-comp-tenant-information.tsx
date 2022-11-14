@@ -1,6 +1,14 @@
 import {RdsInput , RdsSelectList ,RdsCheckbox ,RdsDatePicker , RdsButton} from '../rds-elements'
 
-const RdsCompTenantInformation = () =>{
+
+export interface RdsCompTenantInformationProps{
+    editionList: any [];
+    tenantData?: any [];
+    showEmail? : boolean
+  }
+  
+
+const RdsCompTenantInformation = (props:RdsCompTenantInformationProps) =>{
     return (
         <div>
             <div className="tab-content py-4">
@@ -14,14 +22,14 @@ const RdsCompTenantInformation = () =>{
                     </div>
                     <div className="col-md-9 sm-p-0">
                     <div className="form-group mb-3">
-                        <RdsInput inputType='text' title='Tenancy Name' titleType='Top' name='tenancy_name' placeholder='Tenancy Name' ></RdsInput>
+                        <RdsInput inputType='text' title='Tenancy Name' titleType='Top' label='Tenancy Name' name='tenancy_name' placeholder='Tenancy Name' ></RdsInput>
                         
                         <div className="form-control-feedback" >
                            
                         </div>
                     </div>
                     <div className="form-group mb-3">
-                        <RdsInput inputType='text' title='Tenant Name' titleType='Top' name='tenant_name' placeholder='TenantName' ></RdsInput>
+                        <RdsInput inputType='text' title='Tenant Name' label='Tenant Name' titleType='Top' name='tenant_name' placeholder='TenantName' ></RdsInput>
                         
                         {/* <div className="form-control-feedback" *ngIf="tenantName.errors && (tenantName.dirty || tenantName.touched)">
                         <span class="text-danger" *ngIf="tenantName.errors.required">{{"Tenant Name is
@@ -31,9 +39,10 @@ const RdsCompTenantInformation = () =>{
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-md-6 sm-p-0">
+                   {props.showEmail ? 
+                   <div className="col-md-6 sm-p-0">
                     <div className="form-group mb-3">
-                        <RdsInput inputType='email' title='Admin Email' titleType='Top' placeholder='Admin Email' name='email' ></RdsInput>
+                        <RdsInput inputType='email' title='Admin Email' label='Admin Email' titleType='Top' placeholder='Admin Email' name='email' ></RdsInput>
                         {/* <rds-input [inputType]="'email'" [Title]="translate.instant('Admin Email')" [TitleType]="'Top'"
                         [(ngModel)]="tenantData.adminEmailAddress" [pattern]="emailPattern" name="email"
                         [placeholder]="translate.instant('Admin Email')" #adminEmailAddress="ngModel" [isRequired]=true required>
@@ -46,15 +55,18 @@ const RdsCompTenantInformation = () =>{
                             email"|translate}}</span>
                         </div> */}
                     </div>
-                    </div>
+                    </div> : 
                     <div className="col-md-6 sm-p-0">
                     <div className="form-group mb-3">
-                        <RdsSelectList label={'Edition'} selectItems={[]} ></RdsSelectList>
+                        <label htmlFor="Edition" className="mb-2">Edition<span className="text-danger">*</span></label>
+                        <RdsSelectList label={'Edition'} selectItems={[props.editionList]} ></RdsSelectList>
                         {/* <rds-select-list [(ngModel)]="tenantData.edition" [labelText]="translate.instant('Edition')" [isRequired]=true
                         [value]="tenantData.edition" ngDefaultControl LabelType="Top" name="edition" [itemList]="editionList" [placeholderText]="'Select Edition'">
                         </rds-select-list> */}
                     </div>
-                    </div>
+                    </div>} 
+                    
+                    
                 </div>
                 <div className="row">
                     <div className="col-md-12 sm-p-0">
@@ -76,7 +88,8 @@ const RdsCompTenantInformation = () =>{
                 </div>
                 </form>
             </div>
-            <div className="footer-buttons my-2 sm-p-0">
+            <div className="footer-buttons py-3 bottom-0 w-100 action-buttons">
+                <RdsButton tooltipTitle={''} type={'button'} label="Cancel" colorVariant='outline-primary' size='small' databsdismiss='offcanvas'></RdsButton>
                 {/* <RdsButton tooltipTitle={''} type={'button'} label="Cancel" colorVariant='outline-primary' size='small' onClick={}></RdsButton>
                 <rds-button [label]="translate.instant('Cancel')" [colorVariant]="'outline-primary'" [size]="'small'"
                 (click)="onCanceled()" data-bs-dismiss="offcanvas">

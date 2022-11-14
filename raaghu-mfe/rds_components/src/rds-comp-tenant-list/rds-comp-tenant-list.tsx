@@ -1,10 +1,30 @@
 import {RdsButton,RdsIcon,RdsFabMenu,RdsOffcanvas,RdsNavtabs} from '../rds-elements';
-import RdsCompDataTable from '../data-table/rds-comp-data-table';
-import RdsCompTenantInformation from '../tenant-information/rds-comp-tenant-information';
-import RdsCompTenantSettings from '../tenant-settings/rds-comp-tenant-settings';
-import RdsCompPermissionTree from '../permission-tree/rds-comp-permission-tree';
+import RdsCompDataTable from '../rds-comp-data-table/rds-comp-data-table';
+import RdsCompTenantInformation from '../rds-comp-tenant-information/rds-comp-tenant-information';
+import RdsCompTenantSettings from '../rds-comp-tenant-settings/rds-comp-tenant-settings';
+import RdsCompPermissionTree from '../rds-comp-permission-tree/rds-comp-permission-tree';
+import { useState } from 'react';
 
-const RdsCompTenantList =() =>{
+export interface RdsCompTenatListProps{
+    tenantHeaders :{displayName:string,key:string,datatype:string,dataLength?: number,required?: boolean,sortable?: boolean,filterable?: boolean,colWidth?: string,disabled?: boolean}[];
+    tenantData?: any;
+    tenantSettingInfo? : any;
+    tableData: any[];
+    tenantList?: any[];
+    editionList: any[];
+}
+
+
+
+const RdsCompTenantList =(props : RdsCompTenatListProps) =>{
+
+    const [PaneShowOrder, setPaneShowOrder] = useState(0)
+
+    const NavPaneHandler = (order : number) => {
+        setPaneShowOrder(order)
+        return order
+    }
+
     return (
     <div>
         <div>
@@ -20,7 +40,7 @@ const RdsCompTenantList =() =>{
                 </div>
                 <div className="col-md-12">
                     <div className="card p-2 h-100 border-0 rounded-0 card-full-stretch">
-                        <RdsCompDataTable tableHeaders={[]} recordsPerPage={10} tableactions={[{id:"loginAsTenant",displayname:"Login as Tenant"},{id:"edit",displayname:"Edit"},{id:"delete",displayname:"Delete"}]} pagination={true} nodatatitle="Currently you do not have tenant"></RdsCompDataTable>
+                        <RdsCompDataTable tableHeaders={props.tenantHeaders} recordsPerPage={10} actions={[{ id: "loginAsTenant", displayName: "Login as Tenant" }, { id: "edit", displayName: "Edit" }, { id: "delete", displayName: "Delete" }]} pagination={true} nodatatitle="Currently you do not have tenant" tableData={[props.tableData]}></RdsCompDataTable>
                         {/* <app-rds-data-table [tableData]="tableData" [inlineEdit]="false" [pagination]="true"
                             [recordsPerPage]="10" [actions]="actions" (onActionSelection)="onActionSelect($event)"
                             noDataTitle="Currently you do not have tenant" [tableHeaders]="tenantHeaders"
@@ -35,12 +55,12 @@ const RdsCompTenantList =() =>{
             </div>
         </div>
         <RdsOffcanvas canvasTitle='New Tenant' width='650px' placement='end'>
-            <RdsNavtabs navtabsItems={[{ label: 'Tenant Information', tablink: '#tenant-information', ariacontrols: 'tenant-information'},{label:"Settings"}]}>
+            <RdsNavtabs  activeNavtabOrder={NavPaneHandler} navtabsItems={[{ label: 'Tenant Information', tablink: '#tenant-information', ariacontrols: 'tenant-information'},{label:"Settings"}]}>
                 <div className="row tab-content m-2" id="nav-tabContent">
-                    <div className="tab-pane fade show active px-0" id="tenant-information" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <RdsCompTenantInformation></RdsCompTenantInformation>
+                    <div className={PaneShowOrder===0?"tab-pane fade show active":"tab-pane fade"} id="tenant-information" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <RdsCompTenantInformation editionList={[{option : "sdfg"}]} tenantData={props.tenantData} showEmail={false}></RdsCompTenantInformation>
                     </div>
-                    <div className="tab-pane fade show px-0" id="settings" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div className={PaneShowOrder===1?"tab-pane fade show active":"tab-pane fade"} id="settings" role="tabpanel" aria-labelledby="nav-home-tab">
                         
                         <RdsCompTenantSettings></RdsCompTenantSettings>
                     </div>
