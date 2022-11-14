@@ -1,6 +1,6 @@
 import React, { ReactNode, useState } from "react";
 import "./rds-button.scss";
-import { Colors, Placements } from "../Types";
+import { Colors, Placements } from "../../libs/types";
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
@@ -26,11 +26,15 @@ export interface RdsButtonProps {
   tooltipPlacement?: Placements;
   tooltipTitle: string;
   type: "button"|"submit" ;
-  onClick?:(React.MouseEventHandler<HTMLButtonElement>);
+  onClick?: (React.MouseEventHandler<HTMLButtonElement>);
   formName?: string;
   class?:string;
   arialabel?:string;
-  databsdismiss?:string
+  databsdismiss?:string;
+  databstarget?:string;
+  databstoggle?:string;
+  ariacontrols?:string;
+
 }
 
 
@@ -60,6 +64,9 @@ const RdsButton = (props: RdsButtonProps) => {
         form={props.formName}
         aria-label={props.arialabel}
         data-bs-dismiss={props.databsdismiss}
+        data-bs-target={props.databstarget}
+        data-bs-toggle={props.databstoggle}
+        aria-controls={props.ariacontrols}
       >
         {props.icon}
         {props.label}
@@ -74,6 +81,9 @@ const RdsButton = (props: RdsButtonProps) => {
         form={props.formName}
         aria-label={props.arialabel}
         data-bs-dismiss={props.databsdismiss}
+        data-bs-target={props.databstarget}
+        data-bs-toggle={props.databstoggle}
+        aria-controls={props.ariacontrols}
       >
         {props.icon}
         {props.label}

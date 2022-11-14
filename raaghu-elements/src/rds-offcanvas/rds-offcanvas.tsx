@@ -19,7 +19,7 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
 
   return (
     <>
-      <button
+      {/* <button
         className="btn btn-primary"
         type="button"
         data-bs-toggle="offcanvas"
@@ -27,7 +27,7 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
         aria-controls={offcanvasPlacement}
       >
         Toggle Offcanvas
-      </button>
+      </button> */}
 
       <div
         className={`offcanvas offcanvas-${props.placement}`}

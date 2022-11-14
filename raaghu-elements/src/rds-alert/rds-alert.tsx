@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from "react";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import "./rds-alert.scss";
-import { Colors} from "../Types";
+import { Colors} from "../../libs/types";
 
 export interface RdsAlertProps {
   label: string;

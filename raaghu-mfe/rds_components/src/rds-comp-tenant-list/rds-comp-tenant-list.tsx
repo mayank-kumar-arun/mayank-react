@@ -17,9 +17,84 @@ export interface RdsCompTenatListProps{
 
 
 const RdsCompTenantList =(props : RdsCompTenatListProps) =>{
+    const [viewCanvas,setViewCanvas] = useState(false);
+    const [showEmailList,setshowEmailList] = useState(false);
+    const [showEditData,setshowEditData] = useState(false);
+    const [isTenantInfoValid , setisTenantInfoValid] = useState(false);
+    const [canvasTitle, setCanvasTitle] = useState("");
+    const [activpage,setactivpage] = useState(0)
+    let bootstrap : any;
+    const [tenant,setTenant] = useState({ tenantInfo: undefined,tenantSettings: undefined,featureList: []})
+    const [navtabsItems, setnavtabsItems] = useState([{label: '',tablink: '', ariacontrols: ''}])
+    const [PaneShowOrder, setPaneShowOrder] = useState(0);
 
-    const [PaneShowOrder, setPaneShowOrder] = useState(0)
+    const newTenant=(event: any,showEmail?:boolean)=>{
+        setViewCanvas(true)
+        setshowEmailList(showEmail ? true : false)
+        setshowEditData(showEmail ? true : false)
+        if(showEmail){
+            setTenant({tenantInfo: undefined,tenantSettings: undefined,featureList: []}) 
+            props.tenantData= undefined;
+            props.tenantSettingInfo = undefined;
+            const eventdata: any = {
+                newtenant: true,
+                reset: true
+            }           
+        }
+        if(event){
+            setCanvasTitle("NEW TENANT")
+            props.tenantData = undefined;
+            props.tenantSettingInfo = undefined;
 
+            setnavtabsItems([{
+                label: 'Tenant Information',
+                tablink: '#tenant-information',
+                ariacontrols: 'tenant-information',
+            },
+              {
+                label: 'Settings',
+                tablink: '#settings',
+                ariacontrols: 'settings',
+             }])
+
+        }else {
+            setnavtabsItems([{
+                label: 'Tenant Information',
+                tablink: '#tenant-information',
+                ariacontrols: 'tenant-information',
+              },
+              {
+                label: 'Settings',
+                tablink: '#settings',
+                ariacontrols: 'settings',
+              },
+              {
+                label: 'Features',
+                tablink: '#features',
+                ariacontrols: 'features',
+              }])
+        }
+
+        setTimeout(() => {
+            var offcanvas = document.getElementById('tenantOffCanvas');
+            var bsOffCanvas = new bootstrap.Offcanvas(offcanvas);
+            bsOffCanvas.show();
+            
+        }, 100);
+        setactivpage(0);
+    }
+
+    const getTenantData=(event : any)=>{
+        if (event.next) {
+            setactivpage(1);
+        }
+        setTenant({tenantInfo: event.tenant, tenantSettings: undefined , featureList:[]})
+        if(!event || !event.tenant){
+            setisTenantInfoValid(false);
+        }else{
+            setisTenantInfoValid(true)
+        }
+    }
     const NavPaneHandler = (order : number) => {
         setPaneShowOrder(order)
         return order
@@ -30,7 +105,7 @@ const RdsCompTenantList =(props : RdsCompTenatListProps) =>{
         <div>
             <div className="row">
                 <div className="col-md-12 text-end pb-3 desktop-btn">
-                    <RdsButton label='New Tenant' size='small' colorVariant='primary' tooltipTitle={''} type={'button'}>
+                    <RdsButton label='New Tenant' icon='' databstarget='#offcanvasRight' databstoggle='offcanvas' ariacontrols='offcanvasRight'  size='small' colorVariant='primary' onClick={newTenant} tooltipTitle={''} type={'button'}>
                         <RdsIcon height='12px' width='12px' name={'plus'}></RdsIcon>
                     </RdsButton>
                     {/* <rds-button [label]="translate.instant('New Tenant')" [size]="'small'" [colorVariant]="'primary'"
@@ -49,16 +124,16 @@ const RdsCompTenantList =(props : RdsCompTenatListProps) =>{
                 </div>
             </div>
             <div className="mobile-btn position-absolute bottom-0 end-0 my-5 me-5">
-                <RdsFabMenu listItems={[{ value: 'New Tenant', some: 'value', key: 'new', icon: 'plus', iconWidth: '20px', iconHeight: '20px' },]} colorVariant="primary" menuiconHeight='12px' menuiconWidth='12px' menuIcon='plus' ></RdsFabMenu>
+                <RdsFabMenu listItems={[{ value: 'New Tenant', some: 'value', key: 'new', icon: 'plus', iconWidth: '20px', iconHeight: '20px' },]}  colorVariant="primary" menuiconHeight='12px' menuiconWidth='12px' menuIcon='plus' ></RdsFabMenu>
                 {/* <rds-fab-menu [listItems]="listItems" [menuicon]="'plus'" [colorVariant]="'primary'" [menuiconWidth]="'12px'"
                     [menuiconHeight]="'12px'" (onSelect)="onSelectMenu($event)"></rds-fab-menu> */}
             </div>
         </div>
-        <RdsOffcanvas canvasTitle='New Tenant' width='650px' placement='end'>
+        {viewCanvas && <RdsOffcanvas canvasTitle='New Tenant' width='650px' placement='end'>
             <RdsNavtabs  activeNavtabOrder={NavPaneHandler} navtabsItems={[{ label: 'Tenant Information', tablink: '#tenant-information', ariacontrols: 'tenant-information'},{label:"Settings"}]}>
                 <div className="row tab-content m-2" id="nav-tabContent">
                     <div className={PaneShowOrder===0?"tab-pane fade show active":"tab-pane fade"} id="tenant-information" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <RdsCompTenantInformation editionList={[{option : "sdfg"}]} tenantData={props.tenantData} showEmail={false}></RdsCompTenantInformation>
+                        <RdsCompTenantInformation  tenantInfo={getTenantData} editionList={[{option : "sdfg"}]} tenantData={props.tenantData} showEmail={showEmailList}></RdsCompTenantInformation>
                     </div>
                     <div className={PaneShowOrder===1?"tab-pane fade show active":"tab-pane fade"} id="settings" role="tabpanel" aria-labelledby="nav-home-tab">
                         
@@ -78,7 +153,8 @@ const RdsCompTenantList =(props : RdsCompTenatListProps) =>{
                 </div>
             </RdsNavtabs>
             
-        </RdsOffcanvas>
+        </RdsOffcanvas> }
+        
 
         {/* <rds-offcanvas [canvasTitle]="translate.instant(canvasTitle)" [offId]="'tenantOffcanvas'" [offcanvaswidth]="650"
             [placement]="'end'" *ngIf="viewCanvas" [bodySpacing]="true" (onClose)="close()">

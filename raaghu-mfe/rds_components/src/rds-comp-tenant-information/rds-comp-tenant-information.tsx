@@ -4,11 +4,21 @@ import {RdsInput , RdsSelectList ,RdsCheckbox ,RdsDatePicker , RdsButton} from '
 export interface RdsCompTenantInformationProps{
     editionList: any [];
     tenantData?: any [];
-    showEmail? : boolean
+    showEmail? : boolean;
+    tenantInfo :  React.EventHandler<any>;
+
   }
   
 
 const RdsCompTenantInformation = (props:RdsCompTenantInformationProps) =>{
+   const next=(event : any) =>{
+    // event.form.markAllAsTouched();
+    if (!event || event.invalid){
+        return;
+    }
+    props.tenantInfo({tenant : props.tenantData, next: true})
+
+   }
     return (
         <div>
             <div className="tab-content py-4">
@@ -94,7 +104,7 @@ const RdsCompTenantInformation = (props:RdsCompTenantInformationProps) =>{
                 <rds-button [label]="translate.instant('Cancel')" [colorVariant]="'outline-primary'" [size]="'small'"
                 (click)="onCanceled()" data-bs-dismiss="offcanvas">
                 </rds-button> */}
-                <RdsButton label='Next' size='small' class='ms-2' colorVariant='primary' tooltipTitle={''} type={'button'}></RdsButton>
+                <RdsButton label='Next' size='small' class='ms-2' colorVariant='primary' tooltipTitle={''} onClick={next} type={'button'}></RdsButton>
                 {/* <rds-button [label]="translate.instant('Next')"
                 [disabled]="!tenantCreationForm.valid"
                 [size]="'small'" class="ms-2" [colorVariant]="'primary'" (click)="next(tenantCreationForm)" [showLoadingSpinner]="buttonSpinner">
