@@ -24,7 +24,7 @@ export interface RdsButtonProps {
   outlineButton?: boolean;
   tooltip?: boolean;
   tooltipPlacement?: Placements;
-  tooltipTitle: string;
+  tooltipTitle?: string;
   type: "button"|"submit" ;
   onClick?:(React.MouseEventHandler<HTMLButtonElement>);
   formName?: string;
