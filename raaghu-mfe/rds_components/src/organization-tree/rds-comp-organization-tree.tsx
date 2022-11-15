@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { RdsButton, RdsIcon } from "../../../../raaghu-elements/src";
-import organizationchildren from "./organization-children";
-import OrganizationParent from "./organization-parent";
+import organizationchildren from "./rds-organization-children";
+import OrganizationParent from "./rds-organization-parent";
 
 const RdsCompOrganizationTree = () => {
  
