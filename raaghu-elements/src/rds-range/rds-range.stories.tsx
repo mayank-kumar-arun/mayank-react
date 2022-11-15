@@ -32,5 +32,24 @@ Default.args = {
     max:200,
     min:10,
     colorVariant: "danger",
-};
+    rangeType :"default"
+    };
+
+export const RangeType_1= Template.bind({});
+RangeType_1.args = {
+    max:200,
+    min:10,
+    colorVariant: "danger",
+    rangeType :"type1",
+ };
+
+export const RangeType_2= Template.bind({});
+RangeType_2.args = {
+    max:200,
+    min:10,
+    colorVariant: "danger",
+    rangeType :"type2",
+    };
+
+
 
