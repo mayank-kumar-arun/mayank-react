@@ -37,4 +37,5 @@ Default.args = {
     isSelectable: false,
     label: "label card",
     isEditable:false,
+    
 };

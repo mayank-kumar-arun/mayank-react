@@ -9,39 +9,14 @@ export interface RdsRadioButtonProps {
   onClick?:(React.MouseEventHandler<HTMLInputElement>);
   itemList: any;
   displayType?: string;
+  id:string;
 }
 
 
 
-
-// const reducer = (state:any, action:any) => {
-//   switch (action.type) {
-//     case "COMPLETE":
-//         console.log("button clicked" )
-//       return state.map((todo:any) => {
-//         if (todo.id === action.id) {
-//             console.log("button clicked changed" + todo.checked)
-//           return { ...todo, checked: !todo.checked };
-          
-//         } else {
-//           return todo;
-//         }
-        
-//       });
-//     default:
-//       return state;
-      
-//   }
-// };
-
-
 const RdsRadioButton = (props: RdsRadioButtonProps) => {
 
-//   const [items, dispatch] = useReducer(reducer, props.itemList);
 
-//   const handleComplete = (todo:any) => {
-//     dispatch({ type: "COMPLETE", id: todo.id });
-//   };
 
   let InputGroup = props.isInputGroup || false;
   let Switch = props.switch || false;
@@ -57,15 +32,15 @@ const RdsRadioButton = (props: RdsRadioButtonProps) => {
   return (
     <>
       <div>
-      <div>
+      <div id={props.id}>
           {props.itemList.map((item: any, idx: any) => (
-            <div
+            <div  key={idx}
             className={"form-check " + `${InputGroup1}` + `${Switch1}` + `${Inline1}`
               }
             >
               <input
                 type="radio"
-                key={idx}
+               
                 className="form-check-input"
                 name={item.name}
                 value={item.label}

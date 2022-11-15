@@ -23,6 +23,7 @@ const Template: ComponentStory<typeof RdsRadioButton> = (args) => (
 export const Default = Template.bind({})
 Default.args = {
   displayType: 'Default',
+  id:"1",
   itemList : [
     {
       id: 1,

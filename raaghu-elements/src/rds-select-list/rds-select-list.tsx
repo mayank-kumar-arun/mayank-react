@@ -6,6 +6,7 @@ export interface RdsSelectProps{
     isMultiple?:boolean;
     size?:string;
     selectItems: any[];
+    onSelectListChange ?:( Event:React.ChangeEvent<HTMLSelectElement>) => void; 
 }
 
 const RdsSelectList = (props:RdsSelectProps) => {
@@ -15,10 +16,10 @@ const RdsSelectList = (props:RdsSelectProps) => {
 
   let Multiple = props.isMultiple||false;
   let Disabled =props.isDisabled||false;
-  
+
   return (
     <Fragment>
-      <select className={customSize} disabled={Disabled} multiple={Multiple} aria-label="select example">
+      <select className={customSize} disabled={Disabled} multiple={Multiple} aria-label="select example" onChange={props.onSelectListChange}>
         <option disabled selected hidden>{props.label}</option>
         {props.selectItems.map((selectItem)=>(
         <option>{selectItem.option}</option>

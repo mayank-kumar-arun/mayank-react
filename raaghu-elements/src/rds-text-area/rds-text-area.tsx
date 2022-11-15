@@ -9,6 +9,7 @@ export interface RdsTextAreaProps {
   value?: any;
   isDisabled?: boolean;
   colorVariant?: Colors;
+  onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 const RdsTextArea = (props: RdsTextAreaProps) => {
   return (
@@ -26,6 +27,7 @@ const RdsTextArea = (props: RdsTextAreaProps) => {
           rows={props.rows}
           readOnly={props.readonly}
           placeholder={props.placeholder}
+          onChange ={props.onChange}
         ></textarea>
       </div>
     </Fragment>

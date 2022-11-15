@@ -23,7 +23,7 @@ export interface RdsInputProps {
   name?: string;
   label?: string;
   id?: string
-
+  isRequired?:boolean
   customClasses?: string;
   formName?: string;
 
@@ -45,6 +45,7 @@ const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown>
     <div>
       {props.label && <label htmlFor={props.id} className="form-label">{props.label}</label>}
       <input
+        required={props.isRequired}
         type={props.inputType}
         className={inputClasses}
         id={props.id}
