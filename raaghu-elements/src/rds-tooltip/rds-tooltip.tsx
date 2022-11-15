@@ -4,8 +4,8 @@ import { Placements } from "../../libs/types";
 
 export const Tooltip = (p: {
   children: JSX.Element;
-  text: string;
-  place: Placements;
+  text?: string;
+  place?: Placements;
 }) => {
   const childRef = useRef(undefined as unknown as Element);
 
