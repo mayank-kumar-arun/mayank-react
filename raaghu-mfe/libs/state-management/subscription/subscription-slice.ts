@@ -1,6 +1,5 @@
 import { Subscription,SubscriptionInformation } from "./subscription.models";
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
 import type { RootState } from '../index'
 
 export interface SubscriptionState {

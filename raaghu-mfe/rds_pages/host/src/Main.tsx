@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect } from "react";
 import {  Route,useNavigate,Routes, Navigate, Link} from "react-router-dom";
 import { useSelector } from 'react-redux';
-import { RootState } from "../../../libs/stateManagement";
+import { RootState } from "../../../libs/state-management";
 const DashboardCompo = React.lazy(() => import("Dashboard/Dashboard"));
 const LoginCompo = React.lazy(() => import("Login/Login"));
 const ForgotPasswordCompo = React.lazy(() => import("ForgotPassword/ForgotPassword"));
