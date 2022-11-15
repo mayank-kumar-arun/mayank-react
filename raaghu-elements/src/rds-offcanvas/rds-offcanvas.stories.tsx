@@ -20,5 +20,6 @@ const Template: ComponentStory<typeof RdsOffcanvas> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   placement :"start",
-  canvasTitle:"Canvas Title"
+  canvasTitle:"Canvas Title",
+  width: "650px",
 };

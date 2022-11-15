@@ -1,4 +1,4 @@
-import { useEffect } from "@storybook/addons";
+
 import React, { Fragment, useState } from "react";
 import RdsIcon from "../rds-icon";
 import "./rds-pagination.scss";
@@ -8,45 +8,74 @@ export interface RdsPaginationProps {
   paginationType?: string;
   alignmentType?: string;
   size?: string;
- onPageChange :( currentPage:number ,recordsPerPage:number) => void;
+  onPageChange: (
+    event:
+      | React.MouseEvent<HTMLAnchorElement>
+      | React.ChangeEvent<HTMLSelectElement>,
+    currentPage: number,
+    recordsPerPage: number
+  ) => void;
 }
 const RdsPagination = (props: RdsPaginationProps) => {
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage, setRecordsPerPage] = useState(props.recordsPerPage);
+
   let paginType = props.paginationType || "default";
-  const setItemsPerPage =(e: any) =>{   
-    if ( e.target.value > props.totalRecords|| e.target.value=="All" ) {
-      setRecordsPerPage (props.totalRecords);
-      console.log(" value > tr "+ recordsPerPage)
+
+  const setItemsPerPage = (e: any, current: any) => {
+   // console.log("value - " + e.target.value);
+    if (e.target.value > props.totalRecords || e.target.value == "All") {
+      setRecordsPerPage(props.totalRecords);
+     // console.log(" value > tr " + recordsPerPage);
     } else {
-      setRecordsPerPage( e.target.value);  
-       console.log(" value "+ recordsPerPage)                                
+      setRecordsPerPage(e.target.value);
+      //console.log(" value " + recordsPerPage);
     }
-    }    
+    props.onPageChange(e, current, recordsPerPage);
+  };
+
   const PageNumbers = [];
-  let int :any
-  console.log("records pp " + recordsPerPage)
-  if(paginType =="default"){
-     int = Math.ceil(props.totalRecords/props.recordsPerPage);
+  let int: any;
+ // console.log("records pp " + recordsPerPage);
+
+  if (paginType == "default") {
+    int = Math.ceil(props.totalRecords / props.recordsPerPage);
     for (let i = 1; i <= int; i++) {
       PageNumbers.push(i);
-    }}
-    else{
-     int = Math.ceil(props.totalRecords/recordsPerPage);
-      for (let i = 1; i <= int; i++) {
-        PageNumbers.push(i);
-      }
     }
+  } else {
+    int = Math.ceil(props.totalRecords / recordsPerPage);
+    for (let i = 1; i <= int; i++) {
+      PageNumbers.push(i);
+    }
+  }
+  const onNext = (e: any, current: any) => {
+   // console.log("current -  " + current);
+    setCurrentPage(current + 1);
+    props.onPageChange(e, current, recordsPerPage);
+  };
+
+  const onPage = (e: any, current: any) => {
+    setCurrentPage(current);
+    props.onPageChange(e, current, recordsPerPage);
+  };
+  const onPrevious = (e: any, current: any) => {
+    //console.log("current -  " + current);
+    setCurrentPage(current - 1);
+    props.onPageChange(e, current, recordsPerPage);
+  };
+
   const size = " pagination-" + `${props.size || "md"}`;
   const align =
     " pagination justify-content-" + `${props.alignmentType || "start"}`;
 
-    //<button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
   return (
     <div>
       {paginType == "default" && (
         <nav aria-label="Page navigation example">
-          <ul className={"pagination align-items-center" + `${size}` + `${align}`}>
+          <ul
+            className={"pagination align-items-center" + `${size}` + `${align}`}
+          >
             <li
               className={
                 "m-1 page-item " + `${currentPage == 1 ? "disabled" : " "}`
@@ -54,15 +83,14 @@ const RdsPagination = (props: RdsPaginationProps) => {
             >
               <a
                 className="page-link b"
-                href="javascript:void(0);"
-                onClick={() => {
-                  setCurrentPage(currentPage - 1);
-                  props.onPageChange(currentPage, recordsPerPage)
+                // href="javascript:void(0);"
+                onClick={
+                  (e) => onPrevious(e, currentPage)
                   //console.log("currentPage -  " + currentPage);
-                }}
+                }
               >
                 <RdsIcon
-                  name="chevron_right"
+                  name="chevron_left"
                   width="15px"
                   height="15px"
                   fill={false}
@@ -82,13 +110,12 @@ const RdsPagination = (props: RdsPaginationProps) => {
                 }`}
               >
                 <a
-                  onClick={() => {
-                    setCurrentPage(number);
-                    props.onPageChange(currentPage, recordsPerPage)
-                   // console.log("currentPage -  " + currentPage);
+                  onClick={(e) => {
+                    onPage(e, number);
+                    // console.log("currentPage -  " + currentPage);
                   }}
                   className="page-link"
-                  href="javascript:void(0);"
+                  // href="javascript:void(0);"
                 >
                   {number}
                 </a>
@@ -101,16 +128,17 @@ const RdsPagination = (props: RdsPaginationProps) => {
             >
               <a
                 className="page-link"
-                href="javascript:void(0);"
-                onClick={() => {
-                  setCurrentPage(currentPage + 1);
-                  props.onPageChange(currentPage, recordsPerPage)
+                ///href="javascript:void(0);"
+                onClick={
+                  (e) =>
+                    // setCurrentPage(currentPage + 1);
+                    onNext(e, currentPage)
                   //console.log("currentPage -  " + currentPage);
-                }}
+                }
               >
                 <span className="pagination-next me-1">Next</span>
                 <RdsIcon
-                  name="chevron_left"
+                  name="chevron_right"
                   width="15px"
                   height="15px"
                   fill={false}
@@ -124,7 +152,11 @@ const RdsPagination = (props: RdsPaginationProps) => {
       )}
       {paginType == "advance" && (
         <nav aria-label="page navigation">
-          <ul className={"pagination align-items-center " + `${size}` + `${align}`}>
+          <ul
+            className={
+              "pagination align-items-center " + `${size}` + `${align}`
+            }
+          >
             <li
               className={
                 "m-1 page-item " + `${currentPage == 1 ? "disabled" : " "}`
@@ -132,15 +164,16 @@ const RdsPagination = (props: RdsPaginationProps) => {
             >
               <a
                 className="page-link rounds"
-                href="javascript:void(0);"
-                onClick={() => {
-                  setCurrentPage(currentPage - 1);
-                  props.onPageChange(currentPage, recordsPerPage)
-                 // console.log("currentPage -  " + currentPage);
-                }}
+                //href="javascript:void(0);"
+                onClick={
+                  (e) => onPrevious(e, currentPage)
+                  // setCurrentPage(currentPage - 1);
+                  // props.onPageChange(e, currentPage, recordsPerPage);
+                  // console.log("currentPage -  " + currentPage);
+                }
               >
                 <RdsIcon
-                  name="chevron_right"
+                  name="chevron_left"
                   width="15px"
                   height="15px"
                   fill={false}
@@ -159,13 +192,14 @@ const RdsPagination = (props: RdsPaginationProps) => {
                 }`}
               >
                 <a
-                  onClick={() => {
-                    setCurrentPage(number);
-                    props.onPageChange(currentPage, recordsPerPage)
+                  onClick={
+                    (e) => onPage(e, number)
+                    // setCurrentPage(number);
+                    // props.onPageChange(e, number, recordsPerPage);
                     //console.log("currentPage -  " + currentPage);
-                  }}
+                  }
                   className="page-link roundeds"
-                  href="javascript:void(0);"
+                  //href="javascript:void(0);"
                 >
                   {number}
                 </a>
@@ -178,15 +212,16 @@ const RdsPagination = (props: RdsPaginationProps) => {
             >
               <a
                 className="page-link rounds "
-                href="javascript:void(0);"
-                onClick={() => {
-                  setCurrentPage(currentPage + 1);
-                  props.onPageChange(currentPage, recordsPerPage)
-                 // console.log("currentPage -  " + currentPage);
-                }}
+                //href="javascript:void(0);"
+                onClick={
+                  (e) => onNext(e, currentPage)
+                  // setCurrentPage(currentPage + 1);
+                  // props.onPageChange(e, currentPage, recordsPerPage);
+                  // console.log("currentPage -  " + currentPage);
+                }
               >
                 <RdsIcon
-                  name="chevron_left"
+                  name="chevron_right"
                   width="15px"
                   height="15px"
                   fill={false}
@@ -199,18 +234,18 @@ const RdsPagination = (props: RdsPaginationProps) => {
             <li className="page-item">
               <div className="btn-group dropdown page-counter">
                 <select
-                  className="form-select form-select-sm custom-select py-2" 
-                  
-                  onChange={() => {
-                    setItemsPerPage
-                    props.onPageChange(currentPage, recordsPerPage)
-                  
-                  }}
-                   >
+                  className="form-select form-select-sm custom-select py-2"
+                  onChange={(e) => setItemsPerPage(e, currentPage)}
+                  //   onChange={() => {
+                  //    // console.log("changed" );
+                  // setItemsPerPage
+                  //     //console.log("recordsPerPage -  " + recordsPerPage);
+                  //    // props.onPageChange(e,currentPage, recordsPerPage);
+                  //   }
+                  // }
+                >
                   <option value="All">All</option>
-                  <option defaultValue="5">
-                    5
-                  </option>
+                  <option value="5">5</option>
                   <option value="10">10</option>
                   <option value="15">15</option>
                   <option value="20">20</option>
@@ -225,4 +260,3 @@ const RdsPagination = (props: RdsPaginationProps) => {
 };
 
 export default RdsPagination;
-

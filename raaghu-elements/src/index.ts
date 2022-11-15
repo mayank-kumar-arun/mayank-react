@@ -44,8 +44,14 @@ export {default as RdsRadioButton} from './rds-radio-button';
 export {default as RdsAppDetail} from './rds-app-detail';
 export {default as RdsOffcanvas} from './rds-offcanvas';
 export {default as RdsTable} from './rds-table';
-export {default as RdsPagination} from './rds-pagination';
 export {default as RdsModal} from './rds-modal';
+export {default as RdsNavtabs} from './rds-navtabs';
+export {default as RdsRating} from './rds-rating';
+export {default as RdsPopularPages} from './rds-popular-page';
+export {default as RdsColor } from "./rds-color";
+export {default as RdsListGroup} from './rds-list-group';
+export {default as RdsFeed} from "./rds-feed";
+
 //Charts
 export {default as RdsAreaChart} from "./rds-chart-area";
 export {default as RdsLineChart} from './rds-chart-line';
