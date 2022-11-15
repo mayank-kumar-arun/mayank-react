@@ -36,7 +36,6 @@ export {default as RdsLikeDislike} from './rds-like-dislike';
 export {default as RdsTextArea} from './rds-text-area';
 export {default as RdsBenefit} from './rds-benefit';
 export {default as RdsBankCardDetail} from './rds-bank-card-detail';
-export {default as RdsPagination} from './rds-pagination';
 export {default as RdsStat} from './rds-stat';
 export {default as RdsNotification} from './rds-notification';
 export {default as RdsToast} from './rds-toast';
