@@ -51,7 +51,8 @@ export {default as RdsRating} from './rds-rating';
 export {default as RdsPopularPage} from './rds-popular-page';
 export {default as RdsColor } from "./rds-color";
 export {default as RdsListGroup} from './rds-list-group';
-export {default as RdsProductImage} from './rds-product-image'
+export {default as RdsProductImage} from './rds-product-image';
+export {default as RdsTestimonial} from './rds-testimonial'
 
 //Charts
 export {default as RdsAreaChart} from "./rds-chart-area";

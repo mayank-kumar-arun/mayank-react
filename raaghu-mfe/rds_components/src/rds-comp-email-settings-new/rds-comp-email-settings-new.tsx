@@ -1,6 +1,6 @@
 import React from 'react';
 import { RdsCheckbox, RdsInput, RdsLabel } from "../rds-elements";
-import './rds-email-settings-new.scss'
+import './rds-comp-email-settings-new.scss'
 
 export interface RdsCompEmailSettingsNewProps{
 
