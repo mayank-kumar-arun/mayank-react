@@ -19,12 +19,17 @@ export interface RdsInputProps {
   titleType?: string;
   tooltipPlacement?: string;
   tooltipTitle?: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onClick?: (event: React.MouseEvent<HTMLInputElement>) => void;
   name?: string;
   label?: string;
   id?: string
-  isRequired?:boolean
+
+  redAsteriskPresent?: boolean
+  
+  required?: boolean
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
+
   customClasses?: string;
   formName?: string;
 
@@ -45,6 +50,7 @@ const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown>
   return (
     <div>
       {props.label && <label htmlFor={props.id} className="form-label">{props.label}</label>}
+      {props.redAsteriskPresent  && <span className="text-danger">*</span>}
       <input
         required={props.isRequired}
         type={props.inputType}
@@ -55,6 +61,10 @@ const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown>
         onClick ={props.onClick}
         name={props.name}
         form={props.formName}
+        required={props.required}
+        onFocus={props.onFocus}
+        onBlur={props.onBlur}
+        value={props.value}
       ></input>
 
       {/* <FormGroup>

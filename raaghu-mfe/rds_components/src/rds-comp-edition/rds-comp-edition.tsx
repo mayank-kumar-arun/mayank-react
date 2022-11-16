@@ -9,6 +9,8 @@ export interface RdsCompEditionProps {
   borderwidth?: number;
   EditionData: any[];
   EditionBorder?: number;
+
+
 }
 
 const RdsCompEdition = (props: RdsCompEditionProps) => {
@@ -67,4 +69,5 @@ const RdsCompEdition = (props: RdsCompEditionProps) => {
     </>
   );
 };
+
 export default RdsCompEdition;

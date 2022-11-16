@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Colors } from "../Types";
+import { Colors } from "../../libs/types";
 
 export interface RdsTextAreaProps {
   rows?: number;
