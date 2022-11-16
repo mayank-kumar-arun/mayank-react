@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react'
-import {RdsBadge,RdsPagination, RdsIcon} from '../rds-elements'
+import {RdsBadge, RdsPagination, RdsIcon} from '../rds-elements'
 var dataSource: any = [];
 const RdsCompWebsiteLog = () => {
     const websiteLogData:any=["Websitelog1","Websitelog2","Websitelog3","Websitelog4","Websitelog5",
@@ -17,7 +17,7 @@ const RdsCompWebsiteLog = () => {
         for(let i = 0;i <= recordsPerPage; i++){
             dataSource.push(websiteLogData[i]);
         }
-    const onPagination = (currentPage : number,recordsPerPage : number) => {
+    const onPagination = (e:any, currentPage : number,recordsPerPage : number) => {
       let data: any = [];
       data = websiteLogData;
        dataSource = [];

@@ -1,6 +1,6 @@
 import React from "react";
 import "./rds-button-group.scss";
-import { Colors } from "../Types";
+import { Colors } from "../../libs/types";
 export interface RdsButtonGroupProps {
   vertical: boolean;
   outlineButton: boolean;

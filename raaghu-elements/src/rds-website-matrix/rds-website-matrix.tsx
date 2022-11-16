@@ -1,7 +1,7 @@
 import React, { Fragment, ReactNode } from "react";
 import "./rds-website-matrix.scss"
 import RdsIcon from "../rds-icon/rds-icon";
-import { Colors} from "../Types";
+import { Colors} from "../../libs/types";
 
 export interface RdsWebsiteMatrixProps {
    colorVariant?:Colors,

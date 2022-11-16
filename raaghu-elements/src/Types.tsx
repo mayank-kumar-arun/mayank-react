@@ -2,16 +2,16 @@
 
 // export type Breakpoints = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 
-export type Colors =
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'danger'
-  | 'warning'
-  | 'info'
-  | 'dark'
-  | 'light'
-  | string
+// export type Colors =
+//   | 'primary'
+//   | 'secondary'
+//   | 'success'
+//   | 'danger'
+//   | 'warning'
+//   | 'info'
+//   | 'dark'
+//   | 'light'
+//   | string
 
 
 // export const colorPropType = PropTypes.oneOfType([
@@ -28,13 +28,13 @@ export type Colors =
 //   PropTypes.string,
 // ])
 
-export type Placements =
-  | 'auto'
-  | 'top'
-  | 'bottom'
-  | 'right'
-  | 'left'
-  | undefined
+// export type Placements =
+//   | 'auto'
+//   | 'top'
+//   | 'bottom'
+//   | 'right'
+//   | 'left'
+//   | undefined
 
 // export const placementPropType = PropTypes.oneOf<Placements>([
 //   'auto',
@@ -54,10 +54,10 @@ export type Placements =
 //   'left-end',
 // ])
 
-export type size =
-  | 'small'
-  | 'medium'
-  | 'large'
+// export type size =
+//   | 'small'
+//   | 'medium'
+//   | 'large'
 // export type Shapes =
 //   | 'rounded'
 //   | 'rounded-top'

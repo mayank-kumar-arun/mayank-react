@@ -1,6 +1,6 @@
 import React from "react";
 import "./rds-fab-menu.scss";
-import { Colors } from "../Types";
+import { Colors } from "../../libs/types";
 import RdsIcon from "../rds-icon";
 
 export interface RdsFabMenuProps {

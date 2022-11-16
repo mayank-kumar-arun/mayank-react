@@ -8,7 +8,7 @@ import React, { Fragment, useState } from "react";
 
 import RdsButton from "../rds-button";
 import RdsInput from "../rds-input";
-import { Colors } from "../Types";
+import { Colors } from "../../libs/types";
 
 
 

@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Colors, Placements } from "../Types";
+import { Colors, Placements } from "../../libs/types";
 import RdsButton from "../rds-button/rds-button";
 
 import "bootstrap/dist/css/bootstrap.min.css";

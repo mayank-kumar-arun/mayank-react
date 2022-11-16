@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import {RdsInput,RdsButton} from '../rds-elements'
 
-const RdsCompForgotPassword = () =>{
+export interface RdsForgotPasswordProps {
+  onForgotPassword:(email?:string) => void
+ };
 
+
+const RdsCompForgotPassword = (props:RdsForgotPasswordProps) =>{
+  const [error1, setError1] = useState('');
     let showmailsuccess = false;
 
-    const [validEmail,setValidEmail] = useState(false);
+    const [email,setEmail] = useState('');
 
     const isEmailValid = (email: any) => {
 		if (!email || email.length === 0) {
@@ -14,7 +19,18 @@ const RdsCompForgotPassword = () =>{
 		return true;
 	}
 
-    const onSubmit = () =>{
+  const emailhandleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+		if (!isEmailValid(event.target.value)) {
+			setError1('Email is invalid');
+		  } else {
+			setError1('');
+		  }
+        setEmail(event.target.value);
+    }
+    const onSubmit = (event : React.FormEvent<HTMLFormElement>) =>{
+      event.preventDefault();
+      props.onForgotPassword(email)
+      setEmail('');
 
     }
     return (
@@ -24,9 +40,9 @@ const RdsCompForgotPassword = () =>{
            {!showmailsuccess && <div >
                 <h2 className="pb-3"> <b>Forgot Password? </b> </h2>
                 <div>
-                <form >
+                <form onSubmit={onSubmit}>
                     <div className="form-group mb-3 text-start">
-                     <RdsInput label='Enter email to receive reset password link' size='default' onChange={isEmailValid} inputType='email' placeholder='Email' ></RdsInput>
+                     <RdsInput label='Enter email to receive reset password link' onChange={emailhandleChange}   size='default' inputType='email' placeholder='Email' ></RdsInput>
                     {/* <rds-input size="default" [TitleType]="'Top'" [disabled]="false" [readonly]="false"
                         [Title]="translate.instant('Enter email to receive reset password link')" value="" [inputType]="'email'"
                         [placeholder]="translate.instant(Email)" [isRequired]=true  id="txtUsermail" floatinginputLabel="" formControlName="email"
@@ -42,7 +58,7 @@ const RdsCompForgotPassword = () =>{
                     </div>
                     <br/>
                     <div className="mb-2">
-                      <RdsButton class='d-grid mb-3'label='Submit' block size='medium' colorVariant='primary' tooltipTitle={''} onClick={onSubmit} type={'submit'}></RdsButton>
+                      <RdsButton class='d-grid mb-3'label='Submit' block size='medium' colorVariant='primary' tooltipTitle={''}  type={'submit'}></RdsButton>
                     {/* <rds-button class="d-grid mb-3" [colorVariant]="buttonColorType" [block]="true" size="'medium'"
                         [label]="translate.instant(buttonLabel)" (click)="submit()"></rds-button> */}
                     </div>
