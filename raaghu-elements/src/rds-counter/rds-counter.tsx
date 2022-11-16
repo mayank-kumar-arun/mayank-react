@@ -9,7 +9,7 @@ import "./rds-counter.scss";
 
 export interface RdsCounterProps {
   counterValue: number,
-  // label: string;
+  label?: string;
   min: number,
   max: number,
   width: number
@@ -27,7 +27,7 @@ const RdsCounter = (props: RdsCounterProps) => {
 
   const classesForButton = 'btn btn-' + (props.colorVariant || 'primary') + ' rounded-0';
   const classesForInnerSpan = 'd-flex align-self-center ' + (props.colorVariant || 'primary') + ' rounded-0';
-  const classesForWrapperDiv = 'wrapper d-flex justify-content-between border border-' + (props.colorVariant || 'primary') + ' rounded-0';
+  const classesForWrapperDiv = 'wrapper d-flex justify-content-between  mt-2 ms-1  border border-' + (props.colorVariant || 'primary') + ' rounded-0';
 
   // This state hook represents counter value
   const [counterValue, setCounterValue] = useState(props.counterValue);
@@ -43,12 +43,15 @@ const RdsCounter = (props: RdsCounterProps) => {
   }
   return (
     <Fragment>
+      <div className="m-1">
+      <label>{props.label}</label>
+      </div>
       <div 
       className={classesForWrapperDiv}
       style={{
         width:props.width
       }}
-      >
+      >  
         <button type="button" className={classesForButton} onClick={onMinusClick}>-</button>
         <span className={classesForInnerSpan}>{counterValue}</span>
         <button type="button" className={classesForButton} onClick={onPlusClick}>+</button>

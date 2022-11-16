@@ -83,24 +83,24 @@ const RdsCompEditionFeature = (props: RdsCompEditionFeatureProps) => {
             {error2 && <span style={{ color: "red" }}>{error2}</span>}
             </div>
           </div>
-      <div className="d-flex justify-content-between m-3 p-2"> 
-      <div className="p-2">
+      <div className="row "> 
+      <div className="col-6 p-2 text-left">
         <RdsCounter  counterValue= {0}
-            // label: string;
+             label ="Trial Period"
             min= {0}
-            max= {10000}
-            width= {110}
+            max= {50}
+            width= {125}
            colorVariant= "primary" 
         />
 
       </div>
-        <div className="p-2">
-        
+        <div className=" col-6 p-2 text-left">
+       
          <RdsCounter  counterValue= {0}
-            // label: string;
+             label =" Expiry Notification Interval"
             min= {0}
-            max= {10000}
-            width= {110}
+            max= {50}
+            width= {125}
            colorVariant= "primary" 
         />
         </div>
@@ -109,7 +109,9 @@ const RdsCompEditionFeature = (props: RdsCompEditionFeatureProps) => {
           {props.radioItems.map((ritem: any, index:any) => (
             <div className="mb-2 mt-2" key={index}>
               <label>{ritem.label}</label>
+              <form> 
               <RdsRadioButton itemList={ritem.itemList} inline={ritem.inline} id={ritem.id}/>
+              </form>
             </div>
           ))}
 

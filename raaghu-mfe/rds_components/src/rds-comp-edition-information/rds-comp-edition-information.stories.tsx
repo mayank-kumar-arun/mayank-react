@@ -21,15 +21,16 @@ Default.args ={
         {type: 'Standard', days:"4-10 buisness days", cost:"$5.00"},
         {type: 'Express', days:"2-5 buisness days", cost:"$16.00"},
          {type: 'Free', days:"10-12 buisness days", cost:"$0.00"},],
+
          radioItems:[
-           { label:"First Bill Date",
+           {label:"First Bill Date",
            inline:true,
-           id:"1",
+           id:1,
            itemList : [
             {
               id: 1,
               label: "Immediately",
-              checked: false,
+              checked: true,
               name:'radio_button',
             },
             {
@@ -42,13 +43,13 @@ Default.args ={
           ] ,
         },
         { label:"After Subscription Expiry",
-        id:"2",
+        id:2,
            inline:true,
            itemList : [
             {
               id: 1,
               label: "Deactivate Tenant",
-              checked: false,
+              checked:true,
               name:'radio_button',
             },
             {
