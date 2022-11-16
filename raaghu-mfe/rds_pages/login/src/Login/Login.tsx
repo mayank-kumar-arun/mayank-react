@@ -1,19 +1,21 @@
 import React from "react";
-import { ValidateTenantName,trial, Authenticate, RootState, AppDispatch, useAppDispatch,loginActions,getUserConfiguration } from '../../../../libs/public.api'
+import { ValidateTenantName,trial, Authenticate, shouldSendPasswordResetCode, RootState, AppDispatch, useAppDispatch,loginActions,getUserConfiguration, forgotPasswordActions } from '../../../../libs/public.api'
 import { IsTenantAvailableInput,TokenAuthServiceProxy,AuthenticateModel,AuthenticateResultModel } from '../../../../libs/public.api';
 import { useSelector } from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 const RdsCompLogin = React.lazy (() => import("rds_components/RdscompLogin"));
 
-const Login = (props: JSX.IntrinsicAttributes | (JSX.IntrinsicAttributes & React.RefAttributes<React.Component<{}, any, any>>)) => {
+export interface LoginProps {
+	onForgotPassword:(isForgotPasswordClicked?: boolean) => void
+   };
+const Login : React.FC<LoginProps> = (props: LoginProps) => {
 	const dispatch: any = useAppDispatch();
-	const accessToken:any = useSelector((state: RootState) =>state.login.accessToken);
+	const accessToken:any = useSelector((state: RootState) =>state.persistedReducer.login.accessToken);
+
 	const navigate = useNavigate();
 		if(accessToken != undefined){
-			// dispatch(loginActions.getProfilePicture());
-			// dispatch(loginActions.GetSubscriptionExpiringData());
 			getUserConfiguration('login');
-			// navigate('/Dashboard');
+			navigate('/Dashboard');
 		}
 
 	
@@ -24,10 +26,12 @@ const Login = (props: JSX.IntrinsicAttributes | (JSX.IntrinsicAttributes & React
 		authenticateModal.userNameOrEmailAddress = email;
 		authenticateModal.password = password;
 		authenticateModal.rememberClient = true;
-	    dispatch(Authenticate(authenticateModal));				
+	    dispatch(Authenticate(authenticateModal));			
     }
 
-	
+	const forgotPasswordHandler:any = (isForgotPasswordClicked: boolean) => {
+		props.onForgotPassword(isForgotPasswordClicked);
+	}
 	return(	
 		<div  style={{backgroundImage: "url(/body-backgroud.svg)"}}>
 			{/* {accessToken!=undefined && <h1>Loggedin</h1>} */}
@@ -41,7 +45,7 @@ const Login = (props: JSX.IntrinsicAttributes | (JSX.IntrinsicAttributes & React
 					         <img src="raaghu_text_logo.svg"></img>
 					        </div>
 				         </div>					 
-		                 <RdsCompLogin  onLogin = {loginHandler}/>
+		                 <RdsCompLogin  onLogin={loginHandler} onForgotPassword = {forgotPasswordHandler} />
 	                 </div>
 			      </div>
 						<div className="col-md-6 order-1 order-sm-2 rounded-end position-relative align-items-center p-0" 

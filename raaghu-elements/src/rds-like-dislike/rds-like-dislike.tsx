@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Colors } from "../Types";
+import { Colors } from "../../libs/types";
 import RdsIcon from "../rds-icon/rds-icon";
 import "./rds-like-dislike.scss";
 

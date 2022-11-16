@@ -6,10 +6,26 @@ declare module "Dashboard/Dashboard"{
 	export default DashboardComponent;
 }
 
+declare module "Login/Login" {
+	const LoginComponent: React.ComponentType;
 
+	export default LoginComponent;
+}
 
 declare module "Login/Login" {
 	const LoginComponent: React.ComponentType;
 
 	export default LoginComponent;
 }
+
+declare module "ForgotPassword/ForgotPassword" {
+
+    const ForgotPasswordComponent: React.ComponentType;
+
+
+
+    export default ForgotPasswordComponent;
+
+}
+
+

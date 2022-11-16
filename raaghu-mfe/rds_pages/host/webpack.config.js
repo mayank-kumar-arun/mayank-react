@@ -60,6 +60,7 @@ module.exports = (env, argv) => {
         remotes: {
           Dashboard: isProduction ? process.env.PROD_APP1 : process.env.DEV_APP1,
           Login: isProduction ? process.env.PROD_APP2 : process.env.DEV_APP2,
+          ForgotPassword: isProduction ? process.env.PROD_APP3 : process.env.DEV_APP3,
         },
         
         shared: {
@@ -67,7 +68,7 @@ module.exports = (env, argv) => {
           ...deps,
           'luxon': {
             singleton: true,
-            requiredVersion: deps['luxon'],
+            requiredVersion: deps["luxon"],
         },
           react: { singleton: true, eager: true, requiredVersion: deps.react },
           "react-dom": {

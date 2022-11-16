@@ -41,14 +41,15 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         // expose each component
-        "./RdscompLogin": "./src/login/rds-comp-login",
-        "./RdsCompAdminDashboard":"./src/admin-dashboard/rds-comp-admin-dashboard",
-        "./RdsCompSideNavigation":"./src/side-navigation/rds-comp-side-navigation",
-        "./RdsCompTopNavigation":"./src/top-navigation/rds-comp-top-navigation",
-        "./RdsCompForgotPassword":"./src/forgot-password/rds-comp-forgot-password",
-        "./RdsCompWebsiteLog":"./src/website-log/rds-comp-website-log",
-        "./RdsCompAlertPopup":"./src/alert-popup/rds-comp-alert-popup",
-        "./RdsCompOrganizationTree":"./src/organization-tree/rds-comp-organization-tree"
+        "./RdscompLogin": "./src/rds-comp-login/rds-comp-login",
+        "./RdsCompAdminDashboard":"./src/rds-comp-admin-dashboard/rds-comp-admin-dashboard",
+        "./RdsCompSideNavigation":"./src/rds-comp-side-navigation/rds-comp-side-navigation",
+        "./RdsCompTopNavigation":"./src/rds-comp-top-navigation/rds-comp-top-navigation",
+        "./RdsCompForgotPassword":"./src/rds-comp-forgot-password/rds-comp-forgot-password",
+        "./RdsCompTenantList":"./src/rds-comp-tenant-list/rds-comp-tenant-list",
+        "./RdsCompWebsiteLog":"./src/rds-comp-website-log/rds-comp-website-log",
+        "./RdsCompAlertPopup":"./src/rds-comp-alert-popup/rds-comp-alert-popup",
+        "./RdsCompOrganizationTree":"./src/rds-comp-organization-tree/rds-comp-organization-tree"
       },
 
       shared: {
