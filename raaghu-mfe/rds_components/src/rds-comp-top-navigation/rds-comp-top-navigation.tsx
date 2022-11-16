@@ -1,14 +1,22 @@
+import { useState } from 'react';
 import {RdsNavbar} from '../rds-elements';
 import {RdsDropdownList,RdsButton,RdsIcon,RdsBadge} from '../rds-elements'
 
 const RdsCompTopNavigation = () =>{
+    let bootstrap : any
+    const [tabname , settabname] = useState('');
+    const [showOffcanvas , setshowOffcanvas] = useState(false);
+    const [offCanvasId , setoffCanvasId] = useState('')
 
    const redirectToSettings = () =>{
 
     }
 
-   const viewOffcanvas = () =>{
-
+   const viewOffcanvas = ():void =>{
+    setshowOffcanvas(true);
+    var offcanvas = document.getElementById(offCanvasId);
+    var bsOffcanvas = new bootstrap.Offcanvas(offcanvas);
+    bsOffcanvas.show()
    }
 
    const redirect = (type:any)=>{
@@ -31,7 +39,7 @@ const RdsCompTopNavigation = () =>{
                     <div className="py-0 m-0 breadcrumbs">
                         <div>
                            <a className="nav-link active p-0" aria-current="page" href="#">
-                              Dashboard
+                              Dashboard {tabname && <span className="mx-2"><b className="text-primary pt-1">{tabname}</b></span>}
                             </a>
                         </div>
                         <div className="mob-description">
@@ -41,7 +49,7 @@ const RdsCompTopNavigation = () =>{
 
                     <div className="collapse navbar-collapse ps-5 ms-4 py-0 m-0" id="navbarSupportedContent1">
                             <ul className="navbar-nav d-flex align-items-center ms-auto">
-                                <RdsDropdownList placeholder={'Select theme'} size={'small'} className="border-0" multiSelect={''} colorVariant={'grey'} listItems={[{value:"default"},
+                                <RdsDropdownList placeholder={'Select theme'} size={'small'}  className="border-0" multiSelect={''} colorVariant={'grey'} listItems={[{value:"default"},
                                   {value:"blue"},{value:"green"},{value:"thunderbolt"}]}></RdsDropdownList>
                                  <RdsDropdownList placeholder={'Languages'} className="border-0" size={'small'} multiSelect={''} colorVariant={''} listItems={[{value:"default"},
                                   {value:"blue"},{value:"green"},{value:"thunderbolt"}]}></RdsDropdownList> 

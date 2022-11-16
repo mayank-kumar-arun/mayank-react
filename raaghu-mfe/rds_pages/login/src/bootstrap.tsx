@@ -1,6 +1,6 @@
 import App from "./App";
 import ReactDOM from "react-dom";
-import React from "react";
+import React, { Suspense } from "react";
 import {store, persistor} from '../../../libs/public.api';
 import { BrowserRouter } from "react-router-dom";
 import { Provider} from 'react-redux';

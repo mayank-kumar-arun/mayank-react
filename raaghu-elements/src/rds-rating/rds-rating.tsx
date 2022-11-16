@@ -1,6 +1,6 @@
 import React from "react";
 import RdsIcon from "../rds-icon";
-import { Colors, size } from "../Types";
+import { Colors, size } from "../../libs/types";
 import "./rds-rating.scss";
 
 export interface RdsRatingProps {

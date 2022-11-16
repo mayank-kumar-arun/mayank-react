@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import "./rds-range.scss";
-import { Colors} from "../Types";
+import { Colors} from "../../libs/types";
 
 export interface RdsRangeProps {
   max: number;

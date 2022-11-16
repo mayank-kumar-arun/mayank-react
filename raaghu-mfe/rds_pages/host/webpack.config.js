@@ -68,7 +68,7 @@ module.exports = (env, argv) => {
           ...deps,
           'luxon': {
             singleton: true,
-            requiredVersion: deps['luxon'],
+            requiredVersion: deps["luxon"],
         },
           react: { singleton: true, eager: true, requiredVersion: deps.react },
           "react-dom": {

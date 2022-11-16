@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react'
-import {RdsBadge,RdsPagination, RdsIcon} from '../rds-elements'
+import {RdsBadge, RdsPagination, RdsIcon} from '../rds-elements'
 var dataSource: any = [];
 const RdsCompWebsiteLog = () => {
     const websiteLogData:any=["Websitelog1","Websitelog2","Websitelog3","Websitelog4","Websitelog5",
