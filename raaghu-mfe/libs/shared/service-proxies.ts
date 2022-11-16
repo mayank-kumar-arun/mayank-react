@@ -153,7 +153,7 @@ export class AccountServiceProxy {
      * @return Success
      */
     sendPasswordResetCode(body: SendPasswordResetCodeInput | undefined): Promise<void> {
-        let url_ = this.baseUrl + "/api/services/app/Account/SendPasswordResetCode";
+        let url_ = BASE_URL + "/api/services/app/Account/SendPasswordResetCode";
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = JSON.stringify(body);
