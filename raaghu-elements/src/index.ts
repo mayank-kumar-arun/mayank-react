@@ -54,6 +54,7 @@ export {default as RdsListGroup} from './rds-list-group';
 export {default as RdsProductImage} from './rds-product-image';
 export {default as RdsTestimonial} from './rds-testimonial'
 export {default as RdsFeed} from "./rds-feed";
+export {default as RdsTeamMember} from "./rds-team-member"
 
 //Charts
 export {default as RdsAreaChart} from "./rds-chart-area";
