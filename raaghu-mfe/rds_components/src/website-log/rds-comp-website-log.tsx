@@ -17,7 +17,7 @@ const RdsCompWebsiteLog = () => {
         for(let i = 0;i <= recordsPerPage; i++){
             dataSource.push(websiteLogData[i]);
         }
-    const onPagination = (currentPage : number,recordsPerPage : number) => {
+    const onPagination = (e:any, currentPage : number,recordsPerPage : number) => {
       let data: any = [];
       data = websiteLogData;
        dataSource = [];
