@@ -2,8 +2,8 @@ import React, { Fragment } from "react";
 import RdsAvatar from "../rds-avatar";
 import RdsIcon from "../rds-icon";
 import RdsLikeDislike from "../rds-like-dislike";
+import { Colors } from "../../libs/types";
 import RdsRating from "../rds-rating";
-import { Colors } from "../Types";
 import "./rds-feed.scss";
 
 export interface RdsFeedProps {
