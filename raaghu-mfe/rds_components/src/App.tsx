@@ -14,14 +14,20 @@ const App = () => {
         console.log(email);
         console.log(password);
     }
+    const ForgotPassword = (email?:string) =>{
+        console.log(email)
+    }
+    const forgotPasswordHandler = (isForgotPasswordClicked?: boolean) => {
+        
+    }
     return (
     <div>
-        <RdsCompLogin  onLogin={loginHandler}></RdsCompLogin>
+        <RdsCompLogin  onLogin={loginHandler} onForgotPassword = {forgotPasswordHandler}></RdsCompLogin>
         <RdsCompAdminDashboard></RdsCompAdminDashboard>
         <RdsCompSideNavigation></RdsCompSideNavigation>
         <RdsCompTopNavigation></RdsCompTopNavigation>
-        <RdsCompForgotPassword></RdsCompForgotPassword>
         <RdsCompTenantList onEditTenant={loginHandler} deleteEvent={loginHandler} onSaveFeatures={loginHandler} tenantHeaders={[]} tableData={[]} editionList={[]} tenantFeatures={[]}></RdsCompTenantList>
+        <RdsCompForgotPassword onForgotPassword={ForgotPassword}></RdsCompForgotPassword>
         <RdsCompWebsiteLog></RdsCompWebsiteLog>
         <RdsCompAlertPopup/>
         <RdsCompOrganizationTree organizationTreeData={[{name:"rtyj"}]}></RdsCompOrganizationTree>

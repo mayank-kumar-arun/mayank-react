@@ -4,11 +4,11 @@ import {RdsButton} from '../rds-elements';
 import {RdsCheckbox} from '../rds-elements';
 import "./rds-comp-login.scss";
 import AuthGuard from '../../../libs/shared/AuthGuard'
-import { Link } from 'react-router-dom';
+import { Navigate, NavigationType } from 'react-router-dom';
 export interface RdsCompLoginProps {
-   onLogin:(email?:string,password?:string) => any
+   onLogin:(email?:string,password?:string) => void
+   onForgotPassword:(isForgotPasswordClicked?: boolean) => void
   };
-
 
 const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => {
 
@@ -18,16 +18,7 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
 	// const [password , setPassword] = useState('');
 	const [error1, setError1] = useState('');
     const [error2, setError2] = useState('');
-
-	// useEffect(() => {
-	// 	// storing input email
-	// 	localStorage.setItem("email", JSON.stringify(email));
-	//   }, [email]);
-
-	// useEffect(() => {
-	// 	// storing input password
-	// 	localStorage.setItem("password", JSON.stringify(password));
-	//   }, [password]);
+	const [isForgotPasswordClicked ,setIsForgotPasswordClicked] = useState(false);
 	
 	const isEmailValid = (email: any) => {
 		if (!email || email.length === 0) {
@@ -60,13 +51,23 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
  
 	const isFormValid = isPasswordValid(password) && isEmailValid(email)
 
-    const handleSubmit = (event : React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit:any = (event : React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 		props.onLogin(email,password)
 		setEmail('');
 		setPassword('');
 				
     }
+
+	const forgotPasswordHandler: any = (isForgotPasswordClicked: boolean) => {		
+		setIsForgotPasswordClicked(true);
+		props.onForgotPassword(isForgotPasswordClicked);	
+		console.log(isForgotPasswordClicked)		
+	}
+	// useEffect(() => {
+	// 	props.onForgotPassword(isForgotPasswordClicked);
+	// 	console.log(isForgotPasswordClicked);
+	// }, [isForgotPasswordClicked])
 	return (
 		
 		<div >
@@ -100,8 +101,7 @@ const RdsCompLogin : React.FC<RdsCompLoginProps> = (props:RdsCompLoginProps) => 
 				</div>
                 <div style = {{display : 'flex' , justifyContent:'space-between', marginBottom : 30}}>
 				<RdsCheckbox label = {'Remember me'} checked></RdsCheckbox>
-				{/* <RdsButton tooltipTitle={''} type={'button'} label="Forgot Password ?"></RdsButton> */}
-				<a  href={'/forgot-password'} style = {{textDecoration : 'none'}}>Forgot password ?</a>
+				<a  href="javascript:void(0)"  style = {{textDecoration : 'none'}} onClick = {forgotPasswordHandler}>Forgot password ?</a>
 
 				</div>				
 			  <RdsButton

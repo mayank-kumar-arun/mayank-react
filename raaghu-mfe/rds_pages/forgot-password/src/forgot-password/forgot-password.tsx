@@ -1,11 +1,18 @@
 import React from "react";
-
+import {RootState, AppDispatch, useAppDispatch, shouldSendPasswordResetCode, message } from '../../../../libs/public.api'
+import { useSelector } from 'react-redux'
 const RdsCompForgotPassword = React.lazy(() => import("rds_components/RdsCompForgotPassword"));
-
-
+	
 
 const ForgotPassword = () =>{
+    const Message = useSelector(message);
+    const forgotPasswordHandler = async (email?:string) => {
+        await dispatch(shouldSendPasswordResetCode(email));
+        alert(Message);	
+    }
 
+    const dispatch: any = useAppDispatch();
+    
     return (
         <div>
             <div className=" " style={{backgroundImage: "url(/body-backgroud.svg)", backgroundSize: "cover" , backgroundPosition: "bottom", backgroundRepeat: "no-repeat" }}>
@@ -19,7 +26,7 @@ const ForgotPassword = () =>{
                                 <img src="Raaghu-logo-mfe-black.png" className="img-fluid"/>
                             </div>
                             </div>
-                            <RdsCompForgotPassword></RdsCompForgotPassword>
+                            <RdsCompForgotPassword onForgotPassword ={forgotPasswordHandler}></RdsCompForgotPassword>
                         </div>
                         </div>
                         <div className="col-md-6 order-1 order-sm-2 rounded-end"

@@ -55,15 +55,15 @@ export {default as RdsPagination} from './rds-pagination';
 export {default as RdsFeed} from "./rds-feed";
 
 //Charts
-export {default as RdsAreaChart} from "./rds-chart-area";
-export {default as RdsLineChart} from './rds-chart-line';
-export {default as RdsPieChart} from './rds-chart-Pie';
-export {default as RdsDoughnutChart} from './rds-chart-doughnut';
-export {default as RdsBarChart} from './rds-chart-bar';
-export {default as RdsBooleanChart} from './rds-chart-boolean';
-export {default as RdsMixedChart} from './rds-chart-mixed';
-export {default as RdsPolarAreaChart} from './rds-chart-polar-area';
-export {default as RdsRadarChart} from './rds-chart-radar';
-export {default as RdsScatterChart} from './rds-chart-scatter';
-export {default as RdsStackedChart} from './rds-chart-stacked';
-export {default as RdsBubbleChart} from "./rds-chart-bubble";
+export { default as RdsAreaChart } from "./rds-chart-area";
+export { default as RdsLineChart } from './rds-chart-line';
+export { default as RdsPieChart } from './rds-chart-Pie';
+export { default as RdsDoughnutChart } from './rds-chart-doughnut';
+export { default as RdsBarChart } from './rds-chart-bar';
+export { default as RdsBooleanChart } from './rds-chart-boolean';
+export { default as RdsMixedChart } from './rds-chart-mixed';
+export { default as RdsPolarAreaChart } from './rds-chart-polar-area';
+export { default as RdsRadarChart } from './rds-chart-radar';
+export { default as RdsScatterChart } from './rds-chart-scatter';
+export { default as RdsStackedChart } from './rds-chart-stacked';
+export { default as RdsBubbleChart } from "./rds-chart-bubble";
