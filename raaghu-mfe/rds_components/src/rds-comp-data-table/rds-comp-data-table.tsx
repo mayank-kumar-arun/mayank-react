@@ -6,7 +6,8 @@ export interface RdsCompDataTableProps{
     tableData: any[];
     nodatatitle? : string;
     pagination? : boolean;
-    recordsPerPage? : number
+    recordsPerPage? : number;
+    onActionSelection? : React.EventHandler<any>
 }
 
 const RdsCompDataTable = (props:RdsCompDataTableProps) =>{
@@ -41,10 +42,10 @@ const RdsCompDataTable = (props:RdsCompDataTableProps) =>{
                                         </th>} 
                                     
                                      
-                                        {props.tableHeaders?.map((a:any)=>{
+                                        {props.tableHeaders.map((a:any)=>{
                                             <th scope="col">
-                                            <div className="header d-flex">
-                                                <span>{a.displayname}</span>
+                                             <div className="header d-flex">
+                                                <span>{a.displayName}</span>
                                                 <div className="header-options mobile-header-option cursor-pointer ps-1">
                                                     {a.sortable && <span  className="text-right sort-icons mobile-sort" >
                                                     <RdsIcon name={'up_arrow'} width="12px" height='12px'></RdsIcon> 
@@ -94,7 +95,7 @@ const RdsCompDataTable = (props:RdsCompDataTableProps) =>{
                                         <>{column.datatype.toLowerCase()==="icon" && !data.isEdit ? <td> <RdsIcon name={data[column.key].icon} width={data[column.key].width} colorVariant={data[column.key].colorVariant} height={data[column.key].height}></RdsIcon></td> : 
                                         <td className='align-middle'>
                                             {!data.isEdit ? <div>{data[column.key]}</div> :  <>switch(column.datatype.toLowerCase()){<>
-                                                case 'number': return <div><RdsInput isDisabled={column.disabled} inputType="number" value={data[column.key]}></RdsInput>{column.required && (data[column.key]===""||data[column.key]===undefined) && <small className='error'>{column.displayName} is Reqiured</small>}</div> break;
+                                                case 'number' : return <div><RdsInput isDisabled={column.disabled} inputType="number" value={data[column.key]}></RdsInput>{column.required && (data[column.key]===""||data[column.key]===undefined) && <small className='error'>{column.displayName} is Reqiured</small>}</div> break;
                                                 case 'text': return <div><RdsInput isDisabled={column.disabled} inputType="text" value={data[column.key]}></RdsInput>{column.required && (data[column.key]===""||!data[column.key]) && <small className='error'>{column.displayName} is Reqiured</small>}</div>;
                                                 case 'html': return <div><RdsInput isDisabled={column.disabled} inputType="number" value={data[column.key]}></RdsInput>{column.required && (data[column.key]===""||!data[column.key]) && <small className='error'>{column.displayName} is Reqiured</small>}</div>;
                                                 

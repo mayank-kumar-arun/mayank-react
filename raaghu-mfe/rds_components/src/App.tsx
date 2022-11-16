@@ -21,7 +21,7 @@ const App = () => {
         <RdsCompSideNavigation></RdsCompSideNavigation>
         <RdsCompTopNavigation></RdsCompTopNavigation>
         <RdsCompForgotPassword></RdsCompForgotPassword>
-        <RdsCompTenantList tenantHeaders={[]} tableData={[]} editionList={[]}></RdsCompTenantList>
+        <RdsCompTenantList onEditTenant={loginHandler} deleteEvent={loginHandler} onSaveFeatures={loginHandler} tenantHeaders={[]} tableData={[]} editionList={[]} tenantFeatures={[]}></RdsCompTenantList>
         <RdsCompWebsiteLog></RdsCompWebsiteLog>
         <RdsCompAlertPopup/>
         <RdsCompOrganizationTree organizationTreeData={[{name:"rtyj"}]}></RdsCompOrganizationTree>

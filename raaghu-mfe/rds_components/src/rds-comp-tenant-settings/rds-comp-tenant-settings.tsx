@@ -1,13 +1,20 @@
 import {RdsCheckbox,RdsInput,RdsButton} from '../rds-elements'
 
-const RdsCompTenantSettings =() =>{
-    let showEditData = true
+export interface RdsCompTenantSettingsProps {
+   isTenantInfoValid : boolean;
+   tenantSettingInfo : any;
+   showEditData? : boolean;
+   passwordValidation? : boolean;
+   onCancel? : React.EventHandler<any>
+}
+
+const RdsCompTenantSettings =(props:RdsCompTenantSettingsProps) =>{
     return (
     <div>
         <div className="tab-content py-4">
 
             <form>
-                 {showEditData &&  <div className="row" >
+                 {props.showEditData &&  <div className="row" >
                  <div className="col-md-12 sm-p-0">
                      <div className="form-group mb-3">
                         <RdsCheckbox label='Use Host Database' isSwitch></RdsCheckbox>
@@ -49,7 +56,7 @@ const RdsCompTenantSettings =() =>{
                  </div> */}
             </div>
             <div className="row">
-                {showEditData && <div className="col-md-12 sm-p-0" >
+                {props.showEditData && <div className="col-md-12 sm-p-0" >
                      <div className="form-group mb-3">
                         <RdsCheckbox label='Set Random Password' isSwitch></RdsCheckbox>
                          {/* <rds-checkbox [disabled]="false" [label]="translate.instant('Set Random Password')" [withLabel]="true"
@@ -58,7 +65,7 @@ const RdsCompTenantSettings =() =>{
                              [id]="'setRandomPassword'"></rds-checkbox> */}
                      </div> 
                  </div>}
-                 {showEditData && <div className="col-md-12 sm-p-0">
+                 {props.showEditData && <div className="col-md-12 sm-p-0">
                      <div className="form-group mb-3">
                         <RdsCheckbox label='Should Change password on Next Login'></RdsCheckbox>
                          {/* <rds-checkbox [disabled]="false" [label]="translate.instant('Should Change Password On Next Login')"
@@ -68,7 +75,7 @@ const RdsCompTenantSettings =() =>{
                          </rds-checkbox> */}
                      </div>
                  </div>} 
-                 {showEditData && <div className="col-md-12 sm-p-0">
+                 {props.showEditData && <div className="col-md-12 sm-p-0">
                      <div className="form-group mb-3">
                         <RdsCheckbox label='Send Activation Email'></RdsCheckbox>
                          {/* <rds-checkbox [disabled]="false" [checked]="tenantSettingsInfo.sendActivationEmail"
@@ -89,7 +96,7 @@ const RdsCompTenantSettings =() =>{
             </form>
         </div>
         <div className="footer-buttons my-2">
-            <RdsButton tooltipTitle={''} type={'button'} label="Cancel" outlineButton colorVariant='primary' size='small'></RdsButton>
+            <RdsButton tooltipTitle={''} type={'button'} label="Cancel" databsdismiss='offcanvas' outlineButton colorVariant='primary' size='small'></RdsButton>
  
             {/* <rds-button [label]="translate.instant('Cancel')" [outlineButton]="true" [colorVariant]="'primary'" [size]="'small'" (click)="onCancelSetting()"
                 data-bs-dismiss="offcanvas">

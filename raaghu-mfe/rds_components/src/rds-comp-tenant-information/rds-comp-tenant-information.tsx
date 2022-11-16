@@ -6,6 +6,7 @@ export interface RdsCompTenantInformationProps{
     tenantData?: any [];
     showEmail? : boolean;
     tenantInfo :  React.EventHandler<any>;
+    onCancel? : React.EventHandler<any>
 
   }
   
