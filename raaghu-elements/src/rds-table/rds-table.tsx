@@ -9,6 +9,7 @@ export interface RdsTableProps {
   striped?: boolean;
   bordered?: boolean;
   iconColorVariant?:string;
+  width?:number;
 }
 
 const RdsTable = (props: RdsTableProps) => {
@@ -17,7 +18,7 @@ const RdsTable = (props: RdsTableProps) => {
       className={`table table-hover table-${props.colorVariant} ${
         props.striped ? "table-striped" : ""
       } ${props.bordered ? "table-bordered" : ""}`}
-    >
+     width={props.width} >
       <thead>
         <tr>
           {props.headerDatas.map((headerData) => (

@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import { Colors } from "../Types";
+import { Colors } from "../../libs/types";
 import "./rds-toast.scss"
 
 export interface RdsToastProps {

@@ -22,6 +22,7 @@ export interface RdsInputProps {
   name?: string;
   label?: string;
   id?: string
+  redAsteriskPresent?: boolean
   
   required?: boolean
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
@@ -49,6 +50,7 @@ const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown>
   return (
     <div>
       {props.label && <label htmlFor={props.id} className="form-label">{props.label}</label>}
+      {props.redAsteriskPresent  && <span className="text-danger">*</span>}
       <input
         type={props.inputType}
         className={inputClasses}

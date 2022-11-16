@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Colors } from "../Types";
+import { Colors } from "../../libs/types";
 import "./rds-illustration.scss"
 import RdsIcon from "../rds-icon/rds-icon";
 
