@@ -20,6 +20,7 @@ export interface RdsInputProps {
   tooltipPlacement?: string;
   tooltipTitle?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLInputElement>) => void;
   name?: string;
   label?: string;
   id?: string
@@ -51,6 +52,7 @@ const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown>
         id={props.id}
         placeholder={props.placeholder}
         onChange={props.onChange}
+        onClick ={props.onClick}
         name={props.name}
         form={props.formName}
       ></input>

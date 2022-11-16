@@ -10,6 +10,8 @@ export interface RdsTextAreaProps {
   isDisabled?: boolean;
   colorVariant?: Colors;
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  
+  onClick?: (event: React.MouseEvent<HTMLTextAreaElement>) => void;
 }
 const RdsTextArea = (props: RdsTextAreaProps) => {
   return (
@@ -28,6 +30,7 @@ const RdsTextArea = (props: RdsTextAreaProps) => {
           readOnly={props.readonly}
           placeholder={props.placeholder}
           onChange ={props.onChange}
+           onClick={props.onClick}
         ></textarea>
       </div>
     </Fragment>

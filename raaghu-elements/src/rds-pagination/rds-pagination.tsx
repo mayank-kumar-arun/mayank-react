@@ -50,19 +50,21 @@ const RdsPagination = (props: RdsPaginationProps) => {
     }
   }
   const onNext = (e: any, current: any) => {
-   // console.log("current -  " + current);
+   
     setCurrentPage(current + 1);
-    props.onPageChange(e, current, recordsPerPage);
+    props.onPageChange(e, currentPage +1, recordsPerPage);
+   // console.log("currentPage -  " + currentPage);
   };
 
   const onPage = (e: any, current: any) => {
     setCurrentPage(current);
     props.onPageChange(e, current, recordsPerPage);
+    //console.log("currentPage -  " + currentPage);
   };
   const onPrevious = (e: any, current: any) => {
-    //console.log("current -  " + current);
     setCurrentPage(current - 1);
-    props.onPageChange(e, current, recordsPerPage);
+    props.onPageChange(e, currentPage-1, recordsPerPage);
+    //console.log("currentPage -  " + currentPage);
   };
 
   const size = " pagination-" + `${props.size || "md"}`;

@@ -8,7 +8,6 @@ export interface RdsCompEditionProps {
   Paddig?: number;
   borderwidth?: number;
   EditionData: any[];
-
   EditionBorder?: number;
 }
 
