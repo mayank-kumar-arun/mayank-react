@@ -1,4 +1,3 @@
-import React from 'react';
 import { RdsCheckbox, RdsInput, RdsLabel } from "../rds-elements";
 import './rds-comp-email-settings-new.scss'
 
