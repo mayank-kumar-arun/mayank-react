@@ -63,6 +63,8 @@ const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown>
         onFocus={props.onFocus}
         onBlur={props.onBlur}
         value={props.value}
+        disabled={props.isDisabled}
+        readOnly={props.readonly}
       ></input>
 
       {/* <FormGroup>

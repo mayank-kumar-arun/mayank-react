@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "react-datepicker": "^4.8.0"
+    "react-datepicker": "^4.8.0",
+    "react-router-dom": "^6.4.3"
   },
   "devDependencies": {
     "@types/react-datepicker": "^4.8.0"
