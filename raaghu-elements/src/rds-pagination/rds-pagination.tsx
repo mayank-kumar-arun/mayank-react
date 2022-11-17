@@ -9,9 +9,6 @@ export interface RdsPaginationProps {
   alignmentType?: string;
   size?: string;
   onPageChange: (
-    // event:
-    //   | React.MouseEvent<HTMLAnchorElement>
-    //   | React.ChangeEvent<HTMLSelectElement>,
     currentPage: number,
     recordsPerPage: number
   ) => void;

@@ -1,21 +1,13 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import RdsCompDatatable from "./rds-comp-data-table";
-
 export default {
   title: "Components/Data Table",
   component: RdsCompDatatable,
-
 } as ComponentMeta<typeof RdsCompDatatable>;
-
-
 const Template: ComponentStory<typeof RdsCompDatatable> = (args) =>
   <RdsCompDatatable {...args} />;
-
-
 export const Default = Template.bind({});
-
 Default.args = {
-
   tableHeaders: [
     { displayName: 'Edition Name', key: 'editionName', datatype: 'text', dataLength: 30, required: true, sortable: true },
     { displayName: 'Price ($)', key: 'price', datatype: 'number', dataLength: 5, required: false, sortable: true },
