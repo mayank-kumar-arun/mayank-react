@@ -34,7 +34,6 @@ export interface RdsButtonProps {
   databstarget?:string;
   databstoggle?:string;
   ariacontrols?:string;
-
 }
 
 

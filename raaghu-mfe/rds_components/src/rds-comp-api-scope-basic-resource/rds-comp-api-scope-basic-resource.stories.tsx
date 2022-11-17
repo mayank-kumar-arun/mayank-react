@@ -42,7 +42,7 @@ Default.args ={
               },
               {
                 "id": 4,
-                "label": "Show in discovery",
+                "label": "Show in discovery Documents",
                 "checked": false,
                 "disabled": false
               },

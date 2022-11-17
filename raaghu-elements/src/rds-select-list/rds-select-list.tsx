@@ -1,7 +1,6 @@
 
 import React, { Fragment } from "react";
 export interface RdsSelectProps{
-    onSelectListChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     label: string;
     isDisabled?:boolean;
     isMultiple?:boolean;

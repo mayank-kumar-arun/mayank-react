@@ -78,6 +78,7 @@ const RdsCompApiScopeBasicResource = (props:RdsCompApiScopeBasicResourceProps) =
 			<form onSubmit={handleSubmit}>
 				<div className="mt-1 mb-3">				
 					<RdsInput
+					    redAsteriskPresent={true}
 						label="Name"
 						placeholder='Enter name'
 						inputType='email'
@@ -95,7 +96,7 @@ const RdsCompApiScopeBasicResource = (props:RdsCompApiScopeBasicResourceProps) =
 						placeholder='Enter display name'
 						inputType = 'text'
 						onChange = {fullnamehandleChange}
-                       
+                        redAsteriskPresent={true}
 						name = {'Displayname'}
 						value = {fullname}
 					></RdsInput>
@@ -114,6 +115,7 @@ const RdsCompApiScopeBasicResource = (props:RdsCompApiScopeBasicResourceProps) =
 					{error3  && <span style={{color: 'red'}}>{error3}</span>}                                                       
 				</div>
            <div >
+			<label className="Text-bold" >Others</label>
             <RdsCheckboxGroup itemList={props.resourceData.checklist} />
            </div>
 			</form>

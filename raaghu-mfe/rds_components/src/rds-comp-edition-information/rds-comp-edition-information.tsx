@@ -62,6 +62,7 @@ const RdsCompEditionFeature = (props: RdsCompEditionFeatureProps) => {
             <div className="col-6" >
             <RdsInput
               label="Edition Name"
+              redAsteriskPresent={true}
               placeholder="Edition Name"
               inputType="text"
               onChange={namehandleChange}
@@ -73,7 +74,8 @@ const RdsCompEditionFeature = (props: RdsCompEditionFeatureProps) => {
            
              <div className="col-6" >
             <RdsInput
-              label="Annual Price"
+              label="Annual Price" 
+              redAsteriskPresent={true}
               placeholder="Annual Price"
               inputType="number"
               onChange={pricehandleChange}

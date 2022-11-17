@@ -29,7 +29,7 @@ export interface RdsInputProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
-
+  onClick?: (event:React.MouseEvent<HTMLInputElement>) =>void;
   customClasses?: string;
   formName?: string;
 
@@ -52,7 +52,7 @@ const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown>
       {props.label && <label htmlFor={props.id} className="form-label">{props.label}</label>}
       {props.redAsteriskPresent  && <span className="text-danger">*</span>}
       <input
-        required={props.isRequired}
+        
         type={props.inputType}
         className={inputClasses}
         id={props.id}

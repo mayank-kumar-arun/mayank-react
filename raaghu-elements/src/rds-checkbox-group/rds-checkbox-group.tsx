@@ -38,7 +38,7 @@ const RdsCheckboxGroup = (props: RdsCheckboxGroupProps) => {
           id={item.id}
          />
         
-     {islabel=="yesLabel" && <label className="form-check-label d-inline me-5 ms-2" htmlFor={item.id}>
+     {islabel=="yesLabel" && <label className="form-check-label d-inline me-5 ms-2"  htmlFor={item.id}>
          {item.label}
        </label>}
 

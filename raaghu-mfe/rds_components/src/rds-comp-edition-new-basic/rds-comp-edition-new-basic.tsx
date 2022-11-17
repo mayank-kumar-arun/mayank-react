@@ -15,10 +15,11 @@ const RdsCompEditionNewBasic = (props: RdsCompEditionNewBasicProps) => {
             <div className="form-group">
               <RdsInput
                 label="Edition Name"
+                redAsteriskPresent={true}
                 placeholder="Edition Name"
                 inputType="text"
                 name="editionName"
-                isRequired={true}
+                required={true}
               ></RdsInput>
             </div>
           </div>

@@ -27,7 +27,7 @@ Default.args ={
     Price: "45",
     Plan:"Per month",
 
-  },
-  features:["Maximum User Count","Test Check feature","Test check feature count 2"]
+  },]
+ 
 
 }

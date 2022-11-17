@@ -77,9 +77,11 @@ const RdsCompContactUs = (props:RdsCompContactUsProps) => {
 				<div className="mt-1 mb-3">				
 					<RdsInput
 						label='Email ID'
+						redAsteriskPresent={true}
 						placeholder='name@gmail.com'
 						inputType='email'
 						onChange={emailhandleChange}
+						
 						value = {email}
 						name = {'email'}
 					></RdsInput>
@@ -89,6 +91,7 @@ const RdsCompContactUs = (props:RdsCompContactUsProps) => {
 				<div className=" mb-3">
 					<RdsInput
 						label='Full Name'
+						redAsteriskPresent={true}
 						placeholder='Full Name'
 						inputType = 'text'
 						onChange = {fullnamehandleChange}
