@@ -46,10 +46,6 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
         currentPage: number,
         recordsPerPage: number) => {
 
-        console.log("event :    ", event);
-        console.log("currentPage :    ", currentPage);
-        console.log("recordsPerPage :    ", recordsPerPage);
-
         setRowStatus({
             startingRow: (currentPage - 1) * recordsPerPage,    //0-index
             endingRow: (currentPage) * recordsPerPage         //considering that 1st element has '0' index
@@ -73,9 +69,9 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
                                     {props.enablecheckboxselection &&
                                         <th><RdsCheckbox label={''}></RdsCheckbox></th>
                                     }
-                                    {props.tableHeaders.map(tableHeader =>
-                                        <th>
-                                            <span>{tableHeader.displayName}</span>
+                                    {props.tableHeaders.map( (tableHeader, index) =>
+                                        <th key={"tableHeader-"+index}>
+                                            <span >{tableHeader.displayName}</span>
                                             {tableHeader.sortable&&<span className='btn btn-sm'><RdsIcon name={'up_down_arrow'} height='12px' width='12px' stroke={true} /></span>}
                                             {tableHeader.sortable&&<span className='btn btn-sm'><RdsIcon name={'funnel'} height='12px' width='12px' stroke={true} /></span>}
                                         </th>
@@ -89,9 +85,9 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 
                         <tbody>
                             {props.tableData.map((tableDataRow, index) =>
-                                (props.pagination && index >= rowStatus.startingRow && (typeof rowStatus.endingRow != "undefined") && index < rowStatus.endingRow) && <tr>
-                                    {props.tableHeaders.map(tableHeader =>
-                                        <td>{tableDataRow[tableHeader.key]}</td>
+                                (props.pagination && index >= rowStatus.startingRow && (typeof rowStatus.endingRow != "undefined") && index < rowStatus.endingRow) && <tr key={"tableRow-"+index}>
+                                    {props.tableHeaders.map( (tableHeader, tableHeaderIndex) =>
+                                        <td key={"column-"+tableHeaderIndex+"-inside-tableRow"+index}>{tableDataRow[tableHeader.key]}</td>
                                     )}
                                     {props.actions.length > 0 &&
                                         <td className='align-middle text-center'>
@@ -117,8 +113,8 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
                                                         <RdsIcon name={'three_dots'} height="14px" width='14px' stroke={true} fill={true} class="bi bi-three-dots-vertical" />
                                                     </button>
                                                     <ul className="dropdown-menu RdsCompDataTable__Actions__Ul">
-                                                        {props.actions.map((action) =>
-                                                            <li><a className='dropdown-item'>{action.displayName}</a></li>
+                                                        {props.actions.map((action, actionIndex) =>
+                                                            <li key={"action-"+actionIndex+"-inside-tableRow"+index}><a className='dropdown-item'>{action.displayName}</a></li>
                                                         )}
                                                     </ul>
                                                 </div>
