@@ -52,7 +52,7 @@ const RdsPagination = (props: RdsPaginationProps) => {
   const onNext = (e: any, current: any) => {
    // console.log("current -  " + current);
     setCurrentPage(current + 1);
-    props.onPageChange(e, current, recordsPerPage);
+    props.onPageChange(e, currentPage+1, recordsPerPage);
   };
 
   const onPage = (e: any, current: any) => {
@@ -62,7 +62,7 @@ const RdsPagination = (props: RdsPaginationProps) => {
   const onPrevious = (e: any, current: any) => {
     //console.log("current -  " + current);
     setCurrentPage(current - 1);
-    props.onPageChange(e, current, recordsPerPage);
+    props.onPageChange(e, currentPage-1, recordsPerPage);
   };
 
   const size = " pagination-" + `${props.size || "md"}`;
