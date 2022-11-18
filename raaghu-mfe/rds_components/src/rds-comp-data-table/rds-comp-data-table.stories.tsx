@@ -1,24 +1,19 @@
-import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import RdsCompDataTable from "./rds-comp-data-table";
-
+import RdsCompDatatable from "./rds-comp-data-table";
 export default {
   title: "Components/Data Table",
-  component: RdsCompDataTable,
-
-} as ComponentMeta<typeof RdsCompDataTable>;
-
-
-const Template: ComponentStory<typeof RdsCompDataTable> = (args) => 
-  <RdsCompDataTable {...args} />;
-
-
+  component: RdsCompDatatable,
+} as ComponentMeta<typeof RdsCompDatatable>;
+const Template: ComponentStory<typeof RdsCompDatatable> = (args) =>
+  <RdsCompDatatable {...args} />;
 export const Default = Template.bind({});
-
-Default.args ={
-
-    tableHeaders : [{ displayName: 'Edition Name', key: 'editionName', datatype: 'text', dataLength: 30, required: true, sortable: true }, { displayName: 'Price ($)', key: 'price', datatype: 'number', dataLength: 5, required: false, sortable: true }, { displayName: 'Trial Period(Day(s))', key: 'trialPeriod', datatype: 'number', dataLength: 5, required: true }],
-    tableData: [
+Default.args = {
+  tableHeaders: [
+    { displayName: 'Edition Name', key: 'editionName', datatype: 'text', dataLength: 30, required: true, sortable: true },
+    { displayName: 'Price ($)', key: 'price', datatype: 'number', dataLength: 5, required: false, sortable: true },
+    { displayName: 'Trial Period(Day(s))', key: 'trialPeriod', datatype: 'number', dataLength: 5, required: true }
+  ],
+  tableData: [
     { id: 1, editionName: 'Standard', price: 60, trialPeriod: 5 },
     { id: 2, editionName: 'Basic', price: 120, trialPeriod: 10 },
     { id: 3, editionName: 'Premium', price: 250, trialPeriod: 5 },
@@ -36,6 +31,10 @@ Default.args ={
     { id: 15, editionName: 'Standard', price: 100, trialPeriod: 3 },
     { id: 16, editionName: 'Basic', price: 100, trialPeriod: 1 },
   ],
-  actions: [{ id: 'delete', displayName: 'Delete' }, { id: 'edit', displayName: 'Edit' }],
-  pagination : true
+  actions: [
+    { id: 'delete', displayName: 'Delete' },
+    { id: 'edit', displayName: 'Edit' }
+  ],
+  pagination: true,
+  recordsPerPage: 5
 }
