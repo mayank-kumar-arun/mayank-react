@@ -38,7 +38,7 @@ const RdsCompEdition = (props: RdsCompEditionProps) => {
                   </p>
                 </div>
                 <div
-                  className="col-md-12"
+                  className="col-md-12 RdsCompEdition__description-list-inside-card"
                   style={{
                     paddingTop: "0px",
                     textAlign: "left",
