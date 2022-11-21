@@ -23,20 +23,14 @@ const RdsIconLabel = (props: RdsIconLabelProps) => {
   return (
     <>
       <div className="d-flex justify-content-start">
-        <div style={{
-            marginRight: 4
-        }}>
-          <RdsIcon
-            name={props.icon}
-            height={size}
-            width={size}
-            fill={true}
-            stroke={true}
-          ></RdsIcon>
-        </div>
-        <div style={{
-            marginTop: 3
-        }}>
+        <RdsIcon
+          name={props.icon}
+          height={size}
+          width={size}
+          fill={true}
+          stroke={true}
+        ></RdsIcon>
+        <div className="labelClass">
           <RdsLabel label={props.label} size={fontSize}></RdsLabel>
         </div>
       </div>

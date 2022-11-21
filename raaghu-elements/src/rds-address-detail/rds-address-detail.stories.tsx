@@ -17,6 +17,7 @@ const Template: ComponentStory<typeof RdsAddressDetail> = (args) => <RdsAddressD
 //👇 Each story then reuses that template
 export const Default = Template.bind({});
 Default.args = {
+  withIcon: true,
   header: 'Address Header',
   addressLine1: 'Address Line 1',
   addressLine2: 'Address Line 2',

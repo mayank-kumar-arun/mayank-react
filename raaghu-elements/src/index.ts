@@ -53,6 +53,7 @@ export {default as RdsListGroup} from './rds-list-group';
 export {default as RdsProductImage} from './rds-product-image';
 export {default as RdsPagination} from './rds-pagination';
 export {default as RdsFeed} from "./rds-feed";
+export {default as RdsTeamMember} from "./rds-team-member"
 
 
 //Charts
