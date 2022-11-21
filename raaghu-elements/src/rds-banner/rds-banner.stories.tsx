@@ -3,10 +3,6 @@ import { ComponentMeta, ComponentStory, Story } from '@storybook/react';
 import RdsBanner, { RdsBannerProps } from './rds-banner'
 
 export default {
-    /* 👇 The title prop is optional.
-    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
-    * to learn how to generate automatic titles
-    */
     title: 'Elements/Banner',
     component: RdsBanner,
     argTypes: {
@@ -24,10 +20,8 @@ export default {
         },
 }} as ComponentMeta<typeof RdsBanner>;
 
-//👇 We create a “template” of how args map to rendering
 const Template: ComponentStory<typeof RdsBanner> = (args) => <RdsBanner {...args} />;
 
-//👇 Each story then reuses that template
 export const Default = Template.bind({});
 Default.args = {
     alignCenter: false,
@@ -35,4 +29,25 @@ Default.args = {
     sticky: false,
     position: "top" ,
     colorVariant: "primary"
+};
+
+export const With_icon = Template.bind({});
+With_icon.args = {
+    alignCenter: false,
+    bannerText: "Hi, this is a banner." ,
+    sticky: false,
+    position: "top" ,
+    colorVariant: "primary",
+    icon: "information",
+};
+
+export const With_close_button = Template.bind({});
+With_close_button.args = {
+    alignCenter: false,
+    bannerText: "Hi, this is a banner." ,
+    sticky: false,
+    position: "top" ,
+    colorVariant: "primary",
+    icon: "information",
+    closeButton: true
 };
