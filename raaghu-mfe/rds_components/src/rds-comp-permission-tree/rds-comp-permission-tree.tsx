@@ -26,10 +26,10 @@ const RdsCompPermissionTree = (props:RdsCompPermissionTreeProps) =>{
         <div >
             <div className="checkedstyle flush-border treeview-flush ">
                 <>
-                    <div className="col-md-12 mt-3 pt-1">
-                        <RdsSearch placeholder='Search' size='small'></RdsSearch>
-                        {/* <rds-search-input placeholder="Search" icon="search" size="small"> </rds-search-input> */}
-                    </div>
+                    {/* <div className="col-md-12 mt-3 pt-1">
+                        <RdsSearch placeholder='Search'  size='small'></RdsSearch>
+                        
+                    </div> */}
                     
                     {props.multiselectTree && <div className="d-flex align-items-center checkedstyle mt-3">
 
@@ -40,7 +40,7 @@ const RdsCompPermissionTree = (props:RdsCompPermissionTreeProps) =>{
                                 [inline]="false" [id]="'checkSelectAll'">
                             </rds-checkbox> */}
                         </div>
-                        <span className="node-label"><span className="mr-4">{props.selectAllLabel}</span></span>
+                        <span className="node-label"><span className="mr-4">Select All</span></span>
                         </div> }
 
                     

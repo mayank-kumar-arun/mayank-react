@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Colors } from "../../libs/types";
+import { colors } from "../../libs/types";
 
 export interface RdsTextAreaProps {
   rows?: number;
@@ -8,7 +8,7 @@ export interface RdsTextAreaProps {
   placeholder: string;
   value?: any;
   isDisabled?: boolean;
-  colorVariant?: Colors;
+  colorVariant?: colors;
 }
 const RdsTextArea = (props: RdsTextAreaProps) => {
   return (

@@ -1,7 +1,7 @@
 import react, {createContext, useEffect, useState} from 'react';
 import organizationchildren from './rds-organization-children';
 
-const UserContext = createContext()
+const UserContext = createContext({})
 const EmployeeContextProvider  = (props:any) => {
     const [user, setUser]=useState([organizationchildren])
 

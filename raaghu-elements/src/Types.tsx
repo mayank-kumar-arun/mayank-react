@@ -2,7 +2,7 @@
 
 // export type Breakpoints = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 
-// export type Colors =
+// export type colors =
 //   | 'primary'
 //   | 'secondary'
 //   | 'success'
@@ -90,8 +90,8 @@
 // ])
 
 
-// export type TextColors =
-//   | Colors
+// export type Textcolors =
+//   | colors
 //   | 'white'
 //   | 'muted'
 //   | 'high-emphasis'
@@ -102,7 +102,7 @@
 //   | 'disabled-inverse'
 //   | string
 
-// export const textColorsPropType = PropTypes.oneOfType([
+// export const textcolorsPropType = PropTypes.oneOfType([
 //   colorPropType,
 //   PropTypes.oneOf(['white', 'muted']),
 //   PropTypes.string,

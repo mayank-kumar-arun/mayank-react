@@ -1,10 +1,10 @@
 import React from "react";
 import "./rds-fab-menu.scss";
-import { Colors } from "../../libs/types";
+import { colors } from "../../libs/types";
 import RdsIcon from "../rds-icon";
 
 export interface RdsFabMenuProps {
-  colorVariant?: Colors;
+  colorVariant?: colors;
   size?: string;
   menuIcon?: string;
   menuiconWidth?: string;
