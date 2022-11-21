@@ -8,7 +8,7 @@ export interface RdsPaginationProps {
   paginationType?: string;
   alignmentType?: string;
   size?: string;
-  onPageChange: (
+  onPageChange?: (
     currentPage: number,
     recordsPerPage: number
   ) => void;
@@ -60,7 +60,8 @@ const RdsPagination = (props: RdsPaginationProps) => {
     setCurrentPage(current - 1);
     // props.onPageChange(e, currentPage, recordsPerPage);
   };
-  useEffect(() => { props.onPageChange(currentPage, recordsPerPage); }, [currentPage, recordsPerPage])
+  if(props.onPageChange!=undefined)
+  useEffect(() => { props.onPageChange!=undefined && props.onPageChange(currentPage, recordsPerPage); }, [currentPage, recordsPerPage])
 
 
   const size = " pagination-" + `${props.size || "md"}`;
