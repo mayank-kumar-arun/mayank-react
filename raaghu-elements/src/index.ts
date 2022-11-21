@@ -53,7 +53,18 @@ export {default as RdsListGroup} from './rds-list-group';
 export {default as RdsProductImage} from './rds-product-image';
 export {default as RdsPagination} from './rds-pagination';
 export {default as RdsFeed} from "./rds-feed";
-
+export {default as CheckboxGroup} from "./rds-checkbox-group";
+export {default as Collapse} from "./rds-collapse";
+export {default as FeatureList} from "./rds-feature-list";
+export {default as Popover} from "./rds-popover";
+export {default as Price} from "./rds-price";
+export {default as ProgressBar} from "./rds-progress-bar";
+export {default as ReviewCategory} from "./rds-review-category";
+export {default as Scrollspy} from "./rds-scrollspy";
+export {default as TeamMember} from "./rds-team-member";
+export {default as Testimonial} from "./rds-testimonial";
+export {default as Tooltip} from "./rds-tooltip";
+export {default as WebsiteMatrix} from "./rds-website-matrix";
 
 //Charts
 export { default as RdsAreaChart } from "./rds-chart-area";
