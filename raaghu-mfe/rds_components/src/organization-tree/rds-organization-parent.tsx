@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import RdsIcon from "../../../../raaghu-elements/src/rds-icon";
+import TreeUser from "./Edit/user";
+import UserContextProvider from "./Edit/usercontext";
 
 const OrganizationParent = ({ organizationchildren }: any) => {
   const [treeunits, setTreeunits] = useState([organizationchildren]);
@@ -16,6 +18,13 @@ const OrganizationParent = ({ organizationchildren }: any) => {
   const expand = () => {
     setIsVisible(!isVisible);
   };
+
+  const edit=()=>{
+    <UserContextProvider>
+            <TreeUser />
+          </UserContextProvider>
+         
+  }
   return (
     <div className="position-relative" style={{ paddingLeft: 10 }}>
       <div className="d-flex align-items-center">
@@ -26,6 +35,7 @@ const OrganizationParent = ({ organizationchildren }: any) => {
                 <span style={{ marginRight: 10 }} onClick={() => removeElement(index)}>
                   {organizationchildren.name}
                 </span>
+                <button className="btn btn-primary" onClick={edit}>Edit</button>
                 <span style={{ paddingRight: 12 }}>
                   <RdsIcon class={"px-4"} name={"plus"} stroke={true} colorVariant={"primary"} height={"15px"} width={"15px"}></RdsIcon>
                 </span>

@@ -1,8 +1,13 @@
-import react, {createContext, useEffect, useState} from 'react';
-import organizationchildren from './rds-organization-children';
+import React from 'react';
+import { createContext } from 'react';
+import  { useEffect, useState} from 'react';
+import organizationchildren from '../rds-organization-children';
 
-const UserContext = createContext()
-const EmployeeContextProvider  = (props:any) => {
+
+
+export const UserContext = createContext({})
+const UserContextProvider  = (props:any) => {
+    
     const [user, setUser]=useState([organizationchildren])
 
     useEffect(()=> {
@@ -27,4 +32,4 @@ const EmployeeContextProvider  = (props:any) => {
 
 }
 
-export default UserContext
+export default UserContextProvider 
