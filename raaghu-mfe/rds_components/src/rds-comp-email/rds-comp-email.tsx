@@ -25,7 +25,7 @@ const RdsCompEmail = (props: RdsCompEmailProps) => {
 
   return (
     <>
-      <form>
+      <form className="RdsCompEmail__form">
         <div className="row mb-3">
           <div className="col-md-6 col-sm-6 col-lg-6">
             <div className="form-group">
