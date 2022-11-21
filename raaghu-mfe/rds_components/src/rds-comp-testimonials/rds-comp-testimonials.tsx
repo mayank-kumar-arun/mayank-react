@@ -1,0 +1,82 @@
+import React from "react";
+import {
+  RdsLabel,
+  RdsTestimonial,
+  RdsIcon,
+  RdsCarousel,
+} from "../rds-elements";
+
+export interface RdsCompTestimonialsProps {
+  testimonialItems?: any;
+  displayType?: string;
+  carousalItem?: any;
+}
+
+const RdsCompTestimonials = (props: RdsCompTestimonialsProps) => {
+  return (
+    <>
+      {props.displayType == "advanced" && (
+        <div>
+          <div className="col-md-12">
+            <div className="align-items-center col-md-12 d-flex justify-content-between">
+              <h2>
+                <RdsLabel label="Testimonials" bold={true}></RdsLabel>
+              </h2>
+              <span>
+                <RdsIcon
+                  height="15px"
+                  fill={false}
+                  stroke={true}
+                  width="15px"
+                  name="chevron_left"
+                ></RdsIcon>
+                <RdsIcon
+                  height="15px"
+                  fill={false}
+                  stroke={true}
+                  width="15px"
+                  name="chevron_right"
+                  class="mx-2"
+                ></RdsIcon>
+              </span>
+            </div>
+            <div className="mt-4">
+              <div className="row">
+                {props.testimonialItems.map((testimonialItem) => (
+                  <>
+                    <div className="col-lg-4 col-md-4 col-sm-4">
+                      <RdsTestimonial
+                        testimonialItems={testimonialItem}
+                      ></RdsTestimonial>
+                    </div>
+                  </>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {props.displayType == "basic" && (
+        <div>
+          <h2 className="text-center">
+            <RdsLabel
+              label="'Testimonials'"
+              multiline={false}
+              bold={true}
+              italic={false}
+            ></RdsLabel>
+          </h2>
+          <RdsCarousel
+            role="advanced"
+            crossFade={true}
+            Indicators={true}
+            controls={true}
+            carouselItems={props.carousalItem}
+          ></RdsCarousel>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default RdsCompTestimonials;

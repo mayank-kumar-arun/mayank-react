@@ -54,6 +54,7 @@ export {default as RdsProductImage} from './rds-product-image';
 export {default as RdsPagination} from './rds-pagination';
 export {default as RdsFeed} from "./rds-feed";
 
+
 //Charts
 export { default as RdsAreaChart } from "./rds-chart-area";
 export { default as RdsLineChart } from './rds-chart-line';

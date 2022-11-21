@@ -1,6 +1,5 @@
-import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import RdsCompEmailSettingsNew from './rds-email-settings-new'
+import RdsCompEmailSettingsNew from './rds-comp-email-settings-new'
 
 export default {
   title: "Components/Email Settings New",
