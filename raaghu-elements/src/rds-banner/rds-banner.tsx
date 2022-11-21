@@ -35,19 +35,19 @@ const RdsBanner = (props: RdsBannerProps) => {
     return (
         <Fragment>
             <div className={classesCss} role="alert">
-                <div className={props.alignCenter ? 'text-center d-flex align-items-center' : 'd-flex align-items-center'}>
-                    {props.icon && <span style={{ marginRight: "12px" }}>
+                <div className={props.alignCenter ? 'w-100 d-flex justify-content-center align-items-center' : 'd-flex align-items-center'}>
+                    {props.icon && <span style={{ marginRight: "12px" }} className='d-flex align-items-center'>
                         <RdsIcon name={props.icon ? props.icon : ''}
                             stroke={true}
                             colorVariant={props.colorVariant}
-                            height="1em"
-                            width="1em"
+                            height="18px"
+                            width="18px"
                         />
                     </span>}
                     <span>{props.bannerText}</span>
                 </div>
                 {props.closeButton && <div className="close-button-box d-flex justify-content-center align-items-center" >
-                    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button type="button" className="btn-close p-0" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>}
             </div>
         </Fragment>
