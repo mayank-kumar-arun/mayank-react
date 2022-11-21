@@ -20,6 +20,18 @@ export default {
             ],
             control: { type: "select" },
         },
+        position: {
+            options:[
+                "top",
+                "bottom",
+                "start",
+                "end"
+            ],
+            control: { type: "radio" },
+        }
+        // counterValue: {
+        //     control:{type: "number"}
+        // }
     }
 } as ComponentMeta<typeof RdsCounter>;
 
