@@ -32,5 +32,5 @@ const tenantSlice = createSlice({
     },
   });
 
-  export const tenantReducer = tenantSlice.reducer;
-  export const tenantActions = tenantSlice.actions;
+export const tenantReducer = tenantSlice.reducer;
+export const tenantActions = tenantSlice.actions;

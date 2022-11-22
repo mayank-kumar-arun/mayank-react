@@ -8,6 +8,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import Tooltip from "../rds-tooltip/rds-tooltip";
+import RdsIcon from "../rds-icon";
 
 export interface RdsButtonProps {
 	children?: ReactNode;
@@ -26,12 +27,14 @@ export interface RdsButtonProps {
 	type: "button" | "submit";
 	onClick?: React.MouseEventHandler<HTMLButtonElement>;
 	formName?: string;
+
 	class?: string;
 	arialabel?: string;
 	databsdismiss?: string;
 	databstarget?: string;
 	databstoggle?: string;
 	ariacontrols?: string;
+	iconColorVariant?: string;
 }
 
 const RdsButton = (props: RdsButtonProps) => {
@@ -58,8 +61,21 @@ const RdsButton = (props: RdsButtonProps) => {
 						data-bs-toggle={props.databstoggle}
 						aria-controls={props.ariacontrols}
 					>
-						{props.icon}
-						{props.label}
+						<span className="d-flex align-items-center justify-content-center">
+							{props.icon && (
+								<span>
+									<RdsIcon
+										colorVariant={props.iconColorVariant}
+										name={props.icon}
+										fill={true}
+										stroke={true}
+										height="17px"
+										width="17px"
+									></RdsIcon>
+								</span>
+							)}
+							<span style={{ marginLeft: "5px" }}>{props.label}</span>
+						</span>
 						{props.children}
 					</button>
 				</Tooltip>
@@ -77,8 +93,21 @@ const RdsButton = (props: RdsButtonProps) => {
 					data-bs-toggle={props.databstoggle}
 					aria-controls={props.ariacontrols}
 				>
-					{props.icon}
-					{props.label}
+					<span className="d-flex align-items-center justify-content-center">
+						{props.icon && (
+							<span>
+								<RdsIcon
+									colorVariant={props.iconColorVariant}
+									name={props.icon}
+									fill={true}
+									stroke={true}
+									height="17px"
+									width="17px"
+								></RdsIcon>
+							</span>
+						)}
+						<span style={{ marginLeft: "5px" }}>{props.label}</span>
+					</span>
 					{props.children}
 				</button>
 			)}

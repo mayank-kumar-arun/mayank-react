@@ -15,6 +15,10 @@ export const Default = Template.bind({});
 Default.args = {
   label: "default checkbox",
   checked:false,
-  //withlabel:true,
+  isDisabled:false,
+ isSwitch:false,
+ withLabel:true,
+ state: 'checkbox',
+ id: 'id1',
 };
 

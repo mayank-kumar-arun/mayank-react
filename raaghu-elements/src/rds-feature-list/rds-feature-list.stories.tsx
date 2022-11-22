@@ -27,3 +27,18 @@ Default.args = {
         "Water-resistant"
     ]
 };
+
+export const With_multiple_column = Template.bind({});
+With_multiple_column.args = {
+    heading: "Features",
+    itemList: [
+        "Only the best materials",
+        "Ethically and locally made",
+        "Pre-washed and pre-shrunk",
+        "Machine wash cold with similar colors",
+        "Stainless strap loops",
+        "Double stitched construction",
+        "Water-resistant"
+    ],
+    columns: 2
+};

@@ -1,1 +1,1 @@
-export {default} from  './rds-checkbox-group'
+export {default} from './rds-checkbox-group'
