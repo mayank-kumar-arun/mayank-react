@@ -6,6 +6,7 @@ export default {
   title: "Elements/Input Group",
   component: RdsInputGroup,
   argTypes: {
+    inputValue: { action: 'Value sent to parent' },
     buttonColorVariant: {
       options: [
         "primary",
@@ -16,7 +17,6 @@ export default {
         "danger",
         "dark",
         "light",
-        "review",
       ],
       control: { type: "select" },
     },
@@ -37,8 +37,6 @@ const Template: ComponentStory<typeof RdsInputGroup> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-//   alertmessage: "this is close alert",
-//   dismisable: false
     buttonLabel: "BUTTON",
     buttonColorVariant: "primary",
     placeholder: "Placeholder text",
