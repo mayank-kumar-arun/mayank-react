@@ -1,5 +1,8 @@
 import React, { Fragment, useState } from "react";
-import { Colors, Placements } from "../../libs/types";
+
+import { colors, placements } from "../../libs/types";
+import RdsButton from "../rds-button/rds-button";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./rds-counter.scss";
 
 export interface RdsCounterProps {
@@ -8,8 +11,8 @@ export interface RdsCounterProps {
   min: number,
   max: number,
   width: number
-  colorVariant?: Colors;
-  position?: Placements;
+  colorVariant?: colors;
+  position?: placements;
 }
 
 const RdsCounter = (props: RdsCounterProps) => {

@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 import RdsButton from "../rds-button";
 import RdsInput from "../rds-input";
-import { Colors } from "../../libs/types";
+import { colors } from "../../libs/types";
 import './rds-input-group.scss';
 
 export interface RdsInputGroupProps {
     buttonLabel: string,
-    buttonColorVariant: Colors
+    buttonColorVariant: colors
     placeholder?: string
     size?: "small" | "medium" | "large"
     inputGroupLabel?: string
