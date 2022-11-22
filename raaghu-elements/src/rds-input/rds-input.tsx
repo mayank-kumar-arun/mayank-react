@@ -22,8 +22,8 @@ export interface RdsInputProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
-  onClick: MouseEventHandler<HTMLInputElement> | undefined;
-  
+  onClick?: MouseEventHandler<HTMLInputElement> | undefined;
+
   customClasses?: string;
   formName?: string;
 }
