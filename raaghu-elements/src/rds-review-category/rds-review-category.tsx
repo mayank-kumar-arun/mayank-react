@@ -101,12 +101,14 @@ const RdsReviewCategory = (props: RdsReviewCategoryProps) => {
             {(props.item && props.display_type === "ReviewType_2") &&
                 <div className="RdsReviewCategory__review-type-2">
                     <div className="py-2 col-md-9">
-                        <div className="d-flex">
-                            <RdsAvatar
-                                colorVariant="light"
-                                withProfilePic={true}
-                                profilePic={props.item.imageUrl}
-                            />
+                        <div className="d-flex pb-3">
+                            <div className="avatar">
+                                <RdsAvatar
+                                    colorVariant="light"
+                                    withProfilePic={true}
+                                    profilePic={props.item.imageUrl}
+                                />
+                            </div>
                             <div className="mx-3">
                                 <div className="item-name">
                                     <RdsLabel
@@ -117,7 +119,7 @@ const RdsReviewCategory = (props: RdsReviewCategoryProps) => {
                                     />
                                 </div>
                                 <div>
-                                    <RdsRating rating={props.item.reviewRate} colorVariant="warning" reviewPosition="none"/>
+                                    <RdsRating rating={props.item.reviewRate} colorVariant="warning" reviewPosition="none" />
                                 </div>
                             </div >
                         </div >
@@ -136,7 +138,7 @@ const RdsReviewCategory = (props: RdsReviewCategoryProps) => {
 
                 </div>
             }
-            
+
 
         </>
     );
