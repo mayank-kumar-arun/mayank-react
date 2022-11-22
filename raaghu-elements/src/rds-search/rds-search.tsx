@@ -24,7 +24,7 @@ const RdsSearch = (props: RdsSearchProps) => {
       />
       <div className="input-group-append">
         <span className={spanClass} id={ariaDescribedby}>
-          <Icons name="search" fill={false} strokeColor="#827f7f" height='17px' width="17px"></Icons>
+          <Icons name="search" fill={false} strokeColor="#827f7f" stroke={true} height='17px' width="17px"></Icons>
         </span>
       </div>
     </div>

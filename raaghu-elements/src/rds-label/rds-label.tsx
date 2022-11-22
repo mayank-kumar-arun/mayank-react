@@ -17,7 +17,7 @@ const RdsLabel = (props: RdsLabelProps) => {
     <p
       className={`${!props.multiline ? "singleLine" : ""} ${
         props.bold ? "bold" : ""
-      } ${props.italic ? "italic" : ""} ${props.className}`}
+      } ${props.italic ? "italic" : "poppins"} ${props.className}`}
       style={{ fontSize: props.size, fontWeight: props.fontWeight }}
     >
       <label>{props.label}{props.children}</label>

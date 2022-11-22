@@ -1,6 +1,7 @@
 import React from "react";
 import RdsIcon from "../rds-icon";
 import RdsLabel from "../rds-label";
+import "./rds-team-member.scss"
 
 export interface RdsTeamMemberProps {
   displayType: string;
