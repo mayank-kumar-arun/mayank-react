@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from "react";
-import { Colors } from "../../libs/types";
+import { colors } from "../../libs/types";
 import RdsIcon from "../rds-icon/rds-icon";
 import "./rds-like-dislike.scss";
 
 export interface RdsLikeDislikeProps {
-  colorVariant?: Colors;
+  colorVariant?: colors;
   like:number;
   dislike:number;
 }
