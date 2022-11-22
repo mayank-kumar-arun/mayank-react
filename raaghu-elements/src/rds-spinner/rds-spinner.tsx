@@ -6,6 +6,8 @@ export interface RdsSpinnerProps {
   spinnerType?: string;
   colorVariant?: Colors;
   width?:string; 
+  borderWidth?:string,
+  height?:string
 }
 const RdsSpinner = (props: RdsSpinnerProps) => {
     let spinner= props.spinnerType||"border";
@@ -13,10 +15,10 @@ const RdsSpinner = (props: RdsSpinnerProps) => {
   return (
     <Fragment>
 
-     {spinner=="border"&& <div className={"spinner-border"+` ${txtColor}`} style={{width:props.width, height:props.width}} role="status">
+     {spinner=="border"&& <div className={"spinner-border"+` ${txtColor}`} style={{width:props.width, height:props.height ,borderWidth:props.borderWidth }} role="status">
         <span className="visually-hidden">Loading...</span>
       </div>}
-      {spinner=="grow"&& <div className={"spinner-grow"+` ${txtColor}`} style={{width:props.width, height:props.width}} role="status">
+      {spinner=="grow"&& <div className={"spinner-grow"+` ${txtColor}`} style={{width:props.width, height:props.height ,borderWidth:props.borderWidth}} role="status">
         <span className="visually-hidden">Loading...</span>
       </div>}
       

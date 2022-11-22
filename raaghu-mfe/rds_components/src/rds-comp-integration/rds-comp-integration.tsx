@@ -48,7 +48,7 @@ const RdsCompIntegration = (props:RdsCompIntegrationProps) => {
             <div className="col-2">
             <RdsButton
               children={
-<RdsSpinner spinnerType="border" width="15px" colorVariant="light"/>
+                <RdsSpinner spinnerType="border" height='15px' borderWidth="medium" width="15px" colorVariant="light"/>
               }
               colorVariant="primary"
               isDisabled={true}

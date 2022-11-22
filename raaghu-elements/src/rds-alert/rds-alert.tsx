@@ -15,6 +15,8 @@ export interface RdsAlertProps {
   iconHeight: string;
   iconWidth: string;
   iconColor: string;
+  position:string;
+  onDismiss:(event:React.MouseEvent<HTMLButtonElement>)=>void;
 }
 
 const RdsAlert = (props: RdsAlertProps) => {
@@ -35,18 +37,20 @@ const RdsAlert = (props: RdsAlertProps) => {
 
   const closeHandler = (e: any) => {
     setClicked(true);
-    //props.onDismiss(e);
+    props.onDismiss(e);
   };
-
+  
   let isShow = `${clicked == true ? " closed " : " shown1 "}`;
-
+  let position ="m-2 fw-normal fixed-"+props.position||top;
   return (
     <Fragment>
+      <div className={`${position}`}>
+
       <div
         className={`${alertColor}` + `${isShow}`}
         role="alert"
       >
-        <div className="cont">
+        <div className="d-flex justify-content-between">
           <div>
             {" "}
             <span>
@@ -59,10 +63,10 @@ const RdsAlert = (props: RdsAlertProps) => {
                 width={props.iconWidth}
                 colorVariant={props.iconColor}
               />
-            </span>
+            </span> {"  "}
             <span> {props.alertmessage}</span>
           </div>
-          <div>
+          <div >
             {props.dismisable === true && (
               <button
                 type="button"
@@ -74,6 +78,7 @@ const RdsAlert = (props: RdsAlertProps) => {
             )}
           </div>
         </div>
+      </div>
       </div>
     </Fragment>
   );

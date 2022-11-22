@@ -12,14 +12,17 @@ const Template: ComponentStory<typeof RdsAppDetail> = (args) => <RdsAppDetail {.
 
 export const Default = Template.bind({});
 Default.args = {
-  title: 'Zapier', 
-  subtitle: 'Build custom automation and intefrations with app', 
-  icon: 'zapier',
-  route: '/home',
-  selected:true,
-  iconHeight:'30px',
-  iconWidth:'30px',
-  iconFill:false,
-  iconColor:"dark",
-  iconStroke:true
+  appDetailsItem:{
+    title: 'Zapier', 
+    subtitle: 'Build custom automation and intefrations with app', 
+    icon: 'zapier',
+    route: '/home',
+    selected:true,
+    iconHeight:'30px',
+    iconWidth:'30px',
+    iconFill:false,
+    iconColor:"dark",
+    iconStroke:true
+  }
+  
 };

@@ -6,13 +6,18 @@ import validator from 'validator';
 export interface RdsAvatarProps {
   profilePic?: string;
   withProfilePic?:boolean;
- 
   firstName?: string;
   lastName?: string;
   role?: string;
   colorVariant?: string;
   isTitle?: boolean;
   titleAlign?: string;
+  size: 'small' | 'large' | 'medium',
+  verticallyAlligned: boolean ,
+  roundedAvatar: boolean,
+  roundedPills: boolean ,
+  height? : string ;
+
 }
 
 const RdsAvatar = (props: RdsAvatarProps) => {
@@ -46,18 +51,19 @@ const RdsAvatar = (props: RdsAvatarProps) => {
   let titleFirstName = fLetter + FL.slice(1) + " ";
   let titleLastName = lLetter + LL.slice(1);
   let titleRole = rLetter + userRole.slice(1);
-
+  let imgwidth =(props.size=="small"?"32px":props.size=="large"?"48px":"40px" );
+  let imgheigt =(props.height||"48px")
   return (
     <Fragment> <div style={{ display: Aligned }}>
 
       {WPP===false && !hasName &&(
-        <div className="image">
-          <img src={defaultPP}  width="50px" />
+        <div className="image flex-grow-0 d-flex align-items-center" >
+          <img src={defaultPP}  width={imgheigt} height={imgheigt}  />
         </div>
       )} 
 
       {WPP===false && hasName && (
-          <div className="image" style={{ backgroundColor: backcolor }}>
+          <div className="image d-flex justify-content-center align-items-center avatar rounded-circle" style={{ backgroundColor: backcolor, width:imgwidth,height:imgwidth }}>
             <span className="letters">
               {fLetter}
               {lLetter}
@@ -66,13 +72,11 @@ const RdsAvatar = (props: RdsAvatarProps) => {
         
       )} 
       {WPP===true &&(
-        <div className="image">
-          <img src={withPP} width="50px" />
+        <div className="image flex-grow-0 d-flex align-items-center">
+          <img src={withPP} width={imgheigt} height={imgheigt} />
         </div>
       )}
        
-      
-
       {Title === true && hasName && (
           <div style={{marginLeft:'10px'}}>
             <span>

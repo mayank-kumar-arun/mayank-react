@@ -1,4 +1,5 @@
 import React, { useState, Fragment, useEffect } from "react";
+import "./rds-color-picker.scss";
 
 export interface RdsColorPickerProps {
   value: string;
@@ -20,57 +21,55 @@ const RdsColorPicker = (props: RdsColorPickerProps) => {
     return(
         setColor(Color =value))
   };
-  //
-
- 
-let stri = Color;
-
-
+  
+  let stri = Color;
   const isValidHexaCode=()=> {
-    if (stri[0] != '#')
-        return false;
+  if (stri[0] != '#')
+      return false;
 
-    if (!(stri.length ==4 || stri.length==7))
-        return false;
+  if (!(stri.length ==4 || stri.length==7))
+      return false;
 
-    for (let i = 1; i < stri.length; i++)
-        if (!((stri[i].charCodeAt(0) <= '0'.charCodeAt(0) && stri[i].charCodeAt(0) <= 9)
-            || (stri[i].charCodeAt(0) >= 'a'.charCodeAt(0) && stri[i].charCodeAt(0) <= 'f'.charCodeAt(0))
-            || (stri[i].charCodeAt(0) >= 'A'.charCodeAt(0) || stri[i].charCodeAt(0) <= 'F'.charCodeAt(0))))
-            return false;
+  for (let i = 1; i < stri.length; i++)
+      if (!((stri[i].charCodeAt(0) <= '0'.charCodeAt(0) && stri[i].charCodeAt(0) <= 9)
+          || (stri[i].charCodeAt(0) >= 'a'.charCodeAt(0) && stri[i].charCodeAt(0) <= 'f'.charCodeAt(0))
+          || (stri[i].charCodeAt(0) >= 'A'.charCodeAt(0) || stri[i].charCodeAt(0) <= 'F'.charCodeAt(0))))
+          return false;
 
-    return true;
-}
+  return true;
+  }
+  // Driver Code
+  if (isValidHexaCode() === true ) {
+      Color=stri
+  }
+  else {
+      Color="#000000"
+  }
 
-// Driver Code
-
-if (isValidHexaCode() === true ) {
-    console.log("validColor" + '<br>');
-    Color=stri
-}
-else {
-    console.log("invalid" + '<br>');
-    Color="#000000"
-}
-
-  return (
+return (
     <Fragment>
-    <div className="d-flex">
-      <div >{props.label} </div>
-     <div style={{marginLeft:'10px'}}>
-     <input
+    <div className="m-2 ">
+      <div>
+
+      <label>{props.label}</label> 
+      </div>
+      
+     <div className=" border p-2 mt-3 col-3 d-flex" >
+      <span className="me-3">
+        <input
         type="color"
-        className="form-control form-control-color"
+        className="form-control form-control-color colorPick"
         value={Color}
         id="color"
         disabled={props.isDisabled}
         onChange={HandlerChangecolor}
         title="Choose your color"
-
-      />
+        />
+      </span>
+      <span>{Color}</span>
+    
       </div>
      </div>
-      
       </Fragment>
   );
 };

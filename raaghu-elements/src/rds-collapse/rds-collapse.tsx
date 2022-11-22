@@ -49,7 +49,7 @@ const RdsCollapse = (props: RdsCollapseProps) => {
             {props.buttonList[0].label}
           </button>
           <div
-            className="collapse card card-body mt-1"
+            className="collapse card fw-normal p-2  card-body mt-1"
             style={{
               width: mWidth,
               minHeight: mHeight,
@@ -63,21 +63,21 @@ const RdsCollapse = (props: RdsCollapseProps) => {
       {props.multitoggle && (
         <div className="py-2">
           <button
-            className={`btn btn-${props.buttonList[0].colorVariant} `}
+            className={`btn m-2 btn-${props.buttonList[0].colorVariant} `}
             name={props.buttonList[0].id}
             onClick={toggleElement}
           >
             {props.buttonList[0].label}
           </button>
           <button
-            className={`btn btn-${props.buttonList[0].colorVariant} `}
+            className={`btn m-2 btn-${props.buttonList[0].colorVariant} `}
             name={props.buttonList[1].id}
             onClick={toggleElement}
           >
             {props.buttonList[1].label}
           </button>
           <button
-            className={`btn btn-${props.buttonList[0].colorVariant} `}
+            className={`btn m-2 btn-${props.buttonList[0].colorVariant} `}
             onClick={() => setToggle((toggle) => !toggle)}
           >
             {props.buttonList[2].label}
@@ -85,7 +85,7 @@ const RdsCollapse = (props: RdsCollapseProps) => {
           <div className="row">
             <div className="col-md-6 col-lg-6 col-sm-6">
               <div
-                className="collapse card card-body mt-1"
+                className="collapse fw-normal p-2 card card-body mt-1"
                 id={props.buttonList[0].id}
               >
                 This is the collapsible content! {props.children}
@@ -93,7 +93,7 @@ const RdsCollapse = (props: RdsCollapseProps) => {
             </div>
             <div className="col-md-6 col-lg-6 col-sm-6">
               <div
-                className="collapse card card-body mt-1"
+                className="collapse  fw-normal p-2 card card-body mt-1"
                 id={props.buttonList[1].id}
               >
                 This is the collapsible content! 2 {props.children}

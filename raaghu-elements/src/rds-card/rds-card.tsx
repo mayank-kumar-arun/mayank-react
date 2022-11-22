@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Colors } from "../../libs/types";
 import "bootstrap/dist/css/bootstrap.min.css"
 
-export interface rdsCardProps {
+export interface RdsCardProps {
   buttonLabel?: string;
   colorVariant?: Colors;
   cardItems: any[];
@@ -14,12 +14,13 @@ export interface rdsCardProps {
   isAvatar?: boolean;
 }
 
-const RdsCard = (props: rdsCardProps) => {
+const RdsCard = (props: RdsCardProps) => {
   const btnColor = "btn btn-md btn-" + (props.colorVariant || "primary");
 
   let isCenter = props.centerAlign || false;
   let textAlign = `${isCenter === true ? "card text-center" : "card"}`;
-
+ let left1= "50%"; 
+ let left2="10%"
   return (
     <Fragment>
       <div className={textAlign} >
@@ -34,7 +35,7 @@ const RdsCard = (props: rdsCardProps) => {
             style={{
               position: "absolute",
               top: "151px",
-              left: "109px",
+              left: left1,
               width: "13vw",
               borderRadius: "13vw",
             }}
@@ -45,7 +46,7 @@ const RdsCard = (props: rdsCardProps) => {
             style={{
               position: "absolute",
               top: "151px",
-              left: "20px",
+              left:left2,
               width: "13vw",
               borderRadius: "13vw",
             }}

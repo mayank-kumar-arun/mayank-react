@@ -57,7 +57,7 @@ const RdsButton = (props: RdsButtonProps) => {
     {props.tooltip && <Tooltip text={props.tooltipTitle} place={props.tooltipPlacement}>
     <button
         type={props.type}
-        className={`btn ${outlineColorVariant} ${size}  ${props.class}`}
+        className={`btn  ${outlineColorVariant} ${size}  ${props.class}`}
         disabled={props.isDisabled}
         onClick= {props.onClick}
         form={props.formName}
@@ -68,7 +68,7 @@ const RdsButton = (props: RdsButtonProps) => {
         aria-controls={props.ariacontrols}
       >
         {props.icon}
-        {props.label}
+       // {props.label}
         {props.children}      
       </button>
     </Tooltip>}

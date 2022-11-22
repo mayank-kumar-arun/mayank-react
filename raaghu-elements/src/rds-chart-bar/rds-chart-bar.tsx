@@ -7,7 +7,6 @@ export interface RdsBarChartProps {
   dataSets:any[],
   width: number,
   height:number,
-  chartStyle:string,
   id:string
 }
 
