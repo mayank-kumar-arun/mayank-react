@@ -7,17 +7,17 @@ export interface RdsCheckboxProps {
   checked: boolean;
   isDisabled?: boolean;
   isSwitch?: boolean;
-  withLabel?:boolean;
+  withlabel?:boolean;
   name?:string
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
-  state?: string;
+  state?: string | null;
   id?: string;
 }
 
 
 const RdsCheckbox = (props: RdsCheckboxProps) => {
-
-  const islabel = `${(props.withLabel === false)? "" : props.label}`;
+ 
+  const islabel = `${(props.withlabel === false)? "" : props.label}`;
   const SWITCH = `${props.isSwitch !== true ? " form-check " : " form-switch "}`;
   return (
     <Fragment>
@@ -31,6 +31,8 @@ const RdsCheckbox = (props: RdsCheckboxProps) => {
               //id={`$props.isSwitch === true? "flexSwitchCheckDefault":"flexCheckDefault"`}
               disabled={props.isDisabled}
            //   onClick={handleOnCheck}
+              
+     
             defaultChecked={props.checked}
              id ="class1"
              name={props.name}
