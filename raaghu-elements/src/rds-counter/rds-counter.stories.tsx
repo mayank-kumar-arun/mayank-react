@@ -47,5 +47,6 @@ Default.args = {
     width: 125,
     colorVariant: 'primary',
     position: 'auto',
+    label:"Counter",
 };
 

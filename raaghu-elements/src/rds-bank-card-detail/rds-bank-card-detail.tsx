@@ -6,6 +6,7 @@ export interface RdsBankCardDetailProps {
   isSelectable: boolean;
   label: string;
   isEditable: boolean;
+ // onClick:(event:React.MouseEvent<HTMLButtonElement>)=>void;
 }
 
 const RdsBankCardDetail = (props: RdsBankCardDetailProps) => {
@@ -15,6 +16,7 @@ const RdsBankCardDetail = (props: RdsBankCardDetailProps) => {
   const clickHandler = () => {
     setChecked(true);
     setClicked(true);
+  //  onClick()
   };
   return (
     <Fragment>

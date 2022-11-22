@@ -68,8 +68,12 @@ HorizontalBarChart.args = {
     }
   },
 };
+
 export const VerticalBarChart = Template.bind({});
 VerticalBarChart.args = {
+  id:1,
+  height:300,
+  width:300,
   dataSets: [
     {
       label: 'Dataset 1',
@@ -106,6 +110,9 @@ VerticalBarChart.args = {
 };
 export const StackedBarChart = Template.bind({});
 StackedBarChart.args = {
+  id:1,
+  height:300,
+  width:300,
   dataSets: [
     {
       label: 'Dataset 1',
@@ -147,6 +154,9 @@ StackedBarChart.args = {
 };
 export const BarChartWithBorderRadius = Template.bind({});
 BarChartWithBorderRadius.args = {
+  id:1,
+  height:300,
+  width:300,
   dataSets: [
     {
       label: 'Fully Rounded',

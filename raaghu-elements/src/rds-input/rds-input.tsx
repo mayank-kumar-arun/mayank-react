@@ -1,10 +1,4 @@
-
-import React from "react";
-
-// import { FormGroup } from "react-bootstrap";
-// import Button from "react-bootstrap/Button";
-// import Form from "react-bootstrap/Form";
-// import InputGroup from "react-bootstrap/InputGroup"; changes
+import React, { MouseEventHandler } from "react";
 import './rds-input.scss';
 
 export interface RdsInputProps {
@@ -28,11 +22,10 @@ export interface RdsInputProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
-
+  onClick?: (event:React.MouseEvent<HTMLInputElement>) =>void;
 
   customClasses?: string;
   formName?: string;
-
 }
 
 const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown> | undefined) => {
@@ -44,7 +37,7 @@ const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown>
     size = "lg";
   }
 
-  const inputClasses = "form-control form-control-" + size + " flex-grow-1 " + props.customClasses;
+  const inputClasses = "form-control form-control-" + size + " flex-grow-1 ";
 
 
   return (
@@ -57,12 +50,15 @@ const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown>
         id={props.id}
         placeholder={props.placeholder}
         onChange={props.onChange}
+        onClick ={props.onClick}
         name={props.name}
         form={props.formName}
         required={props.required}
         onFocus={props.onFocus}
         onBlur={props.onBlur}
         value={props.value}
+        disabled={props.isDisabled}
+        readOnly={props.readonly}
       ></input>
 
       {/* <FormGroup>
