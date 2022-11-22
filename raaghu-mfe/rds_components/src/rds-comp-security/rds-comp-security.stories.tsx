@@ -1,4 +1,3 @@
-
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import RdsCompSecurity from "./rds-comp-security";
@@ -6,6 +5,7 @@ import RdsCompSecurity from "./rds-comp-security";
 export default {
   title: "Components/Security",
   component: RdsCompSecurity,
+
 
 } as ComponentMeta<typeof RdsCompSecurity>;
 
@@ -43,4 +43,6 @@ Default.args ={
           },
       ]
 }
+
+
 

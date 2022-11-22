@@ -5,13 +5,30 @@ export interface RdsScrollspyProps {}
 
 const RdsScrollspy = (props: RdsScrollspyProps) => {
   return (
-    <div className="col-md-10 col-10 offset-1">
+    // <>
+    //   <div className="container">
+    //     <div className="row"  id="scrollspy">
+    //       <nav>
+    //         <div>
+    //           <a className="btn btn-primary">First Header</a>
+    //         </div>
+    //         <div>
+    //           <a className="btn btn-primary">Second Header</a>
+    //         </div>
+    //         <div>
+    //           <a className="btn btn-primary">Third Header</a>
+    //         </div>
+    //       </nav>
+    //     </div>
+    //   </div>
+    // </>
+    <div className="col-md-10 col-10 container">
       <div id="scrollspy">
-        <nav className="navbar navbar-light px-3">
+        <nav className="navbar navbar-light">
           <ul className="nav nav-pills">
             <li className="nav-item">
               <a
-                className="nav-link text-uppercase"
+                className="nav-link text-uppercase navButton"
                 target="_self"
                 href="#scrollspyHeading1"
               >
@@ -20,7 +37,7 @@ const RdsScrollspy = (props: RdsScrollspyProps) => {
             </li>
             <li className="nav-item">
               <a
-                className="nav-link text-uppercase"
+                className="nav-link text-uppercase navButton"
                 target="_self"
                 href="#scrollspyHeading2"
               >
@@ -29,7 +46,7 @@ const RdsScrollspy = (props: RdsScrollspyProps) => {
             </li>
             <li className="nav-item">
               <a
-                className="nav-link text-uppercase"
+                className="nav-link text-uppercase navButton"
                 target="_self"
                 href="#scrollspyHeading3"
               >
@@ -39,52 +56,72 @@ const RdsScrollspy = (props: RdsScrollspyProps) => {
           </ul>
         </nav>
       </div>
-      <div className="pt-4">
-      <div id="scrollspyHeading1" className="mb-5">
-        <h4>First header</h4>
-        <p>
-          This is some placeholder content for the scrollspy page. Note that as
-          you scroll down the page, the appropriate navigation link is
-          highlighted. It's repeated throughout the component example. We keep
-          adding some more example copy here to emphasize the scrolling and
-          highlighting
-        </p>
-        <div className="d-flex justify-content-end">
-          <a href="#scrollspy" target="_self" className="m-1">
-            Go Top
-          </a>
+      <div>
+        <div id="scrollspyHeading1" className="scrossSpyItem">
+          <div>
+            <h4 className="contentHeader">First header</h4>
+            <p className="contentParagrph">
+              This is some placeholder content for the scrollspy page. Note that
+              as you scroll down the page, the appropriate navigation link is
+              highlighted. It's repeated throughout the component example. We
+              keep adding some more example copy here to emphasize the scrolling
+              and highlighting
+            </p>
+          </div>
+          <div className="d-flex justify-content-end align-items-end">
+            <a
+              href="#scrollspy"
+              target="_self"
+              style={{ textDecoration: "none" }}
+            >
+              Go Top
+            </a>
+          </div>
         </div>
-      </div>
-      <div id="scrollspyHeading2" className="mb-5">
-        <h4>First header</h4>
-        <p>
-          This is some placeholder content for the scrollspy page. Note that as
-          you scroll down the page, the appropriate navigation link is
-          highlighted. It's repeated throughout the component example. We keep
-          adding some more example copy here to emphasize the scrolling and
-          highlighting
-        </p>
-        <div className="d-flex justify-content-end">
-          <a href="#scrollspy" target="_self" className="m-1">
-            Go Top
-          </a>
+
+        <div id="scrollspyHeading2" className="scrossSpyItem">
+          <div>
+            <h4 className="contentHeader">First header</h4>
+            <p className="contentParagrph">
+              This is some placeholder content for the scrollspy page. Note that
+              as you scroll down the page, the appropriate navigation link is
+              highlighted. It's repeated throughout the component example. We
+              keep adding some more example copy here to emphasize the scrolling
+              and highlighting
+            </p>
+          </div>
+          <div className="d-flex justify-content-end align-items-end">
+            <a
+              href="#scrollspy"
+              target="_self"
+              style={{ textDecoration: "none" }}
+            >
+              Go Top
+            </a>
+          </div>
         </div>
-      </div>
-      <div id="scrollspyHeading3" className="mb-5">
-        <h4>First header</h4>
-        <p>
-          This is some placeholder content for the scrollspy page. Note that as
-          you scroll down the page, the appropriate navigation link is
-          highlighted. It's repeated throughout the component example. We keep
-          adding some more example copy here to emphasize the scrolling and
-          highlighting
-        </p>
-        <div className="d-flex justify-content-end">
-          <a href="#scrollspy" target="_self" className="m-1">
-            Go Top
-          </a>
+
+        <div id="scrollspyHeading3" className="scrossSpyItem">
+          <div>
+            <h4 className="contentHeader">First header</h4>
+            <p className="contentParagrph">
+              This is some placeholder content for the scrollspy page. Note that
+              as you scroll down the page, the appropriate navigation link is
+              highlighted. It's repeated throughout the component example. We
+              keep adding some more example copy here to emphasize the scrolling
+              and highlighting
+            </p>
+          </div>
+          <div className="d-flex justify-content-end align-items-end">
+            <a
+              href="#scrollspy"
+              target="_self"
+              style={{ textDecoration: "none" }}
+            >
+              Go Top
+            </a>
+          </div>
         </div>
-      </div>
       </div>
     </div>
   );

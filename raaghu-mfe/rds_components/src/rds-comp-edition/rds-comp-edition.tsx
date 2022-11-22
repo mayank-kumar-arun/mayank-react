@@ -16,52 +16,62 @@ export interface RdsCompEditionProps {
 const RdsCompEdition = (props: RdsCompEditionProps) => {
   return (
     <>
-      {props.EditionData.map((item: any, index: number) => (
-        <div
-          className="d-inline-block p-3 card"
-          style={{ width: "180px" }}
-          key={index}
-        >
-          <div  className="card-body">
-            <div
-              className="col-md-12 text-center border-radius " // [ngStyle]="{'border-radius': borderRadious +'px'}"
-            >
-              <b style={{ marginBottom: "0px", padding: "6px" }}>
-                {item.EditionName}
-              </b>
-              <p style={{ fontSize: "10px" }}>{item.EditionTitle}</p>
-            </div>
-            <div className="col-md-12 text-center">
-              <b style={{ fontSize: "18px", color: "#249CF7" }}>$</b>
-              <b
-                style={{
-                  marginBottom: "0px",
-                  padding: "0px",
-                  fontSize: "25px",
-                  color: "#249CF7",
-                }}
-              >
-                {item.Price}
-              </b>
-              <p style={{ fontSize: "10px", color: "#C7C7C7" }}>{item.Plan}</p>
-            </div>
-            <div className="col-md-12 text-left">
-              <ul
-                style={{
-                  marginTop: "4px",
-                  paddingLeft: "11px",
-                  fontSize: "10px",
 
-                }}
-              >
-                {item.features.map((items: any) => (
-                  <li className="listyl">{items}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="col-md-12 text-left">
-              <i className="bi bi-pencil " style={{ color: "#249CF7" }}></i>
-              <i className="bi bi-trash m-2" style={{ color: "#F04646" }}></i>
+      <div className="col-md-2" style={{ width: "170px" }}>
+        <div className="card">
+          <div className="card-body p-3">
+            <div className="body">
+              <div className="row">
+                <div className="col-md-12 mb-1" style={{ textAlign: "center" }}>
+                  <b>{props.EditionItems.EditionName}</b>
+                  <RdsLabel
+                    label={props.EditionItems.EditionTitle}
+                    size="10px"
+                    multiline={true}
+                  ></RdsLabel>
+                </div>
+                <div className="col-md-12" style={{ textAlign: "center" }}>
+                  <b style={{ color: "#249CF7", fontSize: "18px" }}>$</b>
+                  <b style={{ color: "#249CF7", fontSize: "25px" }}>{props.EditionItems.Price}</b>
+                  <p
+                    className="text-muted"
+                    style={{
+                      fontSize: "10px",
+                      color: "c7c7c7",
+                      marginBottom: 0,
+                    }}
+                  >
+                    {props.EditionItems.Plan}
+                  </p>
+                </div>
+                <div
+                  className="col-md-12 RdsCompEdition__description-list-inside-card"
+                  style={{
+                    paddingTop: "0px",
+                    textAlign: "left",
+                    paddingLeft: "26px",
+                  }}
+                >
+                  <ul style={{ fontSize: "10px", paddingLeft: "11px" }}>
+                    {props.features.map((item:any)=>(
+                        <>
+                        <li>{item}</li>
+                        </>
+                    ))}
+                    
+                    {/* <li>Test Check feature</li>
+                    <li>Test check feature count 2</li> */}
+                  </ul>
+                </div>
+                <div className="col-md-12" style={{ textAlign: "left" }}>
+                  <i className="bi bi-pencil" style={{ color: "#249CF7" }}></i>
+                  <i
+                    className="bi bi-trash m-2"
+                    style={{ color: "#F04646" }}
+                  ></i>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

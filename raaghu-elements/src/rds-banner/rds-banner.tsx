@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
-import "bootstrap/dist/js/bootstrap.min.js";
 import "./rds-banner.scss";
-
+import RdsIcon from "../rds-icon";
 
 export interface RdsBannerProps {
     alignCenter?: boolean,
@@ -16,127 +15,41 @@ export interface RdsBannerProps {
     "warning" |
     "info" |
     "light" |
-    "dark"
+    "dark",
+    icon?: string,
+    closeButton?: boolean
 }
 
 const RdsBanner = (props: RdsBannerProps) => {
 
-
     const bannerColor = "alert alert-" + (props.colorVariant || 'primary');
     const classesCss: string =
-        bannerColor
+        "RdsBanner d-flex justify-content-between "
+        + bannerColor
+        + " rounded-0 "
         + (props.sticky ?
             (props.position === 'top' ? ' fixed-top' : ' fixed-bottom bottom-0')
             : (props.position === 'top' ? ' sticky-top' : ' sticky-bottom')
-          );
-
+        );
 
     return (
         <Fragment>
-
-            {/* //These commented-out paras are only for visualising the working of elements
-            //These can be removed  */}
-            {/* <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Eos explicabo tenetur doloremque quia expedita odio reiciendis
-                    ea ad quam nulla, tempora sint omnis nihil eius commodi debitis
-                    dignissimos placeat, nisi minima soluta necessitatibus voluptates
-                    architecto. Consequatur consectetur dignissimos recusandae eos fug
-                    it maiores architecto ad dolorum exercitationem, quasi eius eaque.
-                    Ipsa repellat ab autem quis minima? Asperiores obcaecati animi quo.
-                    Recusandae vitae nobis consequuntur dicta voluptatum architecto!
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Eos explicabo tenetur doloremque quia expedita odio reiciendis
-                    ea ad quam nulla, tempora sint omnis nihil eius commodi debitis
-                    dignissimos placeat, nisi minima soluta necessitatibus voluptates
-                    architecto. Consequatur consectetur dignissimos recusandae eos fug
-                    it maiores architecto ad dolorum exercitationem, quasi eius eaque.
-                    Ipsa repellat ab autem quis minima? Asperiores obcaecati animi quo.
-                    Recusandae vitae nobis consequuntur dicta voluptatum architecto!
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Eos explicabo tenetur doloremque quia expedita odio reiciendis
-                    ea ad quam nulla, tempora sint omnis nihil eius commodi debitis
-                    dignissimos placeat, nisi minima soluta necessitatibus voluptates
-                    architecto. Consequatur consectetur dignissimos recusandae eos fug
-                    it maiores architecto ad dolorum exercitationem, quasi eius eaque.
-                    Ipsa repellat ab autem quis minima? Asperiores obcaecati animi quo.
-                    Recusandae vitae nobis consequuntur dicta voluptatum architecto!
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Eos explicabo tenetur doloremque quia expedita odio reiciendis
-                    ea ad quam nulla, tempora sint omnis nihil eius commodi debitis
-                    dignissimos placeat, nisi minima soluta necessitatibus voluptates
-                    architecto. Consequatur consectetur dignissimos recusandae eos fug
-                    it maiores architecto ad dolorum exercitationem, quasi eius eaque.
-                    Ipsa repellat ab autem quis minima? Asperiores obcaecati animi quo.
-                    Recusandae vitae nobis consequuntur dicta voluptatum architecto!
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Eos explicabo tenetur doloremque quia expedita odio reiciendis
-                    ea ad quam nulla, tempora sint omnis nihil eius commodi debitis
-                    dignissimos placeat, nisi minima soluta necessitatibus voluptates
-                    architecto. Consequatur consectetur dignissimos recusandae eos fug
-                    it maiores architecto ad dolorum exercitationem, quasi eius eaque.
-                    Ipsa repellat ab autem quis minima? Asperiores obcaecati animi quo.
-                    Recusandae vitae nobis consequuntur dicta voluptatum architecto!
-                </p>
-            </div> */}
-
             <div className={classesCss} role="alert">
-                <div className={props.alignCenter ? 'text-center' : ''}>{props.bannerText}</div>
+                <div className={props.alignCenter ? 'w-100 d-flex justify-content-center align-items-center' : 'd-flex align-items-center'}>
+                    {props.icon && <span style={{ marginRight: "12px" }} className='d-flex align-items-center'>
+                        <RdsIcon name={props.icon ? props.icon : ''}
+                            stroke={true}
+                            colorVariant={props.colorVariant}
+                            height="18px"
+                            width="18px"
+                        />
+                    </span>}
+                    <span>{props.bannerText}</span>
+                </div>
+                {props.closeButton && <div className="close-button-box d-flex justify-content-center align-items-center" >
+                    <button type="button" className="btn-close p-0" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>}
             </div>
-
-            {/* //These commented-out paras are only for visualising the working of elements
-            //These can be removed  */}
-            {/* <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Eos explicabo tenetur doloremque quia expedita odio reiciendis
-                    ea ad quam nulla, tempora sint omnis nihil eius commodi debitis
-                    dignissimos placeat, nisi minima soluta necessitatibus voluptates
-                    architecto. Consequatur consectetur dignissimos recusandae eos fug
-                    it maiores architecto ad dolorum exercitationem, quasi eius eaque.
-                    Ipsa repellat ab autem quis minima? Asperiores obcaecati animi quo.
-                    Recusandae vitae nobis consequuntur dicta voluptatum architecto!
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Eos explicabo tenetur doloremque quia expedita odio reiciendis
-                    ea ad quam nulla, tempora sint omnis nihil eius commodi debitis
-                    dignissimos placeat, nisi minima soluta necessitatibus voluptates
-                    architecto. Consequatur consectetur dignissimos recusandae eos fug
-                    it maiores architecto ad dolorum exercitationem, quasi eius eaque.
-                    Ipsa repellat ab autem quis minima? Asperiores obcaecati animi quo.
-                    Recusandae vitae nobis consequuntur dicta voluptatum architecto!
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Eos explicabo tenetur doloremque quia expedita odio reiciendis
-                    ea ad quam nulla, tempora sint omnis nihil eius commodi debitis
-                    dignissimos placeat, nisi minima soluta necessitatibus voluptates
-                    architecto. Consequatur consectetur dignissimos recusandae eos fug
-                    it maiores architecto ad dolorum exercitationem, quasi eius eaque.
-                    Ipsa repellat ab autem quis minima? Asperiores obcaecati animi quo.
-                    Recusandae vitae nobis consequuntur dicta voluptatum architecto!
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Eos explicabo tenetur doloremque quia expedita odio reiciendis
-                    ea ad quam nulla, tempora sint omnis nihil eius commodi debitis
-                    dignissimos placeat, nisi minima soluta necessitatibus voluptates
-                    architecto. Consequatur consectetur dignissimos recusandae eos fug
-                    it maiores architecto ad dolorum exercitationem, quasi eius eaque.
-                    Ipsa repellat ab autem quis minima? Asperiores obcaecati animi quo.
-                    Recusandae vitae nobis consequuntur dicta voluptatum architecto!
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Eos explicabo tenetur doloremque quia expedita odio reiciendis
-                    ea ad quam nulla, tempora sint omnis nihil eius commodi debitis
-                    dignissimos placeat, nisi minima soluta necessitatibus voluptates
-                    architecto. Consequatur consectetur dignissimos recusandae eos fug
-                    it maiores architecto ad dolorum exercitationem, quasi eius eaque.
-                    Ipsa repellat ab autem quis minima? Asperiores obcaecati animi quo.
-                    Recusandae vitae nobis consequuntur dicta voluptatum architecto!
-                </p>
-            </div> */}
         </Fragment>
     );
 };
