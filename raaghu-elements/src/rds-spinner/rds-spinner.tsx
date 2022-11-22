@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
-import { Colors } from "../../libs/types";
-import "./rds-spinner.scss"
+
+import "./rds-spinner.scss";
 
 export interface RdsSpinnerProps {
   spinnerType?: string;
-  colorVariant?: Colors;
+  colorVariant?: string;
   width?:string; 
   borderWidth?:string,
   height?:string

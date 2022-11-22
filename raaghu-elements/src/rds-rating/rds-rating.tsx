@@ -1,11 +1,11 @@
 import React from "react";
 import RdsIcon from "../rds-icon";
-import { Colors, size } from "../../libs/types";
+import { colors, size } from "../../libs/types";
 import "./rds-rating.scss";
 
 export interface RdsRatingProps {
   rating: 0 | 1 | 2 | 3 | 4 | 5,
-  colorVariant?: Colors
+  colorVariant?: colors
   // withNoOfReviews: boolean
   reviewPosition?: "left" | "right"
   noOfReviews?: number

@@ -43,6 +43,9 @@ const RdsPagination = (props: RdsPaginationProps) => {
   const onPrevious = ( current: any) => {
     setCurrentPage(current - 1);
   };
+  if(props.onPageChange!=undefined)
+  useEffect(() => { props.onPageChange!=undefined && props.onPageChange(currentPage, recordsPerPage); }, [currentPage, recordsPerPage])
+
 
   if (props.onPageChange != undefined)
     useEffect(() => {
@@ -82,11 +85,10 @@ const RdsPagination = (props: RdsPaginationProps) => {
             {PageNumbers.map((number) => (
               <li
                 key={number}
-                className={`${
-                  number === currentPage
+                className={`${number === currentPage
                     ? "page-item m-1 default-li active"
                     : "page-item m-1 default-li "
-                }`}
+                  }`}
               >
                 <a
                   onClick={() => {
@@ -147,11 +149,10 @@ const RdsPagination = (props: RdsPaginationProps) => {
             {PageNumbers.map((number) => (
               <li
                 key={number}
-                className={`${
-                  number === currentPage
+                className={`${number === currentPage
                     ? "page-item m-1 default-li active"
                     : "page-item m-1 default-li "
-                }`}
+                  }`}
               >
                 <a
                   onClick={() => onPage(number)}

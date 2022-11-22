@@ -2,12 +2,12 @@ import React, { Fragment } from "react";
 import RdsAvatar from "../rds-avatar";
 import RdsIcon from "../rds-icon";
 import RdsLikeDislike from "../rds-like-dislike";
-import { Colors } from "../../libs/types";
+import { colors } from "../../libs/types";
 import RdsRating from "../rds-rating";
 import "./rds-feed.scss";
 
 export interface RdsFeedProps {
-  colorVariant?: Colors;
+  colorVariant?: colors;
   itemList: any[];
   date: string;
 }

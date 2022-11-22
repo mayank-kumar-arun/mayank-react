@@ -68,6 +68,7 @@ HorizontalBarChart.args = {
     }
   },
 };
+
 export const VerticalBarChart = Template.bind({});
 VerticalBarChart.args = {
   id:1,

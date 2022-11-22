@@ -1,11 +1,11 @@
 import React, { Fragment, ReactNode } from "react";
 import RdsIcon from "../rds-icon";
-import { Colors } from "../../libs/types";
+import { colors } from "../../libs/types";
 import "./rds-big-number.scss";
 
 export interface RdsBigNumberProps {
   colorVariant?: string;
-  subTitleColorVariant?: Colors;
+  subTitleColorVariant?: string;
   bigNumber:string 
   subTitle?:string,
   bigNumberItems:any[],

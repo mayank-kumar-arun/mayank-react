@@ -1,10 +1,10 @@
 import React, { Fragment, ReactNode } from "react";
 
 import RdsIcon from "../rds-icon/rds-icon";
-//import { Colors} from "../Types";
+//import { colors} from "../Types";
 
 export interface RdsWidgetProps {
-  // colorVarient?:Colors,
+  // colorVarient?:colors,
   headerTitle: string;
   children?:ReactNode;
   class?:string;
