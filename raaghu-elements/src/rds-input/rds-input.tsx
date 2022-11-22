@@ -1,10 +1,4 @@
-
-import React from "react";
-
-// import { FormGroup } from "react-bootstrap";
-// import Button from "react-bootstrap/Button";
-// import Form from "react-bootstrap/Form";
-// import InputGroup from "react-bootstrap/InputGroup"; changes
+import React, { MouseEventHandler } from "react";
 import './rds-input.scss';
 
 export interface RdsInputProps {
@@ -22,17 +16,16 @@ export interface RdsInputProps {
   name?: string;
   label?: string;
   id?: string
-
   redAsteriskPresent?: boolean
   
   required?: boolean
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
-  onClick?: (event:React.MouseEvent<HTMLInputElement>) =>void;
+  onClick: MouseEventHandler<HTMLInputElement> | undefined;
+  
   customClasses?: string;
   formName?: string;
-
 }
 
 const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown> | undefined) => {
@@ -44,7 +37,7 @@ const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown>
     size = "lg";
   }
 
-  const inputClasses = "form-control form-control-" + size + " flex-grow-1 " + props.customClasses;
+  const inputClasses = "form-control form-control-" + size + " flex-grow-1 ";
 
 
   return (
@@ -52,7 +45,6 @@ const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown>
       {props.label && <label htmlFor={props.id} className="form-label">{props.label}</label>}
       {props.redAsteriskPresent  && <span className="text-danger">*</span>}
       <input
-        
         type={props.inputType}
         className={inputClasses}
         id={props.id}
