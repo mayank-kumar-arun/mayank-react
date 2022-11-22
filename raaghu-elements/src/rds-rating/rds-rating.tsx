@@ -5,10 +5,9 @@ import "./rds-rating.scss";
 
 export interface RdsRatingProps {
   rating: 0 | 1 | 2 | 3 | 4 | 5,
-  colorVariant?: Colors
-  // withNoOfReviews: boolean
-  reviewPosition?: "left" | "right"
-  noOfReviews?: number
+  colorVariant?: Colors,
+  reviewPosition?: "left" | "right" | "none",
+  noOfReviews?: number,
   size?: size
 }
 
@@ -19,12 +18,14 @@ const RdsRating = (props: RdsRatingProps) => {
   return (
     <><div className="d-flex">
       <span className="">
-        {props.reviewPosition != "right" && <span>{props.rating}</span>}
+        {(props.reviewPosition === "left" || props.reviewPosition === undefined) &&
+          <span>{props.rating}</span>
+        }
         {orderArray.map(order =>
           <span key={order} className="ps-1 rating-star-span-custom-class">
             <RdsIcon name="star"
-              height="1.3em"
-              width="1.3em"
+              height="24px"
+              width="24px"
               stroke={true}
               fill={order <= props.rating}
               colorVariant={props.colorVariant}
@@ -33,7 +34,7 @@ const RdsRating = (props: RdsRatingProps) => {
         )}
         {props.reviewPosition === "right" && <span className="ps-1">{props.rating}</span>}
       </span>
-      <span className="ps-2">{props.noOfReviews}&nbsp;reviews</span></div>
+      <span className="ps-2">{props.noOfReviews}</span></div>
     </>
   );
 };
