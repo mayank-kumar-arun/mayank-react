@@ -1,12 +1,14 @@
 
 import React, { Fragment } from "react";
-export interface RdsSelectProps {
-  onSelectListChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-  label: string;
-  isDisabled?: boolean;
-  isMultiple?: boolean;
-  size?: string;
-  selectItems: any[];
+
+export interface RdsSelectProps{
+    label: string;
+    isDisabled?:boolean;
+    isMultiple?:boolean;
+    size?:string;
+    selectItems: any[];
+    onSelectListChange ?:( Event:React.ChangeEvent<HTMLSelectElement>) => void; 
+
 }
 
 const RdsSelectList = (props: RdsSelectProps) => {
@@ -16,7 +18,7 @@ const RdsSelectList = (props: RdsSelectProps) => {
 
   let Multiple = props.isMultiple || false;
   let Disabled = props.isDisabled || false;
-
+  
   return (
     <Fragment>
       <select className={customSize} disabled={Disabled} multiple={Multiple} aria-label="select example" onChange={props.onSelectListChange}>

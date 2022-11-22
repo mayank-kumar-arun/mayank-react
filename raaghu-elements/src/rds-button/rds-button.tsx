@@ -27,6 +27,7 @@ export interface RdsButtonProps {
   type: "button" | "submit";
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   formName?: string;
+
   class?: string;
   arialabel?: string;
   databsdismiss?: string;
@@ -34,6 +35,7 @@ export interface RdsButtonProps {
   databstoggle?: string;
   ariacontrols?: string;
   iconColorVariant?: string;
+
 }
 
 const RdsButton = (props: RdsButtonProps) => {

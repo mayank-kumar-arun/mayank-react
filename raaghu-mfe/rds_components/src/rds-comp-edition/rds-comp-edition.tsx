@@ -1,15 +1,22 @@
 import React from "react";
-import { RdsLabel } from "../rds-elements";
-import "./rds-comp-edition.scss";
+//import { RdsEdition } from "../rds-elements";
+import "./rds-comp-edition.scss"
 
 export interface RdsCompEditionProps {
-    EditionItems: any;
-    features: any;
+  bodybackGroundColor?: string;
+  borderRadious?: number;
+  Paddig?: number;
+  borderwidth?: number;
+  EditionData: any[];
+  EditionBorder?: number;
+
+
 }
 
 const RdsCompEdition = (props: RdsCompEditionProps) => {
   return (
     <>
+
       <div className="col-md-2" style={{ width: "170px" }}>
         <div className="card">
           <div className="card-body p-3">
@@ -64,13 +71,11 @@ const RdsCompEdition = (props: RdsCompEditionProps) => {
                   ></i>
                 </div>
               </div>
+
             </div>
           </div>
-          <div className="card-footer">
-            
-          </div>
         </div>
-      </div>
+      ))}
     </>
   );
 };
