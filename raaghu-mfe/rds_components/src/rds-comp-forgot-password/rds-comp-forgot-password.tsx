@@ -51,13 +51,6 @@ const RdsCompForgotPassword = (props: RdsForgotPasswordProps) => {
 										inputType="email"
 										placeholder="Email"
 									></RdsInput>
-									{/* <rds-input size="default" [TitleType]="'Top'" [disabled]="false" [readonly]="false"
-                        [Title]="translate.instant('Enter email to receive reset password link')" value="" [inputType]="'email'"
-                        [placeholder]="translate.instant(Email)" [isRequired]=true  id="txtUsermail" floatinginputLabel="" formControlName="email"
-                        [(ngModel)]="mailID" ngDefaultControl (keyup)="emailValidator(mailID)" (mouseup)="checkIsEmailEmpty()">
-                    </rds-input> */}
-									{/* <small class="text-danger" *ngIf="showMailValidityMessage">{{"Entered invalid"|translate}}{{Email}}</small>
-                    <small class="text-danger" *ngIf="showMailRequiredMessage">{{Email}} {{"is Required"|translate}}</small> */}
 									<div className="row d-flex justify-content-between mt-2">
 										<div className="col-md-12">
 											<div>

@@ -1,75 +1,79 @@
-
 import React from "react";
 
 // import { FormGroup } from "react-bootstrap";
 // import Button from "react-bootstrap/Button";
 // import Form from "react-bootstrap/Form";
 // import InputGroup from "react-bootstrap/InputGroup"; changes
-import './rds-input.scss';
+import "./rds-input.scss";
 
 export interface RdsInputProps {
-  // onChange: ChangeEventHandler<FormControlElement> | undefined;
-  size?: "small" | "large" | "medium" | string;
-  isDisabled?: boolean;
-  readonly?: boolean;
-  value?: string;
-  inputType?: string;
-  placeholder?: string;
-  title?: string;
-  titleType?: string;
-  tooltipPlacement?: string;
-  tooltipTitle?: string;
-  name?: string;
-  label?: string;
-  id?: string
+	// onChange: ChangeEventHandler<FormControlElement> | undefined;
+	size?: "small" | "large" | "medium" | string;
+	isDisabled?: boolean;
+	readonly?: boolean;
+	value?: string;
+	inputType?: string;
+	placeholder?: string;
+	title?: string;
+	titleType?: string;
+	tooltipPlacement?: string;
+	tooltipTitle?: string;
+	name?: string;
+	label?: string;
+	id?: string;
+	redAsteriskPresent?: boolean;
 
-  redAsteriskPresent?: boolean
-  
-  required?: boolean
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
-  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
-  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
-  onClick?: (event:React.MouseEvent<HTMLInputElement>) =>void;
-  customClasses?: string;
-  formName?: string;
-
+	required?: boolean;
+	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
+	onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any;
+	onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any;
+	onClick?: (event: React.MouseEvent<HTMLInputElement>) => void;
+	customClasses?: string;
+	formName?: string;
 }
 
-const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown> | undefined) => {
-  let size: "sm" | "lg" | undefined = undefined;
+const RdsInput = React.forwardRef(
+	(props: RdsInputProps, ref: React.Ref<unknown> | undefined) => {
+		let size: "sm" | "lg" | undefined = undefined;
 
-  if (props.size == "small") {
-    size = "sm";
-  } else if (props.size == "large") {
-    size = "lg";
-  }
+		if (props.size == "small") {
+			size = "sm";
+		} else if (props.size == "large") {
+			size = "lg";
+		}
 
-  const inputClasses = "form-control form-control-" + size + " flex-grow-1 " + props.customClasses;
+		const inputClasses =
+			"form-control form-control-" +
+			size +
+			" flex-grow-1 " +
+			props.customClasses;
 
+		return (
+			<div>
+				{props.label && (
+					<label htmlFor={props.id} className="form-label">
+						{props.label}
+					</label>
+				)}
+				{props.redAsteriskPresent && <span className="text-danger">*</span>}
+				<input
+					type={props.inputType}
+					className={inputClasses}
+					id={props.id}
+					placeholder={props.placeholder}
+					onChange={props.onChange}
+					onClick={props.onClick}
+					name={props.name}
+					form={props.formName}
+					required={props.required}
+					onFocus={props.onFocus}
+					onBlur={props.onBlur}
+					value={props.value}
+					disabled={props.isDisabled}
+					readOnly={props.readonly}
+				></input>
 
-  return (
-    <div>
-      {props.label && <label htmlFor={props.id} className="form-label">{props.label}</label>}
-      {props.redAsteriskPresent  && <span className="text-danger">*</span>}
-      <input
-        
-        type={props.inputType}
-        className={inputClasses}
-        id={props.id}
-        placeholder={props.placeholder}
-        onChange={props.onChange}
-        onClick ={props.onClick}
-        name={props.name}
-        form={props.formName}
-        required={props.required}
-        onFocus={props.onFocus}
-        onBlur={props.onBlur}
-        value={props.value}
-        disabled={props.isDisabled}
-        readOnly={props.readonly}
-      ></input>
-
-      {/* <FormGroup>
+				{/* <FormGroup>
         {props.titleType === "top" && <Form.Label>{props.title}</Form.Label>}
         <Form.Control
           size={size}
@@ -87,10 +91,9 @@ const RdsInput = React.forwardRef((props: RdsInputProps, ref: React.Ref<unknown>
         />
         {props.titleType === "bottom" && <label>{props.title}</label>}
       {/* </FormGroup>  */}
-    </ div>
-
-
-  );
-});
+			</div>
+		);
+	}
+);
 
 export default RdsInput;
