@@ -23,6 +23,7 @@ const RdsPagination = (props: RdsPaginationProps) => {
   const PageNumbers = [];
   let int: any;
 
+
   if (paginType == "default") {
     int = Math.ceil(props.totalRecords / props.recordsPerPage);
     for (let i = 1; i <= int; i++) {
@@ -34,18 +35,22 @@ const RdsPagination = (props: RdsPaginationProps) => {
       PageNumbers.push(i);
     }
   }
+
   const onNext = (current: any) => {
     setCurrentPage(current + 1);
+
   };
   const onPage = (current: any) => {
     setCurrentPage(current);
+
   };
   const onPrevious = ( current: any) => {
     setCurrentPage(current - 1);
+
   };
   if(props.onPageChange!=undefined)
   useEffect(() => { props.onPageChange!=undefined && props.onPageChange(currentPage, recordsPerPage); }, [currentPage, recordsPerPage])
-
+  
 
   if (props.onPageChange != undefined)
     useEffect(() => {
@@ -201,4 +206,6 @@ const RdsPagination = (props: RdsPaginationProps) => {
     </div>
   );
 };
+
 export default RdsPagination;
+
