@@ -20,6 +20,8 @@ module.exports = (env, argv) => {
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
+      hot: true,
+      historyApiFallback: true,
     },
     resolve: {
       extensions: [".ts", ".tsx", ".js"],
@@ -78,10 +80,7 @@ module.exports = (env, argv) => {
         shared: {
             ...devdeps,
           ...deps,
-          'luxon': {
-            singleton: true,
-            requiredVersion: deps['luxon'],
-        },
+          
           react: { singleton: true, eager: true, requiredVersion: deps.react },
           "react-dom": {
             singleton: true,

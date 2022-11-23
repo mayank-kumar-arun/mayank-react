@@ -1,52 +1,37 @@
-import { RdsBankCardDetail } from '../rds-elements'
+import React, {useState} from "react";
+import { RdsBankCardDetail} from "../rds-elements";
+
 
 export interface RdsCompCardDetailListProps {
-    itemsList: 
-    {
-        cardID: string,
-        cardName: string,
-        cardExpiry: string,
-        icon: string,
-        iconHeight?: string,
-        iconWidth?: string,
-        iconFill?: boolean,
-        iconstroke?: boolean,
-        iconColorVarient?: string,
-        cardNumber: number,
-        isDefault: boolean,
-        radioItems:
-        {
-            id: number,
-            checked: boolean,
-            name: string
-        }[]
-    }[],
-    IsEditAndDefaultFunctionalityRequired: boolean,
-    IsSelectionRequired: boolean
+ cardDatas:any[],
 }
 
-const RdsCompCardDetailList = (props: RdsCompCardDetailListProps) => {
+const RdsCompCardDetailList = (props:RdsCompCardDetailListProps) => {
+    const [activeButton, setActiveButton] =useState<number>();
+    const [checked, setChecked] = useState(false);
 
+   const clickHandler =(index:any) =>{
+    setActiveButton(index)
+   // setChecked (true)
+   }
+  return (
+    <>
+<div className="m-1 p-1 ">
+    {props.cardDatas.map((data:any, index:number) =>(
+        <div key={index} onClick={()=>clickHandler(index) }  className={`${
+            activeButton === index
+              ?  "m-2 p-2 border-color "
+              : " m-2 p-2 border "
+            }`} >
 
-    return (
-        <>
-            {props.itemsList.map(item =>
-                <>
+            <RdsBankCardDetail  cardData={data.cardData} isSelectable={data.isSelectabl}  isEditable={data.isEditable} label={data.label}  />
+          </div>
+         ))}
 
-                    <div className={item.radioItems[0].checked ? "mb-2 card p-3 border-primary" : "mb-2 card p-3"} >
-                        <RdsBankCardDetail
-                            cardData={item}
-                            isSelectable={props.IsSelectionRequired}
-                            label={item.cardName}
-                            isEditable={props.IsEditAndDefaultFunctionalityRequired}
+</div>
 
-                        // (onSetDefaultcard)="onSetAsDefaultCard($event)"
-                        // (onSelectPaymentMethod)="onSelectCardForPaymentMethod($event)" 
-                        />
-                    </div >
-                </>)
-            }
-        </>
-    );
+    </>
+  );
+
 };
 export default RdsCompCardDetailList;

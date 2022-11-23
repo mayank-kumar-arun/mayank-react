@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { RdsButton } from "../rds-elements";
-import "./rds-comp-delivery.scss"
+import "./rds-comp-delivery-method.scss"
 
 export interface RdsCompDeliveryMethodProps {
     sizeDataWithDescription:any[],
@@ -17,7 +17,7 @@ const RdsCompDeliveryMethod = (props:RdsCompDeliveryMethodProps) => {
     }
   return (
     <>
-    <ul className="d-flex" id="rds-delivery">
+    <ul className="d-flex ulStl" id="rds-delivery">
         { props.sizeDataWithDescription.map((data:any ,index:number)=>(
             <li 
               className="m-2 border flex-evens">
@@ -52,7 +52,7 @@ const RdsCompDeliveryMethod = (props:RdsCompDeliveryMethodProps) => {
         ))}
     
 </ul>
-<div className="my-4 pt-4 row">
+<div className="my-4 pt-4 row display-none">
     <div className="col-6">
         <RdsButton colorVariant='primary' label ="" block ={true} outlineButton={true} size="medium" tooltipTitle ="bottom" type="button" />
        

@@ -24,7 +24,7 @@ const Template: ComponentStory<typeof RdsSelectList> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   label:"Open select list",
-  isMultiple:true,
+  isMultiple:false,
   selectItems:[
     {
       option:"One"

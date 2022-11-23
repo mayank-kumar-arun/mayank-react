@@ -1,11 +1,11 @@
 import { Tooltip as BsTooltip } from "bootstrap";
 import React, { useEffect, useRef } from "react";
-import { Placements } from "../../libs/types";
+import { placements } from "../../libs/types";
 
 export const Tooltip = (p: {
   children: JSX.Element;
   text?: string;
-  place?: Placements;
+  place?: placements;
 }) => {
   const childRef = useRef(undefined as unknown as Element);
 

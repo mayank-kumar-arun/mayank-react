@@ -9,6 +9,8 @@ import RdsCompTenantList from "./rds-comp-tenant-list/rds-comp-tenant-list";
 import RdsCompTopNavigation from "./rds-comp-top-navigation/rds-comp-top-navigation";
 import RdsCompWebsiteLog from "./rds-comp-website-log/rds-comp-website-log";
 import RdsCompAlertPopup from "./rds-comp-alert-popup/rds-comp-alert-popup";
+import RdsCompUserManagement from "./rds-comp-user-management/rds-comp-user-management";
+import RdsCompOtherSettings from "./rds-comp-other-settings/rds-comp-other-settings";
 const App = () => {
     const loginHandler =(email?:string,password?:string)=>{
         console.log(email);
@@ -31,6 +33,8 @@ const App = () => {
         <RdsCompWebsiteLog></RdsCompWebsiteLog>
         <RdsCompAlertPopup/>
         <RdsCompOrganizationTree organizationTreeData={[{name:"rtyj"}]}></RdsCompOrganizationTree>
+        <RdsCompUserManagement></RdsCompUserManagement>
+        <RdsCompOtherSettings></RdsCompOtherSettings>
     </div>
     )
     };
