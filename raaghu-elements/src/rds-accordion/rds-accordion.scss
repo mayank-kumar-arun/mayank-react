@@ -1,1 +1,100 @@
 @import "../style.scss";
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  //   background: #ffffff 0% 0% no-repeat padding-box;
+  //   border: 1px solid #dedede;
+  //   border-radius: 4px;
+  //   opacity: 1;
+  height: 46px;
+
+  background: #f8f9fa 0% 0% no-repeat padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  opacity: 1;
+  margin-bottom: 4px;
+}
+.butn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  //   background: #ffffff 0% 0% no-repeat padding-box;
+  //   border: 1px solid #dedede;
+  //   border-radius: 4px;
+  //   opacity: 1;
+  height: 46px;
+
+  background: #f2eafd 0% 0% no-repeat padding-box;
+  border: 1px solid #ced4da;
+  opacity: 1;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.Arrow {
+  display: flex;
+  justify-content: center;
+}
+
+.Dis {
+  display: none;
+}
+
+.chevronbox {
+  height: 24px;
+  width: 24px;
+}
+
+.Chevronbigbox {
+  height: 46px;
+  width: 46px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  background: #7e2eef 0% 0% no-repeat padding-box;
+  opacity: 1;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.Chev {
+  border-bottom-right-radius: 0px !important;
+}
+
+.itemboxxx {
+  border: none !important;
+}
+
+.title {
+  text-align: left;
+  font: normal normal normal;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+}
+.titlepr {
+  text-align: left;
+  font: normal normal normal;
+  letter-spacing: 0px;
+  color: #7e2eef;
+  opacity: 1;
+}
+
+.titlebox {
+  margin-left: 16px;
+  margin-top: 13px;
+  margin-bottom: 13px;
+}
+.accbody {
+  border: 1px solid #dedede;
+  border-top: none;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  margin-bottom: 4px;
+}
