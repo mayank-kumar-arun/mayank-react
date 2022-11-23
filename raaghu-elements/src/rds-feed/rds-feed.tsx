@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import RdsAvatar from "../rds-avatar";
-import RdsIcon from "../rds-icon";
 import RdsLikeDislike from "../rds-like-dislike";
 import { colors } from "../../libs/types";
 import RdsRating from "../rds-rating";
@@ -12,8 +11,6 @@ export interface RdsFeedProps {
   date: string;
 }
 const RdsFeed = (props: RdsFeedProps) => {
-  //const  date = moment().format('YYYY-MM-DD')
-
   let txtColor = "text-" + props.colorVariant || "primary";
 
   return (
@@ -22,36 +19,35 @@ const RdsFeed = (props: RdsFeedProps) => {
         <div className="border-bottom py-4">
           <div className="d-flex">
             <div>
-                <RdsAvatar profilePic={item.profilePic} withProfilePic = {true} height = "60px"></RdsAvatar>
-        
+              <RdsAvatar
+                profilePic={item.profilePic}
+                withProfilePic={true}
+                height="60px"
+              ></RdsAvatar>
             </div>
             <div className="ps-3">
-              <div className = "pb-2" >    
-              <b >
-                <label className="text-left" style = {{paddingRight:"8px"}}>{item.actor} </label>
-              </b>
+              <div className="pb-2">
+                <b>
+                  <label className="text-left" style={{ paddingRight: "8px" }}>
+                    {item.actor}{" "}
+                  </label>
+                </b>
 
-              {/* <RdsIcon
-                name={item.feedIcon}
-                height="15" //className="ms-2"
-              /> */}
-              <small>
-                <label className="text-muted"> {item.username}</label>
-              </small>
-              <small>
-                <span className="dot text-muted ">&#8901;</span>
-                <label className="text-muted ">{item.date}</label>
-              </small>
-
+                <small>
+                  <label className="text-muted"> {item.username}</label>
+                </small>
+                <small>
+                  <span className="dot text-muted ">&#8901;</span>
+                  <label className="text-muted ">{item.date}</label>
+                </small>
               </div>
               <div className="h-25 mt-1">
-                <RdsRating rating={1} colorVariant ='warning' ></RdsRating>
-           
+                <RdsRating rating={1} colorVariant="warning"></RdsRating>
               </div>
             </div>
           </div>
           <div className="h-25 mt-1">
-            <label className = "font-italic"> {item.description}</label>
+            <label className="font-italic"> {item.description}</label>
           </div>
           <div className="h-25 mt-3">
             <RdsLikeDislike dislike={10} like={35} />
