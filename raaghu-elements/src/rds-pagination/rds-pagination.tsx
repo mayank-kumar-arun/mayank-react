@@ -1,5 +1,4 @@
-
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import RdsIcon from "../rds-icon";
 import "./rds-pagination.scss";
 export interface RdsPaginationProps {
@@ -16,10 +15,7 @@ export interface RdsPaginationProps {
 const RdsPagination = (props: RdsPaginationProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage, setRecordsPerPage] = useState(props.recordsPerPage);
-
   let paginType = props.paginationType || "default";
-
-
   const setItemsPerPage = (e: any, current: any) => {
     // console.log("value - " + e.target.value);
     if (e.target.value > props.totalRecords || e.target.value == "All") {
@@ -31,11 +27,9 @@ const RdsPagination = (props: RdsPaginationProps) => {
     }
     // props.onPageChange(e, current, recordsPerPage);
   };
-
   const PageNumbers = [];
   let int: any;
   // console.log("records pp " + recordsPerPage);
-
   if (paginType == "default") {
     int = Math.ceil(props.totalRecords / props.recordsPerPage);
     for (let i = 1; i <= int; i++) {
@@ -47,35 +41,25 @@ const RdsPagination = (props: RdsPaginationProps) => {
       PageNumbers.push(i);
     }
   }
-
   const onNext = (e: any, current: any) => {
-
-   
     setCurrentPage(current + 1);
-    props.onPageChange(e, currentPage +1, recordsPerPage);
-   // console.log("currentPage -  " + currentPage);
-
+    // props.onPageChange(e, currentPage, recordsPerPage);
   };
   const onPage = (e: any, current: any) => {
     setCurrentPage(current);
-
-    props.onPageChange(e, current, recordsPerPage);
-    //console.log("currentPage -  " + currentPage);
+    // props.onPageChange(e, current, recordsPerPage);
   };
   const onPrevious = (e: any, current: any) => {
     setCurrentPage(current - 1);
-    props.onPageChange(e, currentPage-1, recordsPerPage);
-    //console.log("currentPage -  " + currentPage);
-
+    // props.onPageChange(e, currentPage, recordsPerPage);
   };
   if(props.onPageChange!=undefined)
   useEffect(() => { props.onPageChange!=undefined && props.onPageChange(currentPage, recordsPerPage); }, [currentPage, recordsPerPage])
-
+  
 
   const size = " pagination-" + `${props.size || "md"}`;
   const align =
     " pagination justify-content-" + `${props.alignmentType || "start"}`;
-
   return (
     <div>
       {paginType == "default" && (
@@ -235,7 +219,6 @@ const RdsPagination = (props: RdsPaginationProps) => {
                 />
               </a>
             </li>
-
             <li className="page-item">
               <div className="btn-group dropdown page-counter">
                 <select
@@ -263,5 +246,4 @@ const RdsPagination = (props: RdsPaginationProps) => {
     </div>
   );
 };
-
 export default RdsPagination;

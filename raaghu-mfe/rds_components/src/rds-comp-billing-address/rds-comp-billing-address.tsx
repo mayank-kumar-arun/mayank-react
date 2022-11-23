@@ -119,7 +119,7 @@ const RdsCompBillingAddress = (props: RdsCompBillingAddressProps) => {
     }
     const postalCodeValidation = (postalCode: string) => {
         postalCode === "" ? setPostalCodeErrorMessage("Postal code is required") : setPostalCodeErrorMessage("")
-        // Postal code need not be numeric-only in some countries
+        // Postal code need not be ,numeric-only' in some countries
     }
 
 
@@ -129,13 +129,9 @@ const RdsCompBillingAddress = (props: RdsCompBillingAddressProps) => {
 
 
             <div className="contact-information">
-
                 <h3 className="pb-2">Billing Address</h3>
-
                 <form id="billingAddressForm" onSubmit={onSubmitHandler}>
-
                     <div className="row">
-
                         <div className="col-md-6 mb-3">
                             <RdsInput label="First Name"
                                 titleType="top"
@@ -150,7 +146,6 @@ const RdsCompBillingAddress = (props: RdsCompBillingAddressProps) => {
                                 <span className="text-danger">{firstNameErrorMessage}</span>
                             </div>}
                         </div>
-
                         <div className="col-md-6 mb-3">
                             <RdsInput label="Last Name"
                                 titleType="top"
@@ -164,12 +159,9 @@ const RdsCompBillingAddress = (props: RdsCompBillingAddressProps) => {
                             {lastNameErrorMessage != "" && <div className="form-control-feedback">
                                 <span className="text-danger">{lastNameErrorMessage}</span>
                             </div>}
-                        </div >
-
-                    </div >
-
+                        </div>
+                    </div>
                     <div className="row">
-
                         <div className="col-md-6 mb-3">
                             <RdsInput label="Company"
                                 titleType="top"
@@ -191,8 +183,8 @@ const RdsCompBillingAddress = (props: RdsCompBillingAddressProps) => {
                             {phoneErrorMessage != "" && <div className="form-control-feedback">
                                 <span className="text-danger">{phoneErrorMessage}</span>
                             </div>}
-                        </div >
-                    </div >
+                        </div>
+                    </div>
                     <div className="row">
                         <div className="col-md-12 mb-3">
                             <RdsInput label="Address"
@@ -206,8 +198,8 @@ const RdsCompBillingAddress = (props: RdsCompBillingAddressProps) => {
                             {addressErrorMessage != "" && <div className="form-control-feedback">
                                 <span className="text-danger">{addressErrorMessage}</span>
                             </div>}
-                        </div >
-                    </div >
+                        </div>
+                    </div>
                     <div className="row">
                         <div className="col-md-6 mb-3">
                             <RdsInput label="City"
@@ -222,20 +214,20 @@ const RdsCompBillingAddress = (props: RdsCompBillingAddressProps) => {
                             {cityErrorMessage != "" && <div className="form-control-feedback">
                                 <span className="text-danger">{cityErrorMessage}</span>
                             </div>}
-                        </div >
+                        </div>
                         <div className="col-md-6 mb-3">
                             <div className="label mb-2">
                                 Country <span className="text-danger">*</span>
                             </div>
                             <RdsSelectList
                                 label="Select Country"
-                                selectItems={props.IndianStateList}
+                                selectItems={props.countryList}
                             />
                             {countryErrorMessage != "" && <div className="form-control-feedback">
                                 <span className="text-danger">{countryErrorMessage}</span>
                             </div>}
-                        </div >
-                    </div >
+                        </div>
+                    </div>
                     <div className="row">
                         <div className="col-md-6 mb-3">
                             <div className="label mb-2">
@@ -262,9 +254,8 @@ const RdsCompBillingAddress = (props: RdsCompBillingAddressProps) => {
                             {postalCodeErrorMessage != "" && <div className="form-control-feedback">
                                 <span className="text-danger">{postalCodeErrorMessage}</span>
                             </div>}
-                        </div >
-                    </div >
-
+                        </div>
+                    </div>
                     <div className="pt-4 row">
                         <div className="col-md-6 mb-3">
                             <RdsButton block={true}
@@ -285,12 +276,9 @@ const RdsCompBillingAddress = (props: RdsCompBillingAddressProps) => {
                                 tooltipTitle={''}
                                 type={'submit'} />
                         </div>
-                    </div >
-
-                </form >
-
-            </div >
-
+                    </div>
+                </form>
+            </div>
         </>
     )
 }
