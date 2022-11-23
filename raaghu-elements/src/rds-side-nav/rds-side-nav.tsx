@@ -2,15 +2,18 @@ import React from "react";
 import "./rds-side-nav.scss";
 import RdsIcon from "../rds-icon/rds-icon";
 import DarkMode from "./DarkMode";
-
+import logoUrl from "./raaghu-logo.svg";
 export interface RdsSideNavProps {
   sidenavItems: any[];
 }
 
 const RdsSideNav = (props: RdsSideNavProps) => {
   return (
-    <nav id="sidebar" className="bd-links min-vh-100 pt-2 position-relative">
-      <ul className="sidebarList list-unstyled mb-0 py-2 px-4 h-100">
+    <nav id="sidebar" className="bd-links min-vh-100 position-relative">
+      <div className="sidebarList list-unstyled mb-0 py-2 px-4" style={{border: 1, borderStyle:"solid", borderColor:"#cecece", background: "white"}}>
+        <img src={logoUrl} alt="Raaghu-logo" style={{width:191}}></img>
+      </div>
+      <ul className="sidebarList list-unstyled mb-0 py-2 px-4 h-100" >
         {props.sidenavItems.map((sidenavItem, key) => (
           <li
             key={key}
@@ -18,6 +21,7 @@ const RdsSideNav = (props: RdsSideNavProps) => {
               window.location.pathname = sidenavItem.path;
             }}
             className="listRow mb-2"
+            style={{ paddingLeft: 40 }}
           >
             <a className="list d-inline-flex align-items-center text-decoration-none text-uppercase">
               <div className="pe-3">
@@ -65,11 +69,11 @@ const RdsSideNav = (props: RdsSideNavProps) => {
           </ul>
         </li> */}
         <li className="listRow fixed-bottom mb-2 darkTheme">
-        <a className="list d-inline-flex align-items-center text-decoration-none text-uppercase">
+          <a className="list d-inline-flex align-items-center text-decoration-none text-uppercase">
             {/* <div>☀  Light</div>
             <div>☾ &nbsp; Dark</div> */}
-          <DarkMode></DarkMode>
-        </a>
+            <DarkMode></DarkMode>
+          </a>
         </li>
         {/* <li>
           <div className="sidenav-footer">
