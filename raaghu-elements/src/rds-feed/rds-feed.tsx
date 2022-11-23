@@ -22,15 +22,15 @@ const RdsFeed = (props: RdsFeedProps) => {
         <div className="border-bottom py-4">
           <div className="d-flex">
             <div>
-                <RdsAvatar profilePic={item.profilePic} withProfilePic = {true}></RdsAvatar>
-              {/* <rds-avatar [withProfilePic]="true" [profilePic]="" [size]="'large'"
-            [verticallyAlligned]="false"></rds-avatar> */}
+                <RdsAvatar profilePic={item.profilePic} withProfilePic = {true} height = "60px"></RdsAvatar>
+        
             </div>
             <div className="ps-3">
-              <div className = "pb-2" >
-              <b>
-                <label className="text-left ">{item.actor} </label>
+              <div className = "pb-2" >    
+              <b >
+                <label className="text-left" style = {{paddingRight:"8px"}}>{item.actor} </label>
               </b>
+
               {/* <RdsIcon
                 name={item.feedIcon}
                 height="15" //className="ms-2"
@@ -45,13 +45,13 @@ const RdsFeed = (props: RdsFeedProps) => {
 
               </div>
               <div className="h-25 mt-1">
-                <RdsRating rating={1} colorVariant ='primary' ></RdsRating>
-                {/* <rds-rating [rating]= [colorVariant]="'primary'" [noOfReview]="123" [size]="'medium'"></rds-rating> */}
+                <RdsRating rating={1} colorVariant ='warning' ></RdsRating>
+           
               </div>
             </div>
           </div>
           <div className="h-25 mt-1">
-            <label> {item.description}</label>
+            <label className = "font-italic"> {item.description}</label>
           </div>
           <div className="h-25 mt-3">
             <RdsLikeDislike dislike={10} like={35} />

@@ -12,10 +12,10 @@ export interface RdsAvatarProps {
   colorVariant?: string;
   isTitle?: boolean;
   titleAlign?: string;
-  size: 'small' | 'large' | 'medium',
-  verticallyAlligned: boolean ,
-  roundedAvatar: boolean,
-  roundedPills: boolean ,
+  size?: 'small' | 'large' | 'medium',
+  verticallyAlligned?: boolean ,
+  roundedAvatar?: boolean,
+  roundedPills?: boolean ,
   height? : string ;
 
 }

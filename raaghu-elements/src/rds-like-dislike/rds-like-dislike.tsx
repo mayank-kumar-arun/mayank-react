@@ -8,6 +8,8 @@ export interface RdsLikeDislikeProps {
   like: number;
   dislike: number;
   onClick?: (like: number, dislike: number) => void; 
+  heightOfIcon?: string;
+  widthOfIcon?: string;
 }
 
 const RdsLikeDislike = (props: RdsLikeDislikeProps) => {
@@ -41,6 +43,8 @@ const RdsLikeDislike = (props: RdsLikeDislikeProps) => {
             class="likebtn"
             fill={false}
             stroke={true}
+            height = {props.heightOfIcon}
+            width = {props.widthOfIcon}
             colorVariant={props.colorVariant || "dark"}
           ></RdsIcon>
 
@@ -56,6 +60,8 @@ const RdsLikeDislike = (props: RdsLikeDislikeProps) => {
               class="dislikebtn"
               fill={false}
               stroke={true}
+              height = {props.heightOfIcon}
+              width = {props.widthOfIcon}
               colorVariant={props.colorVariant || "dark"}
             ></RdsIcon>
          

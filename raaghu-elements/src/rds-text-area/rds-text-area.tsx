@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { Colors } from "../../libs/types";
 import "./rds-text-area.scss";
 export interface RdsTextAreaProps {
   rows?: number;
