@@ -25,7 +25,7 @@ export default {
       control: { type: "select" },
     },
     reviewPosition: {
-      options: ["left", "right"],
+      options: ["left", "right", "none"],
       control: { type: "radio" },
     },
   },
