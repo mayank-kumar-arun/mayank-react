@@ -53,6 +53,7 @@ const RdsAvatar = (props: RdsAvatarProps) => {
   let titleRole = rLetter + userRole.slice(1);
   let imgwidth =(props.size=="small"?"32px":props.size=="large"?"48px":"40px" );
   let imgheigt =(props.height||"48px")
+  let fonts =(props.size=="small"?"18px":props.size=="large"?"31px":"24px" );
   return (
     <Fragment> <div style={{ display: Aligned }}>
 
@@ -64,7 +65,7 @@ const RdsAvatar = (props: RdsAvatarProps) => {
 
       {WPP===false && hasName && (
           <div className="image d-flex justify-content-center align-items-center avatar rounded-circle" style={{ backgroundColor: backcolor, width:imgwidth,height:imgwidth }}>
-            <span className="letters">
+            <span className="fw-bold " style={{fontSize:fonts}}>
               {fLetter}
               {lLetter}
             </span>

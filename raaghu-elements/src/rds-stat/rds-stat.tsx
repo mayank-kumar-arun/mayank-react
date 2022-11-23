@@ -56,7 +56,7 @@ let textColr= 'text-'+props.textColor||"primary"
         "
             >
               <div className="d-block text-center">
-                <h1 className={"fw-bold py-2 titlehover" +`${textColr}`}>{item.value}</h1>
+                <h1 className={"fw-bold py-2 titlehover " +`${textColr}`}>{item.value}</h1>
                 <div>
                   <label className="fs-5 text-muted">{item.title}</label>
                 </div>

@@ -6,19 +6,11 @@
 .styleIcons{
     cursor: pointer;
 }
-.likebtn{
+.likebtn , .dislikebtn{
     width:23px;
     height:23px;
 }
-.likebtn:hover{
-    width:24px;
-    height:24px;
-}
-.dislikebtn{
-    width:23px;
-    height:23px;
-}
-.dislikebtn:hover{
+.likebtn:hover, .dislikebtn:hover{
     width:24px;
     height:24px;
 }

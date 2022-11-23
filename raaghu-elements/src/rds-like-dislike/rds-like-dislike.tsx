@@ -54,7 +54,7 @@ const RdsLikeDislike = (props: RdsLikeDislikeProps) => {
             <RdsIcon
               name="dislike"
               class="dislikebtn"
-              fill={false}
+              fill={false} 
               stroke={true}
               colorVariant={props.colorVariant || "dark"}
             ></RdsIcon>

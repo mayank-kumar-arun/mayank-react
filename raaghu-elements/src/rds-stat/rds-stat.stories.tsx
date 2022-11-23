@@ -36,7 +36,7 @@ const Template: ComponentStory<typeof RdsStat> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-   backgroundColorVarient:"primary" ,
+   
     displayType:"basic",
     colorVariant: "primary",
     items: [
@@ -54,7 +54,7 @@ Default.args = {
 
 export const Advanced = Template.bind({});
 Advanced.args = {
-    backgroundColorVarient:"light" ,
+  
     displayType:"advanced",
     colorVariant: "primary",
     items: [
