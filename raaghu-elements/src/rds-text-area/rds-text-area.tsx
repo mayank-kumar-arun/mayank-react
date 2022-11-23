@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Colors } from "../../libs/types";
-
+import "./rds-text-area.scss";
 export interface RdsTextAreaProps {
   rows?: number;
   readonly?: boolean;
@@ -8,20 +8,21 @@ export interface RdsTextAreaProps {
   placeholder: string;
   value?: any;
   isDisabled?: boolean;
-  colorVariant?: Colors;
+  isRequired?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  
+  labelPosition?: string;
   onClick?: (event: React.MouseEvent<HTMLTextAreaElement>) => void;
 }
 const RdsTextArea = (props: RdsTextAreaProps) => {
   return (
     <Fragment>
-      <div className="mb-3">
-        <label //HtmlFor="exampleFormControlTextarea1"
-          className="form-label"
-        >
-          {props.label}
-        </label>
+      <div>
+        {props.labelPosition === "top" && (
+          <label className="form-label">
+            {props.label}
+            {props.isRequired && <span className="text-danger fs-6"> *</span>}
+          </label>
+        )}
         <textarea
           className="form-control"
           disabled={props.isDisabled}
@@ -29,9 +30,15 @@ const RdsTextArea = (props: RdsTextAreaProps) => {
           rows={props.rows}
           readOnly={props.readonly}
           placeholder={props.placeholder}
-          onChange ={props.onChange}
-           onClick={props.onClick}
+          onChange={props.onChange}
+          onClick={props.onClick}
         ></textarea>
+        {props.labelPosition === "bottom" && (
+          <label className="form-label mt-1">
+            {props.label}
+            {props.isRequired && <span className="text-danger fs-6"> *</span>}
+          </label>
+        )}
       </div>
     </Fragment>
   );

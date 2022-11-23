@@ -27,7 +27,7 @@ const RdsFeed = (props: RdsFeedProps) => {
             [verticallyAlligned]="false"></rds-avatar> */}
             </div>
             <div className="ps-3">
-              <div >
+              <div className = "pb-2" >
               <b>
                 <label className="text-left ">{item.actor} </label>
               </b>
@@ -40,7 +40,7 @@ const RdsFeed = (props: RdsFeedProps) => {
               </small>
               <small>
                 <span className="dot text-muted ">&#8901;</span>
-                <label className="text-muted ">{props.date}</label>
+                <label className="text-muted ">{item.date}</label>
               </small>
 
               </div>
