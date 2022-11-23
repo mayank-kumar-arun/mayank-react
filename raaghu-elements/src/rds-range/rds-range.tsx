@@ -1,12 +1,12 @@
 import React, { Fragment, useState } from "react";
 import "./rds-range.scss";
-import { Colors} from "../../libs/types";
+import { colors} from "../../libs/types";
 
 export interface RdsRangeProps {
   max: number;
   min: number;
   step?: number;
-  colorVariant?: Colors;
+  colorVariant?: colors;
   rangeType:string;
 }
 

@@ -1,9 +1,9 @@
 import React, { useState,useEffect } from "react";
-import { Colors } from "../../libs/types";
+import { colors } from "../../libs/types";
 import "./rds-toast.scss"
 
 export interface RdsToastProps {
-  colorVariant?:Colors;
+  colorVariant?:colors;
   headerTitle: string;
   message: string;
   delay:number;

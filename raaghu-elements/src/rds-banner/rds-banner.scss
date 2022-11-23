@@ -1,11 +1,18 @@
-.sticky{
+.RdsBanner span{
+    font-size: 14px;
+}
+
+.RdsBanner.sticky {
     position: sticky;
 }
 
-.banner__top{
-    top: 5px;
+.RdsBanner .close-button-box {
+    height: 32px;
+    width: 32px;
+
 }
 
-.banner__bottom{
-    bottom: 5px;
+.RdsBanner .close-button-box button {
+    height: 14px;
+    width: 14px;
 }

@@ -23,7 +23,7 @@ export default {
     displayType:{
         options:[
             "basic",
-            "advance",
+            "advanced",
         ],
         control: { type: "select" },
     }
@@ -36,7 +36,26 @@ const Template: ComponentStory<typeof RdsStat> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
+   backgroundColorVarient:"primary" ,
     displayType:"basic",
+    colorVariant: "primary",
+    items: [
+        {
+          "title": "SAM SMITH",
+          "value": "2370",
+          "icon": "star",
+          "iconHeight": "80px",
+          "iconWidth": "80px",
+          "iconFill": true,
+          
+        },
+      ]
+};
+
+export const Advanced = Template.bind({});
+Advanced.args = {
+    backgroundColorVarient:"light" ,
+    displayType:"advanced",
     colorVariant: "primary",
     items: [
         {

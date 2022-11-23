@@ -1,10 +1,10 @@
 import React from "react";
 import "./rds-button-group.scss";
-import { Colors } from "../../libs/types";
+import { colors } from "../../libs/types";
 export interface RdsButtonGroupProps {
   vertical: boolean;
   outlineButton: boolean;
-  colorVariant?: Colors;
+  colorVariant?: colors;
   size: string;
   role: "checkbox" | "radio" | "button";
   buttonGroupItems: any[];

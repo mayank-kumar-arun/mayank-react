@@ -23,10 +23,10 @@ const RdsSize = (props: RdsSizeProps) => {
                 <div
                   key={index}
                   onClick={() => {
-                    setActiveButton(data.value);
+                    setActiveButton(index);
                   }}
                   className={`${
-                    activeButton === data.value
+                    activeButton === index
                       ? "p-3 border-color"
                       : " p-3"
                   }`}
@@ -43,27 +43,28 @@ const RdsSize = (props: RdsSizeProps) => {
       {props.sizeType == "withoutDescription" && (
         <ul className="d-flex" id="rds-size">
           {props.sizeData.map((data: any, index: any) => (
-            <li //</ul>*ngFor="let data of sizeData"
-              className="me-3 mt-3 border flex-even text-center d-flex"
-            >
+            <li  className="me-3 mt-3 border flex-even text-center  d-flex" >
               <div
                 key={index}
                 onClick={() => {
-                  setActiveButton(data.value);
+                  setActiveButton(index);
                 }}
                 className={`${
-                  activeButton === data.value
+                  data.inStock ? (activeButton === index   
                     ? " flex-even d-flex border-color"
-                    : "flex-even  d-flex"
+                    : "flex-even  d-flex") : (" outOfStock")
                 }`}
-                // className="d-flex mx-auto align-self-center"
-                // (click)="onclick(data)"
+             
               >
-                <div className="size-small mx-auto ">
-                  {data.value}
+                 { !data.inStock && <div className=" Out" > {data.value} </div>  } 
+                <div  className={`${ data.inStock ?"size-small align-self-center mx-auto " : "outOfStock1"
+                }`} >
+                { data.inStock && <> {data.value}</>  } 
                 </div>
+                
               </div>
             </li>
+            
           ))}
         </ul>
       )}
