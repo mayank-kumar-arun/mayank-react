@@ -37,7 +37,6 @@ Default.args = {
 	iconStroke: true,
 	iconHeight: "20px",
 	iconWidth: "20px",
-	position: "top",
+	position:"top",
 	iconColor: "info",
-	style: { width: "100%", alignItems: "center" },
 };

@@ -1,11 +1,6 @@
 @import "../style.scss";
 .cardHeader {
-    padding: 15px;
-    margin-bottom: 0;
-    //color: var(--bs-card-cap-color);
+    padding: 15px !important;
     border-bottom :none  !important;
     
-}
-.Content{
-    padding:  15px;
 }
