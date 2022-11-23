@@ -86,7 +86,3 @@ const RdsAlert = (props: RdsAlertProps) => {
 };
 
 export default RdsAlert;
-
-/* { doubleApproval === true && <input  type="checkbox" onClick={handleOnCheck} checked/>}
-   <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-  */

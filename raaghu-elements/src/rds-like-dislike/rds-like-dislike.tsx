@@ -1,12 +1,13 @@
-import React, { Fragment, useState } from "react";
-import { colors } from "../../libs/types";
+import React, { Fragment, useState ,useEffect} from "react";
+
 import RdsIcon from "../rds-icon/rds-icon";
 import "./rds-like-dislike.scss";
 
 export interface RdsLikeDislikeProps {
-  colorVariant?: colors;
-  like:number;
-  dislike:number;
+  colorVariant?: string;
+  like: number;
+  dislike: number;
+  onClick?: (like: number, dislike: number) => void; 
 }
 
 const RdsLikeDislike = (props: RdsLikeDislikeProps) => {
@@ -22,42 +23,45 @@ const RdsLikeDislike = (props: RdsLikeDislikeProps) => {
     console.log(setDislike);
   };
 
+  if (props.onClick != undefined)
+  useEffect(() => {
+    props.onClick != undefined &&
+      props.onClick(like, dislike);
+  }, [like, dislike]);
+  
   let bg = "bg-" + (props.colorVariant || "dark");
 
   return (
     <Fragment>
-      <div className={`row `}>
-        <div className="d-flex ">
-          <div onClick={likeHandler}>
+      <div className="d-flex justify-content-start">
+        <div onClick={likeHandler}  >
+         
+          <RdsIcon
+            name="like"
+            class="likebtn"
+            fill={false}
+            stroke={true}
+            colorVariant={props.colorVariant || "dark"}
+          ></RdsIcon>
+
+          <span className="ms-2 me-2 ">
+            <label className="marginclassName">{like}</label>
+          </span>
+        </div>
+
+        <div onClick={dislikeHandler}  >
+      
             <RdsIcon
-              name="like"
-              height="20px"
-              width="20px"
+              name="dislike"
+              class="dislikebtn"
               fill={false}
               stroke={true}
-              colorVariant ={props.colorVariant ||"dark"}
+              colorVariant={props.colorVariant || "dark"}
             ></RdsIcon>
-
-            <span className="ms-2 me-2 ">
-              <label className="marginclassName">{like}</label>
-            </span>
-          </div>
-
-          <div onClick={dislikeHandler} className="d-flex">
-            <div className="mt-1">
-              <RdsIcon
-                name="dislike"
-                height="20px"
-                width="20px"
-                fill={false}
-                stroke={true}
-                colorVariant ={props.colorVariant ||"dark"}
-              ></RdsIcon>
-            </div>
-            <span className="ms-2">
-              <label>{dislike}</label>
-            </span>
-          </div>
+         
+          <span className="ms-2">
+            <label>{dislike}</label>
+          </span>
         </div>
       </div>
     </Fragment>
