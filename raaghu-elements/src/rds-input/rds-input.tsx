@@ -1,7 +1,9 @@
+
 import React, { useState } from "react";
 import "./rds-input.scss";
 import Tooltip from "../rds-tooltip/rds-tooltip";
 import { Placements } from "../../libs/types";
+
 
 export interface RdsInputProps {
   size?: "small" | "large" | "medium" | string;
@@ -15,19 +17,23 @@ export interface RdsInputProps {
   tooltipTitle?: string;
   name?: string;
   label?: string;
-  id?: string;
-  redAsteriskPresent?: boolean;
 
-  required?: boolean;
+  id?: string
+  redAsteriskPresent?: boolean
+  
+  required?: boolean
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
-  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any;
-  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any;
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
+  onClick?: (event:React.MouseEvent<HTMLInputElement>) =>void;
+
 
   customClasses?: string;
   formName?: string;
 }
 
 const RdsInput = React.forwardRef(
+
   (props: RdsInputProps, ref: React.Ref<unknown> | undefined) => {
     const [inputValue, setInputValue] = useState(props.value);
 

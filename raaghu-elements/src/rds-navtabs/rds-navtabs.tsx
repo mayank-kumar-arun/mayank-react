@@ -7,7 +7,7 @@ import RdsIcon from "../rds-icon";
 
 
 export interface RdsNavtabsProps {
-    children: ReactNode;
+    children?: ReactNode;
     // type?: "default" | "pills" | "tabs" | "vertical"
     navtabsItems: {
         label: string,

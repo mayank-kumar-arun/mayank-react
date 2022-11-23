@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
-import { Colors } from "../../libs/types";
+import { colors } from "../../libs/types";
 import "./rds-illustration.scss"
 import RdsIcon from "../rds-icon/rds-icon";
 
 export interface RdsIllustrationProps {
   label?: string;
   subLabel?: string;
-  colorVariant?: Colors;
+  colorVariant?: colors;
 }
 const RdsIllustration = (props: RdsIllustrationProps) => {
   return (

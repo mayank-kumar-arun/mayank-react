@@ -14,6 +14,7 @@ export default {
 
 export const Default = Template.bind({});
 Default.args = {
+
     label:'Label',
     multiline: false,
     bold:false,

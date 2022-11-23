@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
-import { Colors } from "../../libs/types";
+import { colors } from "../../libs/types";
 import "bootstrap/dist/css/bootstrap.min.css"
 
 export interface rdsCardProps {
   buttonLabel?: string;
-  colorVariant?: Colors;
+  colorVariant?: colors;
   cardItems: any[];
   showFooter?: boolean;
   isImage?: boolean;

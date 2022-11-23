@@ -3,12 +3,12 @@ import Icons from "../rds-icon";
 import "./rds-search.scss";
 
 export interface RdsSearchProps {
-    placeholder: string;
-    size: string;
-
+	placeholder: string;
+	size: string;
 }
 
 const RdsSearch = (props: RdsSearchProps) => {
+
 
     let searchBarClass = `input-group mb-3 ${props.size=="small"?"input-group-sm": props.size=="large"?"input-group-lg":""}`
     let ariaDescribedby = props.size == "small"? "inputGroup-sizing-sm" : props.size =="large" ?"inputGroup-sizing-lg" :"inputGroup-sizing-default"
