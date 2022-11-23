@@ -35,15 +35,25 @@ export const Default = Template.bind({});
 Default.args = {
   sizeType: "withoutDescription",
   sizeData: [
-    { value: "XL", id: 1 },
-    { value: "L", id:2 },
-    { value: "M" ,id:3},
-    { value: "S" ,id:4},
-    { value: "XS",id:5 },
+    { value: "XXS",inStock:false},
+    { value: "XS", inStock:true},
+    { value: "S", inStock:true},
+    { value: "M", inStock:true},
+    { value: "L", inStock:true},
+    { value: "XL",inStock:true},
+    { value: "XXL",inStock:true},
+   
   ],
+
+};
+
+export const WithDescription = Template.bind({});
+WithDescription.args = {
+  sizeType: "withDescription",
+
   sizeDataWithDescription: [
     { value: "13", description: "impoity input " },
-    { value: "15", description: "impoity input and ngonint" },
-    { value: "14", description: " with the passanger" },
+    { value: "15", description: "impoity input and ngonint"},
+    { value: "14", description: " with the passanger"},
   ],
 };

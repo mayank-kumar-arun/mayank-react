@@ -2,7 +2,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import RdsButton from "./rds-button";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Colors } from "../../libs/types";
+import { colors } from "../../libs/types";
 
 export default {
   title: "Elements/Button",
@@ -16,8 +16,9 @@ export default {
       </div>
     ),
   ],
-  // margin: '10em', 
+
   argTypes: {
+
     colorVariant: {
       options: [
         "primary",
@@ -39,6 +40,20 @@ export default {
     tooltipPlacement: {
       options: ["top", "bottom", "right", "left"],
       control: { type: "radio" },
+    },
+    iconColorVariant: {
+      options: [
+        "primary",
+        "secondary",
+        "success",
+        "info",
+        "warning",
+        "danger",
+        "dark",
+        "light",
+        "review",
+      ],
+      control: { type: "select" },
     },
   },
 } as ComponentMeta<typeof RdsButton>;
@@ -66,13 +81,12 @@ Disable.args = {
 
 export const IconWithLabel = Template.bind({});
 IconWithLabel.args = {
-  // roundedButton: true,
-  // roundedCorner: false,
   icon: "+",
   colorVariant: "primary",
   label: "",
   block: false,
   size: "medium",
+  iconColorVariant:"light"
 };
 
 export const Outline = Template.bind({});
@@ -97,14 +111,9 @@ Tooltip.args = {
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
-  // roundedButton: true,
-  // roundedCorner: false,
-  icon: "+",
+  icon: "plus",
   colorVariant: "primary",
   label: "Button",
   block: false,
   size: "medium",
-  // tooltip: true,
-  // tooltipPlacement: "right",
-  // tooltipTitle:"This is tooltip",
 };

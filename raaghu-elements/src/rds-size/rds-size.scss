@@ -22,9 +22,15 @@
 }
 
 .size-small{
-    font: normal normal 600 16px/48px Poppins;
+    font: normal normal 600 18px/48px Poppins;
     letter-spacing: 0px;
     color: #000000;
+}
+
+.Out{
+    padding-top: 8px;
+    color: #747474;
+     
 }
 .description{
     font: normal normal normal 18px/35px Poppins;
@@ -43,4 +49,12 @@
 .flex-evens {
     flex: 1 1 360px;
     max-width: 300px;
+}
+.outOfStock{
+    border-radius: 8px;
+    width: 100%;
+    padding-top: 27px;
+    background: #8080802e;
+    color: #adadade0;
+    border: 2px solid #adadade0;
 }

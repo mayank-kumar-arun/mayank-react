@@ -1,4 +1,4 @@
-export type Placements =
+export type placements =
   | 'auto'
   | 'top'
   | 'bottom'

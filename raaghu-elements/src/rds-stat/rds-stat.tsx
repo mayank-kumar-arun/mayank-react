@@ -3,17 +3,20 @@ import RdsIcon from "../rds-icon";
 import "./rds-stat.scss";
 
 export interface RdsStatProps {
-  displayType: string;
+  displayType: 'basic'|'advanced';
   items: any[];
-  colorVariant:string,
+  colorVariant?:string,
+  backgroundColorVarient?:string, 
+  textColor?:string,
 }
 
 const RdsStat = (props: RdsStatProps) => {
+let textColr= 'text-'+props.textColor||"primary"
   return (
     <Fragment>
       {props.displayType == "basic" && (
-        <div className="card h-100 w-100 border">
-          <div className="card-body align-items-center d-flex justify-content-center">
+        <div className="card h-300px w-300px border rounded-0 " >
+          <div className="card-body align-items-center d-flex justify-content-center" style={{backgroundColor:(props.backgroundColorVarient||"white")}}>
             {props.items.map((item: any) => (
               <div>
                 <div className="grow mt-4 text-center">
@@ -27,7 +30,7 @@ const RdsStat = (props: RdsStatProps) => {
                     strokeColor={props.colorVariant}
                   />
                 </div>
-                <h1 className="fw-bold mt-4 text-center">{item.value}</h1>
+                <h1 className={"fw-bold mt-4 text-center" +`${textColr}`}>{item.value}</h1>
                 <div>
                   <label className="fs-5 text-muted text-center">
                     {item.title}
@@ -39,10 +42,10 @@ const RdsStat = (props: RdsStatProps) => {
         </div>
       )}
 
-      {props.displayType == "advance" && (
-        <div className="card h-300px w-300px border rounded-circle">
+      {props.displayType == "advanced" && (
+        <div className="card h-300px w-300px border2" >
           {props.items.map((item: any) => (
-            <div
+            <div 
               className="
           card-body
           align-items-center
@@ -53,7 +56,7 @@ const RdsStat = (props: RdsStatProps) => {
         "
             >
               <div className="d-block text-center">
-                <h1 className="fw-bold py-2 titlehover">{item.value}</h1>
+                <h1 className={"fw-bold py-2 titlehover" +`${textColr}`}>{item.value}</h1>
                 <div>
                   <label className="fs-5 text-muted">{item.title}</label>
                 </div>

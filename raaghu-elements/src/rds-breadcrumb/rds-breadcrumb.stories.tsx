@@ -21,32 +21,6 @@ const Template: ComponentStory<typeof RdsBreadcrumb> = (args) => (
                                                                                                                                                                                               
 export const Default = Template.bind({});
 Default.args = {
- breadItems:[{
-    label:"Home",
-    route:"#",
-    disabled:true
-
-  },
-  {
-    label:"Library",
-    route:"#",
-    disabled:true
-  },
-  {
-    label:"Data",
-    active: true,
-    disabled:true
-
-  },
-   
-  ]
- 
-};
-                                                                                                                                                                                              
-export const Advance = Template.bind({});
-Advance.args = {
-  divider:">",
-  role:'advance',
   breadItems:[{
     label:"Home",
     route:"#",
@@ -63,8 +37,47 @@ Advance.args = {
     active: true,
     disabled:true
 
+  }]
+ 
+};
+                                                                                                                                                                                              
+export const Advance = Template.bind({});
+Advance.args = {
+  divider:">",
+  role:'advance',
+  breadItems:[{
+    label:"Home",
+    route:"#",
+    disabled:true,
+    icon:"home",
+    iconFill: false,
+    iconstroke:true,
+    iconWidth: "15px",
+    iconHeight: "15px",
+    iconColor:"primary"
   },
-   
+  {
+    label:"About",
+    route:"#",
+    disabled:true,
+    icon:"information",
+    iconFill: false,
+    iconstroke:true,
+    iconWidth: "15px",
+    iconHeight: "15px",
+    iconColor:"primary"
+  },
+  {
+    label:"Contact",
+    active: true,
+    disabled:true,
+    icon:"phone",
+    iconFill: false,
+    iconstroke:true,
+    iconWidth: "15px",
+    iconHeight: "15px",
+    iconColor:"primary"
+  },
   ]
  
 };

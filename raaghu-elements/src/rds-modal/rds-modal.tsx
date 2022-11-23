@@ -68,7 +68,7 @@ const RdsModal = (props: RdsModalProps) => {
           </div>
         </div>
       </div>}
-      {props.staticbackdrop && <div
+      {/* {props.staticbackdrop && <div 
         className="modal fade"
         id={`${props.staticbackdrop?"staticBackdrop":"exampleModal"}`}
         data-bs-backdrop="static"
@@ -109,7 +109,7 @@ const RdsModal = (props: RdsModalProps) => {
             )}
           </div>
         </div>
-      </div>}
+      </div>} */}
     </>
   );
 };

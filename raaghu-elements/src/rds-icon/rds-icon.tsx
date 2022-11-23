@@ -15,7 +15,7 @@ export interface RdsIconProps {
 
 const RdsIcon = (props: RdsIconProps) => {
   let fillColor: string;
-  let strokeColor:string= "black";
+  let strokeColor:string= props.strokeColor||"black";
 
   if (props.colorVariant == 'primary') {
     // svg.setAttribute('class', 'icon-' + props.colorVariant);

@@ -36,6 +36,5 @@ const Template: ComponentStory<typeof RdsSpinner> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-    spinnerType : "spinner",
     colorVariant:"primary"
 };
