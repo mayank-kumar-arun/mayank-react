@@ -1,8 +1,11 @@
 import React from "react";
+import { RdsLabel } from "../rds-elements";
 //import { RdsEdition } from "../rds-elements";
 import "./rds-comp-edition.scss"
 
 export interface RdsCompEditionProps {
+  features: any;
+  EditionItems: any;
   bodybackGroundColor?: string;
   borderRadious?: number;
   Paddig?: number;
@@ -15,7 +18,6 @@ export interface RdsCompEditionProps {
 
 const RdsCompEdition = (props: RdsCompEditionProps) => {
   return (
-
       <div className="col-md-2" style={{ width: "170px" }}>
         <div className="card">
           <div className="card-body p-3">
@@ -52,12 +54,12 @@ const RdsCompEdition = (props: RdsCompEditionProps) => {
                   }}
                 >
                   <ul style={{ fontSize: "10px", paddingLeft: "11px" }}>
-                    {props.features.map((item:any)=>(
-                        <>
+                    {props.features.map((item: any) => (
+                      <>
                         <li>{item}</li>
-                        </>
+                      </>
                     ))}
-                    
+
                     {/* <li>Test Check feature</li>
                     <li>Test check feature count 2</li> */}
                   </ul>
@@ -70,7 +72,6 @@ const RdsCompEdition = (props: RdsCompEditionProps) => {
                   ></i>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
