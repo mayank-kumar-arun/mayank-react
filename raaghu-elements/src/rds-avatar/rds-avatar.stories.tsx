@@ -28,6 +28,7 @@ Default.args = {
     firstName: 'Sania',
     lastName:'Sonkaria',
     size:'medium',
+    height:"48px"
    };
 
 export const AvatarWithVerticallyAllignedInfo = Template.bind({});
