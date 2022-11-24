@@ -1,2 +1,8 @@
-@import '../style.scss'
+@import '../style.scss';
 
+tr.normal-rows:hover{
+    background-color: #EBF0FF !important;
+};
+td{
+    padding-left: 16px !important;
+}
