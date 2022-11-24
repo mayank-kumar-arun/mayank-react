@@ -157,9 +157,7 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 																role={tableDataRow[tableHeader.key].info}
 															/></div>
 														}
-														//
-													// add more types here if reequired
-													//
+														{/* add more types here if reequired */}
 													</div>
 												</td>
 											)
