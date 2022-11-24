@@ -53,9 +53,11 @@ const RdsAvatar = (props: RdsAvatarProps) => {
   let titleFirstName = fLetter + FL.slice(1) + " ";
   let titleLastName = lLetter + LL.slice(1);
   let titleRole = rLetter + userRole.slice(1);
-  let imgwidth =
-    props.size == "small" ? "32px" : props.size == "large" ? "48px" : "40px";
-  let imgheigt = props.height || "48px";
+
+  let imgwidth =(props.size=="small"?"32px":props.size=="large"?"48px":"40px" );
+  let imgheigt =(props.height||"48px")
+  let fonts =(props.size=="small"?"18px":props.size=="large"?"31px":"24px" );
+
   return (
     <Fragment>
       {" "}
@@ -66,16 +68,9 @@ const RdsAvatar = (props: RdsAvatarProps) => {
           </div>
         )}
 
-        {WPP === false && hasName && (
-          <div
-            className="image d-flex justify-content-center align-items-center avatar rounded-circle"
-            style={{
-              backgroundColor: backcolor,
-              width: imgwidth,
-              height: imgwidth,
-            }}
-          >
-            <span className="letters">
+      {WPP===false && hasName && (
+          <div className="image d-flex justify-content-center align-items-center avatar rounded-circle" style={{ backgroundColor: backcolor, width:imgwidth,height:imgwidth }}>
+            <span className="fw-bold " style={{fontSize:fonts}}>
               {fLetter}
               {lLetter}
             </span>

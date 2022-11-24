@@ -34,22 +34,28 @@ Default.args = {
 export const AvatarWithVerticallyAllignedInfo = Template.bind({});
 AvatarWithVerticallyAllignedInfo.args = {
   colorVariant: 'yellow',
-  isTitle:false, 
-  role:"Developer", 
   firstName: 'Sania',
   lastName:'Sonkaria',
   size:'medium',
+  isTitle:false, 
+  titleAlign: "vertical",
+  role:"Developer", 
+ 
+
 };
 
 export const AvatarWithHorizontallyAllignedInfo = Template.bind({});
 AvatarWithHorizontallyAllignedInfo.args = {
-  
+ 
   colorVariant: 'yellow',
   firstName: 'Sania',
   lastName:'Sonkaria',
+  size:'medium',
   isTitle:false, 
+  titleAlign:"horizontal",
   role:"Developer", 
-  size:'medium',};
+ 
+};
 
 export const Profile = Template.bind({});
 Profile.args = {
