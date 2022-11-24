@@ -5,20 +5,22 @@ export interface RdsFeatureListProps {
     children: ReactNode;
     heading: string
     itemList: string[]
-    columns: number
+    columns: number,
+    fontStyle?:"italic" |"normal";
+    colorVariant?: 'primary' | 'success' | 'danger' | 'warning' | 'light' | 'info' | 'secondary' | 'dark';
 }
 
 const RdsFeatureList = (props: RdsFeatureListProps) => {
-    
     const noOfColumns = (props.columns > 0) ? props.columns : 1;
     const columnArray = (props.columns > 0) ? Array.from(Array(Math.min(props.columns, props.itemList.length)), (_: any, index: number) => index + 1) : [1];
     const listItemInEachRow = props.itemList.length / noOfColumns < 1 ? 1 : Math.ceil(props.itemList.length / noOfColumns)
     const ExtraListElements = props.itemList.length % noOfColumns
-
+    const fontStyle = props.fontStyle =="italic"?" fst-italic fw-normal ":" fw-normal " 
+    const color = " text-"+props.colorVariant||"dark" ;
     return (
         <>
             <div>
-                {props.heading && <div className="RdsFeatureList__Heading">{props.heading}</div>}
+                {props.heading && <div className={` RdsFeatureList__Heading ${color}`}>{props.heading}</div>}
                 <div className="row">
                     {columnArray.map(colNumber =>
                         <div key={"col-" + colNumber} className="col">
@@ -29,7 +31,7 @@ const RdsFeatureList = (props: RdsFeatureListProps) => {
                                             && index < ((colNumber) * listItemInEachRow  -  ((colNumber-ExtraListElements>0&&ExtraListElements>0)?colNumber-ExtraListElements :0 ) )
                                             && <li>
                                                 <span className="bullet">&bull;</span>
-                                                <span>{item}</span>
+                                                <span className={fontStyle} >{item}</span>
                                             </li>
                                         }
                                     </Fragment>
