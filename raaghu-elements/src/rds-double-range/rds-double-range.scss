@@ -1,7 +1,4 @@
-
-  
-
-  .thumb,
+.thumb,
   .thumb::-webkit-slider-thumb {
     -webkit-appearance: none;
     -webkit-tap-highlight-color: transparent;
@@ -123,7 +120,7 @@
     border: 2px solid #7E2EEf;
   }
    .slider-track {
-    width: 100%;
+    width: 99.5%;
     height: 5px;
     position: absolute;
     margin: auto;
@@ -133,7 +130,7 @@
 
   #range1::before {
     content: attr(data-tooltip);
-    padding: 4px;
+    padding: 0px;
   }
   
   #range2::before {
@@ -171,8 +168,7 @@
     top: -0.4rem;
   }
   
-/// style for type 1***********************************************************************************************
-/// 
+/// *****************************    style for type 1    ***********************************************************************************************
   .thumb1,
   .thumb1::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -201,10 +197,10 @@
   
   /* For Chrome browsers */
   .thumb1::-webkit-slider-thumb {
-    background-color: #f1f5f7;
+   // background-color: #f1f5f7;
     border: none;
     border-radius: 50%;
-    box-shadow: 0 0 1px 1px #ced4da;
+    //box-shadow: 0 0 1px 1px #ced4da;
     cursor: pointer;
     height: 18px;
     width: 18px;
@@ -215,10 +211,10 @@
   
   /* For Firefox browsers */
   .thumb1::-moz-range-thumb {
-    background-color: #f1f5f7;
+   // background-color: #f1f5f7;
     border: none;
     border-radius: 50%;
-    box-shadow: 0 0 1px 1px #ced4da;
+    //box-shadow: 0 0 1px 1px #ced4da;
     cursor: pointer;
     height: 18px;
     width: 18px;
@@ -227,7 +223,7 @@
     position: relative;
   }
 
-  .slider_11 {
+  .slider_1 {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -249,12 +245,15 @@
     -webkit-appearance: none;
     height: 1.7em;
     width: 1.7em;
-    background-color: #7E2EEf;
+    background-color:transparent;
     cursor: pointer;
     margin-top: -9px;
+    border: none;
     pointer-events: auto;
     border-radius: 50%;
+    
   }
+  
   .slider_21 {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -272,55 +271,28 @@
     height: 5px;
   }
   
-  .slider_21::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    height: 1.7em;
-    width: 1.7em;
-    background-color: #7E2EEf;
-    cursor: pointer;
-    margin-top: -9px;
-    pointer-events: auto;
-    border-radius: 50%;
-  }
   
   .slider_21::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 1.7em;
     width: 1.7em;
-    background-color: #f4f5f8;
+    background-color: transparent;
     cursor: pointer;
     margin-top: -9px;
     pointer-events: auto;
     border-radius: 50%;
-    border: 2px solid #7E2EEf;
+    //border: 2px solid #7E2EEf;
   }
    
 
   #range11::before {
     content: attr(data-tooltip);
-    padding: 4px;
+    padding: 0px;
   }
   
   #range21::before {
     content: attr(data-tooltip);
     padding: 0px;;
-  }
-  
- 
-  
-  .sliderTooltipRangeOne1::after {
-    display: block;
-    content: "";
-    background: #8350cb;
-    position: absolute;
-    border: 1px #8350cb solid;
-    border-top: 0;
-    border-left: 0;
-    width: 8px;
-    height: 8px;
-    left: 10px;
-    bottom: -4px;
-    transform: rotate(45deg);
   }
   
   .sliderTooltipRangeOne1 {
@@ -332,12 +304,11 @@
     border-top: 0;
     border-left: 0;
     //padding: 0.25rem;
-    border-radius: 0.2rem;
+    border-radius: 10%;
     top: -0.4rem;
   }
   
-
-  /// style for type 2 ***************************************************************************************
+  /// *********************** style for type 2 ***************************************************************************************
  
   .thumb2,
   .thumb2::-webkit-slider-thumb {
@@ -463,7 +434,7 @@
 
   #range12::before {
     content: attr(data-tooltip);
-    padding: 4px;
+   
   }
   
   #range22::before {
@@ -471,35 +442,991 @@
     padding: 0px;;
   }
   
- 
-  
+.showVlu{
+  border: 1px #bababa solid;
+  border-radius: 10%;
+  padding: 0px 6px;
+}
   .sliderTooltipRangeOne2::after {
     display: block;
     content: "";
-    background: #8350cb;
+    background: #fff;
     position: absolute;
-    border: 1px #8350cb solid;
-    border-top: 0;
-    border-left: 0;
+    border: 1px #0b1632 solid;
+    border-bottom: 0;
+    border-right: 0;
     width: 8px;
     height: 8px;
-    left: 10px;
-    bottom: -4px;
+    left: 13px;
+    bottom: 31px;
     transform: rotate(45deg);
   }
   
   .sliderTooltipRangeOne2 {
     display: block;
     position: absolute;
-    color: #ffff;
+    color: black;
     max-width: 100%;
-    background: #8350cb;
-    border-top: 0;
-    border-left: 0;
-    //padding: 0.25rem;
+    background: #fff;
+    padding: 0.11rem;
     border-radius: 0.2rem;
-    top: -0.4rem;
+    top: 7rem;
+    border: 1px gray solid;
   }
-  
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   

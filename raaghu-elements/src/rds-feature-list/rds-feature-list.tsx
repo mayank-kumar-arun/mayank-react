@@ -2,7 +2,6 @@ import React, { Fragment, ReactNode } from "react";
 import "./rds-feature-list.scss";
 
 export interface RdsFeatureListProps {
-    children: ReactNode;
     heading: string
     itemList: string[]
     columns: number,

@@ -1,5 +1,6 @@
 import React from "react";
 import "./rds-popover.scss";
+import RdsButton from "../rds-button/rds-button";
 
 export interface RdsPopoverProps {}
 
@@ -13,9 +14,10 @@ const RdsPopover = (props: RdsPopoverProps) => {
         data-bs-toggle={`popover`}
         data-bs-placement={`right`}
         data-bs-content={`Right popover`}
-      >
-        Popover on right
+        >
+       Popover on right
       </button>
+    
     </>
   );
 };
