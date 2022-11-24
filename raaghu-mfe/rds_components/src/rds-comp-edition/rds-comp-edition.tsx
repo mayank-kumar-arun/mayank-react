@@ -15,7 +15,6 @@ export interface RdsCompEditionProps {
 
 const RdsCompEdition = (props: RdsCompEditionProps) => {
   return (
-    <>
 
       <div className="col-md-2" style={{ width: "170px" }}>
         <div className="card">
@@ -75,9 +74,7 @@ const RdsCompEdition = (props: RdsCompEditionProps) => {
             </div>
           </div>
         </div>
-      ))}
-    </>
-  );
-};
+        </div>
+      )};
 
 export default RdsCompEdition;
