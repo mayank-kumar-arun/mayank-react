@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory, Story } from '@storybook/react';
-import RdsBanner, { RdsBannerProps } from './rds-banner'
+import RdsBanner from './rds-banner'
 
 export default {
   title: 'Elements/Banner',
@@ -22,7 +22,7 @@ const Template: ComponentStory<typeof RdsBanner> = (args) => <RdsBanner {...args
 export const Default = Template.bind({});
 Default.args = {
   alignCenter: false,
-  bannerText: "Hi, this is a banner.",
+  bannerText: "Hi, This is a banner.",
   sticky: false,
   position: "top",
   colorVariant: "primary"
@@ -31,7 +31,7 @@ Default.args = {
 export const With_icon = Template.bind({});
 With_icon.args = {
   alignCenter: false,
-  bannerText: "Hi, this is a banner.",
+  bannerText: "Hi, This is a banner.",
   sticky: false,
   position: "top",
   colorVariant: "primary",
@@ -41,7 +41,7 @@ With_icon.args = {
 export const With_close_button = Template.bind({});
 With_close_button.args = {
   alignCenter: false,
-  bannerText: "Hi, this is a banner.",
+  bannerText: "Hi, This is a banner.",
   sticky: false,
   position: "top",
   colorVariant: "primary",

@@ -1,61 +1,22 @@
 import React from "react";
-import { useState } from "react";
 import "./rds-badge.scss";
-import  RdsBadgeWithIcon from "./rds-badge.stories"
 
 export interface RdsBadgeProps {
   label: string;
-  number: number;
-  size?: "small" | "large" | string;
-  buttonColor: string;
-  badgeColor: string;
-  badgeType?: string;
-  icon: string;
-
-  
+  size?: "small" | "large" | "medium";
+  colorVariant?: 'primary' | 'success' | 'danger' | 'warning' | 'light' | 'info' | 'secondary' | 'dark';
+  textColor?: 'primary' | 'success' | 'danger' | 'warning' | 'light' | 'info' | 'secondary' | 'dark';
+  badgeType?: "rectangle"|"circle"|"pill";
 }
 
 const RdsBadge = (props: RdsBadgeProps) => {
-  let size: "btn-sm" | "btn-lg" | undefined = undefined;
-  if (props.size == "small") {
-    size = "btn-sm";
-  } else if (props.size == "large") {
-    size = "btn-lg";
-  }
-
-  let shape: "rounded-pill" | "rounded-circle" | undefined = undefined;
-  if (props.badgeType == "pill") {
-    shape = "rounded-pill";
-  } else if (props.badgeType == "circle") {
-    shape = "rounded-circle";
-  }
-
-  // if () {
-    
-  // }
-
-  
-
-  // const [buttonClassForIcon, setButtonClassForIcon] = useState<string>(" ");
-
-  // const handleOnCheck = () => {
-  //  setButtonClassForIcon("position-relative");};
-  //  setButtonClassForIcon;
- 
-  
-  let space!: " ";
-
-  return (
+  let fonts =(props.size=="small"?"10px":props.size=="large"?"18px":"14px" );
+  let textColor ="text-"+ props.textColor ||"dark"; 
+  let bg ="bg-"+ props.colorVariant ||"dark"; 
+  let badgeType = (props.badgeType =="rectangle"?" rounded-0 ":props.badgeType =="pill" ? " rounded-pill ":" ");
+return (
     <>
-      {/* <button type="button" className="btn btn-primary">
-        {props.label} {space}
-        <Badge bg={props.buttonColor}> {props.number} </Badge>
-      </button> */}
-
-      <button type="button" className={ "btn btn-"+ `${props.buttonColor} `+ ` ${size} `}>
-        {props.label}{space} <span className={ "badge bg-"+ `${props.badgeColor} ` + ` ${shape}`}>{props.number}</span>
-      </button>
-      
+      <span className={` badge fw-normal ${badgeType} ${textColor} ${bg}`} style={{fontSize:fonts}} >{props.label}</span>  
     </>
   );
 };
