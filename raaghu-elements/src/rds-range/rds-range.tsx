@@ -11,9 +11,6 @@ export interface RdsRangeProps {
 }
 
 const RdsRange = (props: RdsRangeProps) => {
-  
- /// const Color = props.colorVariant || 'primary' ;
-
   const [Value, setValue] = useState(props.min);
   const [isTouched, setIsTouched] = useState(false);
 
@@ -23,7 +20,6 @@ const RdsRange = (props: RdsRangeProps) => {
     setValue(value1);
   };
  
-
   let percent1 = ((Value - props.min) / (props.max - props.min)) * 100;
   let left = `calc(${percent1}% + (${-3 - percent1 * 0.28}px))`;
   let left2 = `calc(${percent1}% + (${-10 - percent1 * 0.22}px))`;
@@ -64,7 +60,7 @@ const RdsRange = (props: RdsRangeProps) => {
       { props.rangeType =="type2" && 
       <div className="position-relative py-5">
          <div className="showvalue mb-3"><span className="showVlu">{props.min}</span> <span className="showVlu">{props.max}</span></div>
-        <div className="slider-track" style={{ background: background }}>
+        <div className="slider-track__range" style={{ background: background }}>
          
             <span
               id="range11"
@@ -89,25 +85,24 @@ const RdsRange = (props: RdsRangeProps) => {
      {/* type - 1 */}
       { props.rangeType =="type1" && 
       <div className="position-relative py-5">
-        <div className="slider-track" style={{ background: background }}>
-         
-            <span
-              id="rangetwo"
-              style={{ left: left2,top: "-15px", padding: "5px 10px"}}
-              className="sliderTooltipRangetwo"
-            >
-              {Value}
-            </span>
-         </div>
-
-        <input
-          className="slider_two "
-          type="range"
-          max={props.max}
-          min={props.min}
-          onChange={handlerChange}
-          defaultValue={props.min}
-        />
+            <div className="slider-track" style={{ background: background }}>
+            
+                <span
+                  id="rangetwo"
+                  style={{ left: left2,top: "-15px", padding: "5px 10px"}}
+                  className="sliderTooltipRangetwo"
+                >
+                  {Value}
+                </span>
+            </div>
+            <input
+              className="slider_two "
+              type="range"
+              max={props.max}
+              min={props.min}
+              onChange={handlerChange}
+              defaultValue={props.min}
+            />
         <div className="showvalue mt-4"><span className="showVlu mt-1" >{props.min}</span> <span className="showVlu mt-1" >{props.max}</span></div>
       </div>}
       

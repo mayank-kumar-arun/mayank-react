@@ -7,19 +7,13 @@ export default {
   component:  RdsDoubleRange,
   argTypes: {
     colorVariant: {
-      options: [
-        "primary",
-        "secondary",
-        "success",
-        "info",
-        "warning",
-        "danger",
-        "dark",
-        "light",
-        "review",
-      ],
+      options: [ "primary", "secondary","success", "info","warning","danger", "dark","light","review",],
       control: { type: "select" },
     },
+    doubleRangeType:{
+      options: ["default","type_1","type_2"],
+      control: { type: "select" },
+    }
   }
 } as ComponentMeta<typeof  RdsDoubleRange>;
 

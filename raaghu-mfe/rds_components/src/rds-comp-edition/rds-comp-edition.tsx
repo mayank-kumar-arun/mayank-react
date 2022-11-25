@@ -52,7 +52,7 @@ const RdsCompEdition = (props: RdsCompEditionProps) => {
                         <li>{item}</li>
                       </>
                     ))}
-                    
+
                   </ul>
                 </div>
                 <div className="col-md-12" style={{ textAlign: "left" }}>
@@ -73,3 +73,4 @@ const RdsCompEdition = (props: RdsCompEditionProps) => {
 
 };
 export default RdsCompEdition;
+
