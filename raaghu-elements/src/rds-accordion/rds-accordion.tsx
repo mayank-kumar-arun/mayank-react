@@ -29,7 +29,7 @@ const RdsAccordion = (props: RdsAccordionProps) => {
     <>
       <div className="accordion accord" id="accordionExample">
         {props.buttonGroupItems.map((buttonGroupItem, i) => (
-          <div className="accordion-item itembox itemboxxx ">
+          <div key={i} className="accordion-item itembox itemboxxx ">
             <div
               style={{ cursor: "pointer" }}
               className={`${
