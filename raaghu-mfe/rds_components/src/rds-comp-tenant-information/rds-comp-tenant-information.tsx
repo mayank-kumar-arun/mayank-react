@@ -35,8 +35,6 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
 							<div className="form-group mb-3">
 								<RdsInput
 									inputType="text"
-									title="Tenancy Name"
-									titleType="Top"
 									label="Tenancy Name"
 									name="tenancy_name"
 									placeholder="Tenancy Name"
@@ -47,9 +45,7 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
 							<div className="form-group mb-3">
 								<RdsInput
 									inputType="text"
-									title="Tenant Name"
 									label="Tenant Name"
-									titleType="Top"
 									name="tenant_name"
 									placeholder="TenantName"
 								></RdsInput>
@@ -62,9 +58,7 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
 								<div className="form-group mb-3">
 									<RdsInput
 										inputType="email"
-										title="Admin Email"
 										label="Admin Email"
-										titleType="Top"
 										placeholder="Admin Email"
 										name="email"
 									></RdsInput>
