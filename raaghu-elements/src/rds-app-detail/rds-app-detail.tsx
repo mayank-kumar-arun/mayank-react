@@ -2,11 +2,11 @@ import React, { Fragment } from "react";
 import RdsIcon from "../rds-icon";
 import "./rds-app-detail.scss";
 
-export interface RdsAddressDetailProps {
+export interface RdsAppDetailProps {
    appDetailsItem:any;
 }
 
-const RdsAddressDetail = (props: RdsAddressDetailProps) => {
+const RdsAppDetail = (props: RdsAppDetailProps) => {
   return (
     <Fragment>
       <div className="card p-3">
@@ -47,4 +47,4 @@ const RdsAddressDetail = (props: RdsAddressDetailProps) => {
   );
 };
 
-export default RdsAddressDetail;
+export default RdsAppDetail;
