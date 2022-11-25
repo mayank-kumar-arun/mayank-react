@@ -4,6 +4,7 @@
     height: 100vh;
     width: 290px;
     background-color: #F5F5FA;
+    position: relative !important;
 }
 
 .sidebarList{
@@ -26,7 +27,15 @@
     font-size: 0.875rem;
 }
 
+
 .darkTheme{
-    padding-left: 77px;
+    position: absolute;
+    top: 88%;
+    left: 31%;
 }
 
+.gridIcon{
+    position: absolute;
+    top: 80%;
+    left: 45%;
+}

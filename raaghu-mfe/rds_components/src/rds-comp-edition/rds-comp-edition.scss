@@ -1,7 +1,8 @@
-
-.listyl::marker{
-    color: rgb(70, 220, 247);
-     border-radius: 50%;
-}
-
-
+.RdsCompEdition__description-list-inside-card ul li::before {
+    content: "\2022";
+    color: #249CF7;
+    font-weight: 1000;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }

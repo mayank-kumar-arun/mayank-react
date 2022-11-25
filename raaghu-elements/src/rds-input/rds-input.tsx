@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import "./rds-input.scss";
 import Tooltip from "../rds-tooltip/rds-tooltip";
-import { Placements } from "../../libs/types";
+import { placements } from "../../libs/types";
 
 
 export interface RdsInputProps {
@@ -13,7 +13,7 @@ export interface RdsInputProps {
   inputType?: string;
   placeholder?: string;
   labelPositon?: string;
-  tooltipPlacement?: Placements;
+  tooltipPlacement?: placements;
   tooltipTitle?: string;
   name?: string;
   label?: string;
@@ -57,6 +57,16 @@ const RdsInput = React.forwardRef(
 
     return (
       <div>
+        {!props.labelPositon && (
+          <>
+          <label htmlFor={props.id} className="form-label">
+            {props.label}
+          </label>
+          {props.redAsteriskPresent && (
+            <span className="text-danger ms-1">*</span>
+          )}
+        </>
+        )}
         {props.labelPositon == "top"  && (
           <>
             {props.label && (
