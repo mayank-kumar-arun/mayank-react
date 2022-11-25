@@ -51,8 +51,7 @@ const RdsCompEdition = (props: RdsCompEditionProps) => {
                         <li>{item}</li>
                       </>
                     ))}
-                    {/* <li>Test Check feature</li>
-                    <li>Test check feature count 2</li> */}
+                    
                   </ul>
                 </div>
                 <div className="col-md-12" style={{ textAlign: "left" }}>
