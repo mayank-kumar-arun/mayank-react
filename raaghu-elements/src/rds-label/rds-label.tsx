@@ -10,6 +10,7 @@ export interface RdsLabelProps {
   size?: string;
   className?: string;
   fontWeight?: number;
+  color?:string;
 }
 
 const RdsLabel = (props: RdsLabelProps) => {
@@ -18,7 +19,7 @@ const RdsLabel = (props: RdsLabelProps) => {
       className={`${!props.multiline ? "singleLine" : ""} ${
         props.bold ? "bold" : ""
       } ${props.italic ? "italic" : "poppins"} ${props.className}`}
-      style={{ fontSize: props.size, fontWeight: props.fontWeight }}
+      style={{ fontSize: props.size, fontWeight: props.fontWeight, color:props.color, margin:0, padding: 0 }}
     >
       <label>{props.label}{props.children}</label>
     </p>

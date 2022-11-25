@@ -13,12 +13,13 @@ const RdsTeamMember = (props: RdsTeamMemberProps) => {
     <div>
       {props.teamItem.map((teamItems, idx) => (
         <>
-          <div className="row">
-            <div style={{maxWidth: "270px"}}>
-              <div className="card-border mt-5 pt-5">
-                <div className="card pb-4 pt-5 px-3 justify-content-end">
-                  <div>
+          <div className="row" style={{marginLeft: "auto"}}>
+            <div className="mt-3" style={{width: "270px", padding:0}}>
+              <div className="card-border mt-5 pt-5 ">
+                <div className="card pb-4 justify-content-end" style={{position: "relative", paddingTop:120}}>
+                  <div style={{position: "absolute", top:"-104px", marginLeft: 19}}>
                     <img
+                    style={{height: 232, width: 232}}
                       src={teamItems.imgLink}
                       className="card-img-top"
                       alt="..."
@@ -26,12 +27,13 @@ const RdsTeamMember = (props: RdsTeamMemberProps) => {
                   </div>
                   <div className="mt-3">
                     <div className="d-flex justify-content-center mt-2">
-                      <h2>
+                      <h2 style={{marginBottom:0}}>
                         <RdsLabel
                           label={teamItems.title}
                           multiline={false}
-                          bold={false}
+                          bold={true}
                           italic={false}
+                          size="32px"
                         ></RdsLabel>
                       </h2>
                     </div>
@@ -42,6 +44,8 @@ const RdsTeamMember = (props: RdsTeamMemberProps) => {
                           multiline={false}
                           bold={false}
                           italic={false}
+                          size="16px"
+                          color="#A061F7"
                         ></RdsLabel>
                       </h5>
                     </div>
