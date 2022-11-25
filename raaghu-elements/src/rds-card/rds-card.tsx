@@ -1,11 +1,13 @@
 import React, { Fragment } from "react";
 import { colors } from "../../libs/types";
 import "bootstrap/dist/css/bootstrap.min.css"
+import "./rds-card.scss"
 
 export interface RdsCardProps {
   buttonLabel?: string;
   colorVariant?: colors;
-  cardItems: any[];
+  cardTitle?:string,
+  cardText?:string
   showFooter?: boolean;
   isImage?: boolean;
   imageUrl?: string;
@@ -19,51 +21,40 @@ const RdsCard = (props: RdsCardProps) => {
 
   let isCenter = props.centerAlign || false;
   let textAlign = `${isCenter === true ? "card text-center" : "card"}`;
- let left1= "50%"; 
- let left2="10%"
+  let leftAlignLeft="20px"
+  let leftAlignCenter=`calc(50% + (-42px))`;
+  
+       
   return (
     <Fragment>
       <div className={textAlign} >
-        
+        <div className=" position-relative">
           {props.isImage === true && (
-            <img src={props.imageUrl}  style={{
+            <img src={props.imageUrl} id="backImg" style={{
               position: 'relative',
             }} className="card-img-top" alt="..." />
           )} 
           {props.isAvatar === true && isCenter===true&& props.isImage === true&&
-          <img className="img-fluid"
-            style={{
-              position: "absolute",
-              top: "151px",
-              left: left1,
-              width: "13vw",
-              borderRadius: "13vw",
-            }}
+          <img className="img-fluid avatar___Image"
+            style={{left: leftAlignCenter}}
             src={props.avatarUrl}
           ></img>}
             {props.isAvatar === true && isCenter===false && props.isImage === true&&
-          <img className="img-fluid"
-            style={{
-              position: "absolute",
-              top: "151px",
-              left:left2,
-              width: "13vw",
-              borderRadius: "13vw",
-            }}
+          <img className="img-fluid avatar___Image"
+            style={{left:leftAlignLeft}}
             src={props.avatarUrl}
           ></img>}
+        </div>
         
-        <div className="card-body">
-          {props.cardItems.map((cardItem) => (
+        <div className={`card-body ${props.isAvatar === true?" cardBody__Avatar":"cardBody__withoutAvatar"}`} >
+          
             <div>
-              <h5 className="card-title">{cardItem.cardTitle}</h5>
-              <p className="card-text">{cardItem.cardText}</p>
+              <h5 className="card-title">{props.cardTitle}</h5>
+              <p className="card-text">{props.cardText}</p>
             </div>
-          ))}
-          <br />
-
+          
           {props.showFooter === true && (
-            <button type="button" className={btnColor}>
+            <button type="button" className={` bottombtn ${btnColor}`} >
               {props.buttonLabel}
             </button>
           )}
