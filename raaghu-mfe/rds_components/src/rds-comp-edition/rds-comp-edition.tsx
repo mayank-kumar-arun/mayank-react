@@ -1,5 +1,6 @@
 import React from "react";
 import { RdsLabel } from "../rds-elements";
+
 import "./rds-comp-edition.scss";
 export interface RdsCompEditionProps {
   EditionItems: any;
@@ -51,6 +52,7 @@ const RdsCompEdition = (props: RdsCompEditionProps) => {
                         <li>{item}</li>
                       </>
                     ))}
+
                   </ul>
                 </div>
                 <div className="col-md-12" style={{ textAlign: "left" }}>
@@ -68,5 +70,7 @@ const RdsCompEdition = (props: RdsCompEditionProps) => {
       </div>
     </>
   );
+
 };
 export default RdsCompEdition;
+
