@@ -6,7 +6,10 @@ export default {
     title: "Elements/Feature List",
     component: RdsFeatureList,
     argTypes: {
-
+        colorVariant: {
+            options: ['primary' ,'success' , 'danger' , 'warning' , 'light' ,'info' , 'secondary' , 'dark'],
+            control: { type: "select" },
+          },
     },
 } as ComponentMeta<typeof RdsFeatureList>;
 
@@ -30,7 +33,9 @@ Default.args = {
 
 export const With_multiple_column = Template.bind({});
 With_multiple_column.args = {
+    colorVariant:"primary" ,
     heading: "Features",
+    fontStyle:"italic", 
     itemList: [
         "Only the best materials",
         "Ethically and locally made",

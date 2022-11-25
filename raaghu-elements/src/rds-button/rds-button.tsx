@@ -46,7 +46,7 @@ const RdsButton = (props: RdsButtonProps) => {
 		props.size == "small" ? "btn-sm" : props.size == "large" ? "btn-lg" : "";
 
 	return (
-		<div className={props.block ? "d-grid gap-2" : ""}>
+		<div className={props.block ? "RdsButton d-grid gap-2" : "RdsButton "}>
 			{props.tooltip && (
 				<Tooltip text={props.tooltipTitle} place={props.tooltipPlacement}>
 					<button
@@ -63,18 +63,18 @@ const RdsButton = (props: RdsButtonProps) => {
 					>
 						<span className="d-flex align-items-center justify-content-center">
 							{props.icon && (
-								<span>
+								<span style={{ marginRight: "5px" }}>
 									<RdsIcon
 										colorVariant={props.iconColorVariant}
 										name={props.icon}
 										fill={true}
 										stroke={true}
-										height="17px"
-										width="17px"
+										height="16px"
+										width="16px"
 									></RdsIcon>
 								</span>
 							)}
-							<span style={{ marginLeft: "5px" }}>{props.label}</span>
+							<span>{props.label}</span>
 						</span>
 						{props.children}
 					</button>
@@ -95,18 +95,18 @@ const RdsButton = (props: RdsButtonProps) => {
 				>
 					<span className="d-flex align-items-center justify-content-center">
 						{props.icon && (
-							<span>
+							<span style={{ marginRight: "5px" }}>
 								<RdsIcon
 									colorVariant={props.iconColorVariant}
 									name={props.icon}
 									fill={true}
 									stroke={true}
-									height="17px"
-									width="17px"
+									height="16px"
+									width="16px"
 								></RdsIcon>
 							</span>
 						)}
-						<span style={{ marginLeft: "5px" }}>{props.label}</span>
+						<span>{props.label}</span>
 					</span>
 					{props.children}
 				</button>

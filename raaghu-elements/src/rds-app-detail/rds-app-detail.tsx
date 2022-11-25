@@ -9,9 +9,9 @@ export interface RdsAppDetailProps {
 const RdsAppDetail = (props: RdsAppDetailProps) => {
 	return (
 		<Fragment>
-			<div className="card">
-				<div className="p-3 headerr ">
-					<span className="border p-1">
+			<div className="card p-3">
+				<div className=" headerr ">
+					<span className="border p-2">
 						<RdsIcon
 							name={props.appDetailsItem.icon}
 							colorVariant={props.appDetailsItem.iconColor}
@@ -41,10 +41,10 @@ const RdsAppDetail = (props: RdsAppDetailProps) => {
 						</label>
 					</div>
 				</div>
-				<div className="border-top pb-1">
+				<div className="border-top ">
 					<a
 						href={props.appDetailsItem.route}
-						className="float-end p-2 fs-7 linkk"
+						className="float-end pb-1 fs-7 linkk"
 					>
 						View integration
 					</a>
