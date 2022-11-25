@@ -12,32 +12,23 @@ const Template: ComponentStory<typeof RdsBankCardDetail> = (args) => <RdsBankCar
 
 export const Default = Template.bind({});
 Default.args = {
-
-    cardData : {
-        iconHeight: "30px",
-        iconWidth: "30px",
-        icon: 'editions',
-        iconFill: false,
-        iconstroke: true,
-        iconColorVarient:"dark",
-        cardID : "1011",
-        cardName : "MasterCard",
-        cardExpiry : "11/2027",
-       
-        cardNumber : 3596,
-        isDefault : false,
-       radioItems: [
-            {
-              "id": 1011,
-              "checked": false,
-              "name": "Radio-Button"
-            }
-          ]
-        }
-        ,
-    isSelectable: false,
-    label: "label card",
-    isEditable:false,
+       isSelectable: true,
+       isEditable:true,
+        cardDatas: [
+          {  
+            iconHeight: "30px",
+            iconWidth: "30px",
+            icon: "editions",
+            iconFill: false,
+            iconstroke: true,
+            iconColorVarient: "dark",
+            cardID: "1011",
+            cardName: "MasterCard",
+            cardExpiry: "11/2027",
+            cardNumber: 3596,
+            isDefault: false, 
+          },
+        ],
+   
     
-
 };

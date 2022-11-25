@@ -7,9 +7,7 @@ export interface RdsBigNumberProps {
   subTitleColorVariant?: string;
   bigNumber:string 
   subTitle?:string,
-  bigNumberItems:any[],
   class?:string,
-  style?:any,
   role: 'basic' | 'advanced' ,
   icon: string ;
   iconHeight: string ;
