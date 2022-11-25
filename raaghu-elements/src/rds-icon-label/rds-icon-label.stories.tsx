@@ -24,9 +24,9 @@ export default {
 
 export const Default = Template.bind({});
 Default.args = {
-    label:'',
-    icon: '',
-    size:'small',
-    iconSize:"small",
+    label:'User Name',
+    icon: 'users',
+    size:'medium',
+    iconSize:"medium",
 }
   

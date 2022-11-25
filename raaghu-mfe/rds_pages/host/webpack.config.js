@@ -20,6 +20,8 @@ module.exports = (env, argv) => {
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
+      hot: true,
+      historyApiFallback: true,
     },
     resolve: {
       extensions: [".ts", ".tsx", ".js"],
@@ -60,15 +62,13 @@ module.exports = (env, argv) => {
         remotes: {
           Dashboard: isProduction ? process.env.PROD_APP1 : process.env.DEV_APP1,
           Login: isProduction ? process.env.PROD_APP2 : process.env.DEV_APP2,
+          ForgotPassword: isProduction ? process.env.PROD_APP3 : process.env.DEV_APP3,
         },
         
         shared: {
             ...devdeps,
           ...deps,
-          'luxon': {
-            singleton: true,
-            requiredVersion: deps['luxon'],
-        },
+          
           react: { singleton: true, eager: true, requiredVersion: deps.react },
           "react-dom": {
             singleton: true,

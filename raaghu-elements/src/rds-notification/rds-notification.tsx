@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from "react";
-import { Colors } from "../Types";
+import { colors } from "../../libs/types";
 import RdsIcon from "../rds-icon/rds-icon";
 import "./rds-notification.scss";
 
 export interface RdsNotificationProps {
-  colorVariant?: Colors;
+  colorVariant?: colors;
  
   unreadCount:number
   notifications: any[];

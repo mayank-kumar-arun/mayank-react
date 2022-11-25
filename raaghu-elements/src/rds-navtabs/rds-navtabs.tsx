@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, ReactNode, useState } from "react";
 
 import "./rds-navtabs.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -7,6 +7,8 @@ import RdsIcon from "../rds-icon";
 
 
 export interface RdsNavtabsProps {
+    children?: ReactNode;
+    // type?: "default" | "pills" | "tabs" | "vertical"
     navtabsItems: {
         label: string,
         tablink?: string,
@@ -70,9 +72,8 @@ const RdsNavtabs = (props: RdsNavtabsProps) => {
                 </div>
             </div> */}
 
-
-
-        </div>
+             {props.children}
+        </div >
     )
 
 

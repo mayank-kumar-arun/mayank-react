@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"cd rds_components && npm run dev\" \"cd rds_pages\\Login && npm run dev\" \"cd rds_pages\\Dashboard && npm run dev\" \"cd rds_pages\\Host && npm run dev\" \"cd rds_pages\\forgot-password && npm run dev\" \"cd rds_pages\\Maintainance && npm run dev\" \"cd rds_pages\\organization-units && npm run dev\""
+    "start": "concurrently \"cd rds_components && npm run dev\" \"cd rds_pages\\Login && npm run dev\" \"cd rds_pages\\Dashboard && npm run dev\" \"cd rds_pages\\Host && npm run dev\" \"cd rds_pages\\forgot-password && npm run dev\" \"cd rds_pages\\tenant && npm run dev\" \"cd rds_pages\\Maintainance && npm run dev\" \"cd rds_pages\\organization-units && npm run dev\" \"cd rds_pages\\settings && npm run dev\"",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "build": "concurrently \"cd rds_pages\\Host && npm run build\""
   },
   "keywords": [],
   "author": "",
@@ -14,14 +17,14 @@
     "@types/luxon": "^3.0.2",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "bootstrap": "^5.2.2",
     "dotenv": "^16.0.2",
-    "luxon": "^3.0.4",
+    "luxon": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^3.1.4",
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.3",
-    
     "redux-persist": "^6.0.0"
   },
   "devDependencies": {

@@ -5,7 +5,7 @@ export interface RdsOffcanvasProps {
   children?: ReactNode;
   placement?: string;
   canvasTitle?: string;
-  width?: string;
+  width?:string
 }
 
 const RdsOffcanvas = (props: RdsOffcanvasProps) => {
@@ -26,7 +26,7 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
         data-bs-target={`#${offcanvasPlacement}`}
         aria-controls={offcanvasPlacement}
       >
-        Toggle Offcanvas
+        Button
       </button>
 
       <div

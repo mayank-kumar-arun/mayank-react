@@ -41,16 +41,6 @@ const Template: ComponentStory<typeof RdsToast> = (args) => (
   <RdsToast {...args}> </RdsToast>
 );
 
-// export const Default = Template.bind({});
-// Default.args = {
-//   headerTitle: "Bootstrap",
-//   message:" Hello, world! This is a toast message. ",
-//   colorVariant:"light",
-//   delay:6000,
-//   autohide:false,
-//   borderColor:"primary",
-//   showHeader:true,
-// };
 
 export const Default = Template.bind({});
 Default.args = {

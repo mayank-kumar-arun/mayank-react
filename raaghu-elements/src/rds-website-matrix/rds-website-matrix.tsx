@@ -1,10 +1,10 @@
 import React, { Fragment, ReactNode } from "react";
 import "./rds-website-matrix.scss"
 import RdsIcon from "../rds-icon/rds-icon";
-import { Colors} from "../Types";
+import { colors} from "../../libs/types";
 
 export interface RdsWebsiteMatrixProps {
-   colorVariant?:Colors,
+   colorVariant?:colors,
    item: any;
    onClickLink :(event:React.MouseEvent<HTMLAnchorElement>, clicked:boolean)=>void, 
    displayType?: string;

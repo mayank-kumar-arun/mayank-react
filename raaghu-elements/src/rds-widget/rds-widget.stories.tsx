@@ -5,6 +5,22 @@ import RdsWidget from "./rds-widget";
 export default {
   title: "Elements/Widget",
   component: RdsWidget,
+  argTypes: {
+    colorVariant: {
+      options: [
+        "primary",
+        "secondary",
+        "success",
+        "info",
+        "warning",
+        "danger",
+        "dark",
+        "light",
+        'gradient-primary'
+      ],
+      control: { type: "select" },
+    },
+  }
 } as ComponentMeta<typeof RdsWidget>;
 
 const Template: ComponentStory<typeof RdsWidget> = (args) => (
@@ -14,21 +30,6 @@ const Template: ComponentStory<typeof RdsWidget> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   headerTitle: "Widget",
-  children: <nav aria-label="Page navigation example">
-  <ul className="pagination">
-    <li className="page-item">
-      <a className="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li className="page-item"><a className="page-link" href="#">1</a></li>
-    <li className="page-item"><a className="page-link" href="#">2</a></li>
-    <li className="page-item"><a className="page-link" href="#">3</a></li>
-    <li className="page-item">
-      <a className="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>,
+  isRefreshIcon: true, 
+  children: <div> Hello</div>,
 };

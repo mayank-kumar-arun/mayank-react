@@ -1,10 +1,14 @@
- .singleLine {
-    white-space: nowrap; 
-    overflow: hidden;
+.singleLine {
+  white-space: nowrap;
+  overflow: hidden;
 }
 .bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 .italic {
-    font-style: italic;
+  font-style: italic;
+}
+
+.poppins {
+  font-family: Poppins;
 }

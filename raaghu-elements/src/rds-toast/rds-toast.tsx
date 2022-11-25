@@ -1,9 +1,9 @@
 import React, { useState,useEffect } from "react";
-import { Colors } from "../Types";
+import { colors } from "../../libs/types";
 import "./rds-toast.scss"
 
 export interface RdsToastProps {
-  colorVariant?:Colors;
+  colorVariant?:colors;
   headerTitle: string;
   message: string;
   delay:number;
@@ -15,7 +15,7 @@ const RdsToast = (props: RdsToastProps) => {
    const[clicked, setClicked] = useState(false)
    let delay = props.delay || 5000;
    const handler = props.hasOwnProperty("autohide")&&props.autohide==true;
-  console.log("delay - " + delay)
+   console.log("delay - " + delay)
 
    useEffect(() => {
     if(handler==true){
@@ -40,11 +40,11 @@ const RdsToast = (props: RdsToastProps) => {
         role="alert"
         aria-live="assertive"
         aria-atomic="true" >
-       {isHeader==true &&  <div><div className="toast-header">
-          <strong className="me-auto">{props.headerTitle}</strong>
+       {isHeader==true &&  <div><div className="toast-header p-2 d-flex justify-content-between">
+          <strong className="text-bold "> {props.headerTitle} </strong>
             <button
             type="button"
-            className="btn-close"
+            className="btn-close align-self-baseline"
             data-bs-dismiss="toast"
             aria-label="Close"
             onClick={closeHandler}
@@ -52,15 +52,16 @@ const RdsToast = (props: RdsToastProps) => {
           
         </div>
         <div className="toast-body">{props.message}</div></div>}
-        {isHeader==false && <div  className="ms-1 me-2 toastbody "><div className="toast-body toastbody ">{props.message}</div>
-        <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="toast"
-                aria-label="Close"
-                onClick={closeHandler}
+        {isHeader==false && <div  className="m-1 toastbody "> 
+          <div className="toast-body toastbody ">{props.message}</div>
+            <button
+                    type="button"
+                    className="btn-close align-self-baseline"
+                    data-bs-dismiss="toast"
+                    aria-label="Close"
+                    onClick={closeHandler}
             ></button>
-           </div>
+          </div>
             }
       </div>
     </>

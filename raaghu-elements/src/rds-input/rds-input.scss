@@ -1,18 +1,3 @@
-@import "../style.scss";
-
 input{
     flex:1
-}
-
-
-
-
-
-//-----------------------------------------------------//
-//---------------SPECIAL CASE CLASSES------------------//
-//-----------------------------------------------------//
-
-input.input-for-rds-input-group{
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
 }

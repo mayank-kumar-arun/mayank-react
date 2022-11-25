@@ -1,11 +1,13 @@
 import React, { Fragment, useState } from "react";
 import RdsIcon from "../rds-icon";
+import "./rds-bank-card-detail.scss"
 
 export interface RdsBankCardDetailProps {
   cardData: any;
   isSelectable: boolean;
   label: string;
   isEditable: boolean;
+ // onClick:(event:React.MouseEvent<HTMLButtonElement>)=>void;
 }
 
 const RdsBankCardDetail = (props: RdsBankCardDetailProps) => {
@@ -15,13 +17,14 @@ const RdsBankCardDetail = (props: RdsBankCardDetailProps) => {
   const clickHandler = () => {
     setChecked(true);
     setClicked(true);
+  //  onClick()
   };
   return (
     <Fragment>
       <div className="pt-1 mb-4">
-        <div className="border p-3  bg-light rounded">
+        <div className="borderr1 p-3 ">
           <div className=" ">
-            <label className="bold ">{props.label}</label>
+            {/* <label className="bold ">{props.label}</label> */}
 
             <div className="d-flex mt-2 justify-content-between">
               <div className="d-flex  align-items-center">
@@ -36,7 +39,7 @@ const RdsBankCardDetail = (props: RdsBankCardDetailProps) => {
 
                 <div className="ms-3  ">
                   <div className="ms-3 d-flex fs-6">
-                    <span>{props.cardData.cardName}</span>
+                    <span >{props.cardData.cardName}</span>
                     <span className="ms-1 me-1 ">Ending with</span>
                     <span>{props.cardData.cardNumber}</span>
                   </div>
@@ -52,9 +55,9 @@ const RdsBankCardDetail = (props: RdsBankCardDetailProps) => {
               <div className="form-check">
               { props.isSelectable==true&& <input
                   className="form-check-input"
-                  type="radio"
+                  type="checkbox"
                   name="flexRadioDefault"
-                  id="flexRadioDefault1"
+                  id="flexRadioD"
                   defaultChecked={checked}
                 />}
               </div>

@@ -30,5 +30,8 @@ const Template: ComponentStory<typeof RdsLikeDislike> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
- 
+  like:0,
+  dislike:0,
+  heightOfIcon: "24px",
+  widthOfIcon : "24px"
 };

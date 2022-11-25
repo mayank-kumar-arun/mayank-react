@@ -30,7 +30,6 @@ Default.args = {
       listContent: "",
       listTime: "",
       type: "",
-      isActive: false,
     },
     {
       label: " label 2",
@@ -40,7 +39,6 @@ Default.args = {
       listContent: "",
       listTime: "",
       type: "",
-      isActive: true,
     },
     {
       label: " label 3",
@@ -50,7 +48,6 @@ Default.args = {
       listContent: "",
       listTime: "",
       type: "",
-      isActive: false,
     },
   ],
 };
@@ -60,7 +57,7 @@ export const ListGroupWithMultiSelect = Template.bind({});
 ListGroupWithMultiSelect.args = {
   labelPosition: "top",
   label:"List Group",
-  lsitGroupWithMultiSelect: true,
+  listGroupWithMultiSelect: true,
   listItem: [
     {
       label: " label 1",
@@ -70,7 +67,6 @@ ListGroupWithMultiSelect.args = {
       listContent: "",
       listTime: "",
       type: "",
-      isActive: false,
     },
     {
       label: " label 2",
@@ -80,7 +76,6 @@ ListGroupWithMultiSelect.args = {
       listContent: "",
       listTime: "",
       type: "",
-      isActive: true,
     },
     {
       label: " label 3",
@@ -90,7 +85,79 @@ ListGroupWithMultiSelect.args = {
       listContent: "",
       listTime: "",
       type: "",
-      isActive: false,
+    },
+  ],
+};
+
+export const ListGroupWithBadge = Template.bind({});
+ListGroupWithBadge.args = {
+  labelPosition: "top",
+  label:"List Group",
+  withBadge:true,
+  listItem: [
+    {
+      label: " label 1",
+      disabled: true,
+      badgeLabel: "10",
+      listHeading: "",
+      listContent: "",
+      listTime: "",
+      type: "",
+    },
+    {
+      label: " label 2",
+      disabled: false,
+      badgeLabel: "2",
+      listHeading: "",
+      listContent: "",
+      listTime: "",
+      type: "",
+    },
+    {
+      label: " label 3",
+      disabled: false,
+      badgeLabel: "5",
+      listHeading: "",
+      listContent: "",
+      listTime: "",
+      type: "",
+    },
+  ],
+};
+
+export const MultiSelectListGroupWithBadge = Template.bind({});
+MultiSelectListGroupWithBadge.args = {
+  labelPosition: "top",
+  label:"List Group",
+  listGroupWithMultiSelect: true,
+  withBadge: true,
+  listItem: [
+    {
+      label: " label 1",
+      disabled: true,
+      badgeLabel: "10",
+      listHeading: "",
+      listContent: "",
+      listTime: "",
+      type: "",
+    },
+    {
+      label: " label 2",
+      disabled: false,
+      badgeLabel: "2",
+      listHeading: "",
+      listContent: "",
+      listTime: "",
+      type: "",
+    },
+    {
+      label: " label 3",
+      disabled: false,
+      badgeLabel: "5",
+      listHeading: "",
+      listContent: "",
+      listTime: "",
+      type: "",
     },
   ],
 };

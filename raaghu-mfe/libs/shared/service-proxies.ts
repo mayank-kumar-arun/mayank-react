@@ -7,16 +7,16 @@
 /* tslint:disable */
 /* eslint-disable */
 // ReSharper disable InconsistentNaming
-
+export const BASE_URL: string = "https://anzdemoapi.raaghu.io"
 import { DateTime, Duration } from "luxon";
-export const BASE_URL:string = "https://anzdemoapi.raaghu.io";
 export class AccountServiceProxy {
     private http: { fetch(url: RequestInfo, init?: RequestInit): Promise<Response> };
-    private baseUrl: string;
+    private baseUrl: string = BASE_URL;
     protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
 
     constructor(baseUrl?: string, http?: { fetch(url: RequestInfo, init?: RequestInit): Promise<Response> }) {
         this.http = http ? http : window as any;
+
         this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "";
     }
 
@@ -26,7 +26,8 @@ export class AccountServiceProxy {
      */
     //  https://cors-anywhere.herokuapp.com/
     isTenantAvailable(body: IsTenantAvailableInput | undefined): Promise<IsTenantAvailableOutput> {
-        let url_ = BASE_URL + "/api/services/app/Account/IsTenantAvailable";
+        
+        let url_ = this.baseUrl + "/api/services/app/Account/IsTenantAvailable";
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = JSON.stringify(body);
@@ -8788,6 +8789,7 @@ export class TokenAuthServiceProxy {
      * @return Success
      */
     authenticate(body: AuthenticateModel | undefined): Promise<AuthenticateResultModel> {
+        console.log(this.baseUrl)
         let url_ = BASE_URL + "/api/TokenAuth/Authenticate";
         url_ = url_.replace(/[?&]$/, "");
 

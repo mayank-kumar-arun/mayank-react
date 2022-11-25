@@ -19,6 +19,7 @@ const Template: ComponentStory<typeof RdsFabMenu> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
+  
     colorVariant:"primary",
     listItems : [
         { value: 'New Role', some: 'value', key: 'new', icon: 'users', iconWidth: '20px', iconHeight: '20px' },

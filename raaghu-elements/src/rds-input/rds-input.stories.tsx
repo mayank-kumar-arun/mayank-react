@@ -8,7 +8,7 @@ export default {
   argTypes: {
     size: {
       options: ["small", "medium", "large"],
-      control: { type: "radio" },
+      control: { type: "select" },
     },
     inputType: {
       options: ["email", "text", "password"],
@@ -32,25 +32,60 @@ const Template: ComponentStory<typeof RdsInput> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   size: "medium",
-  isDisabled: false,
-  readonly: false,
-  value: "",
   inputType: "text",
-  placeholder: "edit",
-  title: "",
-  titleType: "top",
+  placeholder: "Add Placeholder",
+  label:"Label",
+  labelPositon:"top",
+  id:"",
+  value: "",
+  redAsteriskPresent: true,
 };
 
 export const Tooltip = Template.bind({});
+Tooltip.decorators= [
+  (Story) => (
+    <div style={{ padding:'70px 200px' ,
+    }}>
+      <Story/>
+    </div>
+  ),
+],
 Tooltip.args = {
   size: "medium",
-  isDisabled: false,
-  readonly: false,
-  value: "",
   inputType: "text",
-  placeholder: "edit",
-  title: "",
-  titleType: "top",
+  placeholder: "Add Placeholder",
+  label:"Label",
+  labelPositon:"top",
+  id:"",
+  value: "",
+  redAsteriskPresent: true,
   tooltipPlacement:"top",
   tooltipTitle:"This is tooltip",
 };
+
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  size: "medium",
+  inputType: "text",
+  placeholder: "Add Placeholder",
+  label:"Label",
+  labelPositon:"top",
+  id:"",
+  value: "",
+  redAsteriskPresent: true,
+  isDisabled: true,
+}
+
+export const Readonly = Template.bind({});
+Readonly.args = {
+  size: "medium",
+  inputType: "text",
+  placeholder: "Add Placeholder",
+  label:"Label",
+  labelPositon:"top",
+  id:"",
+  value: "",
+  redAsteriskPresent: true,
+  readonly: true,
+}

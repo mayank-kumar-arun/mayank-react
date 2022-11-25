@@ -25,11 +25,42 @@ export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
     colorVariant: 'yellow',
-    firstName: 'sania',
-    lastName:'sonkaria',
-    role:"developer",
-    isTitle:true,
-   // titleAlign:"horizontal",
-    withProfilePic:true,
-    profilePic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU"
+    firstName: 'Sania',
+    lastName:'Sonkaria',
+    size:'medium',
+    height:"48px"
+   };
+
+export const AvatarWithVerticallyAllignedInfo = Template.bind({});
+AvatarWithVerticallyAllignedInfo.args = {
+  colorVariant: 'yellow',
+  firstName: 'Sania',
+  lastName:'Sonkaria',
+  size:'medium',
+  isTitle:false, 
+  titleAlign: "vertical",
+  role:"Developer", 
+ 
+
 };
+
+export const AvatarWithHorizontallyAllignedInfo = Template.bind({});
+AvatarWithHorizontallyAllignedInfo.args = {
+ 
+  colorVariant: 'yellow',
+  firstName: 'Sania',
+  lastName:'Sonkaria',
+  size:'medium',
+  isTitle:false, 
+  titleAlign:"horizontal",
+  role:"Developer", 
+ 
+};
+
+export const Profile = Template.bind({});
+Profile.args = {
+ height:"50px",
+  withProfilePic:true,
+  profilePic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU"
+};
+

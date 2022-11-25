@@ -6,34 +6,24 @@ export default {
   title: "Elements/TextArea",
   component: RdsTextArea,
   argTypes: {
-    colorVariant: {
-      options: [
-        "primary",
-        "secondary",
-        "success",
-        "info",
-        "warning",
-        "danger",
-        "dark",
-        "light",
-        "review",
-      ],
-      control: { type: "select" },
-    }
-  }
+    labelPosition: {
+      options: ["top", "bottom"],
+      control: "radio",
+    },
+  },
 } as ComponentMeta<typeof RdsTextArea>;
 
 const Template: ComponentStory<typeof RdsTextArea> = (args) => (
-  <RdsTextArea {...args}/>
+  <RdsTextArea {...args} />
 );
 
 export const Default = Template.bind({});
 Default.args = {
-  rows:3,
-  readonly:false,
-  label:"Example label",
-  placeholder:"This is text area...",
-  //value:,
-  isDisabled:false,
-  colorVariant: "primary",
+  rows: 3,
+  readonly: false,
+  label: "Example label",
+  placeholder: "This is text area...",
+  labelPosition: "top",
+  isDisabled: false,
+  isRequired: false,
 };

@@ -1,0 +1,71 @@
+import React from "react";
+import {
+  RdsInput,
+  RdsCheckbox,
+  RdsCheckboxGroup,
+  RdsCounter,
+} from "../rds-elements";
+
+export interface RdsCompSecurityProps {
+  checkgroupList: any;
+}
+
+const RdsCompSecurity = (props: RdsCompSecurityProps) => {
+  return (
+    <>
+      <div>
+        <div>
+          <label className=" mb-2">Password Complexity </label>
+          <div className="fw-normal">
+            <RdsCheckbox label="Use Default Settings" />
+            <div className="m-3 ">
+              <RdsCheckboxGroup itemList={props.checkgroupList} />
+            </div>
+          </div>
+          <RdsCounter
+            counterValue={0}
+            label=""
+            min={0}
+            max={50}
+            width={125}
+            colorVariant="primary"
+          />
+          <label className="mt-2 mb-2">User Lock Out</label>
+          <div className="fw-normal">
+            <RdsCheckbox label="Enable user Account Locking On Failed Login Attempts" />
+          </div>
+        </div>
+        <div className="mb-2 fw-normal mt-2">
+          <RdsCounter
+            counterValue={0}
+            label="Maximum Numaber Of failed Login Attempt Count Befire Locking The Account"
+            min={0}
+            max={50}
+            width={125}
+            colorVariant="primary"
+          />
+        </div>
+
+        <div className="mb-3 fw-normal mt-2 col-5">
+          <RdsInput
+            label=" Account Locking Duration(as seconds) "
+            inputType="number"
+            placeholder="enter a value"
+          />
+        </div>
+
+        <label className="mt-2">Two Factor Login </label>
+        <div className="fw-normal">
+          <RdsCheckbox label="Enable Two Factor Login  " />
+        </div>
+        <label className="mt-2">Only One Concurrent Login per user </label>
+        <div className="fw-normal">
+          <RdsCheckbox label="Disable Concurrent Login For A User. If A User Logins With A Second Device, The First Session Is Automatically Closed." />
+        </div>
+      </div>
+    </>
+
+  );
+};
+
+export default RdsCompSecurity;
