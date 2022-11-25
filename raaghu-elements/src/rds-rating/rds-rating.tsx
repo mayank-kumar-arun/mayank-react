@@ -5,12 +5,12 @@ import "./rds-rating.scss";
 
 export interface RdsRatingProps {
   rating: 0 | 1 | 2 | 3 | 4 | 5,
-
   reviewPosition?: "left" | "right" | "none",
   colorVariant?: colors
   noOfReviews?: number
-
   size?: size
+  seeAllOption?: boolean
+  onSeeAll?: () => void
 }
 
 const RdsRating = (props: RdsRatingProps) => {
@@ -18,7 +18,7 @@ const RdsRating = (props: RdsRatingProps) => {
   const orderArray = [1, 2, 3, 4, 5]
 
   return (
-    <><div className="d-flex">
+    <div className="d-flex">
       <span className="">
         {(props.reviewPosition === "left" || props.reviewPosition === undefined) &&
           <span>{props.rating}</span>
@@ -34,10 +34,16 @@ const RdsRating = (props: RdsRatingProps) => {
             ></RdsIcon>
           </span>
         )}
-        {props.reviewPosition === "right" && <span className="ps-1">{props.rating}</span>}
+        {props.reviewPosition === "right" &&
+          <span className="ps-1">{props.rating}</span>
+        }
       </span>
-      <span className="ps-2">{props.noOfReviews}</span></div>
-    </>
+      {props.seeAllOption &&
+        <small className="ps-2 text-primary" onClick={props.onSeeAll}>
+          See all {props.noOfReviews} reviews
+        </small>
+      }
+    </div>
   );
 };
 

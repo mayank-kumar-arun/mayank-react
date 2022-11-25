@@ -6,7 +6,8 @@ export interface RdsListGroupProps {
   labelPosition?: string;
   label?: string;
   listItem: any[];
-  lsitGroupWithMultiSelect?: boolean;
+  listGroupWithMultiSelect?: boolean;
+  withBadge?: boolean;
 }
 
 const RdsListGroup = (props: RdsListGroupProps) => {
@@ -15,53 +16,52 @@ const RdsListGroup = (props: RdsListGroupProps) => {
       {props.labelPosition == "top" && (
         <RdsLabel label={props.label} className="mx-1"></RdsLabel>
       )}
-      {!props.lsitGroupWithMultiSelect && (
+      {!props.listGroupWithMultiSelect && (
         <ul className="list-group mb-1">
           {props.listItem.map((listItems) => (
             <>
               <li
                 className={`list-group-item form-check ${
                   listItems.disabled ? "disabled" : ""
-                } ${
-                  listItems.isActive ? "active" : ""
-                } d-flex justify-content-between align-items-center`}
+                }  d-flex justify-content-between align-items-center`}
+                style={{marginBottom:0}}
               >
                 {listItems.label}
-                <span className="badge bg-danger badge-pill">
+                {props.withBadge && <span className="badge bg-primary ">
                   {listItems.badgeLabel}
-                </span>
+                </span>}
               </li>
             </>
           ))}
         </ul>
       )}
-      {props.lsitGroupWithMultiSelect && (
+      {props.listGroupWithMultiSelect && (
         <ul className="list-group mb-1">
           {props.listItem.map((listItems) => (
             <>
               <li
                 className={`list-group-item form-check ${
                   listItems.disabled ? "disabled" : ""
-                } ${
-                  listItems.isActive ? "active" : ""
-                }  justify-content-between align-items-center`}
+                }   justify-content-between align-items-center`}
+                style={{marginBottom:0}}
               >
                 <input
                   className="form-check-input ms-1 me-2"
                   type="checkbox"
                   value=""
                   id="flexCheckDefault"
+                  style={{marginBottom:0}}
                 />
-                <div className="d-flex justify-content-between">
+                <div className="d-flex justify-content-between" style={{marginBottom:0}}>
                   <label
                     className="form-check-label"
                     htmlFor="flexCheckDefault"
                   >
                     {listItems.label}
                   </label>
-                  <span className="badge bg-danger badge-pill">
+                  {props.withBadge && <span className="badge bg-primary ">
                     {listItems.badgeLabel}
-                  </span>
+                  </span>}
                 </div>
               </li>
             </>
