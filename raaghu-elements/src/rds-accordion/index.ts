@@ -1,1 +1,1 @@
-export {default} from './rds-accordion'
+export { default } from "./rds-accordion";

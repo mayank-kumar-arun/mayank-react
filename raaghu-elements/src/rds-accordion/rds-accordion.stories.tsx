@@ -2,7 +2,6 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import RdsAccordion from "./rds-accordion";
 
-
 export default {
   title: "Elements/Accordion",
   component: RdsAccordion,
@@ -21,16 +20,8 @@ export default {
       ],
       control: { type: "select" },
     },
-    size: {
-      options: ["small", "medium", "large"],
-      control: { type: "select" },
-    },
-    role:{
-      options:["button", "radio" , "checkbox"],
-      control:{type: "select"}
-    }
   },
-}as ComponentMeta<typeof RdsAccordion>;
+} as ComponentMeta<typeof RdsAccordion>;
 
 const Template: ComponentStory<typeof RdsAccordion> = (args) => (
   <RdsAccordion {...args} />
@@ -38,24 +29,63 @@ const Template: ComponentStory<typeof RdsAccordion> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  buttonGroupItems:[
+  colorVariant: "primary",
+  buttonGroupItems: [
     {
-      id:"accordionOne",
-      bId:"collapseOne",
-      hId:"headingOne",
+      id: "accordionOne",
+      bId: "collapseOne",
+      hId: "headingOne",
       title: "Section 1 title",
+      content: "content1",
+      state: false,
     },
     {
-      id:"accordiontwo",
-      bId:"collapseTwo",
-      hId:"headingTwo",
+      id: "accordiontwo",
+      bId: "collapseTwo",
+      hId: "headingTwo",
       title: "Section 2 title",
+      content: "content2",
+      state: false,
     },
     {
-      id:"accordionThree",
-      bId:"collapseThree",
-      hId:"headingThree",
+      id: "accordionThree",
+      bId: "collapseThree",
+      hId: "headingThree",
       title: "Section 3 title",
-    }
-  ]
-}
+      content: "content3",
+      state: false,
+    },
+  ],
+};
+
+export const outline = Template.bind({});
+outline.args = {
+  colorVariant: "primary",
+  outline: true,
+  buttonGroupItems: [
+    {
+      id: "accordionOne",
+      bId: "collapseOne",
+      hId: "headingOne",
+      title: "Section 1 title",
+      state: false,
+      content: "content1",
+    },
+    {
+      id: "accordiontwo",
+      bId: "collapseTwo",
+      hId: "headingTwo",
+      title: "Section 2 title",
+      state: false,
+      content: "content2",
+    },
+    {
+      id: "accordionThree",
+      bId: "collapseThree",
+      hId: "headingThree",
+      title: "Section 3 title",
+      state: false,
+      content: "content3",
+    },
+  ],
+};

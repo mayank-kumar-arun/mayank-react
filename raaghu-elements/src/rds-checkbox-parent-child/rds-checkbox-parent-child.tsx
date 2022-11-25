@@ -1,157 +1,38 @@
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import React, { Fragment, useEffect, useState } from "react";
-// import './rds-checkbox-parent-child.scss';
-
-
-
-// export interface RdsCheckboxParentChildProps {
-//   Checked?: boolean;
-//   userData:any[]
-// }
-
-// const RdsCheckboxParentChild = (props: RdsCheckboxParentChildProps) => {
-//   const [users, setUsers] = useState<typeof props.userData>([]);
-  
-
-//   useEffect(() => {
-//     setUsers(props.userData);
-//   }, []);
-
-//   const handleChange = (e: any) => {
-
-//     const { name, checked } = e.target;
-//     if (name === "allSelect") {
-//       let tempUser = users.map((user) => {
-//         return { ...user, isChecked: checked };
-//       });
-//       setUsers(tempUser);
-//     } else {
-//       let tempUser = users.map((user) =>
-//         user.name === name ? { ...user, isChecked: checked } : user
-//       );
-      
-//       setUsers(tempUser);
-//     }
-
-//     // users.map((user) =>{
-//     // if(name!= "allSelect" && user.isChecked==checked)
-//     // {
-
-//     //   if (name === "allSelect") {
-        
-//     //     let x =  e.target.indeterminate = true
-//     //     console.log(x)
-//     //   }
-//     // }} )
-//   };
-  
-
-//   return (
-//     <Fragment>
-//       <div className="container my-4" style={{ width: "500px" }}>
-//         <form className="form w-100">
-//           <ul>
-//             <li>
-//             {users.map((user, index) => (
-//               <div className="form-check">
-//                 <label className="form-check-label ms-2" key={index}>
-//                   <input
-//                     type="checkbox"
-//                     className="form-check-input"
-//                     name="allSelect"
-//                     checked={ users.filter((user) => user?.isChecked !== true).length <
-//                         1 || props.Checked === true }
-//                     // checked={!users.some((user) => user?.isChecked !== true)}
-//                     onChange={handleChange}
-//                   />
-//                   {user.name}
-//                 </label>
-//               </div> ))}
-//               <ul>
-//                 <li>
-//                   {users.map((user, index) => (
-//                     <div className="form-check" key={index}>
-//                       <label className="form-check-label ms-2">
-//                         <input
-//                           type="checkbox"
-//                           className="form-check-input"
-//                           name={user.name}
-//                           checked={user?.isChecked || props.Checked}
-//                           onChange={handleChange}
-//                         />
-//                         {user.name}
-//                       </label>
-//                     </div>
-//                   ))}
-//                 </li>
-//               </ul>
-//             </li>
-//           </ul>
-//         </form>
-//       </div>
-//     </Fragment>
-//   );
-// };
-
-// export default RdsCheckboxParentChild;
-
+import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Fragment, useEffect, useState } from "react";
 import './rds-checkbox-parent-child.scss';
 
 
 
 export interface RdsCheckboxParentChildProps {
-  Checked?: boolean;
+  
+  parentName:string;
   userData:any[]
 }
 
 const RdsCheckboxParentChild = (props: RdsCheckboxParentChildProps) => {
   const [users, setUsers] = useState<typeof props.userData>([]);
-  ///const [users2, setUsers2] = useState<typeof props.userData.childList>([]);
-  //  const [child, setChild] = useState<typeof users.childList>()
+  
+
   useEffect(() => {
     setUsers(props.userData);
   }, []);
 
+  const handleChange = (e: any) => {
 
-  //let x =  e.target.indeterminate = true
-  //     console.log(x)
-  const childHandleChange =(e:any, child: any, cId:any, pId:any) =>{
-
-    console.log ("hello Child is clicked cid - " +cId)
-    let tempuser =  users.filter((parent:any)=>{
-      // parent[pId].childList[cId].isChecked =!parent[pId].childList[cId].isChecked
-      console.log ("hello Child is clicked parent[pId] - " + parent[0]) ;
-      return 0 ;
-    })
-    //setUsers(tempuser);
-
-  }
-  const handleChange = (user: any, index:any ) => {
-
-   // const { name, checked } = e.target;
-
-    // console.log("user.label-   " + user.label )
-    // console.log("user.isChecked-   " + user.isChecked )
-
-    // if (user.label = users[index].label) {
+    const { name, checked } = e.target;
+    if (name === "allSelect") {
+      let tempUser = users.map((user) => {
+        return { ...user, isChecked: checked };
+      });
+      setUsers(tempUser);
+    } else {
+      let tempUser = users.map((user) =>
+        user.name === name ? { ...user, isChecked: checked } : user
+      );
       
-    let tempchild= user.childList.map((child:any) => {
-        return { ...child , isChecked: true };
-      }); 
-    let tempuser=  user.map((user:any)=>{
-        return {...tempchild ,...user}
-      })
-
-      //console.log(" tempuser- " +tempUser)
-      setUsers(tempuser);
-
-    // }// else {
-    //   let tempUser = users.map((user) =>
-    //     user.name === name ? { ...user, isChecked: true } : user
-    //   );
-    //     setUsers(tempUser);
-    // }
+      setUsers(tempUser);
+    }
   };
   
 
@@ -159,51 +40,45 @@ const RdsCheckboxParentChild = (props: RdsCheckboxParentChildProps) => {
     <Fragment>
       <div className="container my-4" style={{ width: "500px" }}>
         <form className="form w-100">
-         
-            {users.map((user, pId) => {
-                 console.log("parent",user?.id)
-                 console.log("parent:",user?.isChecked)
-              return( <>
-              
-                <div className="form-check ms-2" key={pId}>
-                  <label className="form-check-label ms-2"  htmlFor={user.id}>
-                    <input
-                      type="checkbox"
-                      //className="form-check-input form-check-input-intermediate"
-                      className='form-check-input '
-                      name={user.id}
-                      // checked={ users[index].childList.filter((child:any) => child?.isChecked!== true).length <
-                      //      1 || props.Checked === true }
-                      // checked={!users.some((user) => user?.isChecked !== true)}
-                     // onChange={()=>handleChange(user, index)}
-                    />
-                    {user.label}
-                  </label>
-                </div> 
-               
-                    {user.childList.map((child:any, cid:any) =>{
-                      
-                      console.log(child.id)
-                      console.log(child?.isChecked)
-                      return (
-                        <div className="form-check ms-5"  key={cid}>
-                            <label className="form-check-label ms-2" >
-                              <input
-                                type="checkbox"
-                                className="form-check-input"
-                                name={child.label}
-                                checked={child?.isChecked}
-                                onChange={(e)=>childHandleChange(e,child, cid , pId)}
-                              />
-                              {child.label}
-                            </label>
-                        </div>
-                      
-                      )})}
-              
-              </>  )
-            })}
-        
+          <ul >
+            <li className="line1">
+           
+              <div className="form-check">
+                <label className="form-check-label ms-2" >
+                  <input
+                  
+                    type="checkbox"
+                    className={`${(users.filter((user) => user?.isChecked == true).length >=
+                      1) && (users.filter((user) => user?.isChecked == true).length < users.length)
+                        ?'form-check-input-intermediate': 'form-check-input'}`}
+                    name="allSelect" 
+                    checked={ users.filter((user) => user?.isChecked == true).length == users.length}
+                    onChange={handleChange}
+      
+                  />
+                  {props.parentName}
+                </label>
+              </div> 
+              <ul>
+                <li className="line1">
+                  {users.map((user, index) => (
+                    <div className="form-check" key={index}>
+                      <label className="form-check-label ms-2">
+                        <input
+                          type="checkbox"
+                          className="form-check-input"
+                          name={user.name}
+                          checked={user?.isChecked}
+                          onChange={handleChange}
+                        />
+                        {user.name}
+                      </label>
+                    </div>
+                  ))}
+                </li>
+              </ul>
+            </li>
+          </ul>
         </form>
       </div>
     </Fragment>

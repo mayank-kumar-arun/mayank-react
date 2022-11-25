@@ -9,21 +9,23 @@ export default {
   component: RdsBadge,
   argTypes: {
     size: {
-        options: ["small","mid","large"],
+        options: [ "small" , "large" , "medium"],
         control: { type: "select" },
       },
       badgeType: {
         options: ["rectangle","circle","pill"],
         control: { type: "select" },
       },
-      buttonColor: {
+      colorVariant: {
+        options: ['primary' ,'success' , 'danger' , 'warning' , 'light' ,'info' , 'secondary' , 'dark'],
+        control: { type: "select" },
+      },
+      textColor: {
         options: ["primary", "secondary","success","danger","warning","info","light","dark","white"],
         control: { type: "select" },
       },
-      badgeColor: {
-        options: ["primary", "secondary","success","danger","warning","info","light","dark","white"],
-        control: { type: "select" },
-      },
+   
+  
   }
 } as ComponentMeta<typeof RdsBadge>;
 
@@ -33,23 +35,23 @@ const Template: ComponentStory<typeof RdsBadge> = (args) => <RdsBadge {...args} 
 export const RdsBadgeAsButton = Template.bind({});
 
 RdsBadgeAsButton.args = {
-    label:"Button",
-  number: 9,
-  size: "Choose option...",
-  buttonColor: "primary",
-  badgeColor: "secondary",
-  badgeType:"Choose option...",
+    label:"Badge",
+  // number: 9,
+  // size: "Choose option...",
+  // buttonColor: "primary",
+  // badgeColor: "secondary",
+  // badgeType:"Choose option...",
 };
 
-export const RdsBadgeWithIcon = Template.bind({});
+// export const RdsBadgeWithIcon = Template.bind({});
 
-onclick 
-RdsBadgeWithIcon.args = {
-  icon:"Button",
-  number: 9,
-  size: "Choose option...",
-  badgeType:"Choose option...",
-  buttonColor: "primary",
-  badgeColor: "secondary",
+// onclick 
+// RdsBadgeWithIcon.args = {
+//   icon:"Button",
+//   number: 9,
+//   size: "Choose option...",
+//   badgeType:"Choose option...",
+//   buttonColor: "primary",
+//   badgeColor: "secondary",
   
-};
+// };

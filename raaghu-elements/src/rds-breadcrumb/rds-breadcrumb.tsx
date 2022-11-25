@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./rds-breadcrumb.scss";
+import RdsIcon from "../rds-icon";
 
 export interface breadcrumbprop {
   breadItems: any[];
@@ -17,11 +18,14 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
 }
   return (
     <Fragment>
-      {Role==="advance" ?<nav aria-label="breadcrumb">
+   {Role==="advance" ?<nav aria-label="breadcrumb">
         <ol className="breadcrumb">
         {props.breadItems.map((breadItem, index) => {
             return index == 0 ? (
               <li className={`${breadItem.active}`} id='breaditem1'>
+               <span className="me-2">
+                <RdsIcon name={breadItem.icon} fill={breadItem.iconFill} stroke={breadItem.iconstroke} width={breadItem.iconWidth} height={breadItem.iconHeight} colorVariant={breadItem.iconColor} />
+                </span>
                 <a href={breadItem.route} aria-disabled="true">
                   {breadItem.label}
                 </a>
@@ -29,6 +33,9 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
             ) : (
               <li className={`breadcrumb-item ${breadItem.active}`} id="breadcrumbItems">
                 <span style={divider}>{ props.divider}</span>
+                <span className="ms-1 me-2">
+                <RdsIcon name={breadItem.icon} fill={breadItem.iconFill} stroke={breadItem.iconstroke} width={breadItem.iconWidth} height={breadItem.iconHeight} colorVariant={breadItem.iconColor} />
+                </span>
                 <a href={breadItem.route} aria-disabled="true">
                   {breadItem.label}
                 </a>
@@ -46,10 +53,10 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
                   {breadItem.label}
                 </a>
               </li>
-           
           ))}
         </ol>
-      </nav>}
+      </nav>} 
+
     </Fragment>
   );
 };

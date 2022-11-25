@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import "./rds-input.scss";
 import Tooltip from "../rds-tooltip/rds-tooltip";
