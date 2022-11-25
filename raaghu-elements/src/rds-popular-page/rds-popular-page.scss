@@ -1,3 +1,7 @@
-.pointerStyle{
-    cursor: pointer;
+@import "../style.scss";
+.pointerStyle {
+  cursor: "pointer" !important;
+}
+body {
+  font-family: "Poppins" !important;
 }

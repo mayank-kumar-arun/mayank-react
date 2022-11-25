@@ -40,5 +40,6 @@ Default.args = {
   rating: 2,
   colorVariant: "warning",
   reviewPosition: "right",
-  noOfReviews: 123
+  noOfReviews: 123,
+  seeAllOption: false
 };
