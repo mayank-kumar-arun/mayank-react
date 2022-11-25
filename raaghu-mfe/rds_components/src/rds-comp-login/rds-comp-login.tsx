@@ -75,7 +75,10 @@ const RdsCompLogin: React.FC<RdsCompLoginProps> = (
 	return (
 		<div>
 			<div style={{ textAlign: "center", paddingBottom: 48 }}>
-				<h3 className="heading " style={{ fontWeight: "bolder" }}>
+				<h3
+					className="heading "
+					style={{ fontWeight: "bolder", textAlign: "center" }}
+				>
 					Log in
 				</h3>
 				<p style={{ fontSize: 13, fontWeight: 550, marginBottom: 5 }}>

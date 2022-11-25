@@ -20,6 +20,7 @@ const RdsCompAdminDashboard = () => {
 							headerTitle={"Monthly Summary"}
 							isRefreshRequired={true}
 							class="card-stretch"
+							colorVariant={""}
 						>
 							<div>
 								<RdsLineChart
@@ -130,22 +131,22 @@ const RdsCompAdminDashboard = () => {
 										headerTitle={"Sales"}
 										isRefreshRequired={false}
 										class="card-stretch-half"
+										colorVariant={""}
 									>
 										<RdsBigNumber
 											class="border-0"
-											bigNumberItems={[
-												{
-													icon: "triangle_up",
-													iconHeight: "12px",
-													iconWidth: "12px",
-													iconFill: true,
-												},
-											]}
 											bigNumber={"$3,32,230.00"}
 											subTitle={"+$ 2203.00"}
 											subTitleColorVariant="success"
-											textAlign="start"
+											textAlign="text-start"
 											colorVariant="white"
+											role={"basic"}
+											icon={"triangle_up"}
+											iconHeight={"12px"}
+											iconStroke={false}
+											iconFill={true}
+											iconWidth={"12px"}
+											iconColor={""}
 										></RdsBigNumber>
 									</RdsWidget>
 									{/* <rds-widget [isRefreshRequired]="false" [headerTitle]="translate.instant('Sales')" cardheight = 'card-stretch-half'
@@ -158,22 +159,25 @@ const RdsCompAdminDashboard = () => {
                                 </rds-widget> */}
 								</div>
 								<div>
-									<RdsWidget headerTitle={"Revenue"} isRefreshRequired={false}>
+									<RdsWidget
+										headerTitle={"Revenue"}
+										isRefreshRequired={false}
+										colorVariant={""}
+									>
 										<div>
 											<RdsBigNumber
-												bigNumberItems={[
-													{
-														icon: "triangle_down",
-														iconHeight: "12px",
-														iconWidth: "12px",
-														iconFill: true,
-													},
-												]}
 												bigNumber={"$ 9,72,900"}
 												colorVariant="primary"
 												subTitle="-$ 1203.00"
-												textAlign="start"
+												textAlign="text-start"
 												subTitleColorVariant="warning"
+												role={"basic"}
+												icon={"triangle_down"}
+												iconHeight={"12px"}
+												iconStroke={false}
+												iconFill={false}
+												iconWidth={"12px"}
+												iconColor={""}
 											></RdsBigNumber>
 										</div>
 									</RdsWidget>
@@ -183,13 +187,20 @@ const RdsCompAdminDashboard = () => {
 								<RdsWidget
 									headerTitle={"Profit Share"}
 									isRefreshRequired={true}
+									colorVariant={""}
 								>
 									<div>
 										<RdsBigNumber
 											bigNumber={"$39,330.00"}
 											class="border-0"
-											textAlign="start"
-											bigNumberItems={[]}
+											textAlign="text-start"
+											role={"basic"}
+											icon={""}
+											iconHeight={""}
+											iconStroke={false}
+											iconFill={false}
+											iconWidth={""}
+											iconColor={""}
 										></RdsBigNumber>
 										<div className="col col-sm-12">
 											<RdsDoughnutChart
@@ -278,6 +289,7 @@ const RdsCompAdminDashboard = () => {
 									<RdsWidget
 										headerTitle={"call Overview"}
 										isRefreshRequired={false}
+										colorVariant={""}
 									>
 										<div>
 											<div className="d-flex align-items-center">
@@ -446,21 +458,24 @@ const RdsCompAdminDashboard = () => {
 									</RdsWidget>
 								</div>
 								<div>
-									<RdsWidget headerTitle={"Sales"} isRefreshRequired={false}>
+									<RdsWidget
+										headerTitle={"Sales"}
+										isRefreshRequired={false}
+										colorVariant={""}
+									>
 										<div>
 											<RdsBigNumber
-												bigNumberItems={[
-													{
-														icon: "triangle_up",
-														iconHeight: "12px",
-														iconWidth: "12px",
-														iconFill: true,
-													},
-												]}
 												subTitle="-$2203.00"
 												subTitleColorVariant="success"
 												bigNumber={"$3,32,230.00"}
-												textAlign="start"
+												textAlign="text-start"
+												role={"basic"}
+												icon={"triangle_up"}
+												iconHeight={"12px"}
+												iconStroke={false}
+												iconFill={true}
+												iconWidth={"12px"}
+												iconColor={""}
 											></RdsBigNumber>
 										</div>
 									</RdsWidget>
@@ -471,22 +486,22 @@ const RdsCompAdminDashboard = () => {
 								<RdsWidget
 									headerTitle={"Daily Sales Growth"}
 									isRefreshRequired={true}
+									colorVariant={""}
 								>
 									<div>
 										<RdsBigNumber
 											class="border-0 "
-											bigNumberItems={[
-												{
-													icon: "triangle_down",
-													iconHeight: "12px",
-													iconWidth: "12px",
-													iconFill: true,
-												},
-											]}
 											bigNumber={"$3,73,960.412"}
 											subTitle="-$5850.75"
 											subTitleColorVariant="danger"
-											textAlign="start"
+											textAlign="text-start"
+											role={"basic"}
+											icon={"triangle_down"}
+											iconHeight={"12px"}
+											iconStroke={false}
+											iconFill={true}
+											iconWidth={"12px"}
+											iconColor={""}
 										></RdsBigNumber>
 										<RdsBarChart
 											id="Bar"
@@ -552,7 +567,6 @@ const RdsCompAdminDashboard = () => {
 											]}
 											height={300}
 											width={300}
-											chartStyle={""}
 										></RdsBarChart>
 									</div>
 								</RdsWidget>
@@ -560,7 +574,11 @@ const RdsCompAdminDashboard = () => {
 						</div>
 					</div>
 					<div className="col-md-6">
-						<RdsWidget headerTitle={"Member Activity"} isRefreshRequired={true}>
+						<RdsWidget
+							headerTitle={"Member Activity"}
+							isRefreshRequired={true}
+							colorVariant={""}
+						>
 							<div>
 								<RdsTable
 									headerDatas={[
