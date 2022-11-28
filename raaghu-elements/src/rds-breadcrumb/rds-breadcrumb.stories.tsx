@@ -9,7 +9,8 @@ export default {
     role: {
       options: [
         "advance",
-        "default"
+        "default",
+        "arrow"
       ],
       control: { type: "select" },
     },
@@ -79,5 +80,28 @@ Advance.args = {
     iconColor:"primary"
   },
   ]
+ 
+};
+
+export const Arrow = Template.bind({});
+Arrow.args = {
+  role:'arrow',
+  breadItems:[{
+    label:"Home",
+    route:"#",
+    disabled:true
+
+  },
+  {
+    label:"Library",
+    route:"#",
+    disabled:true
+  },
+  {
+    label:"Data",
+    active: true,
+    disabled:true
+
+  }]
  
 };
