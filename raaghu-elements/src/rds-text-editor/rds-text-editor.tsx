@@ -12,7 +12,10 @@ const RdsTextEditor = (props: RdsTextEditorProps) => {
 			toolbarClassName="toolbarClassName"
 			wrapperClassName="wrapperClassName"
 			editorClassName="editorClassName"
-			wrapperStyle={{ width: props.width, border: "1px solid black" }}
+			wrapperStyle={{
+				width: props.width,
+				border: "1px solid black",
+			}}
 		/>
 	);
 };
