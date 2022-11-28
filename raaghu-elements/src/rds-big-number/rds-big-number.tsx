@@ -3,21 +3,21 @@ import RdsIcon from "../rds-icon";
 import "./rds-big-number.scss";
 
 export interface RdsBigNumberProps {
-	colorVariant?: string;
-	subTitleColorVariant?: string;
-	bigNumber: string;
-	subTitle?: string;
-	class?: string;
-	style?: any;
-	role: "basic" | "advanced";
-	icon: string;
-	iconHeight: string;
-	iconStroke: boolean;
-	iconFill: boolean;
-	iconWidth: string;
-	iconColor: string;
-	children?: ReactNode;
-	textAlign: "text-start" | "text-center" | "text-end";
+  colorVariant?: string;
+  subTitleColorVariant?: string;
+  bigNumber:string 
+  subTitle?:string,
+  class?:string,
+  role: 'basic' | 'advanced' ,
+  icon: string ;
+  iconHeight: string ;
+  iconStroke: boolean;
+  iconFill: boolean ;
+  iconWidth: string ;
+  iconColor :string;
+  children:ReactNode;
+  textAlign: 'text-start' | 'text-center' | 'text-end';
+
 }
 
 const RdsBigNumber = (props: RdsBigNumberProps) => {
