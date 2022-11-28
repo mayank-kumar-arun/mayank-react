@@ -1,18 +1,18 @@
 li#breadcrumbItems::before {
     float: left;
-
     color: var(--bs-breadcrumb-divider-color);
     content: var(--bs-breadcrumb-divider, "") !important;
-
 }
 
 #breaditem1 {
     padding-right: 5px;
 }
 
-
-
-
+li#breadcrumbItems,
+li#breaditem1,
+li.breadcrumb-item {
+    font-size: 12px;
+}
 
 
 

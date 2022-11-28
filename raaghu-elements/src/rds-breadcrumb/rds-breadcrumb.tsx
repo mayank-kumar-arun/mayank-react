@@ -6,7 +6,6 @@ import RdsIcon from "../rds-icon";
 export interface breadcrumbprop {
   breadItems: any[];
   role?: string;
-  divider?: string;
 }
 
 const RdsBreadcrumb = (props: breadcrumbprop) => {
@@ -15,6 +14,8 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
   const divider = {
     margin: '5px',
     color: "#373535e6",
+    height: '16px',
+    width: '16px',
   }
   return (
     <Fragment>
@@ -23,19 +24,21 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
           {props.breadItems.map((breadItem, index) => {
             return index == 0 ? (
               <li className={`${breadItem.active}`} id='breaditem1'>
-                <span className="me-2">
+                {breadItem.icon&&<span className="me-2">
                   <RdsIcon name={breadItem.icon} fill={breadItem.iconFill} stroke={breadItem.iconstroke} width={breadItem.iconWidth} height={breadItem.iconHeight} colorVariant={breadItem.iconColor} />
-                </span>
+                </span>}
                 <a href={breadItem.route} aria-disabled="true">
                   {breadItem.label}
                 </a>
               </li>
             ) : (
               <li className={`breadcrumb-item ${breadItem.active}`} id="breadcrumbItems">
-                <span style={divider}>{props.divider}</span>
-                <span className="ms-1 me-2">
-                  <RdsIcon name={breadItem.icon} fill={breadItem.iconFill} stroke={breadItem.iconstroke} width={breadItem.iconWidth} height={breadItem.iconHeight} colorVariant={breadItem.iconColor} />
+                <span style={divider}>
+                  <RdsIcon name="chevron_right" stroke={true} height="7px" width="4px"/>
                 </span>
+                {breadItem.icon&&<span className="ms-1 me-2">
+                  <RdsIcon name={breadItem.icon} fill={breadItem.iconFill} stroke={breadItem.iconstroke} width={breadItem.iconWidth} height={breadItem.iconHeight} colorVariant={breadItem.iconColor} />
+                </span>}
                 <a href={breadItem.route} aria-disabled="true">
                   {breadItem.label}
                 </a>
@@ -59,9 +62,7 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
       </nav>}
 
       {props.role === "arrow" && <div className="RdsBreadcrumb__arrow">
-        <div
-        // className="row pe-0"
-        >
+        <div>
           <div className="btn-group btn-breadcrumb breadcrumb-default">
             {props.breadItems.map((item, index) => (
               <Fragment key={"breadkeyItem-"+index}>
