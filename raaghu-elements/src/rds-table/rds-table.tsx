@@ -36,7 +36,7 @@ const RdsTable = (props: RdsTableProps) => {
       <tbody>
         {props.tableDatas.map((tableData) => (
           <>
-            <tr className = "normal-rows">
+            <tr className="normal-rows">
               {props.headerDatas.map((headerData) => (
                 <>
                   {headerData.dataType == "text" ? (
