@@ -37,7 +37,7 @@ const RdsCompTeams = (props: RdsCompTeamsProps) => {
         </div>
         <div className="row">
           {props.teamItem.map((Item) => (
-            <div className="col-lg-3 col-md-3 col-sm-3">
+            <div className="col-lg-4 col-md-6 col-sm-12 mb-3 mt-2">
               <RdsTeamMember displayType={""} teamItem={Item}></RdsTeamMember>
             </div>
           ))}

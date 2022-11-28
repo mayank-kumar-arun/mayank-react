@@ -20,10 +20,7 @@ export default {
       ],
       control: { type: "select" },
     },
-    FeedType: {
-      options: ["border", "grow"],
-      control: { type: "select" },
-    },
+
   },
 } as ComponentMeta<typeof RdsFeed>;
 
@@ -33,7 +30,6 @@ const Template: ComponentStory<typeof RdsFeed> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  FeedType: "spinner",
   colorVariant: "primary",
   itemList: [
     {
