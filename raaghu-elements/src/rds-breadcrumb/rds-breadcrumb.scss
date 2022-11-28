@@ -25,6 +25,10 @@ li#breadcrumbItems::before {
     padding-bottom: 0;
 }
 
+.RdsBreadcrumb__arrow .btn:hover {
+    border-color: #707070;
+}
+
 .RdsBreadcrumb__arrow .btn-group:first-child {
     border-left: 1px solid #707070;
     border-radius: 0;
@@ -44,14 +48,16 @@ li#breadcrumbItems::before {
     margin-top: 0;
     padding-top: 0;
 }
-.RdsBreadcrumb__arrow .last-dividing-arrow svg{
+
+.RdsBreadcrumb__arrow .last-dividing-arrow svg {
     padding-top: 1px;
-} 
+}
 
 .RdsBreadcrumb__arrow .btn-group .btn {
     height: 26px;
     font-size: 12px;
 }
+
 .RdsBreadcrumb__arrow .btn-group .btn.breadcrumb-text {
     min-width: 70px;
     display: flex;
@@ -68,8 +74,4 @@ li#breadcrumbItems::before {
 .RdsBreadcrumb__arrow .last-dividing-arrow {
     border-top: 0;
     border-bottom: 0;
-}
-
-.RdsBreadcrumb__arrow .btn:hover {
-    border-color: #707070;
 }

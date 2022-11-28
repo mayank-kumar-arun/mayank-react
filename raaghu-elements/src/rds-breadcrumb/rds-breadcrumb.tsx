@@ -64,7 +64,7 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
         >
           <div className="btn-group btn-breadcrumb breadcrumb-default">
             {props.breadItems.map((item, index) => (
-              <>
+              <Fragment key={"breadkeyItem-"+index}>
                 <a href={item.route} className="btn breadcrumb-text">
                   {item.label}
                 </a>
@@ -75,7 +75,7 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
                     </svg>
                   </span>
                 </span>
-              </>
+              </Fragment>
             ))}
           </div>
         </div>
