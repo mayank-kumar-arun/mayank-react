@@ -12,7 +12,7 @@ export default {
         "advance",
         "arrow"
       ],
-      control: { type: "select" },
+      control: { type: "radio" },
     },
   }
 } as ComponentMeta<typeof RdsBreadcrumb>;
@@ -43,7 +43,7 @@ Default.args = {
 
 export const Advance = Template.bind({});
 Advance.args = {
-  role: 'advance',
+  role: "advance",
   breadItems: [{
     label: "Home",
     route: "#",

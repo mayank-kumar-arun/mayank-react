@@ -10,9 +10,9 @@ export interface breadcrumbprop {
 
 const RdsBreadcrumb = (props: breadcrumbprop) => {
   const Role = `${props.hasOwnProperty("role") ? props.role : "default"}`;
-  // const customrole =`${ Role === "Advance"? "|":Role==="withDivide"?'>':'/'}`;
   const divider = {
-    margin: '5px',
+    marginLeft: '5px',
+    marginRight: '5px',
     color: "#373535e6",
     height: '16px',
     width: '16px',
@@ -23,7 +23,7 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
         <ol className="breadcrumb">
           {props.breadItems.map((breadItem, index) => {
             return index == 0 ? (
-              <li className={`${breadItem.active}`} id='breaditem1'>
+              <li key={"breadItem-"+index} className={`${breadItem.active}`} id='breaditem1'>
                 {breadItem.icon&&<span className="me-2">
                   <RdsIcon name={breadItem.icon} fill={breadItem.iconFill} stroke={breadItem.iconstroke} width={breadItem.iconWidth} height={breadItem.iconHeight} colorVariant={breadItem.iconColor} />
                 </span>}
@@ -32,7 +32,7 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
                 </a>
               </li>
             ) : (
-              <li className={`breadcrumb-item ${breadItem.active}`} id="breadcrumbItems">
+              <li key={"breadItem-"+index} className={`breadcrumb-item ${breadItem.active}`} id="breadcrumbItems">
                 <span style={divider}>
                   <RdsIcon name="chevron_right" stroke={true} height="7px" width="4px"/>
                 </span>
@@ -50,9 +50,9 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
       </nav>}
       {Role === "default" && <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
-          {props.breadItems.map((breadItem) => (
+          {props.breadItems.map((breadItem, index) => (
 
-            <li className={`breadcrumb-item ${breadItem.active}`}>
+            <li key={"breadItem-"+index} className={`breadcrumb-item ${breadItem.active}`}>
               <a href={breadItem.route} aria-disabled="true">
                 {breadItem.label}
               </a>
@@ -61,7 +61,7 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
         </ol>
       </nav>}
 
-      {props.role === "arrow" && <div className="RdsBreadcrumb__arrow">
+      {Role === "arrow" && <div className="RdsBreadcrumb__arrow">
         <div>
           <div className="btn-group btn-breadcrumb breadcrumb-default">
             {props.breadItems.map((item, index) => (
