@@ -5,29 +5,26 @@ import RdsCheckbox from "./rds-checkbox";
 export default {
   title: "Elements/Checkbox",
   component: RdsCheckbox,
-  argTypes:{
+  argTypes: {
     state: {
-      options:[
-          "Checkbox",
-          "Indeterminate"
-      ],
+      options: ["Checkbox", "Indeterminate", "ErrorCheckbox"],
       control: { type: "select" },
-  }
-  }
+    },
+  },
 } as ComponentMeta<typeof RdsCheckbox>;
 
 const Template: ComponentStory<typeof RdsCheckbox> = (args) => (
   <RdsCheckbox {...args} />
 );
-                                                                                                                                                                                              
+
 export const Default = Template.bind({});
 Default.args = {
   label: "default checkbox",
-  checked:false,
-  isDisabled:false,
- isSwitch:false,
- withLabel:true,
- state: 'checkbox',
- id: 'id1',
+  checked: false,
+  isDisabled: false,
+  isSwitch: false,
+  withLabel: true,
+  state: "checkbox",
+  id: "id1",
+  focus: false,
 };
-
