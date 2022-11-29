@@ -81,7 +81,7 @@ Disable.args = {
 
 export const IconWithLabel = Template.bind({});
 IconWithLabel.args = {
-  icon: "+",
+  icon: "plus",
   colorVariant: "primary",
   label: "",
   block: false,
@@ -116,4 +116,5 @@ WithIcon.args = {
   label: "Button",
   block: false,
   size: "medium",
+  iconColorVariant:"light"
 };

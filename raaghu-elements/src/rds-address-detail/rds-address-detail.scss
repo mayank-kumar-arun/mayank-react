@@ -29,10 +29,7 @@
   color: #626262;
   opacity: 1;
   margin-bottom: 0px;
-}
-
-.header{
-    margin-bottom: 8px;
+  font-size: 18px;
 }
 
 .addressWithIconContainer{
@@ -45,4 +42,8 @@
 
 .addressLineContainer{
     margin-left: 28px;
+}
+
+.addressWithIconContainer .addressLineContainer {
+  margin-top: 4px;
 }

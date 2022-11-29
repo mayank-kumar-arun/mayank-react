@@ -8,34 +8,41 @@ export interface RdsTableProps {
   colorVariant?: string;
   striped?: boolean;
   bordered?: boolean;
-  iconColorVariant?:string;
-  width?:number;
+  iconColorVariant?: string;
+  width?: number;
 }
 
 const RdsTable = (props: RdsTableProps) => {
   return (
     <table
-      className={`table table-hover table-${props.colorVariant} ${
+      className={`table table-${props.colorVariant} ${
         props.striped ? "table-striped" : ""
       } ${props.bordered ? "table-bordered" : ""}`}
-     width={props.width} >
-      <thead>
+      width={props.width}
+    >
+      <thead style={{ backgroundColor: "#5C82E3" }}>
         <tr>
           {props.headerDatas.map((headerData) => (
-            <th scope="col">{headerData.displayName}</th>
+            <th
+              scope="col"
+              className="text-white pl-4"
+              style={{ fontWeight: "400", paddingLeft: "16px" }}
+            >
+              {headerData.displayName}
+            </th>
           ))}
         </tr>
       </thead>
       <tbody>
         {props.tableDatas.map((tableData) => (
           <>
-            <tr>
+            <tr className="normal-rows">
               {props.headerDatas.map((headerData) => (
                 <>
                   {headerData.dataType == "text" ? (
                     <td width="40%">{tableData[headerData.key]}</td>
                   ) : headerData.dataType == "icon" ? (
-                    <td width="20%">
+                    <td width="20%" style={{ borderLeft: "solid 1px #E2E2E3" }}>
                       <RdsIcon
                         name={tableData.icon}
                         height="15px"

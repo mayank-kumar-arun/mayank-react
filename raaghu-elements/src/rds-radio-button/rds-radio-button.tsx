@@ -11,6 +11,8 @@ export interface RdsRadioButtonProps {
   displayType?: string;
   label?: string;
   id?:number;
+  state?: 'radio' | 'errorRadio',
+  errorMessage?:string;
 }
 
 const RdsRadioButton = (props: RdsRadioButtonProps) => {
@@ -25,12 +27,15 @@ const RdsRadioButton = (props: RdsRadioButtonProps) => {
   let Inline1 = `${
     Inline === true || display_type == "Horizontal" ? "form-check-inline" : ""
   } `;
+  let state=props.state||'radio';//form-check-input-error
 
   return (
     <>
       <div key={props.id} >
         <div>
-          <label>{props.label}</label>
+          <label className="d-flex">{props.label}</label>
+         
+          {state =="errorRadio" && <span className="error_Msg"> {props.errorMessage}</span>}
           {props.itemList.map((item: any, idx: any) => (
             <div
               key={idx}
@@ -40,7 +45,7 @@ const RdsRadioButton = (props: RdsRadioButtonProps) => {
             >
               <input
                 type="radio"
-                className="form-check-input"
+                className={`${state =="errorRadio" ?"form-check-input-error": "form-check-input" }`}
                 name={item.name}
                 value={item.label}
                 defaultChecked={item.checked}
