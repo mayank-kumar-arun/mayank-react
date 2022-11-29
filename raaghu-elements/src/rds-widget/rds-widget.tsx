@@ -19,7 +19,7 @@ const RdsWidget = (props:RdsWidgetProps) => {
    }
   return (
     <Fragment>
-      <div
+      {/* <div
          className={`card p-3 shadow-sm ${props.class} gutter-b ${bg}`}
        style={{background:gradient}}
       >
@@ -36,6 +36,9 @@ const RdsWidget = (props:RdsWidgetProps) => {
           </div>
          </div>
         <div className="card-body pt-2  "> {props.children}</div>
+      </div> */}
+      <div>
+        
       </div>
     </Fragment>
   );
