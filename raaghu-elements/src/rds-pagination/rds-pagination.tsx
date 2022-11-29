@@ -48,15 +48,13 @@ const RdsPagination = (props: RdsPaginationProps) => {
     setCurrentPage(current - 1);
 
   };
-  if(props.onPageChange!=undefined)
-  useEffect(() => { props.onPageChange!=undefined && props.onPageChange(currentPage, recordsPerPage); }, [currentPage, recordsPerPage])
   
-
   if (props.onPageChange != undefined)
     useEffect(() => {
       props.onPageChange != undefined &&
         props.onPageChange(currentPage, recordsPerPage);
     }, [currentPage, recordsPerPage]);
+
   const size = " pagination-" + `${props.size || "md"}`;
   const align =
     " pagination justify-content-" + `${props.alignmentType || "start"}`;
