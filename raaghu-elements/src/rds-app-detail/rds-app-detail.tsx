@@ -2,16 +2,16 @@ import React, { Fragment } from "react";
 import RdsIcon from "../rds-icon";
 import "./rds-app-detail.scss";
 
-export interface RdsAddressDetailProps {
+export interface RdsAppDetailProps {
    appDetailsItem:any;
 }
 
-const RdsAddressDetail = (props: RdsAddressDetailProps) => {
+const RdsAppDetail = (props: RdsAppDetailProps) => {
   return (
     <Fragment>
-      <div className="card">
-        <div className="p-3 headerr ">
-          <span className="border p-1">
+      <div className="card p-3">
+        <div className=" headerr ">
+          <span className="border p-2">
             <RdsIcon
               name={props.appDetailsItem.icon}
               colorVariant={props.appDetailsItem.iconColor}
@@ -37,8 +37,8 @@ const RdsAddressDetail = (props: RdsAddressDetailProps) => {
             <label className="text-muted mt-1">{props.appDetailsItem.subtitle}</label>
           </div>
         </div>
-        <div className="border-top pb-1">
-          <a href={props.appDetailsItem.route} className="float-end p-2 fs-7 linkk">
+        <div className="border-top ">
+          <a href={props.appDetailsItem.route} className="float-end pb-1 fs-7 linkk">
             View integration
           </a>
         </div>
@@ -47,4 +47,4 @@ const RdsAddressDetail = (props: RdsAddressDetailProps) => {
   );
 };
 
-export default RdsAddressDetail;
+export default RdsAppDetail;

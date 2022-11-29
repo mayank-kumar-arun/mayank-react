@@ -7,30 +7,26 @@ export interface RdsBannerProps {
     bannerText?: string,
     sticky?: boolean,
     position?: "top" | "bottom",
-    colorVariant?:
-    "primary" |
-    "secondary" |
-    "success" |
-    "danger" |
-    "warning" |
-    "info" |
-    "light" |
-    "dark",
+    colorVariant?: "primary" |"secondary" |"success" | "danger" | "warning" | "info" | "light" |"dark",
     icon?: string,
     closeButton?: boolean
 }
 
 const RdsBanner = (props: RdsBannerProps) => {
 
-    const bannerColor = "alert alert-" + (props.colorVariant || 'primary');
+    const bannerColor = " bannerStyle bg-" + (props.colorVariant || 'primary');
+
+   const text=(props.colorVariant != "light")?" text-white ":" text-dark ";
+   const iconColor =(props.colorVariant != "light")?"light":"dark";
     const classesCss: string =
         "RdsBanner d-flex justify-content-between "
-        + bannerColor
+        + bannerColor + text +
         + " rounded-0 "
         + (props.sticky ?
             (props.position === 'top' ? ' fixed-top' : ' fixed-bottom bottom-0')
             : (props.position === 'top' ? ' sticky-top' : ' sticky-bottom')
         );
+    
 
     return (
         <Fragment>
@@ -39,7 +35,7 @@ const RdsBanner = (props: RdsBannerProps) => {
                     {props.icon && <span style={{ marginRight: "12px" }} className='d-flex align-items-center'>
                         <RdsIcon name={props.icon ? props.icon : ''}
                             stroke={true}
-                            colorVariant={props.colorVariant}
+                            colorVariant={iconColor}
                             height="18px"
                             width="18px"
                         />

@@ -33,8 +33,8 @@
     }
  
   
-  .slider-track {
-    width: 100%;
+  .slider-track__range {
+    width: 99%;
     height: 5px;
     position: absolute;
     margin: auto;
@@ -112,7 +112,6 @@
     padding: 0px;
   }
   
-  
   .sliderTooltipRange1::after {
     display: block;
     content: "";
@@ -145,8 +144,7 @@
     padding: 0px 6px;
   }
  
-   //** Style for Type 2***************************************************************************************************
- 
+   //** Style for Type 1 ***************************************************************************************************
   .slider_two {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -177,7 +175,6 @@
     content: attr(data-tooltip);
     padding: 0px;
   }
-  
   
   .sliderTooltipRangetwo{
     display: block;

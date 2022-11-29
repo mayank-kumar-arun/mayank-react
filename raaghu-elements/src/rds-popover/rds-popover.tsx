@@ -1,5 +1,6 @@
 import React, { ReactNode, useState } from "react";
 import "./rds-popover.scss";
+import RdsButton from "../rds-button/rds-button";
 
 export interface RdsPopoverProps {
   children: ReactNode;
@@ -19,6 +20,7 @@ const RdsPopover = (props: RdsPopoverProps) => {
 
   return (
     <>
+
       <div className="popoverContainer">
         <button
           type="button"

@@ -20,8 +20,9 @@ const Template: ComponentStory<typeof RdsRadioButton> = (args) => (
     <RdsRadioButton {...args} />
   );
 
-export const Default = Template.bind({})
+  export const Default = Template.bind({})
 Default.args = {
+ 
   displayType: 'Default',
   label:"Radio Button" ,
   itemList : [
@@ -45,4 +46,36 @@ Default.args = {
     },    
   ]
 }
+
+export const ErrorMessage = Template.bind({})
+ErrorMessage.args = {
+  state:"errorRadio",
+  errorMessage:"Error message" , 
+  displayType: 'Default',
+  label:"Radio Button" ,
+  itemList : [
+    {
+      id: 1,
+      label: "Radio Button 1",
+      checked: false,
+      name:'radio_button',
+    },
+    {
+      id: 2,
+      label: "Radio Button 2",
+      checked: false,
+      name:'radio_button',
+    },
+    {
+      id: 3,
+      label: "Radio Button 3",
+      checked: true,
+      name:'radio_button',
+    },    
+  ]
+}
+
+
+
+
 
