@@ -55,4 +55,5 @@ Default.args = {
       tension: 0.1,
     },
   ],
+  id:"linechart",
 };
