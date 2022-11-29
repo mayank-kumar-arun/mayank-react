@@ -11,6 +11,8 @@ export interface RdsIconProps {
   stroke?: boolean;
   strokeColor?:string;
   class?: string;
+  background?:string,
+  borderRadius?:string,
 }
 
 const RdsIcon = (props: RdsIconProps) => {
@@ -54,7 +56,7 @@ const RdsIcon = (props: RdsIconProps) => {
   let strokeProps = props.stroke ? strokeColor! : "none";
   let name:string = (props.name).toLowerCase();
   let icon= Icons.hasOwnProperty(name) ? Icons[name] : Flags[name];
-
+  let bg=" bg-"+props.background||"light"
   return (
     <>
 
@@ -63,9 +65,11 @@ const RdsIcon = (props: RdsIconProps) => {
       height: props.height,
       fill: fillProps!,
       stroke: strokeProps!,
-      
-     }}
-     className={props.class}
+      borderRadius:props.borderRadius,
+     
+     
+     } }
+     className={`${props.class} ${bg}`}
       dangerouslySetInnerHTML={{__html: icon }}
       ></svg>
 

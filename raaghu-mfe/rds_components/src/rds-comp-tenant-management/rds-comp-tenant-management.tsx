@@ -22,7 +22,7 @@ const RdsCompTenantManagement = (props: RdsCompTenantManagementProps) => {
 						isDisabled={false}
 						label="Allow Tenants To Register To The System"
 						checked={props.allowSelfRegistration}
-						withLabel={true}
+						withlabel={true}
 						isSwitch={false}
 					/>
 					<h6 className="text-muted pt-2">
@@ -38,7 +38,7 @@ const RdsCompTenantManagement = (props: RdsCompTenantManagementProps) => {
 						isDisabled={false}
 						label="Allow Tenants To Register To The System"
 						checked={props.isNewRegisteredTenantActiveByDefault}
-						withLabel={true}
+						withlabel={true}
 						isSwitch={false}
 					/>
 
@@ -53,7 +53,7 @@ const RdsCompTenantManagement = (props: RdsCompTenantManagementProps) => {
 						isDisabled={false}
 						label="Use Security Image Question (Captcha) On Registration."
 						checked={props.useCaptchaOnRegistration}
-						withLabel={true}
+						withlabel={true}
 						isSwitch={false}
 					/>
 				</div>

@@ -2,13 +2,13 @@ import React, { ReactNode } from "react";
 import "./rds-modal.scss";
 
 export interface RdsModalProps {
-  label?: string;
-  showModalFooter?: boolean;
-  showModalHeader?: boolean;
-  modalData?: any;
-  scrollable?: boolean;
-  staticbackdrop?: boolean;
-  verticallyCentered?: boolean;
+	label?: string;
+	showModalFooter?: boolean;
+	showModalHeader?: boolean;
+	modalData?: any;
+	scrollable?: boolean;
+	staticbackdrop?: boolean;
+	verticallyCentered?: boolean;
 }
 
 const RdsModal = (props: RdsModalProps) => {

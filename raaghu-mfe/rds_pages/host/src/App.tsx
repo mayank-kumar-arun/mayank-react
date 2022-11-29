@@ -4,13 +4,12 @@ import Main from "./Main";
 
 const App = () => {
 	return (
-      <div>
-        
-          <Link to={"/forgot-password"} > hi</Link>
-        
-        <Main />     
-      </div>  
-	)
-}
+		<div>
+			<Link to={"/forgot-password"}> hi</Link>
+
+			<Main />
+		</div>
+	);
+};
 
 export default App;

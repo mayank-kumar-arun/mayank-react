@@ -29,13 +29,13 @@ const App = () => {
 			<RdsCompSideNavigation></RdsCompSideNavigation>
 			<RdsCompTopNavigation></RdsCompTopNavigation>
 			<RdsCompTenantList
-				onEditTenant={loginHandler}
-				deleteEvent={loginHandler}
-				onSaveFeatures={loginHandler}
-				tenantHeaders={[]}
+				tableHeaders={[]}
+				actions={[]}
 				tableData={[]}
-				editionList={[]}
-				tenantFeatures={[]}
+				pagination={false}
+				onActionSelection={() => {}}
+				onNewTenantClick={() => {}}
+				onSortSelection={() => {}}
 			></RdsCompTenantList>
 			<RdsCompForgotPassword
 				onForgotPassword={ForgotPassword}
