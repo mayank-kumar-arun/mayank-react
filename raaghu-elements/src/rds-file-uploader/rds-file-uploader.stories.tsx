@@ -7,7 +7,7 @@ export default {
   component: RdsFileUploader,
   argTypes: {
     size: {
-      options: ["small", "mid", "large"],
+      options: ["small", "large"],
       control: { type: "radio" },
     },
     colorVariant: {
@@ -22,6 +22,8 @@ export default {
         "dark",
         "white",
       ],
+
+      extensions: {},
       control: { type: "select" },
     },
   },
@@ -34,15 +36,18 @@ const Template: ComponentStory<typeof RdsFileUploader> = (args) => (
 export const Default = Template.bind({});
 
 Default.args = {
-  placeholder: "Filter",
   size: "mid",
   multiple: false,
+  extensions: "",
+  colorVariant: "dark",
 };
 
 export const Multiple = Template.bind({});
 
 Multiple.args = {
-  placeholder: "Filter",
-  size: "mid",
+  colorVariant: "primary",
+  placeholder: "for E.g. ",
   multiple: true,
+  extensions: "",
+  limit: 5,
 };
