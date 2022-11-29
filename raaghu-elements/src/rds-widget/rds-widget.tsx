@@ -82,6 +82,9 @@ const RdsWidget = (props: RdsWidgetProps) => {
           <div className="card-body pt-2  ">{props.children}</div>
         )}
       </div>
+      <div>
+
+      </div>
     </Fragment>
   );
 };

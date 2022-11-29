@@ -65,6 +65,7 @@ export {default as RdsTeamMember} from "./rds-team-member";
 export {default as RdsTestimonial} from "./rds-testimonial";
 export {default as RdsTooltip} from "./rds-tooltip";
 export {default as RdsWebsiteMatrix} from "./rds-website-matrix";
+export {default as RdsTextEditor} from "./rds-text-editor";
 
 //Charts
 export { default as RdsAreaChart } from "./rds-chart-area";
