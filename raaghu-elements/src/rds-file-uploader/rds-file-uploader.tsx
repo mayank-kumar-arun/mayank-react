@@ -51,7 +51,10 @@ const RdsFileUploader = (props: RdsFileUploaderProps) => {
     reader.onload = (event) => {
       setFileArray([...FileArray, event.target?.result]);
     };
-    event.target.value = null;
+
+    if (props.multiple) {
+      event.target.value = null;
+    }
   };
   return (
     <>
