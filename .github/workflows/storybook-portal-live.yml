@@ -16,7 +16,7 @@ jobs:
         with:
           submodules: true
       - name: npm install at raaghu-elements
-        working-directory: raaghu-elements
+        working-directory: /
         run: |
           npm install
           npm run build-storybook
