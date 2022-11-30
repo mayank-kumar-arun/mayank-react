@@ -3,7 +3,7 @@ import Chart from 'chart.js/auto';
 //import "./rds-chart-doughnut.scss"
 
 export interface RdsDoughnutprops {
-  children: ReactNode;
+  children?: ReactNode;
   labels:any[],
   options:any,
   dataSets:any[],

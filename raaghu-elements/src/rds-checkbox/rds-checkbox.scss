@@ -1,2 +1,44 @@
-@import '../style.scss';
+
+ @import '../style.scss';
+
+ .form-check .form-check-input{
+  width: 1em !important;
+  height: 1em !important;
+  margin-top: 0.25em !important;
+  margin-left: -24px !important;
+  vertical-align: top !important;
+  background-color: #fff !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+  border: 1px solid #3D4D60 !important;
+  border-radius: 3px  !important;
+  appearance: none !important;
+ }
+ .form-check .form-check-input:checked[type=checkbox]{ 
+  background-color: #0d6efd !important;
+  border: 1px solid #0d6efd !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e") !important;
+ }
+ .form-check.form-check-intermediate {
+  margin-right: 8px !important;
+ 
+}
+.form-check .form-check-intermediate:checked[type=checkbox]{
+  margin-right: 8px !important;
+  background-color: #0d6efd !important;
+  border: 1px solid #0d6efd !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e") !important;
+}
+
+.form-check .form-check-checkbox-input-error{
+  width: 1em !important;
+
+}
+.form-check .form-check-checkbox-input-error:checked[type=checkbox] {
+  background-color: #DA1E27 !important;
+  border: 1px solid #DA1E27 !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e") !important;
+}
+
 
