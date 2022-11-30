@@ -24,8 +24,6 @@ jobs:
         working-directory: ./raaghu-mfe
         run: |
           npm install --force
-          # npm run patch-dev-server
-          # npm run sync-elements
           npm run build-storybook
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
