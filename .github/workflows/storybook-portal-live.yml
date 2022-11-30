@@ -16,7 +16,6 @@ jobs:
         with:
           submodules: true
       - name: build storybook
-        working-directory: /
         run: |
           npm install
           npm run build-storybook
