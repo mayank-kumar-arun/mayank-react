@@ -30,21 +30,6 @@ const Template: ComponentStory<typeof RdsBigNumber> = (args) => (
   <RdsBigNumber {...args} >{args.children}</RdsBigNumber>
 );
 
-// export const Default = Template.bind({})
-// Default.args = {
-//   colorVariant: 'info',
-//   textAlign: 'text-start',
-//   subTitleColorVariant: 'primary',
-//   iconFill: true,
-//   iconStroke: true,
-//   iconHeight: '15px',
-//   iconWidth: '15px',
-//   bigNumber: '$13,20,21',
-//   subTitle: '+$1,203',
-//   icon: 'triangle_up', 
-//   role: 'basic'
-// }
-
 export const standard = Template.bind({});
 standard.args = {
   subTitleColorVariant: 'primary',
@@ -62,7 +47,6 @@ delta.args = {
   <RdsIcon name='triangle_up' fill={true} stroke={true} width="15px" height="15px" colorVariant="primary" />
  
     <label className="ps-2 text-primary fs-5" >75%</label>
- 
  
   </>
 }
