@@ -8,7 +8,6 @@ export interface RdsBigNumberProps {
   bigNumber:string 
   subTitle?:string,
   class?:string,
-  role: 'basic' | 'advanced' ,
   icon: string ;
   iconHeight: string ;
   iconStroke: boolean;
@@ -28,28 +27,6 @@ const RdsBigNumber = (props: RdsBigNumberProps) => {
 	let subTitleColor = "text-" + (props.subTitleColorVariant || "primary");
 	return (
 		<Fragment>
-			{props.role == "basic" && (
-				<div
-					className={"card p-3 border-0 " + `${bgColor}`} // *ngSwitchCase="'basic'"
-				>
-					<div className={alignclasses}>
-						<h1>{props.bigNumber}</h1>
-						<h6 className={subTitleColor}>
-							<RdsIcon
-								name={props.icon}
-								fill={props.iconFill}
-								stroke={props.iconStroke}
-								colorVariant={props.iconColor}
-								height={props.iconHeight}
-								width={props.iconWidth}
-							/>
-							{props.subTitle}
-						</h6>
-					</div>
-				</div>
-			)}
-
-			{props.role == "advanced" && (
 				<div
 					className={
 						"border-top  border-3  d-flex justify-content-center align-items-center big-number p-3 gap-4" +
@@ -70,7 +47,7 @@ const RdsBigNumber = (props: RdsBigNumberProps) => {
 						</div>
 					</div>
 				</div>
-			)}
+			
 		</Fragment>
 	);
 };
