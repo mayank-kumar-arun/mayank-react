@@ -6,7 +6,7 @@ export interface RdsBooleanChartProps {
   options:any,
   dataSets:any[],
   width?: number,
-  chartStyle:string,
+  chartStyle?:string,
   id:string,
   height?:number
 }
