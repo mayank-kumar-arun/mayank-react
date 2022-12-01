@@ -9,7 +9,8 @@
     "bootstrap": "^5.2.3",
     "chart.js": "^4.0.1",
     "react-datepicker": "^4.8.0",
-    "react-router-dom": "^6.4.3"
+    "react-router-dom": "^6.4.3",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
