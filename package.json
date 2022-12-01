@@ -8,7 +8,9 @@
   "dependencies": {
     "bootstrap": "^5.2.3",
     "chart.js": "^4.0.1",
+    "draft-js": "^0.11.7",
     "react-datepicker": "^4.8.0",
+    "react-draft-wysiwyg": "^1.15.0",
     "react-router-dom": "^6.4.3",
     "validator": "^13.7.0"
   },
