@@ -7,8 +7,7 @@ export interface RdsCompEditionProps {
   features: any;
 }
 const RdsCompEdition = (props: RdsCompEditionProps) => {
-  return (
-    <>
+  return (  
       <div className="col-md-2" style={{ width: "170px" }}>
         <div className="card">
           <div className="card-body p-3">
@@ -24,9 +23,7 @@ const RdsCompEdition = (props: RdsCompEditionProps) => {
                 </div>
                 <div className="col-md-12" style={{ textAlign: "center" }}>
                   <b style={{ color: "#249CF7", fontSize: "18px" }}>$</b>
-                  <b style={{ color: "#249CF7", fontSize: "25px" }}>
-                    {props.EditionItems.Price}
-                  </b>
+                  <b style={{ color: "#249CF7", fontSize: "25px" }}>{props.EditionItems.Price}</b>
                   <p
                     className="text-muted"
                     style={{
@@ -47,12 +44,14 @@ const RdsCompEdition = (props: RdsCompEditionProps) => {
                   }}
                 >
                   <ul style={{ fontSize: "10px", paddingLeft: "11px" }}>
-                    {props.features.map((item: any) => (
-                      <>
+                    {props.features.map((item:any)=>(
+                        <>
                         <li>{item}</li>
-                      </>
+                        </>
                     ))}
-
+                    
+                    {/* <li>Test Check feature</li>
+                    <li>Test check feature count 2</li> */}
                   </ul>
                 </div>
                 <div className="col-md-12" style={{ textAlign: "left" }}>
@@ -63,14 +62,13 @@ const RdsCompEdition = (props: RdsCompEditionProps) => {
                   ></i>
                 </div>
               </div>
+
             </div>
           </div>
-          <div className="card-footer"></div>
         </div>
-      </div>
-    </>
-  );
+        </div>
+      )};
 
-};
+
 export default RdsCompEdition;
 

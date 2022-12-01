@@ -1,5 +1,6 @@
 .input {
   margin: none !important;
+  cursor: pointer !important;
 }
 
 .mulinput {
@@ -57,11 +58,56 @@
   height: 64px;
   margin: 0px !important;
   background-color: #ebf0ff;
+  margin-bottom: 20px !important;
 }
+
+.namebox {
+  border: 1px solid rgb(220, 234, 90);
+  border-radius: 4px;
+  height: 44px;
+  align-items: center;
+  display: flex;
+  background-color: #ebf0ff;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.filename {
+  margin-left: 5px;
+}
+.fileicon {
+  margin-left: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.size {
+  font-size: 11px !important;
+}
+
+.iconbox {
+  display: flex;
+  cursor: pointer;
+  // margin-right: 12px;
+}
+.cross {
+  width: 26px;
+  height: 26px;
+}
+
 .leftinnerbox {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.disleftinnerbox {
+  display: flex;
+  justify-content: center;
+}
+
+.disname {
+  display: none;
 }
 
 .rightbox {
@@ -74,4 +120,14 @@
 }
 .lefttext {
   padding-left: 12px;
+}
+
+// .disbox {
+//   // padding-top: 14px !important;
+// }
+
+.closeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }

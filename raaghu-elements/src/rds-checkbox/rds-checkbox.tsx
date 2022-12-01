@@ -1,48 +1,48 @@
-import React, { useState, useRef,Fragment } from "react";
+import React, { useState, useRef, Fragment } from "react";
 // import "bootstrap/dist/css/bootstrap.min.css";
-import './rds-checkbox.scss';
+import "./rds-checkbox.scss";
 
 export interface RdsCheckboxProps {
   label: string;
   checked: boolean;
   isDisabled?: boolean;
   isSwitch?: boolean;
-  withlabel?:boolean;
-  name?:string
+  withlabel?: boolean;
+  name?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
-  state?: string | null;
+  state?:"Checkbox" |"Indeterminate"|"ErrorCheckbox";
+  errorMessage?:string;
   id?: string;
 }
 
-
 const RdsCheckbox = (props: RdsCheckboxProps) => {
- 
-  const islabel = `${(props.withlabel === false)? "" : props.label}`;
-  const SWITCH = `${props.isSwitch !== true ? " form-check " : " form-switch "}`;
+
+  const SWITCH = `${
+    props.isSwitch !== true ? " form-check " : " form-switch "
+  }`;
+
   return (
     <Fragment>
       <form>
         <div className={SWITCH}>
-         
-            <input            
-              type="checkbox"
-              className='form-check-input'
-              value=" "
-              //id={`$props.isSwitch === true? "flexSwitchCheckDefault":"flexCheckDefault"`}
-              disabled={props.isDisabled}
-           //   onClick={handleOnCheck}
-              
-     
-            defaultChecked={props.checked}
-             id ="class1"
-             name={props.name}
-             onChange = {props.onChange}
-            />
+          <input
+            type="checkbox"
+            className={props.state=="Indeterminate"?"form-check-intermediate form-check-input ":props.state=="ErrorCheckbox"?" form-check-input form-check-checkbox-input-error":"form-check-input"}
            
-            <label className="form-check-label d-inline me-5 ms-2 " htmlFor="flexCheckDefault">
-            {islabel}
-          </label>
+            value=" "
+            disabled={props.isDisabled}
+            defaultChecked={props.checked}
+            id="class1"
+            name={props.name}
+            onChange={props.onChange}
+          />
 
+         {props.withlabel==false? <></>: <label
+            className="form-check-label d-inline me-5 ms-2 "
+            htmlFor="flexCheckDefault"
+          >
+            {props.label}
+          </label>}
         </div>
       </form>
     </Fragment>
@@ -50,7 +50,3 @@ const RdsCheckbox = (props: RdsCheckboxProps) => {
 };
 
 export default RdsCheckbox;
-
-/* { doubleApproval === true && <input  type="checkbox" onClick={handleOnCheck} checked/>}
-   <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-  */

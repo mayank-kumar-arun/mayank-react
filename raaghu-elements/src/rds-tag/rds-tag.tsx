@@ -21,7 +21,7 @@ export interface RdsTagProps {
 
 const RdsTag = (props: RdsTagProps) => {
   const [tagAr, setTagArr] = useState<string[]>(props.tagArray || []);
-  const [inputText, setInputText] = useState(props.inputText);
+  // const [inputText, setInputText] = useState(props.inputText);
   let closeFill = props.fillClose || false;
   let classes: any;
   const tagColor = "tag-" + `${props.colorVariant}`;
@@ -40,7 +40,9 @@ const RdsTag = (props: RdsTagProps) => {
   const addTag = (e: any) => {
     if (e.key === "Enter" && e.target.value.trim().length != 0) {
       setTagArr((prev) => [...prev, e.target.value]);
+      e.targe.value = ""
     }
+  
   };
 
   const mystyle = {
@@ -56,7 +58,6 @@ const RdsTag = (props: RdsTagProps) => {
 
   return (
     <>
-      <div>
         <div>
           <div className="binding-tags border p-2">
             <div className="d-flex">
@@ -134,14 +135,13 @@ const RdsTag = (props: RdsTagProps) => {
                     placeholder="+ Add Tag"
                     aria-label="+Tag"
                     aria-describedby="basic-addon1"
-                    value={inputText}
+                    // value={inputText}
                   />
                 </span>
               </div>
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 };

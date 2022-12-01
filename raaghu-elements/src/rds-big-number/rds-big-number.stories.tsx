@@ -30,25 +30,9 @@ const Template: ComponentStory<typeof RdsBigNumber> = (args) => (
   <RdsBigNumber {...args} >{args.children}</RdsBigNumber>
 );
 
-export const Default = Template.bind({})
-Default.args = {
-  colorVariant: 'info',
-  textAlign: 'text-start',
-  subTitleColorVariant: 'primary',
-  iconFill: true,
-  iconStroke: true,
-  iconHeight: '15px',
-  iconWidth: '15px',
-  bigNumber: '$13,20,21',
-  subTitle: '+$1,203',
-  icon: 'triangle_up', 
-  role: 'basic'
-}
-
 export const standard = Template.bind({});
 standard.args = {
   subTitleColorVariant: 'primary',
-  role: 'advanced',
   subTitle: 'Visitors',
   bigNumber: '2,236'
 }
@@ -56,7 +40,6 @@ standard.args = {
 export const delta = Template.bind({});
 delta.args = {
   subTitleColorVariant: 'primary',
-  role: 'advanced',
   subTitle: 'Visitors',
   bigNumber: '2,236',
   children: <>
@@ -65,14 +48,12 @@ delta.args = {
  
     <label className="ps-2 text-primary fs-5" >75%</label>
  
- 
   </>
 }
 
 export const histogram = Template.bind({});
 histogram.args = {
   subTitleColorVariant: 'primary',
-  role: 'advanced',
   subTitle: 'Average Numbers Of Visitors',
   bigNumber: '2,236',
    children: 
@@ -131,7 +112,6 @@ histogram.args = {
 export const sparkLine = Template.bind({});
 sparkLine.args = {
   subTitleColorVariant: 'primary',
-  role: 'advanced',
   subTitle: 'Visitors',
   bigNumber: '2,236',
   children: <RdsLineChart id="linechart"
@@ -177,66 +157,12 @@ sparkLine.args = {
     cubicInterpolationMode: 'monotone',
     tension: 0.4,
   },]}/>
-  // chartDatasets: [
-  //   {
-  //     label: '',
-  //     data: [0, 3, -3, 3],
-  //     borderColor: '#4DCFFF',
-  //     fill: false,
-  //     pointRadius: 2,
-  //     cubicInterpolationMode: 'monotone',
-  //     tension: 0.4,
-  //   },
-  //   // {
-  //   //   label: 'Revenue',
-  //   //   data: [290, 262, 205, 162, 150, 180, 206, 220, 240, 190, 275, 211],
-  //   //   borderColor: '#863BFF',
-  //   //   pointBackgroundColor: '#863BFF',
-  //   //   // backgroundColor: '#ECEEF4',
-  //   //   fill: true,
-  //   //   pointRadius: 3,
-  //   //   tension: 0.4,
-  //   // }
-  // ],
-  // chartLabels: ['Jan', 'Feb', 'Mar', 'Apr'],
-  // chartWidth: 50,
-  // chartHeight: 50,
-  // chartOptions: {
-  //   radius: 0,
-  //   pointStyle: 'circle',
-  //   responsive: true,
-  //   borderWidth: 1,
-  //   maintainAspectRatio: false,
-  //   plugins: {
-  //     title: {
-  //       display: false,
-  //     },
-  //     legend: {
-  //       display: false
-  //     },
-  //     tooltip: { enabled: false },
-  //   },
-  //   scales:
-  //   {
-  //     y: {
-  //       display: false
-  //     },
-  //     x: {
-
-  //       display: false
-  //     },
-  //   },
-  //   tooltip: {
-  //     display: false,
-  //     usePointStyle: true,
-  //   },
-  // }
+  
 }
 
 export const icon = Template.bind({});
 icon.args = {
   subTitleColorVariant: 'primary',
-  role: 'advanced',
   subTitle: 'Visitors',
   bigNumber: '2,236',
   children:

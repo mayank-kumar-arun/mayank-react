@@ -7,10 +7,7 @@ export default {
   component: RdsCheckbox,
   argTypes:{
     state: {
-      options:[
-          "Checkbox",
-          "Indeterminate"
-      ],
+      options:["Checkbox" ,"Indeterminate" , "ErrorCheckbox"],
       control: { type: "select" },
   }
   }
@@ -22,12 +19,13 @@ const Template: ComponentStory<typeof RdsCheckbox> = (args) => (
                                                                                                                                                                                               
 export const Default = Template.bind({});
 Default.args = {
+  state: 'Checkbox',
   label: "default checkbox",
   checked:false,
   isDisabled:false,
- isSwitch:false,
- withLabel:true,
- state: 'checkbox',
- id: 'id1',
+  isSwitch:false,
+  withlabel:true,
+  id: 'id1',
+  errorMessage:"error Message"
 };
 
