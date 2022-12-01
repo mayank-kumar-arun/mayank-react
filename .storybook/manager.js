@@ -1,5 +1,5 @@
 import { addons } from "@storybook/addons";
-import customTheme from "../raaghu-elements/.storybook/customTheme";
+import customTheme from "./customTheme";
 
 addons.setConfig({
 	theme: customTheme,
