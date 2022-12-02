@@ -16,7 +16,6 @@ const RdsLinkedAccount = (props: RdsLinkedAccountProps) => {
 
   const onSubmitHandler = (e: any) => {
     e.preventDefault();
-    console.log(e);
     let name = e.target[0].value;
     setUserData({
       ...userData,
@@ -24,7 +23,6 @@ const RdsLinkedAccount = (props: RdsLinkedAccountProps) => {
       userName: e.target[1].value,
       password: e.target[2].value,
     });
-    console.log(userData);
   };
 
   return (
@@ -95,7 +93,6 @@ const RdsLinkedAccount = (props: RdsLinkedAccountProps) => {
                 colorVariant="primary"
                 label="SAVE"
                 size="small"
-                // onClick={onSubmitHandler}
               ></RdsButton>
             </div>
           </div>
