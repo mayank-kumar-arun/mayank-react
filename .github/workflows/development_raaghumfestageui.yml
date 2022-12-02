@@ -48,7 +48,7 @@ jobs:
       - name: npm install, build, and test raaghu-mfe
         working-directory: raaghu-mfe
         run: |
-          npm install
+          npm install --force
           npm run build
 
       - name: Upload artifact for deployment job
