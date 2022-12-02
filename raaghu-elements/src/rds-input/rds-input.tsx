@@ -35,6 +35,7 @@ const RdsInput = React.forwardRef(
 
     const onChangeHandler = (event: any) => {
       setInputValue(event.target.value);
+      console.log(event.target.value);
     };
 
     let size: "sm" | "lg" | undefined = undefined;
