@@ -53,7 +53,6 @@ export {default as RdsColor } from "./rds-color";
 export {default as RdsListGroup} from './rds-list-group';
 export {default as RdsProductImage} from './rds-product-image';
 export {default as RdsPagination} from './rds-pagination';
-export {default as RdsFeed} from "./rds-feed";
 export {default as RdsCollapse} from "./rds-collapse";
 export {default as RdsFeatureList} from "./rds-feature-list";
 export {default as RdsPopover} from "./rds-popover";
