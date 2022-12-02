@@ -4,22 +4,18 @@ import "./rds-label.scss";
 export interface RdsLabelProps {
   children?: ReactNode;
   label?: string;
-  multiline?: boolean;
-  bold?: boolean;
-  italic?: boolean;
+  multiline?: boolean; 
   size?: string;
-  className?: string;
-  fontWeight?: number;
+  class?: string;
+  fontWeight?: number|string;
   color?:string;
 }
 
 const RdsLabel = (props: RdsLabelProps) => {
   return (
     <p
-      className={`${!props.multiline ? "singleLine" : ""} ${
-        props.bold ? "bold" : ""
-      } ${props.italic ? "italic" : "poppins"} ${props.className}`}
-      style={{ fontSize: props.size, fontWeight: props.fontWeight, color:props.color, margin:0, padding: 0 }}
+      className={` p-0 m-0 ${!props.multiline?"singleLine":""} ${props.class}`}
+      style={{fontSize: props.size, fontWeight: props.fontWeight, color:props.color }}
     >
       <label>{props.label}{props.children}</label>
     </p>
