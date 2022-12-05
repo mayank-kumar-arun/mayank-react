@@ -20,7 +20,8 @@ export interface RdsInputProps {
   redAsteriskPresent?: boolean;
 
   required?: boolean;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
+
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any;
   onClick?: (event: React.MouseEvent<HTMLInputElement>) => void;
@@ -31,12 +32,6 @@ export interface RdsInputProps {
 
 const RdsInput = React.forwardRef(
   (props: RdsInputProps, ref: React.Ref<unknown> | undefined) => {
-    const [inputValue, setInputValue] = useState(props.value);
-
-    const onChangeHandler = (event: any) => {
-      setInputValue(event.target.value);
-      console.log(event.target.value);
-    };
 
     let size: "sm" | "lg" | undefined = undefined;
 
@@ -94,11 +89,8 @@ const RdsInput = React.forwardRef(
             required={props.required}
             onFocus={props.onFocus}
             onBlur={props.onBlur}
-            value={inputValue}
-            onChange={(e) => {
-              onChangeHandler(e);
-              props.onChange;
-            }}
+            defaultValue={props.value}
+            onChange={props.onChange}
             disabled={props.isDisabled}
             readOnly={props.readonly}
           ></input>
@@ -116,11 +108,8 @@ const RdsInput = React.forwardRef(
               required={props.required}
               onFocus={props.onFocus}
               onBlur={props.onBlur}
-              value={inputValue}
-              onChange={(e) => {
-                onChangeHandler(e);
-                props.onChange;
-              }}
+              defaultValue={props.value}
+              onChange={props.onChange}
               disabled={props.isDisabled}
               readOnly={props.readonly}
             ></input>
@@ -145,5 +134,6 @@ const RdsInput = React.forwardRef(
     );
   }
 );
+
 
 export default RdsInput;
