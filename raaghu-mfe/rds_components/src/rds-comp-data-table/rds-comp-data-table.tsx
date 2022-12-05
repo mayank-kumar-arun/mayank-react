@@ -36,6 +36,7 @@ export interface RdsCompDatatableProps {
 	}): void;
 }
 const RdsCompDatatable = (props: RdsCompDatatableProps) => {
+	const [data, setData] = useState(props.tableData);
 	const [rowStatus, setRowStatus] = useState({
 		startingRow: 0,
 		endingRow: props.recordsPerPage,
@@ -61,12 +62,20 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 	};
 	const onSortClickHandler = (
 		event: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>,
-		sortOrder: string
+		sortOrder: string, col: string
 	) => {
-		props.onSortSelection({
-			sortClickEvent: event,
-			sortOrder: sortOrder,
-		});
+		const sorted = [...data].sort((a, b) => {
+			if (a[col] === undefined) return 1;
+			if (b[col] === undefined) return -1;
+			if (a[col] === undefined && b[col] === undefined) return 0;
+			return (
+			 a[col].toString().localeCompare(b[col].toString(), "en", {
+			  numeric: true,
+			 }) * (sortOrder === "ascending" ? 1 : -1)
+			);
+		   });
+		   console.log(sorted);
+		   setData(sorted);
 	};
 	return (
 		<>
@@ -92,16 +101,20 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 										<span className="px-2">
 											<span
 												className="btn btn-sm px-0"
-												onClick={(e) => onSortClickHandler(e, "ascending")}
+												onClick={(e) => onSortClickHandler(e, "ascending",tableHeader.key)}
 											>
 												<RdsIcon
 													name={"up"}
 													height="12px"
 													width="12px"
 													stroke={true}
+													
 												/>
 											</span>
-											<span className="btn btn-sm px-0">
+											<span 
+												className="btn btn-sm px-0"
+												onClick={(e) => onSortClickHandler(e, "descending",tableHeader.key)}
+											>
 												<RdsIcon
 													name={"down"}
 													height="12px"
@@ -123,7 +136,7 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 						</tr>
 					</thead>
 					<tbody>
-						{props.tableData.map(
+						{data.map(
 							(tableDataRow, index) =>
 								(props.pagination
 									? typeof rowStatus.endingRow != "undefined" &&
@@ -136,6 +149,7 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 												<td key={"column-" + tableHeaderIndex + "-inside-tableRow" + index}>
 													<div>
 														{tableHeader.datatype === "text" && tableDataRow[tableHeader.key]}
+														{tableHeader.datatype === "number" && tableDataRow[tableHeader.key]}
 														{tableHeader.datatype === "badge" &&
 															<span className={"badge text-bg-" +
 																(tableDataRow[tableHeader.key].badgeColorVariant
