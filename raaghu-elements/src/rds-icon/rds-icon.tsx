@@ -13,6 +13,7 @@ export interface RdsIconProps {
   class?: string;
   background?:string,
   borderRadius?:string,
+  onClick?: (event: React.MouseEvent<SVGSVGElement>) => void;
 }
 
 const RdsIcon = (props: RdsIconProps) => {
@@ -71,6 +72,7 @@ const RdsIcon = (props: RdsIconProps) => {
      } }
      className={`${props.class} ${bg}`}
       dangerouslySetInnerHTML={{__html: icon }}
+      onClick = {props.onClick}
       ></svg>
 
     </>
