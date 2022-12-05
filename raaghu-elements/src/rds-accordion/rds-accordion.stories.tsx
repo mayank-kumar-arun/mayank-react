@@ -30,11 +30,12 @@ const Template: ComponentStory<typeof RdsAccordion> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   colorVariant: "primary",
+
   buttonGroupItems: [
     {
       id: "accordionOne",
       bId: "collapseOne",
-      hId: "headingOne",
+      Bodyheading: "",
       title: "Section 1 title",
       content: "content1",
       state: false,
@@ -42,7 +43,7 @@ Default.args = {
     {
       id: "accordiontwo",
       bId: "collapseTwo",
-      hId: "headingTwo",
+      Bodyheading: "",
       title: "Section 2 title",
       content: "content2",
       state: false,
@@ -50,7 +51,7 @@ Default.args = {
     {
       id: "accordionThree",
       bId: "collapseThree",
-      hId: "headingThree",
+      Bodyheading: "",
       title: "Section 3 title",
       content: "content3",
       state: false,
