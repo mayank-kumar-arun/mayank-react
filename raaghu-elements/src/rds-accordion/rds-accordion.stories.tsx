@@ -39,6 +39,7 @@ Default.args = {
       title: "Section 1 title",
       content: "content1",
       state: false,
+      select: null,
     },
     {
       id: "accordiontwo",
@@ -47,6 +48,7 @@ Default.args = {
       title: "Section 2 title",
       content: "content2",
       state: false,
+      select: null,
     },
     {
       id: "accordionThree",
@@ -55,6 +57,7 @@ Default.args = {
       title: "Section 3 title",
       content: "content3",
       state: false,
+      select: null,
     },
   ],
 };
@@ -71,6 +74,7 @@ outline.args = {
       title: "Section 1 title",
       state: false,
       content: "content1",
+      select: null,
     },
     {
       id: "accordiontwo",
@@ -79,6 +83,7 @@ outline.args = {
       title: "Section 2 title",
       state: false,
       content: "content2",
+      select: null,
     },
     {
       id: "accordionThree",
@@ -87,6 +92,7 @@ outline.args = {
       title: "Section 3 title",
       state: false,
       content: "content3",
+      select: null,
     },
   ],
 };
