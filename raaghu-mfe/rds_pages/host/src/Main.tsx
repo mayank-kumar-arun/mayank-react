@@ -32,10 +32,7 @@ const Main = () => {
 		<Suspense fallback="loading...">
 			<Routes>
 				<Route path="/Dashboard" element={<DashboardCompo />}></Route>
-				<Route
-					path="/"
-					element={<LoginCompo onForgotPassword={forgotPasswordHandler} />}
-				></Route>
+				<Route path="/" element={<LoginCompo />}></Route>
 				<Route
 					path="/forgot-password"
 					element={<ForgotPasswordCompo />}

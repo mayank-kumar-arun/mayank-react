@@ -35,6 +35,7 @@ const RdsInput = React.forwardRef(
 
     const onChangeHandler = (event: any) => {
       setInputValue(event.target.value);
+      console.log(event.target.value);
     };
 
     let size: "sm" | "lg" | undefined = undefined;
@@ -55,11 +56,13 @@ const RdsInput = React.forwardRef(
       <div>
         {!props.labelPositon && (
           <>
+
             {props.label&&<label htmlFor={props.id} className="form-label">
               {props.label}
             </label>}
             {props.redAsteriskPresent && (
               <span className="text-danger ms-1">*</span>
+
             )}
           </>
         )}
