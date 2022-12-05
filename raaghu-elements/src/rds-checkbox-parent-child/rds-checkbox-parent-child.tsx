@@ -33,18 +33,14 @@ const reducer = (state: any, action: any) => {
           }
         });
       let selecteds =tempUser.filter( (child: any) => child.isSelected == true).length 
-      console.log("total checked  children ", selecteds)
     
       if(selecteds==parents.childList.length ){
-        console.log("all checked  children ", selecteds)
         return{...parents, isSelected: true , isIntermediate:false ,childList: tempUser}
       }
        else if(selecteds > 0 && selecteds< parents.childList.length){
-        console.log("intermediat  children ", selecteds)
         return { ...parents , isIntermediate:true, childList: tempUser }
        } 
        else {
-        console.log(" 0 checked  children ", selecteds)
         return { ...parents, isSelected: false,  isIntermediate:false ,childList: tempUser }}
       }
       else {
@@ -58,7 +54,6 @@ const reducer = (state: any, action: any) => {
 const RdsCheckboxParentChild = (props: RdsCheckboxParentChildProps) => {
   const [users, dispatch] = useReducer(reducer, props.userData);
   let role = props.role || "individual";
-  console.log("render");
   const parentHandleChange = (parents: any) => {
     dispatch({ type: "PARENT_IND", p_id: parents.id });
   };
@@ -71,7 +66,6 @@ const RdsCheckboxParentChild = (props: RdsCheckboxParentChildProps) => {
         <form className="form  p-0 m-0 w-100">
           <ul className=" p-0 m-0">
             {users.map((parents: any, index: number) => {
-               console.log("parents---", parents)
               return (
                 <li className="line1  p-0 m-0" key={index}>
                   <div className="form-check  ">
