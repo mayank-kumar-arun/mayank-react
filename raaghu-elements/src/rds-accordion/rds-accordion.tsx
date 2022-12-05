@@ -72,7 +72,7 @@ const RdsAccordion = (props: RdsAccordionProps) => {
                           ? `text-${props.colorVariant}`
                           : "text-white"
                       }`}
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
                     />
                   </svg>
@@ -92,7 +92,7 @@ const RdsAccordion = (props: RdsAccordionProps) => {
                           ? `text-${props.colorVariant}`
                           : "text-white"
                       }`}
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"
                     />
                   </svg>
@@ -106,6 +106,7 @@ const RdsAccordion = (props: RdsAccordionProps) => {
               }`}
             >
               <div className="accordion-body accbody">
+                <h3>{buttonGroupItem.Bodyheading}</h3>
                 <div>{buttonGroupItem.content}</div>
               </div>
             </div>
