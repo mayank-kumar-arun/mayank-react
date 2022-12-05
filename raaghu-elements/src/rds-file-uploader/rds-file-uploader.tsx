@@ -35,7 +35,6 @@ const RdsFileUploader = (props: RdsFileUploaderProps) => {
   const borderColor = "border-" + props.colorVariant || "primary";
   const onDelete = (id: any) => {
     let tempFN = fileName.filter((Fname: any, i: number) => i !== id);
-    console.log("tempFN : ", tempFN);
     setfileName(tempFN);
     let tempFS = FileSize.filter((Fsize: any, i: number) => i !== id);
     setFileSize(tempFS);

@@ -89,7 +89,6 @@ const reducer = (state: any, action: any) => {
 };
 const RdsCheckboxParentChild = (props: RdsCheckboxParentChildProps) => {
   const [users, dispatch] = useReducer(reducer, props.userData);
-
   const parentHandleChange = (parents: any) => {
     dispatch({ type: "PARENT", p_id: parents.id });
   };
