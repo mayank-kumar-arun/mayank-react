@@ -19,7 +19,7 @@ const RdsCompIdentityManagement = (props: RdsCompIdentityManagementProps) => {
 							<RdsLabel
 								size="14px"
 								label="Required Length (Min)"
-								className="form-label ms-1"
+								class="form-label ms-1"
 								children={<span style={{ color: "red" }}>*</span>}
 							></RdsLabel>
 							<RdsInput
@@ -37,7 +37,7 @@ const RdsCompIdentityManagement = (props: RdsCompIdentityManagementProps) => {
 							<RdsLabel
 								size="14px"
 								label="Required Special Characters (Min)"
-								className="form-label ms-1"
+								class="form-label ms-1"
 								children={<span style={{ color: "red" }}>*</span>}
 							></RdsLabel>
 							<RdsInput
@@ -90,7 +90,7 @@ const RdsCompIdentityManagement = (props: RdsCompIdentityManagementProps) => {
 							<RdsLabel
 								size="14px"
 								label="Lockout Duration (Seconds) "
-								className="form-label ms-1"
+								class="form-label ms-1"
 								children={<span style={{ color: "red" }}>*</span>}
 							></RdsLabel>
 							<RdsInput
@@ -108,7 +108,7 @@ const RdsCompIdentityManagement = (props: RdsCompIdentityManagementProps) => {
 							<RdsLabel
 								size="14px"
 								label="Max Failed Access Attempts "
-								className="form-label ms-1"
+								class="form-label ms-1"
 								children={<span style={{ color: "red" }}>*</span>}
 							></RdsLabel>
 							<RdsInput
