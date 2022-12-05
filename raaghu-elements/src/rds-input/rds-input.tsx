@@ -53,6 +53,7 @@ const RdsInput = React.forwardRef(
             )}
             {props.redAsteriskPresent && (
               <span className="text-danger ms-1">*</span>
+
             )}
           </>
         )}
