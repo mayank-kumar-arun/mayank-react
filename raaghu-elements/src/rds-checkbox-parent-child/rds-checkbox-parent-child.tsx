@@ -99,6 +99,7 @@ const RdsCheckboxParentChild = (props: RdsCheckboxParentChildProps) => {
   useEffect(() => {
     dispatch({ type: "INITIAL_STATE" });
   }, []);
+  
   return (
     <>
       <div className="container p-0 m-0">
