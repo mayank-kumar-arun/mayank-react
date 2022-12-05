@@ -15,28 +15,19 @@ export interface RdsInputProps {
   tooltipTitle?: string;
   name?: string;
   label?: string;
-
+  onClick?: React.MouseEventHandler<HTMLInputElement>;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onFocus?: React.FocusEventHandler<HTMLInputElement>;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
   id?: string;
   redAsteriskPresent?: boolean;
-
   required?: boolean;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
-  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any;
-  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any;
-  onClick?: (event: React.MouseEvent<HTMLInputElement>) => void;
-
   customClasses?: string;
   formName?: string;
 }
 
 const RdsInput = React.forwardRef(
   (props: RdsInputProps, ref: React.Ref<unknown> | undefined) => {
-    const [inputValue, setInputValue] = useState(props.value);
-
-    const onChangeHandler = (event: any) => {
-      setInputValue(event.target.value);
-    };
-
     let size: "sm" | "lg" | undefined = undefined;
 
     if (props.size == "small") {
@@ -55,9 +46,11 @@ const RdsInput = React.forwardRef(
       <div>
         {!props.labelPositon && (
           <>
-            {props.label&&<label htmlFor={props.id} className="form-label">
-              {props.label}
-            </label>}
+            {props.label && (
+              <label htmlFor={props.id} className="form-label">
+                {props.label}
+              </label>
+            )}
             {props.redAsteriskPresent && (
               <span className="text-danger ms-1">*</span>
             )}
@@ -89,11 +82,8 @@ const RdsInput = React.forwardRef(
             required={props.required}
             onFocus={props.onFocus}
             onBlur={props.onBlur}
-            value={inputValue}
-            onChange={(e) => {
-              onChangeHandler(e);
-              props.onChange;
-            }}
+            value={props.value}
+            onChange={props?.onChange}
             disabled={props.isDisabled}
             readOnly={props.readonly}
           ></input>
@@ -111,11 +101,8 @@ const RdsInput = React.forwardRef(
               required={props.required}
               onFocus={props.onFocus}
               onBlur={props.onBlur}
-              value={inputValue}
-              onChange={(e) => {
-                onChangeHandler(e);
-                props.onChange;
-              }}
+              value={props.value}
+              onChange={props.onChange}
               disabled={props.isDisabled}
               readOnly={props.readonly}
             ></input>
