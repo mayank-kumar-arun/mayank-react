@@ -10,6 +10,8 @@ export interface RdsCompApiScopeResourceProps {
 }
 
 const reducer = (state: any, action: any) => {
+  state.map((parent: any) => {});
+
   switch (action.type) {
     case "Parent":
       return state.map((parent: any, i: any) => {
@@ -28,7 +30,7 @@ const reducer = (state: any, action: any) => {
           return { ...parent, select: false };
         }
       });
-
+    // ============================================================================================
     case "Child":
       return state.map((parent: any) => {
         if (parent.id === action.P_id) {
@@ -40,11 +42,63 @@ const reducer = (state: any, action: any) => {
             }
           });
 
-          console.log("tempChi", tempChi);
+          let selected = tempChi.filter(
+            (child: any) => child.selected == true
+          ).length;
 
-          return { ...parent, select: true, children: tempChi };
+          if (selected === parent.children.length) {
+            return {
+              ...parent,
+              select: true,
+              selected: true,
+              children: tempChi,
+            };
+          } else {
+            return {
+              ...parent,
+              select: true,
+              selected: false,
+              children: tempChi,
+            };
+          }
         } else {
           return { ...parent, select: false };
+        }
+      });
+    // ============================================================================================
+    case "grand":
+      return state.map((parent: any) => {
+        let tempChi = parent.children.map((child: any) => {
+          if (action.event.target.checked) {
+            return { ...child, selected: true };
+          } else {
+            return { ...child, selected: false };
+          }
+        });
+        let t = 1;
+        let tempT = parent.children.map((chil: any) => {
+          chil.selected ? t + 1 : t;
+          return t;
+        });
+
+        let selected = tempChi.filter(
+          (child: any) => child.selected == true
+        ).length;
+
+        if (selected === parent.children.length) {
+          return {
+            ...parent,
+            select: true,
+            selected: true,
+            children: tempChi,
+          };
+        } else {
+          return {
+            ...parent,
+            select: true,
+            selected: false,
+            children: tempChi,
+          };
         }
       });
 
@@ -55,20 +109,39 @@ const reducer = (state: any, action: any) => {
 
 const RdsCompApiScopeResource = (props: RdsCompApiScopeResourceProps) => {
   const [Res, dispatch] = useReducer(reducer, props.resources);
-  const [open, setopen] = useState(0);
+  const [check, setcheck] = useState(false);
+
+  useEffect(() => {
+    let selected = Res.filter((Parent: any) => Parent.selected == true).length;
+
+    if (selected === Res.length) {
+      setcheck(true);
+    } else {
+      setcheck(false);
+    }
+  });
 
   const ChandleChange = (Child: any, Parent: any, e: any) => {
-    console.log("child in chandle", Child);
     dispatch({ type: "Child", P_id: Parent.id, C_id: Child.id });
   };
-  const Phandlechange = (resource: any, event: any) => {
+  const Phandlechange = (resource: any) => {
     dispatch({ type: "Parent", P_id: resource.id });
+  };
+  const Ghandlechange = (event: any) => {
+    dispatch({ type: "grand", event: event });
+    setcheck(!check);
   };
 
   return (
     <>
-      <input type="checkbox" name="Select all" />
-
+      <input
+        type="checkbox"
+        // label="select all"
+        name="select all"
+        checked={check}
+        onChange={(event) => Ghandlechange(event)}
+      ></input>{" "}
+      <label htmlFor="">Select all</label>
       <div className="col-md-12 mt-3">
         {Res.map((resource: any, i: number) => {
           return (
@@ -89,7 +162,7 @@ const RdsCompApiScopeResource = (props: RdsCompApiScopeResourceProps) => {
                           // label="select all"
                           name="select all"
                           checked={resource.selected}
-                          onChange={(event) => Phandlechange(resource, event)}
+                          onChange={(event) => Phandlechange(resource)}
                         ></input>{" "}
                         <label htmlFor="">{resource.displayName}</label>
                       </div>
