@@ -11,7 +11,6 @@ export interface RdsFileUploaderProps {
   extensions: string;
   limit: number;
   label:string;
-  
   onFileArray?: (files: any[]) => void;
 }
 
@@ -95,7 +94,7 @@ const RdsFileUploader = (props: RdsFileUploaderProps) => {
             </div>
 
             <div className={`row fullbox  ${borderColor}`}>
-              <div className="col-md-6 leftinnerbox">
+              <div className="col-6 leftinnerbox">
                 <div className="row lefttext">
                   <h6
                     className={` ${SIZE} ${
@@ -114,7 +113,7 @@ const RdsFileUploader = (props: RdsFileUploaderProps) => {
                   </div>
                 </div>
               </div>
-              <div className="col-md-6 rightbox ">
+              <div className="col-6 rightbox ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"

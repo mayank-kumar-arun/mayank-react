@@ -32,7 +32,7 @@ const RdsCheckbox = (props: RdsCheckboxProps) => {
             value=" "
             disabled={props.isDisabled}
             defaultChecked={props.checked}
-            id="class1"
+            id={props.id}
             name={props.name}
             onChange={props.onChange}
           />
