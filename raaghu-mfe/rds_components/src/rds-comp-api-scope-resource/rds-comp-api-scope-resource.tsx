@@ -30,7 +30,23 @@ const reducer = (state: any, action: any) => {
       });
 
     case "Child":
-      return state;
+      return state.map((parent: any) => {
+        if (parent.id === action.P_id) {
+          let tempChi = parent.children.map((child: any) => {
+            if (child.id === action.C_id) {
+              return { ...child, selected: !child.selected };
+            } else {
+              return { ...child, selected: child.selected };
+            }
+          });
+
+          console.log("tempChi", tempChi);
+
+          return { ...parent, select: true, children: tempChi };
+        } else {
+          return { ...parent, select: false };
+        }
+      });
 
     default:
       return state;
@@ -41,7 +57,8 @@ const RdsCompApiScopeResource = (props: RdsCompApiScopeResourceProps) => {
   const [Res, dispatch] = useReducer(reducer, props.resources);
   const [open, setopen] = useState(0);
 
-  const handleChange = (Child: any, Parent: any, e: any) => {
+  const ChandleChange = (Child: any, Parent: any, e: any) => {
+    console.log("child in chandle", Child);
     dispatch({ type: "Child", P_id: Parent.id, C_id: Child.id });
   };
   const Phandlechange = (resource: any, event: any) => {
@@ -67,12 +84,14 @@ const RdsCompApiScopeResource = (props: RdsCompApiScopeResourceProps) => {
                     <>
                       <div className="mt-2">
                         {" "}
-                        <RdsCheckbox
-                          label="select all"
+                        <input
+                          type="checkbox"
+                          // label="select all"
                           name="select all"
                           checked={resource.selected}
                           onChange={(event) => Phandlechange(resource, event)}
-                        ></RdsCheckbox>{" "}
+                        ></input>{" "}
+                        <label htmlFor="">{resource.displayName}</label>
                       </div>
 
                       <div className="accbodycheck mt-3">
@@ -84,7 +103,7 @@ const RdsCompApiScopeResource = (props: RdsCompApiScopeResourceProps) => {
                               name={check.displayName}
                               checked={check.selected}
                               onChange={(event) =>
-                                handleChange(check, resource, event)
+                                ChandleChange(check, resource, event)
                               }
                             ></input>
                             <label htmlFor="">{check.displayName}</label>
@@ -99,7 +118,7 @@ const RdsCompApiScopeResource = (props: RdsCompApiScopeResourceProps) => {
               colorVariant={"primary"}
               size={"small"}
               outline={false}
-              select={null}
+              select={22}
             ></RdsAccordion>
           );
         })}
