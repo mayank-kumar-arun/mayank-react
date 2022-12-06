@@ -30,30 +30,34 @@ const Template: ComponentStory<typeof RdsAccordion> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   colorVariant: "primary",
+
   buttonGroupItems: [
     {
       id: "accordionOne",
       bId: "collapseOne",
-      hId: "headingOne",
+      Bodyheading: "",
       title: "Section 1 title",
       content: "content1",
       state: false,
+      select: null,
     },
     {
       id: "accordiontwo",
       bId: "collapseTwo",
-      hId: "headingTwo",
+      Bodyheading: "",
       title: "Section 2 title",
       content: "content2",
       state: false,
+      select: null,
     },
     {
       id: "accordionThree",
       bId: "collapseThree",
-      hId: "headingThree",
+      Bodyheading: "",
       title: "Section 3 title",
       content: "content3",
       state: false,
+      select: null,
     },
   ],
 };
@@ -70,6 +74,7 @@ outline.args = {
       title: "Section 1 title",
       state: false,
       content: "content1",
+      select: null,
     },
     {
       id: "accordiontwo",
@@ -78,6 +83,7 @@ outline.args = {
       title: "Section 2 title",
       state: false,
       content: "content2",
+      select: null,
     },
     {
       id: "accordionThree",
@@ -86,6 +92,7 @@ outline.args = {
       title: "Section 3 title",
       state: false,
       content: "content3",
+      select: null,
     },
   ],
 };

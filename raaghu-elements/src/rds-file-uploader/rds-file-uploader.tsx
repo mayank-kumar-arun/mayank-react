@@ -1,16 +1,17 @@
 import React from "react";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "./rds-file-uploader.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export interface RdsFileUploaderProps {
-  placeholder: string;
+  placeholder?: string;
   size: string;
-  SIZE: string;
-  colorVariant: string;
-  multiple: boolean;
+  colorVariant?: string;
+  multiple?: boolean;
   extensions: string;
   limit: number;
+  label:string;
+  onFileArray?: (files: any[]) => void;
 }
 
 const fileholder: any = [];
@@ -30,9 +31,9 @@ const RdsFileUploader = (props: RdsFileUploaderProps) => {
     SIZE = "small";
   }
 
+  const borderColor = "border-" + props.colorVariant || "primary";
   const onDelete = (id: any) => {
     let tempFN = fileName.filter((Fname: any, i: number) => i !== id);
-    console.log("tempFN : ", tempFN);
     setfileName(tempFN);
     let tempFS = FileSize.filter((Fsize: any, i: number) => i !== id);
     setFileSize(tempFS);
@@ -56,39 +57,44 @@ const RdsFileUploader = (props: RdsFileUploaderProps) => {
       event.target.value = null;
     }
   };
+ 
+    useEffect(() => {
+      props.onFileArray != undefined && props.onFileArray(FileArray);
+    }, [FileArray]);
+
   return (
     <>
-      <div className={`row pb ${props.multiple ? "display" : ""}`}>
-        <div className="col-md-6">
-          <div>
-            <label className={`label ${SIZE}`}>Upload file</label>
-          </div>
+      {props.multiple == false ? (
+        <div className="row p-2">
+          <div className="">
+            <div>
+             <label className={`label fw-bold  ${SIZE} `}>{props.label}</label>
+            </div>
 
-          <div>
-            <input
-              multiple
-              className={` input text-${props.colorVariant} form-control  ${size} `}
-              type="file"
-              name="file"
-              accept={props.extensions}
-              onChange={(event) => onchangehandler(event)}
-            />
+            <div>
+              <input
+                multiple
+                className={` input text-${props.colorVariant} form-control  ${size} `}
+                type="file"
+                name="file"
+                accept={props.extensions}
+                onChange={(event) => onchangehandler(event)}
+              />
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className={`row pb ${props.multiple ? "" : "display"}`}>
-        <div>
-          <div className="col-md-6">
+      ) : (
+        <div className="row p-2">
+          <div className="p-0">
             <div className="labelbox">
-              <label className={`label ${SIZE}`}>Upload file</label>
+            <label className={`label fw-bold  ${SIZE} `}>{props.label}</label>
               <label className={`label ${SIZE}`}>
                 Maximum {props.limit} MB
               </label>
             </div>
 
-            <div className="row fullbox ">
-              <div className="col-md-6 leftinnerbox">
+            <div className={`row fullbox  ${borderColor}`}>
+              <div className="col-6 leftinnerbox">
                 <div className="row lefttext">
                   <h6
                     className={` ${SIZE} ${
@@ -107,7 +113,7 @@ const RdsFileUploader = (props: RdsFileUploaderProps) => {
                   </div>
                 </div>
               </div>
-              <div className="col-md-6 rightbox ">
+              <div className="col-6 rightbox ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -121,7 +127,7 @@ const RdsFileUploader = (props: RdsFileUploaderProps) => {
                 </svg>
               </div>
 
-              <div className=" row pb inputbox">
+              <div className=" row inputbox">
                 <input
                   className={` col-md-6 input mulinput   ${size} `}
                   type="file"
@@ -212,7 +218,7 @@ const RdsFileUploader = (props: RdsFileUploaderProps) => {
             </div>
           ))}
         </div>
-      </div>
+      )}
     </>
   );
 };

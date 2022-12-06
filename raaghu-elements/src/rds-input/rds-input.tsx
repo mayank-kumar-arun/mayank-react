@@ -15,10 +15,8 @@ export interface RdsInputProps {
   tooltipTitle?: string;
   name?: string;
   label?: string;
-
   id?: string;
   redAsteriskPresent?: boolean;
-
   required?: boolean;
 
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
@@ -32,7 +30,6 @@ export interface RdsInputProps {
 
 const RdsInput = React.forwardRef(
   (props: RdsInputProps, ref: React.Ref<unknown> | undefined) => {
-
     let size: "sm" | "lg" | undefined = undefined;
 
     if (props.size == "small") {
@@ -52,14 +49,13 @@ const RdsInput = React.forwardRef(
         {!props.labelPositon && (
           <>
             {props.label && (
-              <>
-                <label htmlFor={props.id} className="form-label">
-                  {props.label}
-                </label>
-                {props.redAsteriskPresent && (
-                  <span className="text-danger ms-1">*</span>
-                )}
-              </>
+              <label htmlFor={props.id} className="form-label">
+                {props.label}
+              </label>
+            )}
+            {props.redAsteriskPresent && (
+              <span className="text-danger ms-1">*</span>
+
             )}
           </>
         )}

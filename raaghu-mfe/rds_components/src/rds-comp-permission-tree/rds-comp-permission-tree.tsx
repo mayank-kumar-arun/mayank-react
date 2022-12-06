@@ -1,91 +1,139 @@
-import React from "react";
-import { Fragment, ReactNode } from "react";
-import { RdsSearch, RdsCheckbox, RdsIcon, RdsCounter } from "../rds-elements";
-import { PermissionNode, TreeType } from "./pemission.model";
 
-export interface RdsCompPermissionTreeProps {
-	selectAllLabel?: string;
-	selectedItems?: PermissionNode[];
-	treeData: PermissionNode[];
-	permissions?: any;
-	TreeType?: TreeType[];
-	mutable?: boolean;
-	multiselectTree?: boolean;
-	getAllselectedPermissions: React.EventHandler<any>;
+import React, {useState} from "react";
+import "./rds-comp-permission-tree.scss"
+// Arbitrarily nested data
+export interface RdsPT { 
+	toppingOptions :any[]
 }
-
-const RdsCompPermissionTree = (props: RdsCompPermissionTreeProps) => {
-	const setStateBasedOnMutable = (lastNode: boolean, node: PermissionNode) => {
-		if (!props.mutable && lastNode && node.children.length === 0) {
-			return false;
+  
+  // Root component -> Manages all app state
+  const RdsCompPermissionTree = (props:RdsPT ) => {    
+	const[selectedOption, setSelectedOption ]=useState({})
+	
+	const OptionsList = ({ options, selectedOptions, onChange }:any) => {
+     console.log("options ",options )
+		const handleCheckboxClicked = (selectedOptionId:any) => {
+		  // is currently selected
+		  setSelectedOption(selectedOptionId)
+		  // call onChange function given by parent
+		  onChange(selectedOptions) 
 		}
-		return true;
-	};
-
+		
+		const handleSubOptionsListChange = (optionId:any, subSelections:any) => {
+		  // add sub selections to current optionId
+		  setSelectedOption(subSelections[optionId])
+		  onChange(subSelections);
+		}
+		
+		return (
+		  <div>
+			{options.map((option:any) => (
+			  <ul>
+				<Checkbox 
+				  selected={selectedOptions[option.id]} 
+				  label={option.name} 
+				  onChange={() => {handleCheckboxClicked(option.id)}}
+				 />
+				{/* Base Case */}
+				{(option.subOptions.length > 0 && selectedOptions[option.id]) &&
+				  <OptionsList
+					options={option.subOptions}
+					selectedOptions={selectedOptions[option.id]} 
+					onChange={(subSelections:any) => handleSubOptionsListChange(option.id, subSelections)}
+				   />
+				}
+			  </ul>
+			))}
+		  </div>
+		)
+	  }
+	  
+	  // Dumb checkbox component, completly controlled by parent
+	  const Checkbox = ({ selected, label, onChange }:any) => {
+		return (
+		  <div>
+			<div
+			  className="checkbox" 
+			  onClick={() => onChange(!selected)} 
+			/> 
+			<div className="label">{label}</div>
+		  </div>
+		)
+	  }
 	return (
-		<div>
-			<div className="checkedstyle flush-border treeview-flush ">
-				<>
-					{props.multiselectTree && (
-						<div className="d-flex align-items-center checkedstyle mt-3">
-							<div className="node-dot position-relative">
-								<RdsCheckbox label={""} checked={false}></RdsCheckbox>
-							</div>
-							<span className="node-label">
-								<span className="mr-4">Select All</span>
-							</span>
-						</div>
-					)}
+		 <div>
+		   <h1>Toppings</h1>
+		   <OptionsList 
+			 options={props.toppingOptions} 
+			 onChange={(selectedOptions:any) =>setSelectedOption(selectedOptions)}
+			 selectedOptions={selectedOption} 
+		   />
+		 </div>
+	   )
+	
+  }
+  export default RdsCompPermissionTree;
+  
+  // Recursive component
+ 
+  
+  
+  
+  
 
-					{props.treeData?.map((node: any, i: any) => {
-						<div className="position-relative">
-							{setStateBasedOnMutable(
-								i === props.treeData.length - 1,
-								node
-							) && <div className="vertical-dotted-line"></div>}
-							<div className="d-flex align-items-center position-relative">
-								{node.children.length > 0 && (
-									<RdsIcon
-										name={"cheveron_down"}
-										height="13px"
-										width="13px"
-									></RdsIcon>
-								)}
 
-								{props.TreeType && (
-									<div className="node-dot position-relative">
-										<RdsCheckbox label={""} checked={false}></RdsCheckbox>
-										<div className="horizontal-dotted-line"></div>
-									</div>
-								)}
+// import React from "react";
+// import { Fragment, ReactNode } from "react";
+// import { RdsSearch, RdsCheckbox, RdsIcon, RdsCounter } from "../rds-elements";
+// import { PermissionNode, TreeType } from "./pemission.model";
 
-								<span className="node-label text-nowrap cursor-pointer ms-2">
-									<span className="mr-4">{node.data.displayName}</span>
-								</span>
+// export interface RdsCompPermissionTreeProps {
+//   selectAllLabel?: string;
+//   selectedItems?: PermissionNode[];
+//   treeData: PermissionNode[];
+//   permissions?: any;
+//   TreeType?: TreeType[];
+//   mutable?: boolean;
+//   multiselectTree?: boolean;
+//   getAllselectedPermissions: React.EventHandler<any>;
+// }
 
-								{node.data.inputType &&
-									node.data.inputType.name == "SINGLE_LINE_STRING" && (
-										<div>
-											{props.permissions.map((item: any) => {
-												<div className="mx-3 mt-2  sm-ms-3">
-													<RdsCounter
-														colorVariant="primary"
-														counterValue={item.value}
-														min={0}
-														max={26}
-														width={124}
-													></RdsCounter>
-												</div>;
-											})}
-										</div>
-									)}
-							</div>
-						</div>;
-					})}
-				</>
-			</div>
-		</div>
-	);
-};
+// const RdsCompPermissionTree = (props: RdsCompPermissionTreeProps) => {
+//   const setStateBasedOnMutable = (lastNode: boolean, node: PermissionNode) => {
+//     if (!props.mutable && lastNode && node.children.length === 0) {
+//       return false;
+//     }
+//     return true;
+//   };
 
-export default RdsCompPermissionTree;
+//   let setCheckedValueForNodeAndChildren = (item:any, value:any) => {
+//     if (item.children) {
+//       return {
+//         ...item,
+//         checked: value,
+//         children: item.children.map((x:any) =>
+//           setCheckedValueForNodeAndChildren(x, value)
+//         ),
+//       };
+//     } else {
+//       return { ...item, checked: value };
+//     }
+//   };
+
+//   let toggleNodeInsideTree = (id:any, tree:any) => {
+//     return tree.map((x:any) => {
+//       if (x.id === id) {
+//         return setCheckedValueForNodeAndChildren(x, !x.checked);
+//       }
+
+//       if (x.children) {
+//         return { ...x, children: toggleNodeInsideTree(id, x.children) };
+//       }
+
+//       return x;
+//     });
+//   };
+//   return <></>;
+// };
+
+// export default RdsCompPermissionTree;

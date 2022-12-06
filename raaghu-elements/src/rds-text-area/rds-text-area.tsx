@@ -20,9 +20,9 @@ const RdsTextArea = (props: RdsTextAreaProps) => {
 			<div>
 				{!props.labelPosition && (
 					<>
-						<label htmlFor={props.id} className="form-label">
+						{props.label && <label htmlFor={props.id} className="form-label">
 							{props.label}
-						</label>
+						</label>}
 
 						{props.redAsteriskPresent && (
 							<span className="text-danger ms-1">*</span>
