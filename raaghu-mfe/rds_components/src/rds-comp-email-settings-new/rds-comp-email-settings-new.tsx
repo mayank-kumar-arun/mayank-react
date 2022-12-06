@@ -12,7 +12,7 @@ const RdsCompEmailSettingsNew = (props: RdsCompEmailSettingsNewProps) => {
 						<div className="form-group">
 							<RdsLabel
 								label="Default From Display Name"
-								className="mb-1"
+								class="mb-1"
 								size="14px"
 							></RdsLabel>
 							<RdsInput
@@ -25,7 +25,7 @@ const RdsCompEmailSettingsNew = (props: RdsCompEmailSettingsNewProps) => {
 					<div className="col-md-6 col-sm-6 col-lg-6">
 						<RdsLabel
 							label="Default From Address"
-							className="mb-1"
+							class="mb-1"
 							size="14px"
 						></RdsLabel>
 						<RdsInput
@@ -38,7 +38,7 @@ const RdsCompEmailSettingsNew = (props: RdsCompEmailSettingsNewProps) => {
 				<div className="row mb-4">
 					<div className="col-md-6 col-sm-6 col-lg-6">
 						<div className="form-group">
-							<RdsLabel label="Host" className="mb-1" size="14px"></RdsLabel>
+							<RdsLabel label="Host" class="mb-1" size="14px"></RdsLabel>
 							<RdsInput
 								placeholder="Enter Name"
 								customClasses="form-control"
@@ -46,7 +46,7 @@ const RdsCompEmailSettingsNew = (props: RdsCompEmailSettingsNewProps) => {
 						</div>
 					</div>
 					<div className="col-md-6 col-sm-6 col-lg-6">
-						<RdsLabel label="Port" className="mb-1" size="14px"></RdsLabel>
+						<RdsLabel label="Port" class="mb-1" size="14px"></RdsLabel>
 						<RdsInput
 							placeholder="Enter Name"
 							customClasses="form-control"
