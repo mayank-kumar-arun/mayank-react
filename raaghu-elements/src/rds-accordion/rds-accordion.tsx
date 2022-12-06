@@ -9,12 +9,14 @@ export interface RdsAccordionProps {
   colorVariant: colors;
   size: string;
   outline: boolean;
+  select: any;
 }
 
 const RdsAccordion = (props: RdsAccordionProps) => {
-  let [selected, setselected] = useState(null);
+  let [selected, setselected] = useState(props.select);
 
   const onClickhandler = (id: any) => {
+    
     if (selected == id) {
       props.buttonGroupItems[id].state = !props.buttonGroupItems[id].state;
       return setselected(null);
