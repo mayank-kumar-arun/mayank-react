@@ -29,5 +29,8 @@ Default.args = {
     { id: 2, color: '#FDD2FF' },
     { id: 3, color: '#BFEAFF' },
   ],
-  }
+  },
+  showAddToBagButton : true,
+  bordered: true,
+
 };

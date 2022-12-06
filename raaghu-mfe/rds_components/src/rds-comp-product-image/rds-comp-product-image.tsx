@@ -1,6 +1,6 @@
-import React from "react";
+import React,{useState} from "react";
 import { isHtmlElement } from "react-router-dom/dist/dom";
-import { RdsLabel, RdsBadge, RdsIcon, RdsRating, RdsColorSwitcher } from "../rds-elements";
+import { RdsLabel, RdsBadge, RdsIcon, RdsRating, RdsColorSwitcher,RdsButton } from "../rds-elements";
 import "./rds-comp-product-image.scss"
 export interface Item{
   imgUrl?: string, 
@@ -13,29 +13,48 @@ export interface Item{
   badgeWithIcon?: {badge:string, icon: string},
   itemWidth?:string,
   ColorSwitcherList?: {id:number, color: string}[];
+
 }
 export interface RdsCompProductImageProps {
   item: Item;
+  showAddToBagButton?:boolean;
+  bordered?: boolean;
 }
 const RdsCompProductImage = (props: RdsCompProductImageProps) => {
+  const borderedClass = (props.bordered? "border":"");
+  let [heartIconFill,setheartIconFill] = useState(false); 
+  let [heartIconColor,setheartIconColor] = useState("dark");
+  const HeartIconClickHandler = () =>{
+    if(heartIconFill === false){
+    setheartIconFill(true);
+    setheartIconColor("danger");
+    }
+    else{
+      setheartIconFill(false);
+    setheartIconColor("dark");
+    }
+  }
   return (
     // <div
     //   className="card d-flex align-items-center justify-content-center"
     //   style={{ width: "666px", height: "980px" }}
     // >
-      <div className = "mx-4 d-inline-block position-relative w-100" >
-        <img src={props.item.imgUrl} alt="product-img" className = "w-100 h-100"></img>
+      <div className = {"me-4 d-inline-block position-relative product-container " + borderedClass} >
+        <img src={props.item.imgUrl} alt="product-img" className = "product-img"></img>
+        <div className = {(props.bordered)?"mx-2 mb-4":""}>
+
         <div className = "mt-3">
           <RdsLabel label="Basic Tee" size="28px"></RdsLabel>
         </div>
         <div className = "position-absolute iconposition-heart">
         <RdsIcon
                     name= "heart"
-                    colorVariant="dark"
+                    colorVariant={heartIconColor}
                     height="21px"
                     width="25px"
-                    fill={false}
+                    fill={heartIconFill}
                     stroke={true}
+                    onClick = {HeartIconClickHandler}
                   ></RdsIcon>
         </div>
         { props.item.rating  && (
@@ -90,6 +109,9 @@ const RdsCompProductImage = (props: RdsCompProductImageProps) => {
       
         </div>
         {props.item.ColorSwitcherList && <div className = ""><RdsColorSwitcher itemList={props.item.ColorSwitcherList}/></div>}
+        <div className = "mt-2"></div>
+        {props.showAddToBagButton && <RdsButton colorVariant = "primary" type = "button" label = "ADD TO BAG" block = {true}></RdsButton>}
+        </div>
       </div>
     // </div>
   );

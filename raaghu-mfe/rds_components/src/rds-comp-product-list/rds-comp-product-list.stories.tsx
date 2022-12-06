@@ -154,8 +154,6 @@ ProductListSimple.args = {
 ]
 };
 
-
-
 export const ProductListCardWithFullDetails = Template.bind({});
 ProductListCardWithFullDetails.args = {
   items: [
@@ -184,4 +182,44 @@ ProductListCardWithFullDetails.args = {
     cost:"$35",
     badgeWithIcon: {badge: "Quality Assured", icon: "featured"}},
   ]
-}
+};
+
+export const ProductListWithBorder = Template.bind({});
+ProductListWithBorder.args = {
+  items: [
+    {imgUrl:"https://www.linkpicture.com/q/product_img_with_title_1.png", 
+    productTitle:"Basic Tee", 
+    rating: 3, 
+  reviews:"See all 123 reviews", 
+    cost:"$35",
+  },
+  {imgUrl:"https://www.linkpicture.com/q/product_img_with_title_1.png", 
+    productTitle:"Basic Tee", 
+    rating: 3, 
+  reviews:"See all 123 reviews", 
+    cost:"$35",
+  },
+  {imgUrl:"https://www.linkpicture.com/q/product_img_with_title_1.png", 
+    productTitle:"Basic Tee", 
+    rating: 3, 
+  reviews:"See all 123 reviews", 
+    cost:"$35",
+  },
+  {imgUrl:"https://www.linkpicture.com/q/product_img_with_title_1.png", 
+    productTitle:"Basic Tee", 
+    rating: 3, 
+  reviews:"See all 123 reviews", 
+    cost:"$35",
+  },
+  {imgUrl:"https://www.linkpicture.com/q/product_img_with_title_1.png", 
+    productTitle:"Basic Tee",
+    rating: 3, 
+  reviews:"See all 123 reviews",  
+    cost:"$35",
+  },
+    
+  ],
+  bordered: true,
+  
+};
+

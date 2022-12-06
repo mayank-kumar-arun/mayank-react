@@ -4,20 +4,20 @@ import './rds-comp-product-list.scss'
 export interface RdsCompProductListProps{
     items:Item[];
     type?:string;
+    bordered?:boolean;
 }
 const RdsCompProductList = (props: RdsCompProductListProps) => {
   return (
-    <div className = "container">
-        <div className = "row">
+    <div>
+
         {props.items.map((item: any,index:any)=>(
-        <div className = "col-md-3 mb-5">
-            <RdsCompProductImage item={item}/>
+        <div className = "mb-5 d-inline-block">
+            <RdsCompProductImage item={item} bordered = {(props.bordered)?true: false}/>
         </div>
         ))
         }
-        </div>
-        
     </div>
+        
   )
 }
 
