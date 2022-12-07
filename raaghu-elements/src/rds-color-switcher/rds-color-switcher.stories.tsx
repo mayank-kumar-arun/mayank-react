@@ -2,21 +2,21 @@
 
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import RdsColor from "./rds-color";
+import RdsColorSwitcher from "./rds-color-switcher";
 
 export default {
-  title: "Elements/Color",
-  component: RdsColor,
+  title: "Elements/Color Switcher",
+  component: RdsColorSwitcher,
   argTypes: {
     displayType: {
       options: ['rounded', 'square'],
       control: { type: 'select' }
     }
   }
-} as ComponentMeta<typeof RdsColor>;
+} as ComponentMeta<typeof RdsColorSwitcher>;
 
-const Template: ComponentStory<typeof RdsColor> = (args) => (
-  <RdsColor {...args} />
+const Template: ComponentStory<typeof RdsColorSwitcher> = (args) => (
+  <RdsColorSwitcher {...args} />
 );
                                                                                                                                                                                               
 export const Default = Template.bind({});

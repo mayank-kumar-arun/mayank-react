@@ -49,7 +49,7 @@ export {default as RdsModal} from './rds-modal';
 export {default as RdsNavtabs} from './rds-navtabs';
 export {default as RdsRating} from './rds-rating';
 export {default as RdsPopularPage} from './rds-popular-page';
-export {default as RdsColor } from "./rds-color";
+export {default as RdsColorSwitcher } from "./rds-color-switcher";
 export {default as RdsListGroup} from './rds-list-group';
 export {default as RdsProductImage} from './rds-product-image';
 export {default as RdsPagination} from './rds-pagination';
