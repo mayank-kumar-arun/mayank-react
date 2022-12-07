@@ -36,22 +36,9 @@ export const RdsBadgeAsButton = Template.bind({});
 
 RdsBadgeAsButton.args = {
     label:"Badge",
-  // number: 9,
-  // size: "Choose option...",
-  // buttonColor: "primary",
-  // badgeColor: "secondary",
-  // badgeType:"Choose option...",
+    colorVariant:"primary",
+    textColor:"white"
+
 };
 
-// export const RdsBadgeWithIcon = Template.bind({});
 
-// onclick 
-// RdsBadgeWithIcon.args = {
-//   icon:"Button",
-//   number: 9,
-//   size: "Choose option...",
-//   badgeType:"Choose option...",
-//   buttonColor: "primary",
-//   badgeColor: "secondary",
-  
-// };

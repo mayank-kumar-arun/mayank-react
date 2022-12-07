@@ -22,7 +22,8 @@ export interface RdsBadgeProps {
     | "light"
     | "info"
     | "secondary"
-    | "dark";
+    | "dark"
+    |"white";
   badgeType?: "rectangle" | "circle" | "pill";
 }
 

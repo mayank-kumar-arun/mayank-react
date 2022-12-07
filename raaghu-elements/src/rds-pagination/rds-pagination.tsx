@@ -49,7 +49,6 @@ const RdsPagination = (props: RdsPaginationProps) => {
 
   };
   
-  if (props.onPageChange != undefined)
     useEffect(() => {
       props.onPageChange != undefined &&
         props.onPageChange(currentPage, recordsPerPage);
