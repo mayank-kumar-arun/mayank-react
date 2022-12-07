@@ -87,7 +87,7 @@ jobs:
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: "raaghumfestageuiapp"
+          app-name: "anzstagereact"
           slot-name: "production"
           publish-profile: ${{ secrets.AZURE_WEBAPP_ANZSTAGE_PUBLISH_PROFILE }}
           package: .
