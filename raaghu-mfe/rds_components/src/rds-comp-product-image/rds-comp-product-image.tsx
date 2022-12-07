@@ -20,14 +20,15 @@ export interface Item {
   badgeWithIcon?: { badge: string; icon: string };
   itemWidth?: string;
   ColorSwitcherList?: { id: number; color: string }[];
+  showAddToBagButton?: boolean;
+  bordered?: boolean;
+  showAddToBagAndBuyNowButton?: true;
 }
 export interface RdsCompProductImageProps {
   item: Item;
-  showAddToBagButton?: boolean;
-  bordered?: boolean;
 }
 const RdsCompProductImage = (props: RdsCompProductImageProps) => {
-  const borderedClass = props.bordered ? "border" : "";
+  const borderedClass = props.item.bordered ? "border" : "";
   let [heartIconFill, setheartIconFill] = useState(false);
   let [heartIconColor, setheartIconColor] = useState("dark");
   const HeartIconClickHandler = () => {
@@ -51,7 +52,7 @@ const RdsCompProductImage = (props: RdsCompProductImageProps) => {
         alt="product-img"
         className="product-img"
       ></img>
-      <div className={props.bordered ? "mx-2 mb-4" : ""}>
+      <div className={props.item.bordered ? "mx-2 mb-4" : ""}>
         <div className="mt-3">
           <RdsLabel label="Basic Tee" size="28px"></RdsLabel>
         </div>
@@ -129,14 +130,30 @@ const RdsCompProductImage = (props: RdsCompProductImageProps) => {
             <RdsColorSwitcher itemList={props.item.ColorSwitcherList} />
           </div>
         )}
-        <div className="mt-2"></div>
-        {props.showAddToBagButton && (
-          <RdsButton
-            colorVariant="primary"
-            type="button"
-            label="ADD TO BAG"
-            block={true}
-          ></RdsButton>
+        <div className="mt-2"></div>       
+        {props.item.showAddToBagButton && (props.item.showAddToBagAndBuyNowButton?
+          <div className="d-flex justify-content-between">
+
+            <RdsButton
+              colorVariant="primary"
+              type="button"
+              outlineButton = {true}
+              label="ADD TO BAG"
+              block={false}
+            ></RdsButton>
+            <RdsButton
+              colorVariant="primary"
+              type="button"
+              label="BUY NOW"
+              block={false}
+            ></RdsButton>
+            </div>:<RdsButton
+          
+          colorVariant="primary"
+          type="button"
+          label="ADD TO BAG"
+          block={true}
+        ></RdsButton>
         )}
       </div>
     </div>

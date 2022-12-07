@@ -6,7 +6,7 @@ import "./rds-comp-product-list.scss";
 export interface RdsCompProductListProps {
   items: Item[];
   type?: string;
-  bordered?: boolean;
+
 }
 const RdsCompProductList = (props: RdsCompProductListProps) => {
   return (
@@ -15,7 +15,7 @@ const RdsCompProductList = (props: RdsCompProductListProps) => {
         <div className="mb-5 d-inline-block">
           <RdsCompProductImage
             item={item}
-            bordered={props.bordered ? true : false}
+            
           />
         </div>
       ))}
