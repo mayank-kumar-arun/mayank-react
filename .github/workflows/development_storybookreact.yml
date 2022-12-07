@@ -24,7 +24,7 @@ jobs:
 
       - name: build storybook
         run: |
-          npm install
+          npm install --force
           npm run build-storybook
 
       - name: Upload artifact for deployment job
