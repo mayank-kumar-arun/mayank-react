@@ -19,16 +19,17 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
   const [records, setRecords] = useState({});
 
   let name, val;
-  const handleChange = (value: any) => {
-    name = value.target.name;
-    val = value.target.value;
+  const handleChange = (event: any) => {
+    console.log(event);
+    name = event.target.name;
+    val = event.target.value;
     setValues({ ...values, [name]: val });
   };
 
   const handleSubmit = (event:any) => {
     event.preventDefault();
-    const newRecord = {...values , id : new Date().getTime().toString()};
-    setRecords({...records, newRecord});
+    let newRecord = {...values , id : new Date().getTime().toString()};
+    setRecords(newRecord);
     setValues({
       name: "",
       surName: "",
@@ -36,10 +37,11 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
       phone: "",
       userName: "",
       password: "",
-      cnfPassword: "",
+      cnfPassword: "",  
     });
+    console.log(records)
   };
-
+console.count()
   return (
     <>
       <form className="p-2" onSubmit={handleSubmit}>
@@ -57,7 +59,7 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
                 name="name"
                 size="small"
                 redAsteriskPresent={true}
-                onChange={(value) => handleChange(value)}
+                onChange={handleChange}
               ></RdsInput>
             </div>
             <div>
@@ -69,7 +71,7 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
                 name="surName"
                 size="small"
                 redAsteriskPresent={true}
-                onChange={(value) => handleChange(value)}
+                onChange={handleChange}
               ></RdsInput>
             </div>
           </div>
@@ -85,7 +87,7 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
                 name="email"
                 size="small"
                 redAsteriskPresent={true}
-                onChange={(value) => handleChange(value)}
+                onChange={handleChange}
               ></RdsInput>
             </div>
           </div>
@@ -101,7 +103,7 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
                 name="phone"
                 size="small"
                 redAsteriskPresent={true}
-                onChange={(value) => handleChange(value)}
+                onChange={handleChange}
               ></RdsInput>
             </div>
           </div>
@@ -115,7 +117,7 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
                 name="userName"
                 size="small"
                 redAsteriskPresent={true}
-                onChange={(value) => handleChange(value)}
+                onChange={handleChange}
               ></RdsInput>
             </div>
           </div>
@@ -131,7 +133,7 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
                 name="password"
                 redAsteriskPresent={true}
                 size="small"
-                onChange={(value) => handleChange(value)}
+                onChange={handleChange}
               ></RdsInput>
             </div>
           </div>
@@ -145,7 +147,7 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
                 name="cnfPassword"
                 redAsteriskPresent={true}
                 size="small"
-                onChange={(value) => handleChange(value)}
+                onChange={handleChange}
               ></RdsInput>
             </div>
           </div>
