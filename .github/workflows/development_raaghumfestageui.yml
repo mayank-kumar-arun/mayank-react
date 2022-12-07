@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: raaghumfestageuiapp # set this to your application's name
+  AZURE_WEBAPP_NAME: anzstagereact # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: "." # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: "16.15.0" # set this to the node version to use
   NODE_OPTIONS: "--max_old_space_size=6144"
@@ -39,6 +39,10 @@ jobs:
       #      env:
       #        appBaseUrl: ${{ secrets.APPBASEURL_STAGING }}
       #        remoteServiceBaseUrl: ${{ secrets.REMOTESERVICEBASEURL_STAGING }}
+
+      - name: npm install at root directory
+        run: |
+          npm install --force
 
       - name: npm install raaghu-elements
         working-directory: raaghu-elements
@@ -83,7 +87,7 @@ jobs:
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: "raaghumfestageuiapp"
+          app-name: "anzstagereact"
           slot-name: "production"
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_392363CA3B8C4905BC10144A553C3367 }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_ANZSTAGE_PUBLISH_PROFILE }}
           package: .
