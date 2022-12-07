@@ -40,6 +40,10 @@ jobs:
       #        appBaseUrl: ${{ secrets.APPBASEURL_STAGING }}
       #        remoteServiceBaseUrl: ${{ secrets.REMOTESERVICEBASEURL_STAGING }}
 
+      - name: npm install at root directory
+        run: |
+          npm install --force
+
       - name: npm install raaghu-elements
         working-directory: raaghu-elements
         run: |
