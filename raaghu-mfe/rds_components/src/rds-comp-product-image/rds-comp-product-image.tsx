@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { isHtmlElement } from "react-router-dom/dist/dom";
 import {
   RdsLabel,
   RdsBadge,
@@ -22,7 +21,7 @@ export interface Item {
   ColorSwitcherList?: { id: number; color: string }[];
   showAddToBagButton?: boolean;
   bordered?: boolean;
-  showAddToBagAndBuyNowButton?: true;
+  showBuyNowButton?: true;
 }
 export interface RdsCompProductImageProps {
   item: Item;
@@ -31,6 +30,11 @@ const RdsCompProductImage = (props: RdsCompProductImageProps) => {
   const borderedClass = props.item.bordered ? "border" : "";
   let [heartIconFill, setheartIconFill] = useState(false);
   let [heartIconColor, setheartIconColor] = useState("dark");
+  let showAddToBagAndBuyNowButton =
+    props.item.showBuyNowButton && props.item.showAddToBagButton;
+  let buttonClass = showAddToBagAndBuyNowButton
+    ? "d-flex justify-content-between"
+    : "";
   const HeartIconClickHandler = () => {
     if (heartIconFill === false) {
       setheartIconFill(true);
@@ -130,14 +134,13 @@ const RdsCompProductImage = (props: RdsCompProductImageProps) => {
             <RdsColorSwitcher itemList={props.item.ColorSwitcherList} />
           </div>
         )}
-        <div className="mt-2"></div>       
-        {props.item.showAddToBagButton && (props.item.showAddToBagAndBuyNowButton?
-          <div className="d-flex justify-content-between">
 
+        {props.item.showBuyNowButton && props.item.showAddToBagButton && (
+          <div className="d-flex justify-content-between mt-2">
             <RdsButton
               colorVariant="primary"
               type="button"
-              outlineButton = {true}
+              outlineButton={true}
               label="ADD TO BAG"
               block={false}
             ></RdsButton>
@@ -147,13 +150,27 @@ const RdsCompProductImage = (props: RdsCompProductImageProps) => {
               label="BUY NOW"
               block={false}
             ></RdsButton>
-            </div>:<RdsButton
-          
-          colorVariant="primary"
-          type="button"
-          label="ADD TO BAG"
-          block={true}
-        ></RdsButton>
+          </div>
+        )}
+        {props.item.showBuyNowButton && !props.item.showAddToBagButton && (
+          <div className="mt-2">
+            <RdsButton
+              colorVariant="primary"
+              type="button"
+              label="BUY NOW"
+              block={true}
+            ></RdsButton>
+          </div>
+        )}
+        {props.item.showAddToBagButton && !props.item.showBuyNowButton && (
+          <div className="mt-2">
+            <RdsButton
+              colorVariant="primary"
+              type="button"
+              label="ADD TO BAG"
+              block={true}
+            ></RdsButton>
+          </div>
         )}
       </div>
     </div>
