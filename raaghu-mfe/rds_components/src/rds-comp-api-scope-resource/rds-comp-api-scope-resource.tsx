@@ -6,31 +6,31 @@ import { RdsAccordion, RdsCheckbox } from "../rds-elements";
 import "./rds-comp-api-scope-resource.scss";
 
 export interface RdsCompApiScopeResourceProps {
-  resources: any[];
+	resources: any[];
 }
 
 const reducer = (state: any, action: any) => {
-  state.map((parent: any) => {});
+	state.map((parent: any) => {});
 
-  switch (action.type) {
-    case "Parent":
-      return state.map((parent: any, i: any) => {
-        if (parent.id === action.P_id) {
-          let tempRes = parent.children.map((child: any) => {
-            return { ...child, selected: !parent.selected };
-          });
+	switch (action.type) {
+		case "Parent":
+			return state.map((parent: any, i: any) => {
+				if (parent.id === action.P_id) {
+					let tempRes = parent.children.map((child: any) => {
+						return { ...child, selected: !parent.selected };
+					});
 
           return {
             ...parent,
             selected: !parent.selected,
             children: tempRes,
-            select: true,
           };
         } else {
-          return { ...parent, select: false };
+          return {
+            ...parent,
+          };
         }
       });
-    // ============================================================================================
     case "Child":
       return state.map((parent: any) => {
         if (parent.id === action.P_id) {
@@ -42,30 +42,29 @@ const reducer = (state: any, action: any) => {
             }
           });
 
-          let selected = tempChi.filter(
-            (child: any) => child.selected == true
-          ).length;
+					let selected = tempChi.filter(
+						(child: any) => child.selected == true
+					).length;
 
           if (selected === parent.children.length) {
             return {
               ...parent,
-              select: true,
               selected: true,
               children: tempChi,
             };
           } else {
             return {
               ...parent,
-              select: true,
               selected: false,
               children: tempChi,
             };
           }
         } else {
-          return { ...parent, select: false };
+          return {
+            ...parent,
+          };
         }
       });
-    // ============================================================================================
     case "grand":
       return state.map((parent: any) => {
         let tempChi = parent.children.map((child: any) => {
@@ -81,24 +80,31 @@ const reducer = (state: any, action: any) => {
           return t;
         });
 
-        let selected = tempChi.filter(
-          (child: any) => child.selected == true
-        ).length;
+				let selected = tempChi.filter(
+					(child: any) => child.selected == true
+				).length;
 
         if (selected === parent.children.length) {
           return {
             ...parent,
-            select: true,
             selected: true,
             children: tempChi,
           };
         } else {
           return {
             ...parent,
-            select: true,
             selected: false,
             children: tempChi,
           };
+        }
+      });
+
+    case "statechange":
+      return state.map((parent: any) => {
+        if (parent.id === action.P_id) {
+          return { ...parent, select: !parent.select };
+        } else {
+          return parent;
         }
       });
 
@@ -108,35 +114,38 @@ const reducer = (state: any, action: any) => {
 };
 
 const RdsCompApiScopeResource = (props: RdsCompApiScopeResourceProps) => {
-  const [Res, dispatch] = useReducer(reducer, props.resources);
-  const [check, setcheck] = useState(false);
+	const [Res, dispatch] = useReducer(reducer, props.resources);
+	const [check, setcheck] = useState(false);
 
-  useEffect(() => {
-    let selected = Res.filter((Parent: any) => Parent.selected == true).length;
+	useEffect(() => {
+		let selected = Res.filter((Parent: any) => Parent.selected == true).length;
 
-    if (selected === Res.length) {
-      setcheck(true);
-    } else {
-      setcheck(false);
-    }
-  });
+		if (selected === Res.length) {
+			setcheck(true);
+		} else {
+			setcheck(false);
+		}
+	});
 
-  const ChandleChange = (Child: any, Parent: any, e: any) => {
-    dispatch({ type: "Child", P_id: Parent.id, C_id: Child.id });
-  };
-  const Phandlechange = (resource: any) => {
-    dispatch({ type: "Parent", P_id: resource.id });
-  };
-  const Ghandlechange = (event: any) => {
-    dispatch({ type: "grand", event: event });
-    setcheck(!check);
+	const ChandleChange = (Child: any, Parent: any, e: any) => {
+		dispatch({ type: "Child", P_id: Parent.id, C_id: Child.id });
+	};
+	const Phandlechange = (resource: any) => {
+		dispatch({ type: "Parent", P_id: resource.id });
+	};
+	const Ghandlechange = (event: any) => {
+		dispatch({ type: "grand", event: event });
+		setcheck(!check);
+	};
+
+  const onClickHandler = (parent: any) => {
+    dispatch({ type: "statechange", P_id: parent.id });
   };
 
   return (
     <>
       <input
         type="checkbox"
-        // label="select all"
         name="select all"
         checked={check}
         onChange={(event) => Ghandlechange(event)}
@@ -146,6 +155,7 @@ const RdsCompApiScopeResource = (props: RdsCompApiScopeResourceProps) => {
         {Res.map((resource: any, i: number) => {
           return (
             <RdsAccordion
+              onclick={() => onClickHandler(resource)}
               key={i}
               buttonGroupItems={[
                 {
@@ -159,12 +169,11 @@ const RdsCompApiScopeResource = (props: RdsCompApiScopeResourceProps) => {
                         {" "}
                         <input
                           type="checkbox"
-                          // label="select all"
-                          name="select all"
+                          name="select everything"
                           checked={resource.selected}
                           onChange={(event) => Phandlechange(resource)}
                         ></input>{" "}
-                        <label htmlFor="">{resource.displayName}</label>
+                        <label htmlFor="">Select all</label>
                       </div>
 
                       <div className="accbodycheck mt-3">
@@ -172,13 +181,12 @@ const RdsCompApiScopeResource = (props: RdsCompApiScopeResourceProps) => {
                           <div key={idd} className="col-md-4">
                             <input
                               type="checkbox"
-                              // label={check.displayName}
                               name={check.displayName}
                               checked={check.selected}
                               onChange={(event) =>
                                 ChandleChange(check, resource, event)
                               }
-                            ></input>
+                            ></input>{" "}
                             <label htmlFor="">{check.displayName}</label>
                           </div>
                         ))}
@@ -191,7 +199,6 @@ const RdsCompApiScopeResource = (props: RdsCompApiScopeResourceProps) => {
               colorVariant={"primary"}
               size={"small"}
               outline={false}
-              select={22}
             ></RdsAccordion>
           );
         })}
