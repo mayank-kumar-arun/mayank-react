@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import "./rds-color.scss"
+import "./rds-color-switcher.scss"
 
-export interface RdsColorProps {
-  header: string;
-  itemList: any;
-  defaultValue: number;
-  displayType: "rounded" | "square";
-  selectedColor :(event:React.MouseEvent<HTMLDivElement> , selected_Color:any) =>void;
+export interface RdsColorSwitcherProps {
+  header?: string;
+  itemList: {id:number, color: string}[];
+  defaultValue?: number;
+  displayType?: "rounded" | "square";
+  selectedColor? :(event:React.MouseEvent<HTMLDivElement> , selected_Color:any) =>void;
 }
 
-const RdsColor = (props: RdsColorProps) => {
+const RdsColorSwitcher = (props: RdsColorSwitcherProps) => {
   let defaultV = props.hasOwnProperty("defaultValue") ? props.defaultValue : 1;
   const [value, setValue] = useState(defaultV);
   let displaytype = props.hasOwnProperty("displayType")
@@ -64,4 +64,4 @@ const RdsColor = (props: RdsColorProps) => {
     </>
   );
 };
-export default RdsColor;
+export default RdsColorSwitcher;
