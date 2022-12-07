@@ -20,106 +20,200 @@ const RdsCompAdminDashboard = () => {
 							headerTitle={"Monthly Summary"}
 							isRefreshRequired={true}
 							class="card-stretch"
-							colorVariant={""}
+							colorVariant="white"
 						>
-							<div>
-								<RdsLineChart
-									id="line chart"
-									height={250}
-									width={458}
-									labels={[
-										"Jan",
-										"Feb",
-										"Mar",
-										"Apr",
-										"May",
-										"Jun",
-										"Jul",
-										"Aug",
-										"Sep",
-										"Oct",
-										"Nov",
-										"Dec",
-									]}
-									options={[
-										{
-											radius: 0,
+							<RdsLineChart
+								id="linechart"
+								height={250}
+								width={458}
+								labels={[
+									"Jan",
+									"Feb",
+									"Mar",
+									"Apr",
+									"May",
+									"Jun",
+									"Jul",
+									"Aug",
+									"Sep",
+									"Oct",
+									"Nov",
+									"Dec",
+								]}
+								options={{
+									radius: 0,
+									pointStyle: "circle",
+									responsive: true,
+									borderWidth: 1,
+									maintainAspectRatio: false,
+									plugins: {
+										title: {
+											display: false,
+										},
+										legend: {
+											position: "top",
+											align: "end",
 											pointStyle: "circle",
-											responsive: true,
-											borderWidth: 1,
-											maintainAspectRatio: false,
-											plugins: {
-												title: {
-													display: false,
-												},
-												legend: {
-													position: "top",
-													align: "end",
-													pointStyle: "circle",
-													labels: {
-														usePointStyle: true,
-														boxWidth: 8,
-														padding: 30,
-														height: 10,
-													},
-												},
-												tooltip: { enabled: true },
-											},
-											scales: {
-												y: {
-													beginAtZero: true,
-													legend: {
-														labels: {
-															maxheight: 10,
-														},
-													},
-													grid: {
-														display: false,
-													},
-												},
-												x: {
-													grid: {
-														display: false,
-													},
-												},
-											},
-											tooltip: {
-												display: true,
+											labels: {
 												usePointStyle: true,
+												boxWidth: 8,
+												padding: 30,
+												height: 10,
 											},
 										},
-									]}
-									dataSets={[
-										{
-											label: "Sales",
-											data: [
-												190, 200, 133, 231, 112, 125, 135, 135.7, 266, 224, 122,
-												125,
-											],
-											borderColor: "#4DCFFF",
-											pointBackgroundColor: "#4DCFFF",
-											backgroundColor: "#4DCFFF",
-											fill: true,
-											pointRadius: 3,
-											fillColor: "rgba(195, 40, 96, 0.1)",
-											tension: 0.4,
+										tooltip: {
+											enabled: true,
 										},
-										{
-											label: "Revenue",
-											data: [
-												290, 262, 205, 162, 150, 180, 206, 220, 240, 190, 275,
-												211,
-											],
-											borderColor: "#863BFF",
-											pointBackgroundColor: "#863BFF",
-											backgroundColor: "#ECEEF4",
-											fill: true,
-											pointRadius: 3,
-											tension: 0.4,
+									},
+									scales: {
+										y: {
+											axis: "y",
+											beginAtZero: true,
+											legend: {
+												labels: {
+													maxheight: 10,
+												},
+											},
+											grid: {
+												display: false,
+												lineWidth: 1,
+												drawBorder: true,
+												drawOnChartArea: true,
+												drawTicks: true,
+												tickLength: 8,
+												offset: false,
+												borderDash: [],
+												borderDashOffset: 0,
+												borderWidth: 1,
+												color: "rgba(0,0,0,0.1)",
+												borderColor: "rgba(0,0,0,0.1)",
+											},
+											type: "linear",
+											ticks: {
+												minRotation: 0,
+												maxRotation: 50,
+												mirror: false,
+												textStrokeWidth: 0,
+												textStrokeColor: "",
+												padding: 3,
+												display: true,
+												autoSkip: true,
+												autoSkipPadding: 3,
+												labelOffset: 0,
+												minor: {},
+												major: {},
+												align: "center",
+												crossAlign: "near",
+												showLabelBackdrop: false,
+												backdropColor: "rgba(255, 255, 255, 0.75)",
+												backdropPadding: 2,
+												color: "#666",
+											},
+											display: true,
+											offset: false,
+											reverse: false,
+											bounds: "ticks",
+											grace: 0,
+											title: {
+												display: false,
+												text: "",
+												padding: {
+													top: 4,
+													bottom: 4,
+												},
+												color: "#666",
+											},
+											id: "y",
+											position: "left",
 										},
-									]}
-								></RdsLineChart>
-							</div>
+										x: {
+											axis: "x",
+											grid: {
+												display: false,
+												lineWidth: 1,
+												drawBorder: true,
+												drawOnChartArea: true,
+												drawTicks: true,
+												tickLength: 8,
+												offset: false,
+												borderDash: [],
+												borderDashOffset: 0,
+												borderWidth: 1,
+												color: "rgba(0,0,0,0.1)",
+												borderColor: "rgba(0,0,0,0.1)",
+											},
+											type: "category",
+											ticks: {
+												minRotation: 0,
+												maxRotation: 50,
+												mirror: false,
+												textStrokeWidth: 0,
+												textStrokeColor: "",
+												padding: 3,
+												display: true,
+												autoSkip: true,
+												autoSkipPadding: 3,
+												labelOffset: 0,
+												minor: {},
+												major: {},
+												align: "center",
+												crossAlign: "near",
+												showLabelBackdrop: false,
+												backdropColor: "rgba(255, 255, 255, 0.75)",
+												backdropPadding: 2,
+												color: "#666",
+											},
+											display: true,
+											offset: false,
+											reverse: false,
+											beginAtZero: false,
+											bounds: "ticks",
+											grace: 0,
+											title: {
+												display: false,
+												text: "",
+												padding: {
+													top: 4,
+													bottom: 4,
+												},
+												color: "#666",
+											},
+											id: "x",
+											position: "bottom",
+										},
+									},
+									tooltip: {
+										display: true,
+										usePointStyle: true,
+									},
+								}}
+								dataSets={[
+									{
+										label: "Sales",
+										data: [
+											190, 200, 133, 231, 112, 125, 135, 135.7, 266, 224, 122,
+											125,
+										],
+										borderColor: "#4DCFFF",
+										pointBackgroundColor: "#4DCFFF",
+										fill: true,
+										pointRadius: 3,
+										tension: 0.4,
+									},
+									{
+										label: "Revenue",
+										data: [
+											290, 262, 205, 162, 150, 180, 206, 220, 240, 190, 275,
+											211,
+										],
+										borderColor: "#863BFF",
+										pointBackgroundColor: "#863BFF",
+										fill: true,
+										pointRadius: 3,
+										tension: 0.4,
+									},
+								]}
+							/>
 						</RdsWidget>
 					</div>
 
@@ -131,99 +225,67 @@ const RdsCompAdminDashboard = () => {
 										headerTitle={"Sales"}
 										isRefreshRequired={false}
 										class="card-stretch-half"
-										colorVariant={""}
-									>
-										<RdsBigNumber
-											class="border-0"
-											bigNumber={"$3,32,230.00"}
-											subTitle={"+$ 2203.00"}
-											subTitleColorVariant="success"
-											textAlign="text-start"
-											colorVariant="white"
-											role={"basic"}
-											icon={"triangle_up"}
-											iconHeight={"12px"}
-											iconStroke={false}
-											iconFill={true}
-											iconWidth={"12px"}
-											iconColor={""}
-										></RdsBigNumber>
-									</RdsWidget>
-									{/* <rds-widget [isRefreshRequired]="false" [headerTitle]="translate.instant('Sales')" cardheight = 'card-stretch-half'
-                                    (onRefresh)="LoadSalesData()">  
-                                    <div body>
-                                        <rds-big-number-widget [bigNumber]="'$' +SalesPrice"  [subText]="'+$' +SalesProfit"
-                                        [icon]="'triangle_up'" [iconHeight]="'12px'" [iconWidth]="'12px'" [iconFill]="true" [iconStroke]="true" [textAlign]="'text-start'" subTitleColorVariant="success"
-                                        ></rds-big-number-widget>
-                                    </div>
-                                </rds-widget> */}
+										colorVariant="white"
+										iconColor="success"
+										subTitleColorVariant="success"
+										subTitle="+$2203.00"
+										iconFill={true}
+										bigNumber="$3,32,230.00"
+										iconWidth="12px"
+										iconHeight="12px"
+										icon="triangle_up"
+										iconStroke={true}
+									></RdsWidget>
 								</div>
 								<div>
 									<RdsWidget
 										headerTitle={"Revenue"}
 										isRefreshRequired={false}
-										colorVariant={""}
-									>
-										<div>
-											<RdsBigNumber
-												bigNumber={"$ 9,72,900"}
-												colorVariant="primary"
-												subTitle="-$ 1203.00"
-												textAlign="text-start"
-												subTitleColorVariant="warning"
-												role={"basic"}
-												icon={"triangle_down"}
-												iconHeight={"12px"}
-												iconStroke={false}
-												iconFill={false}
-												iconWidth={"12px"}
-												iconColor={""}
-											></RdsBigNumber>
-										</div>
-									</RdsWidget>
+										bigNumber={"$9,72,900"}
+										colorVariant="primary"
+										subTitle="-$1203.00"
+										subTitleColorVariant="warning"
+										icon={"triangle_down"}
+										iconHeight={"12px"}
+										iconStroke={false}
+										iconFill={true}
+										iconWidth={"12px"}
+										iconColor={"warning"}
+									></RdsWidget>
 								</div>
 							</div>
 							<div className="col-md-6">
 								<RdsWidget
 									headerTitle={"Profit Share"}
 									isRefreshRequired={true}
-									colorVariant={""}
+									colorVariant={"white"}
+									bigNumber={"$39,330.00"}
 								>
 									<div>
-										<RdsBigNumber
-											bigNumber={"$39,330.00"}
-											class="border-0"
-											textAlign="text-start"
-											role={"basic"}
-											icon={""}
-											iconHeight={""}
-											iconStroke={false}
-											iconFill={false}
-											iconWidth={""}
-											iconColor={""}
-										></RdsBigNumber>
 										<div className="col col-sm-12">
 											<RdsDoughnutChart
-												id="doughnutId"
+												id="doughnutchart"
 												titleText="35K"
 												subTitleText="Profit"
 												height={200}
 												width={255}
 												labels={[
-													"Total Sales - 60 %",
-													"Revenue - 25 %",
-													"Expenses - 15 %",
+													"Total Sales - 60%",
+													"Revenue - 25%",
+													"Expenses - 15%",
 												]}
 												options={{
 													cutoutPercentage: 40,
-													legend: { display: false },
+													legend: {
+														display: false,
+													},
 													responsive: true,
 													maintainAspectRatio: false,
 													plugins: {
 														series: {
 															label: {
 																position: "inside",
-																text: "total", // or "inside" | "outside"
+																text: "total",
 																display: false,
 															},
 														},
@@ -247,10 +309,11 @@ const RdsCompAdminDashboard = () => {
 															position: "right",
 															labels: {
 																boxWidth: 15,
-																padding: 20,
+																padding: 15,
 															},
 														},
 													},
+													scales: {},
 												}}
 												dataSets={[
 													{
@@ -259,7 +322,6 @@ const RdsCompAdminDashboard = () => {
 														backgroundColor: ["#ff6384", "#BF00BB", "#4bc0c0"],
 														fillStyle: "blue",
 														fillRect: [200, 100, 140, 100],
-
 														borderColor: ["#fff"],
 														borderWidth: 1,
 														cutout: "80%",
@@ -270,9 +332,7 @@ const RdsCompAdminDashboard = () => {
 														},
 													},
 												]}
-											>
-												{" "}
-											</RdsDoughnutChart>
+											/>
 										</div>
 									</div>
 								</RdsWidget>
@@ -289,7 +349,7 @@ const RdsCompAdminDashboard = () => {
 									<RdsWidget
 										headerTitle={"call Overview"}
 										isRefreshRequired={false}
-										colorVariant={""}
+										colorVariant={"white"}
 									>
 										<div>
 											<div className="d-flex align-items-center">
@@ -461,24 +521,17 @@ const RdsCompAdminDashboard = () => {
 									<RdsWidget
 										headerTitle={"Sales"}
 										isRefreshRequired={false}
-										colorVariant={""}
-									>
-										<div>
-											<RdsBigNumber
-												subTitle="-$2203.00"
-												subTitleColorVariant="success"
-												bigNumber={"$3,32,230.00"}
-												textAlign="text-start"
-												role={"basic"}
-												icon={"triangle_up"}
-												iconHeight={"12px"}
-												iconStroke={false}
-												iconFill={true}
-												iconWidth={"12px"}
-												iconColor={""}
-											></RdsBigNumber>
-										</div>
-									</RdsWidget>
+										colorVariant={"white"}
+										subTitle="-$2203.00"
+										subTitleColorVariant="success"
+										bigNumber={"$3,32,230.00"}
+										icon={"triangle_up"}
+										iconHeight={"12px"}
+										iconStroke={false}
+										iconFill={true}
+										iconWidth={"12px"}
+										iconColor={"success"}
+									></RdsWidget>
 								</div>
 							</div>
 
@@ -486,25 +539,23 @@ const RdsCompAdminDashboard = () => {
 								<RdsWidget
 									headerTitle={"Daily Sales Growth"}
 									isRefreshRequired={true}
-									colorVariant={""}
+									colorVariant={"white"}
+									class="border-0"
+									bigNumber={"$3,73,960.412"}
+									subTitle="-$5850.75"
+									subTitleColorVariant="danger"
+									icon={"triangle_down"}
+									iconHeight={"12px"}
+									iconStroke={false}
+									iconFill={true}
+									iconWidth={"12px"}
+									iconColor={"danger"}
 								>
 									<div>
-										<RdsBigNumber
-											class="border-0 "
-											bigNumber={"$3,73,960.412"}
-											subTitle="-$5850.75"
-											subTitleColorVariant="danger"
-											textAlign="text-start"
-											role={"basic"}
-											icon={"triangle_down"}
-											iconHeight={"12px"}
-											iconStroke={false}
-											iconFill={true}
-											iconWidth={"12px"}
-											iconColor={""}
-										></RdsBigNumber>
 										<RdsBarChart
-											id="Bar"
+											id="barchart"
+											height={300}
+											width={300}
 											labels={[
 												"10k",
 												"20k",
@@ -550,6 +601,118 @@ const RdsCompAdminDashboard = () => {
 														text: "Daily Sales Growth",
 													},
 												},
+												scales: {
+													x: {
+														axis: "x",
+														type: "category",
+														offset: true,
+														grid: {
+															offset: true,
+															display: true,
+															lineWidth: 1,
+															drawBorder: true,
+															drawOnChartArea: true,
+															drawTicks: true,
+															tickLength: 8,
+															borderDash: [],
+															borderDashOffset: 0,
+															borderWidth: 1,
+															color: "rgba(0,0,0,0.1)",
+															borderColor: "rgba(0,0,0,0.1)",
+														},
+														ticks: {
+															minRotation: 0,
+															maxRotation: 50,
+															mirror: false,
+															textStrokeWidth: 0,
+															textStrokeColor: "",
+															padding: 3,
+															display: true,
+															autoSkip: true,
+															autoSkipPadding: 3,
+															labelOffset: 0,
+															minor: {},
+															major: {},
+															align: "center",
+															crossAlign: "near",
+															showLabelBackdrop: false,
+															backdropColor: "rgba(255, 255, 255, 0.75)",
+															backdropPadding: 2,
+															color: "#666",
+														},
+														display: true,
+														reverse: false,
+														beginAtZero: false,
+														bounds: "ticks",
+														grace: 0,
+														title: {
+															display: false,
+															text: "",
+															padding: {
+																top: 4,
+																bottom: 4,
+															},
+															color: "#666",
+														},
+														id: "x",
+														position: "bottom",
+													},
+													y: {
+														axis: "y",
+														type: "linear",
+														beginAtZero: true,
+														ticks: {
+															minRotation: 0,
+															maxRotation: 50,
+															mirror: false,
+															textStrokeWidth: 0,
+															textStrokeColor: "",
+															padding: 3,
+															display: true,
+															autoSkip: true,
+															autoSkipPadding: 3,
+															labelOffset: 0,
+															minor: {},
+															major: {},
+															align: "center",
+															crossAlign: "near",
+															showLabelBackdrop: false,
+															backdropColor: "rgba(255, 255, 255, 0.75)",
+															backdropPadding: 2,
+															color: "#666",
+														},
+														display: true,
+														offset: false,
+														reverse: false,
+														bounds: "ticks",
+														grace: 0,
+														grid: {
+															display: true,
+															lineWidth: 1,
+															drawBorder: true,
+															drawOnChartArea: true,
+															drawTicks: true,
+															tickLength: 8,
+															offset: false,
+															borderDash: [],
+															borderDashOffset: 0,
+															borderWidth: 1,
+															color: "rgba(0,0,0,0.1)",
+															borderColor: "rgba(0,0,0,0.1)",
+														},
+														title: {
+															display: false,
+															text: "",
+															padding: {
+																top: 4,
+																bottom: 4,
+															},
+															color: "#666",
+														},
+														id: "y",
+														position: "left",
+													},
+												},
 											}}
 											dataSets={[
 												{
@@ -565,9 +728,7 @@ const RdsCompAdminDashboard = () => {
 													borderSkipped: false,
 												},
 											]}
-											height={300}
-											width={300}
-										></RdsBarChart>
+										/>
 									</div>
 								</RdsWidget>
 							</div>
@@ -577,7 +738,7 @@ const RdsCompAdminDashboard = () => {
 						<RdsWidget
 							headerTitle={"Member Activity"}
 							isRefreshRequired={true}
-							colorVariant={""}
+							colorVariant={"white"}
 						>
 							<div>
 								<RdsTable

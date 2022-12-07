@@ -125,7 +125,7 @@ const RdsCompWebhookSubscription = (props: RdsCompWebhookSubscriptionProps) => {
 						{error2 && <span style={{ color: "red" }}>{error2}</span>}
 					</div>
 					<div className=" fw-normal row" mb-3 mt-2>
-						<RdsLabel className="mb-0">Additional Webhook Headers</RdsLabel>
+						<RdsLabel class="mb-0">Additional Webhook Headers</RdsLabel>
 						<div className="col-5 mb-3">
 							<RdsInput
 								placeholder="Header key"

@@ -20,7 +20,7 @@ const RdsCompTestimonials = (props: RdsCompTestimonialsProps) => {
 					<div className="col-md-12">
 						<div className="align-items-center col-md-12 d-flex justify-content-between">
 							<h2>
-								<RdsLabel label="Testimonials" bold={true}></RdsLabel>
+								<RdsLabel label="Testimonials" fontWeight={"bold"}></RdsLabel>
 							</h2>
 							<span>
 								<RdsIcon
@@ -62,8 +62,7 @@ const RdsCompTestimonials = (props: RdsCompTestimonialsProps) => {
 						<RdsLabel
 							label="'Testimonials'"
 							multiline={false}
-							bold={true}
-							italic={false}
+							fontWeight="bold"
 						></RdsLabel>
 					</h2>
 					<RdsCarousel
