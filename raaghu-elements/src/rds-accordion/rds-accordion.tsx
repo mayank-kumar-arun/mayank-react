@@ -9,22 +9,21 @@ export interface RdsAccordionProps {
   colorVariant: colors;
   size: string;
   outline: boolean;
-  select: any;
+  select?: any;
+  onclick?: (event: React.MouseEvent<HTMLInputElement>) => void;
 }
 
 const RdsAccordion = (props: RdsAccordionProps) => {
   let [selected, setselected] = useState(props.select);
 
   const onClickhandler = (id: any) => {
-    
     if (selected == id) {
       props.buttonGroupItems[id].state = !props.buttonGroupItems[id].state;
       return setselected(null);
+    } else {
+      props.buttonGroupItems[id].state = !props.buttonGroupItems[id].state;
+      return setselected(id);
     }
-
-    props.buttonGroupItems[id].state = !props.buttonGroupItems[id].state;
-
-    return setselected(id);
   };
 
   return (
@@ -37,7 +36,10 @@ const RdsAccordion = (props: RdsAccordionProps) => {
               className={`${
                 props.buttonGroupItems[i].state ? "butn" : " button  collapsed"
               }`}
-              onClick={() => onClickhandler(i)}
+              onMouseDown={() => {
+                onClickhandler(i);
+              }}
+              onClick={props.onclick}
             >
               <div className="titlebox">
                 <div
