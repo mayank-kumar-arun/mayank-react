@@ -27,7 +27,7 @@ const App = () => {
 			></RdsCompLogin>
 			<RdsCompAdminDashboard></RdsCompAdminDashboard>
 			<RdsCompSideNavigation></RdsCompSideNavigation>
-			<RdsCompTopNavigation></RdsCompTopNavigation>
+			<RdsCompTopNavigation languageItems={undefined} notifications={[]}></RdsCompTopNavigation>
 			<RdsCompTenantList
 				tableHeaders={[]}
 				actions={[]}
