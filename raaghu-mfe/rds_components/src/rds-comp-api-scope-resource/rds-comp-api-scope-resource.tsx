@@ -173,7 +173,7 @@ const RdsCompApiScopeResource = (props: RdsCompApiScopeResourceProps) => {
                           checked={resource.selected}
                           onChange={(event) => Phandlechange(resource)}
                         ></input>{" "}
-                        <label htmlFor="">{resource.displayName}</label>
+                        <label htmlFor="">Select all</label>
                       </div>
 
                       <div className="accbodycheck mt-3">
@@ -186,7 +186,7 @@ const RdsCompApiScopeResource = (props: RdsCompApiScopeResourceProps) => {
                               onChange={(event) =>
                                 ChandleChange(check, resource, event)
                               }
-                            ></input>
+                            ></input>{" "}
                             <label htmlFor="">{check.displayName}</label>
                           </div>
                         ))}
