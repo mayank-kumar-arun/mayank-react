@@ -85,5 +85,5 @@ jobs:
         with:
           app-name: "raaghumfestageuiapp"
           slot-name: "production"
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_392363CA3B8C4905BC10144A553C3367 }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_ANZSTAGE_PUBLISH_PROFILE }}
           package: .
