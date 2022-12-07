@@ -14,5 +14,60 @@ const Template: ComponentStory<typeof RdsCompPermissionTree> = (args) => (
 export const Default = Template.bind({});
 
 Default.args = {
-	multiselectTree: true,
+	toppingOptions :[
+		{
+		  name: "Pepperoni",
+		  id: 1,
+		  subOptions: [
+			{
+			  name: "Spicy",
+			  id: 1,
+			  subOptions: []
+			},
+			{
+			  name: "Regular",
+			  id: 2,
+			  subOptions: []
+			}
+		  ]
+		},
+		{
+		  name: "Chicken",
+		  id:2,
+		  subOptions: [
+			{
+			  name: "Buffalo",
+			  id: 1,
+			  subOptions: [
+				{
+				  name: "Mild",
+				  id: 1,
+				  subOptions: [],
+				},
+				{
+				  name: "Hot",
+				  id: 1,
+				  subOptions: [
+					{
+					  name: 'Jalapeño',
+					  id: 1,
+					  subOptions: []
+					},
+					{
+					  name: 'Cayenne',
+					  id: 2,
+					  subOptions: []
+					}
+				  ],
+				},
+			  ]
+			},
+			{
+			  name: "BBQ",
+			  id:2,
+			  subOptions: [],
+			}
+		  ]
+		},
+	  ]
 };

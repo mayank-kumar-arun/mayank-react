@@ -4,7 +4,7 @@ import { colors, size } from "../../libs/types";
 import "./rds-rating.scss";
 
 export interface RdsRatingProps {
-  rating: 0 | 1 | 2 | 3 | 4 | 5,
+  rating:number
   reviewPosition?: "left" | "right" | "none",
   colorVariant?: colors
   noOfReviews?: number
@@ -14,12 +14,18 @@ export interface RdsRatingProps {
 }
 
 const RdsRating = (props: RdsRatingProps) => {
-
-  const orderArray = [1, 2, 3, 4, 5]
-
+   let rating = 2.3;
+  
   return (
     <div className="d-flex">
-      <span className="">
+      <div className="Stars"  style={{ "--rating":rating } as React.CSSProperties}  aria-label="Rating of this product is 2.3 out of 5."></div>
+  
+    </div>
+  );
+};
+
+export default RdsRating;
+    {/* <span className="">
         {(props.reviewPosition === "left" || props.reviewPosition === undefined) &&
           <span>{props.rating}</span>
         }
@@ -42,9 +48,4 @@ const RdsRating = (props: RdsRatingProps) => {
         <small className="ps-2 text-primary" onClick={props.onSeeAll}>
           See all {props.noOfReviews} reviews
         </small>
-      }
-    </div>
-  );
-};
-
-export default RdsRating;
+      } */}

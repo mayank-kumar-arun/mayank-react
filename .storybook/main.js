@@ -4,6 +4,7 @@ module.exports = {
 		"../stories/**/*.stories.@(js|jsx|ts|tsx)",
 		"../raaghu-elements/src/**/*.stories.@(js|jsx|ts|tsx)",
 		"../raaghu-mfe/rds_components/**/**/*.stories.@(js|jsx|ts|tsx)",
+		"../raaghu-mfe/rds_pages/**/**/**/*.stories.@(js|jsx|ts|tsx)",
 	],
 	addons: [
 		"@storybook/addon-links",
