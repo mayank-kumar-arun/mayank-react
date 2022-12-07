@@ -30,7 +30,7 @@ const RdsCompEmail = (props: RdsCompEmailProps) => {
 						<div className="form-group">
 							<RdsLabel
 								label="Default From (Sender) Email Address"
-								className="mb-1"
+								class="mb-1"
 								size="14px"
 							></RdsLabel>
 							<RdsInput
@@ -51,7 +51,7 @@ const RdsCompEmail = (props: RdsCompEmailProps) => {
 					<div className="col-md-6 col-sm-6 col-lg-6">
 						<RdsLabel
 							label="Default From (Sender) Display Name"
-							className="mb-1"
+							class="mb-1"
 							size="14px"
 						></RdsLabel>
 						<RdsInput
@@ -64,11 +64,7 @@ const RdsCompEmail = (props: RdsCompEmailProps) => {
 				<div className="row mb-3">
 					<div className="col-md-6 col-sm-6 col-lg-6">
 						<div className="form-group">
-							<RdsLabel
-								label="SMTP Host"
-								className="mb-1"
-								size="14px"
-							></RdsLabel>
+							<RdsLabel label="SMTP Host" class="mb-1" size="14px"></RdsLabel>
 							<RdsInput
 								placeholder="127.0.0.1"
 								customClasses="form-control"
@@ -76,7 +72,7 @@ const RdsCompEmail = (props: RdsCompEmailProps) => {
 						</div>
 					</div>
 					<div className="col-md-6 col-sm-6 col-lg-6">
-						<RdsLabel label="SMTP Port" className="mb-1" size="14px"></RdsLabel>
+						<RdsLabel label="SMTP Port" class="mb-1" size="14px"></RdsLabel>
 						<RdsInput placeholder="25" customClasses="form-control"></RdsInput>
 					</div>
 				</div>
@@ -107,7 +103,7 @@ const RdsCompEmail = (props: RdsCompEmailProps) => {
 						<div className="form-group">
 							<RdsLabel
 								label="Test Email Settings"
-								className="mb-1"
+								class="mb-1"
 								size="14px"
 							></RdsLabel>
 							<RdsInput

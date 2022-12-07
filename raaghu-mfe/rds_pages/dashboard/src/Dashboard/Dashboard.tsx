@@ -1,23 +1,26 @@
 import React, { Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 
+const DashboardCompo = React.lazy(
+	() => import("rds_components/RdsCompAdminDashboard")
+);
+const SideNavCompo = React.lazy(
+	() => import("rds_components/RdsCompSideNavigation")
+);
+const TopNavCompo = React.lazy(
+	() => import("rds_components/RdsCompTopNavigation")
+);
 
+export interface DashboardProps {}
 
-const DashboardCompo = React.lazy(() => import("rds_components/RdsCompAdminDashboard"));
-const SideNavCompo = React.lazy(() => import("rds_components/RdsCompSideNavigation"));
-const TopNavCompo = React.lazy(() => import("rds_components/RdsCompTopNavigation"));
-
-
-const Dashboard = () => (
+const Dashboard = (props: DashboardProps) => (
 	<Suspense>
-		<TopNavCompo ></TopNavCompo>
-		<div style={{display:"flex"}}>
-		<SideNavCompo></SideNavCompo>
-		<DashboardCompo />					
-
+		<TopNavCompo></TopNavCompo>
+		<div style={{ display: "flex" }}>
+			<SideNavCompo></SideNavCompo>
+			<DashboardCompo />
 		</div>
 	</Suspense>
 );
 
 export default Dashboard;
-
