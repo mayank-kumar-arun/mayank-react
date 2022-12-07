@@ -4,7 +4,7 @@ import { colors, size } from "../../libs/types";
 import "./rds-rating.scss";
 
 export interface RdsRatingProps {
-  rating:number
+  rating:number,
   reviewPosition?: "left" | "right" | "none",
   colorVariant?: colors
   noOfReviews?: number
@@ -14,11 +14,11 @@ export interface RdsRatingProps {
 }
 
 const RdsRating = (props: RdsRatingProps) => {
-   let rating = 2.3;
+   
   
   return (
     <div className="d-flex">
-      <div className="Stars"  style={{ "--rating":rating } as React.CSSProperties}  aria-label="Rating of this product is 2.3 out of 5."></div>
+      <div className="Stars"  style={{ "--rating":props.rating ,"--size":props.size} as React.CSSProperties}  aria-label="Rating of this product is 2.3 out of 5."></div>
   
     </div>
   );
