@@ -23,7 +23,7 @@ const RdsCheckbox = (props: RdsCheckboxProps) => {
 
   return (
     <Fragment>
-      <form>
+      <div>
         <div className={SWITCH}>
           <input
             type="checkbox"
@@ -35,6 +35,7 @@ const RdsCheckbox = (props: RdsCheckboxProps) => {
             id={props.id}
             name={props.name}
             onChange={props.onChange}
+
           />
 
          {props.withlabel==false? <></>: <label
@@ -44,7 +45,7 @@ const RdsCheckbox = (props: RdsCheckboxProps) => {
             {props.label}
           </label>}
         </div>
-      </form>
+      </div>
     </Fragment>
   );
 };
