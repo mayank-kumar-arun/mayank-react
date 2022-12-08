@@ -5,7 +5,6 @@
     top: -0.15em;
 }
 :root {
-    --star-size: 60px;
     --star-color: #E6E7EB;
     --star-background: #fc0;
   }
@@ -13,7 +12,7 @@
     --percent: calc(var(--rating) / 5 * 100%);
     
     display: inline-block;
-    font-size: var(--star-size);
+    font-size: var(--size);
     font-family: Times; // make sure ★ appears correctly
     line-height: 1;
     

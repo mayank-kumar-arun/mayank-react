@@ -5,30 +5,6 @@ import RdsRating from "./rds-rating";
 export default {
   title: "Elements/Rating",
   component: RdsRating,
-  argTypes: {
-    rating: {
-      options: [0, 1, 2, 3, 4, 5],
-      control: { type: "select" },
-    },
-    colorVariant: {
-      options: [
-        "primary",
-        "secondary",
-        "success",
-        "info",
-        "warning",
-        "danger",
-        "dark",
-        "light",
-        "review",
-      ],
-      control: { type: "select" },
-    },
-    reviewPosition: {
-      options: ["left", "right", "none"],
-      control: { type: "radio" },
-    },
-  },
 } as ComponentMeta<typeof RdsRating>;
 
 const Template: ComponentStory<typeof RdsRating> = (args) => (

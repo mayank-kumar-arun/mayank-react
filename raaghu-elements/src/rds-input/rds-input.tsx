@@ -15,13 +15,15 @@ export interface RdsInputProps {
   tooltipTitle?: string;
   name?: string;
   label?: string;
-  onClick?: React.MouseEventHandler<HTMLInputElement>;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  onFocus?: React.FocusEventHandler<HTMLInputElement>;
-  onBlur?: React.FocusEventHandler<HTMLInputElement>;
   id?: string;
   redAsteriskPresent?: boolean;
   required?: boolean;
+
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any;
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any;
+  onClick?: (event: React.MouseEvent<HTMLInputElement>) => void;
+
   customClasses?: string;
   formName?: string;
 }
@@ -83,8 +85,8 @@ const RdsInput = React.forwardRef(
             required={props.required}
             onFocus={props.onFocus}
             onBlur={props.onBlur}
-            value={props.value}
-            onChange={props?.onChange}
+            defaultValue={props.value}
+            onChange={props.onChange}
             disabled={props.isDisabled}
             readOnly={props.readonly}
           ></input>
@@ -102,7 +104,7 @@ const RdsInput = React.forwardRef(
               required={props.required}
               onFocus={props.onFocus}
               onBlur={props.onBlur}
-              value={props.value}
+              defaultValue={props.value}
               onChange={props.onChange}
               disabled={props.isDisabled}
               readOnly={props.readonly}
@@ -129,4 +131,6 @@ const RdsInput = React.forwardRef(
   }
 );
 
+
 export default RdsInput;
+ 

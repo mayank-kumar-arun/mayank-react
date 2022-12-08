@@ -198,7 +198,7 @@ ProductListWithBorder.args = {
       rating: 3,
       reviews: "See all 123 reviews",
       cost: "$35",
-      bordered: true
+      bordered: true,
     },
     {
       imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
@@ -206,7 +206,7 @@ ProductListWithBorder.args = {
       rating: 3,
       reviews: "See all 123 reviews",
       cost: "$35",
-      bordered: true
+      bordered: true,
     },
     {
       imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
@@ -214,7 +214,7 @@ ProductListWithBorder.args = {
       rating: 3,
       reviews: "See all 123 reviews",
       cost: "$35",
-      bordered: true
+      bordered: true,
     },
     {
       imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
@@ -222,7 +222,7 @@ ProductListWithBorder.args = {
       rating: 3,
       reviews: "See all 123 reviews",
       cost: "$35",
-      bordered: true
+      bordered: true,
     },
     {
       imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
@@ -230,7 +230,7 @@ ProductListWithBorder.args = {
       rating: 3,
       reviews: "See all 123 reviews",
       cost: "$35",
-      bordered: true
+      bordered: true,
     },
   ],
 };
@@ -244,7 +244,7 @@ WithImageOverlayAndAddButton.args = {
       colorLabel: "White",
       cost: "$35",
       badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
-      showAddToBagButton: true
+      showAddToBagButton: true,
     },
     {
       imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
@@ -252,7 +252,7 @@ WithImageOverlayAndAddButton.args = {
       colorLabel: "White",
       cost: "$35",
       badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
-      showAddToBagButton: true
+      showAddToBagButton: true,
     },
     {
       imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
@@ -260,7 +260,7 @@ WithImageOverlayAndAddButton.args = {
       colorLabel: "White",
       cost: "$35",
       badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
-      showAddToBagButton: true
+      showAddToBagButton: true,
     },
     {
       imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
@@ -268,7 +268,7 @@ WithImageOverlayAndAddButton.args = {
       colorLabel: "White",
       cost: "$35",
       badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
-      showAddToBagButton: true
+      showAddToBagButton: true,
     },
     {
       imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
@@ -276,7 +276,322 @@ WithImageOverlayAndAddButton.args = {
       colorLabel: "White",
       cost: "$35",
       badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
-      showAddToBagButton: true
+      showAddToBagButton: true,
+    },
+  ],
+};
+
+export const WithSupportingText = Template.bind({});
+WithSupportingText.args = {
+  items: [
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+      showAddToBagButton: true,
+      showBuyNowButton: true,
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+      showAddToBagButton: true,
+      showBuyNowButton: true,
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+      showAddToBagButton: true,
+      showBuyNowButton: true,
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+      showAddToBagButton: true,
+      showBuyNowButton: true,
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+      showAddToBagButton: true,
+      showBuyNowButton: true,
+    },
+  ],
+};
+
+export const WithColorSwatchesAndHorizontalScrolling = Template.bind({});
+WithColorSwatchesAndHorizontalScrolling.args = {
+  items: [
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      rating: 3,
+      reviews: "See all 123 reviews",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+      ColorSwitcherList: [
+        { id: 1, color: "#FFFFFF" },
+        { id: 2, color: "#FDD2FF" },
+        { id: 3, color: "#BFEAFF" },
+      ],
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      rating: 3,
+      reviews: "See all 123 reviews",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+      ColorSwitcherList: [
+        { id: 1, color: "#FFFFFF" },
+        { id: 2, color: "#FDD2FF" },
+        { id: 3, color: "#BFEAFF" },
+      ],
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      rating: 3,
+      reviews: "See all 123 reviews",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+      ColorSwitcherList: [
+        { id: 1, color: "#FFFFFF" },
+        { id: 2, color: "#FDD2FF" },
+        { id: 3, color: "#BFEAFF" },
+      ],
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      rating: 3,
+      reviews: "See all 123 reviews",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+      ColorSwitcherList: [
+        { id: 1, color: "#FFFFFF" },
+        { id: 2, color: "#FDD2FF" },
+        { id: 3, color: "#BFEAFF" },
+      ],
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      rating: 3,
+      reviews: "See all 123 reviews",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+      ColorSwitcherList: [
+        { id: 1, color: "#FFFFFF" },
+        { id: 2, color: "#FDD2FF" },
+        { id: 3, color: "#BFEAFF" },
+      ],
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      rating: 3,
+      reviews: "See all 123 reviews",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+      ColorSwitcherList: [
+        { id: 1, color: "#FFFFFF" },
+        { id: 2, color: "#FDD2FF" },
+        { id: 3, color: "#BFEAFF" },
+      ],
+    },
+  ],
+  type: "With Color Swatches and Horizontal Scrolling",
+};
+
+export const InfiniteProductList = Template.bind({});
+InfiniteProductList.args = {
+  items: [
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      rating: 3,
+      cost: "$35",
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      rating: 3,
+      cost: "$35",
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      rating: 3,
+      cost: "$35",
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      rating: 3,
+      cost: "$35",
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      rating: 3,
+      cost: "$35",
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      rating: 3,
+      cost: "$35",
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      rating: 3,
+      cost: "$35",
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      rating: 3,
+      cost: "$35",
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      rating: 3,
+      cost: "$35",
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      rating: 3,
+      cost: "$35",
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      rating: 3,
+      cost: "$35",
+    },
+  ],
+  type: "Infinite List",
+};
+
+export const WithCTALink = Template.bind({});
+WithCTALink.args = {
+  items: [
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+      showAddToBagButton: true,
+      showBuyNowButton: true,
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+      showAddToBagButton: true,
+      showBuyNowButton: true,
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+      showAddToBagButton: true,
+      showBuyNowButton: true,
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+      showAddToBagButton: true,
+      showBuyNowButton: true,
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+      showAddToBagButton: true,
+      showBuyNowButton: true,
+    },
+  ],
+  type: "With Tall Images And CTA Link",
+};
+
+export const WithTallImages = Template.bind({});
+WithTallImages.args = {
+  items: [
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
+    },
+    {
+      imgUrl: "https://www.linkpicture.com/q/product_img_with_title_1.png",
+      productTitle: "Basic Tee",
+      colorLabel: "White",
+      cost: "$35",
+      badgeWithIcon: { badge: "Quality Assured", icon: "featured" },
     },
   ],
 };
