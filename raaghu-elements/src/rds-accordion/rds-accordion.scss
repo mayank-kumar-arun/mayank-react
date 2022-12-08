@@ -7,7 +7,7 @@
   cursor: pointer;
   height: 46px;
   border-right: none;
-  border: 1px solid #ced4da;
+  // border: 1px solid #ced4da;
   border-radius: 4px;
   opacity: 1;
   margin-bottom: 4px;
@@ -19,10 +19,12 @@
   cursor: pointer;
   height: 46px;
   border-right: none;
-  border: 1px solid #ced4da;
+  // border: 1px solid #ced4da;
   opacity: 1;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
 }
 
 .Arrow {
@@ -75,9 +77,9 @@
   margin-bottom: 13px;
 }
 .accbody {
-  border: 1px solid #dedede;
+  // border: 1px solid #dedede;
   border-top: none;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
   margin-bottom: 4px;
 }
