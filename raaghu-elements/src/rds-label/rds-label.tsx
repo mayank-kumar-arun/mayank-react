@@ -4,20 +4,35 @@ import "./rds-label.scss";
 export interface RdsLabelProps {
   children?: ReactNode;
   label?: string;
-  multiline?: boolean; 
+  multiline?: boolean;
   size?: string;
   class?: string;
-  fontWeight?: number|string;
-  color?:string;
+  fontWeight?: number | string;
+  color?: string;
+  redAsteriskPresent?: boolean;
 }
 
 const RdsLabel = (props: RdsLabelProps) => {
   return (
     <p
-      className={` p-0 m-0 ${!props.multiline?"singleLine":""} ${props.class}`}
-      style={{fontSize: props.size, fontWeight: props.fontWeight, color:props.color }}
+      className={` p-0 m-0 ${!props.multiline ? "singleLine" : ""} ${
+        props.class
+      }`}
     >
-      <label>{props.label}{props.children}</label>
+      <label
+        htmlFor={props.label}
+        className="form-label"
+        style={{
+          fontSize: props.size,
+          fontWeight: props.fontWeight,
+          color: props.color,
+        }}
+      >
+        {props.label}
+        {props.children}
+      </label>
+
+      {props.redAsteriskPresent && <span className="text-danger ms-1">*</span>}
     </p>
   );
 };

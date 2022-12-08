@@ -3,7 +3,7 @@ import { RdsButton, RdsIcon } from "../rds-elements";
 import "./rds-comp-subscription.scss";
 export interface RdsCompSubscriptionProps {
   subscriptionData: any[];
-  width: string;
+  width?: string;
   onSubscription?:(event: React.MouseEventHandler<HTMLInputElement>, item:any)=>void;
 }
 

@@ -22,10 +22,6 @@ export interface RdsCompUserPermissionProps {
     }[],
     pagination: boolean,
     onActionSelection(arg: any): any;
-	onSortSelection(arg: {
-		sortClickEvent: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>;
-		sortOrder: string;
-	}): void;
 
 }
 
@@ -42,11 +38,7 @@ const RdsCompUserPermission = (props: RdsCompUserPermissionProps) => {
             actions={props.actions} 
             tableData={props.tableData} 
             pagination={false} 
-
             onActionSelection={props.onActionSelection}
-            
-            onSortSelection={props.onSortSelection} 
-            
             ></RdsCompDatatable>
 
         </div>
