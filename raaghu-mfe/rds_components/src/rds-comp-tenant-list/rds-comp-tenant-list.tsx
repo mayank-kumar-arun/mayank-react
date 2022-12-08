@@ -22,10 +22,6 @@ export interface RdsCompEditionListProps {
 	recordsPerPage?: number;
 	recordsPerPageSelectListOption?: boolean;
 	onActionSelection(arg: any): void;
-	onSortSelection(arg: {
-		sortClickEvent: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>;
-		sortOrder: string;
-	}): void;
 	onNewTenantClick(
 		event: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
 	): void;
@@ -41,7 +37,6 @@ const RdsCompEditionList = (props: RdsCompEditionListProps) => {
 					pagination={props.pagination}
 					recordsPerPage={props.recordsPerPage}
 					onActionSelection={props.onActionSelection}
-					onSortSelection={props.onSortSelection}
 					recordsPerPageSelectListOption={props.recordsPerPageSelectListOption}
 				></RdsCompDatatable>
 			</div>

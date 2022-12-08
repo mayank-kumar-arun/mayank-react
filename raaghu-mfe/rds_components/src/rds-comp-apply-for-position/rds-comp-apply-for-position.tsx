@@ -138,7 +138,7 @@ const RdsCompApplyForPosition = (props: RdsCompApplyForPositionProps) => {
             {error.email !="" && <span style={{ color: "red" }}>{error.email}</span>}
           </div>
 
-          <div className="col-md-6 mb-4 col-sm-12">
+          <div className="col-lg-6  mb-4 col-md-12">
             <RdsLabel  label="Full Name" fontWeight="600" />
             <RdsInput
              placeholder="Full Name"

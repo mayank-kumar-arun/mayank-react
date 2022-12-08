@@ -14,6 +14,7 @@ const Template: ComponentStory<typeof RdsCompApiScopeResource> = (args) => (
 export const Default = Template.bind({});
 
 Default.args = {
+  role:"advanced",
   resources: [
     {
       id: 1,
