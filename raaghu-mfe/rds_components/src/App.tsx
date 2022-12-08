@@ -27,7 +27,7 @@ const App = () => {
 			></RdsCompLogin>
 			<RdsCompAdminDashboard></RdsCompAdminDashboard>
 			<RdsCompSideNavigation></RdsCompSideNavigation>
-			<RdsCompTopNavigation languageItems={undefined} notifications={[]}></RdsCompTopNavigation>
+			<RdsCompTopNavigation></RdsCompTopNavigation>
 			<RdsCompTenantList
 				tableHeaders={[]}
 				actions={[]}
@@ -40,7 +40,13 @@ const App = () => {
 			<RdsCompForgotPassword
 				onForgotPassword={ForgotPassword}
 			></RdsCompForgotPassword>
-			<RdsCompWebsiteLog></RdsCompWebsiteLog>
+			<RdsCompWebsiteLog
+				websiteLogData={[]}
+				pagination={false}
+				alignmentType={undefined}
+				totalRecords={0}
+				recordsPerPage={0}
+			></RdsCompWebsiteLog>
 			<RdsCompAlertPopup />
 			<RdsCompOrganizationTree
 				organizationTreeData={[{ name: "rtyj" }]}
