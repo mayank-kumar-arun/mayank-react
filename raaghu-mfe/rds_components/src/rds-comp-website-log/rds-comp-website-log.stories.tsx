@@ -9,9 +9,11 @@ export default {
 
 const Template: ComponentStory<typeof RdsCompWebsiteLog> = (args) => (
   <RdsCompWebsiteLog {...args} />
+
 );
 
 export const Default = Template.bind({});
+
 
 Default.args = {
     pagination:true,
