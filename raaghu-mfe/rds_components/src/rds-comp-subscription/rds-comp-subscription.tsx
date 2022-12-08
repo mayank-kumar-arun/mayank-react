@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import { RdsButton, RdsIcon } from "../rds-elements";
 import "./rds-comp-subscription.scss";
 export interface RdsCompSubscriptionProps {
@@ -8,8 +8,6 @@ export interface RdsCompSubscriptionProps {
 }
 
 const RdsCompSubscription = (props: RdsCompSubscriptionProps) => {
-    useState()
-
   const getIcon = (feature: any) => {
     if (feature.isInclude == true) {
       return "tick_circle";
@@ -19,7 +17,6 @@ const RdsCompSubscription = (props: RdsCompSubscriptionProps) => {
   let width = props.width || "226px";
 const subscriptionhandler=(event:any, item:any)=>{
  props.onSubscription != undefined && props.onSubscription(event, item);
-  console.log("onUpgrade- ", item)
 
 }
   return (
@@ -69,7 +66,6 @@ const subscriptionhandler=(event:any, item:any)=>{
                       return (
                         <div key={index} className="d-flex " >
                           <div className="me-2">
-                            {" "}
                             <RdsIcon
                               name={getIcon(feature)}
                               fill={false}
@@ -78,7 +74,7 @@ const subscriptionhandler=(event:any, item:any)=>{
                               width="16px"
                               height="16px"
                             />
-                          </div>{" "}
+                          </div>
                           <div> {feature.title} </div>
                         </div>
                       );
