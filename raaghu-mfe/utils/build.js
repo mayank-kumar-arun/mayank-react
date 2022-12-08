@@ -1,50 +1,32 @@
-const path = require('path');
-var directories = path.dirname('../rds_pages/host');
-const { execSync } = require('child_process');
-const fs = require('fs');
-// const tsconfigPath = path.join(directories,  'package.json');
+const path = require("path");
+const { execSync } = require("child_process");
+const fs = require("fs");
+const appConfig = JSON.parse(fs.readFileSync(path.join(__dirname, '/appconfig.json'), 'utf-8'));
+const envFilePath = path.join(__dirname, '../rds_pages/host', '.env');
+const envFilePathTemp = path.join(__dirname, '../rds_pages/host', '.env1');
 
-function getArgs() {
-    const args = {data:"helo"};
-    process.argv
-        .slice(2, process.argv.length)
-        .forEach(arg => {
-            const longArg = arg.split('=');
-            let longArgFlag = '';
-            if (arg.slice(0, 2) === '--') {
-                longArgFlag = longArg[0].slice(2, longArg[0].length);
-            } else {
-                longArgFlag = longArg[0];
-            }
-            const longArgValue = longArg.length > 1 ? longArg[1] : true;
-            args[longArgFlag] = longArgValue;
 
-        });
-    return args;
+if (process.argv.length > 3) {
+  console.log('Invalid command');
+  process.exit(0);
 }
 
-async function start() {
+if (appConfig.replaceUrl == "true") {
 
-    const args = getArgs();
+  console.log('Changing URLs in .env file...');
+  fs.copyFileSync(envFilePath, envFilePathTemp);
+  let mfeConfig = fs.readFileSync(envFilePath).toString();
+  // console.log(mfeConfig)
+  let mfeConfigJSON = "{" + mfeConfig + "}";
+  mfeConfigJSON = JSON.parse(mfeConfigJSON);
+  console.log("file path mayank2",mfeConfigJSON)
 
-    console.log('Argumenets: ' + args.data);
+  for (const mfeConf of Object.keys(mfeConfigJSON)) {
+    console.log(mfeConf);
+    let pathConf = '';
+    // let url = mfeConfigJSON[mfeConf].url;
+    // let portIndex = url.indexOf("localhost:");
+    // let portConfig = url.substring(portIndex + 10, portIndex + 14);
+  }
 
-    const projects = JSON.parse(fs.readFileSync(path.join(directories,"..", 'package.json')).toString());
-    console.log(projects)
-    const projectToBuild = args.projects;
-
-    if (projectToBuild) {
-        let angular_projects = Object.keys(projects);
-        let projectToBuildArray = projectToBuild.split(',');
-        for (const project of projectToBuildArray) {
-            let prj = angular_projects.indexOf(project);
-            if (prj != -1 && project != 'storybook') {
-                console.log('Building project ' + project + '...')
-                execSync(`webpack --mode production build ${project}`, { cwd: process.cwd(), stdio: 'inherit' });
-            }
-        }
-    }
-    console.log('Done...');
 }
-
-start();
