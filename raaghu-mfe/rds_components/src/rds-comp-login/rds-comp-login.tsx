@@ -6,7 +6,7 @@ import "./rds-comp-login.scss";
 import AuthGuard from "../../../libs/shared/AuthGuard";
 import { Navigate, NavigationType } from "react-router-dom";
 export interface RdsCompLoginProps {
-	onLogin: (email?: string, password?: string) => void;
+	onLogin: (email: string, password: string) => any;
 	onForgotPassword: (isForgotPasswordClicked?: boolean) => void;
 }
 

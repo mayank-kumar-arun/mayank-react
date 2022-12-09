@@ -1,26 +1,29 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import RdsCompApiScopeResource from "./rds-comp-api-scope-resource";
+import RdsCompClaim from "./rds-comp-claim";
 
 export default {
-  title: "Components/ApiScopeResource",
-  component: RdsCompApiScopeResource,
-} as ComponentMeta<typeof RdsCompApiScopeResource>;
+  title: "Components/Claim",
+  component: RdsCompClaim,
 
-const Template: ComponentStory<typeof RdsCompApiScopeResource> = (args) => (
-  <RdsCompApiScopeResource {...args} />
+  argTypes: {
+    onCreate: { action: "Created" },
+    onCancel: { action: " cancelled" },
+  },
+} as ComponentMeta<typeof RdsCompClaim>;
+
+const Template: ComponentStory<typeof RdsCompClaim> = (args) => (
+  <RdsCompClaim {...args} />
 );
 
 export const Default = Template.bind({});
 
 Default.args = {
-  role:"advanced",
   resources: [
     {
       id: 1,
       displayName: "A - E",
       selected: false,
-      select: false,
       children: [
         {
           id: 1,
@@ -76,7 +79,6 @@ Default.args = {
       id: 2,
       displayName: "F - O",
       selected: false,
-      select: false,
       children: [
         {
           id: 1,
@@ -132,7 +134,6 @@ Default.args = {
       id: 3,
       displayName: "P - Z",
       selected: false,
-      select: false,
       children: [
         {
           id: 1,
