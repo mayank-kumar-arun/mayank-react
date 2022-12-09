@@ -96,3 +96,73 @@ outline.args = {
     },
   ],
 };
+
+export const Flush = Template.bind({});
+Flush.args = {
+  colorVariant: "primary",
+  Flush: true,
+  buttonGroupItems: [
+    {
+      id: "accordionOne",
+      bId: "collapseOne",
+      hId: "headingOne",
+      title: "Section 1 title",
+      state: false,
+      content: "content1",
+      select: null,
+    },
+    {
+      id: "accordiontwo",
+      bId: "collapseTwo",
+      hId: "headingTwo",
+      title: "Section 2 title",
+      state: false,
+      content: "content2",
+      select: null,
+    },
+    {
+      id: "accordionThree",
+      bId: "collapseThree",
+      hId: "headingThree",
+      title: "Section 3 title",
+      state: false,
+      content: "content3",
+      select: null,
+    },
+  ],
+};
+
+export const AlwaysOpen = Template.bind({});
+AlwaysOpen.args = {
+  colorVariant: "primary",
+  AlwaysOpen: true,
+  buttonGroupItems: [
+    {
+      id: "accordionOne",
+      bId: "collapseOne",
+      hId: "headingOne",
+      title: "Section 1 title",
+      state: true,
+      content: "content1",
+      select: 2,
+    },
+    {
+      id: "accordiontwo",
+      bId: "collapseTwo",
+      hId: "headingTwo",
+      title: "Section 2 title",
+      state: true,
+      content: "content2",
+      select: 2,
+    },
+    {
+      id: "accordionThree",
+      bId: "collapseThree",
+      hId: "headingThree",
+      title: "Section 3 title",
+      state: true,
+      content: "content3",
+      select: 2,
+    },
+  ],
+};
