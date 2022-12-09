@@ -35,7 +35,6 @@ const App = () => {
 				pagination={false}
 				onActionSelection={() => {}}
 				onNewTenantClick={() => {}}
-				onSortSelection={() => {}}
 			></RdsCompTenantList>
 			<RdsCompForgotPassword
 				onForgotPassword={ForgotPassword}
