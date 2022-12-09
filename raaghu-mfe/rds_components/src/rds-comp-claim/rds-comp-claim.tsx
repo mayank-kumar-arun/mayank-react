@@ -6,6 +6,8 @@ import "./rds-comp-claim.scss";
 
 export interface RdsCompClaimProps {
   resources: any[];
+  onCreate: (State: any) => void;
+  onCancel: (State: any) => void;
 }
 
 const reducer = (state: any, action: any) => {
@@ -96,16 +98,6 @@ const reducer = (state: any, action: any) => {
           };
         }
       });
-
-    case "statechange":
-      return state.map((parent: any) => {
-        if (parent.id === action.P_id) {
-          return { ...parent, select: !parent.select };
-        } else {
-          return parent;
-        }
-      });
-
     default:
       return state;
   }
@@ -136,10 +128,6 @@ const RdsCompClaim = (props: RdsCompClaimProps) => {
     setcheck(!check);
   };
 
-  const onClickHandler = (parent: any) => {
-    dispatch({ type: "statechange", P_id: parent.id });
-  };
-
   return (
     <>
       <div className="form">
@@ -148,10 +136,10 @@ const RdsCompClaim = (props: RdsCompClaimProps) => {
           name="select all"
           checked={check}
           onChange={(event) => Ghandlechange(event)}
-          id="flexCheckDefault3"
+          id="flexCheckDefault"
           className="form-check-input"
         ></input>{" "}
-        <label htmlFor="flexCheckDefault3" className="form-check-label">
+        <label htmlFor="flexCheckDefault" className="form-check-label">
           Select all
         </label>
         <div className="col-md-12 mt-3">
@@ -168,13 +156,10 @@ const RdsCompClaim = (props: RdsCompClaimProps) => {
                       name="select everything"
                       checked={resource.selected}
                       onChange={(event) => Phandlechange(resource)}
-                      id="flexCheckDefault"
+                      id={`${i}`}
                       className="form-check-input"
                     ></input>{" "}
-                    <label
-                      className="form-check-label"
-                      htmlFor="flexCheckDefault"
-                    >
+                    <label className="form-check-label" htmlFor={`${i}`}>
                       Select all
                     </label>
                   </div>
@@ -183,7 +168,7 @@ const RdsCompClaim = (props: RdsCompClaimProps) => {
                     {resource.children.map((check: any, idd: number) => (
                       <div key={idd} className="col-md-4">
                         <input
-                          id="flexCheckDefault1"
+                          id={`${i}${idd}`}
                           className="form-check-input"
                           type="checkbox"
                           name={check.displayName}
@@ -194,7 +179,7 @@ const RdsCompClaim = (props: RdsCompClaimProps) => {
                         ></input>{" "}
                         <label
                           className="form-check-label"
-                          htmlFor="flexCheckDefault1"
+                          htmlFor={`${i}${idd}`}
                         >
                           {check.displayName}
                         </label>
@@ -209,12 +194,20 @@ const RdsCompClaim = (props: RdsCompClaimProps) => {
         <br />
         <div className="buttongrp">
           <div>
-            <button className="btn buttt btn-outline-primary me-3">
+            <button
+              className="btn buttonname btn-outline-primary me-3"
+              onClick={() => props.onCancel(Res)}
+            >
               Cancel
             </button>
           </div>
           <div>
-            <button className="btn buttt btn-primary ">Create</button>
+            <button
+              className="btn buttonname btn-primary"
+              onClick={() => props.onCreate(Res)}
+            >
+              Create
+            </button>
           </div>
         </div>
       </div>

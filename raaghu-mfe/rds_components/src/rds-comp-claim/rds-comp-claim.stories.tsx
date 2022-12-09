@@ -5,6 +5,11 @@ import RdsCompClaim from "./rds-comp-claim";
 export default {
   title: "Components/Claim",
   component: RdsCompClaim,
+
+  argTypes: {
+    onCreate: { action: "Created" },
+    onCancel: { action: " cancelled" },
+  },
 } as ComponentMeta<typeof RdsCompClaim>;
 
 const Template: ComponentStory<typeof RdsCompClaim> = (args) => (
@@ -19,7 +24,6 @@ Default.args = {
       id: 1,
       displayName: "A - E",
       selected: false,
-      select: true,
       children: [
         {
           id: 1,
@@ -75,7 +79,6 @@ Default.args = {
       id: 2,
       displayName: "F - O",
       selected: false,
-      select: true,
       children: [
         {
           id: 1,
@@ -131,7 +134,6 @@ Default.args = {
       id: 3,
       displayName: "P - Z",
       selected: false,
-      select: true,
       children: [
         {
           id: 1,
