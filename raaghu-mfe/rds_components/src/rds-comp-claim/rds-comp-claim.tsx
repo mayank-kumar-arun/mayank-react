@@ -9,7 +9,6 @@ export interface RdsCompClaimProps {
 }
 
 const reducer = (state: any, action: any) => {
-  state.map((parent: any) => {});
 
   switch (action.type) {
     case "Parent":
