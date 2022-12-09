@@ -31,8 +31,7 @@ Default.args = {
       { id: 3, color: "#BFEAFF" },
     ],
     showAddToBagButton: true,
-  showAddToBagAndBuyNowButton: true,
-  bordered: true,
+    showBuyNowButton: true,
+    bordered: true,
   },
-  
 };

@@ -7,13 +7,18 @@ const deps = require("../../package.json").dependencies;
 require("dotenv").config({ path: "./.env" });
 
 const buildDate = new Date().toLocaleString();
+const path = require('path');
+const fs = require('fs');
+const mfeFilePath = path.join(__dirname, '../', 'mfe-config.ts');
+let mfeConfig = fs.readFileSync(mfeFilePath).toString();
+let mfeConfigJSON = mfeConfig.substring(mfeConfig.indexOf("{"), mfeConfig.lastIndexOf("}") + 1);
+mfeConfigJSON = JSON.parse(mfeConfigJSON);
+
 
 module.exports = (env, argv) => {
-	const isProduction = argv.mode === "production";
-	console.log({ isProduction });
 	return {
 		entry: "./src/index.ts",
-		mode: process.env.NODE_ENV || "development",
+		mode: "development",
 		devServer: {
 			port: 8080,
 			open: true,
@@ -58,15 +63,11 @@ module.exports = (env, argv) => {
 				"process.env": JSON.stringify(process.env),
 			}),
 			new ModuleFederationPlugin({
-				name: "Host",
+				name: "host",
 				remotes: {
-					Dashboard: isProduction
-						? process.env.PROD_APP1
-						: process.env.DEV_APP1,
-					Login: isProduction ? process.env.PROD_APP2 : process.env.DEV_APP2,
-					ForgotPassword: isProduction
-						? process.env.PROD_APP3
-						: process.env.DEV_APP3,
+					Dashboard: mfeConfigJSON['dashboard'].url,
+					Login: mfeConfigJSON['login'].url,
+					ForgotPassword: mfeConfigJSON['forgot-password'].url,
 				},
 
 				shared: {

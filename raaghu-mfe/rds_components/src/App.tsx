@@ -35,12 +35,17 @@ const App = () => {
 				pagination={false}
 				onActionSelection={() => {}}
 				onNewTenantClick={() => {}}
-				onSortSelection={() => {}}
 			></RdsCompTenantList>
 			<RdsCompForgotPassword
 				onForgotPassword={ForgotPassword}
 			></RdsCompForgotPassword>
-			<RdsCompWebsiteLog></RdsCompWebsiteLog>
+			<RdsCompWebsiteLog
+				websiteLogData={[]}
+				pagination={false}
+				alignmentType={undefined}
+				totalRecords={0}
+				recordsPerPage={0}
+			></RdsCompWebsiteLog>
 			<RdsCompAlertPopup />
 			<RdsCompOrganizationTree
 				organizationTreeData={[{ name: "rtyj" }]}
