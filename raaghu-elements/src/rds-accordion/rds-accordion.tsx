@@ -10,6 +10,8 @@ export interface RdsAccordionProps {
   size: string;
   outline: boolean;
   select?: any;
+  Flush?: boolean;
+  AlwaysOpen?: boolean;
   onclick?: (event: React.MouseEvent<HTMLInputElement>) => void;
 }
 
@@ -17,12 +19,14 @@ const RdsAccordion = (props: RdsAccordionProps) => {
   let [selected, setselected] = useState(props.select);
 
   const onClickhandler = (id: any) => {
-    if (selected == id) {
-      props.buttonGroupItems[id].state = !props.buttonGroupItems[id].state;
-      return setselected(null);
-    } else {
-      props.buttonGroupItems[id].state = !props.buttonGroupItems[id].state;
-      return setselected(id);
+    if (props.AlwaysOpen !== true) {
+      if (selected == id) {
+        props.buttonGroupItems[id].state = !props.buttonGroupItems[id].state;
+        return setselected(null);
+      } else {
+        props.buttonGroupItems[id].state = !props.buttonGroupItems[id].state;
+        return setselected(id);
+      }
     }
   };
 
@@ -33,7 +37,7 @@ const RdsAccordion = (props: RdsAccordionProps) => {
           <div key={i} className="accordion-item itembox itemboxxx ">
             <div
               style={{ cursor: "pointer" }}
-              className={`${
+              className={` ${props.Flush ? "border-bottom" : "border"}  ${
                 props.buttonGroupItems[i].state ? "butn" : " button  collapsed"
               }`}
               onMouseDown={() => {
@@ -52,7 +56,7 @@ const RdsAccordion = (props: RdsAccordionProps) => {
                   {buttonGroupItem.title}
                 </div>
               </div>
-              <div className="Arrow">
+              <div className={` ${props.Flush ? "Dis" : ""}`}>
                 <div
                   className={`  Chevronbigbox ${
                     props.outline
@@ -109,7 +113,11 @@ const RdsAccordion = (props: RdsAccordionProps) => {
                 props.buttonGroupItems[i].state ? "show" : ""
               }`}
             >
-              <div className="accordion-body accbody">
+              <div
+                className={`accordion-body  accbody ${
+                  props.Flush ? "" : "border"
+                }`}
+              >
                 <h3>{buttonGroupItem.Bodyheading}</h3>
                 <div>{buttonGroupItem.content}</div>
               </div>

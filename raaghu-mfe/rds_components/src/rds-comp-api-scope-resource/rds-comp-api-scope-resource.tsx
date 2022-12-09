@@ -7,6 +7,7 @@ import "./rds-comp-api-scope-resource.scss";
 
 export interface RdsCompApiScopeResourceProps {
 	resources: any[];
+  role:"basic"|"advanced"
 }
 
 const reducer = (state: any, action: any) => {
@@ -145,61 +146,98 @@ const RdsCompApiScopeResource = (props: RdsCompApiScopeResourceProps) => {
   return (
     <>
       <input
+      className="form-check-input"
         type="checkbox"
         name="select all"
         checked={check}
         onChange={(event) => Ghandlechange(event)}
       ></input>{" "}
-      <label htmlFor="">Select all</label>
+      <label  className="form-check-label ms-2" htmlFor="">Select all</label>
       <div className="col-md-12 mt-3">
         {Res.map((resource: any, i: number) => {
-          return (
-            <RdsAccordion
-              onclick={() => onClickHandler(resource)}
-              key={i}
-              buttonGroupItems={[
-                {
-                  id: "accordionOne",
-                  bId: "collapseOne",
-                  Bodyheading: "",
-                  title: resource.displayName,
-                  content: (
-                    <>
-                      <div className="mt-2">
-                        {" "}
-                        <input
-                          type="checkbox"
-                          name="select everything"
-                          checked={resource.selected}
-                          onChange={(event) => Phandlechange(resource)}
-                        ></input>{" "}
-                        <label htmlFor="">Select all</label>
-                      </div>
+          return (<>
+          {props.role=="basic" && <div className="mb-3" > 
+            <label>{resource.displayName}</label>
+            <hr></hr>  <div >
+          {" "}
+          <input
+            className="form-check-input"
+            type="checkbox"
+            name="select everything"
+            checked={resource.selected}
+            onChange={(event) => Phandlechange(resource)}
+          ></input>{" "}
+          <label  className="form-check-label ms-2" htmlFor="">Select all</label>
+        </div>
 
-                      <div className="accbodycheck mt-3">
-                        {resource.children.map((check: any, idd: number) => (
-                          <div key={idd} className="col-md-4">
-                            <input
-                              type="checkbox"
-                              name={check.displayName}
-                              checked={check.selected}
-                              onChange={(event) =>
-                                ChandleChange(check, resource, event)
-                              }
-                            ></input>{" "}
-                            <label htmlFor="">{check.displayName}</label>
-                          </div>
-                        ))}
-                      </div>
-                    </>
-                  ),
-                  state: resource.select,
-                },
-              ]}
-              colorVariant={"primary"}
-              size={"small"}
-              outline={false}
-            ></RdsAccordion>
+        <div className="accbodycheck ">
+          {resource.children.map((check: any, idd: number) => (
+            <div key={idd} className="col-md-4 mt-3">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                name={check.displayName}
+                checked={check.selected}
+                onChange={(event) =>
+                  ChandleChange(check, resource, event)
+                }
+              ></input>{" "}
+              <label  className="form-check-label ms-2" htmlFor="">{check.displayName}</label>
+            </div>
+          ))}
+        </div>
+        </div>}
+        {props.role=="advanced" &&  <RdsAccordion
+            onclick={() => onClickHandler(resource)}
+            key={i}
+            
+            buttonGroupItems={[
+              {
+                id: "accordionOne",
+                bId: "collapseOne",
+                Bodyheading: "",
+                title: resource.displayName,
+                content: (
+                  <>
+                    <div >
+                      {" "}
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        name="select everything"
+                        checked={resource.selected}
+                        onChange={(event) => Phandlechange(resource)}
+                      ></input>{" "}
+                      <label  className="form-check-label ms-2" htmlFor="">Select all</label>
+                    </div>
+
+                    <div className="accbodycheck ">
+                      {resource.children.map((check: any, idd: number) => (
+                        <div key={idd} className="col-md-4 mt-3">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            name={check.displayName}
+                            checked={check.selected}
+                            onChange={(event) =>
+                              ChandleChange(check, resource, event)
+                            }
+                          ></input>{" "}
+                          <label  className="form-check-label ms-2" htmlFor="">{check.displayName}</label>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                ),
+                state: resource.select,
+              },
+            ]}
+            colorVariant={"primary"}
+            size={"small"}
+            outline={false}
+          ></RdsAccordion>}
+          
+          </>
           );
         })}
       </div>
