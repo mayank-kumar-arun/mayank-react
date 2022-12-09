@@ -56,17 +56,13 @@ if (appConfig.replaceUrl == "true") {
       }
     }
 
-    console.log(mfeConfigJSON)
+      console.log("Updated mfeConfig : ",mfeConfigJSON)
   }
 
   mfeConfig = mfeConfig.substring(0, mfeConfig.indexOf("{")) + JSON.stringify(mfeConfigJSON, null, 2);
-  // mfeConfig = mfeConfig.replace(/\"url\":/g, "url:");
-  // mfeConfig = mfeConfig.replace(/\"/g, "");
-  // mfeConfig = mfeConfig.replace(/(http|https):\/\//g, "\'$1:\/\/");
-  // mfeConfig = mfeConfig.replace(/.js/g, ".js\'");
-  
+
   fs.writeFileSync(mfeFilePath, mfeConfig);
-  console.log(mfeConfig);
+  console.log("Final :",mfeConfig);
 }
 
 execSync(`concurrently \"cd rds_pages\\Host && npm run build\"`, { cwd: process.cwd(), stdio: 'inherit' });
