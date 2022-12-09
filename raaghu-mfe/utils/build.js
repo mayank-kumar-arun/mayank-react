@@ -65,6 +65,7 @@ if (appConfig.replaceUrl == "true") {
   console.log("Final :",mfeConfig);
 }
 
+
 execSync(`concurrently \"cd rds_pages\\Host && npm run build\"`, { cwd: process.cwd(), stdio: 'inherit' });
 
 
