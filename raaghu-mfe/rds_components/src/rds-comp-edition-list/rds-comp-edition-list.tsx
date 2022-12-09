@@ -46,7 +46,7 @@ const RdsCompEditionList = (props: RdsCompEditionListProps) => {
                     pagination={props.pagination}
                     recordsPerPage={props.recordsPerPage}
                     onActionSelection={props.onActionSelection}
-                    onSortSelection={props.onSortSelection}
+                   
                     recordsPerPageSelectListOption={props.recordsPerPageSelectListOption}
                 ></RdsCompDatatable>
         </div>
