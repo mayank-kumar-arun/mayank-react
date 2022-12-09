@@ -12,18 +12,18 @@ if (process.argv.length > 3) {
   process.exit(0);
 }
 
+let mfeConfig = fs.readFileSync(mfeFilePath).toString();
+let mfeConfigJSON = mfeConfig.substring(mfeConfig.indexOf("{"), mfeConfig.lastIndexOf("}") + 1);
+
+mfeConfigJSON = mfeConfigJSON.replace(/\'/g, "\"");
+mfeConfigJSON = mfeConfigJSON.replace(/([a-zA-Z]*): {/g, "\"$1\": {");
+mfeConfigJSON = mfeConfigJSON.replace(/url:/g, "\"url\":");
+mfeConfigJSON = mfeConfigJSON.replace(/\",/g, "\"");
+mfeConfigJSON = JSON.parse(mfeConfigJSON);
 if (appConfig.replaceUrl == "true") {
 
   console.log('Changing URLs in .env file...');
   fs.copyFileSync(mfeFilePath, mfeFilePathTemp);
-  let mfeConfig = fs.readFileSync(mfeFilePath).toString();
-  let mfeConfigJSON = mfeConfig.substring(mfeConfig.indexOf("{"), mfeConfig.lastIndexOf("}") + 1);
-
-  mfeConfigJSON = mfeConfigJSON.replace(/\'/g, "\"");
-  mfeConfigJSON = mfeConfigJSON.replace(/([a-zA-Z]*): {/g, "\"$1\": {");
-  mfeConfigJSON = mfeConfigJSON.replace(/url:/g, "\"url\":");
-  mfeConfigJSON = mfeConfigJSON.replace(/\",/g, "\"");
-  mfeConfigJSON = JSON.parse(mfeConfigJSON);
   // console.log("file path mayank2",mfeConfigJSON)
 
   let portConfig = fs.readFileSync(portFilePath).toString();
@@ -62,11 +62,14 @@ if (appConfig.replaceUrl == "true") {
   mfeConfig = mfeConfig.substring(0, mfeConfig.indexOf("{")) + JSON.stringify(mfeConfigJSON, null, 2);
 
   fs.writeFileSync(mfeFilePath, mfeConfig);
-  console.log("Final :",mfeConfig);
+  // console.log("Final :",mfeConfig);
 }
 
 
-execSync(`concurrently \"cd rds_pages\\Host && npm run build\"`, { cwd: process.cwd(), stdio: 'inherit' });
+for(const page of Object.keys(mfeConfigJSON)) {
+  console.log(page)
+  execSync(`concurrently \"cd rds_pages\\${page} && npm run build\"`, { cwd: process.cwd(), stdio: 'inherit' });
+}
 
 
 console.log('Deleting temporary files...');

@@ -5,13 +5,7 @@ export const MfeConfig = {
 	"dashboard":{
 		 "url":"dashboard@http://localhost:8002/remoteEntry.js"
 	},
-	"rdsComponents":{
-		 "url":"http://localhost:8001/remoteEntry.js"
-	},
-	"maintainance":{
-		 "url":"http://localhost:8005/remoteEntry.js"
-	},
-	"forgotpassword":{
+	"forgot-password":{
 		 "url":"forgotPassword@http://localhost:8003/remoteEntry.js"
 	},
 	"login":{

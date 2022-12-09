@@ -67,7 +67,7 @@ module.exports = (env, argv) => {
 				remotes: {
 					Dashboard: mfeConfigJSON['dashboard'].url,
 					Login: mfeConfigJSON['login'].url,
-					ForgotPassword: mfeConfigJSON['forgotpassword'].url,
+					ForgotPassword: mfeConfigJSON['forgot-password'].url,
 				},
 
 				shared: {
