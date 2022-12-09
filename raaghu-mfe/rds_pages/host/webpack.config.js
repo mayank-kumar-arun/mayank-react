@@ -12,11 +12,7 @@ const fs = require('fs');
 const mfeFilePath = path.join(__dirname, '../', 'mfe-config.ts');
 let mfeConfig = fs.readFileSync(mfeFilePath).toString();
 let mfeConfigJSON = mfeConfig.substring(mfeConfig.indexOf("{"), mfeConfig.lastIndexOf("}") + 1);
-mfeConfigJSON = mfeConfigJSON.replace(/\'/g, "\"");
-mfeConfigJSON = mfeConfigJSON.replace(/([a-zA-Z]*): {/g, "\"$1\": {");
-mfeConfigJSON = mfeConfigJSON.replace(/url:/g, "\"url\":");
-mfeConfigJSON = mfeConfigJSON.replace(/\",/g, "\"");
-mfeConfigJSON = JSON.parse(mfeConfigJSON);;
+mfeConfigJSON = JSON.parse(mfeConfigJSON);
 
 
 module.exports = (env, argv) => {
