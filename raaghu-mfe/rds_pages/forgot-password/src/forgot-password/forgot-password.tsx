@@ -7,9 +7,7 @@ import {
 	message,
 } from "../../../../libs/public.api";
 import { useSelector } from "react-redux";
-const RdsCompForgotPassword = React.lazy(
-	() => import("rds_components/RdsCompForgotPassword")
-);
+import RdsCompForgotPassword from "../../../../rds_components/src/rds-comp-forgot-password/rds-comp-forgot-password"
 
 export interface ForgotPasswordProps {}
 

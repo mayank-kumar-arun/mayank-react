@@ -21,7 +21,7 @@ export interface RdsCompDatatableProps {
 		disabled?: boolean;
 		isEndUserEditing?: boolean;
 	}[];
-	actions: {
+	actions?: {
 		displayName: string;
 		id: string;
 	}[];
@@ -30,10 +30,10 @@ export interface RdsCompDatatableProps {
 	recordsPerPage?: number;
 	recordsPerPageSelectListOption?: boolean;
 	onActionSelection(arg: any): any;
-	onSortSelection(arg: {
-		sortClickEvent: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>;
-		sortOrder: string;
-	}): void;
+	// onSortSelection(arg: {
+	// 	sortClickEvent: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>;
+	// 	sortOrder: string;
+	// }): void;
 }
 const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 	const [data, setData] = useState(props.tableData);
@@ -77,6 +77,7 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 		   console.log(sorted);
 		   setData(sorted);
 	};
+
 	return (
 		<>
 			<div className="RdsCompDataTable sm-datatable table-responsive">
@@ -176,7 +177,7 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 												</td>
 											)
 										)}
-										{props.actions.length > 0 && (
+										{props.actions&&props.actions.length > 0 && (
 											<td className="align-middle text-center">
 												{!tableDataRow.isEndUserEditing ? (
 													<div className="dropdown">
@@ -268,8 +269,9 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 
 				</table>
 			</div>
+
 			{props.pagination && (
-				<div className="RdsCompDataTable__RdsPagination">
+				<div className= "RdsCompDataTable__RdsPagination d-flex justify-content-end ">
 					<RdsPagination
 						totalRecords={props.tableData.length}
 						recordsPerPage={props.recordsPerPage ? props.recordsPerPage : 5}
