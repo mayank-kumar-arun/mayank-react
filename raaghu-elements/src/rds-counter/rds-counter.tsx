@@ -21,7 +21,7 @@ const RdsCounter = (props: RdsCounterProps) => {
 
   const classesForButton = 'btn btn-' + (props.colorVariant || 'primary') + ' rounded-0';
   const classesForInnerSpan = 'd-flex align-self-center ' + (props.colorVariant || 'primary') + ' rounded-0';
-  const classesForWrapperDiv = 'wrapper d-flex justify-content-between  mt-2 ms-1  border border-' + (props.colorVariant || 'primary') + ' rounded-0';
+  const classesForWrapperDiv = 'd-flex justify-content-between  mt-2 ms-1  border border-' + (props.colorVariant || 'primary') + ' rounded-0';
 
 
   // This state hook represents counter value
