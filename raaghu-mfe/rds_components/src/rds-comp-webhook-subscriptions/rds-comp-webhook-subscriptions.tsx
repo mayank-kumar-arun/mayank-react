@@ -146,7 +146,7 @@ const RdsCompWebhookSubscription = (props: RdsCompWebhookSubscriptionProps) => {
 							></RdsInput>
 							{error4 && <span style={{ color: "red" }}>{error4}</span>}
 						</div>
-						<div className="col-2 mt-4">
+						<div className="col-2 mb-3">
 							<RdsButton
 								label="ADD"
 								colorVariant="primary"
