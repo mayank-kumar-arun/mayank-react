@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { RdsInput, RdsButton } from "../rds-elements";
-
+import React from "react";
 export interface RdsForgotPasswordProps {
 	onForgotPassword: (email?: string) => void;
 }
