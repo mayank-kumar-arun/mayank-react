@@ -3,71 +3,80 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import RdsCompPermissionTree from "./rds-comp-permission-tree";
 
 export default {
-	title: "Components/Permission Tree",
-	component: RdsCompPermissionTree,
+  title: "Components/Permission Tree",
+  component: RdsCompPermissionTree,
 } as ComponentMeta<typeof RdsCompPermissionTree>;
 
 const Template: ComponentStory<typeof RdsCompPermissionTree> = (args) => (
-	<RdsCompPermissionTree {...args} />
+  <RdsCompPermissionTree {...args} />
 );
 
 export const Default = Template.bind({});
 
 Default.args = {
-	toppingOptions :[
-		{
-		  name: "Pepperoni",
-		  id: 1,
-		  subOptions: [
-			{
-			  name: "Spicy",
-			  id: 1,
-			  subOptions: []
-			},
-			{
-			  name: "Regular",
-			  id: 2,
-			  subOptions: []
-			}
-		  ]
-		},
-		{
-		  name: "Chicken",
-		  id:2,
-		  subOptions: [
-			{
-			  name: "Buffalo",
-			  id: 1,
-			  subOptions: [
-				{
-				  name: "Mild",
-				  id: 1,
-				  subOptions: [],
-				},
-				{
-				  name: "Hot",
-				  id: 1,
-				  subOptions: [
-					{
-					  name: 'Jalapeño',
-					  id: 1,
-					  subOptions: []
-					},
-					{
-					  name: 'Cayenne',
-					  id: 2,
-					  subOptions: []
-					}
-				  ],
-				},
-			  ]
-			},
-			{
-			  name: "BBQ",
-			  id:2,
-			  subOptions: [],
-			}
-		  ]
-		},
-	  ]
+  familyTree: [
+    {
+      name: "[Test edition scope feature]",
+      id: "L1E1",
+      isSelected: false,
+      isIntermediate: false,
+      disabled: false,
+      children: []
+    },
+    {
+      name: "Chat",
+      id: "L1E2",
+      parent_id: 0,
+      isSelected: false,
+      isIntermediate: false,
+      disabled: false,
+      children: [
+        {
+          name: "Chat with host",
+          id: "L2E1",
+          parent_id: 2,
+          isSelected: false,
+          isIntermediate: false,
+          disabled: false,
+          children: []
+        },
+        {
+          name: "Chat with other tentents",
+          id: "L2E2",
+          parent_id: 2,
+          isSelected: false,
+          isIntermediate: false,
+          disabled: false,
+          children: []
+        },
+      ],
+    },
+    {
+      name: "Maximum user count",
+      id: "L1E6",
+      parent_id: 0,
+      isSelected: false,
+      isIntermediate: false,
+      disabled: false,
+      children: []
+    },
+    {
+      name: "Test check feature",
+      id: "L1E5",
+      parent_id: 0,
+      isSelected: false,
+      isIntermediate: false,
+      disabled: false,
+      children: []
+    },
+    {
+      name: "Test check feature",
+      id:"L1E5",
+      parent_id: 0,
+      isSelected: true,
+      isIntermediate: false,
+      disabled: false,
+      children: []
+    },
+  ],
 };
