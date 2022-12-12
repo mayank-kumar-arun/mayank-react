@@ -81,7 +81,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 				<div className="d-flex align-items-center">
 					<img
 						className="ms-1"
-						src="raaghu-logo.svg"
+						src="/raaghu_icon.png"
 						alt="logo"
 						style={{ width: "100px", height: "55.125px" }}
 					></img>
