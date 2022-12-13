@@ -1,3 +1,4 @@
+import React from "react";
 import { RdsWidget } from "../rds-elements";
 import {
 	RdsLineChart,

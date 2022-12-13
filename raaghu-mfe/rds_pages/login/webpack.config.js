@@ -69,12 +69,7 @@ module.exports = (env, argv) => {
 				filename: "remoteEntry.js",
 				exposes: {
 					// expose each page
-					"./login": "./src/Login/Login",
-				},
-				remotes: {
-					rds_components: isProduction
-						? process.env.PROD_APP1
-						: process.env.DEV_APP1,
+					"./Login": "./src/Login/Login",
 				},
 				shared: {
 					...devdeps,

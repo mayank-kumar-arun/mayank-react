@@ -7,13 +7,15 @@ const deps = require("../../package.json").dependencies;
 require("dotenv").config({ path: "./.env" });
 
 const buildDate = new Date().toLocaleString();
-const path = require('path');
-const fs = require('fs');
-const mfeFilePath = path.join(__dirname, '../', 'mfe-config.ts');
+const path = require("path");
+const fs = require("fs");
+const mfeFilePath = path.join(__dirname, "../", "mfe-config.ts");
 let mfeConfig = fs.readFileSync(mfeFilePath).toString();
-let mfeConfigJSON = mfeConfig.substring(mfeConfig.indexOf("{"), mfeConfig.lastIndexOf("}") + 1);
+let mfeConfigJSON = mfeConfig.substring(
+	mfeConfig.indexOf("{"),
+	mfeConfig.lastIndexOf("}") + 1
+);
 mfeConfigJSON = JSON.parse(mfeConfigJSON);
-
 
 module.exports = (env, argv) => {
 	return {
@@ -33,6 +35,14 @@ module.exports = (env, argv) => {
 		},
 		module: {
 			rules: [
+				{ test: /\.(config)$/, loader: "file-loader" },
+				{
+					test: /\.(scss|css)$/,
+
+					use: ["style-loader", "css-loader", "sass-loader"],
+
+					exclude: "/node_modules/",
+				},
 				{
 					test: /\.(js|jsx|tsx|ts)$/,
 					loader: "babel-loader",
@@ -65,9 +75,9 @@ module.exports = (env, argv) => {
 			new ModuleFederationPlugin({
 				name: "host",
 				remotes: {
-					Dashboard: mfeConfigJSON['dashboard'].url,
-					Login: mfeConfigJSON['login'].url,
-					ForgotPassword: mfeConfigJSON['forgot-password'].url,
+					Dashboard: mfeConfigJSON["dashboard"].url,
+					Login: mfeConfigJSON["login"].url,
+					ForgotPassword: mfeConfigJSON["forgot-password"].url,
 				},
 
 				shared: {
