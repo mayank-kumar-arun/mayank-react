@@ -44,6 +44,11 @@ module.exports = (env, argv) => {
 					exclude: "/node_modules/",
 				},
 				{
+					test: /\.(config)$/, 
+					loader: "file-loader",
+				},
+				
+				{
 					test: /\.(js|jsx|tsx|ts)$/,
 					loader: "babel-loader",
 					exclude: /node_modules/,

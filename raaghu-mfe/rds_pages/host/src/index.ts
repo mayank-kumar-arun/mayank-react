@@ -1,2 +1,2 @@
 import('./bootstrap')
-import "../../../web.config"
+import "../../../web.config";
