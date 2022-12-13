@@ -21,6 +21,7 @@
     "dotenv": "^16.0.2",
     "luxon": "^3.1.0",
     "react": "^18.2.0",
+    "react-big-calendar": "^1.5.2",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^3.1.4",
     "react-redux": "^8.0.4",
@@ -28,6 +29,7 @@
     "redux-persist": "^6.0.0"
   },
   "devDependencies": {
+    "@types/react-big-calendar": "^0.38.2",
     "concurrently": "^7.4.0",
     "html-webpack-plugin": "^5.5.0",
     "nswag": "^13.17.0",
