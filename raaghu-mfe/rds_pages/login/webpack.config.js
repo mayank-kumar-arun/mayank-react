@@ -69,7 +69,7 @@ module.exports = (env, argv) => {
 				filename: "remoteEntry.js",
 				exposes: {
 					// expose each page
-					"./login": "./src/Login/Login",
+					"./Login": "./src/Login/Login",
 				},
 				remotes: {
 					rds_components: isProduction

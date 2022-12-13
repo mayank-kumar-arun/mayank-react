@@ -1,4 +1,4 @@
-import { MouseEvent, useState } from "react";
+import { MouseEvent, useState, useEffect } from "react";
 import {
   RdsIcon,
   RdsCheckbox,
@@ -31,10 +31,12 @@ export interface RdsCompDatatableProps {
   recordsPerPage?: number;
   recordsPerPageSelectListOption?: boolean;
   onActionSelection(arg: any): any;
+
   // onSortSelection(arg: {
   // 	sortClickEvent: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>;
   // 	sortOrder: string;
   // }): void;
+
 }
 const RdsCompDatatable = (props: RdsCompDatatableProps) => {
   const [data, setData] = useState(props.tableData);
@@ -42,6 +44,7 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
     startingRow: 0,
     endingRow: props.recordsPerPage,
   });
+
   const onPageChangeHandler = (currentPage: number, recordsPerPage: number) => {
     setRowStatus({
       startingRow: (currentPage - 1) * recordsPerPage, //0-index
