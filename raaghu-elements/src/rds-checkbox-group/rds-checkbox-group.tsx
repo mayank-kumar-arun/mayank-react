@@ -1,4 +1,5 @@
 import React from "react";
+import "./rds-checkbox-group.scss"
 
 export interface RdsCheckboxGroupProps {
   isSwitch?: boolean;
@@ -12,7 +13,7 @@ export interface RdsCheckboxGroupProps {
 }
 
 const RdsCheckboxGroup = (props: RdsCheckboxGroupProps) => {
-  let Switch1 = `${props.isSwitch === true ? "form-switch " : "form-check "} `;
+  let Switch1 = `${props.isSwitch === true ? " mb-2 form-switch " : " mb-2 form-check "} `;
   let Inline1 = `${props.isInline === true && props.isSwitch==false ? " form-check-inline" : ""} `;
   let state = props.state || "Checkbox";
 
@@ -27,6 +28,8 @@ const RdsCheckboxGroup = (props: RdsCheckboxGroupProps) => {
           )}
           {props.itemList.map((item: any, idx: any) => (
             <div key={idx} className={`${Switch1} ${Inline1}`}>
+             {item.title && <div className="item___title__checkbox__group">{item.title}</div>}
+              <div>
               <input
                 type="checkbox"
                 className={
@@ -46,6 +49,8 @@ const RdsCheckboxGroup = (props: RdsCheckboxGroupProps) => {
               <label htmlFor={item.id} className="ms-2 form-check-label">
                 {item.label}
               </label>
+
+              </div>
             </div>
           ))}
         </div>
