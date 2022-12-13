@@ -31,10 +31,12 @@ export interface RdsCompDatatableProps {
   recordsPerPage?: number;
   recordsPerPageSelectListOption?: boolean;
   onActionSelection(arg: any): any;
-  onSortSelection(arg: {
-    sortClickEvent: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>;
-    sortOrder: string;
-  }): void;
+
+  // onSortSelection(arg: {
+  // 	sortClickEvent: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>;
+  // 	sortOrder: string;
+  // }): void;
+
 }
 const RdsCompDatatable = (props: RdsCompDatatableProps) => {
   const [data, setData] = useState(props.tableData);
@@ -42,12 +44,6 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
     startingRow: 0,
     endingRow: props.recordsPerPage,
   });
-
-  useEffect(() => {
-    if (sort !== true) {
-      setData(props.tableData);
-    }
-  }, [props.tableData]);
 
   const onPageChangeHandler = (currentPage: number, recordsPerPage: number) => {
     setRowStatus({
@@ -68,9 +64,6 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
       actionClicked: action,
     });
   };
-
-  let sort = false;
-
   const onSortClickHandler = (
     event: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>,
     sortOrder: string,
@@ -88,7 +81,6 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
     });
     console.log(sorted);
     setData(sorted);
-    sort = true;
   };
   let Classes = props.classes || " table-hover table-bordered";
   return (
@@ -204,17 +196,44 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
                               />
                             </div>
                           )}
-                          {tableHeader.datatype === "icon" && (
-                            <div className="avatarTitleInfo icon">
-                              <RdsIcon
-                                // name={tableDataRow[tableHeader.key].icon}
-                                name={tableDataRow[tableHeader.key]}
-                                fill={false}
-                                stroke={true}
-                                height="17px"
-                                width="21px"
-                              />
+                          {tableHeader.datatype === "iconAvatarTitle" && (
+                            <div className="iconAvatarTitle ">
+                              <div className="col-1 me-2">
+                                <RdsIcon
+                                  name={tableDataRow[tableHeader.key].iconName}
+                                  fill={tableDataRow[tableHeader.key].iconFill}
+                                  stroke={
+                                    tableDataRow[tableHeader.key].iconStroke
+                                  }
+                                  colorVariant={
+                                    tableDataRow[tableHeader.key].iconColor
+                                  }
+                                  width={
+                                    tableDataRow[tableHeader.key].iconWidth
+                                  }
+                                  height={
+                                    tableDataRow[tableHeader.key].iconHeight
+                                  }
+                                />
+                              </div>
+                              <div className="col-5">
+                                <RdsAvatar
+                                  withProfilePic={true}
+                                  profilePic={
+                                    tableDataRow[tableHeader.key].avatar
+                                  }
+                                  isTitle={false}
+                                />
+                              </div>
+                              <div className="col-6">
+                                <label>
+                                  {tableDataRow[tableHeader.key].title}{" "}
+                                </label>
+                              </div>
                             </div>
+                          )}
+                          {tableHeader.datatype === "children" && (
+                            <div> {tableDataRow[tableHeader.key].children}</div>
                           )}
                           {/* add more types here if reequired */}
                         </div>
