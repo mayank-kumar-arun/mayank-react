@@ -10,6 +10,7 @@ import './rds-comp-data-table.scss';
 
 export interface RdsCompDatatableProps {
 	enablecheckboxselection?: boolean;
+	classes?:string;
 	tableHeaders: {
 		displayName: string;
 		key: string;
@@ -77,12 +78,12 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 		   console.log(sorted);
 		   setData(sorted);
 	};
-
+ let Classes= props.classes || " table-hover table-bordered"
 	return (
 		<>
 			<div className="RdsCompDataTable sm-datatable table-responsive">
 				<table
-					className="table table-hover table-bordered h-100"
+					className={`table h-100 ${Classes}`}
 					id="sortTable"
 					width="400px"
 				>
