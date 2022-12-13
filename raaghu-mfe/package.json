@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "concurrently": "^7.4.0",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "nswag": "^13.17.0",
     "react-hot-loader": "^4.13.0",
