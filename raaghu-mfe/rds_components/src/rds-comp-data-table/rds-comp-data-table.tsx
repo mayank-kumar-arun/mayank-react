@@ -9,85 +9,8 @@ import {
 import "./rds-comp-data-table.scss";
 
 export interface RdsCompDatatableProps {
-	enablecheckboxselection?: boolean;
-	classes?:string;
-	tableHeaders: {
-		displayName: string;
-		key: string;
-		datatype: string;
-		dataLength?: number;
-		required?: boolean;
-		sortable?: boolean;
-		colWidth?: string;
-		disabled?: boolean;
-		isEndUserEditing?: boolean;
-	}[];
-	actions?: {
-		displayName: string;
-		id: string;
-	}[];
-	tableData: any[];
-	pagination: boolean;
-	recordsPerPage?: number;
-	recordsPerPageSelectListOption?: boolean;
-	onActionSelection(arg: any): any;
-	// onSortSelection(arg: {
-	// 	sortClickEvent: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>;
-	// 	sortOrder: string;
-	// }): void;
-}
-const RdsCompDatatable = (props: RdsCompDatatableProps) => {
-	const [data, setData] = useState(props.tableData);
-	const [rowStatus, setRowStatus] = useState({
-		startingRow: 0,
-		endingRow: props.recordsPerPage,
-	});
-	const onPageChangeHandler = (currentPage: number, recordsPerPage: number) => {
-		setRowStatus({
-			startingRow: (currentPage - 1) * recordsPerPage, //0-index
-			endingRow: currentPage * recordsPerPage, //considering that 1st element has '0' index
-		});
-	};
-	const actionOnClickHandler = (
-		clickEvent: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>,
-		tableDataRow: any,
-		tableDataRowIndex: number,
-		action: { displayName: string; id: string }
-	) => {
-		props.onActionSelection({
-			event: clickEvent,
-			clickedRowTableData: tableDataRow,
-			tableDataRowIndex: tableDataRowIndex,
-			actionClicked: action,
-		});
-	};
-	const onSortClickHandler = (
-		event: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>,
-		sortOrder: string, col: string
-	) => {
-		const sorted = [...data].sort((a, b) => {
-			if (a[col] === undefined) return 1;
-			if (b[col] === undefined) return -1;
-			if (a[col] === undefined && b[col] === undefined) return 0;
-			return (
-			 a[col].toString().localeCompare(b[col].toString(), "en", {
-			  numeric: true,
-			 }) * (sortOrder === "ascending" ? 1 : -1)
-			);
-		   });
-		   console.log(sorted);
-		   setData(sorted);
-	};
- let Classes= props.classes || " table-hover table-bordered"
-	return (
-		<>
-			<div className="RdsCompDataTable sm-datatable table-responsive">
-				<table
-					className={`table h-100 ${Classes}`}
-					id="sortTable"
-					width="400px"
-				>
   enablecheckboxselection?: boolean;
+  classes?: string;
   tableHeaders: {
     displayName: string;
     key: string;
@@ -114,8 +37,11 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
   }): void;
 }
 const RdsCompDatatable = (props: RdsCompDatatableProps) => {
-  let sort: boolean;
   const [data, setData] = useState(props.tableData);
+  const [rowStatus, setRowStatus] = useState({
+    startingRow: 0,
+    endingRow: props.recordsPerPage,
+  });
 
   useEffect(() => {
     if (sort !== true) {
@@ -123,10 +49,6 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
     }
   }, [props.tableData]);
 
-  const [rowStatus, setRowStatus] = useState({
-    startingRow: 0,
-    endingRow: props.recordsPerPage,
-  });
   const onPageChangeHandler = (currentPage: number, recordsPerPage: number) => {
     setRowStatus({
       startingRow: (currentPage - 1) * recordsPerPage, //0-index
@@ -146,6 +68,9 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
       actionClicked: action,
     });
   };
+
+  let sort = false;
+
   const onSortClickHandler = (
     event: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>,
     sortOrder: string,
@@ -161,15 +86,16 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
         }) * (sortOrder === "ascending" ? 1 : -1)
       );
     });
+    console.log(sorted);
     setData(sorted);
     sort = true;
   };
-
+  let Classes = props.classes || " table-hover table-bordered";
   return (
     <>
       <div className="RdsCompDataTable sm-datatable table-responsive">
         <table
-          className="table table-hover table-bordered h-100"
+          className={`table h-100 ${Classes}`}
           id="sortTable"
           width="400px"
         >
@@ -261,7 +187,6 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
                                 : tableDataRow[tableHeader.key]}
                             </span>
                           )}
-
                           {tableHeader.datatype === "avatarTitleInfo" && (
                             <div className="avatarTitleInfo">
                               <RdsAvatar
@@ -279,7 +204,6 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
                               />
                             </div>
                           )}
-
                           {tableHeader.datatype === "icon" && (
                             <div className="avatarTitleInfo icon">
                               <RdsIcon
@@ -292,7 +216,6 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
                               />
                             </div>
                           )}
-
                           {/* add more types here if reequired */}
                         </div>
                       </td>
@@ -403,6 +326,5 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
       )}
     </>
   );
-}
-
-export default RdsCompDatatable
+};
+export default RdsCompDatatable;
