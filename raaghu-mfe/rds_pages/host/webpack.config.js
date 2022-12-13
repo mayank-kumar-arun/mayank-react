@@ -35,7 +35,7 @@ module.exports = (env, argv) => {
 			rules: [
 				{
 					test: /\.(config)$/, 
-					loader: "file-loader?name=[name].[ext]",
+					loader: "file-loader",
 				},
 				
 				{
