@@ -1,3 +1,9 @@
 .RdsCompDataTable .avatarTitleInfo span:first-of-type {
-    font-weight: bold;
+  font-weight: bold;
+}
+.icon {
+  padding: 8px !important;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
