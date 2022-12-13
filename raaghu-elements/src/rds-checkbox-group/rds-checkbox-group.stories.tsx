@@ -23,6 +23,7 @@ Default.args = {
   isSwitch: false,
   isInline: false,
   label: "Checkbox Group",
+  
   itemList: [
     {
       id: 1,
@@ -33,6 +34,12 @@ Default.args = {
     {
       id: 2,
       label: "Child Checkbox 2",
+       checked: false,
+      disabled: false,
+    },
+    {
+      id: 3,
+      label: "Child Checkbox 3",
       checked: false,
       disabled: false,
     },
