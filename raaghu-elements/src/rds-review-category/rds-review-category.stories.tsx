@@ -21,7 +21,7 @@ Default.args = {
   item: {
     name: 'Jems Rock',
     date: new Date(),
-    reviewRate: 4,
+    rating: 4,
     likes: 50,
     dislikes: 50,
     reviewTitle: 'Very good and color also nice & fresh look',
@@ -38,7 +38,7 @@ Type_1.args= {
     name: 'Jems Rock',
     date: new Date(),
     imageUrl:'https://t4.ftcdn.net/jpg/04/10/43/77/240_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg',
-    reviewRate: 4,
+    rating: 4,
     likes: 50,
     dislikes: 50,
     reviewTitle: 'Very good and color also nice & fresh look',
@@ -52,7 +52,7 @@ Type_2.args= {
   item: {
     name: 'Jems Rock',
     date: new Date(),
-    reviewRate: 4,
+    rating: 4,
     likes: 50,
     dislikes: 50,
     imageUrl:'https://t4.ftcdn.net/jpg/04/10/43/77/240_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg',
