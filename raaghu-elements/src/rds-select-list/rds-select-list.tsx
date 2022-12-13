@@ -22,9 +22,9 @@ const RdsSelectList = (props: RdsSelectProps) => {
   return (
     <Fragment>
       <select className={customSize} disabled={Disabled} multiple={Multiple} aria-label="select example" onChange={props.onSelectListChange}>
-        <option disabled selected hidden>{props.label}</option>
+        <option disabled selected hidden className="text-muted">{props.label}</option>
         {props.selectItems.map((selectItem) => (
-          <option>{selectItem.option}</option>
+          <option value={selectItem.option}>{selectItem.option}</option>
         ))}
       </select>
     </Fragment>
