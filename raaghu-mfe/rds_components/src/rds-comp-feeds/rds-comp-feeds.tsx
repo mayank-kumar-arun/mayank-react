@@ -1,67 +1,77 @@
-import React from 'react'
-import {RdsAvatar, RdsIcon, RdsLikeDislike, RdsRating} from '../rds-elements'
-interface Item {
-  actor: string;
+import React from "react";
+import { RdsAvatar, RdsIcon, RdsLikeDislike, RdsRating } from "../rds-elements";
+export interface Item {
+  name: string;
   username?: string;
-  date?: string;
+  date?: Date;
   feedIcon?: string;
-  profilePic?: string;
+  imageUrl?: string;
   description: string;
   hashtags?: string;
   reviews?: string;
+  reviewTitle?: string;
+  reviewSubTitle?: string;
   replies?: string;
   rating?: 0 | 1 | 2 | 3 | 4 | 5;
+  likes?: number;
+  dislikes?: number;
 }
 export interface RdsCompFeedProps {
   itemList: Item[];
-  variantType?:'Basic' | 'Advanced'
+  variantType?: "Basic" | "Advanced";
 }
 
 const RdsCompFeeds = (props: RdsCompFeedProps) => {
   return (
     <div>
-      {props.variantType === 'Basic' && props.itemList.map((item: Item, index: any) => (
-        <div className="border-bottom py-3">
-          <div className="d-flex">
-            <div>
-              <RdsAvatar
-                profilePic={item.profilePic}
-                withProfilePic={true}
-                height="60px"
-              ></RdsAvatar>
-            </div>
-            <div className="ps-3 flex-grow-1">
-              <div className="pb-1 d-flex">
-                <div
-                  className="text-left fw-bold"
-                  style={{ paddingRight: "4px" }}
-                >
-                  {item.actor}{" "}
-                </div>
-                {item.date && (
-                  <div className={"text-muted text-end text-lowercase flex-grow-1 "}>
-                    {item.date}
-                  </div>
-                )}
+      {props.variantType === "Basic" &&
+        props.itemList.map((item: Item, index: any) => (
+          <div className="border-bottom py-3">
+            <div className="d-flex">
+              <div>
+                <RdsAvatar
+                  profilePic={item.imageUrl}
+                  withProfilePic={true}
+                  height="60px"
+                ></RdsAvatar>
               </div>
-              {
-                <div className="h-25 mt-1">
-                  <label style = {{color:"#626262"}}>
-                    {item.description.slice(0, 82)}
-                  </label>
+              <div className="ps-3 flex-grow-1">
+                <div className="pb-1 d-flex">
+                  <div
+                    className="text-left fw-bold"
+                    style={{ paddingRight: "4px" }}
+                  >
+                    {item.name}{" "}
+                  </div>
+                  {item.date && (
+                    <div
+                      className={
+                        "text-muted text-end text-lowercase flex-grow-1 "
+                      }
+                    >
+                      {item.date.toDateString().slice(4)}
+                    </div>
+                  )}
                 </div>
-              }
+                {
+                  <div className="h-25 mt-1">
+                    <label style={{ color: "#626262" }}>
+                      {item.description.slice(0, 82)}
+                    </label>
+                  </div>
+                }
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-      
-        {props.variantType === 'Advanced' && props.itemList.map((item: Item, index: any) => (
+        ))}
+
+      {props.variantType === "Advanced" &&
+        props.itemList.map((item: Item, index: any) => (
           <div className="border-bottom py-4">
             <div className="d-flex">
               <div>
                 <RdsAvatar
-                  profilePic={item.profilePic}
+                  profilePic={item.imageUrl}
                   withProfilePic={true}
                   height="60px"
                 ></RdsAvatar>
@@ -72,9 +82,9 @@ const RdsCompFeeds = (props: RdsCompFeedProps) => {
                     className="text-left fw-bold"
                     style={{ paddingRight: "4px" }}
                   >
-                    {item.actor}{" "}
+                    {item.name}{" "}
                   </div>
-                  { item.feedIcon !== undefined &&(
+                  {item.feedIcon !== undefined && (
                     <div className="me-1">
                       <RdsIcon
                         name={item.feedIcon}
@@ -100,13 +110,16 @@ const RdsCompFeeds = (props: RdsCompFeedProps) => {
                   )}
                   {item.date && (
                     <div className={"text-muted text-lowercase flex-grow-1 "}>
-                      {item.date}
+                      {item.date.toDateString().slice(4)}
                     </div>
                   )}
                 </div>
-               
-                { item.rating !== undefined && (
-                  <div className="h-25 mt-1 me-4" style={{ display: "inline-block" }}>
+
+                {item.rating !== undefined && (
+                  <div
+                    className="h-25 mt-1 me-4"
+                    style={{ display: "inline-block" }}
+                  >
                     <RdsRating
                       rating={item.rating}
                       colorVariant="warning"
@@ -122,12 +135,11 @@ const RdsCompFeeds = (props: RdsCompFeedProps) => {
                 )}
               </div>
             </div>
-  
-              <div className="h-25 mt-1">
-                <label className="font-italic"> {item.description}</label>
-              </div>
-           
-  
+
+            <div className="h-25 mt-1">
+              <label className="font-italic"> {item.description}</label>
+            </div>
+
             {item.hashtags && (
               <div style={{ marginTop: "20px" }}>
                 <a href="#" className="text-decoration-none">
@@ -138,7 +150,7 @@ const RdsCompFeeds = (props: RdsCompFeedProps) => {
             <div className="h-25 mt-3">
               <RdsLikeDislike dislike={10} like={35} />
             </div>
-  
+
             {item.replies && (
               <div style={{ marginTop: "20px" }}>
                 <a href="#" className="text-decoration-none">
@@ -149,7 +161,7 @@ const RdsCompFeeds = (props: RdsCompFeedProps) => {
           </div>
         ))}
     </div>
-  )
-}
+  );
+};
 
-export default RdsCompFeeds
+export default RdsCompFeeds;
