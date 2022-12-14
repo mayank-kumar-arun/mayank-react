@@ -1,6 +1,6 @@
 import { MouseEvent, useEffect, useState } from "react";
 import RdsCompDatatable from "../rds-comp-data-table/rds-comp-data-table";
-import { RdsButton, RdsDatePicker } from "../rds-elements";
+import { RdsDatePicker } from "../rds-elements";
 import "./rds-comp-login-attempts.scss";
 
 export interface RdsCompLoginAttemptsProps {
@@ -80,16 +80,9 @@ const RdsCompLoginAttempts = (props: RdsCompLoginAttemptsProps) => {
       <div className="table">
         <RdsCompDatatable
           tableHeaders={props.tableHeaders}
-          // actions={props.actions}
           tableData={Tdata}
           pagination={false}
           onActionSelection={props.onActionSelection}
-          onSortSelection={function (arg: {
-            sortClickEvent: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>;
-            sortOrder: string;
-          }): void {
-            throw new Error("Function not implemented.");
-          }}
           actions={[]}
         ></RdsCompDatatable>
       </div>
