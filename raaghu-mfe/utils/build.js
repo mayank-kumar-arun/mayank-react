@@ -5,7 +5,8 @@ const appConfig = JSON.parse(fs.readFileSync(path.join(__dirname, '/appconfig.js
 const mfeFilePath = path.join(__dirname, '../rds_pages/', 'mfe-config.ts');
 const mfeFilePathTemp = path.join(__dirname, '../rds_pages/', 'mfe-configtemp.ts');
 const portFilePath = path.join(__dirname, '../rds_pages/', 'port-config.ts');
-
+const pastepath = path.join(__dirname,"../rds_pages/host/dist");
+const copypath = path.join(__dirname,'../rds_pages')
 
 if (process.argv.length > 3) {
   console.log('Invalid command');
@@ -49,7 +50,7 @@ if (appConfig.replaceUrl == "true") {
           if (portConf == "host") {
             url = url.replace(/((http|https):\/\/localhost:)\d{4}/g, appConfig.appBaseUrl);
           } else {
-              url = url.replace(/((http|https):\/\/localhost:)\d{4}/g, appConfig.appBaseUrl);
+              url = url.replace(/((http|https):\/\/localhost:)\d{4}/g, appConfig.appBaseUrl + "/" + pathConf);
           }
           mfeConfigJSON[mfeConf].url = url;
           break;
@@ -71,6 +72,35 @@ for(const page of Object.keys(mfeConfigJSON)) {
   execSync(`concurrently \"cd rds_pages\\${page} && npm run build\"`, { cwd: process.cwd(), stdio: 'inherit' });
 }
 
+for (const copy of Object.keys(mfeConfigJSON)){
+  console.log(copy);
+  if(copy != 'host'){
+    fs.mkdir(`${pastepath}/${copy}`, (err)=>{
+      if(err){
+        console.log("directory building failed");
+      }
+      else {
+        console.log("Enjoy");
+      }
+    })
+    fs.readdir(`${copypath}/${copy}/dist`, (err, files) => {
+      if (err) {
+        // if there was an error, handle it here
+      } else {
+        // iterate over the files and copy each one
+        files.forEach((file) => {
+          fs.copyFile(`${copypath}/${copy}/dist/${file}`, `${pastepath}/${copy}/${file}`, (err) => {
+            if (err) {
+              console.log(err)
+            } else {
+              console.log("party")
+            }
+          });
+        });
+      }
+    });
+  }
+}
 
 console.log('Deleting temporary files...');
 if (appConfig.replaceUrl == "true") {
