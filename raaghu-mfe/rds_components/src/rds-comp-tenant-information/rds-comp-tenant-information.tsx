@@ -21,18 +21,21 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
     /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const [enteredTenancyName, setEnteredTenancyName] = useState("");
   const [isTenancyNameTouched, setIsTenancyNameTouched] = useState(false);
+  const isEnteredTenancyNameEmpty = enteredTenancyName.trim() === "";
   const tenancyNameInputIsEmptyAndTouched =
-    isTenancyNameTouched && enteredTenancyName.trim() === "";
+    isTenancyNameTouched && isEnteredTenancyNameEmpty;
   const [enteredTenantName, setEnteredTenantName] = useState("");
   const [isTenantNameTouched, setIsTenantNameTouched] = useState(false);
   const tenantNameInputIsEmptyAndTouched =
     isTenantNameTouched && enteredTenantName.trim() === "";
   const [enteredEmail, setEnteredEmail] = useState("");
   const [isEmailTouched, setIsEmailTouched] = useState(false);
-  const enteredEmailIsEmpty = enteredEmail.trim() === "";
-  let enteredEmailIsInvalid =
-    !emailRegex.test(enteredEmail) && !enteredEmailIsEmpty;
-  const EmailInputIsEmptyAndTouched = isEmailTouched && enteredEmailIsEmpty;
+  const isEnteredEmailEmpty = enteredEmail.trim() === "";
+  let isEnteredEmailInvalid =
+    !emailRegex.test(enteredEmail);
+  const EmailInputIsEmptyAndTouched = isEmailTouched && isEnteredEmailEmpty;
+  const isFormInvalid = isEnteredTenancyNameEmpty && isEnteredEmailEmpty && isEnteredEmailInvalid ;
+  console.log(isFormInvalid)
   const next = (event: any) => {
     if (!event || event.invalid) {
       return;
@@ -105,7 +108,7 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
                     Email must not be empty
                   </span>
                 )}
-                {enteredEmailIsInvalid && (
+                {isEnteredEmailInvalid && !isEnteredEmailEmpty && (
                   <span className="red-color-error">
                     Entered Email is Invalid
                   </span>
@@ -137,7 +140,7 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
           <div className="row">
             <div className="col-md-6 sm-p-0">
               <div className="form-group mb-3">
-                <RdsDatePicker DatePickerLabel={""}></RdsDatePicker>
+                {/* <RdsDatePicker DatePickerLabel={""}></RdsDatePicker> */}
               </div>
             </div>
           </div>
