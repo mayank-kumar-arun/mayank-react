@@ -15,6 +15,7 @@ export const Default = Template.bind({});
 
 Default.args = {
   selectvalue: [
+    { value: "All", some: "All" },
     { value: "Success", some: "Success" },
     {
       value: "InvalidUserNameOrEmailAddress",
