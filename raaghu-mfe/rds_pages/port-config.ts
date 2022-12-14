@@ -11,7 +11,7 @@ export const PortConfig = {
 	"maintainance":{
     "port":"8005"
 	},
-	"forgot-password":{
+	"forgotpassword":{
     "port":"8003"
 	},
 	"login":{
