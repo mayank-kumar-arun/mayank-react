@@ -55,12 +55,12 @@ jobs:
           npm install --force
           npm run build
           cp web.config rds_pages/host/dist
-
+          
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: ./raaghu-mfe/rds_pages/**/dist
+          path: ./raaghu-mfe/rds_pages/host/dist
 
   #    - uses: microsoft/variable-substitution@v1
   #      with:
@@ -83,6 +83,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: node-app
+          path: ./raaghu-mfe/rds_pages/host/dist
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2

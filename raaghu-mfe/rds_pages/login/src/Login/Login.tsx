@@ -19,7 +19,7 @@ import {
 } from "../../../../libs/public.api";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import RdsCompLogin from "../../../../rds_components/src/rds-comp-login/rds-comp-login";
+import {RdsCompLogin} from "../../../rds-components";
 
 export interface LoginProps {
 	onForgotPassword: (isForgotPasswordClicked?: boolean) => void;

@@ -7,7 +7,7 @@ import {
 	message,
 } from "../../../../libs/public.api";
 import { useSelector } from "react-redux";
-import RdsCompForgotPassword from "../../../../rds_components/src/rds-comp-forgot-password/rds-comp-forgot-password"
+import {RdsCompForgotPassword} from "../../../rds-components"
 
 export interface ForgotPasswordProps {}
 
