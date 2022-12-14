@@ -39,12 +39,16 @@ const RdsCompLoginAttempts = (props: RdsCompLoginAttemptsProps) => {
   };
 
   const selecthandler = (event: any) => {
-    let tempData = props.tableData.filter((data: any) => {
-      if (data.result === event.target.value) {
-        return data;
-      }
-    });
-    setTdata(tempData);
+    if (event.target.value === "All") {
+      setTdata(props.tableData);
+    } else {
+      let tempData = props.tableData.filter((data: any) => {
+        if (data.result === event.target.value) {
+          return data;
+        }
+      });
+      setTdata(tempData);
+    }
   };
 
   useEffect(() => {}, [Tdata]);
@@ -65,39 +69,10 @@ const RdsCompLoginAttempts = (props: RdsCompLoginAttemptsProps) => {
             <select
               onClick={selecthandler}
               className="form-select form-select-md"
-              aria-label=".form-select-sm example"
-              defaultValue="Open this select menu"
             >
-              <option value={props.selectvalue[0].value}>
-                {props.selectvalue[0].value}
-              </option>
-              <option value={props.selectvalue[1].value}>
-                {props.selectvalue[1].value}
-              </option>
-              <option value={props.selectvalue[2].value}>
-                {props.selectvalue[2].value}
-              </option>
-              <option value={props.selectvalue[3].value}>
-                {props.selectvalue[3].value}
-              </option>
-              <option value={props.selectvalue[4].value}>
-                {props.selectvalue[4].value}
-              </option>
-              <option value={props.selectvalue[5].value}>
-                {props.selectvalue[5].value}
-              </option>
-              <option value={props.selectvalue[6].value}>
-                {props.selectvalue[6].value}
-              </option>
-              <option value={props.selectvalue[7].value}>
-                {props.selectvalue[7].value}
-              </option>
-              <option value={props.selectvalue[8].value}>
-                {props.selectvalue[8].value}
-              </option>
-              <option value={props.selectvalue[9].value}>
-                {props.selectvalue[9].value}
-              </option>
+              {props.selectvalue.map((x, i) => (
+                <option key={x.some}>{x.value}</option>
+              ))}
             </select>
           </div>
         </div>
