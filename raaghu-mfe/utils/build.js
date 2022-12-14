@@ -73,14 +73,13 @@ for(const page of Object.keys(mfeConfigJSON)) {
 }
 
 for (const copy of Object.keys(mfeConfigJSON)){
-  console.log(copy);
   if(copy != 'host'){
     fs.mkdir(`${pastepath}/${copy}`, (err)=>{
       if(err){
         console.log("directory building failed");
       }
       else {
-        console.log("Enjoy");
+        console.log(`${copy} folder created successfully `);
       }
     })
     fs.readdir(`${copypath}/${copy}/dist`, (err, files) => {
@@ -93,7 +92,6 @@ for (const copy of Object.keys(mfeConfigJSON)){
             if (err) {
               console.log(err)
             } else {
-              console.log("party")
             }
           });
         });
