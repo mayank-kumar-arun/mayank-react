@@ -32,15 +32,6 @@ Default.args = {
         { id: 5, name: {avatar: "https://upload.wikimedia.org/wikipedia/commons/4/4a/AMC%2B_logo.png", title: "Amc Corporation", info:"support@amc.com"}, userid: 100, roles: 15, status: "qwerty" },
         { id: 6, name: {avatar: "https://upload.wikimedia.org/wikipedia/commons/4/4a/AMC%2B_logo.png", title: "Amc Corporation", info:"support@amc.com"}, userid: 60, roles: 5, status: "qwerty" },
         { id: 7, name: {avatar: "https://upload.wikimedia.org/wikipedia/commons/4/4a/AMC%2B_logo.png", title: "Amc Corporation", info:"support@amc.com"}, userid: 100, roles: 47, status: "qwerty" },
-        { id: 8, name: {avatar: "https://upload.wikimedia.org/wikipedia/commons/4/4a/AMC%2B_logo.png", title: "Amc Corporation", info:"support@amc.com"}, userid: 100, roles: 53, status: "qwerty" },
-        { id: 9, name: {avatar: "https://upload.wikimedia.org/wikipedia/commons/4/4a/AMC%2B_logo.png", title: "Amc Corporation", info:"support@amc.com"}, userid: 100, roles: 35, status: "qwerty" },
-        { id: 10, name: {avatar: "https://upload.wikimedia.org/wikipedia/commons/4/4a/AMC%2B_logo.png", title: "Amc Corporation", info:"support@amc.com"}, userid: 100, roles: 35, status: "qwerty" },
-        { id: 11, name: {avatar: "https://upload.wikimedia.org/wikipedia/commons/4/4a/AMC%2B_logo.png", title: "Amc Corporation", info:"support@amc.com"}, userid: 100, roles: 95, status: "qwerty" },
-        { id: 12, name: {avatar: "https://upload.wikimedia.org/wikipedia/commons/4/4a/AMC%2B_logo.png", title: "Amc Corporation", info:"support@amc.com"}, userid: 100, roles: 75, status: "qwerty" },
-        { id: 13, name: {avatar: "https://upload.wikimedia.org/wikipedia/commons/4/4a/AMC%2B_logo.png", title: "Amc Corporation", info:"support@amc.com"}, userid: 100, roles: 15, status: "qwerty" },
-        { id: 14, name: {avatar: "https://upload.wikimedia.org/wikipedia/commons/4/4a/AMC%2B_logo.png", title: "Amc Corporation", info:"support@amc.com"}, userid: 100, roles: 45, status: "qwerty" },
-        { id: 15, name: {avatar: "https://upload.wikimedia.org/wikipedia/commons/4/4a/AMC%2B_logo.png", title: "Amc Corporation", info:"support@amc.com"}, userid: 100, roles: 3, status: "qwerty" },
-        { id: 16, name: {avatar: "https://upload.wikimedia.org/wikipedia/commons/4/4a/AMC%2B_logo.png", title: "Amc Corporation", info:"support@amc.com"}, userid: 100, roles: 1, status: "qwerty" },
       ],
 
       actions: [
