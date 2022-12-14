@@ -271,11 +271,4 @@ Default.args = {
       result: "UserEmailIsNotConfirmed",
     },
   ],
-
-  //   actions: [
-  //     { id: "delete", displayName: "Delete" },
-  //     { id: "edit", displayName: "Edit" },
-  //     { id: "lock", displayName: "Lock" },
-  //     { id: "pass", displayName: "Set Password" },
-  //   ],
 };
