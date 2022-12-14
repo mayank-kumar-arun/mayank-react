@@ -54,7 +54,9 @@ jobs:
         run: |
           npm install --force
           npm run build
-          cp web.config rds_pages/host/dist
+          mkdir dist
+          cp rds_pages/host/dist/* dist
+          cp web.config dist
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
