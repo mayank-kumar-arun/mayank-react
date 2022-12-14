@@ -85,7 +85,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: node-app
-
+          path: ./raaghu-mfe/rds_pages
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
