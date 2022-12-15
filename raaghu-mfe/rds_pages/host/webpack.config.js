@@ -13,8 +13,8 @@ const fs = require("fs");
 const mfeFilePath = path.join(__dirname, "../", "mfe-config.ts");
 let mfeConfig = fs.readFileSync(mfeFilePath).toString();
 let mfeConfigJSON = mfeConfig.substring(
-  mfeConfig.indexOf("{"),
-  mfeConfig.lastIndexOf("}") + 1
+	mfeConfig.indexOf("{"),
+	mfeConfig.lastIndexOf("}") + 1
 );
 mfeConfigJSON = JSON.parse(mfeConfigJSON);
 
@@ -53,7 +53,7 @@ module.exports = (env, argv) => {
         {
           test: /\.(scss|css)$/,
 
-          use: ["style-loader", "css-loader", "sass-loader"],
+					use: ["style-loader", "css-loader", "sass-loader"],
 
           exclude: "/node_modules/",
         },
@@ -109,18 +109,19 @@ module.exports = (env, argv) => {
           ...devdeps,
           ...deps,
 
-          react: { singleton: true, eager: true, requiredVersion: deps.react },
-          "react-dom": {
-            singleton: true,
-            eager: true,
-            requiredVersion: deps["react-dom"],
-          },
-        },
-      }),
-      new HtmlWebpackPlugin({
-        template: "./public/index.html",
-      }),
-      // new ForkTsCheckerWebpackPlugin(),
-    ],
-  };
+					react: { singleton: true, eager: true, requiredVersion: deps.react },
+					"react-dom": {
+						singleton: true,
+						eager: true,
+						requiredVersion: deps["react-dom"],
+					},
+				},
+			}),
+			// new CopyWebpackPlugin([{ from: "./public/images", to: "./assests" }]),
+			new HtmlWebpackPlugin({
+				template: "./public/index.html",
+			}),
+			// new ForkTsCheckerWebpackPlugin(),
+		],
+	};
 };
