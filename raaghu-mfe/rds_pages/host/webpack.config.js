@@ -85,30 +85,6 @@ module.exports = (env, argv) => {
 			],
 		},
 
-        {
-          test: /\.(js|jsx|tsx|ts)$/,
-          loader: "babel-loader",
-          exclude: /node_modules/,
-          options: {
-            cacheDirectory: true,
-            babelrc: false,
-            presets: [
-              [
-                "@babel/preset-env",
-                { targets: { browsers: "last 2 versions" } },
-              ],
-              "@babel/preset-typescript",
-              "@babel/preset-react",
-            ],
-            plugins: [
-              "react-hot-loader/babel",
-              ["@babel/plugin-proposal-class-properties", { loose: true }],
-            ],
-          },
-        },
-      ],
-    },
-
     plugins: [
       new webpack.EnvironmentPlugin({ BUILD_DATE: buildDate }),
       new webpack.DefinePlugin({
@@ -129,7 +105,7 @@ module.exports = (env, argv) => {
 						requiredVersion: deps["react-dom"],
 					},
 				},
-			}),
+			),
 			new CopyWebpackPlugin([{ from: "public/images", to: "dist" }]),
 			new HtmlWebpackPlugin({
 				template: "./public/index.html",
