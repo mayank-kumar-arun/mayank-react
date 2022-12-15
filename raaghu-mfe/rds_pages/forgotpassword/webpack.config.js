@@ -71,21 +71,21 @@ module.exports = (env, argv) => {
       ],
     },
 
-    plugins: [
-      new webpack.EnvironmentPlugin({ BUILD_DATE: buildDate }),
-      new webpack.DefinePlugin({
-        "process.env": JSON.stringify(process.env),
-      }),
-      new ModuleFederationPlugin({
-        name: "forgotpassword",
-        filename: "remoteEntry.js",
-        exposes: {
-          // expose each page
-          "./ForgotPassword": "./src/forgot-password/forgot-password",
-        },
-        shared: {
-          ...devdeps,
-          ...deps,
+		plugins: [
+			new webpack.EnvironmentPlugin({ BUILD_DATE: buildDate }),
+			new webpack.DefinePlugin({
+				"process.env": JSON.stringify(process.env),
+			}),
+			new ModuleFederationPlugin({
+				name: "forgotpassword",
+				filename: "remoteEntry.js",
+				exposes: {
+					// expose each page
+					"./ForgotPassword": "./src/forgotpassword/forgotpassword",
+				},
+				shared: {
+					...devdeps,
+					...deps,
 
           react: { singleton: true, eager: true, requiredVersion: deps.react },
           "react-dom": {
