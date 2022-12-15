@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack"); // only add this if you don't have yet
 const { ModuleFederationPlugin } = webpack.container;
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 // const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const devdeps = require("../../package.json").devDependencies;
 const deps = require("../../package.json").dependencies;
@@ -39,15 +39,15 @@ module.exports = (env, argv) => {
         {
           test: /\.(png|jpe?g|gif)$/i,
           use: [
-			{
-			  loader: 'file-loader',
-			  options: {
-				name: '[name].[ext]',
-				outputPath: 'img/',
-				publicPath: 'img/'
-			  }
-			}
-		  ],
+            {
+              loader: "file-loader",
+              options: {
+                name: "[name].[ext]",
+                outputPath: "assets/",
+                publicPath: "assets/",
+              },
+            },
+          ],
         },
         { test: /\.(config)$/, loader: "file-loader" },
         {
@@ -75,6 +75,10 @@ module.exports = (env, argv) => {
             plugins: [
               "react-hot-loader/babel",
               ["@babel/plugin-proposal-class-properties", { loose: true }],
+              ["@babel/plugin-proposal-private-methods", { loose: true }],
+              [
+                "@babel/plugin-proposal-private-property-in-object",{ loose: true },
+              ],
             ],
           },
         },
@@ -82,14 +86,14 @@ module.exports = (env, argv) => {
     },
 
     plugins: [
-		new CopyWebpackPlugin({
-			patterns:[
-				{
-				  from: 'src/img',
-				  to: 'img'
-				}
-			]
-		}),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: "src/assets",
+            to: "assets",
+          },
+        ],
+      }),
       new webpack.EnvironmentPlugin({ BUILD_DATE: buildDate }),
       new webpack.DefinePlugin({
         "process.env": JSON.stringify(process.env),

@@ -98,7 +98,7 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
 									width: 50,
 									height: 50,
 								}}
-								src="raaghu_icon.png"
+								src="./assets/raaghu_icon.png"
 							></img>
 						</div>
 					</div>
