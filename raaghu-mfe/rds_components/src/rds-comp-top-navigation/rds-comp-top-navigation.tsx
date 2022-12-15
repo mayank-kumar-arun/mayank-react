@@ -158,7 +158,6 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 						>
 							<RdsNotification
 								notifications={notifications}
-								unreadCount={12}
 								footerText="2 days ago"
 							></RdsNotification>
 						</div>

@@ -5,7 +5,7 @@ import { RootState } from "../../../libs/state-management";
 const DashboardCompo = React.lazy(() => import("Dashboard/Dashboard"));
 const LoginCompo = React.lazy(() => import("Login/Login"));
 const ForgotPasswordCompo = React.lazy(
-	() => import("ForgotPassword/ForgotPassword")
+	() => import("ForgotPassword/forgotpassword")
 );
 const Main = () => {
 	const navigate = useNavigate();

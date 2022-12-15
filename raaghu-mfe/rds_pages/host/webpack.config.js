@@ -110,7 +110,7 @@ module.exports = (env, argv) => {
 					},
 				},
 			}),
-			new CopyWebpackPlugin([{ from: "./public/images", to: "./dist" }]),
+			// new CopyWebpackPlugin([{ from: "./public/images", to: "./assests" }]),
 			new HtmlWebpackPlugin({
 				template: "./public/index.html",
 			}),
