@@ -71,10 +71,6 @@ module.exports = (env, argv) => {
         // expose each page
         "./Dashboard": "./src/Dashboard/Dashboard",
       },
-        remotes: {
-          rds_components: isProduction ? process.env.PROD_APP1 : process.env.DEV_APP1,
-          
-        },
         shared: {
             ...devdeps,
           ...deps,

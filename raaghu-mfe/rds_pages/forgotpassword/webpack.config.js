@@ -69,7 +69,7 @@ module.exports = (env, argv) => {
 				filename: "remoteEntry.js",
 				exposes: {
 					// expose each page
-					"./ForgotPassword": "./src/forgot-password/forgot-password",
+					"./ForgotPassword": "./src/forgotpassword/forgotpassword",
 				},
 				shared: {
 					...devdeps,
