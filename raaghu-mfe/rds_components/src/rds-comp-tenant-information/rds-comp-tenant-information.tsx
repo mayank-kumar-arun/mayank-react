@@ -5,7 +5,7 @@ import {
   RdsDatePicker,
   RdsButton,
 } from "../rds-elements";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import img from "./edit-pic.png";
 import "./rds-comp-tenant-information.scss";
 export interface RdsCompTenantInformationProps {
@@ -46,13 +46,23 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
   const [isUnlimitedSubscriptionChecked, setIsUnlimitedSubscriptionChecked] =
     useState(false);
   const [selctedOption, setSelectedOption] = useState("");
+  const inputFile: any = useRef(null);
+  const profilePicHandler = () => {
+    inputFile.current.click();
+  };
   return (
     <div>
+      <input
+        type="file"
+        id="file"
+        ref={inputFile}
+        style={{ display: "none" }}
+      />
       <div className="tab-content py-4">
         <form>
           <div className="row align-items-center">
             <div className="col-md-3 text-center cursor-pointer sm-p-0">
-              <img src={img} />
+              <img src={img} onClick={profilePicHandler} />
 
               <input type="file" accept="image/*" style={{ display: "none" }} />
             </div>
