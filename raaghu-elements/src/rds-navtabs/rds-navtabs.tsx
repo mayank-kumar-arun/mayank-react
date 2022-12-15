@@ -1,4 +1,4 @@
-import React, { Fragment, ReactNode, useState } from "react";
+import React, { Fragment, ReactNode, useEffect, useState } from "react";
 
 import "./rds-navtabs.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -16,19 +16,25 @@ export interface RdsNavtabsProps {
         icon?: string,
         subText?: string,
         disabled?: boolean,
+        id:any
     }[]
-    type?: "default" | "pills" | "tabs" | "vertical"
+    type: "default" | "pills" | "tabs" | "vertical"
     fill?:boolean,
     justified?:boolean
-    activeNavtabOrder(arg:number):number
+  activeNavtabOrder?:(id:any)=>void;
 
 }
 
 const RdsNavtabs = (props: RdsNavtabsProps) => {
 
 
-    const [activeTabKey, setActiveTabKey] = useState(0)
-
+    const [activeTabKey, setActiveTabKey] = useState(props.navtabsItems[0].id)
+   
+    useEffect(()=>{
+        props.activeNavtabOrder!=undefined && props.activeNavtabOrder(activeTabKey)
+    },[activeTabKey , props.navtabsItems])
+    
+   
 
     return (
         <div className="navtabs-wrapper-div">
@@ -38,13 +44,13 @@ const RdsNavtabs = (props: RdsNavtabsProps) => {
                         (props.type==="vertical"? " flex-column nav-pills col-3" : " nav-tabs")))
                 + (props.fill?" nav-fill":"")
                 + (props.justified?" nav-justified":"")}>
-                {props.navtabsItems.map((navtabsItem, i) =>
-                    <li className="nav-item" key={i}>
-                        <a className={"nav-link pe-4 ps-4 " + (i === activeTabKey ? "active " : "") + (navtabsItem.disabled ? "disabled " : "")}
+                {props.navtabsItems.map((navtabsItem) =>
+                    <li className="nav-item" key={navtabsItem.id}>
+                        <a className={"nav-link pe-4 ps-4 " + (navtabsItem.id === activeTabKey ? "active " : "inactive") + (navtabsItem.disabled ? "disabled " : "")}
                             aria-current="page"
                             data-bs-target={navtabsItem.tablink}
                             aria-controls={navtabsItem.ariacontrols}
-                            onClick={() => { setActiveTabKey(i); props.activeNavtabOrder(i) }}
+                            onClick={()=>setActiveTabKey(navtabsItem.id)}
                         >
                             {navtabsItem.icon&&<span className="pe-3"><RdsIcon name={navtabsItem.icon} height="20px" width="20px" stroke={true} /></span>}
                             <span>{navtabsItem.label}</span>
@@ -52,26 +58,6 @@ const RdsNavtabs = (props: RdsNavtabsProps) => {
                     </li>
                 )}
             </ul>
-
-            {/* <div className="tab-content" id="ex1-content">
-                <div
-                    className="tab-pane fade show active"
-                    id="nav-home"
-                    role="tabpanel"
-                    aria-labelledby="nav-home"
-                >
-                    Tab 1 content
-                </div>
-                <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile">
-                    Tab 2 content
-                </div>
-                <div className="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact">
-                    Tab 3 content
-                </div><div className="tab-pane fade" id="nav-deabled" role="tabpanel" aria-labelledby="ex1-tab-4">
-                    Tab 4 content
-                </div>
-            </div> */}
-
              {props.children}
         </div >
     )
