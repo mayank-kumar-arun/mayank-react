@@ -1,14 +1,16 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { colors } from "../../libs/types";
 import RdsIcon from "../rds-icon/rds-icon";
+import RdsBadge from "../rds-badge/rds-badge";
+import RdsButton from "../rds-button";
 import "./rds-notification.scss";
 
 export interface RdsNotificationProps {
   colorVariant?: colors;
- 
-  unreadCount:number
   notifications: any[];
   footerText: string;
+  onSetAsRead?: (Event:React.MouseEventHandler<HTMLButtonElement> ,notification:any) => void;
+  onMarkAsRead?:  (Event:React.MouseEventHandler<HTMLButtonElement> ,notifications:any) => void;
 }
 
 const RdsNotification = (props: RdsNotificationProps) => {
@@ -76,22 +78,40 @@ const RdsNotification = (props: RdsNotificationProps) => {
     setId(i);
     console.log("TextColor - " + textColor);
   };
-   let bgColor = "bg-"+ (props.colorVariant||"success");
-  let unread = props.hasOwnProperty("unreadCount") == true && props.unreadCount > 0  
+  let bgColor = "bg-" + (props.colorVariant || "success");
+  
+  const onSetAsRead=(e:any, notification:any)=>{
+    console.log(notification)
+     props.onSetAsRead != undefined && props.onSetAsRead(e, notification);
+  }
+  const onMarkAsRead=(e:any, notifications:any)=>{
+    props.onSetAsRead != undefined && props.onSetAsRead(e, notifications);
+ }
 
+  useEffect(() => {
+  }, [props.notifications]);
   return (
     <Fragment>
       <div className="card ">
         <div className="card-header p-3 text-start headerStyle ">
-          <div className="head ps-3 position-relative">
-            {" "}
-            Notification
-           {unread==true&& 
-              <span className={"position-absolute top-0 start-100 ms-2 translate-middle badge rounded-pill "+`${bgColor}`}>
-                {props.unreadCount}
-                <span className="visually-hidden">unread messages</span>
-              </span>}
-           {" "} 
+          <div className="head ps-2 position-relative">
+            <span>
+              <RdsIcon
+                name="notification"
+                fill={false}
+                stroke={true}
+                colorVariant="primary"
+                width="30px"
+                height="30px"
+              />
+            </span>
+            <span className="ms-2 me-3"> Notification</span>
+            {props.notifications.length >= 1 && (
+              <RdsBadge
+                label={`${props.notifications.length}  New`}
+                colorVariant="success"
+              />
+            )}{" "}
           </div>
           <div>
             <RdsIcon
@@ -105,8 +125,9 @@ const RdsNotification = (props: RdsNotificationProps) => {
           </div>
         </div>
         {props.notifications.map((notification: any, index: any) => (
-          <div
-            className="card-body d-flex ps-4"
+          <div key={notification.userNotificationId}>
+          <div 
+            className="d-flex py-2 px-4  justify-content-between"
             onClick={() => textColorHandler(notification, index)}
           >
             <div className="d-flex p-1">
@@ -140,11 +161,30 @@ const RdsNotification = (props: RdsNotificationProps) => {
                 </div>
               </div>
             </div>
+            <div className=" align-self-center">
+              {" "}
+              <RdsButton
+                colorVariant="light"
+                label="Set as Read"
+                type={"button"}
+                onClick={(e)=>onSetAsRead(e,notification)}
+              />
+            </div>
+
+          </div>
+          <hr className="m-0"/> 
           </div>
         ))}
-        <div className="card-footer text-muted  text-center">
-          {props.footerText}
-        </div>
+      <div className="d-flex justify-content-end m-4 ">
+      <RdsButton
+                colorVariant="primary"
+                label="Mark As Read"
+                class="fw-semibold"
+                type={"button"}
+                onClick={(e)=>onMarkAsRead(e, props.notifications)}
+              />
+
+      </div>
       </div>
     </Fragment>
   );
