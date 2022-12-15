@@ -30,7 +30,6 @@ const Template: ComponentStory<typeof RdsNotification> = (args) => (
 
 export const Default = Template.bind({});
 Default.args={
-  unreadCount:'12',
   colorVariant :"primary",
   footerText : "2 days ago", 
   notifications:[
