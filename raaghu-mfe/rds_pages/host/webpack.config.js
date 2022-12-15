@@ -84,7 +84,7 @@ module.exports = (env, argv) => {
     plugins: [
 		new CopyWebpackPlugin([
 			{
-			  from: 'public/images',
+			  from: 'src/img',
 			  to: 'img'
 			}
 		]),
