@@ -10,7 +10,7 @@ declare module "Login/Login" {
 	export default LoginComponent;
 }
 
-declare module "ForgotPassword/forgotpassword" {
+declare module "ForgotPassword/ForgotPassword" {
     const ForgotPasswordComponent: React.ComponentType;
     export default ForgotPasswordComponent;
 }
