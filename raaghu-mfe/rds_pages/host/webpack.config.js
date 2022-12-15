@@ -82,12 +82,14 @@ module.exports = (env, argv) => {
     },
 
     plugins: [
-		new CopyWebpackPlugin([
-			{
-			  from: 'src/img',
-			  to: 'img'
-			}
-		]),
+		new CopyWebpackPlugin({
+			patterns:[
+				{
+				  from: 'src/img',
+				  to: 'img'
+				}
+			]
+		}),
       new webpack.EnvironmentPlugin({ BUILD_DATE: buildDate }),
       new webpack.DefinePlugin({
         "process.env": JSON.stringify(process.env),
