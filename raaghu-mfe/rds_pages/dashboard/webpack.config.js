@@ -28,13 +28,25 @@ module.exports = (env, argv) => {
     },
     module: {
       rules: [
-          {
-            test: /\.(scss|css)$/,
-  
-            use: ["style-loader", "css-loader", "sass-loader"],
-  
-            exclude: "/node_modules/",
-          },
+        {
+          test: /\.(png|jpe?g|gif)$/i,
+          use: [
+            {
+              loader: "file-loader",
+              options: {
+                regExp: /\/([a-z0-9]+)\/[a-z0-9]+\.png$/i,
+                name: "[1]-[name].[ext]",
+              },
+            },
+          ],
+        },
+        {
+          test: /\.(scss|css)$/,
+
+          use: ["style-loader", "css-loader", "sass-loader"],
+
+          exclude: "/node_modules/",
+        },
         {
           test: /\.(js|jsx|tsx|ts)$/,
           loader: "babel-loader",
@@ -72,7 +84,7 @@ module.exports = (env, argv) => {
         "./Dashboard": "./src/Dashboard/Dashboard",
       },
         shared: {
-            ...devdeps,
+          ...devdeps,
           ...deps,
           react: { singleton: true, eager: true, requiredVersion: deps.react },
           "react-dom": {
