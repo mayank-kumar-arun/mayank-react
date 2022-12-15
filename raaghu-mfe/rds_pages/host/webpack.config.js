@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack"); // only add this if you don't have yet
 const { ModuleFederationPlugin } = webpack.container;
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 // const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const devdeps = require("../../package.json").devDependencies;
 const deps = require("../../package.json").dependencies;
@@ -38,14 +39,15 @@ module.exports = (env, argv) => {
         {
           test: /\.(png|jpe?g|gif)$/i,
           use: [
-            {
-              loader: "file-loader",
-              options: {
-                regExp: /\/([a-z0-9]+)\/[a-z0-9]+\.png$/i,
-                name: "[1]-[name].[ext]",
-              },
-            },
-          ],
+			{
+			  loader: 'file-loader',
+			  options: {
+				name: '[name].[ext]',
+				outputPath: 'img/',
+				publicPath: 'img/'
+			  }
+			}
+		  ],
         },
         { test: /\.(config)$/, loader: "file-loader" },
         {
@@ -80,6 +82,12 @@ module.exports = (env, argv) => {
     },
 
     plugins: [
+		new CopyWebpackPlugin([
+			{
+			  from: 'public/images',
+			  to: 'img'
+			}
+		]),
       new webpack.EnvironmentPlugin({ BUILD_DATE: buildDate }),
       new webpack.DefinePlugin({
         "process.env": JSON.stringify(process.env),
