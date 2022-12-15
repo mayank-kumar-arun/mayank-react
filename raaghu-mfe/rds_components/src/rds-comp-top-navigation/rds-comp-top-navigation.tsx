@@ -158,6 +158,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 						>
 							<RdsNotification
 								notifications={notifications}
+								colorVariant="primary"
 								footerText="2 days ago"
 							></RdsNotification>
 						</div>
