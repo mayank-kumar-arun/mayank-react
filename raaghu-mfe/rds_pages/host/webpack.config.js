@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack"); // only add this if you don't have yet
 const { ModuleFederationPlugin } = webpack.container;
-var CopyWebpackPlugin = require("copy-webpack-plugin");
 // const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const devdeps = require("../../package.json").devDependencies;
 const deps = require("../../package.json").dependencies;
@@ -54,37 +53,8 @@ module.exports = (env, argv) => {
 
           use: ["style-loader", "css-loader", "sass-loader"],
 
-					exclude: "/node_modules/",
-				},
-				{
-					test: /\.(config)$/,
-					loader: "file-loader",
-				},
-
-				{
-					test: /\.(js|jsx|tsx|ts)$/,
-					loader: "babel-loader",
-					exclude: /node_modules/,
-					options: {
-						cacheDirectory: true,
-						babelrc: false,
-						presets: [
-							[
-								"@babel/preset-env",
-								{ targets: { browsers: "last 2 versions" } },
-							],
-							"@babel/preset-typescript",
-							"@babel/preset-react",
-						],
-						plugins: [
-							"react-hot-loader/babel",
-							["@babel/plugin-proposal-class-properties", { loose: true }],
-						],
-					},
-				},
-			],
-		},
-
+          exclude: "/node_modules/",
+        },
         {
           test: /\.(js|jsx|tsx|ts)$/,
           loader: "babel-loader",
@@ -121,20 +91,22 @@ module.exports = (env, argv) => {
           Login: mfeConfigJSON["login"].url,
           ForgotPassword: mfeConfigJSON["forgotpassword"].url,
         },
+        shared: {
+          ...devdeps,
+          ...deps,
 
-					react: { singleton: true, eager: true, requiredVersion: deps.react },
-					"react-dom": {
-						singleton: true,
-						eager: true,
-						requiredVersion: deps["react-dom"],
-					},
-				},
-			}),
-			new CopyWebpackPlugin([{ from: "public/images", to: "dist" }]),
-			new HtmlWebpackPlugin({
-				template: "./public/index.html",
-			}),
-			// new ForkTsCheckerWebpackPlugin(),
-		],
-	};
+          react: { singleton: true, eager: true, requiredVersion: deps.react },
+          "react-dom": {
+            singleton: true,
+            eager: true,
+            requiredVersion: deps["react-dom"],
+          },
+        },
+      }),
+      new HtmlWebpackPlugin({
+        template: "./public/index.html",
+      }),
+      // new ForkTsCheckerWebpackPlugin(),
+    ],
+  };
 };
