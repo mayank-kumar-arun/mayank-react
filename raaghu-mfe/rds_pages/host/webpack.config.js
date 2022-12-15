@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack"); // only add this if you don't have yet
 const { ModuleFederationPlugin } = webpack.container;
-var CopyWebpackPlugin = require("copy-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 // const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const devdeps = require("../../package.json").devDependencies;
 const deps = require("../../package.json").dependencies;
@@ -110,7 +110,7 @@ module.exports = (env, argv) => {
 					},
 				},
 			}),
-			new CopyWebpackPlugin([{ from: "public/images", to: "dist" }]),
+			new CopyWebpackPlugin([{ from: "./public/images", to: "./dist" }]),
 			new HtmlWebpackPlugin({
 				template: "./public/index.html",
 			}),
