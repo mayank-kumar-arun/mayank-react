@@ -12,95 +12,107 @@ const fs = require("fs");
 const mfeFilePath = path.join(__dirname, "../", "mfe-config.ts");
 let mfeConfig = fs.readFileSync(mfeFilePath).toString();
 let mfeConfigJSON = mfeConfig.substring(
-	mfeConfig.indexOf("{"),
-	mfeConfig.lastIndexOf("}") + 1
+  mfeConfig.indexOf("{"),
+  mfeConfig.lastIndexOf("}") + 1
 );
 mfeConfigJSON = JSON.parse(mfeConfigJSON);
 
 module.exports = (env, argv) => {
-	return {
-		entry: "./src/index.ts",
-		mode: "development",
-		devServer: {
-			port: 8080,
-			open: true,
-			headers: {
-				"Access-Control-Allow-Origin": "*",
-			},
-			hot: true,
-			historyApiFallback: true,
-		},
-		resolve: {
-			extensions: [".ts", ".tsx", ".js"],
-		},
-		module: {
-			rules: [
-				{ test: /\.(config)$/, loader: "file-loader" },
-				{
-					test: /\.(scss|css)$/,
+  return {
+    entry: "./src/index.ts",
+    mode: "development",
+    devServer: {
+      port: 8080,
+      open: true,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+      hot: true,
+      historyApiFallback: true,
+    },
+    resolve: {
+      extensions: [".ts", ".tsx", ".js"],
+    },
+    module: {
+      rules: [
+        {
+          test: /\.(png|jpe?g|gif)$/i,
+          use: [
+            {
+              loader: "file-loader",
+              options: {
+                regExp: /\/([a-z0-9]+)\/[a-z0-9]+\.png$/i,
+                name: "[1]-[name].[ext]",
+              },
+            },
+          ],
+        },
+        { test: /\.(config)$/, loader: "file-loader" },
+        {
+          test: /\.(scss|css)$/,
 
-					use: ["style-loader", "css-loader", "sass-loader"],
+          use: ["style-loader", "css-loader", "sass-loader"],
 
-					exclude: "/node_modules/",
-				},
-				{
-					test: /\.(config)$/, 
-					loader: "file-loader",
-				},
-				
-				{
-					test: /\.(js|jsx|tsx|ts)$/,
-					loader: "babel-loader",
-					exclude: /node_modules/,
-					options: {
-						cacheDirectory: true,
-						babelrc: false,
-						presets: [
-							[
-								"@babel/preset-env",
-								{ targets: { browsers: "last 2 versions" } },
-							],
-							"@babel/preset-typescript",
-							"@babel/preset-react",
-						],
-						plugins: [
-							"react-hot-loader/babel",
-							["@babel/plugin-proposal-class-properties", { loose: true }],
-						],
-					},
-				},
-			],
-		},
+          exclude: "/node_modules/",
+        },
+        {
+          test: /\.(config)$/,
+          loader: "file-loader",
+        },
 
-		plugins: [
-			new webpack.EnvironmentPlugin({ BUILD_DATE: buildDate }),
-			new webpack.DefinePlugin({
-				"process.env": JSON.stringify(process.env),
-			}),
-			new ModuleFederationPlugin({
-				name: "host",
-				remotes: {
-					Dashboard: mfeConfigJSON["dashboard"].url,
-					Login: mfeConfigJSON["login"].url,
-					ForgotPassword: mfeConfigJSON["forgotpassword"].url,
-				},
+        {
+          test: /\.(js|jsx|tsx|ts)$/,
+          loader: "babel-loader",
+          exclude: /node_modules/,
+          options: {
+            cacheDirectory: true,
+            babelrc: false,
+            presets: [
+              [
+                "@babel/preset-env",
+                { targets: { browsers: "last 2 versions" } },
+              ],
+              "@babel/preset-typescript",
+              "@babel/preset-react",
+            ],
+            plugins: [
+              "react-hot-loader/babel",
+              ["@babel/plugin-proposal-class-properties", { loose: true }],
+            ],
+          },
+        },
+      ],
+    },
 
-				shared: {
-					...devdeps,
-					...deps,
+    plugins: [
+      new webpack.EnvironmentPlugin({ BUILD_DATE: buildDate }),
+      new webpack.DefinePlugin({
+        "process.env": JSON.stringify(process.env),
+      }),
+      new ModuleFederationPlugin({
+        name: "host",
+        remotes: {
+          Dashboard: mfeConfigJSON["dashboard"].url,
+          Login: mfeConfigJSON["login"].url,
+          ForgotPassword: mfeConfigJSON["forgotpassword"].url,
+        },
 
-					react: { singleton: true, eager: true, requiredVersion: deps.react },
-					"react-dom": {
-						singleton: true,
-						eager: true,
-						requiredVersion: deps["react-dom"],
-					},
-				},
-			}),
-			new HtmlWebpackPlugin({
-				template: "./public/index.html",
-			}),
-			// new ForkTsCheckerWebpackPlugin(),
-		],
-	};
+        shared: {
+          ...devdeps,
+          ...deps,
+
+          react: { singleton: true, eager: true, requiredVersion: deps.react },
+          "react-dom": {
+            singleton: true,
+            eager: true,
+            requiredVersion: deps["react-dom"],
+          },
+        },
+      }),
+      new HtmlWebpackPlugin({
+        template: "./public/index.html",
+      }),
+      // new ForkTsCheckerWebpackPlugin(),
+    ],
+  };
 };

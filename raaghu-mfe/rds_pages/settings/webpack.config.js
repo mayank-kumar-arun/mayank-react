@@ -27,6 +27,18 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
+          test: /\.(png|jpe?g|gif)$/i,
+          use: [
+            {
+              loader: "file-loader",
+              options: {
+                regExp: /\/([a-z0-9]+)\/[a-z0-9]+\.png$/i,
+                name: "[1]-[name].[ext]",
+              },
+            },
+          ],
+        },
+        {
           test: /\.(js|jsx|tsx|ts)$/,
           loader: "babel-loader",
           exclude: /node_modules/,
@@ -59,15 +71,16 @@ module.exports = (env, argv) => {
         name: "Settings",
         filename: "remoteEntry.js",
         exposes: {
-        // expose each page
-        "./Settings": "./src/Settings/Settings",
-      },
+          // expose each page
+          "./Settings": "./src/Settings/Settings",
+        },
         remotes: {
-          rds_components: isProduction ? process.env.PROD_APP1 : process.env.DEV_APP1,
-          
+          rds_components: isProduction
+            ? process.env.PROD_APP1
+            : process.env.DEV_APP1,
         },
         shared: {
-            ...devdeps,
+          ...devdeps,
           ...deps,
           react: { singleton: true, eager: true, requiredVersion: deps.react },
           "react-dom": {
