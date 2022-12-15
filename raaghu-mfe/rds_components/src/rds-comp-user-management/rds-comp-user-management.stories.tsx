@@ -34,11 +34,19 @@ Default.args ={
             },
             {
               "id": 4,
+              title:"Cookie Consent",
               "label":  "Cookie Consent Enabled",
               "checked": false,
             },
             {
-                "id": 5,
+              "id": 5,
+              title:"Session TimeOut Control",
+              "label":  "Session Time Out Control Enabled",
+              "checked": false,
+            },
+            {
+                "id": 6,
+                title:"Profile",
                 "label": "Allow Using to use Gravatar Profile Picture",
                 "checked": false,
               },
