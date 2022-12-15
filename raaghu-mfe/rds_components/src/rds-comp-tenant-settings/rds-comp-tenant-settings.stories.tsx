@@ -18,7 +18,7 @@ export const Default = Template.bind({});
 Default.args ={
     tenantSettingInfo: {},
     isTenantInfoValid:false,
-    showEditData:false
+    showEditData:true
 
 }
 

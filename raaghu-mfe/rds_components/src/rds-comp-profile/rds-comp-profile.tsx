@@ -17,7 +17,7 @@ const RdsCompProfile = (props: RdsCompProfileProps) => {
   const [isEmailTouched, setIsEmailTouched] = useState(false);
   const isEnteredEmailEmpty = enteredEmail.trim() === "";
   const isEnteredEmailInvalid =
-    !emailRegex.test(enteredEmail) && !isEnteredEmailEmpty;
+    !emailRegex.test(enteredEmail) ;
   const isEnteredEmailEmptyAndTouched = isEmailTouched && isEnteredEmailEmpty;
   const isEmailInputInvalid = isEnteredEmailInvalid && isEnteredEmailEmpty;
   const phoneNumber = /^\d{10}$/;
@@ -25,17 +25,17 @@ const RdsCompProfile = (props: RdsCompProfileProps) => {
   const [isPhoneNumberTouched, setIsPhoneNumberTouched] = useState(false);
   const isEnteredPhoneNumberEmpty = enteredPhoneNumber.trim() === "";
   const isEnteredPhoneNumberInvalid =
-    !enteredPhoneNumber.match(phoneNumber) && !isEnteredPhoneNumberEmpty;
+    !enteredPhoneNumber.match(phoneNumber) ;
   const isPhoneNumberEmptyAndTouched =
     isPhoneNumberTouched && isEnteredPhoneNumberEmpty;
   const isPhoneNumberInputInvalid =
-    isEnteredPhoneNumberInvalid && isEnteredPhoneNumberInvalid;
+    isEnteredPhoneNumberInvalid && isEnteredPhoneNumberEmpty;
   const [enteredUserName, setEnteredUserName] = useState("");
   const [isUserNameTouched, setIsUserNameTouched] = useState(false);
   const isUserNameEmpty = enteredUserName.trim() === "";
   const isUserNameEmptyAndTouched = isUserNameTouched && isUserNameEmpty;
-  //   const isFormInvalid = isEmailInputInvalid && isPhoneNumberInputInvalid && isUserNameEmpty && isNameEmpty;
-  //   console.log(isFormInvalid);
+  const isFormValid = !isEmailInputInvalid && !isPhoneNumberInputInvalid && !isUserNameEmpty && !isNameEmpty;
+
   const formSubmitHandler: any = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
@@ -84,7 +84,7 @@ const RdsCompProfile = (props: RdsCompProfileProps) => {
                     Email must not be empty
                   </span>
                 )}
-                {isEnteredEmailInvalid && (
+                {isEnteredEmailInvalid && !isEnteredEmailEmpty && (
                   <span className="red-color-error">
                     Entered Email is Invalid
                   </span>
@@ -111,7 +111,7 @@ const RdsCompProfile = (props: RdsCompProfileProps) => {
                     Phone Number must not be empty
                   </span>
                 )}
-                {isEnteredPhoneNumberInvalid && (
+                {isEnteredPhoneNumberInvalid && !isEnteredPhoneNumberEmpty && (
                   <span className="red-color-error">
                     Entered Phone Number is Invalid
                   </span>
@@ -152,6 +152,7 @@ const RdsCompProfile = (props: RdsCompProfileProps) => {
               class="me-2"
               label="SAVE"
               type="submit"
+              isDisabled = {!isFormValid}
               outlineButton={false}
               colorVariant="primary"
               size="small"
