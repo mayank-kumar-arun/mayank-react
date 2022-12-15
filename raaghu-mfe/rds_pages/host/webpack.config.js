@@ -43,8 +43,8 @@ module.exports = (env, argv) => {
 			  loader: 'file-loader',
 			  options: {
 				name: '[name].[ext]',
-				outputPath: 'img/',
-				publicPath: 'img/'
+				outputPath: 'assets/',
+				publicPath: 'assets/'
 			  }
 			}
 		  ],
@@ -85,8 +85,8 @@ module.exports = (env, argv) => {
 		new CopyWebpackPlugin({
 			patterns:[
 				{
-				  from: 'src/img',
-				  to: 'img'
+				  from: 'src/assets',
+				  to: 'assets'
 				}
 			]
 		}),
