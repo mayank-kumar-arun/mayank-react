@@ -37,7 +37,7 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.(png|jpe?g|gif)$/i,
+          test: /\.(png|jpe?g|gif|mp4)$/i,
           use: [
             {
               loader: "file-loader",
@@ -49,6 +49,11 @@ module.exports = (env, argv) => {
             },
           ],
         },
+        {
+          test: /\.svg$/,
+          use: ['@svgr/webpack'],
+        },
+  
         { test: /\.(config)$/, loader: "file-loader" },
         {
           test: /\.(scss|css)$/,
@@ -90,7 +95,7 @@ module.exports = (env, argv) => {
         patterns: [
           {
             from: "src/assets",
-            to: "",
+            to: "assets",
           },
         ],
       }),
