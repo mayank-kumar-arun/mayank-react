@@ -5,6 +5,7 @@ import RdsCompCookiesSection from "./rds-comp-cookies-section";
 export default {
   title: "Components/Cookies Section",
   component: RdsCompCookiesSection,
+  argTypes: { onClick: { action: "clicked" } },
 } as ComponentMeta<typeof RdsCompCookiesSection>;
 
 const Template: ComponentStory<typeof RdsCompCookiesSection> = (args) => (
@@ -14,5 +15,5 @@ const Template: ComponentStory<typeof RdsCompCookiesSection> = (args) => (
 export const Default = Template.bind({});
 
 Default.args = {
-  showDeclineButton:true,
+  showDeclineButton: true,
 };
