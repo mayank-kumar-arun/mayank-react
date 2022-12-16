@@ -42,7 +42,7 @@ const ForgotPassword = (props: ForgotPasswordProps) => {
 									<div className="pb-4">
 										<div className="text-center">
 											<img
-												src="./assets/Raaghu-logo-mfe-black.png"
+												src="Raaghu-logo-mfe-black.png"
 												className="img-fluid"
 											/>
 										</div>
@@ -55,7 +55,7 @@ const ForgotPassword = (props: ForgotPasswordProps) => {
 							<div
 								className="col-md-6 order-1 order-sm-2 rounded-end"
 								style={{
-									backgroundImage: "url(./assets/Login-card.svg)",
+									backgroundImage: "url(/Login-card.svg)",
 									backgroundSize: "cover",
 									backgroundPosition: "bottom",
 									backgroundRepeat: "no-repeat",
