@@ -62,7 +62,7 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
 							<div className="py-4 px-3">
 								<div className="pb-4">
 									<div className="text-center">
-										<img src="raaghu_text_logo.svg"></img>
+										<img src="./assets/raaghu_text_logo.svg"></img>
 									</div>
 								</div>
 								<RdsCompLogin

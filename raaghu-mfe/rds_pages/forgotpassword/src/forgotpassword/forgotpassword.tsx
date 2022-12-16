@@ -25,7 +25,7 @@ const ForgotPassword = (props: ForgotPasswordProps) => {
 			<div
 				className=" "
 				style={{
-					backgroundImage: "url(./assets//body-backgroud.svg)",
+					backgroundImage: "url(./assets/body-backgroud.svg)",
 					backgroundSize: "cover",
 					backgroundPosition: "bottom",
 					backgroundRepeat: "no-repeat",
