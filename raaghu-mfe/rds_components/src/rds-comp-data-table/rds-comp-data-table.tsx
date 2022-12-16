@@ -64,6 +64,23 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
       actionClicked: action,
     });
   };
+
+
+  const handleChange = (e: any) => {
+    const { name, checked } = e.target;
+    if (name === "allSelect") {
+      let tempUser = data.map((user) => {
+        return { ...user, selected: checked };
+      });
+      setData(tempUser);
+    } else {
+      let tempUser = data.map((user) =>
+        user.id == name ? { ...user, selected: checked } : user
+      );
+      setData(tempUser);
+    }
+  };
+
   const onSortClickHandler = (
     event: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>,
     sortOrder: string,
@@ -83,6 +100,7 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
     setData(sorted);
   };
   let Classes = props.classes || " table-hover table-bordered";
+  console.log("props.tableData ", data)
   return (
     <>
       <div className="RdsCompDataTable sm-datatable table-responsive">
@@ -94,9 +112,19 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
           <thead>
             <tr>
               {props.enablecheckboxselection && (
-                <th>
-                  <RdsCheckbox label={""} checked={false}></RdsCheckbox>
-                </th>
+              <th scope="col" className="checkbox-Style-class">
+                <input
+                    type="checkbox"
+                    className="form-check-input"
+                    name="allSelect"
+                    checked={
+                      data.filter((user) => user?.selected == true).length ==
+                      data.length
+                    }
+                    onChange={handleChange}
+                  />
+           
+            </th>
               )}
               {props.tableHeaders.map((tableHeader, index) => (
                 <th key={"tableHeader-" + index}>
@@ -150,6 +178,17 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
                     index < rowStatus.endingRow
                   : true) && (
                   <tr key={"tableRow-" + index}>
+                    {props.enablecheckboxselection &&  <th scope="row" className="checkbox-Style-class">
+                   
+                      <input
+                        type="checkbox"
+                        name={tableDataRow.id}
+                        onChange={handleChange}
+                        checked={tableDataRow.selected}
+                        className="form-check-input"
+                        id="rowcheck{user.id}"
+                      />
+                    </th>}
                     {props.tableHeaders.map((tableHeader, tableHeaderIndex) => (
                       <td
                         key={
