@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"cd rds_pages\\login && npm run dev\" \"cd rds_pages\\dashboard && npm run dev\" \"cd rds_pages\\host && npm run dev\" \"cd rds_pages\\forgot-password && npm run dev\" \"cd rds_pages\\tenant && npm run dev\" \"cd rds_pages\\Maintainance && npm run dev\" \"cd rds_pages\\organization-units && npm run dev\" \"cd rds_pages\\settings && npm run dev\"",
+    "start": "concurrently \"cd rds_pages\\login && npm run dev\" \"cd rds_pages\\dashboard && npm run dev\" \"cd rds_pages\\host && npm run dev\" \"cd rds_pages\\forgotpassword && npm run dev\" \"cd rds_pages\\tenant && npm run dev\" \"cd rds_pages\\Maintainance && npm run dev\" \"cd rds_pages\\organization-units && npm run dev\" \"cd rds_pages\\settings && npm run dev\"",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build": "node utils/build.js"
@@ -29,8 +29,10 @@
     "redux-persist": "^6.0.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^6.5.1",
     "@types/react-big-calendar": "^0.38.2",
     "concurrently": "^7.4.0",
+    "copy-webpack-plugin": "^11.0.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "nswag": "^13.17.0",

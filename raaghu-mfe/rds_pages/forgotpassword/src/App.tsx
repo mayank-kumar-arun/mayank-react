@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import React from "react";
-import ForgotPassword from "./forgot-password/forgot-password"
+import ForgotPassword from "./forgotpassword/forgotpassword"
 
 
 

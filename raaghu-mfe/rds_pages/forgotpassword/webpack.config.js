@@ -15,7 +15,7 @@ module.exports = (env, argv) => {
     entry: "./src/index.ts",
     mode: process.env.NODE_ENV || "development",
     devServer: {
-      port: 8002,
+      port: 8003,
       open: true,
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -28,18 +28,6 @@ module.exports = (env, argv) => {
     },
     module: {
       rules: [
-        {
-          test: /\.(png|jpe?g|gif)$/i,
-          use: [
-            {
-              loader: "file-loader",
-              options: {
-                regExp: /\/([a-z0-9]+)\/[a-z0-9]+\.png$/i,
-                name: "[1]-[name].[ext]",
-              },
-            },
-          ],
-        },
         {
           test: /\.(scss|css)$/,
 
@@ -65,31 +53,44 @@ module.exports = (env, argv) => {
             plugins: [
               "react-hot-loader/babel",
               ["@babel/plugin-proposal-class-properties", { loose: true }],
-              ["@babel/plugin-proposal-private-methods", { loose: true }],
+			  ["@babel/plugin-proposal-private-methods", { loose: true }],
               [
                 "@babel/plugin-proposal-private-property-in-object",{ loose: true },
               ],
             ],
           },
         },
+        {
+          test: /\.(png|jpe?g|gif)$/i,
+          use: [
+            {
+              loader: "file-loader",
+              options: {
+                regExp: /\/([a-z0-9]+)\/[a-z0-9]+\.png$/i,
+                name: "[1]-[name].[ext]",
+              },
+            },
+          ],
+        },
       ],
     },
 
-    plugins: [
-      new webpack.EnvironmentPlugin({ BUILD_DATE: buildDate }),
-      new webpack.DefinePlugin({
-        "process.env": JSON.stringify(process.env),
-      }),
-      new ModuleFederationPlugin({
-        name: "dashboard",
-        filename: "remoteEntry.js",
-        exposes: {
-        // expose each page
-        "./Dashboard": "./src/Dashboard/Dashboard",
-      },
-        shared: {
-          ...devdeps,
-          ...deps,
+		plugins: [
+			new webpack.EnvironmentPlugin({ BUILD_DATE: buildDate }),
+			new webpack.DefinePlugin({
+				"process.env": JSON.stringify(process.env),
+			}),
+			new ModuleFederationPlugin({
+				name: "forgotpassword",
+				filename: "remoteEntry.js",
+				exposes: {
+					// expose each page
+					"./ForgotPassword": "./src/forgotpassword/forgotpassword",
+				},
+				shared: {
+					...devdeps,
+					...deps,
+
           react: { singleton: true, eager: true, requiredVersion: deps.react },
           "react-dom": {
             singleton: true,

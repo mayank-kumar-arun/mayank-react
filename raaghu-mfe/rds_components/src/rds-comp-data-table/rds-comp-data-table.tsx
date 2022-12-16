@@ -36,7 +36,6 @@ export interface RdsCompDatatableProps {
   // 	sortClickEvent: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>;
   // 	sortOrder: string;
   // }): void;
-
 }
 const RdsCompDatatable = (props: RdsCompDatatableProps) => {
   const [data, setData] = useState(props.tableData);
@@ -44,6 +43,12 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
     startingRow: 0,
     endingRow: props.recordsPerPage,
   });
+  let sort: boolean;
+  useEffect(() => {
+    if (!sort) {
+      setData(props.tableData);
+    }
+  }, [props.tableData]);
 
   const onPageChangeHandler = (currentPage: number, recordsPerPage: number) => {
     setRowStatus({
@@ -96,8 +101,8 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
         }) * (sortOrder === "ascending" ? 1 : -1)
       );
     });
-    console.log(sorted);
     setData(sorted);
+    sort = true;
   };
   let Classes = props.classes || " table-hover table-bordered";
   console.log("props.tableData ", data)
@@ -255,20 +260,24 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
                                   }
                                 />
                               </div>
-                              <div className="col-5">
-                                <RdsAvatar
-                                  withProfilePic={true}
-                                  profilePic={
-                                    tableDataRow[tableHeader.key].avatar
-                                  }
-                                  isTitle={false}
-                                />
-                              </div>
-                              <div className="col-6">
-                                <label>
-                                  {tableDataRow[tableHeader.key].title}{" "}
-                                </label>
-                              </div>
+                              {tableDataRow[tableHeader.key].withavatar && (
+                                <div>
+                                  <div className="col-5">
+                                    <RdsAvatar
+                                      withProfilePic={true}
+                                      profilePic={
+                                        tableDataRow[tableHeader.key].avatar
+                                      }
+                                      isTitle={false}
+                                    />
+                                  </div>
+                                  <div className="col-6">
+                                    <label>
+                                      {tableDataRow[tableHeader.key].title}{" "}
+                                    </label>
+                                  </div>
+                                </div>
+                              )}
                             </div>
                           )}
                           {tableHeader.datatype === "children" && (

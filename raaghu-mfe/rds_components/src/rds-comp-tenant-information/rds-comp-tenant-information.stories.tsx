@@ -27,9 +27,5 @@ Default.args = {
     {
       option: "Apple1",
     },
-    //   {isFree: null, value: '', displayText: 'Not assigned', isSelected: true},
-    // {isFree: true, value: '1', displayText: 'Standard', isSelected: false},
-    // {isFree: false, value: '5', displayText: 'apple', isSelected: false},
-    // {isFree: false, value: '6', displayText: 'Apple1', isSelected: false},
   ],
 };
