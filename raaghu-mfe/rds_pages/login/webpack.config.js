@@ -29,7 +29,7 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.(png|jpe?g|gif)$/i,
+          test: /\.(png|jpe?g|gif|mp4)$/i,
           use: [
             {
               loader: "file-loader",
@@ -39,6 +39,10 @@ module.exports = (env, argv) => {
               },
             },
           ],
+        },
+        {
+          test: /\.svg$/,
+          use: ['@svgr/webpack'],
         },
         {
           test: /\.(scss|css)$/,
