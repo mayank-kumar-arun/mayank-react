@@ -1,5 +1,5 @@
 import { E } from "chart.js/dist/chunks/helpers.core";
-import React, { FormEventHandler, useState } from "react";
+import React, { FormEventHandler, useState, useRef } from "react";
 import { RdsButton, RdsCheckbox, RdsInput } from "../rds-elements";
 import img from "./edit-profile.png";
 
@@ -20,16 +20,16 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
 
   let name, val;
   const handleChange = (event: any) => {
-    console.log(event);
+
     name = event.target.name;
     val = event.target.value;
     setValues({ ...values, [name]: val });
   };
-
+  
   const handleSubmit = (event:any) => {
     event.preventDefault();
     let newRecord = {...values , id : new Date().getTime().toString()};
-    setRecords(newRecord);
+    setRecords({...values , id : new Date().getTime().toString()});
     setValues({
       name: "",
       surName: "",
@@ -39,15 +39,24 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
       password: "",
       cnfPassword: "",  
     });
-    console.log(records)
+    
   };
-console.count()
+  const inputFile: any = useRef(null);
+  const profilePicHandler = () => {
+    inputFile.current.click();
+  };
   return (
     <>
+    <input
+        type="file"
+        id="file"
+        ref={inputFile}
+        style={{ display: "none" }}
+      />
       <form className="p-2" onSubmit={handleSubmit}>
         <div className="row align-items-center">
           <div className="col-lg-3 col-md-3 text-center mb-2">
-            <img src={img} alt="Profile Pic"></img>
+            <img src={img} alt="Profile Pic" onClick={profilePicHandler}></img>
           </div>
           <div className="col-lg-9 col-md-9">
             <div className="mb-3">
@@ -200,6 +209,7 @@ console.count()
             type="submit"
             outlineButton={false}
             colorVariant="primary"
+            onClick={handleSubmit}
             size="small"
           ></RdsButton>
         </div>
