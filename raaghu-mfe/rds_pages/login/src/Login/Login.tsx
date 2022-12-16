@@ -50,7 +50,7 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
 		props.onForgotPassword(isForgotPasswordClicked);
 	};
 	return (
-		<div style={{ backgroundImage: "url(/body-backgroud.svg)" }}>
+		<div style={{ backgroundImage: "url(./assets/body-backgroud.svg)" }}>
 			{/* {accessToken!=undefined && <h1>Loggedin</h1>} */}
 			<div
 				className="align-items-center d-flex justify-content-center login m-auto"
@@ -86,7 +86,7 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
 								loop
 								style={{ width: 442, height: 524 }}
 							>
-								<source src="building_lights.mp4" type="video/mp4"></source>
+								<source src="./assets/building_lights.mp4" type="video/mp4"></source>
 							</video>
 							<img
 								className="position-absolute"
@@ -98,7 +98,7 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
 									width: 50,
 									height: 50,
 								}}
-								src="raaghu_icon.png"
+								src="./assets/raaghu_icon.png"
 							></img>
 						</div>
 					</div>
