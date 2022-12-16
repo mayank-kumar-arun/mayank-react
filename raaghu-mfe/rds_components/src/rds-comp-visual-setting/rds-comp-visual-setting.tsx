@@ -33,10 +33,11 @@ const RdsCompVisualSetting = (props: RdsCompVisualSettingProps) => {
   const onTabSelect = (id: any) => {
     setActiveTab(id);
   };
-  const onSaveVisualSettings = () => {};
+  const onSaveVisualSettings = () => {
+    props.onSaveVisualSettingsData!=undefined && props.onSaveVisualSettingsData(props.visualsettingsItem)
+  };
 
   useEffect(() => {
-    onTabSelect;
     onTabSelect;
   }, [activeTheme, activeTab]);
 
