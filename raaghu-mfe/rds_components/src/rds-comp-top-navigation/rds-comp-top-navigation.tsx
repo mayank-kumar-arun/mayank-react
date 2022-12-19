@@ -3,78 +3,14 @@ import { RdsIcon, RdsNotification } from "../rds-elements";
 
 export interface RdsCompTopNavigationProps {
 	onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  notifications?: any[];
+  languageItems?: any [];
+  navbarTitle?: string;
+  navbarSubTitle?: string;
 }
 
 const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
-	const languageItems = [
-		{
-			value: "Deutsch",
-			some: "value",
-			key: "new",
-			icon: "de",
-			iconWidth: "20px",
-			iconHeight: "20px",
-		},
-		{
-			value: "English(IND)",
-			some: "value",
-			key: "refresh",
-			icon: "in",
-			iconWidth: "20px",
-			iconHeight: "20px",
-		},
-		{
-			value: "English (Default)",
-			some: "value",
-			key: "export",
-			icon: "us",
-			iconWidth: "20px",
-			iconHeight: "20px",
-		},
-	];
 
-	const notifications = [
-		{
-			status: "success",
-			title: "Tenant added",
-			urlTitle: "hello",
-			// url:" " ,
-			time: "a month ago",
-			state: 1,
-			userNotificationId: 0,
-			selected: false,
-		},
-
-		{
-			status: "error",
-			title: "Tenant deleted",
-			urlTitle: "hello",
-			time: "a month ago",
-			state: 1,
-			userNotificationId: 1,
-			selected: false,
-		},
-
-		{
-			status: "warn",
-			title: "Tenant added  warn",
-			urlTitle: "hello",
-			time: "a month ago",
-			state: 1,
-			userNotificationId: 2,
-			selected: false,
-		},
-
-		{
-			status: "info",
-			title: "Tenant deleted info",
-			urlTitle: "hello",
-			time: "a month ago",
-			state: 1,
-			userNotificationId: 3,
-			selected: false,
-		},
-	];
 	return (
 		<>
 			<nav className="navbar navbar-expand-lg navbar-light bg-light dlfex justify-content-between ps-2 pe-3">
@@ -86,9 +22,9 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 						style={{ width: "100px", height: "55.125px" }}
 					></img>
 					<div className="ms-4">
-						<div style={{ fontWeight: 500, fontSize: "15px" }}>Dashboard</div>
+						<div style={{ fontWeight: 500, fontSize: "15px" }}>{props.navbarTitle}</div>
 						<div style={{ fontSize: "12px" }} className="text-muted">
-							Statistics and reports
+							{props.navbarSubTitle}
 						</div>
 					</div>
 				</div>
@@ -120,7 +56,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 							className="dropdown-menu fab-dropdown border-0 shadow mb-1"
 							style={{ position: "absolute" }}
 						>
-							{languageItems.map((language: any, i: any) => (
+							{(props.languageItems!).map((language: any, i: any) => (
 								<a
 									id="i"
 									className="dropdown-item fab-dropdown-item d-flex"
@@ -157,7 +93,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 							style={{ position: "absolute", width: "18rem", left: "-200%" }}
 						>
 							<RdsNotification
-								notifications={notifications}
+								notifications={props.notifications!}
 								colorVariant="primary"
 								footerText="2 days ago"
 							></RdsNotification>
