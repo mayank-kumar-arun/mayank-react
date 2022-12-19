@@ -38,7 +38,9 @@ const RdsCompUserPermission = (props: RdsCompUserPermissionProps) => {
             actions={props.actions} 
             tableData={props.tableData} 
             pagination={false} 
+            classes="table"
             onActionSelection={props.onActionSelection}
+            enablecheckboxselection={true}
             ></RdsCompDatatable>
 
         </div>
