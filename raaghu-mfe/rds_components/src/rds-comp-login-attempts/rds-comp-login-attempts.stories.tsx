@@ -15,22 +15,22 @@ export const Default = Template.bind({});
 
 Default.args = {
   selectvalue: [
-    { value: "All", some: "All" },
-    { value: "Success", some: "Success" },
+    { value: "All", displayText: "All" },
+    { value: "Success", displayText: "Success" },
     {
       value: "InvalidUserNameOrEmailAddress",
-      some: "Invalid Username or email Address",
+      displayText: "Invalid Username or email Address",
     },
-    { value: "InvalidPassword", some: "Invalid Password" },
-    { value: "UserIsNotActive", some: "User is Not Active" },
-    { value: "InvalidTenancyName", some: "Invalid Tenancy name" },
-    { value: "TenantIsNotActive", some: "Tenant Is Not Active" },
-    { value: "UserEmailIsNotConfirmed", some: "User Email Is Not Confirmed" },
-    { value: "UnknownExternalLogin", some: "Unknown External Login" },
-    { value: "LockedOut", some: "Locked Out" },
+    { value: "InvalidPassword", displayText: "Invalid Password" },
+    { value: "UserIsNotActive", displayText: "User is Not Active" },
+    { value: "InvalidTenancyName", displayText: "Invalid Tenancy name" },
+    { value: "TenantIsNotActive", displayText: "Tenant Is Not Active" },
+    { value: "UserEmailIsNotConfirmed", displayText: "User Email Is Not Confirmed" },
+    { value: "UnknownExternalLogin", displayText: "Unknown External Login" },
+    { value: "LockedOut", displayText: "Locked Out" },
     {
       value: "UserPhoneNumberIsNotConfirmed",
-      some: "User PhoneNumber IsNot Confirmed",
+      displayText: "User PhoneNumber IsNot Confirmed",
     },
   ],
 
@@ -61,6 +61,8 @@ Default.args = {
     },
     { displayName: "Result", key: "result", datatype: "text", sortable: true },
   ],
+
+  // tableData: [],
 
   tableData: [
     {
