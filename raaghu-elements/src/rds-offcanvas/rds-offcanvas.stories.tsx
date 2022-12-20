@@ -19,10 +19,9 @@ const Template: ComponentStory<typeof RdsOffcanvas> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  iconname: "",
-  iconwidth: "",
-  iconheight: "",
+  buttonname: "button",
   placement: "start",
   canvasTitle: "Canvas Title",
   width: "650px",
+  offcanvasbutton: "press here",
 };

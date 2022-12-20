@@ -3,20 +3,17 @@ import RdsIcon from "../rds-icon";
 import "./rds-offcanvas.scss";
 
 export interface RdsOffcanvasProps {
+  buttonname?: string;
+  offcanvasbutton?: ReactNode;
   children?: ReactNode;
   placement?: string;
   canvasTitle?: string;
   width?: string;
-  iconname?: string;
-  iconwidth?: any;
-  iconheight?: any;
+
   onclick: (data: any) => void;
 }
 
 const RdsOffcanvas = (props: RdsOffcanvasProps) => {
-  useEffect(() => {
-    console.log("offcanvasruns");
-  }, [props.children]);
   let offcanvasPlacement = `${
     props.placement == "top"
       ? "offcanvasTop"
@@ -31,36 +28,15 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
 
   return (
     <>
-      {props.iconname?.length === 0 && (
-        <button
-          onClick={props.onclick}
-          className="btn btn-primary"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target={`#${offcanvasPlacement}`}
-          aria-controls={offcanvasPlacement}
-        >
-          Button
-        </button>
-      )}
-
-      {props.iconname && (
-        <div
-          onClick={props.onclick}
-          // type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target={`#${offcanvasPlacement}`}
-          aria-controls={offcanvasPlacement}
-        >
-          <RdsIcon
-            fill={false}
-            stroke={true}
-            width={props.iconwidth}
-            height={props.iconheight}
-            name={props.iconname}
-          ></RdsIcon>
-        </div>
-      )}
+      <div
+        style={{ cursor: "pointer" }}
+        onClick={props.onclick}
+        data-bs-toggle="offcanvas"
+        data-bs-target={`#${offcanvasPlacement}`}
+        aria-controls={offcanvasPlacement}
+      >
+        {props.offcanvasbutton}
+      </div>
 
       <div
         className={`offcanvas offcanvas-${props.placement}`}
