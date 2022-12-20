@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import RdsOffcanvas from './rds-offcanvas'
+import RdsOffcanvas from "./rds-offcanvas";
 
 export default {
   title: "Elements/Offcanvas",
@@ -19,7 +19,10 @@ const Template: ComponentStory<typeof RdsOffcanvas> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  placement :"start",
-  canvasTitle:"Canvas Title",
+  iconname: "",
+  iconwidth: "",
+  iconheight: "",
+  placement: "start",
+  canvasTitle: "Canvas Title",
   width: "650px",
 };

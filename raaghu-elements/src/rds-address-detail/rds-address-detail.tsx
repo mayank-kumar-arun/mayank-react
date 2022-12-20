@@ -26,14 +26,14 @@ const RdsAddressDetail = (props: RdsAddressDetailProps) => {
 							multiline={true}
 							class="addressLine"
 						>
-							,
+							{props.addressLine2 && ","}
 						</RdsLabel>
 						<RdsLabel
 							label={props.addressLine2}
 							multiline={true}
 							class="addressLine"
 						>
-							,
+							{props.addressLine3 && ","}
 						</RdsLabel>
 						<RdsLabel
 							label={props.addressLine3}
@@ -65,14 +65,14 @@ const RdsAddressDetail = (props: RdsAddressDetailProps) => {
 							multiline={true}
 							class="addressLine"
 						>
-							,
+							{props.addressLine2 && ","}
 						</RdsLabel>
 						<RdsLabel
 							label={props.addressLine2}
 							multiline={true}
 							class="addressLine"
 						>
-							,
+							{props.addressLine2 && ","}
 						</RdsLabel>
 						<RdsLabel
 							label={props.addressLine3}

@@ -1,6 +1,6 @@
 import { MouseEvent, useEffect, useState } from "react";
 import RdsCompDatatable from "../rds-comp-data-table/rds-comp-data-table";
-import { RdsDatePicker } from "../rds-elements";
+import { RdsDatePicker, RdsIllustration } from "../rds-elements";
 import "./rds-comp-login-attempts.scss";
 
 export interface RdsCompLoginAttemptsProps {
@@ -17,25 +17,30 @@ export interface RdsCompLoginAttemptsProps {
     isEndUserEditing?: boolean | undefined;
   }[];
   tableData: {}[];
-  selectvalue: { value: string; some: string }[];
+  selectvalue: { value: string; displayText: string }[];
   pagination: boolean;
   onActionSelection(arg: any): any;
 }
 
 const RdsCompLoginAttempts = (props: RdsCompLoginAttemptsProps) => {
   const [Tdata, setTdata] = useState(props.tableData);
+  const [page, setpage] = useState(false);
 
-  const DatePicker = (start: any, end: any) => {
-    console.log("start", start);
-    console.log("end", end);
+  useEffect(() => {
+    if (props.tableData.length === 0) {
+      setpage(true);
+    } else {
+      setpage(false);
+    }
+  }, [Tdata]);
 
+  const DatePicker = (start: any, end?: any) => {
     let tempData = props.tableData.filter((data: any) => {
-      if (data.time > start.toISOString() && data.time < end.toISOString()) {
+      if (data.time > start.toISOString() && data.time < end!.toISOString()) {
         return data;
       }
     });
     setTdata(tempData);
-    console.log("hello this works", tempData);
   };
 
   const selecthandler = (event: any) => {
@@ -67,25 +72,38 @@ const RdsCompLoginAttempts = (props: RdsCompLoginAttemptsProps) => {
           <div>Result</div>
           <div>
             <select
+              disabled={page}
               onClick={selecthandler}
               className="form-select form-select-md"
             >
               {props.selectvalue.map((x, i) => (
-                <option key={x.some}>{x.value}</option>
+                <option key={x.displayText}>{x.value}</option>
               ))}
             </select>
           </div>
         </div>
       </div>
-      <div className="table">
-        <RdsCompDatatable
-          tableHeaders={props.tableHeaders}
-          tableData={Tdata}
-          pagination={false}
-          onActionSelection={props.onActionSelection}
-          actions={[]}
-        ></RdsCompDatatable>
-      </div>
+
+      {page && (
+        <div>
+          <RdsIllustration
+            subLabel="Currently you do not have any data "
+            colorVariant="light"
+          ></RdsIllustration>
+        </div>
+      )}
+
+      {!page && (
+        <div className="table">
+          <RdsCompDatatable
+            tableHeaders={props.tableHeaders}
+            tableData={Tdata}
+            pagination={false}
+            onActionSelection={props.onActionSelection}
+            actions={[]}
+          ></RdsCompDatatable>
+        </div>
+      )}
     </div>
   );
 };
