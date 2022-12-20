@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { RdsIcon, RdsNotification } from "../rds-elements";
-
+import logo from "../../../../stories/assets/raaghu_icon.png";
 export interface RdsCompTopNavigationProps {
 	onClick?: React.MouseEventHandler<HTMLButtonElement>;
   notifications?: any[];

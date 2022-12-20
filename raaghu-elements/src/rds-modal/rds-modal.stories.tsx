@@ -17,6 +17,9 @@ Default.args = {
   label: "Show Modal",
   showModalHeader: true,
   showModalFooter: true,
+  iconname: "",
+  iconwidth: "",
+  iconheight: "",
   modalData: {
     modalHeader: "Header",
     modalContent: "Content",
@@ -28,6 +31,9 @@ LongContentModal.args = {
   label: "Long Content Modal",
   showModalHeader: true,
   showModalFooter: true,
+  iconname: "",
+  iconwidth: "",
+  iconheight: "",
   scrollable: true,
   modalData: {
     modalHeader: "Header",
@@ -41,6 +47,9 @@ StaticBackdrop.args = {
   label: "Backdrop Modal",
   showModalHeader: true,
   showModalFooter: true,
+  iconname: "",
+  iconwidth: "",
+  iconheight: "",
   staticbackdrop: true,
   modalData: {
     modalHeader: "Header",
@@ -53,6 +62,9 @@ VerticallyCentered.args = {
   label: "Vertically Centered Modal",
   showModalHeader: true,
   showModalFooter: true,
+  iconname: "",
+  iconwidth: "",
+  iconheight: "",
   verticallyCentered: true,
   modalData: {
     modalHeader: "Header",

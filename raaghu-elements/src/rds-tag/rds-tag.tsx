@@ -21,7 +21,6 @@ export interface RdsTagProps {
 
 const RdsTag = (props: RdsTagProps) => {
   const [tagAr, setTagArr] = useState<string[]>(props.tagArray || []);
-  // const [inputText, setInputText] = useState(props.inputText);
   let closeFill = props.fillClose || false;
   let classes: any;
   const tagColor = "tag-" + `${props.colorVariant}`;
@@ -38,11 +37,10 @@ const RdsTag = (props: RdsTagProps) => {
   const tagtextcolor = "text-" + `${props.colorVariant}`;
 
   const addTag = (e: any) => {
-    if (e.key === "Enter" && e.target.value.trim().length != 0) {
-      setTagArr((prev) => [...prev, e.target.value]);
-      e.targe.value = ""
+    if (e.key === "Enter" && e.target.value.trim() != "") {
+      setTagArr([...tagAr, e.target.value]);
+      e.target.value = "";
     }
-  
   };
 
   const mystyle = {
@@ -50,98 +48,92 @@ const RdsTag = (props: RdsTagProps) => {
     borderRadius: "50%",
   };
   const deleteTag = (i: number) => {
-    let newArr = tagAr.filter((item: any) => {
-      return tagAr.indexOf(item) != i;
-    });
-    setTagArr(newArr);
+    setTagArr([...tagAr.filter((tag) => tagAr.indexOf(tag) !== i)]);
   };
 
   return (
     <>
-        <div>
-          <div className="binding-tags border p-2">
-            <div className="d-flex">
-              <div className="rds-tags res-class" style={{ width: "100%" }}>
-                <div className=" " style={{ float: "left" }}>
-                  <div
-                    className={
-                      props.role == "basic"
-                        ? "p-0"
-                        : "scroll-type d-block m-1 mb-2"
-                    }
-                    id="inserTag"
-                  >
-                    {tagAr.map((item, i) => {
-                      console.log(item);
-                      return (
-                        <span className="d-inline-block m-1 mb-2" key={i}>
-                          <div className={classes}>
-                            <div
-                              className="tags tags-dismissible align-items-center fade show tagcorners"
-                              role="alert"
-                              aria-live="assertive"
-                              aria-atomic="true"
-                            >
-                              <div className="d-flex align-items-center">
-                                <div className={`tags-body ${tagtextcolor}`}>
-                                  {item}
-                                </div>
-                                <span
-                                  onClick={() => deleteTag(i)}
-                                  className={tagtextcolor}
-                                  style={{
-                                    cursor: "pointer",
-                                    marginLeft: "14px",
-                                    paddingBottom: "2px",
-                                  }}
-                                >
-                                  <RdsIcon
-                                    name="cancel"
-                                    fill={false}
-                                    stroke={true}
-                                    width="15"
-                                    height="15"
-                                    background={
-                                      closeFill == true
-                                        ? props.colorVariant
-                                        : " "
-                                    }
-                                    borderRadius={
-                                      closeFill == true
-                                        ? "50%"
-                                        : "props.colorVariant"
-                                    }
-                                    colorVariant={
-                                      closeFill == true
-                                        ? "light"
-                                        : props.colorVariant
-                                    }
-                                  />
-                                </span>
-                              </div>
+      <div>
+        <div className="binding-tags border p-2">
+          <div className="d-flex">
+            <div className="rds-tags res-class" style={{ width: "100%" }}>
+              <div className=" " style={{ float: "left" }}>
+                <div
+                  className={
+                    props.role == "basic"
+                      ? "p-0"
+                      : "scroll-type d-block m-1 mb-2"
+                  }
+                  id="inserTag"
+                >
+                  {tagAr.map((item, i) => {
+                    return (
+                      <div
+                        className={`d-inline-block m-1 mb-2 ${classes}`}
+                        key={i}
+                      >
+                        <div
+                          className="tags tags-dismissible align-items-center fade show tagcorners"
+                          role="alert"
+                          aria-live="assertive"
+                          aria-atomic="true"
+                        >
+                          <div className="d-flex align-items-center">
+                            <div className={`tags-body ${tagtextcolor}`}>
+                              {item}
                             </div>
+                            <span
+                              onClick={() => deleteTag(i)}
+                              className={tagtextcolor}
+                              style={{
+                                cursor: "pointer",
+                                marginLeft: "14px",
+                                paddingBottom: "2px",
+                              }}
+                            >
+                              <RdsIcon
+                                name="cancel"
+                                fill={false}
+                                stroke={true}
+                                width="15"
+                                height="15"
+                                background={
+                                  closeFill == true ? props.colorVariant : " "
+                                }
+                                borderRadius={
+                                  closeFill == true
+                                    ? "50%"
+                                    : "props.colorVariant"
+                                }
+                                colorVariant={
+                                  closeFill == true
+                                    ? "light"
+                                    : props.colorVariant
+                                }
+                              />
+                            </span>
                           </div>
-                        </span>
-                      );
-                    })}
-                  </div>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-                <span>
-                  <input
-                    type="text"
-                    className="form-control form-control-sm border-0"
-                    name="inputText"
-                    onKeyDown={addTag}
-                    placeholder="+ Add Tag"
-                    aria-label="+Tag"
-                    aria-describedby="basic-addon1"
-                    // value={inputText}
-                  />
-                </span>
               </div>
+              <span>
+                <input
+                  type="text"
+                  className="form-control form-control-sm border-0"
+                  name="inputText"
+                  onKeyUp={addTag}
+                  placeholder="+ Add Tag"
+                  aria-label="+Tag"
+                  aria-describedby="basic-addon1"
+                />
+              </span>
             </div>
           </div>
         </div>
+      </div>
     </>
   );
 };
