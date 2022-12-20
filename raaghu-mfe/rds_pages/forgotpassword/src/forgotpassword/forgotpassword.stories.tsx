@@ -1,21 +1,16 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentStory, ComponentMeta, addDecorator } from "@storybook/react";
 import RdsPageForgotPassword from "./forgotpassword";
 
 export default {
-  title: "Pages/Forgot Password",
-  component: RdsPageForgotPassword,
-
+	title: "Pages/Forgot Password",
+	component: RdsPageForgotPassword,
 } as ComponentMeta<typeof RdsPageForgotPassword>;
 
-
-const Template: ComponentStory<typeof RdsPageForgotPassword> = (args) => 
-  <RdsPageForgotPassword {...args} />;
-
+const Template: ComponentStory<typeof RdsPageForgotPassword> = (args) => (
+	<RdsPageForgotPassword {...args} />
+);
 
 export const Default = Template.bind({});
 
-Default.args ={
-
-}
-
+Default.args = {};

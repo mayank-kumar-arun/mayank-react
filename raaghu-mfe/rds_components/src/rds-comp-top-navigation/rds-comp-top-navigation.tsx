@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { RdsIcon, RdsNotification } from "../rds-elements";
-import logo from "../../../../stories/assets/raaghu_icon.png";
 export interface RdsCompTopNavigationProps {
 	onClick?: React.MouseEventHandler<HTMLButtonElement>;
   notifications?: any[];
@@ -17,7 +16,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 				<div className="d-flex align-items-center">
 					<img
 						className="ms-1"
-						src="/raaghu_icon.png"
+						src="./assets/raaghu_icon.png"
 						alt="logo"
 						style={{ width: "100px", height: "55.125px" }}
 					></img>
@@ -112,7 +111,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 					</div>
 					<div className="d-flex align-items-center">
 						<img
-							src="https://expertphotography.b-cdn.net/wp-content/uploads/2020/08/social-media-profile-photos-3.jpg"
+							src="./assets/profile-picture-circle.svg"
 							style={{
 								width: "20px",
 								height: "20px",

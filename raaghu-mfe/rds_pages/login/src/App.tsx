@@ -2,8 +2,8 @@ import React, { Suspense } from "react";
 
 import Login from "./Login/Login";
 
-const App = () => (
-	<Suspense>
+const App = () => {
+	return (
 		<Login
 			onForgotPassword={function (
 				isForgotPasswordClicked?: boolean | undefined
@@ -11,7 +11,7 @@ const App = () => (
 				throw new Error("Function not implemented.");
 			}}
 		></Login>
-	</Suspense>
-);
+)
+}
 
 export default App;
