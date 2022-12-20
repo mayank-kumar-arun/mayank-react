@@ -2,19 +2,18 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <!-- Custom style -->
-<style>
-  .centerContent{
-    text-align: center;
-  }
-</style>
 
-<p>
+<p align="center">
   <a href="https://raaghu.io" target="_blank">
-    <img src="./static/bannerTest3.png" alt="logo" width="2000"/>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./static/bannerTest2.png">
+      <source media="(prefers-color-scheme: light)" srcset="./static/banner-new1.png">
+      <img alt="Banner" src="./static/banner-new1.png">
+    </picture>
   </a>
 <p>
   
-<h3 class="centerContent" style="border-bottom:0;">
+<h3 align="center" style="border-bottom:0;">
     <a href="https://raaghu.io" target="blank">Get Started</a>
     ·
     <a href="https://raaghu.io" target="blank">Tutorials </a>
@@ -26,7 +25,7 @@
     <a href="https://github.com/Wai-Technologies/raaghu/issues/new">Request Feature</a>
 </h3>
 
-<p class="centerContent">
+<p align="center">
     <a href="https://github.com/Wai-Technologies/raaghu/blob/main/LICENSE" target="blank">
     <img alt="GitHub licence" src="https://img.shields.io/github/license/Wai-Technologies/raaghu?color=orange"/>
     </a>
@@ -41,7 +40,7 @@
     </a>
 </p>
 
-<p class="centerContent">
+<p align="center">
     <a href="https://npmjs.org/rds-elements"><img src="https://img.shields.io/npm/v/rds-elements/latest.svg" alt="npm latest version" /></a>
     <a href="https://npmjs.org/rds-elements"><img src="https://img.shields.io/npm/v/rds-elements/next.svg" alt="npm next version" /></a>
 </p>
@@ -76,7 +75,7 @@
 
 </br></br></br>
 
-<p class="centerContent">
+<p align="center">
   <img src="./static/raaghu-illustration.png" alt="logo" width="600"/>
 </p>
 <br/>
