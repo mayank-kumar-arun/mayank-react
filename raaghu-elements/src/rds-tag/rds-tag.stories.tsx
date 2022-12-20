@@ -16,7 +16,6 @@ export default {
         "danger",
         "dark",
         "light",
-        "review",
       ],
       control: { type: "select" },
     },
@@ -48,8 +47,7 @@ Default.args = {
     "warning",
     "danger",
     "dark",
-    "light",
-    "review",]
+    "light",]
 };
 
 // export const Advanced = Template.bind({});

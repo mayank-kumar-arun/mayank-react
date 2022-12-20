@@ -2,6 +2,9 @@
   white-space: nowrap;
   overflow: hidden;
 }
+.multiline{
+  word-break: break-all;
+}
 .bold {
   font-weight: bold;
 }

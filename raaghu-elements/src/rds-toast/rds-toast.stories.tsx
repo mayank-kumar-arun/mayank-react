@@ -17,7 +17,6 @@ export default {
         "danger",
         "dark",
         "light",
-        "review",
       ],
       control: { type: "select" },
     }, borderColor: {
@@ -30,7 +29,6 @@ export default {
           "danger",
           "dark",
           "light",
-          "review",
         ],
         control: { type: "select" },
       },

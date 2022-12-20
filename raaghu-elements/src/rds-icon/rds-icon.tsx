@@ -45,9 +45,6 @@ const RdsIcon = (props: RdsIconProps) => {
   } else if (props.colorVariant == 'light') {
     fillColor = '#f8f9fa';
     strokeColor='#f8f9fa';
-  } else if (props.colorVariant == 'review') {
-    fillColor = '#E3A300';
-    strokeColor='#E3A300';
   }
 
   // console.log(fillColor!);
