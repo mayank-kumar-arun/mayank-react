@@ -24,5 +24,6 @@ Default.args = {
 		iconFill: false,
 		iconColor: "dark",
 		iconStroke: true,
+		routeLabel: "View integration"
 	},
 };

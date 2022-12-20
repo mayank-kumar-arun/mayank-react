@@ -46,7 +46,7 @@ const RdsAppDetail = (props: RdsAppDetailProps) => {
 						href={props.appDetailsItem.route}
 						className="float-end pb-1 fs-7 linkk"
 					>
-						View integration
+						{props.appDetailsItem.routeLabel}
 					</a>
 				</div>
 			</div>
