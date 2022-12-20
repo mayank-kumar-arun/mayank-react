@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { RdsIcon, RdsNotification } from "../rds-elements";
-import logo from "../../../../stories/assets/raaghu_icon.png";
+// import logo from "";
 export interface RdsCompTopNavigationProps {
 	onClick?: React.MouseEventHandler<HTMLButtonElement>;
   notifications?: any[];
   languageItems?: any [];
   navbarTitle?: string;
   navbarSubTitle?: string;
+  brandName ?: string;
 }
 
 const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
@@ -15,26 +16,31 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 		<>
 			<nav className="navbar navbar-expand-lg navbar-light bg-light dlfex justify-content-between ps-2 pe-3">
 				<div className="d-flex align-items-center">
-					<img
+					<span className="navbar-brand p-0 m-0">
+          <img
 						className="ms-1"
-						src="/raaghu_icon.png"
+						src="./assets/raaghu_icon.png"
 						alt="logo"
-						style={{ width: "100px", height: "55.125px" }}
+						width="70"
 					></img>
-					<div className="ms-4">
-						<div style={{ fontWeight: 500, fontSize: "15px" }}>{props.navbarTitle}</div>
+          <span className="title fw-bold text-lowercase m-2">
+            <b>{props.brandName}</b>
+          </span>
+          </span>
+					<div className="ms-5">
+						<div className="text-bold" style={{ fontSize: "15px" }}>{props.navbarTitle}</div>
 						<div style={{ fontSize: "12px" }} className="text-muted">
 							{props.navbarSubTitle}
 						</div>
 					</div>
 				</div>
 				<div className="d-flex me-2">
-					<div style={{ position: "relative" }}>
+					<div className="position-relative">
 						<a
 							data-bs-toggle="dropdown"
 							aria-expanded="false"
-							className="d-flex align-items-center"
-							style={{ textDecoration: "none", cursor: "pointer " }}
+							className="d-flex align-items-center text-decoration-none"
+							style={{ cursor: "pointer" }}
 						>
 							<RdsIcon
 								name="us"
@@ -53,8 +59,8 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 							></RdsIcon>
 						</a>
 						<div
-							className="dropdown-menu fab-dropdown border-0 shadow mb-1"
-							style={{ position: "absolute" }}
+							className="dropdown-menu fab-dropdown border-0 shadow mb-1 position-absolute"
+							
 						>
 							{(props.languageItems!).map((language: any, i: any) => (
 								<a
