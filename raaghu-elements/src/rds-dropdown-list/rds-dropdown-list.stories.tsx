@@ -17,6 +17,7 @@ export const Default = Template.bind({});
 Default.args = {
   width: "100px",
   withBorder: true,
+  darkVariant: false,
   listItems: [
     {
       label: "EN(US)",

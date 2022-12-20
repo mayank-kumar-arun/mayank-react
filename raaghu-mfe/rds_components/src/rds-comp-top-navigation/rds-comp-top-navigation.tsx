@@ -8,13 +8,16 @@ export interface RdsCompTopNavigationProps {
   navbarTitle?: string;
   navbarSubTitle?: string;
   brandName ?: string;
+  darkMode?: boolean;
+  profileTitle?: string;
+  profileName?: string;
 }
 
 const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 
 	return (
 		<>
-			<nav className="navbar navbar-expand-lg navbar-white bg-white dlfex justify-content-between ps-2 pe-3">
+			<nav className={`navbar navbar-expand-lg navbar-${props.darkMode?"dark": "white"} bg-${props.darkMode?"dark": "white"} d-flex justify-content-between ps-2 pe-3`} style={{color:`${props.darkMode?"white": ""}`}}>
 				<div className="d-flex align-items-center">
 					<span className="navbar-brand p-0 m-0">
           <img
@@ -36,7 +39,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 				</div>
 				<div className="d-flex me-2 align-items-center">
 
-					<RdsDropdownList listItems={props.languageItems} withBorder={false}></RdsDropdownList>
+					<RdsDropdownList listItems={props.languageItems} withBorder={false} darkVariant={props.darkMode}></RdsDropdownList>
 
 					<div className="ms-3" style={{ position: "relative" }}>
 						<a
@@ -46,10 +49,11 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 						>
 							<RdsIcon
 								name="notification"
-								height="15px"
-								width="15px"
+								height="20px"
+								width="20px"
 								fill={false}
 								stroke={true}
+                colorVariant={`${props.darkMode?"light":""}`}
 							></RdsIcon>
 						</a>
 						<div
@@ -67,10 +71,11 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 					<div className="me-2" style={{cursor: "pointer"}}>
 						<RdsIcon
 							name="gear"
-							height="15px"
-							width="15px"
+							height="20px"
+							width="20px"
 							fill={false}
 							stroke={true}
+              colorVariant={`${props.darkMode?"light":""}`}
 						></RdsIcon>
 						<span className="ms-3 me-2 text-muted ">|</span>
 					</div>
@@ -86,10 +91,10 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 						></img>
 						<div className="ms-2">
 							<div style={{ fontWeight: 500, fontSize: "11px" }}>
-								Host Admin
+								{props.profileTitle}
 							</div>
-							<div style={{ fontSize: "9px" }} className="text-muted">
-								Keanu Foster
+							<div style={{ fontSize: "9px", fontWeight: "500" }} className="text-muted">
+								{props.profileName}
 							</div>
 						</div>
 						<span className="ms-3">
@@ -99,6 +104,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 								width="12px"
 								fill={false}
 								stroke={true}
+                colorVariant={`${props.darkMode?"light":""}`}
 							></RdsIcon>
 						</span>
 					</div>
