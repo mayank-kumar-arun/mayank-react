@@ -5,13 +5,12 @@ import {
   RdsDatePicker,
   RdsButton,
 } from "../rds-elements";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import img from "./edit-pic.png";
 import "./rds-comp-tenant-information.scss";
 export interface RdsCompTenantInformationProps {
   editionList: any[];
   tenantData?: any[];
-  // showEmail?: boolean;
   tenantInfo: React.EventHandler<any>;
   onCancel?: React.EventHandler<any>;
 }
@@ -21,31 +20,49 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
     /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const [enteredTenancyName, setEnteredTenancyName] = useState("");
   const [isTenancyNameTouched, setIsTenancyNameTouched] = useState(false);
-  const tenancyNameInputIsEmptyAndTouched =
-    isTenancyNameTouched && enteredTenancyName.trim() === "";
+  const isTenancyNameEmpty = enteredTenancyName.trim() === "";
+  const isTenancyNameInputEmptyAndTouched =
+    isTenancyNameTouched && isTenancyNameEmpty;
   const [enteredTenantName, setEnteredTenantName] = useState("");
   const [isTenantNameTouched, setIsTenantNameTouched] = useState(false);
-  const tenantNameInputIsEmptyAndTouched =
-    isTenantNameTouched && enteredTenantName.trim() === "";
+  const isTenantNameEmpty = enteredTenantName.trim() === "";
+  const isTenantNameInputEmptyAndTouched =
+    isTenantNameTouched && isTenantNameEmpty;
   const [enteredEmail, setEnteredEmail] = useState("");
   const [isEmailTouched, setIsEmailTouched] = useState(false);
-  const enteredEmailIsEmpty = enteredEmail.trim() === "";
-  let enteredEmailIsInvalid =
-    !emailRegex.test(enteredEmail) && !enteredEmailIsEmpty;
-  const EmailInputIsEmptyAndTouched = isEmailTouched && enteredEmailIsEmpty;
+  const isEnteredEmailEmpty = enteredEmail.trim() === "";
+  const isEnteredEmailInvalid = !emailRegex.test(enteredEmail);
+  const EmailInputIsEmptyAndTouched = isEmailTouched && isEnteredEmailEmpty;
+  const isEmailInputInvalid = isEnteredEmailInvalid && isEnteredEmailEmpty;
+  const isFormValid =
+    !isTenancyNameEmpty && !isTenantNameEmpty && !isEmailInputInvalid;
   const next = (event: any) => {
     if (!event || event.invalid) {
       return;
     }
     props.tenantInfo({ tenant: props.tenantData, next: true });
   };
+  const DatePicker = (start: any, end: any) => {};
+  const [isUnlimitedSubscriptionChecked, setIsUnlimitedSubscriptionChecked] =
+    useState(false);
+  const [selctedOption, setSelectedOption] = useState("");
+  const inputFile: any = useRef(null);
+  const profilePicHandler = () => {
+    inputFile.current.click();
+  };
   return (
     <div>
+      <input
+        type="file"
+        id="file"
+        ref={inputFile}
+        style={{ display: "none" }}
+      />
       <div className="tab-content py-4">
         <form>
           <div className="row align-items-center">
             <div className="col-md-3 text-center cursor-pointer sm-p-0">
-              <img src={img} />
+              <img src={img} onClick={profilePicHandler} />
 
               <input type="file" accept="image/*" style={{ display: "none" }} />
             </div>
@@ -61,7 +78,7 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
                   onBlur={() => setIsTenancyNameTouched(true)}
                   onChange={(e) => setEnteredTenancyName(e.target.value)}
                 ></RdsInput>
-                {tenancyNameInputIsEmptyAndTouched && (
+                {isTenancyNameInputEmptyAndTouched && (
                   <span className="red-color-error">
                     Tenancy Name must not be empty
                   </span>
@@ -79,7 +96,7 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
                   onBlur={() => setIsTenantNameTouched(true)}
                   onChange={(e) => setEnteredTenantName(e.target.value)}
                 ></RdsInput>
-                {tenantNameInputIsEmptyAndTouched && (
+                {isTenantNameInputEmptyAndTouched && (
                   <span className="red-color-error">
                     Tenant Name must not be empty
                   </span>
@@ -105,7 +122,7 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
                     Email must not be empty
                   </span>
                 )}
-                {enteredEmailIsInvalid && (
+                {isEnteredEmailInvalid && !isEnteredEmailEmpty && (
                   <span className="red-color-error">
                     Entered Email is Invalid
                   </span>
@@ -120,6 +137,7 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
                 <RdsSelectList
                   label={"Edition"}
                   selectItems={props.editionList}
+                  onSelectListChange={(e) => setSelectedOption(e.target.value)}
                 ></RdsSelectList>
               </div>
             </div>
@@ -130,21 +148,30 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
                 <RdsCheckbox
                   label={"Unlimited Time Subscription"}
                   checked={false}
+                  onChange={(e) =>
+                    setIsUnlimitedSubscriptionChecked(e.target.checked)
+                  }
                 ></RdsCheckbox>
               </div>
             </div>
           </div>
-          <div className="row">
-            <div className="col-md-6 sm-p-0">
-              <div className="form-group mb-3">
-                <RdsDatePicker DatePickerLabel={""}></RdsDatePicker>
+          {!isUnlimitedSubscriptionChecked && (
+            <div className="row">
+              <div className="col-md-6 sm-p-0">
+                <div className="form-group mb-3">
+                  <RdsDatePicker
+                    DatePickerLabel={""}
+                    DatePicker={DatePicker}
+                  ></RdsDatePicker>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </form>
       </div>
-      <div className="footer-buttons py-3 bottom-0 w-100 action-buttons">
+      <div className="mt-3 d-flex">
         <RdsButton
+          class="me-2"
           tooltipTitle={""}
           type={"button"}
           label="Cancel"
@@ -153,9 +180,10 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
           databsdismiss="offcanvas"
         ></RdsButton>
         <RdsButton
+          class="me-2"
           label="Next"
           size="small"
-          class="ms-2"
+          isDisabled={!isFormValid}
           colorVariant="primary"
           tooltipTitle={""}
           onClick={next}

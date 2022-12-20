@@ -7,24 +7,7 @@ import RdsDropdownList from "./rds-dropdown-list";
 export default {
   title: "Elements/DropdownList",
   component: RdsDropdownList,
-  argTypes: {
-    size: {
-        options: ["small","mid","large"],
-        control: { type: "radio" },
-      },
-      colorVariant: {
-        options: ["primary", "secondary","success","danger","warning","info","light","dark","white"],
-        control: { type: "select" },
-      },
-      direction: {
-        options: ["Drop-Up", "Drop-Right","Drop-Down","Drop-Left"],
-        control: { type: "radio" },
-      },
-      role:{
-        options: ["Dropdown-Button without split", "Dropdown-Button with split"],
-        control: { type: "radio" },
-      }
-  },
+ 
   
 } as ComponentMeta<typeof RdsDropdownList>;
 
@@ -34,27 +17,29 @@ const Template: ComponentStory<typeof RdsDropdownList> = (args) => <RdsDropdownL
 export const Default = Template.bind({});
 
 Default.args = {
-    placeholder:"Filter",
-    size: "mid",
-    darkDropdown:false,
-    label:"Dropdown Button",
-    direction:"Drop-Down",
-    role:"Dropdown-Button without split",
-    listItems: [
+    
+    width: '100px',
+   listItems : [
       {
-        value: "Export To Excel",
-        id: "1",
-        href: "",
+        value: "Deutsch",
+       
+        icon: "de",
+        iconWidth: "20px",
+        iconHeight: "20px",
       },
       {
-        value: "Import From Excel",
-        id: "2",
-        href: "",
+        value: "English(IND)",
+        
+        icon: "in",
+        iconWidth: "20px",
+        iconHeight: "20px",
       },
       {
-        value: "Click here download sample import file",
-        id: "3",
-        href: "",
+        value: "English (Default)",
+       
+        icon: "us",
+        iconWidth: "20px",
+        iconHeight: "20px",
       },
     ],
    

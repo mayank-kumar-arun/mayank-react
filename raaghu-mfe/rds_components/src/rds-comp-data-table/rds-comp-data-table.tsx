@@ -36,7 +36,6 @@ export interface RdsCompDatatableProps {
   // 	sortClickEvent: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>;
   // 	sortOrder: string;
   // }): void;
-
 }
 const RdsCompDatatable = (props: RdsCompDatatableProps) => {
   const [data, setData] = useState(props.tableData);
@@ -44,6 +43,12 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
     startingRow: 0,
     endingRow: props.recordsPerPage,
   });
+  let sort: boolean;
+  useEffect(() => {
+    if (!sort) {
+      setData(props.tableData);
+    }
+  }, [props.tableData]);
 
   const onPageChangeHandler = (currentPage: number, recordsPerPage: number) => {
     setRowStatus({
@@ -64,6 +69,23 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
       actionClicked: action,
     });
   };
+
+
+  const handleChange = (e: any) => {
+    const { name, checked } = e.target;
+    if (name === "allSelect") {
+      let tempUser = data.map((user) => {
+        return { ...user, selected: checked };
+      });
+      setData(tempUser);
+    } else {
+      let tempUser = data.map((user) =>
+        user.id == name ? { ...user, selected: checked } : user
+      );
+      setData(tempUser);
+    }
+  };
+
   const onSortClickHandler = (
     event: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>,
     sortOrder: string,
@@ -79,10 +101,11 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
         }) * (sortOrder === "ascending" ? 1 : -1)
       );
     });
-    console.log(sorted);
     setData(sorted);
+    sort = true;
   };
   let Classes = props.classes || " table-hover table-bordered";
+  console.log("props.tableData ", data)
   return (
     <>
       <div className="RdsCompDataTable sm-datatable table-responsive">
@@ -94,9 +117,19 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
           <thead>
             <tr>
               {props.enablecheckboxselection && (
-                <th>
-                  <RdsCheckbox label={""} checked={false}></RdsCheckbox>
-                </th>
+              <th scope="col" className="checkbox-Style-class">
+                <input
+                    type="checkbox"
+                    className="form-check-input"
+                    name="allSelect"
+                    checked={
+                      data.filter((user) => user?.selected == true).length ==
+                      data.length
+                    }
+                    onChange={handleChange}
+                  />
+           
+            </th>
               )}
               {props.tableHeaders.map((tableHeader, index) => (
                 <th key={"tableHeader-" + index}>
@@ -150,6 +183,17 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
                     index < rowStatus.endingRow
                   : true) && (
                   <tr key={"tableRow-" + index}>
+                    {props.enablecheckboxselection &&  <th scope="row" className="checkbox-Style-class">
+                   
+                      <input
+                        type="checkbox"
+                        name={tableDataRow.id}
+                        onChange={handleChange}
+                        checked={tableDataRow.selected}
+                        className="form-check-input"
+                        id="rowcheck{user.id}"
+                      />
+                    </th>}
                     {props.tableHeaders.map((tableHeader, tableHeaderIndex) => (
                       <td
                         key={
@@ -216,20 +260,24 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
                                   }
                                 />
                               </div>
-                              <div className="col-5">
-                                <RdsAvatar
-                                  withProfilePic={true}
-                                  profilePic={
-                                    tableDataRow[tableHeader.key].avatar
-                                  }
-                                  isTitle={false}
-                                />
-                              </div>
-                              <div className="col-6">
-                                <label>
-                                  {tableDataRow[tableHeader.key].title}{" "}
-                                </label>
-                              </div>
+                              {tableDataRow[tableHeader.key].withavatar && (
+                                <div>
+                                  <div className="col-5">
+                                    <RdsAvatar
+                                      withProfilePic={true}
+                                      profilePic={
+                                        tableDataRow[tableHeader.key].avatar
+                                      }
+                                      isTitle={false}
+                                    />
+                                  </div>
+                                  <div className="col-6">
+                                    <label>
+                                      {tableDataRow[tableHeader.key].title}{" "}
+                                    </label>
+                                  </div>
+                                </div>
+                              )}
                             </div>
                           )}
                           {tableHeader.datatype === "children" && (

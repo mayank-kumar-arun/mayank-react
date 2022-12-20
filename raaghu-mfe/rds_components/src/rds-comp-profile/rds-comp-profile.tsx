@@ -1,165 +1,101 @@
 import { useState } from "react";
-import { RdsInput, RdsButton } from "../rds-elements";
+import { RdsInput, RdsButton, RdsIcon } from "../rds-elements";
 import React from "react";
-import img from "./edit-pic.png";
 import "./rds-comp-profile.scss";
+
 export interface RdsCompProfileProps {
-  onForgotPassword?: (email?: string) => void;
+  navtabItems: any[];
+  profilePic: string;
+  userName: string;
+  userRole: string;
+  onEditProfile?:(Event:React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
+  onLogout?:(Event:React.MouseEvent<HTMLButtonElement>)=>void;
+  currNavTabId?:(id:any)=>void;
+  onClose?:(Event:React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
 const RdsCompProfile = (props: RdsCompProfileProps) => {
-  const [enteredName, setEnteredName] = useState("");
-  const [isNameTouched, setIsNameTouched] = useState(false);
-  const isNameEmpty = enteredName.trim() === "";
-  const isNameEmptyAndTouched = isNameTouched && isNameEmpty;
-  const emailRegex =
-    /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  const [enteredEmail, setEnteredEmail] = useState("");
-  const [isEmailTouched, setIsEmailTouched] = useState(false);
-  const isEnteredEmailEmpty = enteredEmail.trim() === "";
-  const isEnteredEmailInvalid =
-    !emailRegex.test(enteredEmail) && !isEnteredEmailEmpty;
-  const isEnteredEmailEmptyAndTouched = isEmailTouched && isEnteredEmailEmpty;
-  const isEmailInputInvalid = isEnteredEmailInvalid && isEnteredEmailEmpty;
-  const phoneNumber = /^\d{10}$/;
-  const [enteredPhoneNumber, setEnteredPhoneNumber] = useState("");
-  const [isPhoneNumberTouched, setIsPhoneNumberTouched] = useState(false);
-  const isEnteredPhoneNumberEmpty = enteredPhoneNumber.trim() === "";
-  const isEnteredPhoneNumberInvalid =
-    !enteredPhoneNumber.match(phoneNumber) && !isEnteredPhoneNumberEmpty;
-  const isPhoneNumberEmptyAndTouched =
-    isPhoneNumberTouched && isEnteredPhoneNumberEmpty;
-  const isPhoneNumberInputInvalid =
-    isEnteredPhoneNumberInvalid && isEnteredPhoneNumberInvalid;
-  const [enteredUserName, setEnteredUserName] = useState("");
-  const [isUserNameTouched, setIsUserNameTouched] = useState(false);
-  const isUserNameEmpty = enteredUserName.trim() === "";
-  const isUserNameEmptyAndTouched = isUserNameTouched && isUserNameEmpty;
-  //   const isFormInvalid = isEmailInputInvalid && isPhoneNumberInputInvalid && isUserNameEmpty && isNameEmpty;
-  //   console.log(isFormInvalid);
-  const formSubmitHandler: any = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-  };
-  return (
-    <div>
-      <div className="tab-content py-4">
-        <form onSubmit={formSubmitHandler}>
-          <div className="row align-items-center">
-            <div className="col-md-3 text-center cursor-pointer sm-p-0">
-              <img src={img} />
 
-              <input type="file" accept="image/*" style={{ display: "none" }} />
-            </div>
-            <div className="col-md-9 sm-p-0">
-              <div className="form-group mb-3">
-                <RdsInput
-                  inputType="text"
-                  redAsteriskPresent={true}
-                  label="Name"
-                  name="name"
-                  id="name"
-                  placeholder="Enter Name"
-                  onBlur={() => setIsNameTouched(true)}
-                  onChange={(e) => setEnteredName(e.target.value)}
-                ></RdsInput>
-                {isNameEmptyAndTouched && (
-                  <span className="red-color-error">
-                    Tenancy Name must not be empty
-                  </span>
-                )}
-                <div className="form-control-feedback"></div>
-              </div>
-              <div className="form-group mb-3">
-                <RdsInput
-                  redAsteriskPresent={true}
-                  inputType="email"
-                  label="Email Address"
-                  placeholder="Enter Email Address"
-                  name="email"
-                  id="email"
-                  onBlur={() => setIsEmailTouched(true)}
-                  onChange={(e) => setEnteredEmail(e.target.value)}
-                ></RdsInput>
-                {isEnteredEmailEmptyAndTouched && (
-                  <span className="red-color-error">
-                    Email must not be empty
-                  </span>
-                )}
-                {isEnteredEmailInvalid && (
-                  <span className="red-color-error">
-                    Entered Email is Invalid
-                  </span>
-                )}
+    const[activetab, setAcivetab]=useState("")
+    const profilePic =props.profilePic ||"https://www.freeiconspng.com/thumbs/profile-icon-png/account-profile-user-icon--icon-search-engine-10.png"
+const onSetNavTabHandler =(id:any)=>{
+    setAcivetab(id);
+    props.currNavTabId!=undefined && props.currNavTabId(id)
+}
+  return (
+    <>
+      <div className="parent-div-class  p-4 ">
+      <div className="justify-content-end d-flex pt-2 pb-5 ">
+      <span className="me-3 close_btn_class" onClick={props.onClose} >
+                  <RdsIcon
+                    name="close"
+                    colorVariant="dark"
+                    fill={false}
+                    stroke={true}
+                    width="24px"
+                    height="24px"
+                  />
+                </span>
+        </div>
+        <div className="justify-content-center d-flex ">
+          <div className="align-items-center">
+            <div className="d-inline-block position-relative">
+              <img
+                src={profilePic}
+                alt="profilePic"
+                width="150px" 
+                height="150px"
+                className="profil_image_Class"
+              ></img>
+              <div
+                className="text-center"
+              >
+                <span className="pencilIconClass">
+                    <RdsIcon name="pencil" fill={false} stroke={true} width="20px" height="20px" colorVariant="primary" onClick={props.onEditProfile}></RdsIcon>
+                </span>
               </div>
             </div>
+            <p className="fw-bold text-center username_p mt-3">{props.userName}</p>
+            <p className="mt-1 mb-3 text-center text-muted ">{props.userRole}</p>
           </div>
-          <div className="row mb-2">
-            <div className="col-lg-6 col-md-6">
-              <div className="mb-2">
-                <RdsInput
-                  placeholder="Enter Phone Nunber"
-                  inputType="number"
-                  label="Phone Number"
-                  name="phone"
-                  id="phone"
-                  size="small"
-                  redAsteriskPresent={true}
-                  onBlur={() => setIsPhoneNumberTouched(true)}
-                  onChange={(e) => setEnteredPhoneNumber(e.target.value)}
-                ></RdsInput>
-                {isPhoneNumberEmptyAndTouched && (
-                  <span className="red-color-error">
-                    Phone Number must not be empty
-                  </span>
-                )}
-                {isEnteredPhoneNumberInvalid && (
-                  <span className="red-color-error">
-                    Entered Phone Number is Invalid
-                  </span>
-                )}
+        </div>
+
+        <div className="justify-content-center d-flex  p-2 m-2">
+          <div className="">
+            {props.navtabItems.map((item: any) => (
+              <div className={`p-3 d-flex  navtab-class ${activetab==item.id?" activeBackgraound":""}`} onClick={()=>onSetNavTabHandler(item.id)}>
+                <span className="me-3">
+                  <RdsIcon
+                    name={item.icon}
+                    colorVariant={activetab==item.id?"primary":"dark"}
+                    fill={false}
+                    stroke={true}
+                    width="24px"
+                    height="24px"
+                  />
+                </span>
+                <div>
+                  <div className={`fw-bold  ${activetab==item.id?" text-primary":""}`} >{item.label}</div>
+                  <p className="text-muted text-break" >{item.subText}</p>
+                </div>
               </div>
-            </div>
-            <div className="col-lg-6 col-md-6">
-              <div className="mb-2">
-                <RdsInput
-                  placeholder="Enter Username"
-                  inputType="text"
-                  label="User Name"
-                  name="userName"
-                  id="username"
-                  size="small"
-                  redAsteriskPresent={true}
-                  onBlur={() => setIsUserNameTouched(true)}
-                  onChange={(e) => setEnteredUserName(e.target.value)}
-                ></RdsInput>
-                {isUserNameEmptyAndTouched && (
-                  <span className="red-color-error">
-                    Username must not be empty
-                  </span>
-                )}
-              </div>
-            </div>
+            ))}
           </div>
-          <div className="mt-3 d-flex">
-            <RdsButton
-              class="me-2"
-              label="CANCEL"
-              type="button"
-              outlineButton={true}
-              colorVariant="primary"
-              size="small"
-            ></RdsButton>
-            <RdsButton
-              class="me-2"
-              label="SAVE"
-              type="submit"
-              outlineButton={false}
-              colorVariant="primary"
-              size="small"
-            ></RdsButton>
-          </div>
-        </form>
+        </div>
+
+        <section className="justify-content-center d-flex align-items-center p-5">
+        
+          <RdsButton
+            label="Logout"
+            colorVariant="primary"
+            block={false}
+            tooltipTitle={""}
+            type="submit"
+            outlineButton={true}
+            onClick={props.onLogout}
+          />
+        </section>
       </div>
-    </div>
+    </>
   );
 };
 
