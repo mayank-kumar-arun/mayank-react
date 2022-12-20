@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { RdsIcon, RdsNotification } from "../rds-elements";
+import { RdsDropdownList, RdsIcon, RdsNotification } from "../rds-elements";
 // import logo from "";
 export interface RdsCompTopNavigationProps {
 	onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -14,7 +14,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 
 	return (
 		<>
-			<nav className="navbar navbar-expand-lg navbar-light bg-light dlfex justify-content-between ps-2 pe-3">
+			<nav className="navbar navbar-expand-lg navbar-white bg-white dlfex justify-content-between ps-2 pe-3">
 				<div className="d-flex align-items-center">
 					<span className="navbar-brand p-0 m-0">
           <img
@@ -34,52 +34,10 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 						</div>
 					</div>
 				</div>
-				<div className="d-flex me-2">
-					<div className="position-relative">
-						<a
-							data-bs-toggle="dropdown"
-							aria-expanded="false"
-							className="d-flex align-items-center text-decoration-none"
-							style={{ cursor: "pointer" }}
-						>
-							<RdsIcon
-								name="us"
-								width="15px"
-								height="15px"
-								stroke={true}
-								fill={false}
-							></RdsIcon>
-							<span className="ms-2 me-2">EN(US)</span>
-							<RdsIcon
-								name="chevron_down"
-								fill={false}
-								stroke={true}
-								height="10px"
-								width="10px"
-							></RdsIcon>
-						</a>
-						<div
-							className="dropdown-menu fab-dropdown border-0 shadow mb-1 position-absolute"
-							
-						>
-							{(props.languageItems!).map((language: any, i: any) => (
-								<a
-									id="i"
-									className="dropdown-item fab-dropdown-item d-flex"
-									style={{ marginBottom: "28px" }}
-								>
-									<RdsIcon
-										name={language.icon}
-										height={language.iconHeight}
-										width={language.iconWidth}
-										fill={false}
-										stroke={true}
-									></RdsIcon>
-									<span style={{ marginLeft: "16px" }}>{language.value}</span>
-								</a>
-							))}
-						</div>
-					</div>
+				<div className="d-flex me-2 align-items-center">
+
+					<RdsDropdownList listItems={props.languageItems} withBorder={false}></RdsDropdownList>
+
 					<div className="ms-3" style={{ position: "relative" }}>
 						<a
 							data-bs-toggle="dropdown"
@@ -95,7 +53,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 							></RdsIcon>
 						</a>
 						<div
-							className="dropdown-menu fab-dropdown border-0 shadow"
+							className="dropdown-menu fab-dropdown border-0 shadow p-0"
 							style={{ position: "absolute", width: "18rem", left: "-200%" }}
 						>
 							<RdsNotification
@@ -106,7 +64,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 						</div>
 						<span className="ms-3 me-3 text-muted">|</span>
 					</div>
-					<div className="me-2">
+					<div className="me-2" style={{cursor: "pointer"}}>
 						<RdsIcon
 							name="gear"
 							height="15px"
@@ -116,7 +74,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 						></RdsIcon>
 						<span className="ms-3 me-2 text-muted ">|</span>
 					</div>
-					<div className="d-flex align-items-center">
+					<div className="d-flex align-items-center" style={{cursor: "pointer"}}>
 						<img
 							src="https://expertphotography.b-cdn.net/wp-content/uploads/2020/08/social-media-profile-photos-3.jpg"
 							style={{
