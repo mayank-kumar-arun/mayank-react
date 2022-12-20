@@ -1,29 +1,52 @@
 import React, { ReactNode } from "react";
+import RdsIcon from "../rds-icon";
 import "./rds-modal.scss";
 
 export interface RdsModalProps {
-	label?: string;
-	showModalFooter?: boolean;
-	showModalHeader?: boolean;
-	modalData?: any;
-	scrollable?: boolean;
-	staticbackdrop?: boolean;
-	verticallyCentered?: boolean;
+  label?: string;
+  showModalFooter?: boolean;
+  showModalHeader?: boolean;
+  modalData?: any;
+  scrollable?: boolean;
+  staticbackdrop?: boolean;
+  verticallyCentered?: boolean;
+  iconname?: string;
+  iconwidth?: any;
+  iconheight?: any;
 }
 
 const RdsModal = (props: RdsModalProps) => {
   return (
     <>
-      <button
-        type="button"
-        className="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target={`${
-          props.staticbackdrop ? "#staticBackdrop" : "#exampleModal"
-        }`}
-      >
-        {props.label}
-      </button>
+      {props.iconname?.length === 0 && (
+        <button
+          type="button"
+          className="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target={`${
+            props.staticbackdrop ? "#staticBackdrop" : "#exampleModal"
+          }`}
+        >
+          {props.label}
+        </button>
+      )}
+
+      {props.iconname?.length !== 0 && (
+        <div
+          data-bs-toggle="modal"
+          data-bs-target={`${
+            props.staticbackdrop ? "#staticBackdrop" : "#exampleModal"
+          }`}
+        >
+          <RdsIcon
+            name={props.iconname!}
+            fill={false}
+            stroke={true}
+            width={props.iconwidth}
+            height={props.iconheight}
+          ></RdsIcon>
+        </div>
+      )}
 
       {!props.staticbackdrop && (
         <div

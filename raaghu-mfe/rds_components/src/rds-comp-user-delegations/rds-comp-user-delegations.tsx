@@ -45,7 +45,7 @@ const RdsUserDelegations = (props: RdsUserDelegationsProps) => {
               <div>
                 <select
                   onClick={selecthandler}
-                  defaultValue={"DEFAULT"}
+                  defaultValue={'DEFAULT'}
                   className="form-select form-select-md"
                 >
                   <option disabled value="DEFAULT">

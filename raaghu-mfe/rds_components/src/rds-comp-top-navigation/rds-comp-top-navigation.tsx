@@ -3,6 +3,7 @@ import { RdsIcon, RdsNotification } from "../rds-elements";
 
 export interface RdsCompTopNavigationProps {
 	onClick?: React.MouseEventHandler<HTMLButtonElement>;
+	languageItems? : {value:string , some:string}[];
 }
 
 const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
@@ -81,7 +82,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 				<div className="d-flex align-items-center">
 					<img
 						className="ms-1"
-						src="/raaghu_icon.png"
+						src="./assets/raaghu_icon.png"
 						alt="logo"
 						style={{ width: "100px", height: "55.125px" }}
 					></img>

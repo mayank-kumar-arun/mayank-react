@@ -1,4 +1,5 @@
 import React from "react";
+import "./Login.scss";
 import {
 	ValidateTenantName,
 	trial,
@@ -19,7 +20,7 @@ import {
 } from "../../../../libs/public.api";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {RdsCompLogin} from "../../../rds-components";
+import { RdsCompLogin } from "../../../rds-components";
 
 export interface LoginProps {
 	onForgotPassword: (isForgotPasswordClicked?: boolean) => void;
@@ -50,7 +51,7 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
 		props.onForgotPassword(isForgotPasswordClicked);
 	};
 	return (
-		<div style={{ backgroundImage: "url(./assets/body-backgroud.svg)" }}>
+		<div className="login-background">
 			{/* {accessToken!=undefined && <h1>Loggedin</h1>} */}
 			<div
 				className="align-items-center d-flex justify-content-center login m-auto"
@@ -86,7 +87,10 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
 								loop
 								style={{ width: 442, height: 524 }}
 							>
-								<source src="./assets/building_lights.mp4" type="video/mp4"></source>
+								<source
+									src="./assets/building_lights.mp4"
+									type="video/mp4"
+								></source>
 							</video>
 							<img
 								className="position-absolute"
