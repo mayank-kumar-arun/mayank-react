@@ -17,6 +17,7 @@
     "react-dom": "^18.2.0",
     "react-draft-wysiwyg": "^1.15.0",
     "react-player": "^2.11.0",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
     "sass": "^1.56.1",
     "sass-loader": "^13.2.0",
