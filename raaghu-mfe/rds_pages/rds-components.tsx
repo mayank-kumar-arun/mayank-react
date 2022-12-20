@@ -1,1 +1,1 @@
-export * from '../rds_components/src/index'
+export * from "../rds_components/src/index";
