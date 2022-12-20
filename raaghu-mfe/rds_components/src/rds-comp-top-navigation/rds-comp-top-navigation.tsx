@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { RdsDropdownList, RdsIcon, RdsNotification } from "../rds-elements";
-// import logo from "";
+
 export interface RdsCompTopNavigationProps {
 	onClick?: React.MouseEventHandler<HTMLButtonElement>;
   notifications?: any[];
@@ -81,7 +81,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 					</div>
 					<div className="d-flex align-items-center" style={{cursor: "pointer"}}>
 						<img
-							src="https://expertphotography.b-cdn.net/wp-content/uploads/2020/08/social-media-profile-photos-3.jpg"
+							src="./assets/profile-picture-circle.svg"
 							style={{
 								width: "20px",
 								height: "20px",

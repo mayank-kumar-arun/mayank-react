@@ -761,7 +761,7 @@ const RdsCompAdminDashboard = () => {
 												<div className="d-flex align-items-center">
 													<div>
 														{" "}
-														<img src="dashboard-data.png" width="40px" />
+														<img src="./assets/dashboard-data.png" width="40px" />
 													</div>
 													<div className="ms-2 mt-2\">
 														<p className="mb-0\">
@@ -784,7 +784,7 @@ const RdsCompAdminDashboard = () => {
 												</div>
 											),
 											rate: (
-												<div className="\HighRate d-flex align-items-center justify-content-center\">
+												<div className="HighRate d-flex align-items-center justify-content-center">
 													92%
 												</div>
 											),
@@ -799,7 +799,7 @@ const RdsCompAdminDashboard = () => {
 												<div className="d-flex align-items-center\">
 													<div>
 														{" "}
-														<img src="dashboard-data.png" width="40px" />
+														<img src="./assets/dashboard-data.png" width="40px" />
 													</div>
 													<div className="ms-2 mt-2">
 														<p className="mb-0">
@@ -837,7 +837,7 @@ const RdsCompAdminDashboard = () => {
 												<div className="d-flex align-items-center\">
 													<div>
 														{" "}
-														<img src="dashboard-data.png" width="40px\" />
+														<img src="./assets/dashboard-data.png" width="40px\" />
 													</div>
 													<div className="ms-2 mt-2\">
 														<p className="mb-0\">
@@ -875,7 +875,7 @@ const RdsCompAdminDashboard = () => {
 												<div className="d-flex align-items-center\">
 													<div>
 														{" "}
-														<img src="dashboard-data.png" width="40px\" />
+														<img src="./assets/dashboard-data.png" width="40px\" />
 													</div>
 													<div className="ms-2 mt-2\">
 														<p className="mb-0\">
@@ -913,7 +913,7 @@ const RdsCompAdminDashboard = () => {
 												<div className="d-flex align-items-center\">
 													<div>
 														{" "}
-														<img src="dashboard-data.png" width="40px\" />
+														<img src="./assets/dashboard-data.png" width="40px\" />
 													</div>
 													<div className="ms-2 mt-2\">
 														<p className="mb-0\">
