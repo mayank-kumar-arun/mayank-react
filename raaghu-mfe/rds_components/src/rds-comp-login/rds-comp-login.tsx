@@ -89,7 +89,7 @@ const RdsCompLogin: React.FC<RdsCompLoginProps> = (
 				</span>
 			</div>
 			<form onSubmit={handleSubmit}>
-				<div>
+				<div className="mb-3">
 					<RdsInput
 						label="Email/Username"
 						placeholder="Email/Username"

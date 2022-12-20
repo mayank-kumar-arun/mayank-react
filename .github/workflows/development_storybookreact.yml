@@ -26,6 +26,8 @@ jobs:
         run: |
           npm install --force
           npm run build-storybook
+          mkdir storybook-static/assets
+          cp .storybook/assets/* storybook-static/assets
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
