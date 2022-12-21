@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import RdsButton from "../../../../../raaghu-elements/src/rds-button";
+import {RdsButton} from "../../rds-elements";
 import Updateorganizationtree from "./update-organization-tree";
 
 
