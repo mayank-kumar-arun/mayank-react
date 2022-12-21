@@ -1,7 +1,5 @@
 import { id } from "date-fns/locale";
-import { AnyArray } from "immer/dist/internal";
 import React, { useState, useEffect, Children, useReducer } from "react";
-import rdsAccordion from "../../../../raaghu-elements/src/rds-accordion";
 import { RdsAccordion, RdsCheckbox } from "../rds-elements";
 import "./rds-comp-api-scope-resource.scss";
 

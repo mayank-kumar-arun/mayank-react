@@ -1,8 +1,6 @@
-import React from "react";
+import React from 'react'
+import {RdsCompOrganizationTree} from "../../../rds-components"
 
-const RdsCompOrganizationTree = React.lazy(
-	() => import("raaghu-components/RdsCompOrganizationTree")
-);
 const OrganizationTree = () => {
 	return (
 		<div>

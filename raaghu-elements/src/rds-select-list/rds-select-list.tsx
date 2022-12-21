@@ -7,7 +7,7 @@ export interface RdsSelectProps{
     isMultiple?:boolean;
     size?:string;
     selectItems: any[];
-    classes:string, 
+    classes?:string, 
     children?:React.ReactNode
     onSelectListChange ?:( Event:React.ChangeEvent<HTMLSelectElement>) => void; 
    }

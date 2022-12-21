@@ -81,11 +81,6 @@ module.exports = (env, argv) => {
           // expose each page
           "./OrganizationTree": "./src/Organization-Tree/Organization-Tree",
         },
-        remotes: {
-          raaghu-components: isProduction
-            ? process.env.PROD_APP1
-            : process.env.DEV_APP1,
-        },
         shared: {
           ...devdeps,
           ...deps,

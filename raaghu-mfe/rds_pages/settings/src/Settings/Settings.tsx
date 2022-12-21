@@ -1,15 +1,7 @@
-import React, { useState } from "react";
-import {
-	RdsButton,
-	RdsFabMenu,
-	RdsNavtabs,
-} from "../../../../../raaghu-elements/src/index";
-const UserManagementcompo = React.lazy(
-	() => import("raaghu-components/RdsCompUserManagement")
-);
-const OtherSettingsCompo = React.lazy(
-	() => import("raaghu-components/RdsCompOtherSettings")
-);
+import React, { useState } from 'react';
+import {RdsButton,RdsFabMenu,RdsNavtabs} from '../../../../../raaghu-elements/src/index'
+import {RdsCompUserManagement, RdsCompOtherSettings} from "../../../rds-components"
+
 
 const Settings = () => {
 	const [PaneShowOrder, setPaneShowOrder] = useState(0);
@@ -113,101 +105,45 @@ const Settings = () => {
 						{/* <!--<ng-container *ngIf="currentAlerts&&currentAlerts.length>0">
                         <mfe-loader [config]="rdsAlertMfeConfig"></mfe-loader>
                         </ng-container>--> */}
-						<div></div>
-						<RdsNavtabs
-							activeNavtabOrder={NavPaneHandler}
-							fill={false}
-							justified={false}
-							navtabsItems={navtabsItems}
-						>
-							<div className="row tab-content" id="nav-tabContent">
-								<div
-									className={
-										PaneShowOrder === 0
-											? "tab-pane fade show active"
-											: "tab-pane fade"
-									}
-									id="tenant-management"
-									role="tabpanel"
-									aria-labelledby="nav-home-tab"
-								>
-									<div className="row">
-										{/* <mfe-loader [config]="rdsCompTenantManageMfeConfig"></mfe-loader> */}
-									</div>
-								</div>
-								<div
-									className={
-										PaneShowOrder === 1
-											? "tab-pane fade show active"
-											: "tab-pane fade"
-									}
-									id="user-management"
-									role="tabpanel"
-									aria-labelledby="nav-home-tab"
-								>
-									<div className="row">
-										<UserManagementcompo></UserManagementcompo>
-									</div>
-								</div>
-								<div
-									className={
-										PaneShowOrder === 2
-											? "tab-pane fade show active"
-											: "tab-pane fade"
-									}
-									id="security"
-									role="tabpanel"
-									aria-labelledby="nav-home-tab"
-								>
-									<div className="row">
-										{/* <mfe-loader [config]="rdsCompSecurityMfeConfig"></mfe-loader> */}
-									</div>
-								</div>
-								<div
-									className={
-										PaneShowOrder === 3
-											? "tab-pane fade show active"
-											: "tab-pane fade"
-									}
-									id="email"
-									role="tabpanel"
-									aria-labelledby="nav-home-tab"
-								>
-									<div className="row">
-										{/* <mfe-loader [config]="rdsCompEmailMfeConfig"></mfe-loader> */}
-									</div>
-								</div>
-								<div
-									className={
-										PaneShowOrder === 4
-											? "tab-pane fade show active"
-											: "tab-pane fade"
-									}
-									id="invoice"
-									role="tabpanel"
-									aria-labelledby="nav-home-tab"
-								>
-									<div className="row">
-										{/* <mfe-loader [config]="rdsCompInvoiceMfeConfig"></mfe-loader> */}
-									</div>
-								</div>
-								<div
-									className={
-										PaneShowOrder === 5
-											? "tab-pane fade show active"
-											: "tab-pane fade"
-									}
-									id="other-settings"
-									role="tabpanel"
-									aria-labelledby="nav-home-tab"
-								>
-									<div className="row">
-										<OtherSettingsCompo></OtherSettingsCompo>
-									</div>
-								</div>
-							</div>
-						</RdsNavtabs>
-						{/* <rds-nav-tab [navtabsItems]="getNavtabItems()" [horizontalAlignment]="'start'" [verticalAlignment]="false"
+                        <div>
+
+                        </div>
+                        <RdsNavtabs activeNavtabOrder={NavPaneHandler} fill={false} justified={false} navtabsItems={navtabsItems} type={'default'} >
+                            <div  className="row tab-content" id="nav-tabContent">
+                                <div className={PaneShowOrder===0?"tab-pane fade show active":"tab-pane fade"} id="tenant-management" role="tabpanel" aria-labelledby="nav-home-tab">
+                                    <div className="row">
+                                        {/* <mfe-loader [config]="rdsCompTenantManageMfeConfig"></mfe-loader> */}
+                                    </div>
+                                </div>
+                                <div className={PaneShowOrder===1?"tab-pane fade show active":"tab-pane fade"} id="user-management" role="tabpanel" aria-labelledby="nav-home-tab">
+                                    <div className="row">
+                                        <RdsCompUserManagement Usermanagementsettings={undefined}></RdsCompUserManagement>
+                                    </div>
+                                </div>
+                                <div className={PaneShowOrder===2?"tab-pane fade show active":"tab-pane fade"} id="security" role="tabpanel" aria-labelledby="nav-home-tab">
+                                    <div className="row">
+                                        {/* <mfe-loader [config]="rdsCompSecurityMfeConfig"></mfe-loader> */}
+                                    </div>
+                                </div>
+                                <div className={PaneShowOrder===3?"tab-pane fade show active":"tab-pane fade"} id="email" role="tabpanel" aria-labelledby="nav-home-tab">
+                                    <div className="row">
+                                        {/* <mfe-loader [config]="rdsCompEmailMfeConfig"></mfe-loader> */}
+                                    </div>
+                                </div>
+                                <div className={PaneShowOrder===4?"tab-pane fade show active":"tab-pane fade"} id="invoice" role="tabpanel" aria-labelledby="nav-home-tab">
+                                    <div className="row">
+                                        {/* <mfe-loader [config]="rdsCompInvoiceMfeConfig"></mfe-loader> */}
+                                    </div>
+                                </div>
+                                <div className={PaneShowOrder===5?"tab-pane fade show active":"tab-pane fade"} id="other-settings" role="tabpanel" aria-labelledby="nav-home-tab">
+                                    <div className="row">
+                                        <RdsCompOtherSettings></RdsCompOtherSettings>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </RdsNavtabs>
+                        {/* <rds-nav-tab [navtabsItems]="getNavtabItems()" [horizontalAlignment]="'start'" [verticalAlignment]="false"
                             [pills]="false" [tabs]="true" [fill]="false" [justified]="false" (onClicktab)="onClicktab($event)"></rds-nav-tab> */}
 					</div>
 				</div>
