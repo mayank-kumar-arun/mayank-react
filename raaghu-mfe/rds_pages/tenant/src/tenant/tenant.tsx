@@ -1,13 +1,11 @@
 import React from "react";
+import {RdsCompTenantList} from "../../../rds-components"
 
-const TenantListcompo = React.lazy(
-	() => import("rds_components/RdsCompTenantList")
-);
 
 const Tenant = () => {
 	return (
 		<div>
-			<TenantListcompo
+			<RdsCompTenantList
 				tenantHeaders={[
 					{
 						displayName: "Tenant",
@@ -48,7 +46,7 @@ const Tenant = () => {
 				]}
 				tableData={[]}
 				editionList={[]}
-			></TenantListcompo>
+			></RdsCompTenantList>
 		</div>
 	);
 };

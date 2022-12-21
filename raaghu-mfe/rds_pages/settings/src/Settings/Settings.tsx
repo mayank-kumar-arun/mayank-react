@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {RdsButton,RdsFabMenu,RdsNavtabs} from '../../../../../raaghu-elements/src/index'
-const UserManagementcompo = React.lazy(()=> import("rds_components/RdsCompUserManagement"))
-const OtherSettingsCompo = React.lazy(()=> import("rds_components/RdsCompOtherSettings"))
+import {RdsCompUserManagement, RdsCompOtherSettings} from "../../../rds-components"
+
 
 const Settings = () => {
     const [PaneShowOrder, setPaneShowOrder] = useState(0);
@@ -87,7 +87,7 @@ const Settings = () => {
                         <div>
 
                         </div>
-                        <RdsNavtabs activeNavtabOrder={NavPaneHandler} fill={false} justified={false}  navtabsItems={navtabsItems} >
+                        <RdsNavtabs activeNavtabOrder={NavPaneHandler} fill={false} justified={false} navtabsItems={navtabsItems} type={'default'} >
                             <div  className="row tab-content" id="nav-tabContent">
                                 <div className={PaneShowOrder===0?"tab-pane fade show active":"tab-pane fade"} id="tenant-management" role="tabpanel" aria-labelledby="nav-home-tab">
                                     <div className="row">
@@ -96,7 +96,7 @@ const Settings = () => {
                                 </div>
                                 <div className={PaneShowOrder===1?"tab-pane fade show active":"tab-pane fade"} id="user-management" role="tabpanel" aria-labelledby="nav-home-tab">
                                     <div className="row">
-                                        <UserManagementcompo></UserManagementcompo>
+                                        <RdsCompUserManagement Usermanagementsettings={undefined}></RdsCompUserManagement>
                                     </div>
                                 </div>
                                 <div className={PaneShowOrder===2?"tab-pane fade show active":"tab-pane fade"} id="security" role="tabpanel" aria-labelledby="nav-home-tab">
@@ -116,7 +116,7 @@ const Settings = () => {
                                 </div>
                                 <div className={PaneShowOrder===5?"tab-pane fade show active":"tab-pane fade"} id="other-settings" role="tabpanel" aria-labelledby="nav-home-tab">
                                     <div className="row">
-                                        <OtherSettingsCompo></OtherSettingsCompo>
+                                        <RdsCompOtherSettings></RdsCompOtherSettings>
                                     </div>
                                 </div>
                             </div>

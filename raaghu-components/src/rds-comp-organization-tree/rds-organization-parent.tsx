@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import RdsIcon from "../../../../raaghu-elements/src/rds-icon";
+import {RdsIcon} from "../rds-elements";
 import TreeUser from "./Edit/user";
 import UserContextProvider from "./Edit/usercontext";
 

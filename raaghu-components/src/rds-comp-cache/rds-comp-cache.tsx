@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./rds-comp-cache.scss";
-import rdsIcon from "../../../../raaghu-elements/src/rds-icon";
-import RdsIcon from "../../../../raaghu-elements/src/rds-icon";
-import { RdsPagination } from "../../../../raaghu-elements/src";
+import {RdsIcon, RdsPagination} from "../rds-elements";
 import { useEffect } from "react";
 
 export interface RdsCacheProps {

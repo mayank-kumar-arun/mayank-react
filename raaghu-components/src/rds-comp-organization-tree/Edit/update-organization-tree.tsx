@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import RdsButton from '../../../../../raaghu-elements/src/rds-button';
+import {RdsButton} from '../../rds-elements';
 import {UserContext} from "./usercontext"
 
 const Updateorganizationtree = ({theUser}:any) => {
