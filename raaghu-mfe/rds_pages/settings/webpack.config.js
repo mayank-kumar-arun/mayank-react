@@ -75,7 +75,7 @@ module.exports = (env, argv) => {
           "./Settings": "./src/Settings/Settings",
         },
         remotes: {
-          rds_components: isProduction
+          raaghu-components: isProduction
             ? process.env.PROD_APP1
             : process.env.DEV_APP1,
         },

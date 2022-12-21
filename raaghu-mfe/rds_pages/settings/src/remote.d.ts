@@ -1,12 +1,12 @@
 ///<reference types="react" />
 
-declare module "rds_components/RdsCompUserManagement" {
+declare module "raaghu-components/RdsCompUserManagement" {
 	const UserManagementComponent: React.ComponentType;
 
 	export default UserManagementComponent;
 }
 
-declare module "rds_components/RdsCompOtherSettings" {
+declare module "raaghu-components/RdsCompOtherSettings" {
     const OtherSettingsComponent: React.ComponentType;
 
 	export default OtherSettingsComponent;

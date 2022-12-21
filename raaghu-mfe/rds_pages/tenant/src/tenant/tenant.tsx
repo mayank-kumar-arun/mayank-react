@@ -1,7 +1,7 @@
 import React from "react";
 
 const TenantListcompo = React.lazy(
-	() => import("rds_components/RdsCompTenantList")
+	() => import("raaghu-components/RdsCompTenantList")
 );
 
 const Tenant = () => {

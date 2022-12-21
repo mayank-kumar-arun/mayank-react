@@ -1,6 +1,6 @@
 ///<reference types="react" />
 
-declare module "rds_components/RdsCompOrganizationTree" {
+declare module "raaghu-components/RdsCompOrganizationTree" {
 	const OrganizationTreeComponent: React.ComponentType;
 
 	export default OrganizationTreeComponent;

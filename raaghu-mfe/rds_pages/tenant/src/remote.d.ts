@@ -1,6 +1,6 @@
 ///<reference types="react" />
 
-declare module "rds_components/RdsCompTenantList" {
+declare module "raaghu-components/RdsCompTenantList" {
 	const TenantListComponent: React.ComponentType;
 
 	export default TenantListComponent;

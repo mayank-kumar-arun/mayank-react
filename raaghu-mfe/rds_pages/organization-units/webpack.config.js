@@ -82,7 +82,7 @@ module.exports = (env, argv) => {
           "./OrganizationTree": "./src/Organization-Tree/Organization-Tree",
         },
         remotes: {
-          rds_components: isProduction
+          raaghu-components: isProduction
             ? process.env.PROD_APP1
             : process.env.DEV_APP1,
         },

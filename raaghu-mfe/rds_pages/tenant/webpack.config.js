@@ -72,7 +72,7 @@ module.exports = (env, argv) => {
         "./Tenant": "./src/tenant/tenant"
       },
         remotes: {
-          rds_components: isProduction ? process.env.PROD_APP1 : process.env.DEV_APP1,
+          raaghu-components: isProduction ? process.env.PROD_APP1 : process.env.DEV_APP1,
           
         },
         shared: {
