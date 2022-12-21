@@ -126,13 +126,18 @@ const TreeNode = ({ node }: { node: any }) => {
               >
                 {" "}
                 <RdsOffcanvas
-                  iconname="pencil"
-                  iconheight="15px"
-                  iconwidth="15px"
                   placement="end"
                   canvasTitle="Edit Organization Unit"
                   width="500px"
                   onclick={() => editunit(node.key, node.label)}
+                  offcanvasbutton={
+                    <RdsIcon
+                      name={"pencil"}
+                      width="15px"
+                      height="15px"
+                      stroke={true}
+                    ></RdsIcon>
+                  }
                 >
                   <label className="mb-1" htmlFor="input">
                     Organization Unit
