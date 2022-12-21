@@ -6,9 +6,9 @@
 <p align="center">
   <a href="https://raaghu.io" target="_blank">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./static/bannerTest2.png">
-      <source media="(prefers-color-scheme: light)" srcset="./static/banner-new1.png">
-      <img alt="Banner" src="./static/banner-new1.png">
+      <source media="(prefers-color-scheme: dark)" srcset="./static/banner-dark.png">
+      <source media="(prefers-color-scheme: light)" srcset="./static/banner-light.png">
+      <img alt="Banner" src="./static/banner-light.png">
     </picture>
   </a>
 <p>
@@ -68,7 +68,11 @@
 ## <a name='why'></a> Why raaghu?
 
 <p>
-  <img src="./static/Features-new.png" alt="logo" width="1000"/>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./static/Features-new-dark.png">
+      <source media="(prefers-color-scheme: light)" srcset="./static/Features-new-light.png">
+      <img  alt="Features" src="./static/Features-new-light.png" width="1000"/>
+    </picture>
 </p>
 
 ## <a name='how'></a> How raaghu works?
@@ -106,7 +110,11 @@ A collection of open-source statrter templates, Free templates that are perfect 
 </p> 
 </br>
 <p>
-  <img src="./static/templates.png" alt="logo" width="1200"/>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./static/templates-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="./static/templates-light.png">
+    <img src="./static/templates-light.png" alt="logo" width="1200"/>
+  </picture> 
 </p>
  
 </br>
@@ -116,7 +124,7 @@ Built on a robust tech stack and platform
 </p> 
 </br>
 
-<table>
+<table align="center">
   <tr>  
   <td>
     <a href="https://reactjs.org/">
