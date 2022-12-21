@@ -68,11 +68,11 @@
 ## <a name='why'></a> Why raaghu?
 
 <p>
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./static/Features-new-dark.png">
-      <source media="(prefers-color-scheme: light)" srcset="./static/Features-new-light.png">
-      <img  alt="Features" src="./static/Features-new-light.png" width="1000"/>
-    </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./static/features-new-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="./static/features-new-light.png">
+    <img  alt="Features" src="./static/Features-new-light.png" width="1000"/>
+  </picture>
 </p>
 
 ## <a name='how'></a> How raaghu works?
