@@ -15,7 +15,7 @@ export interface RdsLabelProps {
 const RdsLabel = (props: RdsLabelProps) => {
   return (
     <p
-      className={` p-0 m-0 ${!props.multiline ? "singleLine" : ""} ${
+      className={` p-0 m-0 ${props.multiline ? "text-break" : "singleLine"} ${
         props.class
       }`}
     >

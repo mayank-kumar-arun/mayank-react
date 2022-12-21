@@ -47,6 +47,7 @@ const RdsAddressDetail = (props: RdsAddressDetailProps) => {
 			{props.withIcon && (
 				<div className="addressWithIconContainer">
 					<div className="d-flex align-items-center">
+						<div>
 						<RdsIcon
 							name="location"
 							height="15px"
@@ -55,9 +56,12 @@ const RdsAddressDetail = (props: RdsAddressDetailProps) => {
 							stroke={true}
 							colorVariant="primary"
 						></RdsIcon>
+						</div>
+						<div>
 						<label className="addressHeading" style={{ marginLeft: "7px" }}>
 							{props.header}
 						</label>
+						</div>
 					</div>
 					<div className="addressLineContainer" style={{ marginTop: "8px" }}>
 						<RdsLabel

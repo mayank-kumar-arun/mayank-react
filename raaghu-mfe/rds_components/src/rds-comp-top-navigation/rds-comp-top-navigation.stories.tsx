@@ -13,8 +13,12 @@ const Template: ComponentStory<typeof RdsCompTopNavigation> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  navbarTitle:"Dashboard",
+  navbarTitle: "Dashboard",
+  darkMode: false,
+  brandName: "Raaghu",
   navbarSubTitle: "Statistics and reports",
+  profileTitle:"Host Admin",
+  profileName:"Keanu Foster",
   notifications: [
     {
       status: "success",
@@ -57,27 +61,32 @@ Default.args = {
       selected: false,
     },
   ],
+
   languageItems: [
     {
-      value: "Deutsch",
-      some: "value",
-      key: "new",
+      label: "EN(US)",
+      val: "us",
+      icon: "us",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "Deutsch",
+      val: "de",
       icon: "de",
       iconWidth: "20px",
       iconHeight: "20px",
     },
     {
-      value: "English(IND)",
-      some: "value",
-      key: "refresh",
+      label: "English(IND)",
+      val: "in",
       icon: "in",
       iconWidth: "20px",
       iconHeight: "20px",
     },
     {
-      value: "English (Default)",
-      some: "value",
-      key: "export",
+      label: "English (Default)",
+      val: "us",
       icon: "us",
       iconWidth: "20px",
       iconHeight: "20px",

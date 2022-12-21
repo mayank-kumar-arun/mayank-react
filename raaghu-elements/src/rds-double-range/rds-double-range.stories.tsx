@@ -7,7 +7,7 @@ export default {
   component:  RdsDoubleRange,
   argTypes: {
     colorVariant: {
-      options: [ "primary", "secondary","success", "info","warning","danger", "dark","light","review",],
+      options: [ "primary", "secondary","success", "info","warning","danger", "dark","light",],
       control: { type: "select" },
     },
     doubleRangeType:{
