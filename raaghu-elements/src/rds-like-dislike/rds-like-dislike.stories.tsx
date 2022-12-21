@@ -17,7 +17,6 @@ export default {
         "danger",
         "dark",
         "light",
-        "review",
       ],
       control: { type: "select" },
     },
