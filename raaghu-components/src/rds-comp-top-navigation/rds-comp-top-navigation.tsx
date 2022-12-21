@@ -4,7 +4,7 @@ import { RdsDropdownList, RdsIcon, RdsNotification } from "../rds-elements";
 export interface RdsCompTopNavigationProps {
 	onClick?: React.MouseEventHandler<HTMLButtonElement>;
   notifications?: any[];
-  languageItems?: any [];
+  languageItems: any [];
   navbarTitle?: string;
   navbarSubTitle?: string;
   brandName ?: string;
