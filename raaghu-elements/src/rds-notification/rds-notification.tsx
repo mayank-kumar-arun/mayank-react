@@ -106,9 +106,9 @@ const RdsNotification = (props: RdsNotificationProps) => {
               />
             </span>
             <span className="ms-2 me-3"> Notification</span>
-            {props.notifications.length >= 1 && (
+            {props.notifications?.length >= 1 && (
               <RdsBadge
-                label={`${props.notifications.length}  New`}
+                label={`${props.notifications?.length}  New`}
                 colorVariant="success"
               />
             )}{" "}
@@ -124,7 +124,7 @@ const RdsNotification = (props: RdsNotificationProps) => {
             />{" "}
           </div>
         </div>
-        {props.notifications.map((notification: any, index: any) => (
+        {props.notifications?.map((notification: any, index: any) => (
           <div key={notification.userNotificationId}>
           <div 
             className="d-flex py-2 px-4  justify-content-between"
