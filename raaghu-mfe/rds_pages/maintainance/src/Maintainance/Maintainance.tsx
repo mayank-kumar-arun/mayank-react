@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-const WebsiteLogCompo = React.lazy(() => import("rds_components/RdsCompWebsiteLog"));
-const AlertPopupCompo = React.lazy(() => import("rds_components/RdsCompAlertPopup"));
+import {RdsCompWebsiteLog , RdsCompAlertPopup} from "../../../rds-components"
+
 const Maintainance = () => {
   // const [isDeleteClicked, setIsDeleteClicked] = useState(false);
   // const AlertHandler = () => {
@@ -8,9 +8,9 @@ const Maintainance = () => {
   // }
   return (
 	<div>
-    <WebsiteLogCompo/>
+    <RdsCompWebsiteLog websiteLogData={[]} pagination={false} alignmentType={undefined} totalRecords={0} recordsPerPage={0}/>
     
-  <AlertPopupCompo/>
+  <RdsCompAlertPopup/>
   </div>
 
   )

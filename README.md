@@ -2,19 +2,18 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <!-- Custom style -->
-<style>
-  .centerContent{
-    text-align: center;
-  }
-</style>
 
-<p>
+<p align="center">
   <a href="https://raaghu.io" target="_blank">
-    <img src="./static/bannerTest3.png" alt="logo" width="2000"/>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./static/banner-dark.png">
+      <source media="(prefers-color-scheme: light)" srcset="./static/banner-light.png">
+      <img alt="Banner" src="./static/banner-light.png">
+    </picture>
   </a>
 <p>
   
-<h3 class="centerContent" style="border-bottom:0;">
+<h3 align="center" style="border-bottom:0;">
     <a href="https://raaghu.io" target="blank">Get Started</a>
     ·
     <a href="https://raaghu.io" target="blank">Tutorials </a>
@@ -26,7 +25,7 @@
     <a href="https://github.com/Wai-Technologies/raaghu/issues/new">Request Feature</a>
 </h3>
 
-<p class="centerContent">
+<p align="center">
     <a href="https://github.com/Wai-Technologies/raaghu/blob/main/LICENSE" target="blank">
     <img alt="GitHub licence" src="https://img.shields.io/github/license/Wai-Technologies/raaghu?color=orange"/>
     </a>
@@ -41,7 +40,7 @@
     </a>
 </p>
 
-<p class="centerContent">
+<p align="center">
     <a href="https://npmjs.org/rds-elements"><img src="https://img.shields.io/npm/v/rds-elements/latest.svg" alt="npm latest version" /></a>
     <a href="https://npmjs.org/rds-elements"><img src="https://img.shields.io/npm/v/rds-elements/next.svg" alt="npm next version" /></a>
 </p>
@@ -69,14 +68,18 @@
 ## <a name='why'></a> Why raaghu?
 
 <p>
-  <img src="./static/Features-new.png" alt="logo" width="1000"/>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./static/Features-new-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="./static/Features-new-light.png">
+    <img  alt="Features" src="./static/Features-new-light.png" width="1000"/>
+  </picture>
 </p>
 
 ## <a name='how'></a> How raaghu works?
 
 </br></br></br>
 
-<p class="centerContent">
+<p align="center">
   <img src="./static/raaghu-illustration.png" alt="logo" width="600"/>
 </p>
 <br/>
@@ -107,7 +110,11 @@ A collection of open-source statrter templates, Free templates that are perfect 
 </p> 
 </br>
 <p>
-  <img src="./static/templates.png" alt="logo" width="1200"/>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./static/templates-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="./static/templates-light.png">
+    <img src="./static/templates-light.png" alt="logo" width="1200"/>
+  </picture> 
 </p>
  
 </br>
@@ -117,7 +124,7 @@ Built on a robust tech stack and platform
 </p> 
 </br>
 
-<table>
+<table align="center">
   <tr>  
   <td>
     <a href="https://reactjs.org/">

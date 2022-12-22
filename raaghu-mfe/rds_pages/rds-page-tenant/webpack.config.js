@@ -15,7 +15,7 @@ module.exports = (env, argv) => {
     entry: "./src/index.ts",
     mode: process.env.NODE_ENV || "development",
     devServer: {
-      port: 8008,
+      port: 8006,
       open: true,
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -27,17 +27,14 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.(png|jpe?g|gif)$/i,
-          use: [
-            {
-              loader: "file-loader",
-              options: {
-                regExp: /\/([a-z0-9]+)\/[a-z0-9]+\.png$/i,
-                name: "[1]-[name].[ext]",
-              },
-            },
-          ],
-        },
+
+          test: /\.(scss|css)$/,
+
+          use: [ 'style-loader' , 'css-loader' , 'sass-loader' ],
+
+          exclude: '/node_modules/',
+
+      },
         {
           test: /\.(js|jsx|tsx|ts)$/,
           loader: "babel-loader",
@@ -68,15 +65,19 @@ module.exports = (env, argv) => {
         "process.env": JSON.stringify(process.env),
       }),
       new ModuleFederationPlugin({
-        name: "Settings",
+        name: "Tenant",
         filename: "remoteEntry.js",
         exposes: {
-          // expose each page
-          "./Settings": "./src/Settings/Settings",
-        },
+        // expose each page
+        "./Tenant": "./src/tenant/tenant"
+      },
         shared: {
-          ...devdeps,
+            ...devdeps,
           ...deps,
+          'luxon': {
+            singleton: true,
+            requiredVersion: deps['luxon'],
+        },
           react: { singleton: true, eager: true, requiredVersion: deps.react },
           "react-dom": {
             singleton: true,
