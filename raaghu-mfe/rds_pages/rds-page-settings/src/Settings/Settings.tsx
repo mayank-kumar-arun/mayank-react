@@ -4,84 +4,105 @@ import {RdsCompUserManagement, RdsCompOtherSettings} from "../../../rds-componen
 
 
 const Settings = () => {
-    const [PaneShowOrder, setPaneShowOrder] = useState(0);
-    let navtabsItems : any = [
-        {
-          label: 'Tenant Management',
-          tablink: '#tenant-management',
-          ariacontrols: 'tenant-management',
-        },
-        {
-          label: 'User Management',
-          tablink: '#user-management',
-          ariacontrols: 'user-management',
-        },
-        {
-          label: 'Security',
-          tablink: '#security',
-          ariacontrols: 'settings',
-        },
-        {
-          label: 'Email(SMTP)',
-          tablink: '#email',
-          ariacontrols: 'email',
-        },
-        {
-          label: 'Invoice',
-          tablink: '#invoice',
-          ariacontrols: 'invoice',
-        },
-        {
-          label: 'Other-settings',
-          tablink: '#other-settings',
-          ariacontrols: 'other-settings',
-        },
-      ];
+	const [PaneShowOrder, setPaneShowOrder] = useState(0);
+	let navtabsItems: any = [
+		{
+			label: "Tenant Management",
+			tablink: "#tenant-management",
+			ariacontrols: "tenant-management",
+		},
+		{
+			label: "User Management",
+			tablink: "#user-management",
+			ariacontrols: "user-management",
+		},
+		{
+			label: "Security",
+			tablink: "#security",
+			ariacontrols: "settings",
+		},
+		{
+			label: "Email(SMTP)",
+			tablink: "#email",
+			ariacontrols: "email",
+		},
+		{
+			label: "Invoice",
+			tablink: "#invoice",
+			ariacontrols: "invoice",
+		},
+		{
+			label: "Other-settings",
+			tablink: "#other-settings",
+			ariacontrols: "other-settings",
+		},
+	];
 
-    //   const getNavtabItems=()=>{
-    //     return 
-    //   }
-    const onSelectMenu =(event : any)=>{
-        if (event.key === 'saveall') {
-            onSave();
-          }
-    }
+	//   const getNavtabItems=()=>{
+	//     return
+	//   }
+	const onSelectMenu = (event: any) => {
+		if (event.key === "saveall") {
+			onSave();
+		}
+	};
 
-    const onSave=():void=>{
+	const onSave = (): void => {};
 
-    }
+	const NavPaneHandler = (order: number) => {
+		setPaneShowOrder(order);
+		return order;
+	};
 
-    const NavPaneHandler = (order : number) => {
-        setPaneShowOrder(order)
-        return order
-    }
-
-    return (
-        <div>
-            <div className="row">
-                <div className="col-md-12  pb-3 desktop-btn">
-                    <div className="d-flex justify-content-end">
-                        <RdsButton type={'button'} tooltipPlacement="bottom" tooltipTitle='SAVE ALL' label='SAVE ALL' size='small' colorVariant='primary' outlineButton={false}></RdsButton>
-                        {/* <rds-button [tooltipPlacement]="'bottom'" [tooltipTitle]="translate.instant('SAVE ALL')"
+	return (
+		<div>
+			<div className="row">
+				<div className="col-md-12  pb-3 desktop-btn">
+					<div className="d-flex justify-content-end">
+						<RdsButton
+							type={"button"}
+							tooltipPlacement="bottom"
+							tooltipTitle="SAVE ALL"
+							label="SAVE ALL"
+							size="small"
+							colorVariant="primary"
+							outlineButton={false}
+						></RdsButton>
+						{/* <rds-button [tooltipPlacement]="'bottom'" [tooltipTitle]="translate.instant('SAVE ALL')"
                         [label]="translate.instant('SAVE ALL')" type="button" [size]="'small'" [colorVariant]="'primary'"
                         [outlineButton]="false" (click)="onSave()" icon="save" iconHeight="15px" iconWidth="15px"></rds-button> */}
-                    </div>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-md-12">
-                    <div className="mobile-btn position-absolute bottom-0 end-0 my-5 me-5">
-                        <RdsFabMenu onClick={onSelectMenu} listItems={[{ value: 'Save All', some: 'value', key: 'saveall', icon: 'plus', iconWidth: '20px', iconHeight: '20px' }]} menuIcon="plus" colorVariant='primary' menuiconWidth='12px' menuiconHeight='12px'></RdsFabMenu>
-                    {/* <rds-fab-menu [listItems]="listItems1" [menuicon]="'plus'" [colorVariant]="'primary'" [menuiconWidth]="'12px'"
+					</div>
+				</div>
+			</div>
+			<div className="row">
+				<div className="col-md-12">
+					<div className="mobile-btn position-absolute bottom-0 end-0 my-5 me-5">
+						<RdsFabMenu
+							onClick={onSelectMenu}
+							listItems={[
+								{
+									value: "Save All",
+									some: "value",
+									key: "saveall",
+									icon: "plus",
+									iconWidth: "20px",
+									iconHeight: "20px",
+								},
+							]}
+							menuIcon="plus"
+							colorVariant="primary"
+							menuiconWidth="12px"
+							menuiconHeight="12px"
+						></RdsFabMenu>
+						{/* <rds-fab-menu [listItems]="listItems1" [menuicon]="'plus'" [colorVariant]="'primary'" [menuiconWidth]="'12px'"
                         [menuiconHeight]="'12px'" (onSelect)="onSelectMenu($event)"></rds-fab-menu> */}
-                    </div>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-md-12">
-                    <div className="card border-0 py-2 px-4 h-100 rounded-0 card-full-stretch ">
-
-                        {/* <!--<ng-container *ngIf="currentAlerts&&currentAlerts.length>0">
+					</div>
+				</div>
+			</div>
+			<div className="row">
+				<div className="col-md-12">
+					<div className="card border-0 py-2 px-4 h-100 rounded-0 card-full-stretch ">
+						{/* <!--<ng-container *ngIf="currentAlerts&&currentAlerts.length>0">
                         <mfe-loader [config]="rdsAlertMfeConfig"></mfe-loader>
                         </ng-container>--> */}
                         <div>
@@ -124,14 +145,11 @@ const Settings = () => {
                         </RdsNavtabs>
                         {/* <rds-nav-tab [navtabsItems]="getNavtabItems()" [horizontalAlignment]="'start'" [verticalAlignment]="false"
                             [pills]="false" [tabs]="true" [fill]="false" [justified]="false" (onClicktab)="onClicktab($event)"></rds-nav-tab> */}
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+};
 
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    )
-}
-
-export default Settings
+export default Settings;
