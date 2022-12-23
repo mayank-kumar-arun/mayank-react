@@ -13,16 +13,16 @@ export interface RdsCompEditionListProps {
 		disabled?: boolean;
 		isEndUserEditing?: boolean;
 	}[];
-	actions: {
+	actions?: {
 		displayName: string;
 		id: string;
 	}[];
-	tableData: any[];
-	pagination: boolean;
+	tableData?: any[];
+	pagination?: boolean;
 	recordsPerPage?: number;
 	recordsPerPageSelectListOption?: boolean;
-	onActionSelection(arg: any): void;
-	onNewTenantClick(
+	onActionSelection?(arg: any): void;
+	onNewTenantClick?(
 		event: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
 	): void;
 }
@@ -33,10 +33,10 @@ const RdsCompEditionList = (props: RdsCompEditionListProps) => {
 				<RdsCompDatatable
 					tableHeaders={props.tableHeaders}
 					actions={props.actions}
-					tableData={props.tableData}
-					pagination={props.pagination}
+					tableData={props.tableData!}
+					pagination={props.pagination!}
 					recordsPerPage={props.recordsPerPage}
-					onActionSelection={props.onActionSelection}
+					onActionSelection={props.onActionSelection!}
 					recordsPerPageSelectListOption={props.recordsPerPageSelectListOption}
 				></RdsCompDatatable>
 			</div>

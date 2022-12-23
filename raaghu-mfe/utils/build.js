@@ -25,7 +25,7 @@ if (appConfig.replaceUrl == "true") {
 
   console.log('Changing URLs in .env file...');
   fs.copyFileSync(mfeFilePath, mfeFilePathTemp);
-  // console.log("file path mayank2",mfeConfigJSON)
+  console.log("file path mayank2",mfeConfigJSON)
 
   let portConfig = fs.readFileSync(portFilePath).toString();
   let portConfigJSON = portConfig.substring(portConfig.indexOf("{"), portConfig.lastIndexOf("}") +1);
@@ -69,12 +69,16 @@ if (appConfig.replaceUrl == "true") {
 
 for(const page of Object.keys(mfeConfigJSON)) {
   console.log(page)
-  execSync(`concurrently \"cd rds_pages\\${page} && npm run build\"`, { cwd: process.cwd(), stdio: 'inherit' });
+  if(page=='host'){
+    execSync(`concurrently \"cd rds_pages\\host && npm run build\"`, { cwd: process.cwd(), stdio: 'inherit' });
+  }else{
+    execSync(`concurrently \"cd rds_pages\\rds-page-${page} && npm run build\"`, { cwd: process.cwd(), stdio: 'inherit' });
+  }
 }
 
 for (const copy of Object.keys(mfeConfigJSON)){
   if(copy != 'host'){
-    fs.mkdir(`${pastepath}/${copy}`, (err)=>{
+    fs.mkdir(`${pastepath}/rds-page-${copy}`, (err)=>{
       if(err){
         console.log("directory building failed");
       }
@@ -82,7 +86,7 @@ for (const copy of Object.keys(mfeConfigJSON)){
         console.log(`${copy} folder created successfully `);
       }
     })
-    fs.readdir(`${copypath}/${copy}/dist`, (err, files) => {
+    fs.readdir(`${copypath}/rds-page-${copy}/dist`, (err, files) => {
       if (err) {
         // if there was an error, handle it here
       } else {
