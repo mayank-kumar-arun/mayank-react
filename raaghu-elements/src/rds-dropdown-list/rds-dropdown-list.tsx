@@ -76,7 +76,7 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
           }}
         >
           {props.listItems?.map((language: any, i: any) => (
-            <div>
+            <div key={i}>
               <a
                 id="i"
                 className="dropdown-item fab-dropdown-item d-flex"

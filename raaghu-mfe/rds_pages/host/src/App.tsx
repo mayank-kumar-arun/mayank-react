@@ -3,13 +3,14 @@ import React, { Suspense } from "react";
 import Main from "./Main";
 
 const App = () => {
-	return (
-		<div>
-			<Link to={"/forgot-password"}> hi</Link>
-
-			<Main />
-		</div>
-	);
+  return (
+    <Suspense fallback={null}>
+      <div>
+        <Link to={"/forgot-password"}> hi</Link>
+        <Main />
+      </div>
+    </Suspense>
+  );
 };
 
 export default App;
