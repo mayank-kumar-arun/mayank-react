@@ -14,6 +14,9 @@ const Template: ComponentStory<typeof RdsComporganizationTreeNew> = (args) => (
 export const Default = Template.bind({});
 
 Default.args = {
+  inputLabel: "Organization Tree",
+  AddUnitlabel: "Sub-Unit",
+  CanvasTitle: "Edit Organization Unit",
   data: [
     {
       key: "0",
@@ -73,7 +76,7 @@ Default.args = {
           title: "Documents Folder",
         },
         {
-          key: "0-0",
+          key: "1-1",
           label: "documennt-2.doc",
 
           title: "Documents Folder",

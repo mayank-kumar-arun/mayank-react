@@ -11,7 +11,7 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
 
   const modalContent = (
     <div className="text-center py-3 ">
-      <p>
+      <>
         <RdsIcon
           height="40px"
           width="40px"
@@ -20,13 +20,13 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
           stroke={true}
           colorVariant="danger"
         />
-      </p>
+      </>
       <h5 className="text-dark">
         <RdsLabel label="Are you sure ?" />
       </h5>
-      <p className="text-dark">
+      <span>
         <RdsLabel label="The record will be deleted permanently" />
-      </p>
+      </span>
       <div className="mt-5 d-flex justify-content-evenly">
         <RdsButton
           onClick={CancelClick}
