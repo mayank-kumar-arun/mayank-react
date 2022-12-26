@@ -29,35 +29,50 @@ const languageItems = [ {
 	iconHeight: "20px",
 },
 {
-	label: "French",
+	label: "Français",
 	val: "fr",
-	icon: "us",
+	icon: "fr",
 	iconWidth: "20px",
 	iconHeight: "20px",
-},]
+},
+{
+	label: "Deutsch",
+	val: "de",
+	icon: "de",
+	iconWidth: "20px",
+	iconHeight: "20px",
+},
+{
+	label: "Português (Brasil)",
+	val: "pt-BR",
+	icon: "br",
+	iconWidth: "20px",
+	iconHeight: "20px",
+},
+{
+	label: "Türkçe",
+	val: "tr",
+	icon: "tr",
+	iconWidth: "20px",
+	iconHeight: "20px",
+},
+{
+	label: "Italiano",
+	val: "it",
+	icon: "it",
+	iconWidth: "20px",
+	iconHeight: "20px",
+},
+]
 
 const Dashboard = (props: DashboardProps) => {
 
-	// const { i18n } = useTranslation();
-
 	useEffect(() => {
-		// if (localStorage.getItem("i18nextLng")?.length > 2) {
-		// 	i18next.changeLanguage("en");
-		//   }
 	}, []);
 
 	const onClickHandler=(e:any)=>{
 		console.log(e.target.getAttribute('data-name'));
-		// i18next.changeLanguage("fr");
-		// i18next.changeLanguage(languageCode);
-
 		i18n.changeLanguage(e.target.getAttribute('data-name'));
-		// if (typeof i18n.changeLanguage === 'function') {
-		// 	console.log("changeLanguage is a function")
-		//   } else {
-		// 	console.log("changeLanguage is not a function")
-		//   }
-		// console.log("Dashboard");
 	}
 
 

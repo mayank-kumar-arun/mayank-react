@@ -17,13 +17,23 @@ export interface RdsDropdownListProps {
 }
 
 const RdsDropdownList = (props: RdsDropdownListProps) => {
-  const [selectedOption, setSelectedOption] = useState(0);
-  const iconWidth = props.listItems;
+  // to fetch the index of the selected language
 
-  const onClickHandler = (index: number, val: string) => {
-    setSelectedOption(index);
-    console.log("Getting the val of language from dropdownlist", val);
-  };
+  const lang = localStorage.getItem("i18nextLng");
+  const index = props.listItems.findIndex((item) => item.val === lang);
+  console.log("This is the index of", index);
+
+  //  updating the selected language accordingly
+
+  const [selectedOption, setSelectedOption] = useState(index);
+
+    // using onClickHandler to change the language
+
+    const onClickHandler = (index: number, val: string) => {
+      setSelectedOption(index);
+    };
+
+  const iconWidth = props.listItems;
 
   return (
     <div>
@@ -81,10 +91,12 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
               <a
                 id={i}
                 data-name={language.val}
-                // name={language.val}
                 className="dropdown-item fab-dropdown-item d-flex"
                 onClick={props.onClick}
-                onMouseDown={() =>{ onClickHandler(i, language.val); }}
+                onMouseDown={() => {
+                  onClickHandler(i, language.val);
+                }}
+                style={{ cursor: "pointer" }}
               >
                 {language.icon && (
                   <RdsIcon
