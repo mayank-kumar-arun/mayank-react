@@ -92,7 +92,7 @@ for (const copy of Object.keys(mfeConfigJSON)){
       } else {
         // iterate over the files and copy each one
         files.forEach((file) => {
-          fs.copyFile(`${copypath}/${copy}/dist/${file}`, `${pastepath}/${copy}/${file}`, (err) => {
+          fs.copyFile(`${copypath}/rds-page-${copy}/dist/${file}`, `${pastepath}/rds-page-${copy}/${file}`, (err) => {
             if (err) {
               console.log(err)
             } else {
