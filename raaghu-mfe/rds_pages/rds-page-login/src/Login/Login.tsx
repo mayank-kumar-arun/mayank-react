@@ -48,6 +48,7 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
 	};
 
 	const forgotPasswordHandler: any = (isForgotPasswordClicked: boolean) => {
+		navigate("/forgot-password");
 		props.onForgotPassword(isForgotPasswordClicked);
 	};
 	return (
