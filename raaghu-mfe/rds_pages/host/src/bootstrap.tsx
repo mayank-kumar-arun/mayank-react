@@ -4,6 +4,8 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import {store} from '../../../libs/public.api';
 import { Provider } from 'react-redux';
+import "./i18n"
+
 ReactDOM.render(
 	<Provider store = {store}>
 		<div>

@@ -6,7 +6,6 @@ import Dashboard from "./Dashboard/Dashboard"
 
 const App = () => (
 	<Suspense>
-		
 		<Dashboard></Dashboard>				
 	</Suspense>
 );

@@ -1,5 +1,6 @@
 import React from "react";
 import { RdsWidget } from "../rds-elements";
+import {useTranslation} from "react-i18next";
 import {
 	RdsLineChart,
 	RdsBigNumber,
@@ -12,13 +13,16 @@ const RdsCompAdminDashboard = () => {
 	const monthlySummaryChartOptions = () => {
 		return;
 	};
+
+	const {t} = useTranslation();
+
 	return (
 		<div>
 			<div className="dark">
 				<div className="row">
 					<div className="col-md-6">
 						<RdsWidget
-							headerTitle={"Monthly Summary"}
+							headerTitle= {t("Monthly Summary")}
 							isRefreshRequired={true}
 							class="card-stretch"
 							colorVariant="white"
@@ -223,7 +227,7 @@ const RdsCompAdminDashboard = () => {
 							<div className="col-md-6">
 								<div>
 									<RdsWidget
-										headerTitle={"Sales"}
+										headerTitle={t("Sales")}
 										isRefreshRequired={false}
 										class="card-stretch-half"
 										colorVariant="white"
@@ -240,7 +244,7 @@ const RdsCompAdminDashboard = () => {
 								</div>
 								<div>
 									<RdsWidget
-										headerTitle={"Revenue"}
+										headerTitle={t("Revenue")}
 										isRefreshRequired={false}
 										bigNumber={"$9,72,900"}
 										colorVariant="primary"
@@ -257,7 +261,7 @@ const RdsCompAdminDashboard = () => {
 							</div>
 							<div className="col-md-6">
 								<RdsWidget
-									headerTitle={"Profit Share"}
+									headerTitle={t("Profit Share")}
 									isRefreshRequired={true}
 									colorVariant={"white"}
 									bigNumber={"$39,330.00"}
@@ -348,7 +352,7 @@ const RdsCompAdminDashboard = () => {
 							<div className="col-md-6">
 								<div>
 									<RdsWidget
-										headerTitle={"call Overview"}
+										headerTitle={t("Call Overview")}
 										isRefreshRequired={false}
 										colorVariant={"white"}
 									>
@@ -359,7 +363,7 @@ const RdsCompAdminDashboard = () => {
 														id="Boolean1"
 														height={100}
 														width={100}
-														labels={["Total Connected calls", "Total calls"]}
+														labels={[t("Total Calls Connected"), "Total Clients Called"]}
 														options={{
 															elements: {
 																center: {
@@ -428,7 +432,7 @@ const RdsCompAdminDashboard = () => {
 												<div className="ms-2">
 													<h5 className="custom-title">80%</h5>
 													<p className="custom-desc mb-0">
-														Total Calls Connected
+														{t("Total Calls Connected")}
 													</p>
 												</div>
 											</div>
@@ -511,7 +515,7 @@ const RdsCompAdminDashboard = () => {
 												<div className="ms-2">
 													<h5 className="custom-title">20%</h5>
 													<p className="custom-desc mb-0">
-														"Total Clients Called"
+														{t("Total Clients Called")}
 													</p>
 												</div>
 											</div>
@@ -520,7 +524,7 @@ const RdsCompAdminDashboard = () => {
 								</div>
 								<div>
 									<RdsWidget
-										headerTitle={"Sales"}
+										headerTitle={t("Sales")}
 										isRefreshRequired={false}
 										colorVariant={"white"}
 										subTitle="-$2203.00"
@@ -538,7 +542,7 @@ const RdsCompAdminDashboard = () => {
 
 							<div className="col-md-6">
 								<RdsWidget
-									headerTitle={"Daily Sales Growth"}
+									headerTitle={t("Daily Sales Growth")}
 									isRefreshRequired={true}
 									colorVariant={"white"}
 									class="border-0"
@@ -737,18 +741,18 @@ const RdsCompAdminDashboard = () => {
 					</div>
 					<div className="col-md-6">
 						<RdsWidget
-							headerTitle={"Member Activity"}
+							headerTitle={t("Member Activity")}
 							isRefreshRequired={true}
 							colorVariant={"white"}
 						>
 							<div>
 								<RdsTable
 									headerDatas={[
-										{ displayName: "Member", key: "member", dataType: "html" },
-										{ displayName: "Cases", key: "cases", dataType: "html" },
-										{ displayName: "Active", key: "active", dataType: "html" },
-										{ displayName: "Closed", key: "closed", dataType: "html" },
-										{ displayName: "Rate", key: "rate", dataType: "html" },
+										{ displayName: t("Member"), key: "member", dataType: "html" },
+										{ displayName: t("Cases"), key: "cases", dataType: "html" },
+										{ displayName: t("Active"), key: "active", dataType: "html" },
+										{ displayName: t("Closed"), key: "closed", dataType: "html" },
+										{ displayName: t("Rate"), key: "rate", dataType: "html" },
 									]}
 									tableDatas={[
 										{

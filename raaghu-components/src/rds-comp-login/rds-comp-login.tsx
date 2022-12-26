@@ -71,6 +71,8 @@ const RdsCompLogin: React.FC<RdsCompLoginProps> = (
 	// 	props.onForgotPassword(isForgotPasswordClicked);
 	// 	console.log(isForgotPasswordClicked);
 	// }, [isForgotPasswordClicked])
+
+
 	return (
 		<div>
 			<div style={{ textAlign: "center", paddingBottom: 48 }}>

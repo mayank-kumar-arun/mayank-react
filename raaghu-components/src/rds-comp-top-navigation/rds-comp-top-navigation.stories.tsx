@@ -65,28 +65,21 @@ Default.args = {
   languageItems: [
     {
       label: "EN(US)",
-      val: "us",
+      val: "en",
       icon: "us",
       iconWidth: "20px",
       iconHeight: "20px",
     },
     {
-      label: "Deutsch",
-      val: "de",
-      icon: "de",
-      iconWidth: "20px",
-      iconHeight: "20px",
-    },
-    {
       label: "English(IND)",
-      val: "in",
+      val: "en",
       icon: "in",
       iconWidth: "20px",
       iconHeight: "20px",
     },
     {
-      label: "English (Default)",
-      val: "us",
+      label: "French",
+      val: "fr",
       icon: "us",
       iconWidth: "20px",
       iconHeight: "20px",
