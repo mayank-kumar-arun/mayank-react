@@ -21,7 +21,6 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
 
   const lang = localStorage.getItem("i18nextLng");
   let index = props.listItems.findIndex((item) => item.val === lang);
-  console.log("This is the index of", index);
 
   //  If language not found then we are updating index to 0
 
