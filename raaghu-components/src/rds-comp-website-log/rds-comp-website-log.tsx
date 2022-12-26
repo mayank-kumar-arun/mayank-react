@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { RdsBadge, RdsPagination } from "../rds-elements";
 
 export interface RdsCompWebsiteLogProps {

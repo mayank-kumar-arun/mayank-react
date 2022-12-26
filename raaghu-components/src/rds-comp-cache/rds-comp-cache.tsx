@@ -7,9 +7,9 @@ import RdsCompAlertPopup from "../rds-comp-alert-popup/rds-comp-alert-popup";
 export interface RdsCacheProps {
   cachedata: any[];
   recordsperpage: number;
-  pagination: boolean;
+  pagination?: boolean;
   onclick: (event: React.MouseEvent<HTMLDivElement>, id: number) => void;
-  alignment: string;
+  alignment?: string;
 }
 
 const RdsCompCache = (props: RdsCacheProps) => {
