@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { MouseEventHandler, useState } from "react";
 import "bootstrap/dist/js/bootstrap.min.js";
 import RdsIcon from "../rds-icon";
 import "./rds-dropdown-list.scss";
@@ -13,6 +13,7 @@ export interface RdsDropdownListProps {
   }[];
   withBorder?: boolean;
   darkVariant?: boolean;
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 const RdsDropdownList = (props: RdsDropdownListProps) => {
@@ -78,9 +79,12 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
           {props.listItems?.map((language: any, i: any) => (
             <div key={i}>
               <a
-                id="i"
+                id={i}
+                data-name={language.val}
+                // name={language.val}
                 className="dropdown-item fab-dropdown-item d-flex"
-                onClick={() => onClickHandler(i, language.val)}
+                onClick={props.onClick}
+                onMouseDown={() =>{ onClickHandler(i, language.val); }}
               >
                 {language.icon && (
                   <RdsIcon
@@ -96,6 +100,7 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
                     marginLeft: "16px",
                     color: `${props.darkVariant ? "white" : "#212529"}`,
                   }}
+                  data-name={language.val}
                 >
                   {language.label}
                 </span>

@@ -1,37 +1,41 @@
 import React from 'react';
 import {RdsSideNav} from '../rds-elements'
+import { useTranslation } from "react-i18next";
 
 const RdsCompSideNavigation =() =>{
+
+    const {t} = useTranslation();
+
     return (
     <RdsSideNav sidenavItems={[{
-        label: "Dashboard",
+        label: t("Dashboard"),
         icon: "home",
         path: ""
     },
     {
-        label: "Tenant",
+        label: t("Tenant"),
         icon: "tenant",
         path: "tenant"
     },
     {
-        label: "Administration",
+        label: t("Administration"),
         icon: "administration",
         path: "administration",
         children: [
             {
-                label: "Role",
+                label: t("Role"),
                 icon: "roles",
                 pat: "role"
             },
             {
-                label: "Users",
+                label: t("Users"),
                 icon:"users",
                 path: "users"
             }
         ]
     },
     {
-        label: "DEMO Components",
+        label: t("DEMO Components"),
         icon: "demo_ui",
         path: "demoComponents"
     }]}></RdsSideNav>)

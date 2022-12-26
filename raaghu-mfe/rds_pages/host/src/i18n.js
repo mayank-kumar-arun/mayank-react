@@ -9,8 +9,9 @@ i18n.use(Backend)
   .init({
     backend: {
       // translation file path
-      loadPath: "./src/assets/i18n/{{ns}}/{{lng}}.json",
+      loadPath: "/assets/i18n/{{lng}}.json",
     },
+    
     fallbackLng: "en",
 
     // disabled in production
@@ -19,7 +20,6 @@ i18n.use(Backend)
     // can have multiple namespaces, in case you want to divide a
     // huge translation into smaller pieces and load them on demand
 
-    ns: ["common", "home", "profile"],
 
     interpolation: {
       espaceValue: false,

@@ -1,5 +1,11 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
+import i18n from "i18next";
+
+
+
 import {
 	RdsCompAdminDashboard,
 	RdsCompTopNavigation,
@@ -10,44 +16,63 @@ export interface DashboardProps {}
 
 const languageItems = [ {
 	label: "EN(US)",
-	val: "us",
+	val: "en",
 	icon: "us",
-	iconWidth: "20px",
-	iconHeight: "20px",
-},
-{
-	label: "Deutsch",
-	val: "de",
-	icon: "de",
 	iconWidth: "20px",
 	iconHeight: "20px",
 },
 {
 	label: "English(IND)",
-	val: "in",
+	val: "en",
 	icon: "in",
 	iconWidth: "20px",
 	iconHeight: "20px",
 },
 {
-	label: "English (Default)",
-	val: "us",
+	label: "French",
+	val: "fr",
 	icon: "us",
 	iconWidth: "20px",
 	iconHeight: "20px",
 },]
 
-const Dashboard = (props: DashboardProps) => (
+const Dashboard = (props: DashboardProps) => {
 
-	<Suspense>
-		<RdsCompTopNavigation
-			languageItems={languageItems}
-		></RdsCompTopNavigation>
-		<div style={{ display: "flex" }}>
-			<RdsCompSideNavigation></RdsCompSideNavigation>
-			<RdsCompAdminDashboard />
-		</div>
-	</Suspense>
-);
+	// const { i18n } = useTranslation();
+
+	useEffect(() => {
+		// if (localStorage.getItem("i18nextLng")?.length > 2) {
+		// 	i18next.changeLanguage("en");
+		//   }
+	}, []);
+
+	const onClickHandler=(e:any)=>{
+		console.log(e.target.getAttribute('data-name'));
+		// i18next.changeLanguage("fr");
+		// i18next.changeLanguage(languageCode);
+
+		i18n.changeLanguage(e.target.getAttribute('data-name'));
+		// if (typeof i18n.changeLanguage === 'function') {
+		// 	console.log("changeLanguage is a function")
+		//   } else {
+		// 	console.log("changeLanguage is not a function")
+		//   }
+		// console.log("Dashboard");
+	}
+
+
+	return (
+		<Suspense>
+			<RdsCompTopNavigation
+				languageItems={languageItems}
+				onClick={onClickHandler}
+			></RdsCompTopNavigation>
+			<div style={{ display: "flex" }}>
+				<RdsCompSideNavigation></RdsCompSideNavigation>
+				<RdsCompAdminDashboard />
+			</div>
+		</Suspense>
+	);
+}
 
 export default Dashboard;
