@@ -5,6 +5,8 @@ import {store, persistor} from '../../../libs/public.api';
 import { BrowserRouter } from "react-router-dom";
 import { Provider} from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import "../../host/src/i18n"
+
 ReactDOM.render(
 	<BrowserRouter>
 		<Provider store = {store}>

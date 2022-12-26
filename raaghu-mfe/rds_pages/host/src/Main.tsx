@@ -1,5 +1,7 @@
 import React, { Suspense, useEffect } from "react";
 import { Route, useNavigate, Routes, Navigate, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../libs/state-management";
 import {
@@ -61,6 +63,9 @@ const Main = () => {
 			iconHeight: "20px",
 		},
 	];
+
+	const {t} = useTranslation()
+
 	return (
 		<Suspense fallback="loading...">
 			{!accessToken && (

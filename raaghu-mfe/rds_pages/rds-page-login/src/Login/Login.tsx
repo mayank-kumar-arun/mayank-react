@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./Login.scss";
 import {
 	ValidateTenantName,
@@ -51,8 +52,12 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
 		navigate("/forgot-password");
 		props.onForgotPassword(isForgotPasswordClicked);
 	};
+
+	const {t} = useTranslation();
+	
 	return (
 		<div className="login-background">
+			{/* <h1>{t("hi")}</h1> */}
 			{/* {accessToken!=undefined && <h1>Loggedin</h1>} */}
 			<div
 				className="align-items-center d-flex justify-content-center login m-auto"
