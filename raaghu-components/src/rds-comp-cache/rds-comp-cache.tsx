@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./rds-comp-cache.scss";
-import {RdsIcon, RdsPagination} from "../rds-elements";
+import { RdsIcon, RdsPagination } from "../rds-elements";
 import { useEffect } from "react";
+import RdsCompAlertPopup from "../rds-comp-alert-popup/rds-comp-alert-popup";
 
 export interface RdsCacheProps {
   cachedata: any[];
@@ -12,8 +13,18 @@ export interface RdsCacheProps {
 }
 
 const RdsCompCache = (props: RdsCacheProps) => {
-  const [pagecache, setpagecache] = useState([props.cachedata]);
+  const [cache, setcache] = useState(props.cachedata);
+  const [pagecache, setpagecache] = useState(props.cachedata);
   const [records, setrecords] = useState(props.recordsperpage);
+
+  const deleteHandler = (i: any) => {
+    let tempCache = cache.filter((element: any, id: any) => {
+      if (element.id !== i) {
+        return element;
+      }
+    });
+    setcache(tempCache);
+  };
 
   const [rowStatus, setRowStatus] = useState({
     startingRow: 0,
@@ -21,7 +32,7 @@ const RdsCompCache = (props: RdsCacheProps) => {
   });
 
   useEffect(() => {
-    let tempCAche = props.cachedata.filter((element: any, i: number) => {
+    let tempCAche = cache.filter((element: any, i: number) => {
       if (i >= rowStatus.startingRow && i < rowStatus.endingRow) {
         return { element };
       } else {
@@ -30,15 +41,15 @@ const RdsCompCache = (props: RdsCacheProps) => {
     });
 
     setpagecache(tempCAche);
-  }, [rowStatus]);
+  }, [rowStatus, cache]);
 
-  const pagination = (currentPage: number, recordsPerPage: number) => {
+  const pagination: any = (currentPage: number, recordsPerPage: number) => {
     setRowStatus({
       startingRow: (currentPage - 1) * recordsPerPage, //0-index
       endingRow: currentPage * recordsPerPage, //considering that 1st element has '0' index
     });
 
-    let tempCache = props.cachedata.filter((element: any, i: number) => {
+    let tempCache = cache.filter((element: any, i: number) => {
       if (i >= rowStatus.startingRow && i < rowStatus.endingRow) {
         return { element };
       }
@@ -57,22 +68,35 @@ const RdsCompCache = (props: RdsCacheProps) => {
                 <div>{element.name}</div>
                 <div
                   className="icon"
-                  onClick={(event) => props.onclick(event, element.id)}
+                  // onClick={() => deleteHandler(element.id)}>
                 >
-                  <RdsIcon
+                  <RdsCompAlertPopup
+                    id={element.id}
+                    ondelete={() => deleteHandler(element.id)}
+                    alertbutton={
+                      <RdsIcon
+                        width="17px"
+                        height="17px"
+                        name="delete"
+                        stroke={true}
+                      ></RdsIcon>
+                    }
+                    // ondelete={() => deleteHandler(element.id)}
+                  ></RdsCompAlertPopup>
+                  {/* <RdsIcon
                     name="delete"
                     fill={false}
                     stroke={true}
                     height="17px"
                     width="17px"
-                  ></RdsIcon>
+                  ></RdsIcon> */}
                 </div>
               </div>
             ))}
           </div>
 
           <RdsPagination
-            totalRecords={props.cachedata.length}
+            totalRecords={cache.length}
             recordsPerPage={props.recordsperpage}
             paginationType="advance"
             alignmentType={props.alignment}
@@ -81,17 +105,22 @@ const RdsCompCache = (props: RdsCacheProps) => {
         </div>
       ) : (
         <div>
-          {props.cachedata.map((element: any, i) => (
+          {cache.map((element: any, i) => (
             <div key={i} className="contentbox border-bottom">
               <div>{element.name}</div>
               <div className="icon">
-                <RdsIcon
-                  name="delete"
-                  fill={false}
-                  stroke={true}
-                  height="17px"
-                  width="17px"
-                ></RdsIcon>
+                <RdsCompAlertPopup
+                  id={element.id}
+                  ondelete={() => deleteHandler(element.id)}
+                  alertbutton={
+                    <RdsIcon
+                      width="17px"
+                      height="17px"
+                      name="delete"
+                      stroke={true}
+                    ></RdsIcon>
+                  }
+                ></RdsCompAlertPopup>
               </div>
             </div>
           ))}

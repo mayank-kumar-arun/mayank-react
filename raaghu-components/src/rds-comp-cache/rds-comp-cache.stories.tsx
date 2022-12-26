@@ -23,18 +23,18 @@ export const Default = Template.bind({});
 
 Default.args = {
   cachedata: [
-    { name: "AbpUserSettingsCache" },
-    { name: "AbpZeroRolePermissions" },
-    { name: "AbpZeroTenantCache" },
-    { name: "AbpZeroEditionFeatures" },
-    { name: "AbpTenantSettingsCache" },
-    { name: "token_validity_key" },
-    { name: "AbpZeroMultiTenantLocalizationDictionaryCache" },
-    { name: "AspNet.Identity.SecurityStamp" },
-    { name: "TempFileCacheName" },
-    { name: "AbpApplicationSettingsCache" },
-    { name: "AbpZeroUserPermissions" },
-    { name: "AbpZeroLanguages" },
+    { name: "AbpUserSettingsCache", id: 1 },
+    { name: "AbpZeroRolePermissions", id: 2 },
+    { name: "AbpZeroTenantCache", id: 3 },
+    { name: "AbpZeroEditionFeatures", id: 4 },
+    { name: "AbpTenantSettingsCache", id: 5 },
+    { name: "token_validity_key", id: 6 },
+    { name: "AbpZeroMultiTenantLocalizationDictionaryCache", id: 7 },
+    { name: "AspNet.Identity.SecurityStamp", id: 8 },
+    { name: "TempFileCacheName", id: 9 },
+    { name: "AbpApplicationSettingsCache", id: 10 },
+    { name: "AbpZeroUserPermissions", id: 11 },
+    { name: "AbpZeroLanguages", id: 12 },
   ],
 };
 
