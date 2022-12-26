@@ -50,7 +50,7 @@ if (appConfig.replaceUrl == "true") {
           if (portConf == "host") {
             url = url.replace(/((http|https):\/\/localhost:)\d{4}/g, appConfig.appBaseUrl);
           } else {
-              url = url.replace(/((http|https):\/\/localhost:)\d{4}/g, appConfig.appBaseUrl + "/" + pathConf);
+              url = url.replace(/((http|https):\/\/localhost:)\d{4}/g, appConfig.appBaseUrl + "/" + "rds-page-"+ pathConf);
           }
           mfeConfigJSON[mfeConf].url = url;
           break;
