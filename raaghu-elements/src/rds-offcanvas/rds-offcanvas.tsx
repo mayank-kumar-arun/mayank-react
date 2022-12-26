@@ -9,6 +9,7 @@ export interface RdsOffcanvasProps {
   placement?: string;
   canvasTitle?: string;
   width?: string;
+  id?: string;
 
   onclick: (data: any) => void;
 }
@@ -32,7 +33,7 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
         style={{ cursor: "pointer" }}
         onClick={props.onclick}
         data-bs-toggle="offcanvas"
-        data-bs-target={`#${offcanvasPlacement}`}
+        data-bs-target={`#${offcanvasPlacement}${props.id}`}
         aria-controls={offcanvasPlacement}
       >
         {props.offcanvasbutton}
@@ -41,7 +42,7 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
       <div
         className={`offcanvas offcanvas-${props.placement}`}
         tabIndex={-1}
-        id={offcanvasPlacement}
+        id={`${offcanvasPlacement}${props.id}`}
         aria-labelledby={`${offcanvasPlacement}Label1`}
         style={{ width: props.width }}
       >
