@@ -19,6 +19,7 @@ const RdsComporganizationTreeNew = (props: RdsComporganizationTreeNewProps) => {
   function addunit(e: any, key: any): void {
     console.log("unit added");
     console.log(key);
+    console.log("data remain", Tdata);
   }
 
   return (
@@ -36,22 +37,29 @@ const RdsComporganizationTreeNew = (props: RdsComporganizationTreeNewProps) => {
             ></TreeNode>
           </>
         ))}
-        {hasChild && <div style={{ height: "40px" }}></div>}
+        {/* {hasChild && <div style={{ height: "40px" }}></div>} */}
       </ul>
-      {hasChild && (
-        <div className="add">
-          {" "}
-          <RdsButton
-            type={"button"}
-            icon={"Plus"}
-            size={"small"}
-            colorVariant={"primary"}
-            iconColorVariant={"light"}
-            label={props.AddUnitlabel}
-            onClick={(event) => addunit(event, Tdata[Tdata.length - 1])}
-          ></RdsButton>
-        </div>
-      )}
+
+      {/* <div>
+        {hasChild && (
+          <div>
+            <div className="add">
+              {" "}
+              {Tdata[Tdata.length - 1] && (
+                <RdsButton
+                  type={"button"}
+                  icon={"Plus"}
+                  size={"small"}
+                  colorVariant={"primary"}
+                  iconColorVariant={"light"}
+                  label={props.AddUnitlabel}
+                  onClick={(event) => addunit(event, Tdata[Tdata.length - 1])}
+                ></RdsButton>
+              )}
+            </div>
+          </div>
+        )}
+      </div> */}
     </>
   );
 };
@@ -89,23 +97,16 @@ const TreeNode = ({
       setnewData({ ...newData, label: name });
     }
 
-    // var tempData = newData.filter((element: any) => {
-    //   if (element.id === elementid) {
-    //     return { ...element, label: name };
-    //   } else {
-    //     return element;
-    //   }
-    // });
-
     console.log("New data", newData);
   };
 
-  function deleteunit(key: any): void {
+  const deleteunit = (key: any) => {
     console.log(key, "is being deleted");
     if (newData.key === key) {
+      console.log("newDatakey", newData.key);
       setnewData("");
     }
-  }
+  };
 
   return (
     <>
@@ -227,6 +228,7 @@ const TreeNode = ({
                   {"   "}
                   <div className="icon delete">
                     <RdsCompAlertPopup
+                      id={newData.key}
                       alertbutton={
                         <RdsIcon
                           name={"delete"}
@@ -241,11 +243,29 @@ const TreeNode = ({
                 </div>
               </div>
 
+              <div>
+                <div>
+                  <div className="add">
+                    {" "}
+                    <RdsButton
+                      type={"button"}
+                      icon={"Plus"}
+                      size={"small"}
+                      colorVariant={"primary"}
+                      iconColorVariant={"light"}
+                      label="add unit"
+                      // onClick={(event) => addunit(event, Tdata[Tdata.length - 1])}
+                    ></RdsButton>
+                  </div>
+                </div>
+              </div>
+
               {hasChild && (
                 <div>
                   <ul key={newData.key}>
                     <RdsComporganizationTreeNew
                       data={newData.children}
+                      key={newData.key}
                       inputLabel={inputlabel}
                       CanvasTitle={canvasTitle}
                       AddUnitlabel={addUnitlabel}
