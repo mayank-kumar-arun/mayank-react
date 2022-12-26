@@ -14,12 +14,11 @@ const Template: ComponentStory<typeof RdsModal> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  label: "Show Modal",
+  label: "button",
+  children: <div>hello</div>,
+  modalbutton: <button className="btn btn-primary">Default</button>,
   showModalHeader: true,
   showModalFooter: true,
-  iconname: "",
-  iconwidth: "",
-  iconheight: "",
   modalData: {
     modalHeader: "Header",
     modalContent: "Content",
@@ -29,11 +28,9 @@ Default.args = {
 export const LongContentModal = Template.bind({});
 LongContentModal.args = {
   label: "Long Content Modal",
+  modalbutton: <button className="btn btn-primary">Long Content Modal</button>,
   showModalHeader: true,
   showModalFooter: true,
-  iconname: "",
-  iconwidth: "",
-  iconheight: "",
   scrollable: true,
   modalData: {
     modalHeader: "Header",
@@ -45,11 +42,9 @@ LongContentModal.args = {
 export const StaticBackdrop = Template.bind({});
 StaticBackdrop.args = {
   label: "Backdrop Modal",
+  modalbutton: <button className="btn btn-primary">Backdrop Modal</button>,
   showModalHeader: true,
   showModalFooter: true,
-  iconname: "",
-  iconwidth: "",
-  iconheight: "",
   staticbackdrop: true,
   modalData: {
     modalHeader: "Header",
@@ -60,11 +55,11 @@ StaticBackdrop.args = {
 export const VerticallyCentered = Template.bind({});
 VerticallyCentered.args = {
   label: "Vertically Centered Modal",
+  modalbutton: (
+    <button className="btn btn-primary">Vertically Centered Modal</button>
+  ),
   showModalHeader: true,
   showModalFooter: true,
-  iconname: "",
-  iconwidth: "",
-  iconheight: "",
   verticallyCentered: true,
   modalData: {
     modalHeader: "Header",
