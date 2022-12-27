@@ -38,10 +38,10 @@ Pills.args = {
 export const Tabs = Template.bind({});
 Tabs.args = {
     navtabsItems: [
-        { label: 'Active', tablink: '#nav-home', ariacontrols: 'nav-home', subText: 'Active subtext' },
-        { label: 'Link', tablink: '#nav-profile', ariacontrols: 'nav-profile' },
-        { label: 'Link', tablink: '#nav-contact', ariacontrols: 'nav-contact', subText: 'Home subtext' },
-        { label: 'Disabled', tablink: '#nav-deabled', disabled: "true", subText: 'Disble subtext' },
+        { label: 'Active', tablink: '#nav-home', ariacontrols: 'nav-home', subText: 'Active subtext', id:"active" },
+        { label: 'Home', tablink: '#nav-profile', ariacontrols: 'nav-profile', id:"home" },
+        { label: 'About', tablink: '#nav-contact', ariacontrols: 'nav-contact', subText: 'Home subtext', id:"about" },
+        { label: 'Disabled', tablink: '#nav-deabled', disabled: "true", subText: 'Disble subtext', id:"disabled" },
     ],
     type: "tabs",
     fill: false,

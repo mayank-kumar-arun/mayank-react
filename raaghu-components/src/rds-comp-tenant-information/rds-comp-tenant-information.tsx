@@ -11,7 +11,7 @@ import "./rds-comp-tenant-information.scss";
 export interface RdsCompTenantInformationProps {
   editionList: any[];
   tenantData?: any[];
-  tenantInfo: React.EventHandler<any>;
+  tenantInfo: (next: boolean) => void;
   onCancel?: React.EventHandler<any>;
 }
 
@@ -36,12 +36,12 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
   const isEmailInputInvalid = isEnteredEmailInvalid && isEnteredEmailEmpty;
   const isFormValid =
     !isTenancyNameEmpty && !isTenantNameEmpty && !isEmailInputInvalid;
-  const next = (event: any) => {
-    if (!event || event.invalid) {
-      return;
-    }
-    props.tenantInfo({ tenant: props.tenantData, next: true });
-  };
+  // const next = (event: any) => {
+  //   if (!event || event.invalid) {
+  //     return;
+  //   }
+
+  // };
   const DatePicker = (start: any, end: any) => {};
   const [isUnlimitedSubscriptionChecked, setIsUnlimitedSubscriptionChecked] =
     useState(false);
@@ -50,21 +50,35 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
   const profilePicHandler = () => {
     inputFile.current.click();
   };
+  const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    setIsTenancyNameTouched(true);
+    setIsEmailTouched(true);
+    setIsTenantNameTouched(true);
+    if (!isFormValid) return;
+    props.tenantInfo(true);
+    setEnteredEmail("");
+    setEnteredTenancyName("");
+    setEnteredTenantName("");
+    setIsTenancyNameTouched(false);
+    setIsEmailTouched(false);
+    setIsTenantNameTouched(false);
+  };
   return (
     <div>
-      <input
-        type="file"
-        id="file"
-        ref={inputFile}
-        style={{ display: "none" }}
-      />
       <div className="tab-content py-4">
-        <form>
+        <form onSubmit={submitHandler}>
           <div className="row align-items-center">
             <div className="col-md-3 text-center cursor-pointer sm-p-0">
               <img src={img} onClick={profilePicHandler} />
 
-              <input type="file" accept="image/*" style={{ display: "none" }} />
+              <input
+                type="file"
+                id="file"
+                ref={inputFile}
+                style={{ display: "none" }}
+              />
             </div>
             <div className="col-md-9 sm-p-0">
               <div className="form-group mb-3">
@@ -167,28 +181,26 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
               </div>
             </div>
           )}
+          <div className="mt-3 d-flex">
+            <RdsButton
+              class="me-2"
+              tooltipTitle={""}
+              type={"button"}
+              label="Cancel"
+              colorVariant="outline-primary"
+              size="small"
+              databsdismiss="offcanvas"
+            ></RdsButton>
+            <RdsButton
+              class="me-2"
+              label="Next"
+              size="small"
+              colorVariant="primary"
+              tooltipTitle={""}
+              type={"submit"}
+            ></RdsButton>
+          </div>
         </form>
-      </div>
-      <div className="mt-3 d-flex">
-        <RdsButton
-          class="me-2"
-          tooltipTitle={""}
-          type={"button"}
-          label="Cancel"
-          colorVariant="outline-primary"
-          size="small"
-          databsdismiss="offcanvas"
-        ></RdsButton>
-        <RdsButton
-          class="me-2"
-          label="Next"
-          size="small"
-          isDisabled={!isFormValid}
-          colorVariant="primary"
-          tooltipTitle={""}
-          onClick={next}
-          type={"button"}
-        ></RdsButton>
       </div>
     </div>
   );
