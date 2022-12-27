@@ -10,3 +10,5 @@ export {default as RdsCompAlertPopup} from "./rds-comp-alert-popup/rds-comp-aler
 export {default as RdsCompUserManagement} from "./rds-comp-user-management/rds-comp-user-management";
 export {default as RdsCompOtherSettings} from "./rds-comp-other-settings/rds-comp-other-settings";
 export {default as RdsCompCache} from "./rds-comp-cache/rds-comp-cache"
+export {default as RdsCompTenantInformation} from "./rds-comp-tenant-information/rds-comp-tenant-information"
+export {default as RdsCompTenantSettings} from "./rds-comp-tenant-settings/rds-comp-tenant-settings"
