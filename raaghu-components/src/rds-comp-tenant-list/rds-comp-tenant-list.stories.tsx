@@ -12,7 +12,6 @@ export default {
 const Template: ComponentStory<typeof RdsCompTenantList> = (args) =>
   <RdsCompTenantList {...args} />;
 
-
 export const Default = Template.bind({});
 
 Default.args = {
