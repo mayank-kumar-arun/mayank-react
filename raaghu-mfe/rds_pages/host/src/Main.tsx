@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Route, useNavigate, Routes, Navigate, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
@@ -15,6 +15,7 @@ const ForgotPasswordCompo = React.lazy(
 	() => import("ForgotPassword/ForgotPassword")
 );
 const Main = () => {
+	const [isAuth, setIsAuth] = useState(false);
 	const navigate = useNavigate();
 	var accessToken: string | undefined = undefined;
 
@@ -25,8 +26,14 @@ const Main = () => {
 			var parsedCredentials = JSON.parse(credentials.login);
 			accessToken = parsedCredentials.accessToken;
 		}
+
+		console.log("this is access token", typeof accessToken);
+		// setIsAuth(true);
+		console.log(isAuth);
 		if (accessToken) {
-			navigate("/Dashboard");
+			setIsAuth(true);
+			console.log(accessToken);
+			navigate("/dashboard");
 		}
 	}, [accessToken]);
 
@@ -112,7 +119,7 @@ const Main = () => {
 					></Route>
 				</Routes>
 			)}
-			{accessToken && (
+			{isAuth && (
 				<div className="d-flex flex-column flex-root">
 					<div className="page d-flex flex-column flex-column-fluid">
 						<div className="header align-items-stretch">
@@ -144,7 +151,7 @@ const Main = () => {
 								id="FixedHeaderOverFlow"
 							>
 								<Routes>
-									<Route path="/Dashboard" element={<DashboardCompo />}></Route>
+									<Route path="/dashboard" element={<DashboardCompo />}></Route>
 								</Routes>
 							</div>
 						</div>
