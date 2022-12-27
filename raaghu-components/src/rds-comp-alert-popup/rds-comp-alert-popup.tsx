@@ -1,17 +1,17 @@
 import React from "react";
 import { RdsModal, RdsIcon, RdsButton, RdsLabel } from "../rds-elements";
 export interface RdsCompAlertPopupProps {
-  iconheight?: string;
-  iconname?: string;
-  iconwidth?: string;
-  delete?: React.MouseEventHandler<HTMLButtonElement>;
+  ondelete?: React.MouseEventHandler<HTMLButtonElement>;
+  alertbutton?: any;
+  label?: string;
+  id?: any;
 }
 const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
   const CancelClick = () => {};
 
   const modalContent = (
     <div className="text-center py-3 ">
-      <p>
+      <>
         <RdsIcon
           height="40px"
           width="40px"
@@ -20,13 +20,13 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
           stroke={true}
           colorVariant="danger"
         />
-      </p>
+      </>
       <h5 className="text-dark">
         <RdsLabel label="Are you sure ?" />
       </h5>
-      <p className="text-dark">
+      <span>
         <RdsLabel label="The record will be deleted permanently" />
-      </p>
+      </span>
       <div className="mt-5 d-flex justify-content-evenly">
         <RdsButton
           onClick={CancelClick}
@@ -49,7 +49,7 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
           colorVariant="primary"
           databsdismiss="modal"
           arialabel="close"
-          onClick={props.delete}
+          onClick={props.ondelete}
         />
       </div>
     </div>
@@ -57,14 +57,13 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
   return (
     <div>
       <RdsModal
+        id={props.id}
+        modalbutton={props.alertbutton}
         staticbackdrop={true}
-        label="Delete"
+        label={props.label}
         showModalHeader={false}
         showModalFooter={false}
         verticallyCentered={true}
-        iconheight={props.iconheight}
-        iconname={props.iconname}
-        iconwidth={props.iconwidth}
         modalData={{
           modalHeader: "Greetings",
           modalContent: modalContent,

@@ -14,7 +14,6 @@ const Template: ComponentStory<typeof RdsCompAlertPopup> = (args) => (
 export const Default = Template.bind({});
 
 Default.args = {
-  iconheight: "",
-  iconname: "",
-  iconwidth: "",
+  label: "alert",
+  alertbutton: <button className="btn btn-primary">Click here</button>,
 };

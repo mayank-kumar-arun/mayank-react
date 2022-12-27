@@ -3,55 +3,43 @@ import RdsIcon from "../rds-icon";
 import "./rds-modal.scss";
 
 export interface RdsModalProps {
-  label?: string;
   showModalFooter?: boolean;
   showModalHeader?: boolean;
   modalData?: any;
   scrollable?: boolean;
   staticbackdrop?: boolean;
   verticallyCentered?: boolean;
-  iconname?: string;
-  iconwidth?: any;
-  iconheight?: any;
+  modalbutton?: any;
+  label?: string;
+  children?: ReactNode;
+  id?: any;
 }
 
 const RdsModal = (props: RdsModalProps) => {
   return (
     <>
-      {props.iconname?.length === 0 && (
-        <button
-          type="button"
-          className="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target={`${
-            props.staticbackdrop ? "#staticBackdrop" : "#exampleModal"
-          }`}
-        >
-          {props.label}
-        </button>
-      )}
-
-      {props.iconname?.length !== 0 && (
-        <div
-          data-bs-toggle="modal"
-          data-bs-target={`${
-            props.staticbackdrop ? "#staticBackdrop" : "#exampleModal"
-          }`}
-        >
-          <RdsIcon
-            name={props.iconname!}
-            fill={false}
-            stroke={true}
-            width={props.iconwidth}
-            height={props.iconheight}
-          ></RdsIcon>
-        </div>
-      )}
+      <div
+        data-bs-toggle="modal"
+        data-bs-target={`${
+          props.staticbackdrop
+            ? `#staticBackdrop${props.id}`
+            : `#exampleModal${props.id}`
+        }`}
+      >
+        {props.label && (
+          <button className="btn btn-primary">{props.label}</button>
+        )}
+        {!props.label && props.modalbutton}
+      </div>
 
       {!props.staticbackdrop && (
         <div
           className="modal fade"
-          id={`${props.staticbackdrop ? "staticBackdrop" : "exampleModal"}`}
+          id={`${
+            props.staticbackdrop
+              ? `#staticBackdrop${props.id}`
+              : `#exampleModal${props.id}`
+          }`}
           // data-bs-backdrop={`${props.staticbackdrop?"static":""}`}
           // data-bs-keyboard={`${props.staticbackdrop?"false":"true"}`}
           tabIndex={-1}
@@ -86,7 +74,13 @@ const RdsModal = (props: RdsModalProps) => {
                   ></button>
                 </div>
               )}
-              <div className="modal-body">{props.modalData.modalContent}</div>
+
+              <div className="modal-body">
+                {props.children && props.children}
+
+                {!props.children && props.modalData.modalContent}
+              </div>
+
               {props.showModalFooter && (
                 <div className="modal-footer">
                   <button
@@ -108,7 +102,11 @@ const RdsModal = (props: RdsModalProps) => {
       {props.staticbackdrop && (
         <div
           className="modal fade"
-          id={`${props.staticbackdrop ? "staticBackdrop" : "exampleModal"}`}
+          id={`${
+            props.staticbackdrop
+              ? `staticBackdrop${props.id}`
+              : `exampleModal${props.id}`
+          }`}
           data-bs-backdrop="static"
           data-bs-keyboard="false"
           tabIndex={-1}

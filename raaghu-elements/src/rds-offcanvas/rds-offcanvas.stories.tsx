@@ -24,4 +24,5 @@ Default.args = {
   canvasTitle: "Canvas Title",
   width: "650px",
   offcanvasbutton: "press here",
+  id: "offcanvas",
 };
