@@ -64,7 +64,7 @@ const Main = () => {
 		},
 	];
 
-	const {t} = useTranslation()
+	const { t } = useTranslation();
 
 	return (
 		<Suspense fallback="loading...">
@@ -77,42 +77,45 @@ const Main = () => {
 					></Route>
 				</Routes>
 			)}
-			<div className="d-flex flex-column flex-root">
-				<div className="page d-flex flex-column flex-column-fluid">
-					<div className="header align-items-stretch">
-						<RdsCompTopNavigation
-							languageItems={languageItems}
-							brandName="raaghu"
-						></RdsCompTopNavigation>
-					</div>
-					<div
-						className="
+
+			{accessToken && (
+				<div className="d-flex flex-column flex-root">
+					<div className="page d-flex flex-column flex-column-fluid">
+						<div className="header align-items-stretch">
+							<RdsCompTopNavigation
+								languageItems={languageItems}
+								brandName="raaghu"
+							></RdsCompTopNavigation>
+						</div>
+						<div
+							className="
         d-flex
         flex-column-fluid
         align-items-stretch
         container-fluid
         px-0
         main-body"
-					>
-						<div className="aside" id="aside">
-							<div className="mx-2">
-								<RdsCompSideNavigation></RdsCompSideNavigation>
-								{/* <rds-side-nav [isPageWrapper]="true" [activeMenu]="activeMenu" [isLightMode]="isLightMode" 
+						>
+							<div className="aside" id="aside">
+								<div className="mx-2">
+									<RdsCompSideNavigation></RdsCompSideNavigation>
+									{/* <rds-side-nav [isPageWrapper]="true" [activeMenu]="activeMenu" [isLightMode]="isLightMode" 
 														(collapsedState)="onCollapse($event)" [collapseRequired]="collapseRequired" [sidenavItems]="getSideNavItems()"
 														(emitPath)="redirectPath($event)" (selectedMode)="toggleBetweenMode($event)"></rds-side-nav> */}
+								</div>
 							</div>
-						</div>
-						<div
-							className="wrapper d-flex flex-column flex-row-fluid rds-scrollable-wrapper pt-3 px-sm-0 px-lg-3 "
-							id="FixedHeaderOverFlow"
-						>
-							<Routes>
-								<Route path="/Dashboard" element={<DashboardCompo />}></Route>
-							</Routes>
+							<div
+								className="wrapper d-flex flex-column flex-row-fluid rds-scrollable-wrapper pt-3 px-sm-0 px-lg-3 "
+								id="FixedHeaderOverFlow"
+							>
+								<Routes>
+									<Route path="/Dashboard" element={<DashboardCompo />}></Route>
+								</Routes>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			)}
 		</Suspense>
 	);
 };

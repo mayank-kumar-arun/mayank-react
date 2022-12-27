@@ -56,16 +56,16 @@ const Maintainance = () => {
 		},
 	];
 
-	const onchangetabs = (e: any) => {
-		let tabId = e.target.value;
-		if (tabId == 0) {
-			setTabcache(true);
-			setWebsiteLog(false);
-		} else {
-			setTabcache(false);
-			setWebsiteLog(true);
-		}
-	};
+	// const onchangetabs = (e: any) => {
+	// 	let tabId = e.target.value;
+	// 	if (tabId == 0) {
+	// 		setTabcache(true);
+	// 		setWebsiteLog(false);
+	// 	} else {
+	// 		setTabcache(false);
+	// 		setWebsiteLog(true);
+	// 	}
+	// };
 	const Delete = () => {};
 	return (
 		<div>
@@ -160,6 +160,7 @@ const Maintainance = () => {
 							type={"tabs"}
 							fill={false}
 							justified={false}
+							// activeNavtabOrder={onchangetabs}
 						></RdsNavtabs>
 						{/* <rds-nav-tab [navtabsItems]="getNavTabItems()" horizontalAlignment="start" [verticalAlignment]="false"
 								[pills]="false" [tabs]="true" [fill]="false" [justified]="false" [flex]="false"
