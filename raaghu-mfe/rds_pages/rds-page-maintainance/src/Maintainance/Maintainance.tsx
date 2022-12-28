@@ -1,5 +1,9 @@
-import React, { useState } from "react";
-import { RdsCompWebsiteLog, RdsCompCache, RdsCompAlertPopup } from "../../../rds-components";
+import React, { useEffect, useRef, useState } from "react";
+import {
+	RdsCompWebsiteLog,
+	RdsCompCache,
+	RdsCompAlertPopup,
+} from "../../../rds-components";
 import "./Maintainance.scss";
 import {
 	RdsButton,
@@ -7,11 +11,18 @@ import {
 	RdsIcon,
 	RdsNavtabs,
 } from "../../../rds-elements";
-
+let cachedata = [
+	{ name: "AbpUserSettingsCache", id: 1 },
+	{ name: "AbpZeroRolePermissions", id: 2 },
+	{ name: "AbpZeroTenantCache", id: 3 },
+	{ name: "AbpZeroEditionFeatures", id: 4 },
+];
 const Maintainance = () => {
 	const [tabcache, setTabcache] = useState(true);
 	const [WebsiteLog, setWebsiteLog] = useState(false);
 	const [activeNavTabId, setActiveNavTabId] = useState("nav-cache");
+	const [cache, setcache] = useState(cachedata);
+
 	const listItems1 = [
 		{
 			value: "Clear All",
@@ -108,6 +119,36 @@ const Maintainance = () => {
 	};
 	const Delete = () => {};
 	const refreshData = () => {};
+
+	const DeleteAllCacheData = () => {
+		setcache([]);
+	};
+
+	const downloadcsv = () => {
+		const keys = Object.keys(websiteLogData[0]);
+		const csvString = websiteLogData
+			.map((row: any) => keys.map((key) => row[key]).join(","))
+			.join("\n");
+
+		// Create a hidden link element
+		const link = document.createElement("a");
+		link.style.display = "none";
+		link.setAttribute(
+			"href",
+			"data:text/csv;charset=utf-8," + encodeURIComponent(csvString)
+		);
+		link.setAttribute("download", "websiteLogs.csv");
+
+		// Append the link to the DOM
+		document.body.appendChild(link);
+
+		// Click the link to initiate the download
+		link.click();
+
+		// Remove the link from the DOM
+		document.body.removeChild(link);
+	};
+
 	return (
 		<div>
 			<div className="row">
@@ -115,25 +156,24 @@ const Maintainance = () => {
 					{tabcache && (
 						<div className="d-flex justify-content-end">
 							<div className="desktop-btn">
-								<RdsButton
-									type={"button"}
-									colorVariant="primary"
-									size="small"
-									tooltipPlacement="top"
-									label="CLEAR ALL"
-									icon="delete"
-									iconColorVariant="light"
-									iconHeight="15px"
-									iconWidth="15px"
-									iconFill={false}
-									iconStroke={true}
-						
-								></RdsButton>
-								<RdsCompAlertPopup id="modal"></RdsCompAlertPopup>
-								{/* <rds-button (click)="deletAllcasheConfirmation()" [id]="'yes'" [size]="'small'" [tooltipPlacement]="'top'"
-										[colorVariant]="'primary'" [label]="translate.instant('CLEAR ALL')">
-										<rds-icon left name="delete" width="15px" height="15px"></rds-icon>
-									</rds-button> */}
+								<RdsCompAlertPopup
+									alertbutton={
+										<RdsButton
+											type={"button"}
+											colorVariant="primary"
+											size="small"
+											tooltipPlacement="top"
+											label="CLEAR ALL"
+											icon="delete"
+											iconColorVariant="light"
+											iconHeight="15px"
+											iconWidth="15px"
+											iconFill={false}
+											iconStroke={true}
+										></RdsButton>
+									}
+									ondelete={DeleteAllCacheData}
+								></RdsCompAlertPopup>
 							</div>
 							<div
 								className="mobile-btn position-fixed bottom-0 end-0 my-5 me-5"
@@ -170,6 +210,7 @@ const Maintainance = () => {
 								<RdsButton
 									type={"button"}
 									label="DOWNLOAD ALL"
+									onClick={downloadcsv}
 									outlineButton={true}
 									colorVariant="primary"
 									tooltipPlacement="top"
@@ -181,13 +222,6 @@ const Maintainance = () => {
 									iconStroke={true}
 									iconColorVariant="primary"
 								></RdsButton>
-								{/* <rds-button type="button" [size]="'small'" [colorVariant]="'primary'" [roundedButton]="true"
-									icon="refresh" iconHeight="16px" iconWidth="16px" (click)="refreshData()" class="me-2">
-								</rds-button> */}
-								{/* <rds-button [id]="'yes'" [size]="'small'" [tooltipPlacement]="'top'" [colorVariant]="'primary'"
-									(click)="exportToExcel()" [label]="translate.instant('DOWNLOAD ALL')" [outlineButton]="true">
-									<rds-icon left name="download_collected_data" height="12px" width="12px"></rds-icon>
-								</rds-button> */}
 							</div>
 							<div
 								className="mobile-btn position-fixed bottom-0 end-0 my-5 me-5"
@@ -200,7 +234,6 @@ const Maintainance = () => {
 									menuiconHeight="12px"
 									menuiconWidth="12px"
 								></RdsFabMenu>
-								{/* <rds-fab-menu [listItems]="listItems2" [menuicon]="'plus'" [colorVariant]="'primary'" [menuiconWidth]="'12px'" [menuiconHeight]="'12px'" (onSelect)="onSelectMenu($event)"></rds-fab-menu> */}
 							</div>
 						</div>
 					)}
@@ -215,15 +248,7 @@ const Maintainance = () => {
 							justified={false}
 							activeNavTabId={activeNavTabId}
 							activeNavtabOrder={onchangetabs}
-							// (activeNavTabId) => {
-							// 	setActiveNavTabId(activeNavTabId), setWebsiteLog(false);
-							// }
-							// activeNavtabOrder={onchangetabs}
 						></RdsNavtabs>
-						{/* <rds-nav-tab [navtabsItems]="getNavTabItems()" horizontalAlignment="start" [verticalAlignment]="false"
-								[pills]="false" [tabs]="true" [fill]="false" [justified]="false" [flex]="false"
-								(onClicktab)="getnavtabid($event)">
-							</rds-nav-tab> */}
 						<div className="tab-content py-4" id="headerbar">
 							{activeNavTabId == "nav-cache" && (
 								<div
@@ -233,12 +258,7 @@ const Maintainance = () => {
 									aria-labelledby="nav-cache"
 								>
 									<RdsCompCache
-										cachedata={[
-											{ name: "AbpUserSettingsCache", id: 1 },
-											{ name: "AbpZeroRolePermissions", id: 2 },
-											{ name: "AbpZeroTenantCache", id: 3 },
-											{ name: "AbpZeroEditionFeatures", id: 4 },
-										]}
+										cachedata={cache}
 										recordsperpage={5}
 										pagination={true}
 										onclick={Delete}
@@ -247,7 +267,6 @@ const Maintainance = () => {
 								</div>
 							)}
 							{activeNavTabId == "nav-websiteLogs" && (
-
 								<RdsCompWebsiteLog
 									websiteLogData={websiteLogData}
 									pagination={true}
