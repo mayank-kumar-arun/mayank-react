@@ -12,3 +12,7 @@ export {default as RdsCompOtherSettings} from "./rds-comp-other-settings/rds-com
 export {default as RdsCompCache} from "./rds-comp-cache/rds-comp-cache"
 export {default as RdsCompTenantInformation} from "./rds-comp-tenant-information/rds-comp-tenant-information"
 export {default as RdsCompTenantSettings} from "./rds-comp-tenant-settings/rds-comp-tenant-settings"
+export {default as RdsCompWebhookSubscription} from "./rds-comp-webhook-subscriptions/rds-comp-webhook-subscriptions";
+export {default as RdsCompVisualSetting} from "./rds-comp-visual-setting/rds-comp-visual-setting";
+export {default as RdsCompDatatable} from "./rds-comp-data-table/rds-comp-data-table";
+
