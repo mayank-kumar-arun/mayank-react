@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { RdsCompWebsiteLog, RdsCompCache } from "../../../rds-components";
+import { RdsCompWebsiteLog, RdsCompCache, RdsCompAlertPopup } from "../../../rds-components";
 import "./Maintainance.scss";
 import {
 	RdsButton,
@@ -127,7 +127,9 @@ const Maintainance = () => {
 									iconWidth="15px"
 									iconFill={false}
 									iconStroke={true}
+						
 								></RdsButton>
+								<RdsCompAlertPopup id="modal"></RdsCompAlertPopup>
 								{/* <rds-button (click)="deletAllcasheConfirmation()" [id]="'yes'" [size]="'small'" [tooltipPlacement]="'top'"
 										[colorVariant]="'primary'" [label]="translate.instant('CLEAR ALL')">
 										<rds-icon left name="delete" width="15px" height="15px"></rds-icon>
@@ -223,9 +225,9 @@ const Maintainance = () => {
 								(onClicktab)="getnavtabid($event)">
 							</rds-nav-tab> */}
 						<div className="tab-content py-4" id="headerbar">
-							{activeNavTabId == "nav-cache" && WebsiteLog == false && (
+							{activeNavTabId == "nav-cache" && (
 								<div
-									className="tab-pane fade active show"
+									className=" fade active show"
 									id="nav-cache"
 									role="tabpanel"
 									aria-labelledby="nav-cache"
@@ -242,27 +244,18 @@ const Maintainance = () => {
 										onclick={Delete}
 										alignment={"end"}
 									></RdsCompCache>
-									{/* <app-cache [cashedata]="cashedata"></app-cache> */}
 								</div>
 							)}
+							{activeNavTabId == "nav-websiteLogs" && (
 
-							{activeNavTabId == "nav-websiteLogs" ||
-								(WebsiteLog == true && (
-									<div
-										className="tab-pane fade"
-										id="nav-websiteLogs"
-										role="tabpanel"
-										aria-labelledby="nav-websiteLogs"
-									>
-										<RdsCompWebsiteLog
-											websiteLogData={websiteLogData}
-											pagination={true}
-											alignmentType="end"
-											totalRecords={20}
-											recordsPerPage={10}
-										/>
-									</div>
-								))}
+								<RdsCompWebsiteLog
+									websiteLogData={websiteLogData}
+									pagination={true}
+									alignmentType="end"
+									recordsPerPage={5}
+									totalRecords={10}
+								/>
+							)}
 						</div>
 					</div>
 				</div>

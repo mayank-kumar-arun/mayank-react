@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta, addDecorator } from "@storybook/react";
 import RdsPageMaintainance from "./Maintainance";
 
 export default {
-	title: "Pages/Forgot Password",
+	title: "Pages/Maintainance",
 	component: RdsPageMaintainance,
 } as ComponentMeta<typeof RdsPageMaintainance>;
 
