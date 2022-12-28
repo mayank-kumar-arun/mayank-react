@@ -137,7 +137,7 @@ const Maintainance = () => {
 			"href",
 			"data:text/csv;charset=utf-8," + encodeURIComponent(csvString)
 		);
-		link.setAttribute("download", "websiteLogs.csv");
+		link.setAttribute("download", "operation_logs.csv");
 
 		// Append the link to the DOM
 		document.body.appendChild(link);
