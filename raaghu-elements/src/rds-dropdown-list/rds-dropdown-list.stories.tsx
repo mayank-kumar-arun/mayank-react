@@ -22,6 +22,58 @@ Default.args = {
     {
       label: "EN(US)",
       val: "en",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "English(IND)",
+      val: "en",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "Français",
+      val: "fr",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "Deutsch",
+      val: "de",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "Português (Brasil)",
+      val: "pt-BR",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "Türkçe",
+      val: "tr",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "Italiano",
+      val: "it",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+  ],
+};
+
+export const WithIcons = Template.bind({});
+
+WithIcons.args = {
+  width: "100px",
+  withBorder: true,
+  darkVariant: false,
+  listItems: [
+    {
+      label: "EN(US)",
+      val: "en",
       icon: "us",
       iconWidth: "20px",
       iconHeight: "20px",
