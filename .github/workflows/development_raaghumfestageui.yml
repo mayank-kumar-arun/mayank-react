@@ -49,13 +49,18 @@ jobs:
         run: |
           npm install
 
+      - name: npm install at raaghu-themes
+        working-directory: raaghu-themes
+        run: |
+          npm install
+
       - name: npm install, build, and test raaghu-mfe
         working-directory: raaghu-mfe
         run: |
           npm install --force
           npm run build
           cp web.config rds_pages/host/dist
-          
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
