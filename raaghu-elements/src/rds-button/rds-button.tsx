@@ -27,7 +27,10 @@ export interface RdsButtonProps {
 	type: "button" | "submit";
 	onClick?: React.MouseEventHandler<HTMLButtonElement>;
 	formName?: string;
-
+	iconHeight?: string;
+	iconWidth?: string;
+	iconFill?: boolean;
+	iconStroke?: boolean;
 	class?: string;
 	arialabel?: string;
 	databsdismiss?: string;
@@ -67,10 +70,10 @@ const RdsButton = (props: RdsButtonProps) => {
 									<RdsIcon
 										colorVariant={props.iconColorVariant}
 										name={props.icon}
-										fill={true}
-										stroke={true}
-										height="16px"
-										width="16px"
+										fill={props.iconFill}
+										stroke={props.iconStroke}
+										height={props.iconHeight}
+										width={props.iconWidth}
 									></RdsIcon>
 								</span>
 							)}
@@ -99,10 +102,10 @@ const RdsButton = (props: RdsButtonProps) => {
 								<RdsIcon
 									colorVariant={props.iconColorVariant}
 									name={props.icon}
-									fill={true}
-									stroke={true}
-									height="16px"
-									width="16px"
+									fill={props.iconFill}
+									stroke={props.iconStroke}
+									height={props.iconHeight}
+									width={props.iconWidth}
 								></RdsIcon>
 							</span>
 						)}

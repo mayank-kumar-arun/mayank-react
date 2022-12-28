@@ -35,7 +35,7 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
 	const navigate = useNavigate();
 	if (accessToken != undefined) {
 		getUserConfiguration("login");
-		navigate("/Dashboard");
+		navigate("/dashboard");
 	}
 
 	const loginHandler = (email: string, password: string) => {

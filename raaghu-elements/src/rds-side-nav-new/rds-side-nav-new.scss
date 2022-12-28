@@ -1,17 +1,15 @@
 @import '../style.scss';
 
-// #sidebar{
-//     height: 100vh;
-//     width: 290px;
-//     background-color: #F5F5FA;
-//     position: relative !important;
-// }
+#sidebar{
+    height: 95vh;
+    width: 290px;
+    background-color: #F5F5FA;
+    position: relative !important;
+}
 
 .sidebarList{
-    height: auto;
     padding:0;
     width:100%;
-    overflow-y: auto;
 }
 
 .sidebarList .listRow {
@@ -38,4 +36,9 @@
     position: absolute;
     top: 80%;
     left: 45%;
+}
+
+.routingLink{
+    all: unset;
+    text-decoration: none;
 }

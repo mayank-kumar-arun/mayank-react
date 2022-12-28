@@ -68,7 +68,6 @@ const RdsCompCache = (props: RdsCacheProps) => {
                 <div>{element.name}</div>
                 <div
                   className="icon"
-                  // onClick={() => deleteHandler(element.id)}>
                 >
                   <RdsCompAlertPopup
                     id={element.id}
@@ -81,15 +80,8 @@ const RdsCompCache = (props: RdsCacheProps) => {
                         stroke={true}
                       ></RdsIcon>
                     }
-                    // ondelete={() => deleteHandler(element.id)}
+                   
                   ></RdsCompAlertPopup>
-                  {/* <RdsIcon
-                    name="delete"
-                    fill={false}
-                    stroke={true}
-                    height="17px"
-                    width="17px"
-                  ></RdsIcon> */}
                 </div>
               </div>
             ))}
@@ -110,16 +102,17 @@ const RdsCompCache = (props: RdsCacheProps) => {
               <div>{element.name}</div>
               <div className="icon">
                 <RdsCompAlertPopup
-                  id={element.id}
-                  ondelete={() => deleteHandler(element.id)}
-                  alertbutton={
-                    <RdsIcon
-                      width="17px"
-                      height="17px"
-                      name="delete"
-                      stroke={true}
-                    ></RdsIcon>
-                  }
+                  // id={element.id}
+                  // ondelete={() => deleteHandler(element.id)}
+                  // alertbutton={
+                  //   <RdsIcon
+                  //     width="17px"
+                  //     height="17px"
+                  //     name="delete"
+                  //     stroke={true}
+                  //   ></RdsIcon>
+                  // }
+                  alertbutton="delete"
                 ></RdsCompAlertPopup>
               </div>
             </div>
