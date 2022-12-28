@@ -2,18 +2,18 @@ import App from "./App";
 import ReactDOM from "react-dom";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import {store} from '../../../libs/public.api';
-import { Provider } from 'react-redux';
-import "./i18n"
+import { store } from "../../../libs/public.api";
+import { Provider } from "react-redux";
+import "./index.scss";
+import "./i18n";
 
 ReactDOM.render(
-	<Provider store = {store}>
+	<Provider store={store}>
 		<div>
-		<BrowserRouter>
-		   <App />
-		</BrowserRouter>	
+			<BrowserRouter>
+				<App />
+			</BrowserRouter>
 		</div>
-	</Provider>
-	,
+	</Provider>,
 	document.getElementById("root")
 );
