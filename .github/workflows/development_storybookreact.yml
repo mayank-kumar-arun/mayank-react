@@ -22,6 +22,11 @@ jobs:
         with:
           node-version: "18.x"
 
+      - name: npm install at raaghu-themes
+        working-directory: raaghu-themes
+        run: |
+          npm install
+
       - name: build storybook
         run: |
           npm install --force
