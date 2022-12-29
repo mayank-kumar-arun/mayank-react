@@ -8,7 +8,7 @@ import {
 } from "../rds-elements";
 
 export interface RdsCompWebhookSubscriptionProps {
-  webhookItem?:(item:any)=>void
+  webhookItem?: (item: any) => void;
 }
 
 const RdsCompWebhookSubscription = (props: RdsCompWebhookSubscriptionProps) => {
@@ -102,23 +102,25 @@ const RdsCompWebhookSubscription = (props: RdsCompWebhookSubscriptionProps) => {
     isHeaderValueValid(user.headerValue) && isHeaderKeyValid(user.headerKey);
 
   const isFormValid =
-    isHeaderValueValid(user.headerValue) &&
-    isHeaderKeyValid(user.headerKey) &&
+    isEndpointValid(user.endpoint) &&
+    isEventValid(user.event) &&
     webhookheaderfile.length != 0;
 
   //****************handle Submit********************
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    props.webhookItem != undefined && props.webhookItem(user);
     setUser({
       ...user,
       endpoint: "",
       event: "",
-	  headerKey: "",
-	  headerValue: "",
+      headerKey: "",
+      headerValue: "",
     });
-    props.webhookItem!=undefined&&props.webhookItem(user)
+    setWebhookheaderfile([]);
   };
-  const onActionSelection = (clickEvent:any,
+  const onActionSelection = (
+    clickEvent: any,
     tableDataRow: any,
     tableDataRowIndex: number,
     action: { displayName: string; id: string }) => {
@@ -242,7 +244,6 @@ const RdsCompWebhookSubscription = (props: RdsCompWebhookSubscriptionProps) => {
               recordsPerPage={5}
               onActionSelection={onActionSelection}
               recordsPerPageSelectListOption={true}
-		
             ></RdsCompDatatable>
           )}
           <div className="row m-3 mt-5">

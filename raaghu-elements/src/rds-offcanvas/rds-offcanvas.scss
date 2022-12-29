@@ -1,1 +1,5 @@
-@import '../style.scss'
+@import '../style.scss' ;
+
+.offcanvas-backdrop.show {
+    opacity: 0.3 !important;
+}
