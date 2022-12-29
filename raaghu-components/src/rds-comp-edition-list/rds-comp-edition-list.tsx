@@ -40,7 +40,7 @@ const RdsCompEditionList = (props: RdsCompEditionListProps) => {
                     <span className="btn-text">NEW EDITION</span>
                 </RdsButton>
             </div>
-            <div className="col-md-12 pb-3 desktop-btn">
+          
                 <RdsCompDatatable
                     tableHeaders={props.tableHeaders}
                     actions={props.actions}
@@ -48,10 +48,9 @@ const RdsCompEditionList = (props: RdsCompEditionListProps) => {
                     pagination={props.pagination}
                     recordsPerPage={props.recordsPerPage}
                     onActionSelection={props.onActionSelection}
-                   
                     recordsPerPageSelectListOption={props.recordsPerPageSelectListOption}
                 ></RdsCompDatatable>
-        </div>
+      
         </div >
 
     );
