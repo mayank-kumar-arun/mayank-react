@@ -1,143 +1,165 @@
 import React, { useState } from "react";
-import { RdsInput, RdsButton, RdsRadioButton, RdsCounter } from "../rds-elements";
-export interface RdsCompEditionFeatureProps {
+import {
+  RdsInput,
+  RdsButton,
+  RdsRadioButton,
+  RdsCounter,
+  RdsDropdownList,
+} from "../rds-elements";
+import './rds-comp-edition-information.scss'
+export interface RdsCompEditionInformationProps {
+  // radioItems1: any[];
+  // radioItems2: any[];
   radioItems: any[];
-  sizeDataWithDescription: any[];
-  
+  sizeDataWithDescription?: any[];
+  editionInfo: (next: boolean) => void;
 }
-
-const RdsCompEditionFeature = (props: RdsCompEditionFeatureProps) => {
-  const [editionName, setEditionName] = useState("");
-  const [price, setPrice] = useState("");
-
-  const [error1, setError1] = useState("");
-  const [error2, setError2] = useState("");
-  const isEditionNameValid = (email: any) => {
-    if (!email || email.length === 0) {
-      return false;
-    }
-
-    return true;
+const RdsCompEditionInformation = (props: RdsCompEditionInformationProps) => {
+  const [values, setValues] = useState({
+    editionName: "",
+    annualPrice: "",
+  });
+  const [inputTouched, setInputTouched] = useState({
+    editionName: false,
+    annualPrice: false
+  });
+  const inputEmpty = {
+    editionName: (values.editionName.trim() === ""),
+    annualPrice: (values.annualPrice.trim() === "")
   };
-  const isPriceValid = (fullname: any) => {
-    if (!fullname || fullname.length === 0) {
-      return false;
-    }
-    return true;
+  const inputTouchedAndEmpty = {
+    editionName:(inputEmpty.editionName && inputTouched.editionName),
+    annualPrice: (inputEmpty.annualPrice && inputTouched.annualPrice)
+  }
+  const errorMessages = {
+    editionName: "Edition name cannot be empty",
+    annualPrice: "Annual Price cannot be empty"
+  }
+  const valuesHandler = (event: any) => {
+    const name = event.target.name;
+    const val = event.target.value;
+    setValues({ ...values, [name]: val });
   };
-  const namehandleChange = (event: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    if (!isEditionNameValid(event.target.value)) {
-      setError1("Email is invalid");
-    } else {
-      setError1("");
-    }
-    setEditionName(event.target.value);
-  };
-  const pricehandleChange = (event: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    if (!isPriceValid(event.target.value)) {
-      setError2("fullname is invalid");
-    } else {
-      setError2("");
-    }
-    setPrice(event.target.value);
-  };
-  const isFormValid = isEditionNameValid(editionName) && isPriceValid(price);
-
+  const inputTouchedHandler = (event: any) =>{
+    const name = event.target.name;
+    const val = true;
+    setInputTouched({ ...inputTouched, [name]: val });
+  }
+  const isFormValid = !inputEmpty.editionName && !inputEmpty.annualPrice;
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    //props.onLogin(email,fullname)
-    setEditionName("");
-    setPrice("");
+    setInputTouched({editionName:true, annualPrice:true});
+    if (!isFormValid) return;
+    props.editionInfo(true);
+    setValues({
+      editionName: "",
+      annualPrice: "",
+    });
   };
+  const editionDropdownListItems = [
+    {
+    label: "Standard",
+    val: "en",
+    },
+    {
+      label: "Basic",
+      val: "en",
+    },
+    {
+      label: "Premium",
+      val: "en",
+    },
+    {
+      label: "Professional",
+      val: "en",
+    },
+]
+  const [showEditionDropdown,setShowEditionDropdown] = useState(false);
+  console.log(showEditionDropdown);
   return (
     <>
-      <div>
+      <div className="py-4">
         {" "}
         <form onSubmit={handleSubmit}>
-          <div className="mt-1 row mb-3">
-            <div className="col-6" >
-            <RdsInput
-              label="Edition Name"
-              redAsteriskPresent={true}
-              placeholder="Edition Name"
-              inputType="text"
-              onChange={namehandleChange}
-              value={editionName}
-              name={"Edition Name"}
-            ></RdsInput>
-            {error1 && <span style={{ color: "red" }}>{error1}</span>}
-             </div>
-           
-             <div className="col-6" >
-            <RdsInput
-              label="Annual Price" 
-              redAsteriskPresent={true}
-              placeholder="Annual Price"
-              inputType="number"
-              onChange={pricehandleChange}
-              name={"Annual Price"}
-              value={price}
-            ></RdsInput>
-            {error2 && <span style={{ color: "red" }}>{error2}</span>}
+          <div className="row">
+            <div className="col-md-6 my-3">
+              <RdsInput
+                label="Edition Name"
+                redAsteriskPresent={true}
+                placeholder="Edition Name"
+                inputType="text"
+                onChange={valuesHandler}
+                onBlur = {inputTouchedHandler}         
+                name={"editionName"}
+              ></RdsInput>
+              {inputTouchedAndEmpty.editionName && <span className="error-msg-color">{errorMessages.editionName}</span>}
+            </div>
+            <div className="col-md-6 my-3">
+              <RdsInput
+                label="Annual Price"
+                redAsteriskPresent={true}
+                placeholder="Annual Price"
+                inputType="number"
+                onChange={valuesHandler}
+                onBlur = {inputTouchedHandler}
+                name={"annualPrice"}            
+              ></RdsInput>
+              {inputTouchedAndEmpty.annualPrice && <span className="error-msg-color">{errorMessages.annualPrice}</span>}
             </div>
           </div>
-      <div className="row "> 
-      <div className="col-6 p-2 text-left">
-        <RdsCounter  counterValue= {0}
-             label ="Trial Period"
-            min= {0}
-            max= {50}
-            width= {125}
-           colorVariant= "primary" 
-        />
-
-      </div>
-        <div className=" col-6 p-2 text-left">
-       
-         <RdsCounter  counterValue= {0}
-             label =" Expiry Notification Interval"
-            min= {0}
-            max= {50}
-            width= {125}
-           colorVariant= "primary" 
-        />
-        </div>
-      </div>
-
+          <div className="row">
+            <div className="col-md-6 px-2 my-3 ">
+              <RdsCounter
+                counterValue={0}
+                label="Trial Period"
+                min={0}
+                max={50}
+                width={125}
+                colorVariant="primary"
+              />
+            </div>
+            <div className=" col-md-6 px-2 my-3">
+              <RdsCounter
+                counterValue={0}
+                label=" Expiry Notification Interval"
+                min={0}
+                max={50}
+                width={125}
+                colorVariant="primary"
+              />
+            </div>
+          </div>
+          
           {props.radioItems.map((ritem: any, index:any) => (
-            <div className="mb-2 mt-2" key={index}>
+            <div className="my-3" key={index}>
               <label>{ritem.label}</label>
               <form> 
-              <RdsRadioButton itemList={ritem.itemList} inline={ritem.inline} id={ritem.id}/>
+              <RdsRadioButton displayType = "Horizontal" itemList={ritem.itemList} inline={ritem.inline} id={ritem.id}/>
               </form>
             </div>
           ))}
+          {showEditionDropdown && <div className="w-50">
 
-          <div className="row fixed-bottom m-3">
-            <div className="col-2">
+            <RdsDropdownList listItems = {editionDropdownListItems} withBorder = {true} width ="50%"/>
+          </div>}
+          <div className="my-4 d-flex">
             <RdsButton
+              class="me-2"
+              tooltipTitle={""}
+              type={"button"}
               label="Cancel"
-              colorVariant="primary"
-              block={true}
-              tooltipTitle={""}
-              type="submit"
-              outlineButton={true}
-            />
-            </div>
-            <div className="col-2">
+              colorVariant="outline-primary"
+              size="small"
+              databsdismiss="offcanvas"
+            ></RdsButton>
             <RdsButton
-              label="Save"
+              class="me-2"
+              label="Next"
+              size="small"
               colorVariant="primary"
-              isDisabled={!isFormValid}
-              block={true}
               tooltipTitle={""}
-              type="submit"
-            />
-             </div>
+              type={"submit"}
+            ></RdsButton>
           </div>
         </form>
       </div>
@@ -145,4 +167,4 @@ const RdsCompEditionFeature = (props: RdsCompEditionFeatureProps) => {
   );
 };
 
-export default RdsCompEditionFeature;
+export default RdsCompEditionInformation;
