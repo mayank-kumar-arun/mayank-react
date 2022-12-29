@@ -122,11 +122,6 @@ const RdsCompWebhookSubscription = (props: RdsCompWebhookSubscriptionProps) => {
     tableDataRow: any,
     tableDataRowIndex: number,
     action: { displayName: string; id: string }) => {
-	console.log("clickEvent  Clicked ",  clickEvent)
-	console.log("tableDataRow  Clicked ",  tableDataRow)
-	console.log("tableDataRowIndex  Clicked ",  tableDataRowIndex)
-	console.log("action  Clicked ",  action)
-
 	};
 
   const tableHeaders = [
@@ -135,7 +130,7 @@ const RdsCompWebhookSubscription = (props: RdsCompWebhookSubscriptionProps) => {
         key: "headerKey",
         datatype: "text",
         sortable: true,
-		isEndUserEditing:true, 
+	isEndUserEditing:true, 
       },
       {
         displayName: "Header Value",
@@ -146,8 +141,6 @@ const RdsCompWebhookSubscription = (props: RdsCompWebhookSubscriptionProps) => {
     ],
     actions = [{ id: "edit", displayName: "Edit" }];
   const additionalHeaderHandleSubmit = (event: any) => {
-	
-  
     webhookheaderfile.push({
       id: nextId++,
       headerKey: user.headerKey,
@@ -158,10 +151,7 @@ const RdsCompWebhookSubscription = (props: RdsCompWebhookSubscriptionProps) => {
          headerKey: "",
          headerValue: "",
         }));
-        console.log("from hndler", user);
   };
-
-console.log("from root", user);
 
   return (
     <>
