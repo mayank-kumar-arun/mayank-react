@@ -53,15 +53,15 @@ const RdsNavtabs = (props: RdsNavtabsProps) => {
       >
         {props.navtabsItems.map((navtabsItem) => (
           <li className="nav-item" key={navtabsItem.id}>
-            <a
-              className={
+            <a className={
                 "nav-link pe-4 ps-4 " +
                 (navtabsItem.id === activeTabKey ||
-                navtabsItem.id === props.activeNavTabId
-                  ? "active "
+                  navtabsItem.id === props.activeNavTabId
+                  ?( props.type === "tabs" ?" border-bottom border-primary border-3 text-primary ":" active") 
                   : "inactive") +
-                (navtabsItem.disabled ? "disabled " : "")
+                  (navtabsItem.disabled ? " disabled " : "")
               }
+  
               aria-current="page"
               data-bs-target={navtabsItem.tablink}
               aria-controls={navtabsItem.ariacontrols}
