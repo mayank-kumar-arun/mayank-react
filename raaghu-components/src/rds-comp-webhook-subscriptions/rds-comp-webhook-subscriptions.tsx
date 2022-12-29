@@ -1,186 +1,277 @@
-import React, { useState } from "react";
-import { RdsButton, RdsInput, RdsLabel, RdsTextArea } from "../rds-elements";
-export interface RdsCompWebhookSubscriptionProps {}
+import React, { useState, useEffect } from "react";
+import RdsCompDatatable from "../rds-comp-data-table/rds-comp-data-table";
+import {
+  RdsButton,
+  RdsIllustration,
+  RdsInput,
+  RdsTextArea,
+} from "../rds-elements";
+
+export interface RdsCompWebhookSubscriptionProps {
+  webhookItem?:(item:any)=>void
+}
+
 const RdsCompWebhookSubscription = (props: RdsCompWebhookSubscriptionProps) => {
-	const [endpoint, setEndpoint] = useState("");
-	const [event, setEvent] = useState("");
-	const [headerKey, setHeaderKey] = useState("");
-	const [headerValue, setHeaderValue] = useState("");
+  let nextId = 0;
+  const [webhookheaderfile, setWebhookheaderfile] = useState<any>([]);
+  const [user, setUser] = useState({
+    endpoint: "",
+    event: "",
+    headerKey: "",
+    headerValue: "",
+  });
+  const [error, setError] = useState({
+    endpoint: "",
+    event: "",
+    headerKey: "",
+    position: "",
+    headerValue: "",
+  });
 
-	const [error1, setError1] = useState("");
-	const [error2, setError2] = useState("");
-	const [error3, setError3] = useState("");
-	const [error4, setError4] = useState("");
+  //****************endPoint********************
+  const isEndpointValid = (endpoint: any) => {
+    if (!endpoint || endpoint.length === 0) {
+      return "empty";
+    } else if (
+      !/^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/i.test(
+        endpoint
+      )
+    ) {
+      return "notValid";
+    }
 
-	//****************endPoint********************
-	const isEndpointValid = (endpoint: any) => {
-		if (!endpoint || endpoint.length === 0) {
-			return false;
-		}
+    return "valid";
+  };
 
-		return true;
+  const isEventValid = (event: any) => {
+    if (!event || event.length === 0) {
+      return false;
+    }
+    return true;
+  };
+  const isHeaderKeyValid = (headerKey: any) => {
+    if (!headerKey || headerKey.length === 0) {
+      return false;
+    }
+    return true;
+  };
+  const isHeaderValueValid = (headerValue: any) => {
+    if (!headerValue || headerValue.length === 0) {
+      return false;
+    }
+    return true;
+  };
+
+  //****************endPoint********************
+  const endpointhandleChange = (event: any) => {
+    if (isEndpointValid(event.target.value) == "empty") {
+      setError({ ...error, endpoint: "Endpoint is required" });
+    } else if (isEndpointValid(event.target.value) == "notValid") {
+      setError({ ...error, endpoint: "Enter valid url" });
+    } else {
+      setError({ ...error, endpoint: "" });
+    }
+    setUser({ ...user, endpoint: event.target.value });
+  };
+
+  const eventhandleChange = (event: any) => {
+    if (!isEventValid(event.target.value)) {
+      setError({ ...error, event: "Event is required" });
+    } else {
+      setError({ ...error, event: "" });
+    }
+    setUser({ ...user, event: event.target.value });
+  };
+  const headerKeyhandleChange = (event: any) => {
+    if (!isHeaderKeyValid(event.target.value)) {
+      setError({ ...error, headerKey: "Header Key is required" });
+    } else {
+      setError({ ...error, headerKey: "" });
+    }
+    setUser({ ...user, headerKey: event.target.value });
+  };
+  const headerValuehandleChange = (event: any) => {
+    if (!isHeaderValueValid(event.target.value)) {
+      setError({ ...error, headerValue: "Header Value is required" });
+    } else {
+      setError({ ...error, headerValue: "" });
+    }
+    setUser({ ...user, headerValue: event.target.value });
+  };
+  const isHeaderFormValid =
+    isHeaderValueValid(user.headerValue) && isHeaderKeyValid(user.headerKey);
+
+  const isFormValid =
+    isHeaderValueValid(user.headerValue) &&
+    isHeaderKeyValid(user.headerKey) &&
+    webhookheaderfile.length != 0;
+
+  //****************handle Submit********************
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setUser({
+      ...user,
+      endpoint: "",
+      event: "",
+	  headerKey: "",
+	  headerValue: "",
+    });
+    props.webhookItem!=undefined&&props.webhookItem(user)
+  };
+  const onActionSelection = (clickEvent:any,
+    tableDataRow: any,
+    tableDataRowIndex: number,
+    action: { displayName: string; id: string }) => {
 	};
 
-	const isEventValid = (event: any) => {
-		if (!event || event.length === 0) {
-			return false;
-		}
-		return true;
-	};
-	const isHeaderKeyValid = (headerKey: any) => {
-		if (!headerKey || headerKey.length === 0) {
-			return false;
-		}
-		return true;
-	};
-	const isHeaderValueValid = (headerValue: any) => {
-		if (!headerValue || headerValue.length === 0) {
-			return false;
-		}
-		return true;
-	};
+  const tableHeaders = [
+      {
+        displayName: "Header Key",
+        key: "headerKey",
+        datatype: "text",
+        sortable: true,
+	isEndUserEditing:true, 
+      },
+      {
+        displayName: "Header Value",
+        key: "headerValue",
+        datatype: "text",
+        sortable: true,
+      },
+    ],
+    actions = [{ id: "edit", displayName: "Edit" }];
+  const additionalHeaderHandleSubmit = (event: any) => {
+    webhookheaderfile.push({
+      id: nextId++,
+      headerKey: user.headerKey,
+      headerValue: user.headerValue,
+    });
+    setUser((prev)=>({
+         ...prev,
+         headerKey: "",
+         headerValue: "",
+        }));
+  };
 
-	//****************endPoint********************
-	const endpointhandleChange = (event: {
-		target: { value: React.SetStateAction<string> };
-	}) => {
-		if (!isEndpointValid(event.target.value)) {
-			setError1("Endpoint is invalid");
-		} else {
-			setError1("");
-		}
-		setEndpoint(event.target.value);
-	};
+  return (
+    <>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <div className="fw-normal mt-1 mb-3">
+            <RdsInput
+              label="Webhook Endpoint"
+              redAsteriskPresent={true}
+              placeholder="https://example.com/postreceive"
+              inputType="url"
+              onChange={endpointhandleChange}
+              value={user.endpoint}
+              name={"endpoint"}
+            ></RdsInput>
+            {error.endpoint && (
+              <span style={{ color: "red" }}>{error.endpoint}</span>
+            )}
+          </div>
+          <div className="fw-normal mb-4">
+            <RdsTextArea
+              label="Webhook Event"
+              placeholder="carolyn Carpenter"
+              redAsteriskPresent={true}
+              onChange={eventhandleChange}
+              rows={4}
+              value={user.event}
+            />
+            {error.event && <span style={{ color: "red" }}>{error.event}</span>}
+          </div>
 
-	const eventhandleChange = (event: {
-		target: { value: React.SetStateAction<string> };
-	}) => {
-		if (!isEventValid(event.target.value)) {
-			setError2("Event is invalid");
-		} else {
-			setError2("");
-		}
-		setEvent(event.target.value);
-	};
-	const headerKeyhandleChange = (event: {
-		target: { value: React.SetStateAction<string> };
-	}) => {
-		if (!isHeaderKeyValid(event.target.value)) {
-			setError3("Header Key is invalid");
-		} else {
-			setError3("");
-		}
-		setHeaderKey(event.target.value);
-	};
-	const headerValuehandleChange = (event: {
-		target: { value: React.SetStateAction<string> };
-	}) => {
-		if (!isHeaderValueValid(event.target.value)) {
-			setError4("Header Value is invalid");
-		} else {
-			setError4("");
-		}
-		setHeaderValue(event.target.value);
-	};
+          <div className=" fw-normal row mb-3 mt-2">
+            <label className="mb-2">Additional Webhook Headers</label>
+            <div className="col-5 mb-3">
+              <RdsInput
+                placeholder="Header key"
+                inputType="text"
+                onChange={headerKeyhandleChange}
+                name={"headerKey"}
+                value={user.headerKey}
+              ></RdsInput>
+              {error.headerKey && (
+                <span style={{ color: "red" }}>{error.headerKey}</span>
+              )}
+            </div>
+            <div className="col-5 mb-3">
+              <RdsInput
+                placeholder="Header Value"
+                inputType="text"
+                onChange={headerValuehandleChange}
+                name={"headerValue"}
+                value={user.headerValue}
+              ></RdsInput>
+              {error.headerValue && (
+                <span style={{ color: "red" }}>{error.headerValue}</span>
+              )}
+            </div>
+            <div className="col-2 mb-3">
+              <RdsButton
+                label="ADD"
+                onClick={additionalHeaderHandleSubmit}
+                colorVariant="primary"
+                isDisabled={!isHeaderFormValid}
+                block={true}
+                tooltipTitle={""}
+                type="submit"
+              />
+            </div>
+          </div>
 
-	const isFormValid =
-		isHeaderValueValid(headerValue) &&
-		isHeaderKeyValid(headerKey) &&
-		isEndpointValid(endpoint) &&
-		isEventValid(event);
+          {webhookheaderfile.length == 0 && (
+            <div>
+              <RdsIllustration
+                label="Currently you do not have webhook header"
+                subLabel="Click on the button above to add"
+                colorVariant="light"
+              />{" "}
+            </div>
+          )}
 
-	//****************handle Submit********************
-	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-		event.preventDefault();
-		setEvent("");
-		setHeaderKey("");
-		setHeaderValue("");
-		setEndpoint(" ");
-	};
-	return (
-		<>
-			<div>
-				<form onSubmit={handleSubmit}>
-					<div className="fw-normal mt-1 mb-3">
-						<RdsInput
-							label="Webhook Endpoint"
-							redAsteriskPresent={true}
-							placeholder="https://example.com/postreceive"
-							inputType="text"
-							onChange={endpointhandleChange}
-							value={endpoint}
-							name={"endpoint"}
-						></RdsInput>
-						{error1 && <span style={{ color: "red" }}>{error1}</span>}
-					</div>
-					<div className="fw-normal mb-4">
-						<RdsTextArea
-							label="Webhook Event"
-							placeholder="carolyn Carpenter"
-							redAsteriskPresent={true}
-							onChange={eventhandleChange}
-							rows={4}
-							value={event}
-						/>
-						{error2 && <span style={{ color: "red" }}>{error2}</span>}
-					</div>
-					<div className=" fw-normal row" mb-3 mt-2>
-						<RdsLabel class="mb-0">Additional Webhook Headers</RdsLabel>
-						<div className="col-5 mb-3">
-							<RdsInput
-								placeholder="Header key"
-								inputType="text"
-								onChange={headerKeyhandleChange}
-								name={"headerKey"}
-								value={headerKey}
-							></RdsInput>
-							{error3 && <span style={{ color: "red" }}>{error3}</span>}
-						</div>
-						<div className="col-5 mb-3">
-							<RdsInput
-								placeholder="Header Value"
-								inputType="text"
-								onChange={headerValuehandleChange}
-								name={"headerValue"}
-								value={headerValue}
-							></RdsInput>
-							{error4 && <span style={{ color: "red" }}>{error4}</span>}
-						</div>
-						<div className="col-2 mb-3">
-							<RdsButton
-								label="ADD"
-								colorVariant="primary"
-								block={true}
-								tooltipTitle={""}
-								type="submit"
-							/>
-						</div>
-					</div>
-					<div className="row m-3">
-						<div className="col-2">
-							<RdsButton
-								label="Cancel"
-								colorVariant="primary"
-								block={true}
-								tooltipTitle={""}
-								type="submit"
-								outlineButton={true}
-							/>
-						</div>
-						<div className="col-2">
-							<RdsButton
-								label="Save"
-								colorVariant="primary"
-								isDisabled={!isFormValid}
-								block={true}
-								tooltipTitle={""}
-								type="submit"
-							/>
-						</div>
-					</div>
-				</form>
-			</div>
-		</>
-	);
+          {webhookheaderfile.length != 0 && (
+            <RdsCompDatatable
+              classes="table__userTable"
+              tableHeaders={tableHeaders}
+              actions={actions}
+              tableData={webhookheaderfile}
+              pagination={true}
+              recordsPerPage={5}
+              onActionSelection={onActionSelection}
+              recordsPerPageSelectListOption={true}
+		
+            ></RdsCompDatatable>
+          )}
+          <div className="row m-3 mt-5">
+            <div className="col-2">
+              <RdsButton
+                label="Cancel"
+                colorVariant="primary"
+                block={true}
+                tooltipTitle={""}
+                type="submit"
+                size="small"
+                outlineButton={true}
+              />
+            </div>
+            <div className="col-2">
+              <RdsButton
+                label="Save"
+                colorVariant="primary"
+                isDisabled={!isFormValid}
+                block={true}
+                tooltipTitle={""}
+                type="submit"
+                size="small"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </>
+  );
 };
 export default RdsCompWebhookSubscription;
