@@ -14,6 +14,7 @@ import RdsCompAlertPopup from "../rds-comp-alert-popup/rds-comp-alert-popup";
 export interface RdsCompDatatableProps {
   enablecheckboxselection?: boolean;
   classes?: string;
+  tableBordered?:boolean;
   tableHeaders: {
     displayName: string;
     key: string;
@@ -172,13 +173,13 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
     setData(sorted);
     sort = true;
   };
-  let Classes = props.classes || " table-hover table-bordered";
-
+  let Classes = props.classes || " table-hover";
+  const tableBordered = props.tableBordered?"table-bordered":"";
   return (
     <>
       <div className="RdsCompDataTable sm-datatable table-responsive">
         <table
-          className={`table h-100 ${Classes}`}
+          className={`table h-100 ${Classes} ${tableBordered}`}
           id="sortTable"
           width="400px"
         >

@@ -57,6 +57,7 @@ With_Pagination.args = {
     { id: "delete", displayName: "Delete" },
     { id: "edit", displayName: "Edit" },
   ],
+  tableBordered:true,
   pagination: true,
   recordsPerPage: 5,
   recordsPerPageSelectListOption: true,
