@@ -51,6 +51,7 @@ const RdsRadioButton = (props: RdsRadioButtonProps) => {
                 defaultChecked={item.checked}
                 id={item.id}
                 disabled={item.disabled}
+                onClick = {props.onClick}
               />
               <label htmlFor={item.id} className="ms-2 form-check-label">
                 {item.label}

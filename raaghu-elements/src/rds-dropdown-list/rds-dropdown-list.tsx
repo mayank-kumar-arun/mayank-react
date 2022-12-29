@@ -4,12 +4,13 @@ import RdsIcon from "../rds-icon";
 import "./rds-dropdown-list.scss";
 export interface RdsDropdownListProps {
   width?: string;
+  withIcons?: boolean;
   listItems: {
     label: string;
     val: string;
-    icon: string;
-    iconWidth: string;
-    iconHeight: string;
+    icon?: string;
+    iconWidth?: string;
+    iconHeight?: string;
   }[];
   withBorder?: boolean;
   darkVariant?: boolean;
@@ -24,7 +25,7 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
 
   //  If language not found then we are updating index to 0
 
-  if(index== -1){
+  if (index == -1) {
     index = 0;
   }
 
@@ -32,24 +33,23 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
 
   const [selectedOption, setSelectedOption] = useState(index);
 
-    // using onClickHandler to change the language
+  // using onClickHandler to change the language
 
-    const onClickHandler = (index: number, val: string) => {
-      setSelectedOption(index);
-    };
+  const onClickHandler = (index: number, val: string) => {
+    setSelectedOption(index);
+  };
 
   const iconWidth = props.listItems;
-
   return (
     <div>
       <div style={{ position: "relative" }}>
         <a
           data-bs-toggle="dropdown"
           aria-expanded="false"
-          style={{ textDecoration: "none", cursor: "pointer " }}
+          style={{ textDecoration: "none", cursor: "pointer ", paddingLeft:"0px" }}
         >
           <div
-            className="bDropdown d-flex align-items-center"
+            className="bDropdown d-flex align-items-center ps-2"
             style={{
               border: `${props.withBorder ? "" : "none"}`,
               background: `${props.darkVariant ? "#212529" : "white"}`,
@@ -58,28 +58,30 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
           >
             {props.listItems && props.listItems[0] && (
               <>
-                <RdsIcon
-                  name={props.listItems[selectedOption].icon}
-                  width="15px"
-                  height="15px"
-                  stroke={true}
-                  fill={false}
-                ></RdsIcon>
+                {props.listItems[selectedOption].icon && (
+     
+                    <RdsIcon
+                      name={props.listItems[selectedOption].icon}
+                      width="15px"
+                      height="15px"
+                      stroke={true}
+                      fill={false}
+                    ></RdsIcon>
+     
+                )}
                 <span className="ms-2 me-2 flex-grow-1">
                   {props.listItems[selectedOption].label}
                 </span>
               </>
             )}
-            <div className="">
-              <RdsIcon
-                name="chevron_down"
-                fill={false}
-                stroke={true}
-                height="15px"
-                width="15px"
-                colorVariant={`${props.darkVariant ? "light" : ""}`}
-              ></RdsIcon>
-            </div>
+            <RdsIcon
+              name="chevron_down"
+              fill={false}
+              stroke={true}
+              height="15px"
+              width="15px"
+              colorVariant={`${props.darkVariant ? "light" : ""}`}
+            ></RdsIcon>
           </div>
         </a>
 
@@ -96,7 +98,7 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
               <a
                 id={i}
                 data-name={language.val}
-                className="dropdown-item fab-dropdown-item d-flex"
+                className="dropdown-item fab-dropdown-item d-flex ps-0"
                 onClick={props.onClick}
                 onMouseDown={() => {
                   onClickHandler(i, language.val);
@@ -104,13 +106,16 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
                 style={{ cursor: "pointer" }}
               >
                 {language.icon && (
-                  <RdsIcon
-                    name={language.icon}
-                    height={language.iconWidth ? language.iconWidth : "20px"}
-                    width={language.iconWidth ? language.iconWidth : "20px"}
-                    fill={false}
-                    stroke={true}
-                  ></RdsIcon>
+                  <div className="ms-4">
+
+                    <RdsIcon
+                      name={language.icon}
+                      height={language.iconWidth ? language.iconWidth : "20px"}
+                      width={language.iconWidth ? language.iconWidth : "20px"}
+                      fill={false}
+                      stroke={true}
+                    ></RdsIcon>
+                  </div>
                 )}
                 <span
                   style={{
