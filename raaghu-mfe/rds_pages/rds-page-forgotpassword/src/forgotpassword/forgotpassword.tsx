@@ -1,4 +1,7 @@
 import React from "react";
+// To view for separetly forgot-password page please uncomment the below link
+// import "../../../../../raaghu-themes/themes/default.scss";
+
 import {
 	RootState,
 	AppDispatch,
@@ -7,7 +10,7 @@ import {
 	message,
 } from "../../../../libs/public.api";
 import { useSelector } from "react-redux";
-import {RdsCompForgotPassword} from "../../../rds-components"
+import { RdsCompForgotPassword } from "../../../rds-components";
 
 export interface ForgotPasswordProps {}
 

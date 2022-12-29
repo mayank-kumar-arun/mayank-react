@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect, useReducer } from "react";
 import "./rds-checkbox-parent-child.scss";
 

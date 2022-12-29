@@ -1,4 +1,4 @@
-import "bootstrap/dist/js/bootstrap.min.js";
+
 import React, { forwardRef, MouseEventHandler, useState } from "react";
 import "./rds-datepicker.scss";
 import DatePicker from "react-datepicker";

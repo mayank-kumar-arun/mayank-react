@@ -1,5 +1,5 @@
 import React, { MouseEventHandler, useState } from "react";
-import "bootstrap/dist/js/bootstrap.min.js";
+
 import RdsIcon from "../rds-icon";
 import "./rds-dropdown-list.scss";
 export interface RdsDropdownListProps {
