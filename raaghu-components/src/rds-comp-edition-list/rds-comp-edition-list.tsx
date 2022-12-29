@@ -32,6 +32,7 @@ const RdsCompEditionList = (props: RdsCompEditionListProps) => {
     return (
         <div className='row'>
 
+          
                 <RdsCompDatatable
 				enablecheckboxselection = {true}
                     tableHeaders={props.tableHeaders}
@@ -40,9 +41,9 @@ const RdsCompEditionList = (props: RdsCompEditionListProps) => {
                     pagination={props.pagination}
                     recordsPerPage={props.recordsPerPage}
                     onActionSelection={props.onActionSelection}
-                   
                     recordsPerPageSelectListOption={props.recordsPerPageSelectListOption}
                 ></RdsCompDatatable>
+      
         </div >
 
     );
