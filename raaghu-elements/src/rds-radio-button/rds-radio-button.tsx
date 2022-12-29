@@ -21,14 +21,14 @@ const RdsRadioButton = (props: RdsRadioButtonProps) => {
   let Inline = props.inline || false;
 
   let display_type = props.displayType || "Default";
-
+  
   let InputGroup1 = `${InputGroup === true ? "input-group-text" : ""} `;
   let Switch1 = `${Switch === true ? "form-switch" : ""} `;
   let Inline1 = `${
     Inline === true || display_type == "Horizontal" ? "form-check-inline" : ""
   } `;
   let state=props.state||'radio';//form-check-input-error
-
+ const radioButtonClass = props.displayType === "Horizontal"?"row":"";
   return (
     <>
       <div key={props.id} >
@@ -36,7 +36,11 @@ const RdsRadioButton = (props: RdsRadioButtonProps) => {
           <label className="d-flex">{props.label}</label>
          
           {state =="errorRadio" && <span className="error_Msg"> {props.errorMessage}</span>}
+          <div className = {radioButtonClass}>
+
           {props.itemList.map((item: any, idx: any) => (
+            <div className="col-md-6">
+
             <div
               key={idx}
               className={
@@ -51,13 +55,16 @@ const RdsRadioButton = (props: RdsRadioButtonProps) => {
                 defaultChecked={item.checked}
                 id={item.id}
                 disabled={item.disabled}
+                onClick = {props.onClick}
               />
               <label htmlFor={item.id} className="ms-2 form-check-label">
                 {item.label}
               </label>
             </div>
+            </div>
           ))}
         </div>
+      </div>
       </div>
     </>
   );

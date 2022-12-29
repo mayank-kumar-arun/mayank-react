@@ -28,8 +28,7 @@ export interface RdsCompEditionListProps {
 }
 const RdsCompEditionList = (props: RdsCompEditionListProps) => {
   return (
-    <div className="row">
-      <div className="col-md-12 pb-3 desktop-btn">
+    
         <RdsCompDatatable
           tableHeaders={props.tableHeaders}
           actions={props.actions}
@@ -39,8 +38,7 @@ const RdsCompEditionList = (props: RdsCompEditionListProps) => {
           onActionSelection={props.onActionSelection!}
           recordsPerPageSelectListOption={props.recordsPerPageSelectListOption}
         ></RdsCompDatatable>
-      </div>
-    </div>
+     
   );
 };
 export default RdsCompEditionList;

@@ -36,8 +36,8 @@ With_Pagination.args = {
     },
   ],
   tableData: [
-    { id: 1, editionName: "Standard", price: 60, trialPeriod: 5 },
-    { id: 2, editionName: "Basic", price: 120, trialPeriod: 10 },
+    { id: 1, editionName: "Standard", price: 60, trialPeriod: 5,  },
+    { id: 2, editionName: "Basic", price: 120, trialPeriod: 10 ,},
     { id: 3, editionName: "Premium", price: 250, trialPeriod: 5 },
     { id: 4, editionName: "Standard", price: 60, trialPeriod: 7 },
     { id: 5, editionName: "Basic", price: 100, trialPeriod: 15 },
@@ -57,6 +57,7 @@ With_Pagination.args = {
     { id: "delete", displayName: "Delete" },
     { id: "edit", displayName: "Edit" },
   ],
+  tableBordered:true,
   pagination: true,
   recordsPerPage: 5,
   recordsPerPageSelectListOption: true,
