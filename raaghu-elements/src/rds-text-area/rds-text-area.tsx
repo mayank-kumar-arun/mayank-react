@@ -44,6 +44,7 @@ const RdsTextArea = (props: RdsTextAreaProps) => {
 					placeholder={props.placeholder}
 					onChange={props.onChange}
 					onClick={props.onClick}
+					value={props.value}
 				></textarea>
 				{props.labelPosition === "bottom" && (
 					<label className="form-label mt-1">
