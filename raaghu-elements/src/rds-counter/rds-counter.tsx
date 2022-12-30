@@ -2,7 +2,6 @@ import React, { Fragment, useState } from "react";
 
 import { colors, placements } from "../../libs/types";
 import RdsButton from "../rds-button/rds-button";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./rds-counter.scss";
 
 export interface RdsCounterProps {

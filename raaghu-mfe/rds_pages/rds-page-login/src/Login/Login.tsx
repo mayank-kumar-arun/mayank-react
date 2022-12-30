@@ -21,7 +21,7 @@ import {
 } from "../../../../libs/public.api";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { RdsCompLogin } from "../../../rds-components";
+import RdsCompLogin from "../../../../../raaghu-components/src/rds-comp-login/rds-comp-login";
 
 export interface LoginProps {
 	onForgotPassword: (isForgotPasswordClicked?: boolean) => void;
@@ -53,8 +53,8 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
 		props.onForgotPassword(isForgotPasswordClicked);
 	};
 
-	const {t} = useTranslation();
-	
+	const { t } = useTranslation();
+
 	return (
 		<div className="login-background">
 			{/* <h1>{t("hi")}</h1> */}

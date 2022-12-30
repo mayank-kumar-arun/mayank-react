@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./rds-breadcrumb.scss";
 import RdsIcon from "../rds-icon";
 

@@ -1,6 +1,6 @@
 import React, { Fragment, ReactNode, useEffect, useState } from "react";
 import "./rds-navtabs.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import RdsIcon from "../rds-icon";
 
 export interface RdsNavtabsProps {

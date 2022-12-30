@@ -8,8 +8,6 @@ import {
 } from "../rds-elements";
 import './rds-comp-edition-information.scss'
 export interface RdsCompEditionInformationProps {
-  // radioItems1: any[];
-  // radioItems2: any[];
   radioItems: any[];
   sizeDataWithDescription?: any[];
   editionInfo: (next: boolean) => void;
@@ -23,6 +21,7 @@ const RdsCompEditionInformation = (props: RdsCompEditionInformationProps) => {
     editionName: false,
     annualPrice: false
   });
+  const [showEditionDropdown,setShowEditionDropdown] = useState(false);
   const inputEmpty = {
     editionName: (values.editionName.trim() === ""),
     annualPrice: (values.annualPrice.trim() === "")
@@ -74,12 +73,9 @@ const RdsCompEditionInformation = (props: RdsCompEditionInformationProps) => {
       val: "en",
     },
 ]
-  const [showEditionDropdown,setShowEditionDropdown] = useState(false);
-  console.log(showEditionDropdown);
   return (
     <>
       <div className="py-4">
-        {" "}
         <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-md-6 my-3">

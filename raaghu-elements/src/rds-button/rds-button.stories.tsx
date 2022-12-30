@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import RdsButton from "./rds-button";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import { colors } from "../../libs/types";
 
 export default {

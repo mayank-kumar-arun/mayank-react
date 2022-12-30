@@ -1,5 +1,5 @@
 import React from "react";
-import "bootstrap/dist/js/bootstrap.min.js";
+
 
 export interface RdsDropdownProps {
   colorVariant: string;
