@@ -1,5 +1,5 @@
 import React from "react";
-import "bootstrap/dist/js/bootstrap.min.js";
+
 import "./rds-file-uploader.scss";
 import { useState, useEffect } from "react";
 

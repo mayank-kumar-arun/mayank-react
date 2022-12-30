@@ -1,3 +1,4 @@
+
 import React from "react";
 import { ComponentStory, ComponentMeta, addDecorator } from "@storybook/react";
 import RdsPageEdition from "./edition";
@@ -12,6 +13,5 @@ const Template: ComponentStory<typeof RdsPageEdition> = (args) => (
   <RdsPageEdition {...args} />
 );
 
-export const Default = Template.bind({});
-
-Default.args = {};
+ export const Default = Template.bind({});
+ Default.args = {};

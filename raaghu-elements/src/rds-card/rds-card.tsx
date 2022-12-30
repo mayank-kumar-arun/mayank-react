@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { colors } from "../../libs/types";
-import "bootstrap/dist/css/bootstrap.min.css"
+
 import "./rds-card.scss"
 
 export interface RdsCardProps {

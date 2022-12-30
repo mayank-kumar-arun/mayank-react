@@ -1,12 +1,7 @@
 import React, { ReactNode, useState } from "react";
 import "./rds-button.scss";
 import { colors, placements } from "../../libs/types";
-// Bootstrap CSS
-import "bootstrap/dist/css/bootstrap.min.css";
-// Bootstrap Bundle JS
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import "bootstrap";
-import "bootstrap/dist/css/bootstrap.css";
+
 import Tooltip from "../rds-tooltip/rds-tooltip";
 import RdsIcon from "../rds-icon";
 

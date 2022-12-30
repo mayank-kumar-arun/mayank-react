@@ -14,6 +14,8 @@ const LoginCompo = React.lazy(() => import("Login/Login"));
 const ForgotPasswordCompo = React.lazy(
 	() => import("ForgotPassword/ForgotPassword")
 );
+// const MaintainanceCompo = React.lazy(() => import("Maintainance/Maintainance"));
+// const TenantCompo = React.lazy(() => import("rds-page-tenant/Tenant"));
 const Main = () => {
 	const [isAuth, setIsAuth] = useState(false);
 	const navigate = useNavigate();

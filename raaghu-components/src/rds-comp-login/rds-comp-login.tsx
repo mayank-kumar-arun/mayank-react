@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { RdsInput } from "../rds-elements";
-import { RdsButton } from "../rds-elements";
-import { RdsCheckbox } from "../rds-elements";
+// import { RdsInput } from "../rds-elements";
+// import { RdsButton } from "../rds-elements";
+import RdsButton from "../../../raaghu-elements/src/rds-button/rds-button";
+import RdsInput from "../../../raaghu-elements/src/rds-input/rds-input";
+import RdsCheckbox from "../../../raaghu-elements/src/rds-checkbox/rds-checkbox";
+// import { RdsCheckbox } from "../rds-elements";
 import "./rds-comp-login.scss";
 import { Navigate, NavigationType } from "react-router-dom";
 export interface RdsCompLoginProps {
@@ -71,7 +74,6 @@ const RdsCompLogin: React.FC<RdsCompLoginProps> = (
 	// 	props.onForgotPassword(isForgotPasswordClicked);
 	// 	console.log(isForgotPasswordClicked);
 	// }, [isForgotPasswordClicked])
-
 
 	return (
 		<div>
