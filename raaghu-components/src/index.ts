@@ -15,4 +15,10 @@ export {default as RdsCompTenantSettings} from "./rds-comp-tenant-settings/rds-c
 export {default as RdsCompWebhookSubscription} from "./rds-comp-webhook-subscriptions/rds-comp-webhook-subscriptions";
 export {default as RdsCompVisualSetting} from "./rds-comp-visual-setting/rds-comp-visual-setting";
 export {default as RdsCompDatatable} from "./rds-comp-data-table/rds-comp-data-table";
-
+export {default as RdsCompEditionList} from "./rds-comp-edition-list/rds-comp-edition-list";
+export {default as RdsCompEditionInformation} from "./rds-comp-edition-information/rds-comp-edition-information"
+export {default as RdsCompPermissionTree} from "./rds-comp-permission-tree/rds-comp-permission-tree"
+export {default as RdsCompTenantManagement} from "./rds-comp-tenant-management/rds-comp-tenant-management"
+export {default as RdsCompSecurity} from "./rds-comp-security/rds-comp-security"
+export {default as RdsCompEmail} from "./rds-comp-email/rds-comp-email"
+export {default as RdsCompInvoice} from "./rds-comp-invoice/rds-comp-invoice"
