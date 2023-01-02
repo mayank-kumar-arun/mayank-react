@@ -1,5 +1,5 @@
 import { intlFormatDistance } from "date-fns";
-import React, { useEffect, useState } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import RdsCompAlertPopup from "../rds-comp-alert-popup/rds-comp-alert-popup";
 import { RdsIcon, RdsButton, RdsOffcanvas, RdsInput } from "../rds-elements";
 import "./rds-comp-organization-tree-new.scss";
@@ -12,15 +12,31 @@ export interface RdsComporganizationTreeNewProps {
 }
 
 const RdsComporganizationTreeNew = (props: RdsComporganizationTreeNewProps) => {
+  const [Odata, setOdata] = useState(props.data);
   const [Tdata, setTdata] = useState(props.data);
 
   const hasChild = props.data.length === 0 ? false : true;
 
-  function addunit(e: any, key: any): void {
+  useLayoutEffect(() => {
+    console.log("parentjusrerendered");
+    console.log(props.data);
+    setTdata(props.data);
+  });
+
+  const addunit = (e: any, key: any) => {
     console.log("unit added");
     console.log(key);
-    console.log("data remain", Tdata);
-  }
+    console.log("data remain", Odata);
+    // setOdata([
+    //   ...Odata,
+    //   { key: "hello", label: "hello", title: "Documents Folder" },
+    // ]);
+  };
+
+  let name: string;
+  const onChange = (e: any) => {
+    name = e.target.value;
+  };
 
   return (
     <>
@@ -37,7 +53,7 @@ const RdsComporganizationTreeNew = (props: RdsComporganizationTreeNewProps) => {
             ></TreeNode>
           </>
         ))}
-        {/* {hasChild && <div style={{ height: "40px" }}></div>} */}
+        {hasChild && <div style={{ height: "40px" }}></div>}
       </ul>
 
       {/* <div>
@@ -46,15 +62,30 @@ const RdsComporganizationTreeNew = (props: RdsComporganizationTreeNewProps) => {
             <div className="add">
               {" "}
               {Tdata[Tdata.length - 1] && (
-                <RdsButton
-                  type={"button"}
-                  icon={"Plus"}
-                  size={"small"}
-                  colorVariant={"primary"}
-                  iconColorVariant={"light"}
-                  label={props.AddUnitlabel}
-                  onClick={(event) => addunit(event, Tdata[Tdata.length - 1])}
-                ></RdsButton>
+                <div>
+                  <div>
+                    {hasChild && (
+                      <div>
+                        <div className="add">
+                          {" "}
+                          {Tdata[Tdata.length - 1] && (
+                            <RdsButton
+                              type={"button"}
+                              icon={"Plus"}
+                              size={"small"}
+                              colorVariant={"primary"}
+                              iconColorVariant={"light"}
+                              label={props.AddUnitlabel}
+                              onClick={(event) =>
+                                addunit(event, Tdata[Tdata.length - 1])
+                              }
+                            ></RdsButton>
+                          )}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
               )}
             </div>
           </div>
@@ -78,6 +109,32 @@ const TreeNode = ({
   const [newData, setnewData] = useState(node);
   const [Edit, setEdit] = useState("");
   const hasChild = newData.children ? true : false;
+
+  const addunit = (e: any, key: any) => {
+    console.log("unit added");
+    console.log(key);
+    console.log("data remain", newData);
+
+    setnewData({
+      ...newData,
+      children: [
+        ...newData.children,
+        { key: "0-1-5", label: "Document-0-5.doc", title: "Documents Folder" },
+      ],
+    });
+
+    // setnewData([...newData.children, { key: "3-1", label: "hello", title: "Documents Folder" },
+    // ]);
+  };
+
+  useEffect(() => {
+    console.log(node);
+    console.log("child has rendered");
+  });
+
+  // useEffect(() => {
+  //   console.log("child console run", newData);
+  // }, newData);
 
   function editunit(key: any, label: any): void {
     console.log("edit value", Edit);
@@ -244,18 +301,23 @@ const TreeNode = ({
               </div>
 
               <div>
-                <div>
-                  <div className="add">
-                    {" "}
-                    <RdsButton
-                      type={"button"}
-                      icon={"Plus"}
-                      size={"small"}
-                      colorVariant={"primary"}
-                      iconColorVariant={"light"}
-                      label="add unit"
-                      // onClick={(event) => addunit(event, Tdata[Tdata.length - 1])}
-                    ></RdsButton>
+                <div className="add">
+                  {" "}
+                  <div>
+                    <div>
+                      <div className="add">
+                        {" "}
+                        <RdsButton
+                          type={"button"}
+                          icon={"Plus"}
+                          size={"small"}
+                          colorVariant={"primary"}
+                          iconColorVariant={"light"}
+                          label="hello"
+                          onClick={(event) => addunit(event, node.children)}
+                        ></RdsButton>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
