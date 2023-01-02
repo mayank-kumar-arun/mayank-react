@@ -15,7 +15,7 @@ module.exports = (env, argv) => {
     entry: "./src/index.ts",
     mode: process.env.NODE_ENV || "development",
     devServer: {
-      port: 8008,
+      port: 8007,
       open: true,
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -69,7 +69,7 @@ module.exports = (env, argv) => {
         filename: "remoteEntry.js",
         exposes: {
         // expose each page
-        "./Webhook": "./src/webhook/webhook"
+        "./VisualSetting": "./src/visualsetting/visualsetting"
       },
         shared: {
             ...devdeps,
