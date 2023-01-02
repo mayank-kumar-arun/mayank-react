@@ -11,3 +11,9 @@ declare module "raaghu-components/RdsCompOtherSettings" {
 
 	export default OtherSettingsComponent;
 }
+
+declare module "raaghu-components/RdsCompTenantManagement" {
+	const TenantManagementComponent: React.ComponentType;
+
+	export default TenantManagementComponent;
+}

@@ -19,5 +19,14 @@ export const PortConfig = {
 	},
 	"tenant":{
 		"port":"8006"
+	},
+	"visualSetting":{
+    "port":"8007"
+	},
+	"webhookSubscription":{
+    "port":"8008"
+	},
+	"auditLogs":{
+    "port":"8009"
 	}
 }
