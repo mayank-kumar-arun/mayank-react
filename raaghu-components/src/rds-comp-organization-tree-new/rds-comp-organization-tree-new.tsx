@@ -19,18 +19,16 @@ const RdsComporganizationTreeNew = (props: RdsComporganizationTreeNewProps) => {
 
   useLayoutEffect(() => {
     console.log("parentjusrerendered");
-    console.log(props.data);
-    setTdata(props.data);
+    setTdata(Odata);
   });
 
   const addunit = (e: any, key: any) => {
     console.log("unit added");
     console.log(key);
-    console.log("data remain", Odata);
-    // setOdata([
-    //   ...Odata,
-    //   { key: "hello", label: "hello", title: "Documents Folder" },
-    // ]);
+    setOdata([
+      ...Odata,
+      { key: "hello", label: "hello", title: "Documents Folder" },
+    ]);
   };
 
   let name: string;
@@ -56,7 +54,7 @@ const RdsComporganizationTreeNew = (props: RdsComporganizationTreeNewProps) => {
         {hasChild && <div style={{ height: "40px" }}></div>}
       </ul>
 
-      {/* <div>
+      <div>
         {hasChild && (
           <div>
             <div className="add">
@@ -70,11 +68,13 @@ const RdsComporganizationTreeNew = (props: RdsComporganizationTreeNewProps) => {
                           {" "}
                           {Tdata[Tdata.length - 1] && (
                             <RdsButton
+                              iconHeight="10px"
+                              iconWidth="10px"
+                              iconColorVariant="dark"
                               type={"button"}
                               icon={"Plus"}
                               size={"small"}
                               colorVariant={"primary"}
-                              iconColorVariant={"light"}
                               label={props.AddUnitlabel}
                               onClick={(event) =>
                                 addunit(event, Tdata[Tdata.length - 1])
@@ -90,7 +90,7 @@ const RdsComporganizationTreeNew = (props: RdsComporganizationTreeNewProps) => {
             </div>
           </div>
         )}
-      </div> */}
+      </div>
     </>
   );
 };
@@ -110,22 +110,22 @@ const TreeNode = ({
   const [Edit, setEdit] = useState("");
   const hasChild = newData.children ? true : false;
 
-  const addunit = (e: any, key: any) => {
-    console.log("unit added");
-    console.log(key);
-    console.log("data remain", newData);
+  // const addunit = (e: any, key: any) => {
+  //   console.log("unit added");
+  //   console.log(key);
+  //   console.log("data remain", newData);
 
-    setnewData({
-      ...newData,
-      children: [
-        ...newData.children,
-        { key: "0-1-5", label: "Document-0-5.doc", title: "Documents Folder" },
-      ],
-    });
+  //   setnewData({
+  //     ...newData,
+  //     children: [
+  //       ...newData.children,
+  //       { key: "0-1-5", label: "Document-0-5.doc", title: "Documents Folder" },
+  //     ],
+  //   });
 
-    // setnewData([...newData.children, { key: "3-1", label: "hello", title: "Documents Folder" },
-    // ]);
-  };
+  //   // setnewData([...newData.children, { key: "3-1", label: "hello", title: "Documents Folder" },
+  //   // ]);
+  // };
 
   useEffect(() => {
     console.log(node);
@@ -237,6 +237,51 @@ const TreeNode = ({
                     // onClick={(event) => editunit(event, node.key, node.label)}
                   >
                     {" "}
+                    <div className="plus">
+                      <RdsOffcanvas
+                        placement="end"
+                        canvasTitle={canvasTitle}
+                        width="500px"
+                        id={`${node.key}`}
+                        onclick={() => editunit(newData.key, newData.label)}
+                        offcanvasbutton={
+                          <RdsIcon
+                            name={"plus"}
+                            height="15px"
+                            width="17px"
+                            stroke={true}
+                          ></RdsIcon>
+                        }
+                      >
+                        <RdsInput
+                          label={inputlabel}
+                          labelPositon="top"
+                          id={newData.key}
+                          redAsteriskPresent={true}
+                          name={Edit}
+                          size="medium"
+                          onChange={onChange}
+                        ></RdsInput>
+                        <div
+                          className="d-flex"
+                          style={{ position: "absolute", bottom: "5%" }}
+                        >
+                          <div className="me-3">
+                            <RdsButton
+                              type={"button"}
+                              label="cancel"
+                              colorVariant="primary"
+                            ></RdsButton>
+                          </div>
+                          <RdsButton
+                            type={"button"}
+                            label="save"
+                            colorVariant="primary"
+                            onClick={() => onSaveHandler(newData.key)}
+                          ></RdsButton>
+                        </div>
+                      </RdsOffcanvas>{" "}
+                    </div>
                     <RdsOffcanvas
                       placement="end"
                       canvasTitle={canvasTitle}
@@ -300,7 +345,7 @@ const TreeNode = ({
                 </div>
               </div>
 
-              <div>
+              {/* <div>
                 <div className="add">
                   {" "}
                   <div>
@@ -320,7 +365,7 @@ const TreeNode = ({
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               {hasChild && (
                 <div>
