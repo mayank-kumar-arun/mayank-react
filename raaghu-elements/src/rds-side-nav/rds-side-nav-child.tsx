@@ -7,7 +7,7 @@ import "./rds-side-nav-new.scss";
 //   sideNavItemsNew: any[];
 // }
 
-const RdsSideNavNew = ({ data }: { data: any[] }) => {
+const RdsSideNavChild = ({ data }: { data: any[] }) => {
   return (
     <ul className="list-unstyled mb-0 py-2 px-4 h-100">
       {data && data.map((item) => <Node node={item}></Node>)}
@@ -22,29 +22,29 @@ const Node = ({ node }: { node: any }) => {
   return (
     <li style={{ cursor: "pointer" }} className="mb-2">
       {!hasChild && (
-          <Link
-            to={node.path}
-            className="routingLink d-inline-flex align-items-center text-decoration-none text-uppercase"
-          >
-            <div className="d-flex">
-              <div className="col">
-                <RdsIcon
-                  name={node.icon}
-                  fill={false}
-                  stroke={true}
-                  height="20px"
-                  width="20px"
-                  class="me-3"
-                ></RdsIcon>
-                {node.label}
-              </div>
+        <Link
+          to={node.path}
+          className="routingLink d-inline-flex align-items-center text-decoration-none text-uppercase"
+        >
+          <div className="d-flex">
+            <div className="col">
+              <RdsIcon
+                name={node.icon}
+                fill={false}
+                stroke={true}
+                height="20px"
+                width="20px"
+                class="me-3"
+              ></RdsIcon>
+              {node.label}
             </div>
-          </Link>
+          </div>
+        </Link>
       )}
 
       {hasChild && (
         <div
-          className="d-flex d-inline-flex align-items-center text-decoration-none text-uppercase"
+          className="text-decoration-none text-uppercase"
           onClick={(e) => setChildVisibility((v) => !v)}
         >
           <div className="col">
@@ -57,6 +57,14 @@ const Node = ({ node }: { node: any }) => {
               class="me-3"
             ></RdsIcon>
             {node.label}
+            <RdsIcon
+              name="chevron_down"
+              fill={false}
+              stroke={true}
+              height="10px"
+              width="10px"
+              class="ms-4 me-3"
+            ></RdsIcon>
           </div>
         </div>
       )}
@@ -64,7 +72,7 @@ const Node = ({ node }: { node: any }) => {
       {hasChild && childVisibility && (
         <div>
           <ul className="d-flex">
-            <RdsSideNavNew data={node.children}></RdsSideNavNew>
+            <RdsSideNavChild data={node.children}></RdsSideNavChild>
           </ul>
         </div>
       )}
@@ -72,4 +80,4 @@ const Node = ({ node }: { node: any }) => {
   );
 };
 
-export default RdsSideNavNew;
+export default RdsSideNavChild;
