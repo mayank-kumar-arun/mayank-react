@@ -16,5 +16,14 @@ export const PortConfig = {
 	},
 	"login":{
     "port":"8004"
+	},
+	"visualSetting":{
+    "port":"8007"
+	},
+	"webhookSubscription":{
+    "port":"8008"
+	},
+	"auditLogs":{
+    "port":"8009"
 	}
 }
