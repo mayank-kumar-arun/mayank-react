@@ -6,8 +6,8 @@ export interface RdsCompInvoiceProps {}
 const RdsCompInvoice = () => {
 	return (
 		<>
-			<div>
-				<h5 className="mt-1 mb-4"> Invoice Information</h5>
+			<div className="pt-4">
+				<h5 className="mt-1 mb-4">Invoice Information</h5>
 				<div className="mb-3">
 					<RdsInput label="Legal name" placeholder="Enter name" />
 				</div>

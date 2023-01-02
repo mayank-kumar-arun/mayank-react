@@ -27,11 +27,11 @@ const RdsCompTenantManagement = (props: RdsCompTenantManagementProps) => {
     },
 ];
   return (
-    <div>
+    <div className="mt-4">
         <div className="fw-medium">
           <RdsLabel label="Form-Based Registration"/>
         </div>
-        <div className="form-group py-2">
+        <div className="form-group py-2 fw-medium">
           <RdsCheckbox
             isDisabled={false}
             label="Allow Tenants To Register To The System."
@@ -44,7 +44,7 @@ const RdsCompTenantManagement = (props: RdsCompTenantManagementProps) => {
             Tenant Management Page
           </h6>
         </div>
-        <div className="form-group py-2">
+        <div className="form-group py-2 fw-medium">
           <RdsCheckbox
             isDisabled={false}
             label="New Registered Tenants Are Active By Default."
@@ -58,7 +58,7 @@ const RdsCompTenantManagement = (props: RdsCompTenantManagementProps) => {
           </h6>
         </div>
 
-        <div className="form-group py-2">
+        <div className="form-group py-2 fw-medium">
           <RdsCheckbox
             isDisabled={false}
             label="Use Security Image Question (Captcha) On Registration."

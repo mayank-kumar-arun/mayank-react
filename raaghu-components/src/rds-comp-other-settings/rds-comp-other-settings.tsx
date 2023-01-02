@@ -5,11 +5,11 @@ export interface RdsCompOtherSettingsProps {}
 const RdsCompOtherSettings = (props: RdsCompOtherSettingsProps) => {
 	return (
 		<ul className="ps-0 pt-4 list-unstyled">
-			<div className="fw-medium mb-3">
+			<div className="fw-medium mb-2">
 				<RdsLabel label="Quick Theme Selection"></RdsLabel>
 			</div>
 			<li>
-				<div className="form-group mb-3">
+				<div className="form-group mb-2">
 					<RdsCheckbox
 						label={"Is Quick Theme Select Enabled"}
 						checked={false}

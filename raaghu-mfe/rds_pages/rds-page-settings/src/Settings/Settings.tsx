@@ -11,14 +11,16 @@ import {
   RdsCompTenantManagement,
   RdsCompEmail,
   RdsCompInvoice,
+  RdsCompSecurity
 } from "../../../rds-components";
 interface RdsCompSettingsProps {}
 const navtabsItems = [
     { label: "Tenant Management", tablink: "#nav-home", id: 0 },
     { label: "User Management", tablink: "#nav-profile", id: 1 },
-    { label: "Email(SMTP)", tablink: "#nav-profile", id: 2 },
-    { label: "Invoice", tablink: "#nav-profile", id: 3 },
-    { label: "Other Settings", tablink: "#nav-profile", id: 4 },
+    { label: "Security", tablink: "#nav-profile", id: 2 },
+    { label: "Email(SMTP)", tablink: "#nav-profile", id: 3 },
+    { label: "Invoice", tablink: "#nav-profile", id: 4 },
+    { label: "Other Settings", tablink: "#nav-profile", id: 5 },
   ];
   const userManagementSettings = [
     {
@@ -77,6 +79,31 @@ const Settings = (props: RdsCompSettingsProps) => {
       label: "Professional",
       val: "en",
     },
+];
+const checkgroupList = [
+  {
+    "id": 1,
+    "label": "Require Digit",
+    "checked": false,
+    "disabled": false
+  },
+  {
+    "id": 2,
+    "label": "Require Lowercase",
+    "checked": false,
+    "disabled": false
+  },  {
+      "id": 3,
+      "label": "Require Non-Alphanumeric",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "id": 4,
+      "label": "Require Uppercase",
+      "checked": false,
+      "disabled": false
+    },
 ]
   return (
     <div className="tenant">
@@ -105,13 +132,16 @@ const Settings = (props: RdsCompSettingsProps) => {
       {activeNavTabId == 1 && (
         <RdsCompUserManagement Usermanagementsettings={userManagementSettings}/>
       )}
-       {activeNavTabId == 2 && (
-        <RdsCompEmail/>
+      {activeNavTabId == 2 && (
+        <RdsCompSecurity checkgroupList={checkgroupList}/>
       )}
        {activeNavTabId == 3 && (
-        <RdsCompInvoice/>
+        <RdsCompEmail/>
       )}
        {activeNavTabId == 4 && (
+        <RdsCompInvoice/>
+      )}
+       {activeNavTabId == 5 && (
         <RdsCompOtherSettings/>
       )}
     </div>
