@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import RdsSideNavMain from "./rds-side-nav-main";
+import RdsSideNavMain from "./rds-side-nav";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default {
@@ -38,7 +38,7 @@ Default.args = {
           key: "2-0",
           label: "Role",
           icon: "roles",
-          children: [{ key: "2-0-1", label: "Role", icon: "roles", path: "" }],
+          path:""
         },
         {
           key: "2-1",
