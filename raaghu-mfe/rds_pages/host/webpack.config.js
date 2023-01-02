@@ -111,7 +111,10 @@ module.exports = (env, argv) => {
 					Login: mfeConfigJSON["login"].url,
 					ForgotPassword: mfeConfigJSON["forgotpassword"].url,
 					Tenant: mfeConfigJSON["tenant"].url,
-					Maintainance: mfeConfigJSON["maintainance"].url
+					Maintainance: mfeConfigJSON["maintainance"].url,
+					WebhookSubscription: mfeConfigJSON["webhookSubscription"].url,
+					VisualSetting: mfeConfigJSON["visualSetting"].url,
+					Edition: mfeConfigJSON["edition"].url,
 				},
 				shared: {
 					...devdeps,

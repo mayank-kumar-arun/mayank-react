@@ -25,3 +25,22 @@ declare module "Tenant/Tenant" {
 	export default TenantComponent;
 }
 
+declare module "Edition/Edition" {
+	const EditionComponent: React.ComponentType;
+	export default EditionComponent;
+}
+
+declare module "WebhookSubscription/WebhookSubscription" {
+    const WebhookSubscriptionComponent: React.ComponentType;
+    export default WebhookSubscriptionComponent;
+}
+
+declare module "Settings/Settings" {
+	const SettingsComponent : React.ComponentType;
+	export default SettingsComponent;
+}
+
+declare module "VisualSetting/VisualSetting" {
+	const VisualSettingComponent : React.ComponentType;
+	export default VisualSettingComponent;
+}

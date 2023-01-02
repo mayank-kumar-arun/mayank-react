@@ -16,6 +16,14 @@ const ForgotPasswordCompo = React.lazy(
 );
 const MaintainanceCompo = React.lazy(() => import("Maintainance/Maintainance"));
 const TenantCompo = React.lazy(() => import("Tenant/Tenant"));
+const EditionCompo = React.lazy(() => import("Edition/Edition"));
+const WebhookSubscriptionCompo = React.lazy(
+	() => import("WebhookSubscription/WebhookSubscription")
+);
+const SettingsCompo = React.lazy(() => import("Settings/Settings"));
+const VisualSettingsCompo = React.lazy(
+	() => import("VisualSetting/VisualSetting")
+);
 const Main = () => {
 	const [isAuth, setIsAuth] = useState(false);
 	const navigate = useNavigate();
@@ -161,6 +169,24 @@ const Main = () => {
 									<Route
 										path="/tenant"
 										element={<TenantCompo></TenantCompo>}
+									></Route>
+									<Route
+										path="/edition"
+										element={<EditionCompo></EditionCompo>}
+									></Route>
+									<Route
+										path="/visual-setting"
+										element={<VisualSettingsCompo></VisualSettingsCompo>}
+									></Route>
+									<Route
+										path="/settings"
+										element={<SettingsCompo></SettingsCompo>}
+									></Route>
+									<Route
+										path="/webhook-subscription"
+										element={
+											<WebhookSubscriptionCompo></WebhookSubscriptionCompo>
+										}
 									></Route>
 								</Routes>
 							</div>
