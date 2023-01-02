@@ -15,13 +15,13 @@ declare module "ForgotPassword/ForgotPassword" {
     export default ForgotPasswordComponent;
 }
 
-// declare module "Maintainance/Maintainance" {
-// 	const MaintainanceComponent : React.ComponentType;
-// 	export default MaintainanceComponent;
-// }
+declare module "Maintainance/Maintainance" {
+	const MaintainanceComponent : React.ComponentType;
+	export default MaintainanceComponent;
+}
 
-// declare module "rds-page-tenant/Tenant" {
-// 	const TenantComponent : React.ComponentType;
-// 	export default TenantComponent;
-// }
+declare module "Tenant/Tenant" {
+	const TenantComponent : React.ComponentType;
+	export default TenantComponent;
+}
 

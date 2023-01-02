@@ -10,5 +10,11 @@ export const MfeConfig = {
 	},
 	"login":{
 		 "url":"login@http://localhost:8004/remoteEntry.js"
+	},
+	"tenant":{
+		"url":"tenant@http://localhost:8006/remoteEntry.js"
+	},
+	"maintainance":{
+		"url":"maintainance@http://localhost:8005/remoteEntry.js"
 	}
 }

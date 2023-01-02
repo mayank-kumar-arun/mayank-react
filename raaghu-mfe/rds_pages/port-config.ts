@@ -16,5 +16,8 @@ export const PortConfig = {
 	},
 	"login":{
     "port":"8004"
+	},
+	"tenant":{
+		"port":"8006"
 	}
 }

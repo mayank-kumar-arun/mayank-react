@@ -14,8 +14,8 @@ const LoginCompo = React.lazy(() => import("Login/Login"));
 const ForgotPasswordCompo = React.lazy(
 	() => import("ForgotPassword/ForgotPassword")
 );
-// const MaintainanceCompo = React.lazy(() => import("Maintainance/Maintainance"));
-// const TenantCompo = React.lazy(() => import("rds-page-tenant/Tenant"));
+const MaintainanceCompo = React.lazy(() => import("Maintainance/Maintainance"));
+const TenantCompo = React.lazy(() => import("Tenant/Tenant"));
 const Main = () => {
 	const [isAuth, setIsAuth] = useState(false);
 	const navigate = useNavigate();
@@ -154,6 +154,14 @@ const Main = () => {
 							>
 								<Routes>
 									<Route path="/dashboard" element={<DashboardCompo />}></Route>
+									<Route
+										path="/maintainance"
+										element={<MaintainanceCompo />}
+									></Route>
+									<Route
+										path="/tenant"
+										element={<TenantCompo></TenantCompo>}
+									></Route>
 								</Routes>
 							</div>
 						</div>

@@ -110,6 +110,8 @@ module.exports = (env, argv) => {
 					Dashboard: mfeConfigJSON["dashboard"].url,
 					Login: mfeConfigJSON["login"].url,
 					ForgotPassword: mfeConfigJSON["forgotpassword"].url,
+					Tenant: mfeConfigJSON["tenant"].url,
+					Maintainance: mfeConfigJSON["maintainance"].url
 				},
 				shared: {
 					...devdeps,
