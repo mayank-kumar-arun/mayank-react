@@ -1,1 +1,1 @@
-export {default} from './rds-side-nav'
+export {default} from "./rds-side-nav";
