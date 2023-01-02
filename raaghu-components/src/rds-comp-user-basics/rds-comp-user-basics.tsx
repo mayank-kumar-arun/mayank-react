@@ -20,16 +20,15 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
 
   let name, val;
   const handleChange = (event: any) => {
-
     name = event.target.name;
     val = event.target.value;
     setValues({ ...values, [name]: val });
   };
-  
-  const handleSubmit = (event:any) => {
+
+  const handleSubmit = (event: any) => {
     event.preventDefault();
-    let newRecord = {...values , id : new Date().getTime().toString()};
-    setRecords({...values , id : new Date().getTime().toString()});
+    let newRecord = { ...values, id: new Date().getTime().toString() };
+    setRecords({ ...values, id: new Date().getTime().toString() });
     setValues({
       name: "",
       surName: "",
@@ -37,9 +36,8 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
       phone: "",
       userName: "",
       password: "",
-      cnfPassword: "",  
+      cnfPassword: "",
     });
-    
   };
   const inputFile: any = useRef(null);
   const profilePicHandler = () => {
@@ -47,7 +45,7 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
   };
   return (
     <>
-    <input
+      <input
         type="file"
         id="file"
         ref={inputFile}

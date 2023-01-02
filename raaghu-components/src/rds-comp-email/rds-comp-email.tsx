@@ -23,7 +23,7 @@ const RdsCompEmail = (props: RdsCompEmailProps) => {
 	};
 
 	return (
-		<>
+		<div className="pt-4">
 			<form className="RdsCompEmail__form">
 				<div className="row mb-3">
 					<div className="col-md-6 col-sm-6 col-lg-6">
@@ -98,7 +98,7 @@ const RdsCompEmail = (props: RdsCompEmailProps) => {
 					</div>
 				</div>
 
-				<div className="row mb-3">
+				<div className="row mb-3 align-items-end">
 					<div className="col-md-6 col-sm-6 col-lg-6">
 						<div className="form-group">
 							<RdsLabel
@@ -122,7 +122,7 @@ const RdsCompEmail = (props: RdsCompEmailProps) => {
 					</div>
 				</div>
 			</form>
-		</>
+		</div>
 	);
 };
 
