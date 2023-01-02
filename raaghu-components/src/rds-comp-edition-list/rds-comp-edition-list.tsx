@@ -32,16 +32,9 @@ const RdsCompEditionList = (props: RdsCompEditionListProps) => {
     return (
         <div className='row'>
 
-            <div className="col-md-12 text-end pb-3 desktop-btn">
-                <RdsButton type="button" aria-controls="addEdition" colorVariant='primary' onClick={props.onNewTenantClick}>
-                    <span className="me-2">
-                        <RdsIcon name={"plus"} height="12px" width="12px" stroke={true} colorVariant='light' />
-                    </span>
-                    <span className="btn-text">NEW EDITION</span>
-                </RdsButton>
-            </div>
           
                 <RdsCompDatatable
+				enablecheckboxselection = {true}
                     tableHeaders={props.tableHeaders}
                     actions={props.actions}
                     tableData={props.tableData}

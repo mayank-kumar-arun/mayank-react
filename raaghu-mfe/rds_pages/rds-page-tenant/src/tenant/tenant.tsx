@@ -438,7 +438,7 @@ const Tenant = (props: RdsPageTenantProps) => {
           />
         )}
         {(activeNavTabId == 1 || showTenantSettings == true) && (
-          <RdsCompTenantSettings />
+          <RdsCompTenantSettings showEditData = {true}/>
         )}
       </RdsOffcanvas>
       <RdsCompTenantList
