@@ -124,24 +124,16 @@ const Main = () => {
       {isAuth && (
         <div className="d-flex flex-column flex-root">
           <div className="page d-flex flex-column flex-column-fluid">
-            <div className="header align-items-stretch">
+            <div className="header align-items-stretch fixed-top" style={{position: "fixed"}}>
               <RdsCompTopNavigation
                 languageItems={languageItems}
                 brandName="raaghu"
                 onClick={onClickHandler}
               ></RdsCompTopNavigation>
             </div>
-            <div className="d-flex flex-column-fluid align-items-stretch container-fluid px-0 main-body">
-              <div
-                className="aside"
-                id="aside"
-              >
-                <div className="mx-2">
-                  <RdsCompSideNavigation></RdsCompSideNavigation>
-                  {/* <rds-side-nav [isPageWrapper]="true" [activeMenu]="activeMenu" [isLightMode]="isLightMode" 
-														(collapsedState)="onCollapse($event)" [collapseRequired]="collapseRequired" [sidenavItems]="getSideNavItems()"
-														(emitPath)="redirectPath($event)" (selectedMode)="toggleBetweenMode($event)"></rds-side-nav> */}
-                </div>
+            <div className="d-flex flex-column-fluid align-items-stretch container-fluid px-0 main-body" style={{position: "relative", top: "4.4453rem"}}>
+              <div className="aside" id="aside">
+                <RdsCompSideNavigation></RdsCompSideNavigation>
               </div>
               <div
                 className="wrapper d-flex flex-column flex-row-fluid rds-scrollable-wrapper pt-3 px-sm-0 px-lg-3 "

@@ -20,7 +20,7 @@ const RdsSideNav = (props: RdsSideNavPros) => {
         </div>
       </nav>
       <div className="sidenav-footer text-center">
-        {/* <div className="text-center mb-3">
+        <div className="text-center mb-3">
           <RdsIcon
             name="grid_square"
             height="23px"
@@ -28,8 +28,8 @@ const RdsSideNav = (props: RdsSideNavPros) => {
             stroke={true}
             fill={false}
           ></RdsIcon>
-        </div> */}
-        <div className="darkTheme text-center">
+        </div>
+        <div className="darkTheme text-center" style={{marginLeft :"-2.4rem"}}>
           <a className="list d-inline-flex align-items-center text-decoration-none text-uppercase">
             <DarkMode></DarkMode>
           </a>

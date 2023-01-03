@@ -3,33 +3,32 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import RdsIcon from "../rds-icon";
 import "./rds-side-nav-new.scss";
 
-// export interface RdsSideNavNewProps {
-//   sideNavItemsNew: any[];
-// }
 
-const RdsSideNavChild = ({ data }: { data: any[] }) => {
+const RdsSideNavChild = ({ data, counter }: { data: any[], counter: number }) => {
 
-  // let [count, setCount] = useState(counter | 0);
+  let [count, setCount] = useState(counter);
 
-  // useEffect(()=>{
-  //   setCount(prev => prev+1);
-    
-  // },[])
+  useEffect(()=>{
+    setCount(prev => prev+1);
+  },[])
 
   return (
     <div>
-      <ul className="list-unstyled mb-0 py-2 ps-1">
-        {data && data.map((item) => <Node node={item}></Node>)}
+      <ul className={`mb-0 py-2 ps-1 ${count == 1 ? "list-unstyled":count == 2 ?"list-style-disc":""}`} >
+        {data && data.map((item) => <Node node={item} count={count}></Node>)}
       </ul>
     </div>
   );
 };
 
-const Node = ({ node }: { node: any }) => {
+RdsSideNavChild.defaultProps = {
+  counter: 0
+};
+
+const Node = ({ node , count}: { node: any, count: number }) => {
   const [childVisibility, setChildVisibility] = useState(false);
   const hasChild = node.children ? true : false;
   
-  // console.log("First count",counter);
 
   return (
     <li style={{ cursor: "pointer" }} className="mb-2">
@@ -40,14 +39,14 @@ const Node = ({ node }: { node: any }) => {
         >
           <div className="d-flex">
             <div className="col">
-              <RdsIcon
+              {count == 1 ? (<RdsIcon
                 name={node.icon}
                 fill={false}
                 stroke={true}
                 height="20px"
                 width="20px"
                 class="me-3"
-              ></RdsIcon>
+              ></RdsIcon>): null}
               {node.label}
             </div>
           </div>
@@ -60,14 +59,14 @@ const Node = ({ node }: { node: any }) => {
           onClick={(e) => setChildVisibility((v) => !v)}
         >
           <div className="col">
-            <RdsIcon
+            {count == 1 ? (<RdsIcon
               name={node.icon}
               fill={false}
               stroke={true}
               height="20px"
               width="20px"
               class="me-3"
-            ></RdsIcon>
+            ></RdsIcon>): null}
             {node.label}
           </div>
           <div>
@@ -86,7 +85,7 @@ const Node = ({ node }: { node: any }) => {
       {hasChild && childVisibility && (
         <div>
           <ul>
-            <RdsSideNavChild data={node.children} ></RdsSideNavChild>
+            <RdsSideNavChild data={node.children} counter={count}></RdsSideNavChild>
           </ul>
         </div>
       )}
@@ -95,3 +94,4 @@ const Node = ({ node }: { node: any }) => {
 };
 
 export default RdsSideNavChild;
+
