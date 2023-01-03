@@ -1,23 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import RdsIcon from "../rds-icon";
 import "./rds-side-nav-new.scss";
 
-// export interface RdsSideNavNewProps {
-//   sideNavItemsNew: any[];
-// }
 
-const RdsSideNavChild = ({ data }: { data: any[] }) => {
+const RdsSideNavChild = ({ data, counter }: { data: any[], counter: number }) => {
+
+  const [count, setCount] = useState(counter);
+
+  useEffect(()=>{
+    setCount(prev => prev+1);
+  },[])
+
   return (
-    <ul className="list-unstyled mb-0 py-2 px-4 h-100">
-      {data && data.map((item) => <Node node={item}></Node>)}
-    </ul>
+    <div>
+      <ul className={`mb-0 py-2 ps-1 ${count == 1 ? "list-unstyled":count == 2 ?"list-style-disc":""}`} >
+        {data && data.map((item) => <Node node={item} count={count}></Node>)}
+      </ul>
+    </div>
   );
 };
 
-const Node = ({ node }: { node: any }) => {
+RdsSideNavChild.defaultProps = {
+  counter: 0
+};
+
+const Node = ({ node , count}: { node: any, count: number }) => {
   const [childVisibility, setChildVisibility] = useState(false);
   const hasChild = node.children ? true : false;
+  
 
   return (
     <li style={{ cursor: "pointer" }} className="mb-2">
@@ -28,14 +39,14 @@ const Node = ({ node }: { node: any }) => {
         >
           <div className="d-flex">
             <div className="col">
-              <RdsIcon
+              {count == 1 ? (<RdsIcon
                 name={node.icon}
                 fill={false}
                 stroke={true}
                 height="20px"
                 width="20px"
                 class="me-3"
-              ></RdsIcon>
+              ></RdsIcon>): null}
               {node.label}
             </div>
           </div>
@@ -44,19 +55,21 @@ const Node = ({ node }: { node: any }) => {
 
       {hasChild && (
         <div
-          className="text-decoration-none text-uppercase"
+          className="text-decoration-none text-uppercase d-flex align-items-center"
           onClick={(e) => setChildVisibility((v) => !v)}
         >
           <div className="col">
-            <RdsIcon
+            {count == 1 ? (<RdsIcon
               name={node.icon}
               fill={false}
               stroke={true}
               height="20px"
               width="20px"
               class="me-3"
-            ></RdsIcon>
+            ></RdsIcon>): null}
             {node.label}
+          </div>
+          <div>
             <RdsIcon
               name="chevron_down"
               fill={false}
@@ -71,8 +84,8 @@ const Node = ({ node }: { node: any }) => {
 
       {hasChild && childVisibility && (
         <div>
-          <ul className="d-flex">
-            <RdsSideNavChild data={node.children}></RdsSideNavChild>
+          <ul>
+            <RdsSideNavChild data={node.children} counter={count}></RdsSideNavChild>
           </ul>
         </div>
       )}
@@ -81,3 +94,4 @@ const Node = ({ node }: { node: any }) => {
 };
 
 export default RdsSideNavChild;
+

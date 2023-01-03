@@ -79,7 +79,7 @@ const RdsCompSideNavigation = () => {
             {
               key: "3-2-5",
               label: t("Webhook Subscriptions"),
-              icon: "webhook_subscritptions",
+              icon: "webhook_subscription",
               path: "/webhook-subscription",
             },
             {

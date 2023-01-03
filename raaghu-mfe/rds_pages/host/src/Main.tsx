@@ -6,13 +6,13 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../libs/state-management";
 
 import {
-	RdsCompSideNavigation,
-	RdsCompTopNavigation,
+  RdsCompSideNavigation,
+  RdsCompTopNavigation,
 } from "../../rds-components";
 const DashboardCompo = React.lazy(() => import("Dashboard/Dashboard"));
 const LoginCompo = React.lazy(() => import("Login/Login"));
 const ForgotPasswordCompo = React.lazy(
-	() => import("ForgotPassword/ForgotPassword")
+  () => import("ForgotPassword/ForgotPassword")
 );
 const MaintainanceCompo = React.lazy(() => import("Maintainance/Maintainance"));
 const TenantCompo = React.lazy(() => import("Tenant/Tenant"));
@@ -25,98 +25,94 @@ const VisualSettingsCompo = React.lazy(
 	() => import("VisualSetting/VisualSetting")
 );
 const Main = () => {
-	const [isAuth, setIsAuth] = useState(false);
-	const navigate = useNavigate();
-	var accessToken: string | undefined = undefined;
+  const [isAuth, setIsAuth] = useState(false);
+  const navigate = useNavigate();
+  let accessToken: string | undefined = undefined;
 
-	useEffect(() => {
-		const loginCredentials = localStorage.getItem("persist:root");
-		if (loginCredentials != null) {
-			var credentials = JSON.parse(loginCredentials);
-			var parsedCredentials = JSON.parse(credentials.login);
-			accessToken = parsedCredentials.accessToken;
-		}
+  useEffect(() => {
+    const loginCredentials = localStorage.getItem("persist:root");
+    if (loginCredentials != null) {
+      let credentials = JSON.parse(loginCredentials);
+      let parsedCredentials = JSON.parse(credentials.login);
+      accessToken = parsedCredentials.accessToken;
+    }
 
-		console.log("this is access token", typeof accessToken);
-		// setIsAuth(true);
-		console.log(isAuth);
-		if (accessToken) {
-			setIsAuth(true);
-			console.log(accessToken);
-			navigate("/dashboard");
-		}
-	}, [accessToken]);
+    // setIsAuth(true);
+    if (accessToken) {
+      setIsAuth(true);
+      navigate("/dashboard");
+    }
+  }, [accessToken]);
 
-	const forgotPasswordHandler: any = (isForgotPasswordClicked: boolean) => {
-		if (isForgotPasswordClicked) {
-			navigate("/forgot-password");
-		}
-	};
+  const forgotPasswordHandler: any = (isForgotPasswordClicked: boolean) => {
+    if (isForgotPasswordClicked) {
+      navigate("/forgot-password");
+    }
+  };
 
-	// datas for changing language from dropdown on top-nav in dashboard
+  // datas for changing language from dropdown on top-nav in dashboard
 
-	const languageItems = [
-		{
-			label: "EN(US)",
-			val: "en",
-			icon: "us",
-			iconWidth: "20px",
-			iconHeight: "20px",
-		},
-		{
-			label: "English(IND)",
-			val: "en",
-			icon: "in",
-			iconWidth: "20px",
-			iconHeight: "20px",
-		},
-		{
-			label: "Français",
-			val: "fr",
-			icon: "fr",
-			iconWidth: "20px",
-			iconHeight: "20px",
-		},
-		{
-			label: "Deutsch",
-			val: "de",
-			icon: "de",
-			iconWidth: "20px",
-			iconHeight: "20px",
-		},
-		{
-			label: "Português (Brasil)",
-			val: "pt-BR",
-			icon: "br",
-			iconWidth: "20px",
-			iconHeight: "20px",
-		},
-		{
-			label: "Türkçe",
-			val: "tr",
-			icon: "tr",
-			iconWidth: "20px",
-			iconHeight: "20px",
-		},
-		{
-			label: "Italiano",
-			val: "it",
-			icon: "it",
-			iconWidth: "20px",
-			iconHeight: "20px",
-		},
-	];
+  const languageItems = [
+    {
+      label: "EN(US)",
+      val: "en",
+      icon: "us",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "English(IND)",
+      val: "en",
+      icon: "in",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "Français",
+      val: "fr",
+      icon: "fr",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "Deutsch",
+      val: "de",
+      icon: "de",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "Português (Brasil)",
+      val: "pt-BR",
+      icon: "br",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "Türkçe",
+      val: "tr",
+      icon: "tr",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "Italiano",
+      val: "it",
+      icon: "it",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+  ];
 
-	const { t } = useTranslation();
+  const { t } = useTranslation();
 
-	// OnClickHandler for language change
+  // OnClickHandler for language change
 
-	const onClickHandler = (e: any) => {
-		console.log(e.target.getAttribute("data-name"));
-		i18n.changeLanguage(e.target.getAttribute("data-name"));
-	};
+  const onClickHandler = (e: any) => {
+    i18n.changeLanguage(e.target.getAttribute("data-name"));
+  };
 
-	useEffect(() => {}, []);
+  useEffect(() => {}, []);
 
 	return (
 		<Suspense fallback="loading...">
