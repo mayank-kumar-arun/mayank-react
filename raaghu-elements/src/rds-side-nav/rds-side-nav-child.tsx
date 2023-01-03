@@ -6,7 +6,7 @@ import "./rds-side-nav-new.scss";
 
 const RdsSideNavChild = ({ data, counter }: { data: any[], counter: number }) => {
 
-  let [count, setCount] = useState(counter);
+  const [count, setCount] = useState(counter);
 
   useEffect(()=>{
     setCount(prev => prev+1);

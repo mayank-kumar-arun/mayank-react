@@ -14,27 +14,22 @@ const LoginCompo = React.lazy(() => import("Login/Login"));
 const ForgotPasswordCompo = React.lazy(
   () => import("ForgotPassword/ForgotPassword")
 );
-// const MaintainanceCompo = React.lazy(() => import("Maintainance/Maintainance"));
-// const TenantCompo = React.lazy(() => import("rds-page-tenant/Tenant"));
 const Main = () => {
   const [isAuth, setIsAuth] = useState(false);
   const navigate = useNavigate();
-  var accessToken: string | undefined = undefined;
+  let accessToken: string | undefined = undefined;
 
   useEffect(() => {
     const loginCredentials = localStorage.getItem("persist:root");
     if (loginCredentials != null) {
-      var credentials = JSON.parse(loginCredentials);
-      var parsedCredentials = JSON.parse(credentials.login);
+      let credentials = JSON.parse(loginCredentials);
+      let parsedCredentials = JSON.parse(credentials.login);
       accessToken = parsedCredentials.accessToken;
     }
 
-    console.log("this is access token", typeof accessToken);
     // setIsAuth(true);
-    console.log(isAuth);
     if (accessToken) {
       setIsAuth(true);
-      console.log(accessToken);
       navigate("/dashboard");
     }
   }, [accessToken]);
@@ -104,7 +99,6 @@ const Main = () => {
   // OnClickHandler for language change
 
   const onClickHandler = (e: any) => {
-    console.log(e.target.getAttribute("data-name"));
     i18n.changeLanguage(e.target.getAttribute("data-name"));
   };
 
