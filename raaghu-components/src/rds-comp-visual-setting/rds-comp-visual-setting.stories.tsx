@@ -35,9 +35,9 @@ Default.args = {
         searchActive: false,
         submenuToggle: null,
       },
-      subHeader: {
+      subheader: {
         containerStyle: "subheader py-2 py-lg-4  subheader-transparent",
-        fixedSubHeader: false,
+        fixedSubHeader: true,
         subheaderSize: 5,
         subheaderStyle: null,
         titleStlye: "text-dark font-weight-bold my-2 mr-5",
@@ -64,7 +64,7 @@ Default.args = {
         searchActive: false,
         submenuToggle: null,
       },
-      subHeader: {
+      subheader: {
         containerStyle: "subheader py-2 py-lg-4  subheader-transparent",
         fixedSubHeader: false,
         subheaderSize: 5,
@@ -93,7 +93,7 @@ Default.args = {
         searchActive: false,
         submenuToggle: null,
       },
-      subHeader: {
+      subheader: {
         containerStyle: "subheader py-2 py-lg-4  subheader-transparent",
         fixedSubHeader: false,
         subheaderSize: 5,
