@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const App = () => {
 	return (
 		<Suspense>
-			<Link to="/Maintainance">hi</Link>
 			<Main></Main>
 		</Suspense>
 	);

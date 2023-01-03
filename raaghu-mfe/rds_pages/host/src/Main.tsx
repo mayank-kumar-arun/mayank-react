@@ -137,6 +137,8 @@ const Main = () => {
 								languageItems={languageItems}
 								brandName="raaghu"
 								onClick={onClickHandler}
+								profileTitle="Host Admin"
+								profileName="admin"
 							></RdsCompTopNavigation>
 						</div>
 						<div
@@ -174,13 +176,15 @@ const Main = () => {
 										path="/edition"
 										element={<EditionCompo></EditionCompo>}
 									></Route>
-									<Route
-										path="/visual-setting"
-										element={<VisualSettingsCompo></VisualSettingsCompo>}
-									></Route>
+
 									<Route
 										path="/settings"
 										element={<SettingsCompo></SettingsCompo>}
+									></Route>
+
+									<Route
+										path="/visual-setting"
+										element={<VisualSettingsCompo></VisualSettingsCompo>}
 									></Route>
 									<Route
 										path="/webhook-subscription"

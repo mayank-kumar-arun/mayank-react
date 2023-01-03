@@ -86,7 +86,7 @@ const RdsCompSideNavigation = () => {
               key: "3-2-6",
               label: t("Maintenance"),
               icon: "maintenance",
-              path: "/maintenance",
+              path: "/maintainance",
             },
             {
               key: "3-2-7",

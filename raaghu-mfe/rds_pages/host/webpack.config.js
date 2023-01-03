@@ -115,6 +115,7 @@ module.exports = (env, argv) => {
 					WebhookSubscription: mfeConfigJSON["webhookSubscription"].url,
 					VisualSetting: mfeConfigJSON["visualSetting"].url,
 					Edition: mfeConfigJSON["edition"].url,
+					Settings: mfeConfigJSON["settings"].url
 				},
 				shared: {
 					...devdeps,

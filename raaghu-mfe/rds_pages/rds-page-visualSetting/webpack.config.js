@@ -69,7 +69,7 @@ module.exports = (env, argv) => {
         filename: "remoteEntry.js",
         exposes: {
         // expose each page
-        "./VisualSetting": "./src/visualsetting/visualsetting"
+        "./VisualSetting": "./src/visualSetting/visualSetting"
       },
         shared: {
             ...devdeps,
