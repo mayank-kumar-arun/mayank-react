@@ -170,7 +170,25 @@ const TreeNode = ({
   const onChange = (e: any) => {
     name = e.target.value;
   };
-  const onSaveHandler = (elementid: string) => {
+
+  const onaddsubunitHandler = (elementid: any) => {
+    console.log("new name is ", name);
+    console.log("id", elementid);
+    let level;
+    level = newData.level + 1;
+    if (name) {
+      setnewData({
+        ...newData,
+        children: [
+          { label: name, level: level, key: new Date().getMilliseconds() },
+        ],
+      });
+    }
+
+    console.log("New data", newData);
+  };
+
+  const onSaveHandler = (elementid: any) => {
     console.log("new name is ", name);
     console.log("id", elementid);
     if (name) {
@@ -197,13 +215,11 @@ const TreeNode = ({
           <div style={{ height: "20px" }}></div>
           <li key={newData.key}>
             <div>
-              {/* <div
+              <div
                 className={`${
-                  newData
-                    ? `${newData.key.length === 1 ? " " : "horizontal"}`
-                    : ""
+                  newData ? `${newData.level === 1 ? " " : "horizontal"}` : ""
                 }`}
-              ></div> */}
+              ></div>
               <div className="d-flex">
                 <div>
                   <RdsIcon
@@ -213,39 +229,39 @@ const TreeNode = ({
                     width="10px"
                     height="10px"
                     // colorVariant={`${
-                    //   newData.key.length === 1
+                    //   newData.level === 1
                     //     ? "success"
                     //     : `${
-                    //         newData.key.length === 3
+                    //         newData.level === 2
                     //           ? "primary"
                     //           : `${
-                    //               newData.key.length === 5
+                    //               newData.level === 3
                     //                 ? "warning"
                     //                 : `${
-                    //                     newData.key.length === 7
+                    //                     newData.level === 4
                     //                       ? "danger"
                     //                       : "secondary"
                     //                   }`
                     //             }`
                     //       }`
                     // }`}
-                    // background={`${
-                    //   newData.key.length === 1
-                    //     ? "success"
-                    //     : `${
-                    //         newData.key.length === 3
-                    //           ? "primary"
-                    //           : `${
-                    //               newData.key.length === 5
-                    //                 ? "warning"
-                    //                 : `${
-                    //                     newData.key.length === 7
-                    //                       ? "danger"
-                    //                       : "secondary"
-                    //                   }`
-                    //             }`
-                    //       }`
-                    // }`}
+                    background={`${
+                      (newData.level + 4) % 4 === 3
+                        ? "success"
+                        : `${
+                            (newData.level + 4) % 4 === 2
+                              ? "primary"
+                              : `${
+                                  (newData.level + 4) % 4 === 1
+                                    ? "warning"
+                                    : `${
+                                        (newData.level + 4) % 4 === 0
+                                          ? "danger"
+                                          : "secondary"
+                                      }`
+                                }`
+                          }`
+                    }`}
                     borderRadius="28px"
                   ></RdsIcon>
                   {"    "}
@@ -302,7 +318,7 @@ const TreeNode = ({
                             type={"button"}
                             label="save"
                             colorVariant="primary"
-                            onClick={() => onSaveHandler(newData.key)}
+                            onClick={() => onaddsubunitHandler(newData.key)}
                           ></RdsButton>
                         </div>
                       </RdsOffcanvas>{" "}
