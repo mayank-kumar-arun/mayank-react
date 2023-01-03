@@ -7,15 +7,48 @@ export interface RdsCompVisualSettingProps {
   navtabItems: any[];
   listskin: any[];
   listSubmenu: any[];
-  visualSettingHeader: any[];
-  visualSettingSubHeader: any[];
+  visualSettingHeader?: any[];
+  visualSettingSubHeader?: any[];
   isShimmer?: boolean;
   onSaveVisualSettingsData?: (visualsettingsItem: any[]) => void;
-  indexEmitter: any;
+  indexEmitter?: any;
   themeItem: any[];
 }
 
+//reducer
+
+const reducer = (state: any, action: any) => {
+  switch (action.type) {
+    case "CHECKBOX":
+      return state.map((vsItem: any) => {
+        if (vsItem.themeId === action.theme) {
+          const obj = Object.assign({}, vsItem);
+          obj[action.tab][action.name] = !obj[action.tab][action.name];
+          return obj;
+        } else {
+          return { ...vsItem };
+        }
+      });
+
+      case "SELECTLIST":
+        return state.map((vsItem: any) => {
+          if (vsItem.themeId === action.theme) {
+            const obj = Object.assign({}, vsItem);
+            obj[action.tab][action.name] = action.value;
+            return obj;
+          } else {
+            return { ...vsItem };
+          }
+        });
+
+    default:
+      return state;
+  }
+};
+
 const RdsCompVisualSetting = (props: RdsCompVisualSettingProps) => {
+  const [vsItem, dispatch] = useReducer(reducer, props.visualsettingsItem);
+
   const [activeTheme, setActiveTheme] = useState("default");
   const [activeTab, setActiveTab] = useState(
     props.navtabItems.filter((tabs) => tabs.themeId == activeTheme)[0]
@@ -34,18 +67,39 @@ const RdsCompVisualSetting = (props: RdsCompVisualSettingProps) => {
     setActiveTab(id);
   };
   const onSaveVisualSettings = () => {
-    props.onSaveVisualSettingsData!=undefined && props.onSaveVisualSettingsData(props.visualsettingsItem)
+    props.onSaveVisualSettingsData != undefined &&
+      props.onSaveVisualSettingsData(vsItem);
   };
 
+  const onCheckboxCheck = (e: any) => {
+    dispatch({
+      type: "CHECKBOX",
+      theme: activeTheme,
+      tab: activeTab,
+      name: e.target.name,
+    });
+  };
+  const onSelectListValue = (e: any) => {
+    console.log("selected  value e.target.value ", e.target.value);
+    dispatch({
+      type: "SELECTLIST",
+      theme: activeTheme,
+      tab: activeTab,
+      name: e.target.name,
+      value: e.target.value
+    });
+  };
   useEffect(() => {
     onTabSelect;
-  }, [activeTheme, activeTab]);
+  }, [activeTheme, activeTab, vsItem]);
 
   return (
     <>
       <div className="row">
         <div className="col-md-12">
           <div className="card p-2 border-0 rounded-0 vh-88">
+            {/* Theme optionand active theme from here */}
+
             <div className="row pt-4 theam-cards">
               {props.themeItem.map((theme) => (
                 <div className="col-md-4 mb-4" key={theme.themeId}>
@@ -75,7 +129,7 @@ const RdsCompVisualSetting = (props: RdsCompVisualSettingProps) => {
               ))}
             </div>
 
-            {/* Start NavTabs and Setting Options from here */}
+            {/* Start NavTabs  from here */}
 
             <div className="row ps-3 navsm-p-0">
               <div className="navtabs-wrapper-div">
@@ -88,7 +142,7 @@ const RdsCompVisualSetting = (props: RdsCompVisualSettingProps) => {
                           className={
                             "nav-link pe-4 ps-4 " +
                             (navtabsItem.id === activeTab
-                              ? "active "
+                              ? " border-bottom border-primary border-3 text-primary "
                               : "inactive") +
                             (navtabsItem.disabled ? "disabled " : "")
                           }
@@ -114,22 +168,27 @@ const RdsCompVisualSetting = (props: RdsCompVisualSettingProps) => {
                 </ul>
               </div>
 
+              {/* Start Setting Options from here */}
+
               <div className="tab-content" id="headerbar">
                 {activeTab == "subheader" && (
                   <div
-                    className="  p-4"
+                    className="  pt-4"
                     id="nav-subheader"
                     role="tabpanel"
                     aria-labelledby="nav-subheader"
                   >
                     <RdsCheckbox
+                      onChange={onCheckboxCheck}
                       label="Fixed SubHeader"
+                      name="fixedSubHeader"
                       checked={
-                        props.visualsettingsItem.filter(
-                          (item) => item.themeId == activeTheme
+                        vsItem.filter(
+                          (item: any) => item.themeId == activeTheme
                         )[0]?.subHeader?.fixedSubHeader
                       }
                     />
+
                     <div className="form-group mb-3 mt-3">
                       <RdsButton
                         label="SAVE AS SYSTEM DEFAULT"
@@ -139,8 +198,8 @@ const RdsCompVisualSetting = (props: RdsCompVisualSettingProps) => {
                         tooltipTitle={""}
                         type="submit"
                         onClick={onSaveVisualSettings}
-                        icon="plus"
-                        iconColorVariant="light"
+                        // icon="plus"
+                        // iconColorVariant="light"
                       />
                     </div>
                   </div>
@@ -148,7 +207,7 @@ const RdsCompVisualSetting = (props: RdsCompVisualSettingProps) => {
 
                 {activeTab == "menu" && (
                   <div
-                    className="  p-4"
+                    className="pt-4"
                     id="nav-Menu"
                     role="tabpanel"
                     aria-labelledby="nav-Menu"
@@ -160,11 +219,13 @@ const RdsCompVisualSetting = (props: RdsCompVisualSettingProps) => {
                           defaultValue={"DEFAULT"}
                           className="form-select form-select-sm text-muted"
                           aria-label=".form-select-sm example"
+                          onChange={onSelectListValue}
+                          name="asideSkin"
                         >
                           <option value="DEFAULT" disabled hidden>
                             {
-                              props.visualsettingsItem.filter(
-                                (item) => item.themeId == activeTheme
+                              vsItem.filter(
+                                (item: any) => item.themeId == activeTheme
                               )[0]?.menu?.asideSkin
                             }
                           </option>
@@ -176,39 +237,48 @@ const RdsCompVisualSetting = (props: RdsCompVisualSettingProps) => {
                         </select>
                       </div>
                     )}
+
                     <div className="form-group mb-3 mt-2">
                       <RdsCheckbox
+                        onChange={onCheckboxCheck}
                         label="Fixed Aside"
+                        name="fixedAside"
                         checked={
-                          props.visualsettingsItem.filter(
-                            (item) => item.themeId == activeTheme
+                          vsItem.filter(
+                            (item: any) => item.themeId == activeTheme
                           )[0]?.menu?.fixedAside
                         }
                       />
 
                       <RdsCheckbox
+                        onChange={onCheckboxCheck}
                         label="Allow Aside Minimizing"
+                        name="allowAsideMinimizing"
                         checked={
-                          props.visualsettingsItem.filter(
-                            (item) => item.themeId == activeTheme
+                          vsItem.filter(
+                            (item: any) => item.themeId == activeTheme
                           )[0]?.menu?.allowAsideMinimizing
                         }
                       />
 
                       <RdsCheckbox
+                        onChange={onCheckboxCheck}
+                        name="defaultMinimizedAside"
                         label="Default Minimised Aside"
                         checked={
-                          props.visualsettingsItem.filter(
-                            (item) => item.themeId == activeTheme
+                          vsItem.filter(
+                            (item: any) => item.themeId == activeTheme
                           )[0]?.menu?.defaultMinimizedAside
                         }
                       />
 
                       <RdsCheckbox
+                        onChange={onCheckboxCheck}
                         label="Expand Menu when Hovered"
+                        name="hoverableAside"
                         checked={
-                          props.visualsettingsItem.filter(
-                            (item) => item.themeId == activeTheme
+                          vsItem.filter(
+                            (item: any) => item.themeId == activeTheme
                           )[0]?.menu?.hoverableAside
                         }
                       />
@@ -221,16 +291,21 @@ const RdsCompVisualSetting = (props: RdsCompVisualSettingProps) => {
                           defaultValue={"DEFAULT"}
                           className="form-select form-select-sm text-muted"
                           aria-label=".form-select-sm example"
+                          onChange={onSelectListValue}
+                          name="submenuToggle"
                         >
                           <option value="DEFAULT" disabled hidden>
                             {
-                              props.visualsettingsItem.filter(
-                                (item) => item.themeId == activeTheme
-                              )[0]?.menu?.asideSkin
+                              vsItem.filter(
+                                (item: any) => item.themeId == activeTheme
+                              )[0]?.menu?.submenuToggle
                             }
                           </option>
                           {props.listSubmenu.map((submenu: any) => (
-                            <option defaultValue={submenu.value} key={submenu.value}>
+                            <option
+                              defaultValue={submenu.value}
+                              key={submenu.value}
+                            >
                               {submenu.displayText}
                             </option>
                           ))}
@@ -244,8 +319,8 @@ const RdsCompVisualSetting = (props: RdsCompVisualSettingProps) => {
                             tooltipTitle={""}
                             type="submit"
                             onClick={onSaveVisualSettings}
-                            icon="plus"
-                            iconColorVariant="light"
+                            // icon="plus"
+                            // iconColorVariant="light"
                           />
                         </div>
                       </div>
@@ -255,16 +330,17 @@ const RdsCompVisualSetting = (props: RdsCompVisualSettingProps) => {
 
                 {activeTab == "footer" && (
                   <div
-                    className="  p-4"
+                    className="  pt-4"
                     id="nav-footer"
                     role="tabpanel"
                     aria-labelledby="nav-footer"
                   >
                     <RdsCheckbox
                       label="Fixed Footer"
+                      name="fixedFooter"
                       checked={
-                        props.visualsettingsItem.filter(
-                          (item) => item.themeId == activeTheme
+                        vsItem.filter(
+                          (item: any) => item.themeId == activeTheme
                         )[0]?.footer?.fixedFooter
                       }
                     />
@@ -277,17 +353,17 @@ const RdsCompVisualSetting = (props: RdsCompVisualSettingProps) => {
                         tooltipTitle={""}
                         type="submit"
                         onClick={onSaveVisualSettings}
-                        icon="plus"
-                        iconColorVariant="light"
+                        // icon="plus"
+                        // iconColorVariant="light"
                       />
                     </div>
                   </div>
                 )}
 
-                {activeTab == "header" && (
+                {activeTab == "header" && ( 
                   <div className="tab-content" id="headerbar">
                     <div
-                      className="  p-4 navsm-p-0"
+                      className="  pt-4 navsm-p-0"
                       id="nav-headerbar"
                       role="tabpanel"
                       aria-labelledby="nav-headerbar"
@@ -301,12 +377,14 @@ const RdsCompVisualSetting = (props: RdsCompVisualSettingProps) => {
                                 defaultValue={"DEFAULT"}
                                 className="form-select form-select-sm text-muted"
                                 aria-label=".form-select-sm example"
+                                onChange={onSelectListValue}
+                                name="headerSkin"
                               >
                                 <option value="DEFAULT" disabled hidden>
                                   {
-                                    props.visualsettingsItem.filter(
-                                      (item) => item.themeId == activeTheme
-                                    )[0]?.menu?.asideSkin
+                                    vsItem.filter(
+                                      (item: any) => item.themeId == activeTheme
+                                    )[0]?.header?.headerSkin
                                   }
                                 </option>
                                 {props.listskin.map((skin: any) => (
@@ -321,19 +399,23 @@ const RdsCompVisualSetting = (props: RdsCompVisualSettingProps) => {
                           <div className="form-group mb-3">
                             <label className="mt-4 mb-2">Desktop</label>
                             <RdsCheckbox
+                              onChange={onCheckboxCheck}
                               label="Fixed Header"
+                              name="desktopFixedHeader"
                               checked={
-                                props.visualsettingsItem.filter(
-                                  (item) => item.themeId == activeTheme
+                                vsItem.filter(
+                                  (item: any) => item.themeId == activeTheme
                                 )[0]?.header?.desktopFixedHeader
                               }
                             />
                             <label className="mt-4 mb-2">Mobile</label>
                             <RdsCheckbox
+                              onChange={onCheckboxCheck}
                               label="Fixed Header"
+                              name="mobileFixedHeader"
                               checked={
-                                props.visualsettingsItem.filter(
-                                  (item) => item.themeId == activeTheme
+                                vsItem.filter(
+                                  (item: any) => item.themeId == activeTheme
                                 )[0]?.header?.mobileFixedHeader
                               }
                             />
@@ -347,8 +429,8 @@ const RdsCompVisualSetting = (props: RdsCompVisualSettingProps) => {
                               tooltipTitle={""}
                               type="submit"
                               onClick={onSaveVisualSettings}
-                              icon="plus"
-                              iconColorVariant="danger"
+                              // icon="plus"
+                              // iconColorVariant="danger"
                             />
                           </div>
                         </div>
@@ -357,6 +439,8 @@ const RdsCompVisualSetting = (props: RdsCompVisualSettingProps) => {
                   </div>
                 )}
               </div>
+
+              {/* ********************************/}
             </div>
           </div>
         </div>
