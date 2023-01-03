@@ -16,14 +16,22 @@ export interface RdsModalProps {
 }
 
 const RdsModal = (props: RdsModalProps) => {
+  let autoid: any;
+  if (props.id) {
+    autoid = props.id;
+  } else {
+    let d = new Date();
+    autoid = `${d.getMilliseconds()}${d.getSeconds()}`;
+  }
+
   return (
     <>
       <div
         data-bs-toggle="modal"
         data-bs-target={`${
           props.staticbackdrop
-            ? `#staticBackdrop${props.id}`
-            : `#exampleModal${props.id}`
+            ? `#staticBackdrop${autoid}`
+            : `#exampleModal${autoid}`
         }`}
       >
         {props.label && (
@@ -37,8 +45,8 @@ const RdsModal = (props: RdsModalProps) => {
           className="modal fade"
           id={`${
             props.staticbackdrop
-              ? `#staticBackdrop${props.id}`
-              : `#exampleModal${props.id}`
+              ? `#staticBackdrop${autoid}`
+              : `#exampleModal${autoid}`
           }`}
           // data-bs-backdrop={`${props.staticbackdrop?"static":""}`}
           // data-bs-keyboard={`${props.staticbackdrop?"false":"true"}`}
@@ -99,13 +107,14 @@ const RdsModal = (props: RdsModalProps) => {
           </div>
         </div>
       )}
+
       {props.staticbackdrop && (
         <div
           className="modal fade"
           id={`${
             props.staticbackdrop
-              ? `staticBackdrop${props.id}`
-              : `exampleModal${props.id}`
+              ? `staticBackdrop${autoid}`
+              : `exampleModal${autoid}`
           }`}
           data-bs-backdrop="static"
           data-bs-keyboard="false"

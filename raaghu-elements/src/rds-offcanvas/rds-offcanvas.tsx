@@ -10,11 +10,20 @@ export interface RdsOffcanvasProps {
   canvasTitle?: string;
   width?: string;
   id?: string;
+  canvasid: number;
 
-  onclick: (data: any) => void;
+  onclick?: (data: any) => void;
 }
 
 const RdsOffcanvas = (props: RdsOffcanvasProps) => {
+  let autoid: any;
+  if (props.id) {
+    autoid = props.id;
+  } else {
+    let d = new Date();
+    autoid = `${d.getMilliseconds()}${d.getSeconds()}`;
+  }
+
   let offcanvasPlacement = `${
     props.placement == "top"
       ? "offcanvasTop"
@@ -33,7 +42,7 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
         style={{ cursor: "pointer" }}
         onClick={props.onclick}
         data-bs-toggle="offcanvas"
-        data-bs-target={`#${offcanvasPlacement}${props.id}`}
+        data-bs-target={`#${offcanvasPlacement}${autoid}${props.canvasid}`}
         aria-controls={offcanvasPlacement}
       >
         {props.offcanvasbutton}
@@ -42,7 +51,7 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
       <div
         className={`offcanvas offcanvas-${props.placement}`}
         tabIndex={-1}
-        id={`${offcanvasPlacement}${props.id}`}
+        id={`${offcanvasPlacement}${autoid}${props.canvasid}`}
         aria-labelledby={`${offcanvasPlacement}Label1`}
         style={{ width: props.width }}
       >
