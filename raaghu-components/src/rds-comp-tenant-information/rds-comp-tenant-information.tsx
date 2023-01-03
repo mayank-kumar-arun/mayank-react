@@ -5,7 +5,7 @@ import {
 	RdsDatePicker,
 	RdsButton,
 } from "../rds-elements";
-import { useState, useRef } from "react";
+import React ,  { useState, useRef } from "react";
 import "./rds-comp-tenant-information.scss";
 export interface RdsCompTenantInformationProps {
 	editionList: any[];

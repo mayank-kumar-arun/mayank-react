@@ -3,7 +3,7 @@ import { RdsSideNav } from "../rds-elements";
 import { useTranslation } from "react-i18next";
 
 const RdsCompSideNavigation = () => {
-  const { t } = useTranslation();
+	const { t } = useTranslation();
 
   const sideNavItems = [
     {
@@ -86,7 +86,7 @@ const RdsCompSideNavigation = () => {
               key: "3-2-6",
               label: t("Maintenance"),
               icon: "maintenance",
-              path: "/maintenance",
+              path: "/maintainance",
             },
             {
               key: "3-2-7",

@@ -1,4 +1,4 @@
-import { MouseEvent } from "react";
+import React ,  { MouseEvent } from "react";
 import RdsCompDatatable from "../rds-comp-data-table/rds-comp-data-table";
 import { RdsButton, RdsIcon } from "../rds-elements";
 export interface RdsCompEditionListProps {
