@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"cd rds_pages\\rds-page-login && npm run dev\" \"cd rds_pages\\rds-page-dashboard && npm run dev\" \"cd rds_pages\\host && npm run dev\" \"cd rds_pages\\rds-page-forgotpassword && npm run dev\" \"cd rds_pages\\rds-page-tenant && npm run dev\" \"cd rds_pages\\rds-page-maintainance && npm run dev\" \"cd rds_pages\\rds-page-organizationunits && npm run dev\" \"cd rds_pages\\rds-page-settings && npm run dev\"",
+    "start": "concurrently \"cd rds_pages\\rds-page-login && npm run dev\" \"cd rds_pages\\rds-page-dashboard && npm run dev\" \"cd rds_pages\\host && npm run dev\" \"cd rds_pages\\rds-page-forgotpassword && npm run dev\" \"cd rds_pages\\rds-page-tenant && npm run dev\" \"cd rds_pages\\rds-page-maintainance && npm run dev\" \"cd rds_pages\\rds-page-edition && npm run dev\" \"cd rds_pages\\rds-page-visualSetting && npm run dev\" \"cd rds_pages\\rds-page-webhookSubscription && npm run dev\" \"cd rds_pages\\rds-page-settings && npm run dev\" ",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build": "node utils/build.js"

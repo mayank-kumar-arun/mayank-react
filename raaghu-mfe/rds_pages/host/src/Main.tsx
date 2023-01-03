@@ -14,27 +14,32 @@ const LoginCompo = React.lazy(() => import("Login/Login"));
 const ForgotPasswordCompo = React.lazy(
 	() => import("ForgotPassword/ForgotPassword")
 );
-// const MaintainanceCompo = React.lazy(() => import("Maintainance/Maintainance"));
-// const TenantCompo = React.lazy(() => import("rds-page-tenant/Tenant"));
+const MaintainanceCompo = React.lazy(() => import("Maintainance/Maintainance"));
+const TenantCompo = React.lazy(() => import("Tenant/Tenant"));
+const EditionCompo = React.lazy(() => import("Edition/Edition"));
+const WebhookSubscriptionCompo = React.lazy(
+	() => import("WebhookSubscription/WebhookSubscription")
+);
+const SettingsCompo = React.lazy(() => import("Settings/Settings"));
+const VisualSettingsCompo = React.lazy(
+	() => import("VisualSetting/VisualSetting")
+);
 const Main = () => {
 	const [isAuth, setIsAuth] = useState(false);
 	const navigate = useNavigate();
-	var accessToken: string | undefined = undefined;
+	let accessToken: string | undefined = undefined;
 
 	useEffect(() => {
 		const loginCredentials = localStorage.getItem("persist:root");
 		if (loginCredentials != null) {
-			var credentials = JSON.parse(loginCredentials);
-			var parsedCredentials = JSON.parse(credentials.login);
+			let credentials = JSON.parse(loginCredentials);
+			let parsedCredentials = JSON.parse(credentials.login);
 			accessToken = parsedCredentials.accessToken;
 		}
 
-		console.log("this is access token", typeof accessToken);
 		// setIsAuth(true);
-		console.log(isAuth);
 		if (accessToken) {
 			setIsAuth(true);
-			console.log(accessToken);
 			navigate("/dashboard");
 		}
 	}, [accessToken]);
@@ -104,7 +109,6 @@ const Main = () => {
 	// OnClickHandler for language change
 
 	const onClickHandler = (e: any) => {
-		console.log(e.target.getAttribute("data-name"));
 		i18n.changeLanguage(e.target.getAttribute("data-name"));
 	};
 
@@ -124,11 +128,16 @@ const Main = () => {
 			{isAuth && (
 				<div className="d-flex flex-column flex-root">
 					<div className="page d-flex flex-column flex-column-fluid">
-						<div className="header align-items-stretch">
+						<div
+							className="header align-items-stretch fixed-top"
+							style={{ position: "fixed" }}
+						>
 							<RdsCompTopNavigation
 								languageItems={languageItems}
 								brandName="raaghu"
 								onClick={onClickHandler}
+								profileTitle="Host Admin"
+								profileName="admin"
 							></RdsCompTopNavigation>
 						</div>
 						<div
@@ -139,6 +148,7 @@ const Main = () => {
         container-fluid
         px-0
         main-body"
+							style={{ position: "fixed", top: "4.4453rem" }}
 						>
 							<div className="aside" id="aside">
 								<div className="mx-2">
@@ -154,6 +164,34 @@ const Main = () => {
 							>
 								<Routes>
 									<Route path="/dashboard" element={<DashboardCompo />}></Route>
+									<Route
+										path="/maintainance"
+										element={<MaintainanceCompo />}
+									></Route>
+									<Route
+										path="/tenant"
+										element={<TenantCompo></TenantCompo>}
+									></Route>
+									<Route
+										path="/edition"
+										element={<EditionCompo></EditionCompo>}
+									></Route>
+
+									<Route
+										path="/settings"
+										element={<SettingsCompo></SettingsCompo>}
+									></Route>
+
+									<Route
+										path="/visual-setting"
+										element={<VisualSettingsCompo></VisualSettingsCompo>}
+									></Route>
+									<Route
+										path="/webhook-subscription"
+										element={
+											<WebhookSubscriptionCompo></WebhookSubscriptionCompo>
+										}
+									></Route>
 								</Routes>
 							</div>
 						</div>

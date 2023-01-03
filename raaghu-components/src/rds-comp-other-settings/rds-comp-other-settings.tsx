@@ -1,3 +1,4 @@
+import React from "react"
 import { RdsLabel, RdsCheckbox } from "../rds-elements";
 
 export interface RdsCompOtherSettingsProps {}

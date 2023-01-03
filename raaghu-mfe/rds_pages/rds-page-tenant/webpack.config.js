@@ -65,7 +65,7 @@ module.exports = (env, argv) => {
         "process.env": JSON.stringify(process.env),
       }),
       new ModuleFederationPlugin({
-        name: "Tenant",
+        name: "tenant",
         filename: "remoteEntry.js",
         exposes: {
         // expose each page
