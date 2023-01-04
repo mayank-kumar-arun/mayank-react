@@ -186,7 +186,7 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 					<thead>
 						<tr>
 							{props.enablecheckboxselection && (
-								<th scope="col" className="checkbox-Style-class">
+								<th scope="col" className="align-middle ">
 									<input
 										type="checkbox"
 										className="form-check-input"
@@ -252,7 +252,7 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 									: true) && (
 									<tr key={"tableRow-" + index}>
 										{props.enablecheckboxselection && (
-											<th scope="row" className="checkbox-Style-class">
+											<th scope="row" className="align-middle">
 												<input
 													type="checkbox"
 													name={tableDataRow.id}
@@ -312,7 +312,7 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 															</div>
 														)}
 														{tableHeader.datatype === "iconAvatarTitle" && (
-															<div className="iconAvatarTitle ">
+															<div className="d-flex justify-content-evenly align-items-center">
 																<div className="col-1 me-2">
 																	<RdsIcon
 																		name={

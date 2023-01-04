@@ -15,7 +15,7 @@ export interface RdsOffcanvasProps {
   buttonname?: string;
   offcanvasbutton?: ReactNode;
   children?: ReactNode;
-  onclick: (data: any) => void;
+  onclick?: (data: any) => void;
 }
 
 const RdsOffcanvas = (props: RdsOffcanvasProps) => {
@@ -25,7 +25,7 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
       ? `${props.offcanvaswidth}px`
       : "100% "
   }`;
-  console.log("width", Width)
+
   return (
     <>
       {props.offcanvasbutton && (
