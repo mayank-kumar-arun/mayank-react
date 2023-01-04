@@ -273,20 +273,16 @@ const Edition = (props: RdsPageEditionProps) => {
         canvasTitle="NEW EDITION"
         onclick={offCanvasHandler}
         placement="end"
-        width="830px"
-        offcanvasbutton={
-          <div className="d-flex justify-content-end">
-            <RdsButton
-              icon="plus"
-              iconColorVariant="light"
-              size="small"
-              type="button"
-              colorVariant="primary"
-              label="NEW EDITION"
-            />
-          </div>
-        }
-      >
+        offcanvaswidth={830}
+        offcanvasbutton={<div className="d-flex justify-content-end">
+          <RdsButton
+            icon="plus"
+            iconColorVariant="light"
+            size="small"
+            type="button"
+            colorVariant="primary"
+            label="NEW EDITION" />
+        </div>} backDrop={false} scrolling={false} preventEscapeKey={false} offId={"Edition"}      >
         <RdsNavtabs
           navtabsItems={navtabsItems}
           type="tabs"

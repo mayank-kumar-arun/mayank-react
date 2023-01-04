@@ -15,7 +15,7 @@ export interface RdsOffcanvasProps {
   buttonname?: string;
   offcanvasbutton?: ReactNode;
   children?: ReactNode;
-  onclick: (data: any) => void;
+  onclick?: (data: any) => void;
 }
 
 const RdsOffcanvas = (props: RdsOffcanvasProps) => {
