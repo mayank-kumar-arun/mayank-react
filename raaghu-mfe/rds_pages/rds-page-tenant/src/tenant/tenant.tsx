@@ -406,20 +406,16 @@ const Tenant = (props: RdsPageTenantProps) => {
         canvasTitle="NEW TENANT"
         onclick={offCanvasHandler}
         placement="end"
-        width="830px"
-        offcanvasbutton={
-          <div className="d-flex justify-content-end">
-            <RdsButton
-              icon="plus"
-              iconColorVariant="light"
-              size="medium"
-              type="button"
-              colorVariant="primary"
-              label="NEW TENANT"
-            />
-          </div>
-        }
-      >
+        offcanvaswidth={830}
+        offcanvasbutton={<div className="d-flex justify-content-end">
+          <RdsButton
+            icon="plus"
+            iconColorVariant="light"
+            size="medium"
+            type="button"
+            colorVariant="primary"
+            label="NEW TENANT" />
+        </div>} backDrop={false} scrolling={false} preventEscapeKey={false} offId={"tenant"}      >
         <RdsNavtabs
           navtabsItems={navtabsItems}
           type="tabs"
