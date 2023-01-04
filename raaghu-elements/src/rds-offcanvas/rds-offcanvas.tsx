@@ -25,7 +25,7 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
       ? `${props.offcanvaswidth}px`
       : "100% "
   }`;
-  console.log("width", Width)
+
   return (
     <>
       {props.offcanvasbutton && (
