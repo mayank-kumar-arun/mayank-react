@@ -35,7 +35,12 @@ const RdsComporganizationTreeNew = (props: RdsComporganizationTreeNewProps) => {
   const addunit = (e: any, key: any) => {
     console.log("unit added");
     console.log(key);
-    setOdata([...Odata, { key: new Date().getMilliseconds(), label: name }]);
+    let level;
+    level = Odata[0].level;
+    setOdata([
+      ...Odata,
+      { key: new Date().getMilliseconds(), label: name, level: level },
+    ]);
   };
 
   return (
@@ -61,52 +66,58 @@ const RdsComporganizationTreeNew = (props: RdsComporganizationTreeNewProps) => {
         <div>
           <div className="add">
             {" "}
-            {Tdata[Tdata.length - 1] && (
-              <RdsOffcanvas
-                placement="end"
-                canvasTitle="Add Organiztion Sub-Unit"
-                width="500px"
-                offcanvasbutton={
-                  <RdsButton
-                    iconHeight="10px"
-                    iconWidth="10px"
-                    iconColorVariant="dark"
-                    type={"button"}
-                    icon={"Plus"}
-                    size={"small"}
-                    colorVariant={"primary"}
-                    label={props.AddUnitlabel}
-                  ></RdsButton>
-                }
-                canvasid={3}
-              >
-                <RdsInput
-                  label={"Add Organization name"}
-                  labelPositon="top"
-                  redAsteriskPresent={true}
-                  size="medium"
-                  onChange={onChange}
-                ></RdsInput>
-                <div
-                  className="d-flex"
-                  style={{ position: "absolute", bottom: "5%" }}
-                >
-                  <div className="me-3">
-                    <RdsButton
-                      type={"button"}
-                      label="cancel"
-                      colorVariant="primary"
-                      onClick={CancelClick}
-                    ></RdsButton>
-                  </div>
-                  <RdsButton
-                    type={"button"}
-                    label="save"
-                    colorVariant="primary"
-                    onClick={(event) => addunit(event, Tdata[Tdata.length - 1])}
-                  ></RdsButton>
-                </div>
-              </RdsOffcanvas>
+            {Tdata[0].length !== 0 && (
+              <div>
+                {Tdata[Tdata.length - 1] && (
+                  <RdsOffcanvas
+                    placement="end"
+                    canvasTitle="Add Organiztion Sub-Unit"
+                    width="500px"
+                    offcanvasbutton={
+                      <RdsButton
+                        iconHeight="10px"
+                        iconWidth="10px"
+                        iconColorVariant="dark"
+                        type={"button"}
+                        icon={"Plus"}
+                        size={"small"}
+                        colorVariant={"primary"}
+                        label={props.AddUnitlabel}
+                      ></RdsButton>
+                    }
+                    canvasid={3}
+                  >
+                    <RdsInput
+                      label={"Add Organization name"}
+                      labelPositon="top"
+                      redAsteriskPresent={true}
+                      size="medium"
+                      onChange={onChange}
+                    ></RdsInput>
+                    <div
+                      className="d-flex"
+                      style={{ position: "absolute", bottom: "5%" }}
+                    >
+                      <div className="me-3">
+                        <RdsButton
+                          type={"button"}
+                          label="cancel"
+                          colorVariant="primary"
+                          onClick={CancelClick}
+                        ></RdsButton>
+                      </div>
+                      <RdsButton
+                        type={"button"}
+                        label="save"
+                        colorVariant="primary"
+                        onClick={(event) =>
+                          addunit(event, Tdata[Tdata.length - 1])
+                        }
+                      ></RdsButton>
+                    </div>
+                  </RdsOffcanvas>
+                )}
+              </div>
             )}
           </div>
         </div>
