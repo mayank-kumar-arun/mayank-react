@@ -12,17 +12,41 @@ export default {
     },
   },
 } as ComponentMeta<typeof RdsOffcanvas>;
-
 const Template: ComponentStory<typeof RdsOffcanvas> = (args) => (
-  <RdsOffcanvas {...args} />
+  <>
+    {/* <button className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#canvasExample"
+  aria-controls="canvasExample">
+   Button
+  </button> */}
+    <RdsOffcanvas {...args} />
+  </>
 );
 
 export const Default = Template.bind({});
 Default.args = {
-  buttonname: "button",
-  placement: "start",
-  canvasTitle: "Canvas Title",
-  width: "650px",
-  offcanvasbutton: "press here",
-  id: "offcanvas",
+  offId: "canvasExample",
+  canvasTitle: "Offcanvas Title",
+  scrolling: false,
+  placement: "top",
+  backDrop: "static",
+  offcanvaswidth: 650,
+  children: (
+    <h2 className="p-3">
+      Hello Offcanvas Lorem ipsum dolor sit amet consectetur adipisicing elit. A
+      ipsam illum natus impedit similique iusto, ut inventore officia ullam
+      blanditiis accusantium suscipit voluptates reiciendis explicabo provident 
+      cumque est ab qui. Lorem ipsum dolor sit amet consectetur adipisicing .
+    </h2>
+  ),
+  offcanvasbutton: (
+    <a
+      className="btn btn-primary"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#canvasExample"
+      aria-controls="canvasExample"
+    >
+      Button
+    </a>
+  ),
 };
