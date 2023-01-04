@@ -23,7 +23,7 @@ const RdsSideNavChild = ({
           count == 1 ? "list-unstyled" : count == 2 ? "list-style-disc" : ""
         }`}
       >
-        {data && data.map((item) => <Node node={item} count={count}></Node>)}
+        {data && data.map((item, id) => <Node node={item} key={id} count={count}></Node>)}
       </ul>
     </div>
   );
@@ -58,7 +58,7 @@ const Node = ({ node, count }: { node: any; count: number }) => {
                   ></RdsIcon>
                 </div>
               ) : null}
-              <div>{node.label}</div>
+              <div className="me-3">{node.label}</div>
             </div>
           </div>
         </Link>
@@ -69,9 +69,10 @@ const Node = ({ node, count }: { node: any; count: number }) => {
           className="text-decoration-none text-uppercase d-flex align-items-center"
           onClick={(e) => setChildVisibility((v) => !v)}
         >
-          <div className="col">
+          <div className="col d-flex align-items-center">
             {count == 1 ? (
-              <RdsIcon
+              <div>
+                <RdsIcon
                 name={node.icon}
                 fill={false}
                 stroke={true}
@@ -79,10 +80,13 @@ const Node = ({ node, count }: { node: any; count: number }) => {
                 width="20px"
                 class="me-3"
               ></RdsIcon>
+              </div>
             ) : null}
+            <div>
             {node.label}
+            </div>
           </div>
-          <div>
+          <div className="me-2">
             <RdsIcon
               name="chevron_down"
               fill={false}
