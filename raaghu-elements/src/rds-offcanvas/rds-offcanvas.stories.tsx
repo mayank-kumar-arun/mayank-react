@@ -13,7 +13,7 @@ export default {
   },
 } as ComponentMeta<typeof RdsOffcanvas>;
 const Template: ComponentStory<typeof RdsOffcanvas> = (args) => (
-  <>
+  <>{/*we can use button anywhere as we want, like below */}
     {/* <button className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#canvasExample"
   aria-controls="canvasExample">
    Button
@@ -27,7 +27,7 @@ Default.args = {
   offId: "canvasExample",
   canvasTitle: "Offcanvas Title",
   scrolling: false,
-  placement: "top",
+  placement: "end",
   backDrop: "static",
   offcanvaswidth: 650,
   children: (

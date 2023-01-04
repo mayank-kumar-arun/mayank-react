@@ -20,11 +20,12 @@ export interface RdsOffcanvasProps {
 
 const RdsOffcanvas = (props: RdsOffcanvasProps) => {
   let align = `offCanvasClass offcanvas offcanvas-${props.placement}`;
-  const width = `${
+  const Width = `${
     props.placement == "start" || props.placement == "end"
-      ? props.offcanvaswidth
+      ? `${props.offcanvaswidth}px`
       : "100% "
   }`;
+  console.log("width", Width)
   return (
     <>
       {props.offcanvasbutton && (
@@ -47,7 +48,7 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
         tabIndex={-1}
         id={props.offId}
         aria-labelledby={`'canvas' +${props.offId}`}
-        style={{ width: width }}
+        style={{ width: Width }}
       >
         {props.canvasTitle !== "" && props.canvasTitle !== undefined ? (
           <div className="offcanvas-header">
