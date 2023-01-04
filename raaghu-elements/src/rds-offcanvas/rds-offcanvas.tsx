@@ -41,7 +41,6 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
       )}
       <div
         className={align}
-        data-bs-spy="scroll"
         data-bs-scroll={props.scrolling}
         data-bs-keyboard={props.preventEscapeKey}
         data-bs-backdrop={props.backDrop}
