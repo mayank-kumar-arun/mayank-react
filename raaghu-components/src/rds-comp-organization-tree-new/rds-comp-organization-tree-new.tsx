@@ -72,7 +72,7 @@ const RdsComporganizationTreeNew = (props: RdsComporganizationTreeNewProps) => {
                   <RdsOffcanvas
                     placement="end"
                     canvasTitle="Add Organiztion Sub-Unit"
-                    width="500px"
+                    offcanvaswidth={500}
                     offcanvasbutton={
                       <RdsButton
                         iconHeight="10px"
@@ -85,7 +85,10 @@ const RdsComporganizationTreeNew = (props: RdsComporganizationTreeNewProps) => {
                         label={props.AddUnitlabel}
                       ></RdsButton>
                     }
-                    canvasid={3}
+                    backDrop={false}
+                    scrolling={false}
+                    preventEscapeKey={false}
+                    offId={""}
                   >
                     <RdsInput
                       label={"Add Organization name"}
@@ -291,8 +294,8 @@ const TreeNode = ({
                       <RdsOffcanvas
                         placement="end"
                         canvasTitle="Add Sub-Organiztion"
-                        width="500px"
-                        id={`${node.key}`}
+                        offcanvaswidth={500}
+                        offId={`${node.key}`}
                         onclick={() => editunit(newData.key, newData.label)}
                         offcanvasbutton={
                           <RdsIcon
@@ -302,7 +305,9 @@ const TreeNode = ({
                             stroke={true}
                           ></RdsIcon>
                         }
-                        canvasid={0}
+                        backDrop={false}
+                        scrolling={false}
+                        preventEscapeKey={false}
                       >
                         <RdsInput
                           label={inputlabel}
@@ -337,8 +342,8 @@ const TreeNode = ({
                     <RdsOffcanvas
                       placement="end"
                       canvasTitle={canvasTitle}
-                      width="500px"
-                      id={`${node.key}`}
+                      offcanvaswidth={500}
+                      offId={`${node.key}`}
                       onclick={() => editunit(newData.key, newData.label)}
                       offcanvasbutton={
                         <RdsIcon
@@ -348,7 +353,9 @@ const TreeNode = ({
                           stroke={true}
                         ></RdsIcon>
                       }
-                      canvasid={1}
+                      backDrop={false}
+                      scrolling={false}
+                      preventEscapeKey={false}
                     >
                       <RdsInput
                         inputType="text"

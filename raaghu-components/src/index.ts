@@ -22,3 +22,4 @@ export {default as RdsCompTenantManagement} from "./rds-comp-tenant-management/r
 export {default as RdsCompSecurity} from "./rds-comp-security/rds-comp-security"
 export {default as RdsCompEmail} from "./rds-comp-email/rds-comp-email"
 export {default as RdsCompInvoice} from "./rds-comp-invoice/rds-comp-invoice"
+export {default as RdsCompLinkedAccount} from "./rds-comp-linked-account/rds-comp-linked-account"

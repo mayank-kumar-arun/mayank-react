@@ -3,7 +3,7 @@ import { RdsButton, RdsInput } from "../rds-elements";
 
 export interface RdsLinkedAccountProps {}
 
-const RdsLinkedAccount = (props: RdsLinkedAccountProps) => {
+const RdsCompLinkedAccount = (props: RdsLinkedAccountProps) => {
   const [userData, setUserData] = useState({
     tenancyName: "",
     userName: "",
@@ -102,4 +102,4 @@ const RdsLinkedAccount = (props: RdsLinkedAccountProps) => {
   );
 };
 
-export default RdsLinkedAccount;
+export default RdsCompLinkedAccount;

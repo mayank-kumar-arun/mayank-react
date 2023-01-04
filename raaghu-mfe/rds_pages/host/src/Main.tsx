@@ -44,12 +44,6 @@ const Main = () => {
 		}
 	}, [accessToken]);
 
-	const forgotPasswordHandler: any = (isForgotPasswordClicked: boolean) => {
-		if (isForgotPasswordClicked) {
-			navigate("/forgot-password");
-		}
-	};
-
 	// datas for changing language from dropdown on top-nav in dashboard
 
 	const languageItems = [
@@ -112,13 +106,20 @@ const Main = () => {
 		i18n.changeLanguage(e.target.getAttribute("data-name"));
 	};
 
+	const logout = () => {
+		localStorage.clear();
+		setIsAuth(false);
+		navigate("/");
+		
+	};
+
 	useEffect(() => {}, []);
 
 	return (
 		<Suspense fallback="loading...">
 			{!accessToken && (
 				<Routes>
-					<Route path="/" element={<LoginCompo />}></Route>
+					<Route  path="/" element={<LoginCompo />}></Route>
 					<Route
 						path="/forgot-password"
 						element={<ForgotPasswordCompo />}
@@ -138,6 +139,7 @@ const Main = () => {
 								onClick={onClickHandler}
 								profileTitle="Host Admin"
 								profileName="admin"
+								onLogout={logout}
 							></RdsCompTopNavigation>
 						</div>
 						<div

@@ -2,7 +2,7 @@ import React from "react";
 import "./rds-side-nav-new.scss";
 import RdsSideNavChild from "./rds-side-nav-child";
 import RdsIcon from "../rds-icon/rds-icon";
-import RdsToggleSwitch from "../rds-toggle-switch/rds-toggle-switch";
+import RdsToggle from "../rds-toggle/rds-toggle";
 
 export interface RdsSideNavPros {
   sideNavItems: any[];
@@ -31,12 +31,7 @@ const RdsSideNav = (props: RdsSideNavPros) => {
         </div>
         <div className="darkTheme text-center">
           <a className="list d-inline-flex align-items-center text-decoration-none text-uppercase">
-            <RdsToggleSwitch disabled={false} defaultChecked={false} className={""} onChange={function (event: React.ChangeEvent<HTMLInputElement>) {
-              throw new Error("Function not implemented.");
-            } } icons={{
-              checked: undefined,
-              unchecked: undefined
-            }}></RdsToggleSwitch>
+            <RdsToggle iconOnUncheck={"standard_subscription"} iconOnCheck={"professional_subscription"} ></RdsToggle>
           </a>
         </div>
       </div>
