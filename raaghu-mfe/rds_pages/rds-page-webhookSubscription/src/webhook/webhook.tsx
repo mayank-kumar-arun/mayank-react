@@ -63,7 +63,7 @@ const Webhook = (props: RdsPageWebhookSubscriptionProps) => {
           onclick={onNewWebhookSubscription}
           buttonname="button"
           placement="end"
-          canvasTitle="Canvas Title"
+          canvasTitle="NEW WEBHOOK SUBSCRIPTION"
           width="650px"
           offcanvasbutton={
             <RdsButton
