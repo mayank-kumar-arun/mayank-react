@@ -64,19 +64,15 @@ const Webhook = (props: RdsPageWebhookSubscriptionProps) => {
           buttonname="button"
           placement="end"
           canvasTitle="NEW WEBHOOK SUBSCRIPTION"
-          width="650px"
-          offcanvasbutton={
-            <RdsButton
-              onClick={onNewWebhookSubscription}
-              type={"button"}
-              colorVariant="primary"
-              label="NEW WEBHOOK SUBSCRIPTIONS"
-            />
-          }
-          id="offcanvas"
-        
-          children={<RdsCompWebhookSubscription webhookItem={onWebhookItem} />}
-        ></RdsOffcanvas>
+          offcanvaswidth={650}
+          offcanvasbutton={<RdsButton
+            onClick={onNewWebhookSubscription}
+            type={"button"}
+            colorVariant="primary"
+            label="NEW WEBHOOK SUBSCRIPTIONS" />}
+          offId="offcanvas"
+
+          children={<RdsCompWebhookSubscription webhookItem={onWebhookItem} />} backDrop={false} scrolling={false} preventEscapeKey={false}></RdsOffcanvas>
       </div>
       <div className="m-4">
         {webhookItem.length == 0 && (
