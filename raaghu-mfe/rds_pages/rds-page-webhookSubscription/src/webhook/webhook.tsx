@@ -59,12 +59,17 @@ const Webhook = (props: RdsPageWebhookSubscriptionProps) => {
   return (
     <div>
       <div className="d-flex justify-content-end mb-3">
-        <RdsOffcanvas
-          onclick={onNewWebhookSubscription}
-          buttonname="button"
-          placement="end"
-          canvasTitle="NEW WEBHOOK SUBSCRIPTION"
-          width="650px"
+
+        
+      <RdsOffcanvas
+         onclick={onNewWebhookSubscription}
+         backDrop={true}
+         preventEscapeKey={true}
+         scrolling={false}
+         offId="webhook_off"
+         placement="end"
+        canvasTitle="NEW WEBHOOK SUBSCRIPTION"
+         offcanvaswidth={650}
           offcanvasbutton={
             <RdsButton
               onClick={onNewWebhookSubscription}
@@ -73,10 +78,9 @@ const Webhook = (props: RdsPageWebhookSubscriptionProps) => {
               label="NEW WEBHOOK SUBSCRIPTIONS"
             />
           }
-          id="offcanvas"
-        
           children={<RdsCompWebhookSubscription webhookItem={onWebhookItem} />}
         ></RdsOffcanvas>
+       
       </div>
       <div className="m-4">
         {webhookItem.length == 0 && (
