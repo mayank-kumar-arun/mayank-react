@@ -7,6 +7,7 @@ import {
 } from "../rds-elements";
 import React ,  { useState, useRef } from "react";
 import "./rds-comp-tenant-information.scss";
+import { useTranslation } from "react-i18next";
 export interface RdsCompTenantInformationProps {
 	editionList: any[];
 	tenantData?: any[];
@@ -15,6 +16,9 @@ export interface RdsCompTenantInformationProps {
 }
 
 const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
+
+	const {t} = useTranslation();
+
 	const emailRegex =
 		/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 	const [enteredTenancyName, setEnteredTenancyName] = useState("");
@@ -84,16 +88,16 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
 								<RdsInput
 									inputType="text"
 									redAsteriskPresent={true}
-									label="Tenancy Name"
+									label={t("Tenancy Name") || ""} 
 									name="tenancy_name"
 									id="tenancy_name"
-									placeholder="Tenancy Name"
+									placeholder={t("Tenancy Name") || ""}
 									onBlur={() => setIsTenancyNameTouched(true)}
 									onChange={(e) => setEnteredTenancyName(e.target.value)}
 								></RdsInput>
 								{isTenancyNameInputEmptyAndTouched && (
 									<span className="red-color-error">
-										Tenancy Name must not be empty
+										{t("Tenancy Name is required")}
 									</span>
 								)}
 								<div className="form-control-feedback"></div>
@@ -102,16 +106,16 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
 								<RdsInput
 									redAsteriskPresent={true}
 									inputType="text"
-									label="Tenant Name"
+									label={t("Tenant Name") || ""}
 									name="tenant_name"
 									id="tenant_name"
-									placeholder="TenantName"
+									placeholder={t("Tenant Name") || ""}
 									onBlur={() => setIsTenantNameTouched(true)}
 									onChange={(e) => setEnteredTenantName(e.target.value)}
 								></RdsInput>
 								{isTenantNameInputEmptyAndTouched && (
 									<span className="red-color-error">
-										Tenant Name must not be empty
+										{t("Tenant Name is required")}
 									</span>
 								)}
 							</div>
@@ -123,8 +127,8 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
 								<RdsInput
 									redAsteriskPresent={true}
 									inputType="email"
-									label="Admin Email"
-									placeholder="Admin Email"
+									label={t("Admin Email") || ""}
+									placeholder={t("Admin Email") || ""}
 									name="email"
 									id="email"
 									onBlur={() => setIsEmailTouched(true)}
@@ -132,12 +136,12 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
 								></RdsInput>
 								{EmailInputIsEmptyAndTouched && (
 									<span className="red-color-error">
-										Email must not be empty
+										{t("Email is required")}
 									</span>
 								)}
 								{isEnteredEmailInvalid && !isEnteredEmailEmpty && (
 									<span className="red-color-error">
-										Entered Email is Invalid
+										{t("Entered invalid Email Address")}
 									</span>
 								)}
 							</div>
@@ -145,10 +149,10 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
 						<div className="col-md-6 sm-p-0">
 							<div className="form-group mb-3">
 								<label htmlFor="Edition" className="mb-2">
-									Edition
+									{t("Edition")}
 								</label>
 								<RdsSelectList
-									label={"Edition"}
+									label={t("Edition") ||""}
 									selectItems={props.editionList}
 									onSelectListChange={(e) => setSelectedOption(e.target.value)}
 								></RdsSelectList>
@@ -159,7 +163,7 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
 						<div className="col-md-12 sm-p-0">
 							<div className="form-group mb-3">
 								<RdsCheckbox
-									label={"Unlimited Time Subscription"}
+									label={t("Unlimited Time Subscription") || ""}
 									checked={false}
 									onChange={(e) =>
 										setIsUnlimitedSubscriptionChecked(e.target.checked)
@@ -185,14 +189,14 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
 							class="me-2"
 							tooltipTitle={""}
 							type={"button"}
-							label="Cancel"
+							label={t("Cancel") || ""}
 							colorVariant="outline-primary"
 							size="small"
 							databsdismiss="offcanvas"
 						></RdsButton>
 						<RdsButton
 							class="me-2"
-							label="Next"
+							label={t("Next") || ""}
 							size="small"
 							colorVariant="primary"
 							tooltipTitle={""}

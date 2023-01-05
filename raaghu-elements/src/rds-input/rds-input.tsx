@@ -4,20 +4,20 @@ import Tooltip from "../rds-tooltip/rds-tooltip";
 import { placements } from "../../libs/types";
 
 export interface RdsInputProps {
-  size?: "small" | "large" | "medium" | string;
-  isDisabled?: boolean;
-  readonly?: boolean;
-  value?: string;
-  inputType?: string;
-  placeholder?: string;
-  labelPositon?: string;
-  tooltipPlacement?: placements;
-  tooltipTitle?: string;
-  name?: string;
-  label?: string;
-  id?: string;
-  redAsteriskPresent?: boolean;
-  required?: boolean;
+	size?: "small" | "large" | "medium" | string;
+	isDisabled?: boolean;
+	readonly?: boolean;
+	value?: string;
+	inputType?: string;
+	placeholder?: string;
+	labelPositon?: string;
+	tooltipPlacement?: placements;
+	tooltipTitle?: string;
+	name?: string;
+	label?: string | "";
+	id?: string;
+	redAsteriskPresent?: boolean;
+	required?: boolean;
 
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any;

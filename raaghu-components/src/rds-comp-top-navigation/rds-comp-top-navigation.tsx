@@ -12,8 +12,8 @@ export interface RdsCompTopNavigationProps {
 	onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 	notifications?: any[];
 	languageItems: any[];
-	navbarTitle?: string;
-	navbarSubTitle?: string;
+	navbarTitle: string;
+	navbarSubTitle: string;
 	brandName?: string;
 	darkMode?: boolean;
 	profileTitle?: string;
@@ -23,7 +23,6 @@ export interface RdsCompTopNavigationProps {
 
 const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
   const [LinkAccount , setLinkAccount] = useState(false);
-	console.log("hg gh ");
 
 	const navtabItems = [
 		{

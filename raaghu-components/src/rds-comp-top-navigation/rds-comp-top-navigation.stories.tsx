@@ -14,9 +14,9 @@ const Template: ComponentStory<typeof RdsCompTopNavigation> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   navbarTitle: "Dashboard",
+  navbarSubTitle: "Statistics and reports",
   darkMode: false,
   brandName: "Raaghu",
-  navbarSubTitle: "Statistics and reports",
   profileTitle:"Host Admin",
   profileName:"Keanu Foster",
   notifications: [
