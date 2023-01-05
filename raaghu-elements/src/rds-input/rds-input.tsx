@@ -14,7 +14,7 @@ export interface RdsInputProps {
 	tooltipPlacement?: placements;
 	tooltipTitle?: string;
 	name?: string;
-	label?: string;
+	label?: string | "";
 	id?: string;
 	redAsteriskPresent?: boolean;
 	required?: boolean;

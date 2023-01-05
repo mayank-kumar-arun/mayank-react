@@ -49,7 +49,7 @@ const RdsButton = (props: RdsButtonProps) => {
 				<Tooltip text={props.tooltipTitle} place={props.tooltipPlacement}>
 					<button
 						type={props.type}
-						className={`btn ${outlineColorVariant} ${size}  ${props.class}`}
+						className={`btn button__content ${outlineColorVariant} ${size}  ${props.class}`}
 						disabled={props.isDisabled}
 						onClick={props.onClick}
 						form={props.formName}
@@ -81,7 +81,7 @@ const RdsButton = (props: RdsButtonProps) => {
 			{!props.tooltip && (
 				<button
 					type={props.type}
-					className={`btn ${outlineColorVariant} ${size} ${props.class}`}
+					className={`btn button__content ${outlineColorVariant} ${size} ${props.class}`}
 					disabled={props.isDisabled}
 					onClick={props.onClick}
 					form={props.formName}
