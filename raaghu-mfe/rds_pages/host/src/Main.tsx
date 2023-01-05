@@ -40,7 +40,6 @@ const Main = () => {
 		// setIsAuth(true);
 		if (accessToken) {
 			setIsAuth(true);
-			navigate("/dashboard");
 		}
 	}, [accessToken]);
 
