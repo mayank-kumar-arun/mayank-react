@@ -6,9 +6,11 @@ import "./rds-side-nav-new.scss";
 const RdsSideNavChild = ({
   data,
   counter,
+  onClickHandler
 }: {
   data: any[];
   counter: number;
+  onClickHandler?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 }) => {
   const [count, setCount] = useState(counter);
 
@@ -23,7 +25,7 @@ const RdsSideNavChild = ({
           count == 1 ? "list-unstyled" : count == 2 ? "list-style-disc" : ""
         }`}
       >
-        {data && data.map((item, id) => <Node node={item} key={id} count={count}></Node>)}
+        {data && data.map((item, id) => <Node node={item} key={id} count={count} onClickHandler={onClickHandler}></Node>)}
       </ul>
     </div>
   );
@@ -33,7 +35,7 @@ RdsSideNavChild.defaultProps = {
   counter: 0,
 };
 
-const Node = ({ node, count }: { node: any; count: number }) => {
+const Node = ({ node, count, onClickHandler }: { node: any; count: number; onClickHandler?: (event: React.MouseEvent<HTMLAnchorElement>) => void; }) => {
   const [childVisibility, setChildVisibility] = useState(false);
   const hasChild = node.children ? true : false;
 
@@ -42,6 +44,7 @@ const Node = ({ node, count }: { node: any; count: number }) => {
       {!hasChild && (
         <Link
           to={node.path}
+          onClick={onClickHandler}
           className="routingLink d-inline-flex align-items-center text-decoration-none text-uppercase"
         >
           <div className="d-flex">
@@ -58,7 +61,7 @@ const Node = ({ node, count }: { node: any; count: number }) => {
                   ></RdsIcon>
                 </div>
               ) : null}
-              <div className="me-3">{node.label}</div>
+              <div className="me-3" data-name = {node.label}>{node.label}</div>
             </div>
           </div>
         </Link>
@@ -105,6 +108,7 @@ const Node = ({ node, count }: { node: any; count: number }) => {
             <RdsSideNavChild
               data={node.children}
               counter={count}
+              onClickHandler={onClickHandler}
             ></RdsSideNavChild>
           </ul>
         </div>
