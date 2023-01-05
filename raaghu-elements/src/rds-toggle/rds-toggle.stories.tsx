@@ -20,6 +20,6 @@ Default.args = {
 //     isLabel: false,
 //   labelOnUncheck: "",
 //   labelOnCheck: "",
-  iconOnUncheck: "standard_subscription",
-  iconOnCheck: "professional_subscription"
+  iconOnUncheck: "sun",
+  iconOnCheck: "moon"
 }

@@ -35,7 +35,7 @@ const RdsToggle = (props: RdsToggleProps) => {
                 name={props.iconOnUncheck}
                 height="15px"
                 width="15px"
-                fill={false}
+                fill={true}
                 stroke={true}
                 colorVariant={`${checked ? "light" : ""}`}
               ></RdsIcon>
@@ -49,7 +49,7 @@ const RdsToggle = (props: RdsToggleProps) => {
                 name={props.iconOnCheck}
                 height="15px"
                 width="15px"
-                fill={false}
+                fill={true}
                 stroke={true}
               ></RdsIcon>
             )}
