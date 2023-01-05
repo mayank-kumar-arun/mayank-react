@@ -54,16 +54,7 @@ const RdsCompProfile = (props: RdsCompProfileProps) => {
 				<div>
 					{props.navtabItems.map((item: any , i ) => (
 						<div key={i}>
-							<RdsOffcanvas
-								offId={item.id}
-								placement="start"
-								offcanvaswidth={400}
-								backDrop={false}
-								scrolling={false}
-								preventEscapeKey={false}
-								canvasTitle={""}
-								offcanvasbutton={
-									<div
+							<div
 										className={` d-flex mb-4 align-items-baseline gap-1  ${
 											activetab == item.id ? " activeBackgraound" : ""
 										}`}
@@ -92,10 +83,20 @@ const RdsCompProfile = (props: RdsCompProfileProps) => {
 											</p>
 										</div>
 									</div>
+							{/* <RdsOffcanvas
+								offId={item.id}
+								placement="start"
+								offcanvaswidth={400}
+								backDrop={false}
+								scrolling={false}
+								preventEscapeKey={false}
+								canvasTitle={""}
+								offcanvasbutton={
+									
 								}
 							>
 								<RdsCompLinkedAccount></RdsCompLinkedAccount>
-							</RdsOffcanvas>
+							</RdsOffcanvas> */}
 						</div>
 					))}
 				</div>
