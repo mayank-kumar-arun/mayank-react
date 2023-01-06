@@ -23,6 +23,7 @@ export interface RdsInputProps {
 	onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any;
 	onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any;
 	onClick?: (event: React.MouseEvent<HTMLInputElement>) => void;
+	onKeyDown?:React.KeyboardEventHandler<HTMLInputElement>
 
 	customClasses?: string;
 	formName?: string;
@@ -84,6 +85,7 @@ const RdsInput = React.forwardRef(
 						required={props.required}
 						onFocus={props.onFocus}
 						onBlur={props.onBlur}
+						onKeyDown={props.onKeyDown}
 						//defaultValue={props.value}
 						value={props.value}
 						onChange={props.onChange}
@@ -104,6 +106,7 @@ const RdsInput = React.forwardRef(
 							required={props.required}
 							onFocus={props.onFocus}
 							onBlur={props.onBlur}
+							onKeyDown={props.onKeyDown}
 							//defaultValue={props.value}
 							value={props.value}
 							onChange={props.onChange}

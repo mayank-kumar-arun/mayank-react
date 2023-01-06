@@ -5,7 +5,6 @@ import RdsIcon from "../rds-icon";
 
 export interface RdsNavtabsProps {
   children?: ReactNode;
-  // type?: "default" | "pills" | "tabs" | "vertical"
   navtabsItems: {
     label: string;
     tablink?: string;
@@ -33,7 +32,6 @@ const RdsNavtabs = (props: RdsNavtabsProps) => {
   }, [activeTabKey, props.navtabsItems]);
   useEffect(() => {
     if (props.isNextPressed === true) setActiveTabKey(props.activeNavTabId);
-    console.log(activeTabKey);
   }, [props.isNextPressed]);
   return (
     <div className="navtabs-wrapper-div">

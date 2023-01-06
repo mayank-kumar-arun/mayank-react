@@ -5,8 +5,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import RdsIcon from "../rds-icon";
 export interface RdsDatepickerProps {
-  DatePickerLabel: string;
-  DatePicker: (start: any, end: any) => void;
+  DatePickerLabel?: string;
+  onDatePicker: (start: any, end: any) => void;
   type?: "default" | "advanced";
 }
 const RdsDatepicker = (props: RdsDatepickerProps) => {
@@ -22,7 +22,7 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
         (end != null ? end.toDateString().slice(4) : "")
     );
     {
-      props.DatePicker(start, end);
+      props.onDatePicker(start, end);
     }
   };
   const ExampleCustomInput = forwardRef(({ value, onClick }: any, ref: any) => (
@@ -94,8 +94,8 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
     <div>
       {props.type != "advanced" && (
         <>
-          <div>{props.DatePickerLabel}</div>
-          <div className="input-group mb-3">
+     {props.DatePickerLabel && <div>{props.DatePickerLabel}</div>}
+          <div className="input-group input-group-datePicker mb-3">
             <DatePicker
               selected={startDate}
               onChange={(date) => {
@@ -105,7 +105,7 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
               className="datepicker__input"
               wrapperClassName="datepicker__wrapper"
             />
-            <div className="input-group-append datepicker__icon-box">
+            <div className="input-group-append datepicker__icon-box" >
               <span className="input-group-text" id="basic-addon2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +125,7 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
       )}
       {props.type === "advanced" && (
         <>
-          <div>{props.DatePickerLabel}</div>
+         {props.DatePickerLabel && <div>{props.DatePickerLabel}</div>}
           <div className="dropdown">
             <button
               className="btn dropdown-toggle border"
@@ -199,3 +199,5 @@ const RdsDatepicker = (props: RdsDatepickerProps) => {
   );
 };
 export default RdsDatepicker;
+
+

@@ -28,7 +28,8 @@
 
 .datepicker__icon-box{
     display: flex;
-    height: fit-content;
+    height: 30px;
+
 }
 
 .datepicker__icon-box .input-group-text{
@@ -47,4 +48,10 @@
 .daterange__dropdown-item:hover{
     background-color: lightblue;
     color: white;
+}
+
+.input-group-datePicker {
+    
+    flex-wrap: nowrap !important;
+    
 }
