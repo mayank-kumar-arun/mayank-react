@@ -59,8 +59,7 @@ const Webhook = (props: RdsPageWebhookSubscriptionProps) => {
   return (
     <div>
       <div className="d-flex justify-content-end mb-3">
-
-        
+      
       <RdsOffcanvas
          onclick={onNewWebhookSubscription}
          backDrop={true}
@@ -81,6 +80,7 @@ const Webhook = (props: RdsPageWebhookSubscriptionProps) => {
           children={<RdsCompWebhookSubscription webhookItem={onWebhookItem} />}
         ></RdsOffcanvas>
        
+
       </div>
       <div className="m-4">
         {webhookItem.length == 0 && (

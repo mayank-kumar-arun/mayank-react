@@ -183,18 +183,15 @@ const TreeNode = ({
                     <RdsOffcanvas
                       placement="end"
                       canvasTitle={canvasTitle}
-                      width="500px"
-                      id={`${node.key}`}
+                      offcanvaswidth={500}
+                      offId={`${node.key}`}
                       onclick={() => editunit(newData.key, newData.label)}
-                      offcanvasbutton={
-                        <RdsIcon
-                          name={"pencil"}
-                          width="15px"
-                          height="15px"
-                          stroke={true}
-                        ></RdsIcon>
-                      }
-                    >
+                      offcanvasbutton={<RdsIcon
+                        name={"pencil"}
+                        width="15px"
+                        height="15px"
+                        stroke={true}
+                      ></RdsIcon>} backDrop={false} scrolling={false} preventEscapeKey={false}                    >
                       <RdsInput
                         label={inputlabel}
                         labelPositon="top"

@@ -40,15 +40,8 @@ const Main = () => {
 		// setIsAuth(true);
 		if (accessToken) {
 			setIsAuth(true);
-			navigate("/dashboard");
 		}
 	}, [accessToken]);
-
-	const forgotPasswordHandler: any = (isForgotPasswordClicked: boolean) => {
-		if (isForgotPasswordClicked) {
-			navigate("/forgot-password");
-		}
-	};
 
 	// datas for changing language from dropdown on top-nav in dashboard
 
@@ -112,13 +105,186 @@ const Main = () => {
 		i18n.changeLanguage(e.target.getAttribute("data-name"));
 	};
 
+	// Datas for side nav
+
+	const sideNavItems = [
+		{
+		  key: "0",
+		  label: t("Dashboard"),
+		  icon: "home",
+		  path: "/dashboard",
+		  subTitle:"Statistics and reports"
+		},
+		{
+		  key: "1",
+		  label: t("UI Components"),
+		  icon: "demo_ui",
+		  path: "/demo-ui",
+		  subTitle:""
+		},
+		{
+		  key: "2",
+		  label: t("Icons"),
+		  icon: "icons",
+		  path: "/icons",
+		  subTitle:t("icons")
+		},
+		{
+		  key: "3",
+		  label: t("Pages"),
+		  icon: "pages",
+		  children: [
+			{
+			  key: "3-0",
+			  label: t("Tenants"),
+			  icon: "tenant",
+			  path: "/tenant",
+			  subTitle:t("Manage your tenants")
+			},
+			{
+			  key: "3-1",
+			  label: t("Editions"),
+			  icon: "editions",
+			  path: "/edition",
+			  subTitle:t("Manage editions and features of the application")
+			},
+			{
+			  key: "3-2",
+			  label: t("Administration"),
+			  icon: "administration",
+			  children: [
+				{
+				  key: "3-2-0",
+				  label: t("Organization Units"),
+				  icon: "organization",
+				  path: "/organization-unit",
+				  subTitle:t("Use organization units to organize users and entities")
+				},
+				{
+				  key: "3-2-1",
+				  label: t("Roles"),
+				  icon: "roles",
+				  path: "/role",
+				  subTitle:t("Use roles to group permissions")
+				},
+				{
+				  key: "3-2-2",
+				  label: t("Users"),
+				  icon: "users",
+				  path: "/user",
+				  subTitle:t("Manage users and permissions")
+				},
+				{
+				  key: "3-2-3",
+				  label: t("Language"),
+				  icon: "languages",
+				  path: "/language",
+				  subTitle:t("Manage user interface languages")
+				},
+				{
+				  key: "3-2-4",
+				  label: t("Audit Logs"),
+				  icon: "audit_logs",
+				  path: "/audit-logs",
+				  subTitle:""
+				},
+				{
+				  key: "3-2-5",
+				  label: t("Webhook Subscriptions"),
+				  icon: "webhook_subscription",
+				  path: "/webhook-subscription",
+				  subTitle:t("Webhook Subsubscription Info")
+				},
+				{
+				  key: "3-2-6",
+				  label: t("Maintenance"),
+				  icon: "maintenance",
+				  path: "/maintainance",
+				  subTitle:t("Statistics and reports")
+				},
+				{
+				  key: "3-2-7",
+				  label: t("Visual Settings"),
+				  icon: "visual_settings",
+				  path: "/visual-setting",
+				  subTitle:t("Change the look of UI")
+				},
+				{
+				  key: "3-2-8",
+				  label: t("Settings"),
+				  icon: "setting",
+				  path: "/settings",
+				  subTitle:t("Show and change application settings")
+				},
+			  ],
+			},
+		  ],
+		},
+	  ];
+
+	// OnClickHandler for side nav to reflect title and subtitle on TopNav
+	let currentPath = window.location.pathname;
+	
+	const  getLabelForPath: any =(path :string, navItems: any) =>{
+		let label = null;
+		for (const navItem of navItems) {
+		  if (navItem.path === path) {
+			return navItem.label;
+		  }
+		  if (navItem.children) {
+			label = getLabelForPath(path, navItem.children);
+			if (label) {
+			  return label;
+			}
+		  }
+		}
+		return label;
+	}
+
+	const getSubTitle : any =(label: string, navItems: any)=>{
+		let subTitle = null;
+		for (const navItem of navItems) {
+			if (navItem.label === label) {
+			  return navItem.subTitle;
+			}
+			if (navItem.children) {
+			  subTitle = getSubTitle(label, navItem.children);
+			  if (subTitle) {
+				return subTitle;
+			  }
+			}
+		  }
+		  return subTitle;
+	}
+
+
+	  const displayName = getLabelForPath(currentPath,sideNavItems);
+		const subTitle = getSubTitle(displayName, sideNavItems)
+	  const [currentTitle, setCurrentTitle] = useState(displayName);
+	  const [currentSubTitle, setCurrentSubTitle] = useState(subTitle)
+
+
+	const sideNavOnClickHandler =(e: any) =>{
+		const subTitle = getSubTitle(e.target.getAttribute("data-name"), sideNavItems)
+		setCurrentSubTitle(t(subTitle));
+		setCurrentTitle(t(e.target.getAttribute("data-name")));
+	}
+
+
+	const logout = () => {
+		localStorage.clear();
+		setIsAuth(false);
+		navigate("/");
+		
+	};
+
 	useEffect(() => {}, []);
 
 	return (
 		<Suspense fallback="loading...">
 			{!accessToken && (
 				<Routes>
-					<Route path="/" element={<LoginCompo />}></Route>
+					<Route  path="/" element={<LoginCompo />}></Route>
 					<Route
 						path="/forgot-password"
 						element={<ForgotPasswordCompo />}
@@ -138,6 +304,9 @@ const Main = () => {
 								onClick={onClickHandler}
 								profileTitle="Host Admin"
 								profileName="admin"
+								onLogout={logout}
+								navbarTitle= {t(currentTitle)}
+								navbarSubTitle= {t(currentSubTitle)}
 							></RdsCompTopNavigation>
 						</div>
 						<div
@@ -151,11 +320,8 @@ const Main = () => {
 							style={{ position: "fixed", top: "4.4453rem" }}
 						>
 							<div className="aside" id="aside">
-								<div className="mx-2">
-									<RdsCompSideNavigation></RdsCompSideNavigation>
-									{/* <rds-side-nav [isPageWrapper]="true" [activeMenu]="activeMenu" [isLightMode]="isLightMode" 
-														(collapsedState)="onCollapse($event)" [collapseRequired]="collapseRequired" [sidenavItems]="getSideNavItems()"
-														(emitPath)="redirectPath($event)" (selectedMode)="toggleBetweenMode($event)"></rds-side-nav> */}
+								<div className="">
+									<RdsCompSideNavigation sideNavItems={sideNavItems} onClick={sideNavOnClickHandler}></RdsCompSideNavigation>
 								</div>
 							</div>
 							<div
