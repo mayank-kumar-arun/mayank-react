@@ -2,13 +2,20 @@ import React from "react";
 import "./rds-side-nav-new.scss";
 import RdsSideNavChild from "./rds-side-nav-child";
 import RdsIcon from "../rds-icon/rds-icon";
-import RdsToggleSwitch from "../rds-toggle-switch/rds-toggle-switch";
+import RdsToggle from "../rds-toggle/rds-toggle";
 
 export interface RdsSideNavPros {
   sideNavItems: any[];
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 const RdsSideNav = (props: RdsSideNavPros) => {
+
+  // const onClickHandler = (e: any)=>{
+
+  //     console.log(e.target.getAttribute("data-name"))
+  // }
+
   return (
     <>
       <nav
@@ -16,7 +23,7 @@ const RdsSideNav = (props: RdsSideNavPros) => {
         className="bd-links min-vh-100 pt-3 ps-4 position-relative"
       >
         <div className="listsItems">
-          <RdsSideNavChild data={props.sideNavItems}></RdsSideNavChild>
+          <RdsSideNavChild data={props.sideNavItems} onClickHandler={props.onClick}></RdsSideNavChild>
         </div>
       </nav>
       <div className="sidenav-footer text-center" style={{width:"290px", bottom:"28px"}}>
@@ -31,12 +38,7 @@ const RdsSideNav = (props: RdsSideNavPros) => {
         </div>
         <div className="darkTheme text-center">
           <a className="list d-inline-flex align-items-center text-decoration-none text-uppercase">
-            <RdsToggleSwitch disabled={false} defaultChecked={false} className={""} onChange={function (event: React.ChangeEvent<HTMLInputElement>) {
-              throw new Error("Function not implemented.");
-            } } icons={{
-              checked: undefined,
-              unchecked: undefined
-            }}></RdsToggleSwitch>
+            <RdsToggle iconOnUncheck={"sun"} iconOnCheck={"moon"} ></RdsToggle>
           </a>
         </div>
       </div>
