@@ -9,16 +9,13 @@ export default {
   component: RdsButton,
   decorators: [
     (Story) => (
-      <div style={{ padding:'70px 0' ,
-      textAlign:'center'
-      }}>
-        <Story/>
+      <div style={{ padding: "70px 0", textAlign: "center" }}>
+        <Story />
       </div>
     ),
   ],
 
   argTypes: {
-
     colorVariant: {
       options: [
         "primary",
@@ -77,14 +74,18 @@ Disable.args = {
   size: "medium",
 };
 
-export const IconWithLabel = Template.bind({});
-IconWithLabel.args = {
+export const WithIcon = Template.bind({});
+WithIcon.args = {
   icon: "plus",
   colorVariant: "primary",
   label: "",
   block: false,
   size: "medium",
-  iconColorVariant:"light"
+  iconFill: false,
+  iconStroke: true,
+  iconColorVariant: "light",
+  iconHeight: "15px",
+  iconWidth: "15px",
 };
 
 export const Outline = Template.bind({});
@@ -107,12 +108,16 @@ Tooltip.args = {
   tooltipTitle: "This is tooltip",
 };
 
-export const WithIcon = Template.bind({});
-WithIcon.args = {
+export const IconWithLabel = Template.bind({});
+IconWithLabel.args = {
   icon: "plus",
   colorVariant: "primary",
   label: "Button",
   block: false,
   size: "medium",
-  iconColorVariant:"light"
+  fill: true,
+  stroke: false,
+  iconColorVariant: "light",
+  iconHeight: "15px",
+  iconWidth: "15px",
 };
