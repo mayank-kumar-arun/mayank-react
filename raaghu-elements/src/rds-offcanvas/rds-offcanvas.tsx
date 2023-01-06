@@ -6,7 +6,7 @@ export interface RdsOffcanvasProps {
   backDrop: "static" | true | false;
   scrolling: boolean;
   preventEscapeKey: boolean;
-  offId: string;
+  offId: any;
   canvasTitle: string;
   offcanvaswidth: number;
   onShow?: React.EventHandler<HTMLAllCollection | any>;
@@ -18,6 +18,8 @@ export interface RdsOffcanvasProps {
   className?: string;
 }
 const RdsOffcanvas = (props: RdsOffcanvasProps) => {
+  let d = new Date().getMilliseconds();
+
   let align = `offCanvasClass offcanvas offcanvas-${props.placement}`;
   const Width = `${
     props.placement == "start" || props.placement == "end"
@@ -32,7 +34,7 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
           onClick={props.onclick}
           data-bs-toggle="offcanvas"
           data-bs-target={`#${props.offId}`}
-          aria-controls={props.offId}
+          aria-controls={`${props.offId}`}
         >
           {props.offcanvasbutton}
         </div>
@@ -42,8 +44,9 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
         data-bs-scroll={props.scrolling}
         data-bs-keyboard={props.preventEscapeKey}
         data-bs-backdrop={props.backDrop}
+        data-bs-padding={0}
         tabIndex={-1}
-        id={props.offId}
+        id={`${props.offId}`}
         aria-labelledby={`'canvas' +${props.offId}`}
         style={{ width: Width }}
       >

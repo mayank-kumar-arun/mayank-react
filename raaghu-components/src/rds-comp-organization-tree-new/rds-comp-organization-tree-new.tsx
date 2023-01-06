@@ -18,14 +18,14 @@ const RdsComporganizationTreeNew = (props: RdsComporganizationTreeNewProps) => {
 
   const [Odata, setOdata] = useState(props.data);
   const [Tdata, setTdata] = useState(props.data);
-  const [count, setcount] = useState(counter);
   const hasChild = props.data.length === 0 ? false : true;
 
   useLayoutEffect(() => {
     console.log("parentjusrerendered");
     setTdata(Odata);
-    console.log("counter", props.counter);
   });
+
+  console.log(Odata);
 
   let name: string;
   const onChange = (e: any) => {
@@ -33,6 +33,7 @@ const RdsComporganizationTreeNew = (props: RdsComporganizationTreeNewProps) => {
   };
 
   const addunit = (e: any, key: any) => {
+    console.log(Odata);
     console.log("unit added");
     console.log(key);
     let level;
@@ -55,7 +56,6 @@ const RdsComporganizationTreeNew = (props: RdsComporganizationTreeNewProps) => {
               inputlabel={props.inputLabel}
               canvasTitle={props.CanvasTitle}
               addUnitlabel={props.AddUnitlabel}
-              count={count}
             ></TreeNode>
           </>
         ))}
@@ -88,7 +88,7 @@ const RdsComporganizationTreeNew = (props: RdsComporganizationTreeNewProps) => {
                     backDrop={false}
                     scrolling={false}
                     preventEscapeKey={false}
-                    offId={""}
+                    offId={`d${Tdata[Tdata.length - 1].key}`}
                   >
                     <RdsInput
                       label={"Add Organization name"}
@@ -99,7 +99,7 @@ const RdsComporganizationTreeNew = (props: RdsComporganizationTreeNewProps) => {
                     ></RdsInput>
                     <div
                       className="d-flex"
-                      style={{ position: "absolute", bottom: "5%" }}
+                      style={{ position: "absolute", bottom: "15%" }}
                     >
                       <div className="me-3">
                         <RdsButton
@@ -134,44 +134,22 @@ const TreeNode = ({
   inputlabel,
   canvasTitle,
   addUnitlabel,
-  count,
 }: {
   node: any;
   inputlabel: any;
   canvasTitle: any;
   addUnitlabel: any;
-  count: any;
 }) => {
+
+
   const CancelClick = () => {};
   const [newData, setnewData] = useState(node);
+
   const [Edit, setEdit] = useState("");
+
   const hasChild = newData.children ? true : false;
 
-  // const addunit = (e: any, key: any) => {
-  //   console.log("unit added");
-  //   console.log(key);
-  //   console.log("data remain", newData);
-
-  //   setnewData({
-  //     ...newData,
-  //     children: [
-  //       ...newData.children,
-  //       { key: "0-1-5", label: "Document-0-5.doc", title: "Documents Folder" },
-  //     ],
-  //   });
-
-  //   // setnewData([...newData.children, { key: "3-1", label: "hello", title: "Documents Folder" },
-  //   // ]);
-  // };
-
-  useEffect(() => {
-    console.log(node);
-    console.log("child has rendered");
-  });
-
-  // useEffect(() => {
-  //   console.log("child console run", newData);
-  // }, newData);
+  useEffect(() => {});
 
   function editunit(key: any, label: any): void {
     console.log("edit value", Edit);
@@ -181,27 +159,51 @@ const TreeNode = ({
   }
 
   let name: string;
+
   const onChange = (e: any) => {
     name = e.target.value;
   };
 
+  
   const onaddsubunitHandler = (elementid: any) => {
-    console.log("new name is ", name);
-    console.log("id", elementid);
-    let level;
-    level = newData.level + 1;
     if (name) {
-      setnewData({
-        ...newData,
-        children: [
-          { label: name, level: level, key: new Date().getMilliseconds() },
-        ],
-      });
+      let level: any;
+      level = newData.level + 1;
+      if (newData.children) {
+        // setnewData((prevState: { children: any }) => ({
+        //   ...prevState,
+        //   children: [
+        //     ...prevState.children,
+        //     { label: name, level: level, key: new Date().getMilliseconds() },
+        //   ],
+        // }));
+
+        setnewData((prevState: { children: any }) => {
+          const newState = {
+            ...prevState,
+            children: [
+              ...prevState.children,
+              {
+                label: name,
+                level: level,
+                key: new Date().getMilliseconds().toString(),
+              },
+            ],
+          }; // update state as you did before.
+          console.log("this is new chil array ", newState);
+
+          return newState;
+        });
+      } else {
+        setnewData({
+          ...newData,
+          children: [
+            { label: name, level: level, key: new Date().getMilliseconds() },
+          ],
+        });
+      }
     }
-
-    console.log("New data", newData);
   };
-
   const onSaveHandler = (elementid: any) => {
     console.log("new name is ", name);
     console.log("id", elementid);
@@ -285,18 +287,14 @@ const TreeNode = ({
                 {"  "}
                 <div className="icons">
                   {"  "}
-                  <div
-                    className="icon edit"
-                    // onClick={(event) => editunit(event, node.key, node.label)}
-                  >
+                  <div className="canvas icon edit">
                     {" "}
                     <div className="plus">
                       <RdsOffcanvas
                         placement="end"
                         canvasTitle="Add Sub-Organiztion"
                         offcanvaswidth={500}
-                        offId={`${node.key}`}
-                        onclick={() => editunit(newData.key, newData.label)}
+                        offId={`a${node.key}`}
                         offcanvasbutton={
                           <RdsIcon
                             name={"plus"}
@@ -320,7 +318,7 @@ const TreeNode = ({
                         ></RdsInput>
                         <div
                           className="d-flex"
-                          style={{ position: "absolute", bottom: "5%" }}
+                          style={{ position: "absolute", bottom: "15%" }}
                         >
                           <div className="me-3">
                             <RdsButton
@@ -343,7 +341,7 @@ const TreeNode = ({
                       placement="end"
                       canvasTitle={canvasTitle}
                       offcanvaswidth={500}
-                      offId={`${node.key}`}
+                      offId={`b${node.key}`}
                       onclick={() => editunit(newData.key, newData.label)}
                       offcanvasbutton={
                         <RdsIcon
@@ -370,7 +368,7 @@ const TreeNode = ({
                       ></RdsInput>
                       <div
                         className="d-flex"
-                        style={{ position: "absolute", bottom: "5%" }}
+                        style={{ position: "absolute", bottom: "15%" }}
                       >
                         <div className="me-3">
                           <RdsButton
@@ -406,34 +404,13 @@ const TreeNode = ({
                   </div>
                 </div>
               </div>
-
-              {/* <div>
-                <div className="add">
-                  {" "}
-                  <div>
-                    <div>
-                      <div className="add">
-                        {" "}
-                        <RdsButton
-                          type={"button"}
-                          icon={"Plus"}
-                          size={"small"}
-                          colorVariant={"primary"}
-                          iconColorVariant={"light"}
-                          label="hello"
-                          onClick={(event) => addunit(event, node.children)}
-                        ></RdsButton>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
-
+              <div className="ms-3 text-muted fs-6">
+                ({newData.children ? newData.children.length : 0} members)
+              </div>
               {hasChild && (
                 <div>
                   <ul key={newData.key}>
                     <RdsComporganizationTreeNew
-                      counter={count}
                       data={newData.children}
                       key={newData.key}
                       inputLabel={inputlabel}
