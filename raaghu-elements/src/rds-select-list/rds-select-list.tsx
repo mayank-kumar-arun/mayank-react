@@ -1,5 +1,6 @@
 
 import React, { Fragment } from "react";
+import "./rds-select-list.scss"
 
 export interface RdsSelectProps{
     label: string;
