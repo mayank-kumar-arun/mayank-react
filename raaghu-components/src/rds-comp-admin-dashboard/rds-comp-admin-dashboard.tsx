@@ -1,5 +1,5 @@
 import React from "react";
-import { RdsWidget } from "../rds-elements";
+import { RdsProgressBar, RdsWidget } from "../rds-elements";
 import { useTranslation } from "react-i18next";
 import {
   RdsLineChart,
@@ -732,9 +732,9 @@ const RdsCompAdminDashboard = () => {
                             15, 67, 34, 78, 45, 87, 76, 32, 50, 14, 35, 22,
                           ],
                           backgroundColor: "rgba(74, 150, 227, 5);",
-                          // "rgba(544, 162, 235, 1)",
+                          // "rgba(54, 162, 235, 1)",
                           borderColor: "rgba(74, 150, 227, 5);",
-                          // "rgba(544, 162, 245, 1)",
+                          // "rgba(54, 162, 245, 1)",
 
                           borderWidth: 1,
                           borderRadius: 10,
@@ -979,6 +979,228 @@ const RdsCompAdminDashboard = () => {
                         <div className="MidRate d-flex align-items-center justify-content-center\">
                           52%
                         </div>
+                      ),
+                    },
+                  ]}
+                ></RdsTable>
+              </div>
+            </RdsWidget>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12">
+            <RdsWidget
+              headerTitle={t("To do List")}
+              isRefreshRequired={true}
+              colorVariant={"white"}
+              height="462px"
+              style={{ overflow: "scroll" }}
+            >
+              <div>
+                <RdsTable
+                  colorVariant="white"
+                  backgroundColor="white"
+                  headerTextColor="black"
+                  headerDatas={[
+                    {
+                      displayName: t("Project"),
+                      key: "project",
+                      dataType: "html",
+                    },
+                    { displayName: t("Issue"), key: "issue", dataType: "html" },
+
+                    {
+                      displayName: t("Progress"),
+                      key: "progress",
+                      dataType: "html",
+                    },
+                  ]}
+                  tableDatas={[
+                    {
+                      issue: (
+                        <div className="d-flex align-items-center  \">
+                          <div>
+                            <div className="text-muted\">
+                              Activate your account with others intil June 2023
+                            </div>{" "}
+                          </div>
+                        </div>
+                      ),
+
+                      project: (
+                        <div className="d-flex align-items-center ">
+                          <div className="ms-2 mt-2\">
+                            <p style={{ marginBottom: "3px" }}>
+                              <b>Volosoft</b>
+                            </p>
+                            <small className="text-muted\">Website </small>
+                          </div>
+                        </div>
+                      ),
+
+                      progress: (
+                        <div>
+                          <div>
+                            <RdsProgressBar
+                              width={"245px"}
+                              displayLevel={false}
+                              displaypercentage={false}
+                              colorVariant={"primary"}
+                              progressWidth={40}
+                              role={"single"}
+                            ></RdsProgressBar>
+                          </div>
+                          <small className="text-muted">Due in two days</small>
+                        </div>
+                      ),
+                    },
+                    {
+                      issue: (
+                        <div className="d-flex align-items-center  \">
+                          <div>
+                            <div className="text-muted\">
+                              Your Order @22345678 has been confirmed
+                            </div>{" "}
+                          </div>
+                        </div>
+                      ),
+
+                      project: (
+                        <div className="">
+                          <div className="ms-2 mt-2\">
+                            <p style={{ marginBottom: "3px" }}>
+                              <b>ABP Framework</b>
+                            </p>
+                            <small className="text-muted\">Modules</small>
+                          </div>
+                        </div>
+                      ),
+
+                      progress: (
+                        <>
+                          <div>
+                            <RdsProgressBar
+                              displayLevel={false}
+                              displaypercentage={false}
+                              colorVariant={"danger"}
+                              progressWidth={20}
+                              role={"single"}
+                              width={"245px"}
+                            ></RdsProgressBar>
+                          </div>
+                          <small className="text-muted">Due in two days</small>
+                        </>
+                      ),
+                    },
+                    {
+                      issue: (
+                        <div className="d-flex align-items-center  \">
+                          <div>
+                            <div className="text-muted\">
+                              Create a new page for CMS
+                            </div>{" "}
+                          </div>
+                        </div>
+                      ),
+
+                      project: (
+                        <div className="d-flex align-items-center ">
+                          <div className="ms-2 mt-2\">
+                            <p style={{ marginBottom: "3px" }}>
+                              <b>ASPNET Zero</b>
+                            </p>
+                            <small className="text-muted\">
+                              Payment Module
+                            </small>
+                          </div>
+                        </div>
+                      ),
+
+                      progress: (
+                        <>
+                          <div>
+                            <RdsProgressBar
+                              displayLevel={false}
+                              displaypercentage={false}
+                              colorVariant={"success"}
+                              progressWidth={80}
+                              role={"single"}
+                            ></RdsProgressBar>
+                          </div>
+                          <small className="text-muted">Due in two days</small>
+                        </>
+                      ),
+                    },
+                    {
+                      issue: (
+                        <div className="d-flex align-items-center  \">
+                          <div>
+                            <div className="text-muted\">Payment Module</div>{" "}
+                          </div>
+                        </div>
+                      ),
+
+                      project: (
+                        <div className="d-flex align-items-center ">
+                          <div className="ms-2 mt-2\">
+                            <p style={{ marginBottom: "3px" }}>
+                              <b>Volosoft</b>
+                            </p>
+                            <small className="text-muted\">ABP framework</small>
+                          </div>
+                        </div>
+                      ),
+
+                      progress: (
+                        <>
+                          <div>
+                            <RdsProgressBar
+                              displayLevel={false}
+                              displaypercentage={false}
+                              colorVariant={"warning"}
+                              progressWidth={80}
+                              role={"single"}
+                            ></RdsProgressBar>
+                          </div>
+                          <small className="text-muted">Due in two days</small>
+                        </>
+                      ),
+                    },
+                    {
+                      issue: (
+                        <div className="d-flex align-items-center  \">
+                          <div>
+                            <div className="text-muted\">
+                              Activate your account with others intil June 2023
+                            </div>{" "}
+                          </div>
+                        </div>
+                      ),
+
+                      project: (
+                        <div className="d-flex align-items-center ">
+                          <div className="ms-2 mt-2\">
+                            <p style={{ marginBottom: "3px" }}>
+                              <b>Volosoft</b>
+                            </p>
+                            <small className="text-muted\">Website </small>
+                          </div>
+                        </div>
+                      ),
+
+                      progress: (
+                        <>
+                          <div>
+                            <RdsProgressBar
+                              displayLevel={false}
+                              displaypercentage={false}
+                              colorVariant={"primary"}
+                              progressWidth={40}
+                              role={"single"}
+                            ></RdsProgressBar>
+                          </div>
+                          <small className="text-muted">Due in two days</small>
+                        </>
                       ),
                     },
                   ]}
