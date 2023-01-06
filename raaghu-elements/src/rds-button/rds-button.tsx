@@ -22,8 +22,8 @@ export interface RdsButtonProps {
   type: "button" | "submit";
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   formName?: string;
-  iconHeight?: string | "15px";
-  iconWidth?: string | "15px";
+  iconHeight?: string;
+  iconWidth?: string;
   iconFill?: boolean;
   iconStroke?: boolean;
   class?: string;
@@ -33,6 +33,7 @@ export interface RdsButtonProps {
   databstoggle?: string;
   ariacontrols?: string;
   iconColorVariant?: string;
+  style?: any;
 }
 
 const RdsButton = (props: RdsButtonProps) => {
@@ -44,15 +45,16 @@ const RdsButton = (props: RdsButtonProps) => {
     props.size == "small" ? "btn-sm" : props.size == "large" ? "btn-lg" : "";
 
   return (
-    <div className={props.block ? "RdsButton d-grid gap-2" : "RdsButton "}>
+    <div className={props.block ? "RdsButton d-grid gap-2" : "RdsButton"}>
       {props.tooltip && (
         <Tooltip text={props.tooltipTitle} place={props.tooltipPlacement}>
           <button
             type={props.type}
-            className={`btn ${outlineColorVariant} ${size}  ${props.class}`}
+            className={`btn button__content ${outlineColorVariant} ${size}  ${props.class}`}
             disabled={props.isDisabled}
             onClick={props.onClick}
             form={props.formName}
+            style={props.style}
             aria-label={props.arialabel}
             data-bs-dismiss={props.databsdismiss}
             data-bs-target={props.databstarget}
@@ -61,7 +63,7 @@ const RdsButton = (props: RdsButtonProps) => {
           >
             <span className="d-flex align-items-center justify-content-center">
               {props.icon && (
-                <span>
+                <span style={{ marginRight: "5px" }}>
                   <RdsIcon
                     colorVariant={props.iconColorVariant}
                     name={props.icon}
@@ -72,7 +74,7 @@ const RdsButton = (props: RdsButtonProps) => {
                   ></RdsIcon>
                 </span>
               )}
-              <span className="ms-3">{props.label}</span>
+              <span>{props.label}</span>
             </span>
             {props.children}
           </button>
@@ -81,9 +83,10 @@ const RdsButton = (props: RdsButtonProps) => {
       {!props.tooltip && (
         <button
           type={props.type}
-          className={`btn ${outlineColorVariant} ${size} ${props.class}`}
+          className={`btn button__content ${outlineColorVariant} ${size} ${props.class}`}
           disabled={props.isDisabled}
           onClick={props.onClick}
+          style={props.style}
           form={props.formName}
           aria-label={props.arialabel}
           data-bs-dismiss={props.databsdismiss}
@@ -93,7 +96,7 @@ const RdsButton = (props: RdsButtonProps) => {
         >
           <span className="d-flex align-items-center justify-content-center">
             {props.icon && (
-              <span>
+              <span className={`${props.label ? "me-2" : ""}`}>
                 <RdsIcon
                   colorVariant={props.iconColorVariant}
                   name={props.icon}
