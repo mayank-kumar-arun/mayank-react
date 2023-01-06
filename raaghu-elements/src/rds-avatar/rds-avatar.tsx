@@ -93,7 +93,7 @@ const RdsAvatar = (props: RdsAvatarProps) => {
 
 				{Title === true && hasName && (
 					<div style={{ marginLeft: "10px" }}>
-						<span>
+						<span className=" fw-bold " >
 							{titleFirstName}
 							{titleLastName}{" "}
 						</span>

@@ -21,4 +21,5 @@ export const Default = Template.bind({});
 Default.args = {
     placeholder: "Search",
     size: "small",
+    iconside:"left"
 };

@@ -23,67 +23,69 @@ export interface RdsInputProps {
 	onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any;
 	onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any;
 	onClick?: (event: React.MouseEvent<HTMLInputElement>) => void;
+	onKeyDown?:React.KeyboardEventHandler<HTMLInputElement>
 
-	customClasses?: string;
-	formName?: string;
+  customClasses?: string;
+  formName?: string;
 }
 
 const RdsInput = React.forwardRef(
-	(props: RdsInputProps, ref: React.Ref<unknown> | undefined) => {
-		let size: "sm" | "lg" | undefined = undefined;
+  (props: RdsInputProps, ref: React.Ref<unknown> | undefined) => {
+    let size: "sm" | "lg" | undefined = undefined;
 
-		if (props.size == "small") {
-			size = "sm";
-		} else if (props.size == "large") {
-			size = "lg";
-		}
+    if (props.size == "small") {
+      size = "sm";
+    } else if (props.size == "large") {
+      size = "lg";
+    }
 
-		const inputClasses =
-			"form-control form-control-" +
-			size +
-			" flex-grow-1 " +
-			props.customClasses;
+    const inputClasses =
+      "form-control form-control-" +
+      size +
+      " flex-grow-1 " +
+      props.customClasses;
 
-		return (
-			<div>
-				{!props.labelPositon && (
-					<>
-						{props.label && (
-							<label htmlFor={props.id} className="form-label">
-								{props.label}
-							</label>
-						)}
-						{props.redAsteriskPresent && (
-							<span className="text-danger ms-1">*</span>
-						)}
-					</>
-				)}
-				{props.labelPositon == "top" && (
-					<>
-						{props.label && (
-							<>
-								<label htmlFor={props.id} className="form-label">
-									{props.label}
-								</label>
-								{props.redAsteriskPresent && (
-									<span className="text-danger ms-1">*</span>
-								)}
-							</>
-						)}
-					</>
-				)}
+    return (
+      <div>
+        {!props.labelPositon && (
+          <>
+            {props.label && (
+              <label htmlFor={props.id} className="form-label">
+                {props.label}
+              </label>
+            )}
+            {props.redAsteriskPresent && (
+              <span className="text-danger ms-1">*</span>
+            )}
+          </>
+        )}
+        {props.labelPositon == "top" && (
+          <>
+            {props.label && (
+              <>
+                <label htmlFor={props.id} className="form-label">
+                  {props.label}
+                </label>
+                {props.redAsteriskPresent && (
+                  <span className="text-danger ms-1">*</span>
+                )}
+              </>
+            )}
+          </>
+        )}
 
-				{!props.tooltipTitle && (
-					<input
-						type={props.inputType}
-						className={inputClasses}
-						id={props.id}
-						placeholder={props.placeholder}
-						name={props.name}
+
+        {!props.tooltipTitle && (
+          <input
+            type={props.inputType}
+            className={inputClasses}
+            id={props.id}
+            placeholder={props.placeholder}
 						form={props.formName}
 						required={props.required}
 						onFocus={props.onFocus}
 						onBlur={props.onBlur}
+						onKeyDown={props.onKeyDown}
 						//defaultValue={props.value}
 						value={props.value}
 						onChange={props.onChange}
@@ -104,6 +106,7 @@ const RdsInput = React.forwardRef(
 							required={props.required}
 							onFocus={props.onFocus}
 							onBlur={props.onBlur}
+							onKeyDown={props.onKeyDown}
 							//defaultValue={props.value}
 							value={props.value}
 							onChange={props.onChange}
@@ -113,23 +116,22 @@ const RdsInput = React.forwardRef(
 					</Tooltip>
 				)}
 
-				{props.labelPositon == "bottom" && (
-					<>
-						{props.label && (
-							<>
-								<label htmlFor={props.id} className="form-label">
-									{props.label}
-								</label>
-								{props.redAsteriskPresent && (
-									<span className="text-danger ms-1">*</span>
-								)}
-							</>
-						)}
-					</>
-				)}
-			</div>
-		);
-	}
+        {props.labelPositon == "bottom" && (
+          <>
+            {props.label && (
+              <>
+                <label htmlFor={props.id} className="form-label">
+                </label>
+                {props.redAsteriskPresent && (
+                  <span className="text-danger ms-1">*</span>
+                )}
+              </>
+            )}
+          </>
+        )}
+      </div>
+    );
+  }
 );
 
 export default RdsInput;
