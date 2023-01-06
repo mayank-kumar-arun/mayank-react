@@ -19,10 +19,11 @@ export interface RdsInputProps {
 	redAsteriskPresent?: boolean;
 	required?: boolean;
 
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
-  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any;
-  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any;
-  onClick?: (event: React.MouseEvent<HTMLInputElement>) => void;
+	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
+	onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any;
+	onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any;
+	onClick?: (event: React.MouseEvent<HTMLInputElement>) => void;
+	onKeyDown?:React.KeyboardEventHandler<HTMLInputElement>
 
   customClasses?: string;
   formName?: string;
@@ -73,52 +74,53 @@ const RdsInput = React.forwardRef(
           </>
         )}
 
+
         {!props.tooltipTitle && (
           <input
             type={props.inputType}
             className={inputClasses}
             id={props.id}
             placeholder={props.placeholder}
-            name={props.name}
-            form={props.formName}
-            required={props.required}
-            onFocus={props.onFocus}
-            onBlur={props.onBlur}
-            defaultValue={props.value}
-            // value={props.value}
-            onChange={props.onChange}
-            disabled={props.isDisabled}
-            readOnly={props.readonly}
-          ></input>
-        )}
+						form={props.formName}
+						required={props.required}
+						onFocus={props.onFocus}
+						onBlur={props.onBlur}
+						onKeyDown={props.onKeyDown}
+						//defaultValue={props.value}
+						value={props.value}
+						onChange={props.onChange}
+						disabled={props.isDisabled}
+						readOnly={props.readonly}
+					></input>
+				)}
 
-        {props.tooltipTitle && (
-          <Tooltip text={props.tooltipTitle} place={props.tooltipPlacement}>
-            <input
-              type={props.inputType}
-              className={inputClasses}
-              id={props.id}
-              placeholder={props.placeholder}
-              name={props.name}
-              form={props.formName}
-              required={props.required}
-              onFocus={props.onFocus}
-              onBlur={props.onBlur}
-              //defaultValue={props.value}
-              value={props.value}
-              onChange={props.onChange}
-              disabled={props.isDisabled}
-              readOnly={props.readonly}
-            ></input>
-          </Tooltip>
-        )}
+				{props.tooltipTitle && (
+					<Tooltip text={props.tooltipTitle} place={props.tooltipPlacement}>
+						<input
+							type={props.inputType}
+							className={inputClasses}
+							id={props.id}
+							placeholder={props.placeholder}
+							name={props.name}
+							form={props.formName}
+							required={props.required}
+							onFocus={props.onFocus}
+							onBlur={props.onBlur}
+							onKeyDown={props.onKeyDown}
+							//defaultValue={props.value}
+							value={props.value}
+							onChange={props.onChange}
+							disabled={props.isDisabled}
+							readOnly={props.readonly}
+						></input>
+					</Tooltip>
+				)}
 
         {props.labelPositon == "bottom" && (
           <>
             {props.label && (
               <>
                 <label htmlFor={props.id} className="form-label">
-                  {props.label}
                 </label>
                 {props.redAsteriskPresent && (
                   <span className="text-danger ms-1">*</span>

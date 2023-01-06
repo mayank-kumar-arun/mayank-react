@@ -37,7 +37,7 @@ AvatarWithVerticallyAllignedInfo.args = {
   firstName: 'Sania',
   lastName:'Sonkaria',
   size:'medium',
-  isTitle:false, 
+  isTitle:true, 
   titleAlign: "vertical",
   role:"Developer", 
  
@@ -51,7 +51,7 @@ AvatarWithHorizontallyAllignedInfo.args = {
   firstName: 'Sania',
   lastName:'Sonkaria',
   size:'medium',
-  isTitle:false, 
+  isTitle:true, 
   titleAlign:"horizontal",
   role:"Developer", 
  

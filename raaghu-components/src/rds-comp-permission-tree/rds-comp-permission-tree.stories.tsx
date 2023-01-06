@@ -17,33 +17,34 @@ Default.args = {
   familyTree: [
     {
       name: "[Test edition scope feature]",
-      id: "L1E1",
+      id: "testEditionScopeFeature",
       isSelected: false,
       isIntermediate: false,
       disabled: false,
+      parent_id:"", 
       children: []
     },
     {
       name: "Chat",
-      id: "L1E2",
-      parent_id: 0,
+      id: "chat",
+      parent_id: "",
       isSelected: false,
       isIntermediate: false,
       disabled: false,
       children: [
         {
           name: "Chat with host",
-          id: "L2E1",
-          parent_id: 2,
+          id: "chatwithhost",
+          parent_id: "chat",
           isSelected: false,
           isIntermediate: false,
           disabled: false,
           children: []
         },
         {
-          name: "Chat with other tentents",
-          id: "L2E2",
-          parent_id: 2,
+          name: "Chat with other tenants",
+          id: "chatwithothertenats",
+          parent_id: "chat",
           isSelected: false,
           isIntermediate: false,
           disabled: false,
@@ -53,8 +54,8 @@ Default.args = {
     },
     {
       name: "Maximum user count",
-      id: "L1E6",
-      parent_id: 0,
+      id: "maximumUserCount",
+      parent_id: "",
       isSelected: false,
       isIntermediate: false,
       disabled: false,
@@ -62,8 +63,8 @@ Default.args = {
     },
     {
       name: "Test check feature",
-      id: "L1E5",
-      parent_id: 0,
+      id: "testCheckFeature",
+      parent_id: "",
       isSelected: false,
       isIntermediate: false,
       disabled: false,
@@ -71,12 +72,14 @@ Default.args = {
     },
     {
       name: "Test check feature",
-      id:"L1E5",
-      parent_id: 0,
+      id:"testCheckFeature",
+      parent_id: "",
       isSelected: true,
       isIntermediate: false,
       disabled: false,
       children: []
     },
   ],
+
+ 
 };

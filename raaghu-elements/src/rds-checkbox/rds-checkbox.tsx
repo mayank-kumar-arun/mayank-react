@@ -4,8 +4,10 @@ import "./rds-checkbox.scss";
 
 export interface RdsCheckboxProps {
   label: string;
+  labelClass?:string,
   checked: boolean;
   isDisabled?: boolean;
+  classes?:string;
   isSwitch?: boolean;
   withlabel?: boolean;
   name?: string;
@@ -24,11 +26,10 @@ const RdsCheckbox = (props: RdsCheckboxProps) => {
   return (
     <Fragment>
       <div>
-        <div className={SWITCH}>
+        <div className={`${SWITCH} ${props.classes}`} >
           <input
             type="checkbox"
             className={props.state=="Indeterminate"?"form-check-intermediate form-check-input ":props.state=="ErrorCheckbox"?" form-check-input form-check-checkbox-input-error":"form-check-input"}
-           
             value=" "
             disabled={props.isDisabled}
             defaultChecked={props.checked}
@@ -39,7 +40,7 @@ const RdsCheckbox = (props: RdsCheckboxProps) => {
           />
 
          {props.withlabel==false? <></>: <label
-            className="form-check-label d-inline me-5 ms-2 "
+            className={` form-check-label d-inline me-5 ms-2  ${props.labelClass} `}
             htmlFor="flexCheckDefault"
           >
             {props.label}

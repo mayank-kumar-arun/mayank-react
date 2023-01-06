@@ -13,6 +13,7 @@ const Template: ComponentStory<typeof RdsDoughnutChart> = (args) => <RdsDoughnut
 export const Default = Template.bind({});
 Default.args = {
   height:200,
+  id:"myChart" ,
   width:255,
   labels:['Red',
   'Blue',
@@ -32,6 +33,4 @@ Default.args = {
   titleText: "35 k",
   subTitleText:"deioj",
 
- 
-  
 };
