@@ -15,6 +15,7 @@ export interface RdsOffcanvasProps {
   offcanvasbutton?: ReactNode;
   children?: ReactNode;
   onclick?: (data: any) => void;
+  className?: string;
 }
 const RdsOffcanvas = (props: RdsOffcanvasProps) => {
   let align = `offCanvasClass offcanvas offcanvas-${props.placement}`;
@@ -71,7 +72,8 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
             ></button>{" "}
           </div>
         )}
-        <div className="offcanvas-body">{props.children}</div>
+
+        <div className={`offcanvas-body ${props.className}`}>{props.children}</div>
       </div>
     </>
   );

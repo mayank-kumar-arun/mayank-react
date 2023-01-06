@@ -58,10 +58,10 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
     },
   ];
 
-  const ChangeId = (e: any) => {
-    setLinkAccount(true);
-    console.log(LinkAccount);
-  };
+	const ChangeId = (e: any) => {
+		setLinkAccount(true);
+		console.log(LinkAccount);
+	};
 
   return (
     <div>
@@ -144,79 +144,65 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
             ></RdsIcon>
           </div>
 
-          <RdsOffcanvas
-            placement="end"
-            offcanvaswidth={305}
-            offId="Profile"
-            offcanvasbutton={
-              <div
-                className="d-flex align-items-center"
-                style={{ cursor: "pointer" }}
-              >
-                <img
-                  src="./assets/profile-picture-circle.svg"
-                  style={{
-                    width: "32px",
-                    height: "32px",
-                    borderRadius: "50%",
-                    border: "solid 1px grey",
-                  }}
-                ></img>
-                <div className="ms-2">
-                  <div style={{ fontSize: "16px" }}>{props.profileTitle}</div>
-                  <div style={{ fontSize: "12px" }} className="text-muted">
-                    {props.profileName}
-                  </div>
-                </div>
-                <span className="ms-3">
-                  <RdsIcon
-                    name="chevron_down"
-                    height="12px"
-                    width="12px"
-                    fill={false}
-                    stroke={true}
-                    colorVariant={`${props.darkMode ? "light" : ""}`}
-                  ></RdsIcon>
-                </span>
-              </div>
-            }
-            backDrop={true}
-            scrolling={false}
-            preventEscapeKey={false}
-            canvasTitle={""}
-            onclick={function (data: any): void {
-              throw new Error("Function not implemented.");
-            }}
-          >
-            <RdsCompProfile
-              navtabItems={navtabItems}
-              profilePic={""}
-              userName={"Host Admin"}
-              userRole={"Admin"}
-              onLogout={props.onLogout}
-              currNavTabId={ChangeId}
-            ></RdsCompProfile>
-          </RdsOffcanvas>
-          {LinkAccount && (
-            <RdsOffcanvas
-              placement="end"
-              offId="linkaccount"
-              backDrop={false}
-              scrolling={false}
-              preventEscapeKey={false}
-              canvasTitle={""}
-              offcanvaswidth={400}
-              onclick={function (data: any): void {
-                throw new Error("Function not implemented.");
-              }}
-            >
-              <RdsCompLinkedAccount></RdsCompLinkedAccount>
-            </RdsOffcanvas>
-          )}
-        </div>
-      </nav>
-    </div>
-  );
+					<RdsOffcanvas
+					className="pb-0"
+						placement="end"
+						offcanvaswidth={374}
+						offId="Profile"
+						offcanvasbutton={
+							<div
+								className="d-flex align-items-center"
+								style={{ cursor: "pointer" }}
+							>
+								<img
+									src="./assets/profile-picture-circle.svg"
+									style={{
+										width: "20px",
+										height: "20px",
+										borderRadius: "50%",
+										border: "solid 1px grey",
+									}}
+								></img>
+								<div className="ms-2">
+									<div style={{ fontWeight: 500, fontSize: "11px" }}>
+										{props.profileTitle}
+									</div>
+									<div
+										style={{ fontSize: "9px", fontWeight: "500" }}
+										className="text-muted"
+									>
+										{props.profileName}
+									</div>
+								</div>
+								<span className="ms-3">
+									<RdsIcon
+										name="chevron_down"
+										height="12px"
+										width="12px"
+										fill={false}
+										stroke={true}
+										colorVariant={`${props.darkMode ? "light" : ""}`}
+									></RdsIcon>
+								</span>
+							</div>
+						}
+						backDrop={true}
+						scrolling={false}
+						preventEscapeKey={false}
+						canvasTitle={""}
+					>
+						<RdsCompProfile
+							navtabItems={navtabItems}
+							profilePic={""}
+							userName={"Host Admin"}
+							userRole={"admin"}
+							onLogout={props.onLogout}
+						></RdsCompProfile>
+					</RdsOffcanvas>
+				</div>
+			</nav>
+		</div>
+	);
 };
 
 export default RdsCompTopNavigation;
