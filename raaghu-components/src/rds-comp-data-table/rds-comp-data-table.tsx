@@ -12,35 +12,35 @@ import "./rds-comp-data-table.scss";
 import RdsCompAlertPopup from "../rds-comp-alert-popup/rds-comp-alert-popup";
 
 export interface RdsCompDatatableProps {
-  enablecheckboxselection?: boolean;
-  classes?: string;
-  tableBordered?:boolean;
-  tableHeaders: {
-    displayName: string;
-    key: string;
-    datatype: string;
-    dataLength?: number;
-    required?: boolean;
-    sortable?: boolean;
-    colWidth?: string;
-    disabled?: boolean;
-    isEndUserEditing?: boolean;
-  }[];
-  actions?: {
-    displayName:  string ;
-    id: string;
-	offId?:string;
-  }[];
-  tableData: any[];
-  pagination: boolean;
-  recordsPerPage?: number;
-  recordsPerPageSelectListOption?: boolean;
-  onActionSelection: (
-    clickEvent: any,
-    tableDataRow: any,
-    tableDataRowIndex: number,
-    action: { displayName:  string; id: string; offId?:string; }
-  ) => void;
+	enablecheckboxselection?: boolean;
+	classes?: string;
+	tableBordered?: boolean;
+	tableHeaders: {
+		displayName: string;
+		key: string;
+		datatype: string;
+		dataLength?: number;
+		required?: boolean;
+		sortable?: boolean;
+		colWidth?: string;
+		disabled?: boolean;
+		isEndUserEditing?: boolean;
+	}[];
+	actions?: {
+		displayName: string;
+		id: string;
+		offId?: string;
+	}[];
+	tableData: any[];
+	pagination: boolean;
+	recordsPerPage?: number;
+	recordsPerPageSelectListOption?: boolean;
+	onActionSelection: (
+		clickEvent: any,
+		tableDataRow: any,
+		tableDataRowIndex: number,
+		action: { displayName: string; id: string; offId?: string }
+	) => void;
 
 	// onSortSelection(arg: {
 	// 	sortClickEvent: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>;
@@ -61,37 +61,39 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 		}
 	}, [props.tableData]);
 
-  const onPageChangeHandler = (currentPage: number, recordsPerPage: number) => {
-    setRowStatus({
-      startingRow: (currentPage - 1) * recordsPerPage, //0-index
-      endingRow: currentPage * recordsPerPage, //considering that 1st element has '0' index
-    });
-  };
-  const actionOnClickHandler = (
-    clickEvent: any,
-    tableDataRow: any,
-    tableDataRowIndex: number,
-    action: { displayName:  string; id: string; offId?:string; }
-  ) => {
-    if (action.id == "edit") {
-      let tempData = data.map((Data) => {
-        if (Data.id == tableDataRowIndex) {
-          return { ...Data, isEndUserEditing: true };
-        } else {
-          return { ...Data };
-        }
-      });
-      setData(tempData);
-    } else {
-      setAction("delete");
-    }
+	const onPageChangeHandler = (currentPage: number, recordsPerPage: number) => {
+		setRowStatus({
+			startingRow: (currentPage - 1) * recordsPerPage, //0-index
+			endingRow: currentPage * recordsPerPage, //considering that 1st element has '0' index
+		});
+	};
+	const actionOnClickHandler = (
+		clickEvent: any,
+		tableDataRow: any,
+		tableDataRowIndex: number,
+		action: { displayName: string; id: string; offId?: string }
+	) => {
+		if (action.id == "edit") {
+			let tempData = data.map((Data) => {
+				if (Data.id == tableDataRowIndex) {
+					return { ...Data, isEndUserEditing: true };
+				} else {
+					return { ...Data };
+				}
+			});
+			setData(tempData);
+		} else {
+			setAction("delete");
+		}
 
-    props.onActionSelection!=undefined && props.onActionSelection(
-      clickEvent,
-      tableDataRow,
-      tableDataRowIndex,
-      action,)
-  };
+		props.onActionSelection != undefined &&
+			props.onActionSelection(
+				clickEvent,
+				tableDataRow,
+				tableDataRowIndex,
+				action
+			);
+	};
 
 	let tempData: any;
 	const onInputChangeHandler = (
@@ -184,9 +186,9 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 					width="400px"
 				>
 					<thead>
-						<tr>
+						<tr className="align-middle ">
 							{props.enablecheckboxselection && (
-								<th scope="col" className="align-middle ">
+								<th scope="col">
 									<input
 										type="checkbox"
 										className="form-check-input"
@@ -200,12 +202,11 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 								</th>
 							)}
 							{props.tableHeaders.map((tableHeader, index) => (
-								<th key={"tableHeader-" + index}>
+								<th key={"tableHeader-" + index} className="px-2 py-3">
 									<span>{tableHeader.displayName}</span>
 									{tableHeader.sortable && (
 										<span className="px-2">
 											<span
-												className="btn btn-sm px-0"
 												onClick={(e) =>
 													onSortClickHandler(e, "ascending", tableHeader.key)
 												}
@@ -218,7 +219,6 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 												/>
 											</span>
 											<span
-												className="btn btn-sm px-0"
 												onClick={(e) =>
 													onSortClickHandler(e, "descending", tableHeader.key)
 												}
@@ -271,6 +271,7 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 													"-inside-tableRow" +
 													index
 												}
+												className="px-2"
 											>
 												{!tableDataRow.isEndUserEditing ? (
 													<div>
@@ -386,10 +387,12 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 													<>
 														<div className="dropdown">
 															<button
-																className="btn"
+																className="btn rounded-pill border-0"
 																type="button"
 																data-bs-toggle="dropdown"
 																aria-expanded="false"
+																style={{minWidth: 0}}
+															
 															>
 																<RdsIcon
 																	name={"three_dots"}
@@ -410,8 +413,10 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 																			index
 																		}
 																	>
-																		<a  data-bs-toggle="offcanvas" data-bs-target={`#${action?.offId}`}
-                                                                            aria-controls={action?.offId}
+																		<a
+																			data-bs-toggle="offcanvas"
+																			data-bs-target={`#${action?.offId}`}
+																			aria-controls={action?.offId}
 																			onClick={(e) => {
 																				actionOnClickHandler(
 																					e,
