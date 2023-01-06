@@ -178,7 +178,7 @@ const RdsCompTenantInformation = (props: RdsCompTenantInformationProps) => {
 								<div className="form-group mb-3">
 									<RdsDatePicker
 										DatePickerLabel={""}
-										DatePicker={DatePicker}
+										onDatePicker={DatePicker}
 									></RdsDatePicker>
 								</div>
 							</div>
