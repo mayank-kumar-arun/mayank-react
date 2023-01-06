@@ -5,6 +5,15 @@ import "./rds-dropdown-list.scss";
 export interface RdsDropdownListProps {
   width?: string;
   withIcons?: boolean;
+
+  displaynamesize?: string;
+  insidelistnamesize?: string;
+  displayiconheight?: string;
+  displayiconwidth?: string;
+
+  displayiconroundedcorner?: boolean;
+  insideiconroundedcorner?: boolean;
+
   listItems: {
     label: string;
     val: string;
@@ -46,7 +55,11 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
         <a
           data-bs-toggle="dropdown"
           aria-expanded="false"
-          style={{ textDecoration: "none", cursor: "pointer ", paddingLeft:"0px" }}
+          style={{
+            textDecoration: "none",
+            cursor: "pointer ",
+            paddingLeft: "0px",
+          }}
         >
           <div
             className="bDropdown d-flex align-items-center ps-2"
@@ -59,17 +72,26 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
             {props.listItems && props.listItems[0] && (
               <>
                 {props.listItems[selectedOption].icon && (
-     
+                  <span
+                    style={{
+                      borderRadius: `${
+                        props.displayiconroundedcorner ? "50%" : "0"
+                      }`,
+                    }}
+                  >
                     <RdsIcon
                       name={props.listItems[selectedOption].icon}
-                      width="15px"
-                      height="15px"
+                      width={props.displayiconwidth}
+                      height={props.displayiconheight}
                       stroke={true}
                       fill={false}
                     ></RdsIcon>
-     
+                  </span>
                 )}
-                <span className="ms-2 me-2 flex-grow-1">
+                <span
+                  className="ms-2 me-2 flex-grow-1"
+                  style={{ fontSize: `${props.displaynamesize}` }}
+                >
                   {props.listItems[selectedOption].label}
                 </span>
               </>
@@ -78,8 +100,8 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
               name="chevron_down"
               fill={false}
               stroke={true}
-              height="15px"
-              width="15px"
+              height="6px"
+              width="12px"
               colorVariant={`${props.darkVariant ? "light" : ""}`}
             ></RdsIcon>
           </div>
@@ -106,8 +128,14 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
                 style={{ cursor: "pointer" }}
               >
                 {language.icon && (
-                  <div className="ms-4">
-
+                  <div
+                    className="ms-4"
+                    style={{
+                      borderRadius: `${
+                        props.insideiconroundedcorner ? "50%" : "0"
+                      }`,
+                    }}
+                  >
                     <RdsIcon
                       name={language.icon}
                       height={language.iconWidth ? language.iconWidth : "20px"}
@@ -117,6 +145,7 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
                     ></RdsIcon>
                   </div>
                 )}
+
                 <span
                   style={{
                     marginLeft: "16px",
@@ -124,7 +153,7 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
                   }}
                   data-name={language.val}
                 >
-                  {language.label}
+                  <div style={{ fontSize: "12px" }}>{language.label} </div>
                 </span>
               </a>
             </div>
