@@ -10,6 +10,10 @@
   margin-left: 15px;
 }
 
+.plus {
+  margin-right: 6px;
+}
+
 .parent {
   position: relative;
   margin-bottom: 0px;
@@ -38,13 +42,17 @@
   margin-right: 3px !important;
   padding: 0px !important;
 }
+
+.canvas {
+  display: flex;
+}
 .delete {
   margin-left: 3px !important;
   padding: 0px !important;
 }
 
 .add {
-  margin-left: 2.1375rem;
+  margin-left: 1.1375rem;
   margin-bottom: 0.5rem;
 }
 
