@@ -306,8 +306,8 @@ const Main = () => {
 								profileTitle="Host Admin"
 								profileName="admin"
 								onLogout={logout}
-								navbarTitle= {t(currentTitle)}
-								navbarSubTitle= {t(currentSubTitle)}
+								navbarTitle= {t(currentTitle) || ""}
+								navbarSubTitle= {t(currentSubTitle) || ""}
 							></RdsCompTopNavigation>
 						</div>
 						<div
