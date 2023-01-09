@@ -3,7 +3,7 @@ import Chart from 'chart.js/auto';
 //import "./rds-chart-doughnut.scss"
 
 export interface RdsDoughnutprops {
-  children?: ReactNode;
+
   labels:any[],
   options:any,
   dataSets:any[],
@@ -51,8 +51,11 @@ const RdsDoughnutChart = (props:RdsDoughnutprops) => {
       },
       options: props.options,
     });
-      DoughnutCanvas.canvas.style.height = props.height + 'px';
+    if (DoughnutCanvas !== null) {
+     
       DoughnutCanvas.canvas.style.width = props.width + "px";
+      DoughnutCanvas.canvas.style.height = props.height + "px";
+     }
       return () => {
         DoughnutCanvas.destroy()
       }
@@ -60,7 +63,7 @@ const RdsDoughnutChart = (props:RdsDoughnutprops) => {
 
   return (
     <div>
-      <canvas id={CanvasId}  ref={ctx}>{props.children}</canvas>
+      <canvas id={CanvasId}  ref={ctx}></canvas>
     </div>
   );
 };

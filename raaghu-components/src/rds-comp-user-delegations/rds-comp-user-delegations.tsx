@@ -61,7 +61,7 @@ const RdsUserDelegations = (props: RdsUserDelegationsProps) => {
               <RdsDatePicker
                 type="advanced"
                 DatePickerLabel={"Select Date Range"}
-                DatePicker={DatePicker}
+                onDatePicker={DatePicker}
               ></RdsDatePicker>
             </div>
           </div>

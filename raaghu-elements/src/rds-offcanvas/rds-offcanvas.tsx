@@ -1,13 +1,12 @@
 import React, { HtmlHTMLAttributes, ReactNode, useEffect } from "react";
 import RdsIcon from "../rds-icon";
 import "./rds-offcanvas.scss";
-
 export interface RdsOffcanvasProps {
   placement: "start" | "end" | "top" | "bottom";
   backDrop: "static" | true | false;
   scrolling: boolean;
   preventEscapeKey: boolean;
-  offId: string;
+  offId: any;
   canvasTitle: string;
   offcanvaswidth: number;
   onShow?: React.EventHandler<HTMLAllCollection | any>;
@@ -16,16 +15,17 @@ export interface RdsOffcanvasProps {
   offcanvasbutton?: ReactNode;
   children?: ReactNode;
   onclick?: (data: any) => void;
+  className?: string;
 }
-
 const RdsOffcanvas = (props: RdsOffcanvasProps) => {
+  let d = new Date().getMilliseconds();
+
   let align = `offCanvasClass offcanvas offcanvas-${props.placement}`;
   const Width = `${
     props.placement == "start" || props.placement == "end"
       ? `${props.offcanvaswidth}px`
       : "100% "
   }`;
-
   return (
     <>
       {props.offcanvasbutton && (
@@ -34,7 +34,7 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
           onClick={props.onclick}
           data-bs-toggle="offcanvas"
           data-bs-target={`#${props.offId}`}
-          aria-controls={props.offId}
+          aria-controls={`${props.offId}`}
         >
           {props.offcanvasbutton}
         </div>
@@ -44,8 +44,9 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
         data-bs-scroll={props.scrolling}
         data-bs-keyboard={props.preventEscapeKey}
         data-bs-backdrop={props.backDrop}
+        data-bs-padding={0}
         tabIndex={-1}
-        id={props.offId}
+        id={`${props.offId}`}
         aria-labelledby={`'canvas' +${props.offId}`}
         style={{ width: Width }}
       >
@@ -75,10 +76,9 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
           </div>
         )}
 
-        <div className="offcanvas-body">{props.children}</div>
+        <div className={`offcanvas-body ${props.className}`}>{props.children}</div>
       </div>
     </>
   );
 };
-
 export default RdsOffcanvas;

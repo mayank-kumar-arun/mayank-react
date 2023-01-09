@@ -14,14 +14,17 @@
 }
 
 .pencilIconClass {
-  padding: 1px 6px 5px 6px !important;
+  padding: 2px 5px 5px 8px !important;
   position: absolute;
-  top: 116px;
+  top: 89px;
   right: 2px;
-  padding: 0px;
   background: white;
   border-radius: 50%;
   cursor: pointer;
+  align-items: center;
+  height: 33px;
+  width: 33px;
+  display: flex;
 }
 .username_p{
     margin-bottom: 4px;

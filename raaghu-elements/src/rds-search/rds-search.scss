@@ -1,12 +1,29 @@
-.searchBar{
+.searchBar__right{
+    border-left: none !important;
+
+}
+.searchBar__left{
     border-right: none !important;
 }
-.iconButton{
+.iconButton__left{
+    border-right: none !important;
+    background-color: #F4F7F9 !important;
+    border-radius:4px 0 0 4px !important;
+}
+.iconButton__right{
     border-left: none !important;
-    background-color: white !important;
-    border-radius: 0 0.375rem 0.375rem 0 !important;
+    background-color: #F4F7F9 !important;
+    border-radius: 0 4px 4px 0 !important;
 }
 
+.search__input__right{
+    border-left: none !important;
+    background-color: #F4F7F9 !important;
+}
+.search__input__left{
+    border-right: none !important;
+    background-color: #F4F7F9 !important;
+}
 .searchIconMed{
     height: 39px;
 }

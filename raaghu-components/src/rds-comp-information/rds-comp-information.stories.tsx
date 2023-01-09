@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof RdsCompInformation> = (args) =>
 export const Default = Template.bind({});
 
 Default.args ={
-    selectItem:[
+  inputTypeList:[
         {
           "option": "One"
         },

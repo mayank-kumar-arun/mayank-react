@@ -1,67 +1,64 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RdsSelectList, RdsInput, RdsTextArea } from "../rds-elements";
 
 export interface RdsCompInformationProps {
-  selectItem: any;
+  inputTypeList: any;
+  informationItem?: (item: any) => void;
 }
 
 const RdsCompInformation = (props: RdsCompInformationProps) => {
-  const [email, setEmail] = useState("");
 
-  const [fullname, setFullname] = useState("");
+  const [user, setUser] = useState({
+    propertyname:"",
+    displayname:"" ,
+    inputValue:props.inputTypeList[0].option
+  });
 
-  const [error1, setError1] = useState("");
-  const [error2, setError2] = useState("");
-
-  const isEmailValid = (email: any) => {
-    if (!email || email.length === 0) {
-      return false;
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
-      return false;
-    }
-
-    return true;
-  };
-  const isFullnameValid = (fullname: any) => {
-    if (!fullname || fullname.length === 0) {
+  const [error, setError] = useState({
+    propertyname:"",
+    displayname:"" ,
+  });
+  
+  const isPropertyValid = (propertyname: any) => {
+    if (!propertyname || propertyname.length === 0) {
       return false;
     }
     return true;
   };
-
-  const emailhandleChange = (event: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    if (!isEmailValid(event.target.value)) {
-      setError1("Email is invalid");
-    } else {
-      setError1("");
+  const isDisplaynameValid = (displayname: any) => {
+    if (!displayname || displayname.length === 0) {
+      return false;
     }
-    setEmail(event.target.value);
+    return true;
   };
-  const fullnamehandleChange = (event: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    if (!isFullnameValid(event.target.value)) {
-      setError2("fullname is invalid");
+
+  const propertyhandleChange = (event:any) => {
+    if (!isPropertyValid(event.target.value)) {
+      setError({...error,propertyname:"Property Name is invalid"});
     } else {
-      setError2("");
+      setError({...error,propertyname:""});
     }
-    setFullname(event.target.value);
+    setUser({ ...user, propertyname:event.target.value});
+  };
+  const displayhandleChange = (event:any) => {
+    if (!isDisplaynameValid(event.target.value)) {
+      setError({...error,displayname:"Display Name is invalid"});
+    } else {
+      setError({...error,displayname:""});
+    }
+    setUser({...user,displayname:event.target.value});
   };
 
-  const isFormValid = isFullnameValid(fullname) && isEmailValid(email);
+  const isFormValid = isPropertyValid(user.propertyname) && isDisplaynameValid(user.displayname);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    //props.onLogin(email,fullname)
-    setEmail("");
-    setFullname("");
-  };
+  useEffect(()=>{
+    isFormValid && props.informationItem != undefined && props.informationItem(user);
+    console.log("userInformation : ", user)
+  })
   return (
     <>
       <div>
-        <form onSubmit={handleSubmit}>
+      
           <div className="row ">
             <div className="mt-1 mb-3 col-6">
               <RdsInput
@@ -69,11 +66,11 @@ const RdsCompInformation = (props: RdsCompInformationProps) => {
                 redAsteriskPresent={true}
                 placeholder="Enter Property Name"
                 inputType="text"
-                onChange={emailhandleChange}
-                value={email}
+                onChange={propertyhandleChange}
+                value={user.propertyname}
                 name={"Property Name"}
               ></RdsInput>
-              {error1 && <span style={{ color: "red" }}>{error1}</span>}
+              {error.propertyname && <span style={{ color: "red" }}>{error.propertyname}</span>}
             </div>
 
             <div className="mt-1 mb-3 col-6">
@@ -82,20 +79,26 @@ const RdsCompInformation = (props: RdsCompInformationProps) => {
                 redAsteriskPresent={true}
                 placeholder="Display Name"
                 inputType="text"
-                onChange={fullnamehandleChange}
+                onChange={displayhandleChange}
                 name={"Display Name"}
-                value={fullname}
+                value={user.displayname}
               ></RdsInput>
-              {error2 && <span style={{ color: "red" }}>{error2}</span>}
+              {error.displayname && <span style={{ color: "red" }}>{error.displayname}</span>}
             </div>
           </div>
 
           <div className="row">
-            <div className="col-6">
-              <RdsSelectList label="--select--" selectItems={props.selectItem}  />
+            <div className="col-6 mt-1 mb-3">
+              <label className="mb-2">Input Type</label>
+              <RdsSelectList label="Input Type"   onSelectListChange={(e: any) =>
+                    setUser({
+                      ...user,
+                      inputValue: e.target.value,
+                    })}
+                     selectItems={props.inputTypeList}  />
             </div>
           </div>
-        </form>
+       
       </div>
     </>
   );

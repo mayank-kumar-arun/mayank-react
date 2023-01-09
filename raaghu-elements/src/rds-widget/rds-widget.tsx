@@ -3,7 +3,7 @@ import RdsIcon from "../rds-icon/rds-icon";
 
 export interface RdsWidgetProps {
   isRefreshRequired?: boolean;
-  colorVariant:
+  colorVariant?:
     | "primary"
     | "success"
     | "danger"
@@ -17,7 +17,10 @@ export interface RdsWidgetProps {
   headerTitle: string;
   children?: ReactNode;
   class?: string;
+  style?:any;
   subTitleColorVariant?: string;
+  height?: string;
+  width?: string;
   bigNumber?: string;
   subTitle?: string;
   icon?: string;
@@ -26,6 +29,8 @@ export interface RdsWidgetProps {
   iconFill?: boolean;
   iconWidth?: string;
   iconColor?: string;
+  border?: boolean;
+  bigNumberColor?: string;
   onRefresh?: React.MouseEventHandler<HTMLDivElement>;
 }
 
@@ -42,11 +47,18 @@ const RdsWidget = (props: RdsWidgetProps) => {
   return (
     <Fragment>
       <div
-        className={`card p-3 shadow-sm ${props.class} gutter-b ${bg} ${borderColor}`}
-        style={{ background: gradient }}
+        className={`card p-3 shadow-sm ${props.class} gutter-b ${bg} `}
+        style={{
+          background: gradient,
+          border: "none",
+          height: `${props.height}`,
+          width: `${props.width}`,
+        }}
       >
-        <div className="cardHeader border-0 d-flex justify-content-between">
-          <h5 className="card-title">{props.headerTitle}</h5>
+        <div className="cardHeader mb-2 mt-2 border-0 d-flex justify-content-between">
+          <h5 className={`card-title text-${props.bigNumberColor}`}>
+            {props.headerTitle}
+          </h5>
           <div
             className="card-toolbar"
             style={{ cursor: "pointer" }}
@@ -63,28 +75,34 @@ const RdsWidget = (props: RdsWidgetProps) => {
             )}
           </div>
         </div>
-        
+
         <div>
-          {props.bigNumber&&<h1>{props.bigNumber}</h1>}
-         {props.subTitle && <h6 className={subTitleColor}>
-          {props.icon && <RdsIcon
-              name={props.icon}
-              fill={props.iconFill}
-              stroke={props.iconStroke}
-              colorVariant={props.iconColor}
-              height={props.iconHeight}
-              width={props.iconWidth}
-            />}
-            {props.subTitle}
-          </h6>}
+          {props.bigNumber && (
+            <h1 className={`text-${props.bigNumberColor}`}>
+              {props.bigNumber}
+            </h1>
+          )}
+          {props.subTitle && (
+            <h6 className={subTitleColor}>
+              {props.icon && (
+                <RdsIcon
+                  name={props.icon}
+                  fill={props.iconFill}
+                  stroke={props.iconStroke}
+                  colorVariant={props.iconColor}
+                  height={props.iconHeight}
+                  width={props.iconWidth}
+                />
+              )}
+              <span className="ms-1">{props.subTitle}</span>
+            </h6>
+          )}
         </div>
         {props.children && (
-          <div className="card-body pt-2  ">{props.children}</div>
+          <div className="card-body pt-2 " style={props.style}>{props.children}</div>
         )}
       </div>
-      <div>
-
-      </div>
+      <div></div>
     </Fragment>
   );
 };
