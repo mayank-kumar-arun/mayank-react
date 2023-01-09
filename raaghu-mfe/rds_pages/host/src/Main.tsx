@@ -267,8 +267,9 @@ const Main = () => {
 
 	const sideNavOnClickHandler =(e: any) =>{
 		const subTitle = getSubTitle(e.target.getAttribute("data-name"), sideNavItems)
-		setCurrentSubTitle(t(subTitle));
-		setCurrentTitle(t(e.target.getAttribute("data-name")));
+		setCurrentSubTitle(subTitle);
+		setCurrentTitle(e.target.getAttribute("data-name"));
+		// console.log(  "printing data",t(e.target.getAttribute("data-name")), t(subTitle))
 	}
 
 
