@@ -78,7 +78,6 @@ export const WithIcon = Template.bind({});
 WithIcon.args = {
   icon: "plus",
   colorVariant: "primary",
-  label: "",
   block: false,
   size: "medium",
   iconFill: false,
@@ -115,8 +114,8 @@ IconWithLabel.args = {
   label: "Button",
   block: false,
   size: "medium",
-  fill: true,
-  stroke: false,
+  iconFill: false,
+  iconStroke: true,
   iconColorVariant: "light",
   iconHeight: "15px",
   iconWidth: "15px",

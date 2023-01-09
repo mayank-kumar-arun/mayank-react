@@ -51,7 +51,7 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
   const iconWidth = props.listItems;
   return (
     <div>
-      <div style={{ position: "relative" }}>
+      <div className="position-relative">
         <a
           data-bs-toggle="dropdown"
           aria-expanded="false"
@@ -153,7 +153,9 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
                   }}
                   data-name={language.val}
                 >
-                  <div style={{ fontSize: "12px" }}>{language.label} </div>
+                  <div style={{ fontSize: `${props.displaynamesize}` }}>
+                    {language.label}
+                  </div>
                 </span>
               </a>
             </div>
