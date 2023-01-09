@@ -33,6 +33,7 @@ export interface RdsButtonProps {
 	databstoggle?: string;
 	ariacontrols?: string;
 	iconColorVariant?: string;
+	style?: any;
 }
 
 const RdsButton = (props: RdsButtonProps) => {
@@ -44,7 +45,7 @@ const RdsButton = (props: RdsButtonProps) => {
 		props.size == "small" ? "btn-sm" : props.size == "large" ? "btn-lg" : "";
 
 	return (
-		<div className={props.block ? "RdsButton d-grid gap-2" : "RdsButton "}>
+		<div className={props.block ? "RdsButton d-grid gap-2" : "RdsButton"}>
 			{props.tooltip && (
 				<Tooltip text={props.tooltipTitle} place={props.tooltipPlacement}>
 					<button
@@ -53,6 +54,7 @@ const RdsButton = (props: RdsButtonProps) => {
 						disabled={props.isDisabled}
 						onClick={props.onClick}
 						form={props.formName}
+						style={props.style}
 						aria-label={props.arialabel}
 						data-bs-dismiss={props.databsdismiss}
 						data-bs-target={props.databstarget}
@@ -84,6 +86,7 @@ const RdsButton = (props: RdsButtonProps) => {
 					className={`btn button__content ${outlineColorVariant} ${size} ${props.class}`}
 					disabled={props.isDisabled}
 					onClick={props.onClick}
+					style={props.style}
 					form={props.formName}
 					aria-label={props.arialabel}
 					data-bs-dismiss={props.databsdismiss}
@@ -93,7 +96,7 @@ const RdsButton = (props: RdsButtonProps) => {
 				>
 					<span className="d-flex align-items-center justify-content-center">
 						{props.icon && (
-							<span style={{ marginRight: "5px" }}>
+							<span className={`${props.label?"me-2":""}`} >
 								<RdsIcon
 									colorVariant={props.iconColorVariant}
 									name={props.icon}

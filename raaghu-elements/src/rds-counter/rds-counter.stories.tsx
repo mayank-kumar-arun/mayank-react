@@ -23,8 +23,8 @@ export default {
             options:[
                 "top",
                 "bottom",
-                "start",
-                "end"
+                "left",
+                "right"
             ],
             control: { type: "radio" },
         }

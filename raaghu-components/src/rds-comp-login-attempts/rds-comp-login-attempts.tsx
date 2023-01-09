@@ -64,7 +64,7 @@ const RdsCompLoginAttempts = (props: RdsCompLoginAttemptsProps) => {
           <RdsDatePicker
             type="advanced"
             DatePickerLabel={"Select Date Range"}
-            DatePicker={DatePicker}
+            onDatePicker={DatePicker}
           ></RdsDatePicker>
         </div>
 
