@@ -46,6 +46,8 @@ Default.args = {
   striped: false,
   bordered: false,
   colorVariant: "none",
+  backgroundColor: "white",
+  headerTextColor: "black",
   headerDatas: [
     { displayName: "Name", dataType: "text", key: "name" },
     { displayName: "Icon", dataType: "icon", key: "icon" },

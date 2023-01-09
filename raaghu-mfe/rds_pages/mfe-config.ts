@@ -26,6 +26,9 @@ export const MfeConfig = {
 	"webhookSubscription":{
 		"url":"webhookSubscription@http://localhost:8008/remoteEntry.js"
 	},
+	"auditLogs":{
+		"url":"auditlogs@http://localhost:8009/remoteEntry.js" 
+	},
 	"settings":{
 		"url":"settings@http://localhost:8010/remoteEntry.js"
 	}

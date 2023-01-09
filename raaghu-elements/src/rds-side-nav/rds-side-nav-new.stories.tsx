@@ -1,16 +1,16 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import RdsSideNavMain from "./rds-side-nav";
+import RdsSideNav from "./rds-side-nav";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default {
-  title: "Elements/Side Nav New",
-  component: RdsSideNavMain,
-} as ComponentMeta<typeof RdsSideNavMain>;
+  title: "Elements/Side Navigation",
+  component: RdsSideNav,
+} as ComponentMeta<typeof RdsSideNav>;
 
-const Template: ComponentStory<typeof RdsSideNavMain> = (args) => (
+const Template: ComponentStory<typeof RdsSideNav> = (args) => (
   <BrowserRouter>
-    <RdsSideNavMain {...args} />
+    <RdsSideNav {...args} />
   </BrowserRouter>
 );
 
