@@ -51,17 +51,8 @@ const RdsCompInformation = (props: RdsCompInformationProps) => {
 
   const isFormValid = isPropertyValid(user.propertyname) && isDisplaynameValid(user.displayname);
 
-  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   props.informationItem != undefined && props.informationItem(user);
-  //   setUser({...user,
-  //   propertyname:"",
-  //   displayname:"" ,
-  //   inputValue:props.inputTypeList[0].option, });
-  
-  // };
   useEffect(()=>{
-    props.informationItem != undefined && props.informationItem(user);
+    isFormValid && props.informationItem != undefined && props.informationItem(user);
     console.log("userInformation : ", user)
   })
   return (
