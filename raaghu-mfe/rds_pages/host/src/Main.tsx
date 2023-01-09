@@ -24,10 +24,13 @@ const SettingsCompo = React.lazy(() => import("Settings/Settings"));
 const VisualSettingsCompo = React.lazy(
 	() => import("VisualSetting/VisualSetting")
 );
+
+const AuditlogsCompo = React.lazy(() => import("AuditLogs/AuditLogs"))
 const Main = () => {
 	const [isAuth, setIsAuth] = useState(false);
 	const navigate = useNavigate();
 	let accessToken: string | undefined = undefined;
+	let currentPath = window.location.pathname;
 
 	useEffect(() => {
 		const loginCredentials = localStorage.getItem("persist:root");
@@ -40,6 +43,9 @@ const Main = () => {
 		// setIsAuth(true);
 		if (accessToken) {
 			setIsAuth(true);
+		}
+		if(accessToken == undefined && currentPath!="/"){
+			navigate("/")
 		}
 	}, [accessToken]);
 
@@ -223,7 +229,7 @@ const Main = () => {
 	  ];
 
 	// OnClickHandler for side nav to reflect title and subtitle on TopNav
-	let currentPath = window.location.pathname;
+	
 	
 	const  getLabelForPath: any =(path :string, navItems: any) =>{
 		let label = null;
@@ -305,8 +311,8 @@ const Main = () => {
 								profileTitle="Host Admin"
 								profileName="admin"
 								onLogout={logout}
-								navbarTitle= {t(currentTitle)}
-								navbarSubTitle= {t(currentSubTitle)}
+								navbarTitle= {t(currentTitle) || ""}
+								navbarSubTitle= {t(currentSubTitle) || ""}
 							></RdsCompTopNavigation>
 						</div>
 						<div
@@ -356,6 +362,12 @@ const Main = () => {
 										path="/webhook-subscription"
 										element={
 											<WebhookSubscriptionCompo></WebhookSubscriptionCompo>
+										}
+									></Route>
+									<Route
+										path="/audit-logs"
+										element={
+											<AuditlogsCompo></AuditlogsCompo>
 										}
 									></Route>
 								</Routes>
