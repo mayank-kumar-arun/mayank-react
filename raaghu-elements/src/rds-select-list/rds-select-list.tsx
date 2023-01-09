@@ -23,8 +23,8 @@ const RdsSelectList = (props: RdsSelectProps) => {
   
   return (
     <Fragment>
-      <select className={`${customSize} ${props.classes}`} disabled={Disabled} multiple={Multiple} aria-label="select example" onChange={props.onSelectListChange}>
-        <option disabled selected hidden className="text-muted">{props.label}</option>
+      <select defaultValue={props.label} className={`${customSize} ${props.classes}`} disabled={Disabled} multiple={Multiple} aria-label="select example" onChange={props.onSelectListChange}>
+        <option disabled  hidden className="text-muted">{props.label}</option>
         {props.selectItems.map((selectItem) => (
           <option value={selectItem.option} key={selectItem.option}>{selectItem.option} {props.children}</option>
         ))}
