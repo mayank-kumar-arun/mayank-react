@@ -6,7 +6,7 @@ export default {
   title: "Elements/Input Group",
   component: RdsInputGroup,
   argTypes: {
-    inputValue: { action: 'Value sent to parent' },
+    inputValue: { action: "Value sent to parent" },
     buttonColorVariant: {
       options: [
         "primary",
@@ -21,14 +21,10 @@ export default {
       control: { type: "select" },
     },
     size: {
-        options: [ 
-            "small",
-            "medium",
-            "large"
-        ],
-        control: { type: "select" },
-      },
-  }
+      options: ["small", "medium", "large"],
+      control: { type: "select" },
+    },
+  },
 } as ComponentMeta<typeof RdsInputGroup>;
 
 const Template: ComponentStory<typeof RdsInputGroup> = (args) => (
@@ -37,11 +33,10 @@ const Template: ComponentStory<typeof RdsInputGroup> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-    buttonLabel: "BUTTON",
-    buttonColorVariant: "primary",
-    placeholder: "Placeholder text",
-    size: "medium",
-    outline: true,
-    inputGroupLabel: "Field Label"
+  buttonLabel: "BUTTON",
+  buttonColorVariant: "primary",
+  placeholder: "Placeholder text",
+  size: "large",
+  outline: true,
+  inputGroupLabel: "Field Label",
 };
-

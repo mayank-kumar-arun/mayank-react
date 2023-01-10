@@ -19,16 +19,16 @@ export default {
       ],
       control: { type: "select" },
     },
-  
-  }
+  },
 } as ComponentMeta<typeof RdsIllustration>;
 
 const Template: ComponentStory<typeof RdsIllustration> = (args) => (
-  <RdsIllustration {...args}/>
+  <RdsIllustration {...args} />
 );
 
 export const Default = Template.bind({});
 Default.args = {
-  label: " this djfdjfsdfj",
-  subLabel:" here is djfff",
+  colorVariant: "light",
+  label: "Currently you don't have any data",
+  subLabel: "Click on the button above to add data",
 };

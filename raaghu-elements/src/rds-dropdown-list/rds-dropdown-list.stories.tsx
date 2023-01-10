@@ -70,6 +70,9 @@ WithIcons.args = {
   width: "100px",
   withBorder: true,
   darkVariant: false,
+  displaynamesize: "12px",
+  displayiconheight: "20px",
+  displayiconwidth: "20px",
   listItems: [
     {
       label: "EN(US)",
