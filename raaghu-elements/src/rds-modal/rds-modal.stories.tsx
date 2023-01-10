@@ -63,7 +63,7 @@ VerticallyCentered.args = {
   showModalHeader: true,
   showModalFooter: true,
   verticallyCentered: true,
-  StaticBackdrop: true,
+  staticbackdrop: true,
   modalData: {
     modalHeader: "Header",
     modalContent: "Content",
