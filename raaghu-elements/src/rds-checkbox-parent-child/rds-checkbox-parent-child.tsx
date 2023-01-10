@@ -98,7 +98,7 @@ const RdsCheckboxParentChild = (props: RdsCheckboxParentChildProps) => {
   useEffect(() => {
     dispatch({ type: "INITIAL_STATE" });
   }, []);
-  
+
   return (
     <>
       <div className="container p-0 m-0">
@@ -106,7 +106,7 @@ const RdsCheckboxParentChild = (props: RdsCheckboxParentChildProps) => {
           <ul className=" p-0 m-0">
             {users.map((parents: any, index: number) => {
               return (
-                <li className="line1  p-0 m-0" key={index}>
+                <li className="line1 mb-3 p-0 m-0" key={index}>
                   <div className="form-check  ">
                     <label className="form-check-label ms-2">
                       <input
@@ -127,7 +127,7 @@ const RdsCheckboxParentChild = (props: RdsCheckboxParentChildProps) => {
                   <ul>
                     {parents.childList.map((child: any, idx: any) => {
                       return (
-                        <li className="line1" key={idx}>
+                        <li className="line1 my-3" key={idx}>
                           <div className="form-check">
                             <label className="form-check-label ms-2">
                               <input

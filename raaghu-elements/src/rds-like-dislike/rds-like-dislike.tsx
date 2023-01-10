@@ -35,7 +35,7 @@ const RdsLikeDislike = (props: RdsLikeDislikeProps) => {
   return (
     <Fragment>
       <div className="d-flex justify-content-start">
-        <div onClick={likeHandler}>
+        <div className="mx-3" onClick={likeHandler}>
           <RdsIcon
             name="like"
             class="likebtn"
@@ -46,12 +46,12 @@ const RdsLikeDislike = (props: RdsLikeDislikeProps) => {
             colorVariant={props.colorVariant || "dark"}
           ></RdsIcon>
 
-          <span className="ms-2 me-2 ">
+          <span className="ms-2">
             <label className="marginclassName">{like}</label>
           </span>
         </div>
 
-        <div onClick={dislikeHandler}>
+        <div className="mx-3" onClick={dislikeHandler}>
           <RdsIcon
             name="dislike"
             class="dislikebtn"

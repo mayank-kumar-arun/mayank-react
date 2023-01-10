@@ -1,80 +1,78 @@
 li#breadcrumbItems::before {
-    float: left;
-    color: var(--bs-breadcrumb-divider-color);
-    content: var(--bs-breadcrumb-divider, "") !important;
+  float: left;
+  color: var(--bs-breadcrumb-divider-color);
+  content: var(--bs-breadcrumb-divider, "") !important;
 }
 
 #breaditem1 {
-    padding-right: 5px;
+  padding-right: 5px;
 }
 
 li#breadcrumbItems,
 li#breaditem1,
 li.breadcrumb-item {
-    font-size: 12px;
+  font-size: 12px;
 }
 
-li#breadcrumbItems.breadcrumb-item{
-    padding: 0;
+li#breadcrumbItems.breadcrumb-item {
+  padding: 0;
 }
-
 
 .RdsBreadcrumb__arrow .btn {
-    border: solid 1px #707070;
-    border-left: 0;
-    border-right: 0;
-    border-radius: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+  border: solid 1px #707070;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .RdsBreadcrumb__arrow .btn:hover {
-    border-color: #707070;
+  border-color: #707070;
 }
 
 .RdsBreadcrumb__arrow .btn-group:first-child {
-    border-left: 1px solid #707070;
-    border-radius: 0;
+  border-left: 1px solid #707070;
+  border-radius: 0;
 }
 
-
 .RdsBreadcrumb__arrow .dividing-arrow {
-    border-top: solid 1px #707070;
-    border-bottom: solid 1px #707070;
-    padding-left: 0;
-    padding-right: 0;
+  border-top: solid 1px #707070;
+  border-bottom: solid 1px #707070;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .RdsBreadcrumb__arrow .last-dividing-arrow {
-    border-top: 0;
-    border-bottom: 0;
-    margin-top: 0;
-    padding-top: 0;
+  border-top: 0;
+  border-bottom: 0;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .RdsBreadcrumb__arrow .last-dividing-arrow svg {
-    padding-top: 1px;
+  padding-top: 1px;
 }
 
 .RdsBreadcrumb__arrow .btn-group .btn {
-    height: 26px;
-    font-size: 12px;
+  height: 26px;
+  font-size: 12px;
 }
 
 .RdsBreadcrumb__arrow .btn-group .btn.breadcrumb-text {
-    min-width: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  min-width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .RdsBreadcrumb__arrow .dividing-arrow span {
-    display: flex;
-    margin-top: -1px;
-    color: #424A50;
+  display: flex;
+  margin-top: -1px;
+  color: #424a50;
 }
 
 .RdsBreadcrumb__arrow .last-dividing-arrow {
-    border-top: 0;
-    border-bottom: 0;
+  border-top: 0;
+  border-bottom: 0;
 }

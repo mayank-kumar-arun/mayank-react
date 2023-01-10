@@ -15,6 +15,7 @@ export interface LoginState {
     expireDate: number | undefined;
     refreshTokenExpireDate: number | undefined;
     date: number | undefined;
+    isAuth: boolean
 }
 const AccountService = new AccountServiceProxy();
 const TokenAuthService = new TokenAuthServiceProxy();
@@ -30,7 +31,8 @@ export const LoginInitialState: LoginState = {
     refreshToken: undefined,
     expireDate: undefined,
     refreshTokenExpireDate: undefined,
-    date: undefined
+    date: undefined,
+    isAuth: false
 };
 export const Authenticate = createAsyncThunk('login/Authenticate',
         async(authenticateModal:any)=>{       
@@ -126,6 +128,12 @@ export const ValidateTenantName = createAsyncThunk('tenants/ValidateTenantName',
                 let refreshToken = action.payload.result.refreshToken;        
                 state.accessToken = accessToken;
                 state.refreshToken = refreshToken;
+                if(accessToken){
+                    state.isAuth = true
+                }
+                if(!accessToken){
+                    state.isAuth = false
+                }
                 let tokenExpireDate = action.payload.authenticateModal.rememberClient ? new Date().getTime() + 1000 * action.payload.result.expireInSeconds : undefined;
                 console.log(tokenExpireDate)
                 state.expireDate = tokenExpireDate;
@@ -137,7 +145,8 @@ export const ValidateTenantName = createAsyncThunk('tenants/ValidateTenantName',
                     refreshToken: refreshToken,
                     expireDate: tokenExpireDate,
                     refreshTokenExpireDate: state.refreshTokenExpireDate,
-                    date: state.date
+                    date: state.date,
+                    isAuth: state.isAuth
                   }));
             })
     }
