@@ -274,6 +274,7 @@ const Edition = (props: RdsPageEditionProps) => {
         onclick={offCanvasHandler}
         placement="end"
         offcanvaswidth={830}
+
         offcanvasbutton={
           <div className="d-flex justify-content-end">
             <RdsButton
@@ -318,6 +319,7 @@ const Edition = (props: RdsPageEditionProps) => {
         )}
       </RdsOffcanvas>
       <RdsCompEditionList
+      enablecheckboxselection={false}
         tableHeaders={tableHeaders}
         tableData={tableData}
         actions={actions}

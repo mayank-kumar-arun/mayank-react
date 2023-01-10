@@ -9,6 +9,8 @@ import {
 	RdsCompSideNavigation,
 	RdsCompTopNavigation,
 } from "../../rds-components";
+import { AuthGuard } from "../../../libs/public.api";
+import RdsCompPageNotFound from "../../../../raaghu-components/src/rds-comp-page-not-found/rds-comp-page-not-found";
 const DashboardCompo = React.lazy(() => import("Dashboard/Dashboard"));
 const LoginCompo = React.lazy(() => import("Login/Login"));
 const ForgotPasswordCompo = React.lazy(
@@ -25,12 +27,16 @@ const VisualSettingsCompo = React.lazy(
 	() => import("VisualSetting/VisualSetting")
 );
 
-const AuditlogsCompo = React.lazy(() => import("AuditLogs/AuditLogs"))
+const AuditlogsCompo = React.lazy(() => import("AuditLogs/AuditLogs"));
 const Main = () => {
-	const [isAuth, setIsAuth] = useState(false);
+	const [isAuth, setIsAuth] = useState(true);
 	const navigate = useNavigate();
 	let accessToken: string | undefined = undefined;
 	let currentPath = window.location.pathname;
+
+	const auth: any = useSelector(
+		(state: RootState) => state.persistedReducer.login.isAuth
+	);
 
 	useEffect(() => {
 		const loginCredentials = localStorage.getItem("persist:root");
@@ -44,8 +50,8 @@ const Main = () => {
 		if (accessToken) {
 			setIsAuth(true);
 		}
-		if(accessToken == undefined && currentPath!="/"){
-			navigate("/")
+		if (accessToken == undefined && currentPath != "/") {
+			navigate("/");
 		}
 	}, [accessToken]);
 
@@ -115,153 +121,154 @@ const Main = () => {
 
 	const sideNavItems = [
 		{
-		  key: "0",
-		  label: t("Dashboard"),
-		  icon: "home",
-		  path: "/dashboard",
-		  subTitle:"Statistics and reports"
+			key: "0",
+			label: t("Dashboard"),
+			icon: "home",
+			path: "/dashboard",
+			subTitle: "Statistics and reports",
 		},
 		{
-		  key: "1",
-		  label: t("UI Components"),
-		  icon: "demo_ui",
-		  path: "/demo-ui",
-		  subTitle:""
+			key: "1",
+			label: t("UI Components"),
+			icon: "demo_ui",
+			path: "/demo-ui",
+			subTitle: "",
 		},
 		{
-		  key: "2",
-		  label: t("Icons"),
-		  icon: "icons",
-		  path: "/icons",
-		  subTitle:t("icons")
+			key: "2",
+			label: t("Icons"),
+			icon: "icons",
+			path: "/icons",
+			subTitle: t("icons"),
 		},
 		{
-		  key: "3",
-		  label: t("Pages"),
-		  icon: "pages",
-		  children: [
-			{
-			  key: "3-0",
-			  label: t("Tenants"),
-			  icon: "tenant",
-			  path: "/tenant",
-			  subTitle:t("Manage your tenants")
-			},
-			{
-			  key: "3-1",
-			  label: t("Editions"),
-			  icon: "editions",
-			  path: "/edition",
-			  subTitle:t("Manage editions and features of the application")
-			},
-			{
-			  key: "3-2",
-			  label: t("Administration"),
-			  icon: "administration",
-			  children: [
+			key: "3",
+			label: t("Pages"),
+			icon: "pages",
+			children: [
 				{
-				  key: "3-2-0",
-				  label: t("Organization Units"),
-				  icon: "organization",
-				  path: "/organization-unit",
-				  subTitle:t("Use organization units to organize users and entities")
+					key: "3-0",
+					label: t("Tenants"),
+					icon: "tenant",
+					path: "/tenant",
+					subTitle: t("Manage your tenants"),
 				},
 				{
-				  key: "3-2-1",
-				  label: t("Roles"),
-				  icon: "roles",
-				  path: "/role",
-				  subTitle:t("Use roles to group permissions")
+					key: "3-1",
+					label: t("Editions"),
+					icon: "editions",
+					path: "/edition",
+					subTitle: t("Manage editions and features of the application"),
 				},
 				{
-				  key: "3-2-2",
-				  label: t("Users"),
-				  icon: "users",
-				  path: "/user",
-				  subTitle:t("Manage users and permissions")
+					key: "3-2",
+					label: t("Administration"),
+					icon: "administration",
+					children: [
+						{
+							key: "3-2-0",
+							label: t("Organization Units"),
+							icon: "organization",
+							path: "/organization-unit",
+							subTitle: t(
+								"Use organization units to organize users and entities"
+							),
+						},
+						{
+							key: "3-2-1",
+							label: t("Roles"),
+							icon: "roles",
+							path: "/role",
+							subTitle: t("Use roles to group permissions"),
+						},
+						{
+							key: "3-2-2",
+							label: t("Users"),
+							icon: "users",
+							path: "/user",
+							subTitle: t("Manage users and permissions"),
+						},
+						{
+							key: "3-2-3",
+							label: t("Language"),
+							icon: "languages",
+							path: "/language",
+							subTitle: t("Manage user interface languages"),
+						},
+						{
+							key: "3-2-4",
+							label: t("Audit Logs"),
+							icon: "audit_logs",
+							path: "/audit-logs",
+							subTitle: "",
+						},
+						{
+							key: "3-2-5",
+							label: t("Webhook Subscriptions"),
+							icon: "webhook_subscription",
+							path: "/webhook-subscription",
+							subTitle: t("Webhook Subsubscription Info"),
+						},
+						{
+							key: "3-2-6",
+							label: t("Maintenance"),
+							icon: "maintenance",
+							path: "/maintainance",
+							subTitle: t("Statistics and reports"),
+						},
+						{
+							key: "3-2-7",
+							label: t("Visual Settings"),
+							icon: "visual_settings",
+							path: "/visual-setting",
+							subTitle: t("Change the look of UI"),
+						},
+						{
+							key: "3-2-8",
+							label: t("Settings"),
+							icon: "setting",
+							path: "/settings",
+							subTitle: t("Show and change application settings"),
+						},
+					],
 				},
-				{
-				  key: "3-2-3",
-				  label: t("Language"),
-				  icon: "languages",
-				  path: "/language",
-				  subTitle:t("Manage user interface languages")
-				},
-				{
-				  key: "3-2-4",
-				  label: t("Audit Logs"),
-				  icon: "audit_logs",
-				  path: "/audit-logs",
-				  subTitle:""
-				},
-				{
-				  key: "3-2-5",
-				  label: t("Webhook Subscriptions"),
-				  icon: "webhook_subscription",
-				  path: "/webhook-subscription",
-				  subTitle:t("Webhook Subsubscription Info")
-				},
-				{
-				  key: "3-2-6",
-				  label: t("Maintenance"),
-				  icon: "maintenance",
-				  path: "/maintainance",
-				  subTitle:t("Statistics and reports")
-				},
-				{
-				  key: "3-2-7",
-				  label: t("Visual Settings"),
-				  icon: "visual_settings",
-				  path: "/visual-setting",
-				  subTitle:t("Change the look of UI")
-				},
-				{
-				  key: "3-2-8",
-				  label: t("Settings"),
-				  icon: "setting",
-				  path: "/settings",
-				  subTitle:t("Show and change application settings")
-				},
-			  ],
-			},
-		  ],
+			],
 		},
-	  ];
+	];
 
 	// OnClickHandler for side nav to reflect title and subtitle on TopNav
-	
-	
-	const  getLabelForPath: any =(path :string, navItems: any) =>{
+
+	const getLabelForPath: any = (path: string, navItems: any) => {
 		let label = null;
 		for (const navItem of navItems) {
-		  if (navItem.path === path) {
-			return navItem.label;
-		  }
-		  if (navItem.children) {
-			label = getLabelForPath(path, navItem.children);
-			if (label) {
-			  return label;
+			if (navItem.path === path) {
+				return navItem.label;
 			}
-		  }
+			if (navItem.children) {
+				label = getLabelForPath(path, navItem.children);
+				if (label) {
+					return label;
+				}
+			}
 		}
 		return label;
-	}
+	};
 
-	const getSubTitle : any =(label: string, navItems: any)=>{
+	const getSubTitle: any = (label: string, navItems: any) => {
 		let subTitle = null;
 		for (const navItem of navItems) {
 			if (navItem.label === label) {
-			  return navItem.subTitle;
+				return navItem.subTitle;
 			}
 			if (navItem.children) {
-			  subTitle = getSubTitle(label, navItem.children);
-			  if (subTitle) {
-				return subTitle;
-			  }
+				subTitle = getSubTitle(label, navItem.children);
+				if (subTitle) {
+					return subTitle;
+				}
 			}
-		  }
-		  return subTitle;
-	}
+		}
+		return subTitle;
+	};
 
 
 	  const displayName = getLabelForPath(currentPath,sideNavItems);
@@ -280,25 +287,30 @@ const Main = () => {
 
 	const logout = () => {
 		localStorage.clear();
+		console.log(auth);
 		setIsAuth(false);
 		navigate("/");
-		
 	};
 
 	useEffect(() => {}, []);
 
 	return (
 		<Suspense fallback="loading...">
-			{!accessToken && (
-				<Routes>
-					<Route  path="/" element={<LoginCompo />}></Route>
-					<Route
-						path="/forgot-password"
-						element={<ForgotPasswordCompo />}
-					></Route>
-				</Routes>
-			)}
-			{isAuth && (
+			<Routes>
+				<Route
+					path="/"
+					element={
+						<AuthGuard>
+							<LoginCompo />
+						</AuthGuard>
+					}
+				></Route>
+				<Route
+					path="/forgot-password"
+					element={<ForgotPasswordCompo />}
+				></Route>
+			</Routes>
+			{auth && isAuth && (
 				<div className="d-flex flex-column flex-root">
 					<div className="page d-flex flex-column flex-column-fluid">
 						<div
@@ -312,8 +324,8 @@ const Main = () => {
 								profileTitle="Host Admin"
 								profileName="admin"
 								onLogout={logout}
-								navbarTitle= {t(currentTitle) || ""}
-								navbarSubTitle= {t(currentSubTitle) || ""}
+								navbarTitle={t(currentTitle) || ""}
+								navbarSubTitle={t(currentSubTitle) || ""}
 							></RdsCompTopNavigation>
 						</div>
 						<div
@@ -328,7 +340,10 @@ const Main = () => {
 						>
 							<div className="aside" id="aside">
 								<div className="">
-									<RdsCompSideNavigation sideNavItems={sideNavItems} onClick={sideNavOnClickHandler}></RdsCompSideNavigation>
+									<RdsCompSideNavigation
+										sideNavItems={sideNavItems}
+										onClick={sideNavOnClickHandler}
+									></RdsCompSideNavigation>
 								</div>
 							</div>
 							<div
@@ -367,10 +382,10 @@ const Main = () => {
 									></Route>
 									<Route
 										path="/audit-logs"
-										element={
-											<AuditlogsCompo></AuditlogsCompo>
-										}
+										element={<AuditlogsCompo></AuditlogsCompo>}
 									></Route>
+
+									<Route path="*" element={<RdsCompPageNotFound />} />
 								</Routes>
 							</div>
 						</div>
