@@ -270,19 +270,20 @@ const Main = () => {
 		return subTitle;
 	};
 
-	const displayName = getLabelForPath(currentPath, sideNavItems);
-	const subTitle = getSubTitle(displayName, sideNavItems);
-	const [currentTitle, setCurrentTitle] = useState(displayName);
-	const [currentSubTitle, setCurrentSubTitle] = useState(subTitle);
 
-	const sideNavOnClickHandler = (e: any) => {
-		const subTitle = getSubTitle(
-			e.target.getAttribute("data-name"),
-			sideNavItems
-		);
-		setCurrentSubTitle(t(subTitle));
-		setCurrentTitle(t(e.target.getAttribute("data-name")));
-	};
+	  const displayName = getLabelForPath(currentPath,sideNavItems);
+		const subTitle = getSubTitle(displayName, sideNavItems)
+	  const [currentTitle, setCurrentTitle] = useState(displayName);
+	  const [currentSubTitle, setCurrentSubTitle] = useState(subTitle)
+
+
+	const sideNavOnClickHandler =(e: any) =>{
+		const subTitle = getSubTitle(e.target.getAttribute("data-name"), sideNavItems)
+		setCurrentSubTitle(subTitle);
+		setCurrentTitle(e.target.getAttribute("data-name"));
+		// console.log(  "printing data",t(e.target.getAttribute("data-name")), t(subTitle))
+	}
+
 
 	const logout = () => {
 		localStorage.clear();
