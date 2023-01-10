@@ -15,6 +15,7 @@ const Template: ComponentStory<typeof RdsDropdownList> = (args) => (
 export const Default = Template.bind({});
 
 Default.args = {
+  placeholder:"Filter",
   width: "100px",
   withBorder: true,
   darkVariant: false,
@@ -62,11 +63,67 @@ Default.args = {
       iconHeight: "20px",
     },
   ],
+  reset:false, 
 };
 
+export const WithMultiSelect = Template.bind({});
+
+WithMultiSelect.args = {
+  reset:false, 
+  placeholder:"Filter",
+  width: "100px",
+  multiSelect:true,
+  withBorder: true,
+  darkVariant: false,
+  listItems: [
+    {
+      label: "EN(US)",
+      val: "en",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "English(IND)",
+      val: "en",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "Français",
+      val: "fr",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "Deutsch",
+      val: "de",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "Português (Brasil)",
+      val: "pt-BR",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "Türkçe",
+      val: "tr",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+    {
+      label: "Italiano",
+      val: "it",
+      iconWidth: "20px",
+      iconHeight: "20px",
+    },
+  ],
+};
 export const WithIcons = Template.bind({});
 
 WithIcons.args = {
+  
   width: "100px",
   withBorder: true,
   darkVariant: false,
