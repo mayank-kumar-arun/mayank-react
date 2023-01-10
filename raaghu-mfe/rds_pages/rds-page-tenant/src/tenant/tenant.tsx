@@ -9,8 +9,6 @@ import {
 import { RdsButton, RdsOffcanvas, RdsNavtabs } from "../../../rds-elements";
 interface RdsPageTenantProps {}
 
-
-
 const tableData = [
   {
     id: 1,
@@ -376,7 +374,6 @@ const editionList = [
   { option: "Apple1" },
 ];
 const Tenant = (props: RdsPageTenantProps) => {
-
   const { t } = useTranslation();
 
   const tableHeaders = [
@@ -392,7 +389,12 @@ const Tenant = (props: RdsPageTenantProps) => {
       datatype: "text",
       sortable: true,
     },
-    { displayName: t("Status"), key: "status", datatype: "badge", sortable: true },
+    {
+      displayName: t("Status"),
+      key: "status",
+      datatype: "badge",
+      sortable: true,
+    },
     {
       displayName: t("Subscription End Date"),
       key: "expiry",
@@ -418,19 +420,28 @@ const Tenant = (props: RdsPageTenantProps) => {
         onclick={offCanvasHandler}
         placement="end"
         offcanvaswidth={830}
-        offcanvasbutton={<div className="d-flex justify-content-end">
-          <RdsButton
-            icon="plus"
-            label={t("New Tenant") || ""}
-            iconColorVariant="light"
-            iconHeight="15px"
-            iconWidth="15px"
-            iconFill={false}
-            iconStroke={true}
-            size="medium"
-            type="button"
-            colorVariant="primary" ></RdsButton>
-        </div>} backDrop={false} scrolling={false} preventEscapeKey={false} offId={"tenant"}      >
+        offcanvasbutton={
+          <div className="d-flex justify-content-end">
+            <RdsButton
+              icon="plus"
+              label={t("New Tenant") || ""}
+              iconColorVariant="light"
+              iconHeight="15px"
+              iconWidth="15px"
+              iconFill={false}
+              iconStroke={true}
+              block={false}
+              size="small"
+              type="button"
+              colorVariant="primary"
+            ></RdsButton>
+          </div>
+        }
+        backDrop={false}
+        scrolling={false}
+        preventEscapeKey={false}
+        offId={"tenant"}
+      >
         <RdsNavtabs
           navtabsItems={navtabsItems}
           type="tabs"
@@ -449,7 +460,7 @@ const Tenant = (props: RdsPageTenantProps) => {
           />
         )}
         {(activeNavTabId == 1 || showTenantSettings == true) && (
-          <RdsCompTenantSettings showEditData = {true}/>
+          <RdsCompTenantSettings showEditData={true} />
         )}
       </RdsOffcanvas>
       <RdsCompTenantList

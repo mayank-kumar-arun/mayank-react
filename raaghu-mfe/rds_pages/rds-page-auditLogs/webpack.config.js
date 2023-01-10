@@ -15,7 +15,7 @@ module.exports = (env, argv) => {
     entry: "./src/index.ts",
     mode: process.env.NODE_ENV || "development",
     devServer: {
-      port: 8006,
+      port: 8009,
       open: true,
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -65,11 +65,11 @@ module.exports = (env, argv) => {
         "process.env": JSON.stringify(process.env),
       }),
       new ModuleFederationPlugin({
-        name: "Tenant",
+        name: "auditlogs",
         filename: "remoteEntry.js",
         exposes: {
         // expose each page
-        "./Tenant": "./src/tenant/tenant"
+        "./AuditLogs": "./src/App"
       },
         shared: {
             ...devdeps,

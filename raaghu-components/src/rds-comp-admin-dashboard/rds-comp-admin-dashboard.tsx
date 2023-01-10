@@ -1,5 +1,5 @@
 import React from "react";
-import { RdsProgressBar, RdsWidget } from "../rds-elements";
+import { RdsPagination, RdsProgressBar, RdsWidget } from "../rds-elements";
 import { useTranslation } from "react-i18next";
 import {
   RdsLineChart,
@@ -21,7 +21,7 @@ const RdsCompAdminDashboard = () => {
     <div>
       <div className="dark">
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-lg-6 col-md-12">
             <RdsWidget
               headerTitle={t("Monthly Summary")}
               isRefreshRequired={true}
@@ -221,7 +221,7 @@ const RdsCompAdminDashboard = () => {
             </RdsWidget>
           </div>
 
-          <div className="col-md-6">
+          <div className="col-lg-6 col-md-12">
             <div className="row">
               <div className="col-md-6">
                 <div>
@@ -231,7 +231,7 @@ const RdsCompAdminDashboard = () => {
                     class="card-stretch-half"
                     colorVariant="white"
                     iconColor="success"
-                    height="160px"
+                    minHeight="162px"
                     subTitleColorVariant="success"
                     subTitle="+$2203.00"
                     iconFill={true}
@@ -244,12 +244,13 @@ const RdsCompAdminDashboard = () => {
                 </div>
                 <div>
                   <RdsWidget
+                    class="card-stretch-half"
                     headerTitle={t("Revenue")}
                     isRefreshRequired={false}
-                    bigNumber={"$9,72,900"}
+                    bigNumber={"$9,72,900.00"}
                     subTitle="-$1203.00"
                     colorVariant="gradient-primary"
-                    height="160px"
+                    minHeight="162px"
                     subTitleColorVariant="warning"
                     icon={"triangle_down"}
                     bigNumberColor="white"
@@ -266,6 +267,7 @@ const RdsCompAdminDashboard = () => {
                   headerTitle={t("Profit Share")}
                   isRefreshRequired={true}
                   colorVariant={"white"}
+                  class="card-stretch"
                   bigNumber={"$39,330.00"}
                 >
                   <div>
@@ -349,13 +351,14 @@ const RdsCompAdminDashboard = () => {
         </div>
 
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-12 col-lg-6">
             <div className="row">
               <div className="col-md-6">
                 <div>
                   <RdsWidget
                     headerTitle={t("Call Overview")}
                     isRefreshRequired={false}
+                    class="card-stretch-half"
                     colorVariant={"white"}
                   >
                     <div>
@@ -537,6 +540,7 @@ const RdsCompAdminDashboard = () => {
                     isRefreshRequired={false}
                     colorVariant={"white"}
                     subTitle="-$2203.00"
+                    class="card-stretch-half"
                     subTitleColorVariant="success"
                     bigNumber={"$3,32,230.00"}
                     icon={"triangle_up"}
@@ -554,7 +558,7 @@ const RdsCompAdminDashboard = () => {
                   headerTitle={t("Daily Sales Growth")}
                   isRefreshRequired={true}
                   colorVariant={"white"}
-                  class="border-0"
+                  class="border-0 card-stretch"
                   bigNumber={"$3,73,960.412"}
                   subTitle="-$5850.75"
                   subTitleColorVariant="danger"
@@ -765,16 +769,19 @@ const RdsCompAdminDashboard = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-12 col-lg-6">
             <RdsWidget
+              class="card-stretch"
               headerTitle={t("Member Activity")}
               isRefreshRequired={true}
               colorVariant={"white"}
-              height="462px"
-              style={{ overflow: "scroll" }}
+              minHeight="462px"
+              // style={{ overflow: "scroll" }}
             >
               <div>
                 <RdsTable
+                  tableHeightForScroll="306px"
+                  backgroundColor="white"
                   headerDatas={[
                     {
                       displayName: t("Member"),
@@ -797,8 +804,8 @@ const RdsCompAdminDashboard = () => {
                   tableDatas={[
                     {
                       cases: (
-                        <div className="d-flex align-items-center justify-content-center\">
-                          <div> 10 </div>
+                        <div className="d-flex align-items-center justify-content-start">
+                          <div className="text-muted"> 10 </div>
                         </div>
                       ),
                       member: (
@@ -810,40 +817,40 @@ const RdsCompAdminDashboard = () => {
                               width="40px"
                             />
                           </div>
-                          <div className="ms-2 mt-2\">
-                            <p className="mb-0\">
+                          <div className="ms-2 mt-2">
+                            <p className="mb-0">
                               <b>Brian</b>
                             </p>
-                            <small className="text-muted\">
+                            <small className="text-muted">
                               Software Developer{" "}
                             </small>
                           </div>
                         </div>
                       ),
                       active: (
-                        <div className="d-flex align-items-center justify-content-center\">
-                          <div> 38 </div>
+                        <div className="d-flex align-items-center justify-content-start">
+                          <div className="text-muted"> 38 </div>
                         </div>
                       ),
                       closed: (
-                        <div className="d-flex align-items-center justify-content-center\">
-                          <div> 10 </div>
+                        <div className="d-flex align-items-center justify-content-start">
+                          <div className="text-muted"> 10 </div>
                         </div>
                       ),
                       rate: (
-                        <div className="HighRate d-flex align-items-center justify-content-center">
+                        <div className="HighRate text-danger d-flex align-items-center justify-content-start ">
                           92%
                         </div>
                       ),
                     },
                     {
                       cases: (
-                        <div className="d-flex align-items-center justify-content-center\">
-                          <div> 18 </div>
+                        <div className="d-flex align-items-center justify-content-start">
+                          <div className="text-muted"> 18 </div>
                         </div>
                       ),
                       member: (
-                        <div className="d-flex align-items-center\">
+                        <div className="d-flex align-items-center">
                           <div>
                             {" "}
                             <img
@@ -855,36 +862,36 @@ const RdsCompAdminDashboard = () => {
                             <p className="mb-0">
                               <b>Kim</b>
                             </p>
-                            <small className="text-muted\">
+                            <small className="text-muted">
                               Senior Developer{" "}
                             </small>
                           </div>
                         </div>
                       ),
                       active: (
-                        <div className="d-flex align-items-center justify-content-center\">
-                          <div> 342 </div>
+                        <div className="d-flex align-items-center justify-content-start">
+                          <div className="text-muted"> 342 </div>
                         </div>
                       ),
                       closed: (
-                        <div className="d-flex align-items-center justify-content-center\">
-                          <div> 25 </div>
+                        <div className="d-flex align-items-center justify-content-start">
+                          <div className="text-muted"> 25 </div>
                         </div>
                       ),
                       rate: (
-                        <div className="MidRate d-flex align-items-center justify-content-center\">
+                        <div className="MidRate text-success d-flex align-items-center justify-content-start">
                           42%
                         </div>
                       ),
                     },
                     {
                       cases: (
-                        <div className="d-flex align-items-center justify-content-center\">
-                          <div> 7 </div>
+                        <div className="d-flex align-items-center justify-content-start">
+                          <div className="text-muted"> 7 </div>
                         </div>
                       ),
                       member: (
-                        <div className="d-flex align-items-center\">
+                        <div className="d-flex align-items-center">
                           <div>
                             {" "}
                             <img
@@ -892,40 +899,40 @@ const RdsCompAdminDashboard = () => {
                               width="40px\"
                             />
                           </div>
-                          <div className="ms-2 mt-2\">
-                            <p className="mb-0\">
+                          <div className="ms-2 mt-2">
+                            <p className="mb-0">
                               <b>Jane</b>
                             </p>
-                            <small className="text-muted\">
+                            <small className="text-muted">
                               Sales Executive{" "}
                             </small>
                           </div>
                         </div>
                       ),
                       active: (
-                        <div className="d-flex align-items-center justify-content-center\">
-                          <div> 25 </div>
+                        <div className="d-flex align-items-center justify-content-start">
+                          <div className="text-muted"> 25 </div>
                         </div>
                       ),
                       closed: (
-                        <div className="d-flex align-items-center justify-content-center\">
-                          <div> 5 </div>
+                        <div className="d-flex align-items-center justify-content-start">
+                          <div className="text-muted"> 5 </div>
                         </div>
                       ),
                       rate: (
-                        <div className="HighRate d-flex align-items-center justify-content-center\">
+                        <div className="HighRate text-warning d-flex align-items-center justify-content-start">
                           96%
                         </div>
                       ),
                     },
                     {
                       cases: (
-                        <div className="d-flex align-items-center justify-content-center\">
-                          <div> 14 </div>
+                        <div className="d-flex align-items-center justify-content-start">
+                          <div className="text-muted"> 14 </div>
                         </div>
                       ),
                       member: (
-                        <div className="d-flex align-items-center\">
+                        <div className="d-flex align-items-center">
                           <div>
                             {" "}
                             <img
@@ -933,40 +940,40 @@ const RdsCompAdminDashboard = () => {
                               width="40px\"
                             />
                           </div>
-                          <div className="ms-2 mt-2\">
-                            <p className="mb-0\">
+                          <div className="ms-2 mt-2">
+                            <p className="mb-0">
                               <b>Brian</b>
                             </p>
-                            <small className="text-muted\">
+                            <small className="text-muted">
                               Software Developer
                             </small>
                           </div>
                         </div>
                       ),
                       active: (
-                        <div className="d-flex align-items-center justify-content-center\">
-                          <div> 42 </div>
+                        <div className="d-flex align-items-center justify-content-start">
+                          <div className="text-muted"> 42 </div>
                         </div>
                       ),
                       closed: (
-                        <div className="d-flex align-items-center justify-content-center\">
-                          <div> 42 </div>
+                        <div className="d-flex align-items-center justify-content-start">
+                          <div className="text-muted"> 42 </div>
                         </div>
                       ),
                       rate: (
-                        <div className="LowRate d-flex align-items-center justify-content-center\">
+                        <div className="LowRate text-danger d-flex align-items-center justify-content-start">
                           16%
                         </div>
                       ),
                     },
                     {
                       cases: (
-                        <div className="d-flex align-items-center justify-content-center\">
-                          <div> 13 </div>
+                        <div className="d-flex align-items-center justify-content-start">
+                          <div className="text-muted"> 13 </div>
                         </div>
                       ),
                       member: (
-                        <div className="d-flex align-items-center\">
+                        <div className="d-flex align-items-center">
                           <div>
                             {" "}
                             <img
@@ -974,28 +981,257 @@ const RdsCompAdminDashboard = () => {
                               width="40px\"
                             />
                           </div>
-                          <div className="ms-2 mt-2\">
-                            <p className="mb-0\">
+                          <div className="ms-2 mt-2">
+                            <p className="mb-0">
                               <b>Kath</b>
                             </p>
-                            <small className="text-muted\">Manager </small>
+                            <small className="text-muted">Manager </small>
                           </div>
                         </div>
                       ),
                       active: (
-                        <div className="d-flex align-items-center justify-content-center\">
-                          <div> 10 </div>
+                        <div className="d-flex align-items-center justify-content-start">
+                          <div className="text-muted"> 10 </div>
                         </div>
                       ),
                       closed: (
-                        <div className="d-flex align-items-center justify-content-center\">
-                          <div> 3 </div>
+                        <div className="d-flex align-items-center justify-content-start">
+                          <div className="text-muted"> 3 </div>
                         </div>
                       ),
                       rate: (
-                        <div className="MidRate d-flex align-items-center justify-content-center\">
+                        <div className="MidRate text-success d-flex align-items-center justify-content-start">
                           52%
                         </div>
+                      ),
+                    },
+                  ]}
+                ></RdsTable>
+              </div>
+              <RdsPagination
+                totalRecords={10}
+                size="sm"
+                alignmentType="end"
+                recordsPerPage={10}
+                paginationType="advance"
+              ></RdsPagination>
+            </RdsWidget>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12">
+            <RdsWidget
+              headerTitle={t("To do List")}
+              isRefreshRequired={true}
+              colorVariant={"white"}
+              minHeight="462px"
+            >
+              <div>
+                <RdsTable
+                  tableHeightForScroll="360px"
+                  colorVariant="white"
+                  backgroundColor="white"
+                  headerTextColor="black"
+                  headerDatas={[
+                    {
+                      displayName: t("Project"),
+                      key: "project",
+                      dataType: "html",
+                    },
+                    { displayName: t("Issue"), key: "issue", dataType: "html" },
+
+                    {
+                      displayName: t("Progress"),
+                      key: "progress",
+                      dataType: "html",
+                    },
+                  ]}
+                  tableDatas={[
+                    {
+                      issue: (
+                        <div className="d-flex align-items-center  \">
+                          <div>
+                            <div className="text-muted\">
+                              Activate your account with others intil June 2023
+                            </div>{" "}
+                          </div>
+                        </div>
+                      ),
+
+                      project: (
+                        <div className="d-flex align-items-center ">
+                          <div className="ms-2 mt-2\">
+                            <p style={{ marginBottom: "3px" }}>
+                              <b>Volosoft</b>
+                            </p>
+                            <small className="text-muted\">Website </small>
+                          </div>
+                        </div>
+                      ),
+
+                      progress: (
+                        <div>
+                          <div>
+                            <RdsProgressBar
+                              width={"245px"}
+                              displayLevel={false}
+                              displaypercentage={false}
+                              colorVariant={"primary"}
+                              progressWidth={40}
+                              role={"single"}
+                            ></RdsProgressBar>
+                          </div>
+                          <small className="text-muted">Due in two days</small>
+                        </div>
+                      ),
+                    },
+                    {
+                      issue: (
+                        <div className="d-flex align-items-center  \">
+                          <div>
+                            <div className="text-muted\">
+                              Your Order @22345678 has been confirmed
+                            </div>{" "}
+                          </div>
+                        </div>
+                      ),
+
+                      project: (
+                        <div className="">
+                          <div className="ms-2 mt-2\">
+                            <p style={{ marginBottom: "3px" }}>
+                              <b>ABP Framework</b>
+                            </p>
+                            <small className="text-muted\">Modules</small>
+                          </div>
+                        </div>
+                      ),
+
+                      progress: (
+                        <>
+                          <div>
+                            <RdsProgressBar
+                              displayLevel={false}
+                              displaypercentage={false}
+                              colorVariant={"danger"}
+                              progressWidth={20}
+                              role={"single"}
+                              width={"245px"}
+                            ></RdsProgressBar>
+                          </div>
+                          <small className="text-muted">Due in two days</small>
+                        </>
+                      ),
+                    },
+                    {
+                      issue: (
+                        <div className="d-flex align-items-center  \">
+                          <div>
+                            <div className="text-muted\">
+                              Create a new page for CMS
+                            </div>{" "}
+                          </div>
+                        </div>
+                      ),
+
+                      project: (
+                        <div className="d-flex align-items-center ">
+                          <div className="ms-2 mt-2\">
+                            <p style={{ marginBottom: "3px" }}>
+                              <b>ASPNET Zero</b>
+                            </p>
+                            <small className="text-muted\">
+                              Payment Module
+                            </small>
+                          </div>
+                        </div>
+                      ),
+
+                      progress: (
+                        <>
+                          <div>
+                            <RdsProgressBar
+                              displayLevel={false}
+                              displaypercentage={false}
+                              colorVariant={"success"}
+                              progressWidth={80}
+                              role={"single"}
+                            ></RdsProgressBar>
+                          </div>
+                          <small className="text-muted">Due in two days</small>
+                        </>
+                      ),
+                    },
+                    {
+                      issue: (
+                        <div className="d-flex align-items-center  \">
+                          <div>
+                            <div className="text-muted\">Payment Module</div>{" "}
+                          </div>
+                        </div>
+                      ),
+
+                      project: (
+                        <div className="d-flex align-items-center ">
+                          <div className="ms-2 mt-2\">
+                            <p style={{ marginBottom: "3px" }}>
+                              <b>Volosoft</b>
+                            </p>
+                            <small className="text-muted\">ABP framework</small>
+                          </div>
+                        </div>
+                      ),
+
+                      progress: (
+                        <>
+                          <div>
+                            <RdsProgressBar
+                              displayLevel={false}
+                              displaypercentage={false}
+                              colorVariant={"warning"}
+                              progressWidth={80}
+                              role={"single"}
+                            ></RdsProgressBar>
+                          </div>
+                          <small className="text-muted">Due in two days</small>
+                        </>
+                      ),
+                    },
+                    {
+                      issue: (
+                        <div className="d-flex align-items-center  \">
+                          <div>
+                            <div className="text-muted\">
+                              Activate your account with others intil June 2023
+                            </div>{" "}
+                          </div>
+                        </div>
+                      ),
+
+                      project: (
+                        <div className="d-flex align-items-center ">
+                          <div className="ms-2 mt-2\">
+                            <p style={{ marginBottom: "3px" }}>
+                              <b>Volosoft</b>
+                            </p>
+                            <small className="text-muted\">Website </small>
+                          </div>
+                        </div>
+                      ),
+
+                      progress: (
+                        <>
+                          <div>
+                            <RdsProgressBar
+                              displayLevel={false}
+                              displaypercentage={false}
+                              colorVariant={"primary"}
+                              progressWidth={40}
+                              role={"single"}
+                            ></RdsProgressBar>
+                          </div>
+                          <small className="text-muted">Due in two days</small>
+                        </>
                       ),
                     },
                   ]}

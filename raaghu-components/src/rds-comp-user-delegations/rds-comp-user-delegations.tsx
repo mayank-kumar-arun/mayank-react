@@ -31,6 +31,10 @@ const RdsUserDelegations = (props: RdsUserDelegationsProps) => {
         <RdsButton
           type="button"
           icon="plus"
+          iconFill={false}
+          iconHeight="12px"
+          iconStroke={true}
+          iconWidth="12px"
           colorVariant="primary"
           label=" DELEGATE NEW USER"
           size="small"

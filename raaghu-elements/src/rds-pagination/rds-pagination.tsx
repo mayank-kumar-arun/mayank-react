@@ -3,7 +3,7 @@ import RdsIcon from "../rds-icon";
 import "./rds-pagination.scss";
 export interface RdsPaginationProps {
   totalRecords: number;
-  recordsPerPage: any;
+  recordsPerPage?: any;
   paginationType?: string;
   alignmentType?: string;
   size?: string;

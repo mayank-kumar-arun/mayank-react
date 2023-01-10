@@ -203,7 +203,9 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 							)}
 							{props.tableHeaders.map((tableHeader, index) => (
 								<th key={"tableHeader-" + index} className="px-2 py-3">
-									<span>{tableHeader.displayName}</span>
+									<span style={{ fontWeight: 500, color: "black" }}>
+										{tableHeader.displayName}
+									</span>
 									{tableHeader.sortable && (
 										<span className="px-2">
 											<span
@@ -238,7 +240,12 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 								props.tableHeaders.length > 0 &&
 								props.actions &&
 								props.actions.length > 0 && (
-									<th className="text-center">Actions</th>
+									<th
+										className="text-center"
+										style={{ fontWeight: 500, color: "black" }}
+									>
+										Actions
+									</th>
 								)}
 						</tr>
 					</thead>
@@ -391,8 +398,7 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
 																type="button"
 																data-bs-toggle="dropdown"
 																aria-expanded="false"
-																style={{minWidth: 0}}
-															
+																style={{ minWidth: 0 }}
 															>
 																<RdsIcon
 																	name={"three_dots"}

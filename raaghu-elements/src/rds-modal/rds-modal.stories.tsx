@@ -19,6 +19,7 @@ Default.args = {
   modalbutton: <button className="btn btn-primary">Default</button>,
   showModalHeader: true,
   showModalFooter: true,
+  staticbackdrop: true,
   modalData: {
     modalHeader: "Header",
     modalContent: "Content",
@@ -32,6 +33,7 @@ LongContentModal.args = {
   showModalHeader: true,
   showModalFooter: true,
   scrollable: true,
+  staticbackdrop: true,
   modalData: {
     modalHeader: "Header",
     modalContent:
@@ -61,6 +63,7 @@ VerticallyCentered.args = {
   showModalHeader: true,
   showModalFooter: true,
   verticallyCentered: true,
+  StaticBackdrop: true,
   modalData: {
     modalHeader: "Header",
     modalContent: "Content",

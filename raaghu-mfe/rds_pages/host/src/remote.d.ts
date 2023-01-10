@@ -44,3 +44,8 @@ declare module "VisualSetting/VisualSetting" {
 	const VisualSettingComponent : React.ComponentType;
 	export default VisualSettingComponent;
 }
+
+declare module "AuditLogs/AuditLogs" {
+	const AuditLogsComponent : React.ComponentType;
+	export default AuditLogsComponent;
+}

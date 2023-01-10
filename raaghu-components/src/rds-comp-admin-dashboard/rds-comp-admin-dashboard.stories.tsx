@@ -13,4 +13,7 @@ const Template: ComponentStory<typeof RdsCompAdminDashboard> = () => (
 
 export const Default = Template.bind({});
 
-Default.args = {};
+Default.args = {
+
+
+};
