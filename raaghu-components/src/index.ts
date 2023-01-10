@@ -24,4 +24,4 @@ export {default as RdsCompEmail} from "./rds-comp-email/rds-comp-email"
 export {default as RdsCompInvoice} from "./rds-comp-invoice/rds-comp-invoice";
 export {default as RdsCompInformation} from "./rds-comp-information/rds-comp-information";
 export {default as RdsCompLinkedAccount} from "./rds-comp-linked-account/rds-comp-linked-account";
-export {default as RdsCompDynamicEntityProperty} from './rds-comp-dynamic-entity-property/rds-comp-dynamic-entity-property';
+// export {default as RdsCompDynamicEntityProperty} from './rds-comp-dynamic-entity-property/rds-comp-dynamic-entity-property';
