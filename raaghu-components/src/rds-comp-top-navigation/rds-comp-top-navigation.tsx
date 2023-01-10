@@ -94,10 +94,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
         </div>
         <div className="d-flex me-2 align-items-center">
           <RdsDropdownList
-            displayiconheight="12px"
-            displayiconwidth="16px"
-            displaynamesize="12.25px"
-            displayiconroundedcorner={true}
+            displayIconRoundedCorner={true}
             listItems={props.languageItems}
             withBorder={false}
             darkVariant={props.darkMode}
