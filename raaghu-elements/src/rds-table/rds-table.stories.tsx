@@ -45,6 +45,7 @@ export const Default = Template.bind({});
 Default.args = {
   striped: false,
   bordered: false,
+  tableHeightForScroll: "",
   colorVariant: "none",
   backgroundColor: "white",
   headerTextColor: "black",
@@ -71,6 +72,27 @@ Default.args = {
     },
     {
       id: 3,
+      name: "Ultimate",
+      icon: "home",
+      price: "$20",
+      textNumber: "22aa",
+    },
+    {
+      id: 4,
+      name: "Standard",
+      icon: "home",
+      price: "$20",
+      textNumber: "22aa",
+    },
+    {
+      id: 5,
+      name: "Premium",
+      icon: "home",
+      price: "$20",
+      textNumber: "22aa",
+    },
+    {
+      id: 6,
       name: "Ultimate",
       icon: "home",
       price: "$20",
