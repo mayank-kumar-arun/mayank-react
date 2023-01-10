@@ -17,12 +17,13 @@ export interface RdsWidgetProps {
   headerTitle: string;
   children?: ReactNode;
   class?: string;
-  style?:any;
+  style?: any;
   subTitleColorVariant?: string;
   height?: string;
   width?: string;
   bigNumber?: string;
   subTitle?: string;
+  minHeight?: string;
   icon?: string;
   iconHeight?: string;
   iconStroke?: boolean;
@@ -52,6 +53,7 @@ const RdsWidget = (props: RdsWidgetProps) => {
           background: gradient,
           border: "none",
           height: `${props.height}`,
+          minHeight: `${props.minHeight}`,
           width: `${props.width}`,
         }}
       >
@@ -99,7 +101,9 @@ const RdsWidget = (props: RdsWidgetProps) => {
           )}
         </div>
         {props.children && (
-          <div className="card-body pt-2 " style={props.style}>{props.children}</div>
+          <div className="card-body pt-2 " style={props.style}>
+            {props.children}
+          </div>
         )}
       </div>
       <div></div>
