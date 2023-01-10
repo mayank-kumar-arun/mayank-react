@@ -22,6 +22,7 @@ export interface RdsCompUserPermissionProps {
     }[],
     pagination: boolean,
     onActionSelection(arg: any): any;
+    enablecheckboxselection?:boolean
 
 }
 
@@ -30,7 +31,7 @@ const RdsCompUserPermission = (props: RdsCompUserPermissionProps) => {
         <div>
 
             <div className="d-flex justify-content-end">
-                <RdsButton type={"button"} colorVariant="primary" label="New User" icon="plus" iconColorVariant="light"/>
+                <RdsButton type={"button"} colorVariant="primary" label="New User" icon="plus" iconFill={false} iconHeight="12px" iconStroke={true} iconWidth="12px" iconColorVariant="light"/>
             </div>
 
             <RdsCompDatatable 
@@ -40,7 +41,7 @@ const RdsCompUserPermission = (props: RdsCompUserPermissionProps) => {
             pagination={false} 
             classes="table"
             onActionSelection={props.onActionSelection}
-            enablecheckboxselection={true}
+            enablecheckboxselection={props.enablecheckboxselection}
             ></RdsCompDatatable>
 
         </div>

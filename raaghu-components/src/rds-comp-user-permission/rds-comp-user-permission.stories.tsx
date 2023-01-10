@@ -41,4 +41,5 @@ Default.args = {
         { id: 'pass', displayName: 'Set Password' }
         
       ],
+      enablecheckboxselection : false
 }

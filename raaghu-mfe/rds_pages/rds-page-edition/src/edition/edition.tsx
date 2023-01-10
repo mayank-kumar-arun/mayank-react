@@ -278,6 +278,10 @@ const Edition = (props: RdsPageEditionProps) => {
           <RdsButton
             icon="plus"
             iconColorVariant="light"
+            iconFill={false}
+            iconStroke={true}
+            iconHeight="12px"
+            iconWidth="12px"
             size="small"
             type="button"
             colorVariant="primary"
@@ -305,6 +309,7 @@ const Edition = (props: RdsPageEditionProps) => {
         )}
       </RdsOffcanvas>
       <RdsCompEditionList
+      enablecheckboxselection={false}
         tableHeaders={tableHeaders}
         tableData={tableData}
         actions={actions}
