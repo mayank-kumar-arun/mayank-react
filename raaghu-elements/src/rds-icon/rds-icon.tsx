@@ -59,6 +59,7 @@ const RdsIcon = (props: RdsIconProps) => {
     <>
       <svg
         style={{
+          cursor: "pointer",
           width: props.width,
           height: props.height,
           fill: fillProps!,

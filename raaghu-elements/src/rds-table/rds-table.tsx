@@ -10,6 +10,8 @@ export interface RdsTableProps {
   bordered?: boolean;
   iconColorVariant?: string;
   width?: number;
+  backgroundColor?: string;
+  headerTextColor?: string;
 }
 
 const RdsTable = (props: RdsTableProps) => {
@@ -20,13 +22,17 @@ const RdsTable = (props: RdsTableProps) => {
       } ${props.bordered ? "table-bordered" : ""}`}
       width={props.width}
     >
-      <thead style={{ backgroundColor: "#5C82E3" }}>
+      <thead style={{ backgroundColor: `${props.backgroundColor}` }}>
         <tr>
           {props.headerDatas.map((headerData) => (
             <th
               scope="col"
-              className="text-white pl-4"
-              style={{ fontWeight: "400", paddingLeft: "16px" }}
+              className={`text-${props.headerTextColor} pl-4`}
+              style={{
+                fontWeight: "400",
+                paddingLeft: "16px",
+                padding: "0.625rem 0.5rem",
+              }}
             >
               {headerData.displayName}
             </th>
@@ -40,9 +46,17 @@ const RdsTable = (props: RdsTableProps) => {
               {props.headerDatas.map((headerData) => (
                 <>
                   {headerData.dataType == "text" ? (
-                    <td width="40%">{tableData[headerData.key]}</td>
+                    <td className="align-middle" width="40%">
+                      {tableData[headerData.key]}
+                    </td>
                   ) : headerData.dataType == "icon" ? (
-                    <td width="20%" style={{ borderLeft: "solid 1px #E2E2E3" }}>
+                    <td
+                      width="20%"
+                      style={{
+                        padding: "0.625rem 0.5rem",
+                        borderLeft: "solid 1px #E2E2E3",
+                      }}
+                    >
                       <RdsIcon
                         name={tableData.icon}
                         height="15px"
@@ -53,9 +67,13 @@ const RdsTable = (props: RdsTableProps) => {
                       ></RdsIcon>
                     </td>
                   ) : headerData.dataType == "textNumber" ? (
-                    <td width="20%">{tableData[headerData.key]}</td>
+                    <td className="align-middle" width="20%">
+                      {tableData[headerData.key]}
+                    </td>
                   ) : (
-                    <td>{tableData[headerData.key]}</td>
+                    <td className="align-middle">
+                      {tableData[headerData.key]}
+                    </td>
                   )}
                 </>
               ))}

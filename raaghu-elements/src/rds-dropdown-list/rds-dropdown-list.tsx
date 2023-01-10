@@ -100,7 +100,7 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
   }, [checkedCategoryList]);
   return (
     <div>
-      <div style={{ position: "relative" }}>
+      <div className="position-relative">
         <a
           data-bs-toggle="dropdown"
           aria-expanded="false"
@@ -213,6 +213,7 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
         >
           
           {props.listItems?.map((language: any, i: any) => (
+
        
        <div key={i}>
          <a

@@ -32,7 +32,11 @@ export interface RdsPageAuditlogsProps {
 
 const Auditlogs = (props: RdsPageAuditlogsProps) => {
   const [activeTab, setActiveTab] = useState("operation");
-  const [isAdvancedFilters, setIsAdvancedFilters] = useState(true);
+
+  const [count, setCount] = useState(0);
+  const isFirstRun = useRef(true);
+  const [isAdvancedFilters, setIsAdvancedFilters] = useState(false);
+
   const [selectFilterValue, setSelectFilterValue] = useState({
     user: "",
     service: "",

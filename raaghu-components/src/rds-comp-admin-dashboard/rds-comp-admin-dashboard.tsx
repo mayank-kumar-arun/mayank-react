@@ -1,5 +1,5 @@
 import React from "react";
-import { RdsWidget } from "../rds-elements";
+import { RdsProgressBar, RdsWidget } from "../rds-elements";
 import { useTranslation } from "react-i18next";
 import {
   RdsLineChart,
@@ -9,6 +9,7 @@ import {
   RdsBarChart,
   RdsTable,
 } from "../rds-elements";
+import { ScriptableContext } from "chart.js";
 const RdsCompAdminDashboard = () => {
   const monthlySummaryChartOptions = () => {
     return;
@@ -30,21 +31,8 @@ const RdsCompAdminDashboard = () => {
               <RdsLineChart
                 id="linechart"
                 height={250}
-                width={458}
-                labels={[
-                  "Jan",
-                  "Feb",
-                  "Mar",
-                  "Apr",
-                  "May",
-                  "Jun",
-                  "Jul",
-                  "Aug",
-                  "Sep",
-                  "Oct",
-                  "Nov",
-                  "Dec",
-                ]}
+                width={650}
+                labels={["Jan", "Mar", "May", "Jul", "Sep", "Nov"]}
                 options={{
                   radius: 0,
                   pointStyle: "circle",
@@ -61,9 +49,10 @@ const RdsCompAdminDashboard = () => {
                       pointStyle: "circle",
                       labels: {
                         usePointStyle: true,
-                        boxWidth: 8,
+                        boxWidth: 10,
+                        boxHeight: 10,
                         padding: 30,
-                        height: 10,
+                        height: 5,
                       },
                     },
                     tooltip: {
@@ -195,26 +184,36 @@ const RdsCompAdminDashboard = () => {
                 dataSets={[
                   {
                     label: "Sales",
-                    data: [
-                      190, 200, 133, 231, 112, 125, 135, 135.7, 266, 224, 122,
-                      125,
-                    ],
+                    data: [800, 425, 280, 700, 490, 200],
                     borderColor: "#4DCFFF",
                     pointBackgroundColor: "#4DCFFF",
                     fill: true,
-                    pointRadius: 3,
+                    pointRadius: 2,
+                    // backgroundColor: ['rgba(25, 70, 186, 0.5)'],
+                    backgroundColor: (context: ScriptableContext<"line">) => {
+                      const ctx = context.chart.ctx;
+                      const gradient = ctx.createLinearGradient(0, 25, 0, 210);
+                      gradient.addColorStop(0.1, "rgba(25, 70, 186, 1)");
+                      gradient.addColorStop(1, "rgba(25, 70, 186, 0.08)");
+                      return gradient;
+                    },
                     tension: 0.4,
                   },
                   {
                     label: "Revenue",
-                    data: [
-                      290, 262, 205, 162, 150, 180, 206, 220, 240, 190, 275,
-                      211,
-                    ],
+                    data: [400, 782.4, 490, 470, 750, 500],
                     borderColor: "#863BFF",
                     pointBackgroundColor: "#863BFF",
                     fill: true,
-                    pointRadius: 3,
+                    pointRadius: 2,
+                    // backgroundColor:["rgba(48, 22, 194, 0.5)"],
+                    backgroundColor: (context: ScriptableContext<"line">) => {
+                      const ctx = context.chart.ctx;
+                      const gradient = ctx.createLinearGradient(0, 25, 0, 210);
+                      gradient.addColorStop(0.1, "rgba(48, 22, 194, 1)");
+                      gradient.addColorStop(1, "rgba(48, 22, 194, 0.08)");
+                      return gradient;
+                    },
                     tension: 0.4,
                   },
                 ]}
@@ -731,12 +730,26 @@ const RdsCompAdminDashboard = () => {
                           data: [
                             15, 67, 34, 78, 45, 87, 76, 32, 50, 14, 35, 22,
                           ],
-                          backgroundColor: "rgba(74, 150, 227, 5);",
-                          // "rgba(544, 162, 235, 1)",
-                          borderColor: "rgba(74, 150, 227, 5);",
-                          // "rgba(544, 162, 245, 1)",
-
-                          borderWidth: 1,
+                          // backgroundColor: "rgba(54, 162, 235, 1)",
+                          backgroundColor: (
+                            context: ScriptableContext<"line">
+                          ) => {
+                            const ctx = context.chart.ctx;
+                            const gradient = ctx.createLinearGradient(
+                              0,
+                              50,
+                              0,
+                              300
+                            );
+                            gradient.addColorStop(0, "rgba(54, 162, 235, 1)");
+                            gradient.addColorStop(
+                              1,
+                              "rgba(54, 162, 235, 0.08)"
+                            );
+                            return gradient;
+                          },
+                          borderColor: "rgba(54, 162, 245, 1)",
+                          borderWidth: 0,
                           borderRadius: 10,
                           barThickness: 7,
                           borderSkipped: false,

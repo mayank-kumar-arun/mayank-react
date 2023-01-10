@@ -12,6 +12,7 @@ export interface RdsCompEditionListProps {
 		sortable?: boolean;
 		colWidth?: string;
 		disabled?: boolean;
+		enablecheckboxselection?:boolean;
 		isEndUserEditing?: boolean;
 	}[];
 	actions: {
@@ -34,7 +35,7 @@ const RdsCompEditionList = (props: RdsCompEditionListProps) => {
 
           
                 <RdsCompDatatable
-				enablecheckboxselection = {true}
+				            enablecheckboxselection = {props.enablecheckboxselection}
                     tableHeaders={props.tableHeaders}
                     actions={props.actions}
                     tableData={props.tableData}
