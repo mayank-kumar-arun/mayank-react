@@ -145,13 +145,7 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
                           }`}
                         ></RdsIcon>
                       </span>} /> 
-                        // <span
-                        //   key={item.id}
-                        //   className=" p-1 me-2 badge bg-primary text-dark  small "
-                        // >
-                        //   <span>{item.label}</span>
-                       
-                        // </span>
+                      
                       ))}
                   </div>}
 
