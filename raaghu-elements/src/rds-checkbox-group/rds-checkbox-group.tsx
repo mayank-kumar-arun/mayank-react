@@ -1,5 +1,5 @@
 import React from "react";
-import "./rds-checkbox-group.scss"
+import "./rds-checkbox-group.scss";
 
 export interface RdsCheckboxGroupProps {
   isSwitch?: boolean;
@@ -13,43 +13,52 @@ export interface RdsCheckboxGroupProps {
 }
 
 const RdsCheckboxGroup = (props: RdsCheckboxGroupProps) => {
-  let Switch1 = `${props.isSwitch === true ? " mb-2 form-switch " : " mb-2 form-check "} `;
-  let Inline1 = `${props.isInline === true && props.isSwitch==false ? " form-check-inline" : ""} `;
+  let Switch1 = `${
+    props.isSwitch === true ? " mb-2 form-switch " : " mb-2 form-check "
+  } `;
+  let Inline1 = `${
+    props.isInline === true && props.isSwitch == false
+      ? " form-check-inline"
+      : ""
+  } `;
   let state = props.state || "Checkbox";
 
   return (
     <>
       <div key={props.id}>
         <div>
-          <label className="d-flex">{props.label}</label>
+          <label className="d-flex my-2 fw-semibold">{props.label}</label>
 
           {state == "ErrorCheckbox" && (
             <span className="error_Msg"> {props.errorMessage}</span>
           )}
           {props.itemList.map((item: any, idx: any) => (
             <div key={idx} className={`${Switch1} ${Inline1}`}>
-             {item.title && <div className="item___title__checkbox__group">{item.title}</div>}
+              {item.title && (
+                <div className="item___title__checkbox__group">
+                  {item.title}
+                </div>
+              )}
               <div>
-              <input
-                type="checkbox"
-                className={
-                  props.state == "Indeterminate"
-                    ? "form-check-intermediate form-check-input "
-                    : props.state == "ErrorCheckbox"
-                    ? " form-check-input form-check-checkbox-input-error"
-                    : "form-check-input"
-                }
-                name={item.name}
-                value={item.label}
-                defaultChecked={item.checked}
-                id={item.id}
-                disabled={item.disabled}
-                onClick={props.onClick}
-              />
-              <label htmlFor={item.id} className="ms-2 form-check-label">
-                {item.label}
-              </label>
-
+                <input
+                  type="checkbox"
+                  className={
+                    props.state == "Indeterminate"
+                      ? "form-check-intermediate form-check-input "
+                      : props.state == "ErrorCheckbox"
+                      ? " form-check-input form-check-checkbox-input-error"
+                      : "form-check-input"
+                  }
+                  name={item.name}
+                  value={item.label}
+                  defaultChecked={item.checked}
+                  id={item.id}
+                  disabled={item.disabled}
+                  onClick={props.onClick}
+                />
+                <label htmlFor={item.id} className="ms-2 form-check-label">
+                  {item.label}
+                </label>
               </div>
             </div>
           ))}

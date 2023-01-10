@@ -35,32 +35,35 @@ const Template: ComponentStory<typeof RdsProgressBar> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  role:"single",
+  role: "single",
   colorVariant: "primary",
   striped: "default",
   progressWidth: 40,
   animation: false,
   height: 15,
+  displayLevel: true,
+  displaypercentage: true,
 };
 
 export const MultiProgressBar = Template.bind({});
 MultiProgressBar.args = {
-  role:"multiple",
+  role: "multiple",
   height: 15,
-  progressValues:[
+  width: "inherit",
+  progressValues: [
     {
-      "progressWidth": 50,
-      "colorVariant": "success",
-      "stripe": "progress-bar-striped",
-      "animation": "progress-bar-animated"
+      progressWidth: 50,
+      colorVariant: "success",
+      stripe: "progress-bar-striped",
+      animation: "progress-bar-animated",
     },
     {
-      "progressWidth": 20,
-      "colorVariant": "danger"
+      progressWidth: 20,
+      colorVariant: "danger",
     },
     {
-      "progressWidth": 30,
-      "colorVariant": "info"
-    }
-  ]
-}
+      progressWidth: 30,
+      colorVariant: "info",
+    },
+  ],
+};
