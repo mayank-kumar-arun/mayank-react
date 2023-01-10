@@ -131,7 +131,7 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
                         colorVariant="primary"
                         textColor="dark"
                         size="small"
-                        childrenSide="right"
+                        // childrenSide="right"
                          children={<span className="mx-1">
                         <RdsIcon
                           name="close"
