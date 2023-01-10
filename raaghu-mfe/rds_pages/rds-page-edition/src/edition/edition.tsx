@@ -155,7 +155,7 @@ const Edition = (props: RdsPageEditionProps) => {
   const offCanvasHandler = () => {};
   const [activeNavTabId, setActiveNavTabId] = useState(0);
   const [showTenantSettings, setShowTenantSettings] = useState(false);
-  
+
   const offCanvasButton =
     '<RdsButton icon = "plus" iconColorVariant="light" size = "medium" type = "button" colorVariant = "primary" label = "NEW TENANT"/>';
   const navtabsItems = [
@@ -274,19 +274,29 @@ const Edition = (props: RdsPageEditionProps) => {
         onclick={offCanvasHandler}
         placement="end"
         offcanvaswidth={830}
-        offcanvasbutton={<div className="d-flex justify-content-end">
-          <RdsButton
-            icon="plus"
-            iconColorVariant="light"
-            iconFill={false}
-            iconStroke={true}
-            iconHeight="12px"
-            iconWidth="12px"
-            size="small"
-            type="button"
-            colorVariant="primary"
-            label="NEW EDITION" />
-        </div>} backDrop={false} scrolling={false} preventEscapeKey={false} offId={"Edition"}      >
+
+        offcanvasbutton={
+          <div className="d-flex justify-content-end">
+            <RdsButton
+              icon="plus"
+              iconColorVariant="light"
+              size="small"
+              type="button"
+              block={false}
+              iconHeight="15px"
+              iconWidth="15px"
+              iconFill={false}
+              iconStroke={true}
+              colorVariant="primary"
+              label="NEW EDITION"
+            />
+          </div>
+        }
+        backDrop={false}
+        scrolling={false}
+        preventEscapeKey={false}
+        offId={"Edition"}
+      >
         <RdsNavtabs
           navtabsItems={navtabsItems}
           type="tabs"
@@ -316,8 +326,8 @@ const Edition = (props: RdsPageEditionProps) => {
         onActionSelection={() => {}}
         onNewTenantClick={() => {}}
         pagination={pagination}
-        recordsPerPage = {recordsPerPage}
-        recordsPerPageSelectListOption = {true}
+        recordsPerPage={recordsPerPage}
+        recordsPerPageSelectListOption={true}
       />
     </div>
   );
