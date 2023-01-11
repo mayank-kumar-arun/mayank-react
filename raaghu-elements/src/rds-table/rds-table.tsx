@@ -7,6 +7,7 @@ export interface RdsTableProps {
   headerDatas: any[];
   tableDatas: any[];
   colorVariant?: string;
+  id?: string;
   striped?: boolean;
   bordered?: boolean;
   iconColorVariant?: string;
@@ -19,17 +20,17 @@ export interface RdsTableProps {
 const RdsTable = (props: RdsTableProps) => {
   return (
     <div
+      key={props.id}
       className={`${props.tableHeightForScroll ? "parentDiv" : ""}  `}
       style={{ height: `${props.tableHeightForScroll}` }}
     >
       <table
-        className={`table  ${
+        className={`table mt-0 ${
           props.tableHeightForScroll ? "tableFixed" : ""
         }   tableFixed table-${props.colorVariant} ${
           props.striped ? "table-striped" : ""
         } ${props.bordered ? "table-bordered" : ""}`}
         width={props.width}
-        style={{ marginTop: "0px" }}
       >
         <thead
           className={`${props.tableHeightForScroll ? "headFixed" : ""}`}
@@ -40,6 +41,7 @@ const RdsTable = (props: RdsTableProps) => {
           <tr>
             {props.headerDatas.map((headerData) => (
               <th
+                key={headerData.key}
                 scope="col"
                 className={`text-${props.headerTextColor} pl-4`}
                 style={{
@@ -55,44 +57,45 @@ const RdsTable = (props: RdsTableProps) => {
         </thead>
         <tbody>
           {props.tableDatas.map((tableData) => (
-            <>
-              <tr className="normal-rows">
-                {props.headerDatas.map((headerData) => (
-                  <>
-                    {headerData.dataType == "text" ? (
-                      <td className="align-middle" width="40%">
-                        {tableData[headerData.key]}
-                      </td>
-                    ) : headerData.dataType == "icon" ? (
-                      <td
-                        width="20%"
-                        style={{
-                          padding: "0.625rem 0.5rem",
-                          borderLeft: "solid 1px #E2E2E3",
-                        }}
-                      >
-                        <RdsIcon
-                          name={tableData.icon}
-                          height="15px"
-                          width="15px"
-                          fill={true}
-                          stroke={false}
-                          colorVariant={tableData.iconColorVariant}
-                        ></RdsIcon>
-                      </td>
-                    ) : headerData.dataType == "textNumber" ? (
-                      <td className="align-middle" width="20%">
-                        {tableData[headerData.key]}
-                      </td>
-                    ) : (
-                      <td className="align-middle">
-                        {tableData[headerData.key]}
-                      </td>
-                    )}
-                  </>
-                ))}
-              </tr>
-            </>
+            <tr key={tableData.id} className="normal-rows">
+              {props.headerDatas.map((headerData) => (
+                <td
+                  key={`${tableData.id}${headerData.key}`}
+                  width={`${
+                    headerData.dataType == "text"
+                      ? "40%"
+                      : headerData.dataType == "icon"
+                      ? "20%"
+                      : headerData.dataType == "textNumber"
+                      ? "20%"
+                      : ""
+                  }`}
+                  className={`${
+                    headerData.dataType == "icon" ? "" : "align-middle"
+                  }`}
+                  style={{
+                    borderLeft: `${
+                      headerData.dataType == "icon" ? "solid 1px #E2E2E3" : ""
+                    }`,
+                    padding: `${
+                      headerData.dataType == "icon" ? "0.625rem 0.5rem" : ""
+                    }`,
+                  }}
+                >
+                  {headerData.dataType == "icon" && (
+                    <RdsIcon
+                      name={tableData.icon}
+                      height="15px"
+                      width="15px"
+                      fill={true}
+                      stroke={false}
+                      colorVariant={tableData.iconColorVariant}
+                    ></RdsIcon>
+                  )}
+                  {headerData.dataType != "icon" && tableData[headerData.key]}
+                </td>
+              ))}
+            </tr>
           ))}
         </tbody>
       </table>

@@ -799,6 +799,7 @@ const RdsCompAdminDashboard = () => {
                   ]}
                   tableDatas={[
                     {
+                      id: 12,
                       cases: (
                         <div className="d-flex align-items-center justify-content-start">
                           <div className="text-muted"> 10 </div>
@@ -840,6 +841,7 @@ const RdsCompAdminDashboard = () => {
                       ),
                     },
                     {
+                      id: 23,
                       cases: (
                         <div className="d-flex align-items-center justify-content-start">
                           <div className="text-muted"> 18 </div>
@@ -881,6 +883,7 @@ const RdsCompAdminDashboard = () => {
                       ),
                     },
                     {
+                      id: 22,
                       cases: (
                         <div className="d-flex align-items-center justify-content-start">
                           <div className="text-muted"> 7 </div>
@@ -922,6 +925,7 @@ const RdsCompAdminDashboard = () => {
                       ),
                     },
                     {
+                      id: 11,
                       cases: (
                         <div className="d-flex align-items-center justify-content-start">
                           <div className="text-muted"> 14 </div>
@@ -963,6 +967,7 @@ const RdsCompAdminDashboard = () => {
                       ),
                     },
                     {
+                      id: 19,
                       cases: (
                         <div className="d-flex align-items-center justify-content-start">
                           <div className="text-muted"> 13 </div>
@@ -1044,6 +1049,7 @@ const RdsCompAdminDashboard = () => {
                   ]}
                   tableDatas={[
                     {
+                      id: 1,
                       issue: (
                         <div className="d-flex align-items-center  \">
                           <div>
@@ -1082,6 +1088,7 @@ const RdsCompAdminDashboard = () => {
                       ),
                     },
                     {
+                      id: 2,
                       issue: (
                         <div className="d-flex align-items-center  \">
                           <div>
@@ -1120,6 +1127,7 @@ const RdsCompAdminDashboard = () => {
                       ),
                     },
                     {
+                      id: 3,
                       issue: (
                         <div className="d-flex align-items-center  \">
                           <div>
@@ -1159,6 +1167,7 @@ const RdsCompAdminDashboard = () => {
                       ),
                     },
                     {
+                      id: 4,
                       issue: (
                         <div className="d-flex align-items-center  \">
                           <div>
@@ -1194,6 +1203,7 @@ const RdsCompAdminDashboard = () => {
                       ),
                     },
                     {
+                      id: 5,
                       issue: (
                         <div className="d-flex align-items-center  \">
                           <div>
