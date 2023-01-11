@@ -4,6 +4,9 @@ import { RdsSelectList, RdsInput, RdsTextArea } from "../rds-elements";
 export interface RdsCompInformationProps {
   inputTypeList: any;
   informationItem?: (item: any) => void;
+  onPropertyChange?: (event: React.ChangeEvent<HTMLAnchorElement>) => void;
+  onDisplayChange?:(event: React.ChangeEvent<HTMLAnchorElement>) => void;
+  onInputTypeChange?:(event: React.ChangeEvent<HTMLAnchorElement>) => void;
 }
 
 const RdsCompInformation = (props: RdsCompInformationProps) => {
@@ -11,7 +14,7 @@ const RdsCompInformation = (props: RdsCompInformationProps) => {
   const [user, setUser] = useState({
     propertyname:"",
     displayname:"" ,
-    inputValue:props.inputTypeList[0].option
+    inputValue:''
   });
 
   const [error, setError] = useState({
@@ -31,16 +34,24 @@ const RdsCompInformation = (props: RdsCompInformationProps) => {
     }
     return true;
   };
-
+ const onselectchange=(e: any) =>{
+  props.onInputTypeChange!=undefined&&props.onInputTypeChange(e);
+ setUser({
+   ...user,
+   inputValue: e.target.value,
+ })}
   const propertyhandleChange = (event:any) => {
+    props.onPropertyChange!=undefined&&props.onPropertyChange(event);
     if (!isPropertyValid(event.target.value)) {
       setError({...error,propertyname:"Property Name is invalid"});
     } else {
       setError({...error,propertyname:""});
     }
     setUser({ ...user, propertyname:event.target.value});
+    
   };
   const displayhandleChange = (event:any) => {
+    props.onDisplayChange!=undefined&&props.onDisplayChange(event);
     if (!isDisplaynameValid(event.target.value)) {
       setError({...error,displayname:"Display Name is invalid"});
     } else {
@@ -49,11 +60,11 @@ const RdsCompInformation = (props: RdsCompInformationProps) => {
     setUser({...user,displayname:event.target.value});
   };
 
-  const isFormValid = isPropertyValid(user.propertyname) && isDisplaynameValid(user.displayname);
+  const isFormValid = isPropertyValid(user.propertyname) && isDisplaynameValid(user.displayname)&&user.inputValue!=''
 
   useEffect(()=>{
     isFormValid && props.informationItem != undefined && props.informationItem(user);
-    console.log("userInformation : ", user)
+  
   })
   return (
     <>
@@ -90,11 +101,7 @@ const RdsCompInformation = (props: RdsCompInformationProps) => {
           <div className="row">
             <div className="col-6 mt-1 mb-3">
               <label className="mb-2">Input Type</label>
-              <RdsSelectList label="Input Type"   onSelectListChange={(e: any) =>
-                    setUser({
-                      ...user,
-                      inputValue: e.target.value,
-                    })}
+              <RdsSelectList label="Input Type"   onSelectListChange={onselectchange}
                      selectItems={props.inputTypeList}  />
             </div>
           </div>
