@@ -31,9 +31,17 @@ export const PortConfig = {
 	},
 	"settings":{
 		"port":"8010"
-	}
-	,
+	},
 	"dynamicProperty":{
 		"port":"8011"
+	},
+	"roles":{
+		"port":"8012"
+	},
+	"organizationUnits":{
+		"port":"8013"
+	},
+	"language":{
+		"port":"8014"
 	}
 }
