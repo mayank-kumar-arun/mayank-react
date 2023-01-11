@@ -8,14 +8,14 @@ export interface lineprops {
   dataSets:any[],
   height?:number,
   width?:number,
-  id:string
+  id:string,
+  isGradient:boolean,
 }
 
 const RdsAreaChart = (props: lineprops) => {
  const CanvasId = props.id;
   let ctx;
  
-
   useEffect(() => {
     const canvasElm = document.getElementById(
       CanvasId

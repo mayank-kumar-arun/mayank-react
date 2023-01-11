@@ -6,9 +6,9 @@ export interface RdsPieprops {
   labels:any[],
   options:any,
   dataSets:any[],
-  height?:number
-  width?:number
-  id:string
+  height?:number,
+  width?:number,
+  id:string,
 }
 
 const RdsPieChart = (props:RdsPieprops) => {
@@ -30,8 +30,9 @@ const RdsPieChart = (props:RdsPieprops) => {
       },
       options: props.options,
     });
+    if(pieCanvas!=null){
       pieCanvas.canvas.style.height = props.height + 'px';
-      pieCanvas.canvas.style.width = props.width + "px";
+      pieCanvas.canvas.style.width = props.width + "px";}
   });
 
   return (
