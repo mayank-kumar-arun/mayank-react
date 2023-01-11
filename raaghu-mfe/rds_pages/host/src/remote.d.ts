@@ -49,3 +49,18 @@ declare module "AuditLogs/AuditLogs" {
 	const AuditLogsComponent : React.ComponentType;
 	export default AuditLogsComponent;
 }
+
+declare module "Roles/Roles" {
+	const RolesComponent : React.ComponentType;
+	export default RolesComponent;
+}
+
+declare module "OrganizationUnits/OrganizationUnits" {
+	const OrganizationUnitsComponent : React.ComponentType;
+	export default OrganizationUnitsComponent;
+}
+
+declare module "Language/Language" {
+	const OrganizationUnitsComponent : React.ComponentType;
+	export default OrganizationUnitsComponent;
+}

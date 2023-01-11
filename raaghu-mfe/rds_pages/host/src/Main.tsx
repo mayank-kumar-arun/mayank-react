@@ -28,6 +28,11 @@ const VisualSettingsCompo = React.lazy(
 );
 
 const AuditlogsCompo = React.lazy(() => import("AuditLogs/AuditLogs"));
+const RolesCompo = React.lazy(() => import("Roles/Roles"));
+const OrganizationUnitsCompo = React.lazy(
+	() => import("OrganizationUnits/OrganizationUnits")
+);
+const LanguageCompo = React.lazy(() => import("Language/Language"));
 const Main = () => {
 	const [isAuth, setIsAuth] = useState(true);
 	const navigate = useNavigate();
@@ -270,20 +275,20 @@ const Main = () => {
 		return subTitle;
 	};
 
+	const displayName = getLabelForPath(currentPath, sideNavItems);
+	const subTitle = getSubTitle(displayName, sideNavItems);
+	const [currentTitle, setCurrentTitle] = useState(displayName);
+	const [currentSubTitle, setCurrentSubTitle] = useState(subTitle);
 
-	  const displayName = getLabelForPath(currentPath,sideNavItems);
-		const subTitle = getSubTitle(displayName, sideNavItems)
-	  const [currentTitle, setCurrentTitle] = useState(displayName);
-	  const [currentSubTitle, setCurrentSubTitle] = useState(subTitle)
-
-
-	const sideNavOnClickHandler =(e: any) =>{
-		const subTitle = getSubTitle(e.target.getAttribute("data-name"), sideNavItems)
+	const sideNavOnClickHandler = (e: any) => {
+		const subTitle = getSubTitle(
+			e.target.getAttribute("data-name"),
+			sideNavItems
+		);
 		setCurrentSubTitle(subTitle);
 		setCurrentTitle(e.target.getAttribute("data-name"));
 		// console.log(  "printing data",t(e.target.getAttribute("data-name")), t(subTitle))
-	}
-
+	};
 
 	const logout = () => {
 		localStorage.clear();
@@ -384,7 +389,18 @@ const Main = () => {
 										path="/audit-logs"
 										element={<AuditlogsCompo></AuditlogsCompo>}
 									></Route>
-
+									<Route
+										path="/role"
+										element={<RolesCompo></RolesCompo>}
+									></Route>
+									<Route
+										path="/organization-unit"
+										element={<OrganizationUnitsCompo></OrganizationUnitsCompo>}
+									></Route>
+									<Route
+										path="/language"
+										element={<LanguageCompo></LanguageCompo>}
+									></Route>
 									<Route path="*" element={<RdsCompPageNotFound />} />
 								</Routes>
 							</div>

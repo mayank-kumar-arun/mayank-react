@@ -1,10 +1,9 @@
 import React, { Suspense } from "react";
-
-import OrganizationTree from "./Organization-Tree/Organization-Tree";
+import Roles from "./roles/roles";
 
 const App = () => (
 	<Suspense>
-		<OrganizationTree></OrganizationTree>
+		<Roles></Roles>
 	</Suspense>
 );
 
