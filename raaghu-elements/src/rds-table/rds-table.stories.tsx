@@ -43,6 +43,7 @@ const Template: ComponentStory<typeof RdsTable> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
+  id: "1",
   striped: false,
   bordered: false,
   tableHeightForScroll: "",
