@@ -365,6 +365,7 @@ const RdsCompAdminDashboard = () => {
                       <div className="d-flex align-items-center">
                         <div className="">
                           <RdsBooleanChart
+                            centerIconName="headset"
                             id="Boolean1"
                             height={100}
                             width={100}
@@ -421,8 +422,9 @@ const RdsCompAdminDashboard = () => {
                                 fillStyle: "#E1E1E1",
                                 fillRect: [200, 100, 40, 10],
                                 backgroundColor: [
-                                  "--chartColor1",
-                                  "--chartColor7",
+                                  '#01AE9D',
+                                  '#E1E1E1'
+                          
                                 ],
                                 borderColor: ["#fff"],
                                 borderWidth: 1,
@@ -447,6 +449,7 @@ const RdsCompAdminDashboard = () => {
                       <div className="d-flex align-items-center mt-3">
                         <div className="">
                           <RdsBooleanChart
+                            centerIconName="users"
                             id="Boolean2"
                             height={100}
                             width={100}
@@ -504,8 +507,9 @@ const RdsCompAdminDashboard = () => {
                                 fillStyle: "#D0D7DD",
                                 fillRect: [200, 100, 40, 10],
                                 backgroundColor: [
-                                  "--chartColor9",
-                                  "--chartColor7",
+                                  '#EA2745',
+                                  '#E1E1E1'
+                                  
                                 ],
                                 borderColor: ["#fff"],
                                 borderWidth: 1,

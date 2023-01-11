@@ -6,13 +6,20 @@ import "./rds-chart-boolean.scss"
 export default {
   title: "Charts/Boolean Chart",
   component: RdsBooleanChart,
-} as ComponentMeta<typeof RdsBooleanChart>;
+  args: {
+    centerIconName: {
+      options: ["users","headset","circle"],
+      control: { type: "select" },
+    }
+  }
+} as unknown as ComponentMeta<typeof RdsBooleanChart>;
 
 const Template: ComponentStory<typeof RdsBooleanChart> = (args) => <RdsBooleanChart {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
+Default.args = {  
   id:1,
+  centerIconName: "users",
   height:100,
   widht:100,
   dataSets: [
