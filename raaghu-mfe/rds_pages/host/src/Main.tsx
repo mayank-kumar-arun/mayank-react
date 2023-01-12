@@ -319,7 +319,7 @@ const Main = () => {
 				<div className="d-flex flex-column flex-root">
 					<div className="page d-flex flex-column flex-column-fluid">
 						<div
-							className="header align-items-stretch fixed-top"
+							className="header align-items-stretch"
 							style={{ position: "fixed" }}
 						>
 							<RdsCompTopNavigation
