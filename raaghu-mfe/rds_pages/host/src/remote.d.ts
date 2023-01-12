@@ -54,3 +54,17 @@ declare module "Users/Users" {
 	const UsersComponent : React.ComponentType;
 	export default UsersComponent;
 }
+declare module "Roles/Roles" {
+	const RolesComponent : React.ComponentType;
+	export default RolesComponent;
+}
+
+declare module "OrganizationUnits/OrganizationUnits" {
+	const OrganizationUnitsComponent : React.ComponentType;
+	export default OrganizationUnitsComponent;
+}
+
+declare module "Language/Language" {
+	const OrganizationUnitsComponent : React.ComponentType;
+	export default OrganizationUnitsComponent;
+}

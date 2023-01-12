@@ -34,5 +34,14 @@ export const MfeConfig = {
 	},
 	"users":{
 		"url":"users@http://localhost:8015/remoteEntry.js"
+	},
+	"roles":{
+		"url":"roles@http://localhost:8012/remoteEntry.js"
+	},
+	"organizationUnits":{
+		"url":"organizationUnits@http://localhost:8013/remoteEntry.js"
+	},
+	"language":{
+		"url":"language@http://localhost:8014/remoteEntry.js"
 	}
 }
