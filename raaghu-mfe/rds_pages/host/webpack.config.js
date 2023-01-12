@@ -116,7 +116,8 @@ module.exports = (env, argv) => {
 					VisualSetting: mfeConfigJSON["visualSetting"].url,
 					Edition: mfeConfigJSON["edition"].url,
 					Settings: mfeConfigJSON["settings"].url,
-					AuditLogs: mfeConfigJSON["auditLogs"].url
+					AuditLogs: mfeConfigJSON["auditLogs"].url,
+					Users: mfeConfigJSON["users"].url
 				},
 				shared: {
 					...devdeps,

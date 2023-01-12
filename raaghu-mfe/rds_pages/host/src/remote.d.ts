@@ -49,3 +49,8 @@ declare module "AuditLogs/AuditLogs" {
 	const AuditLogsComponent : React.ComponentType;
 	export default AuditLogsComponent;
 }
+
+declare module "Users/Users" {
+	const UsersComponent : React.ComponentType;
+	export default UsersComponent;
+}
