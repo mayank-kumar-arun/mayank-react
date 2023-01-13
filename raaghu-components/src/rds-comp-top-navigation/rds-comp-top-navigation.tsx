@@ -68,7 +68,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
       <nav
         className={`navbar navbar-${props.darkMode ? "dark" : "white"} bg-${
           props.darkMode ? "dark" : "white"
-        } d-flex justify-content-between ps-2 pe-3`}
+        } d-flex justify-content-between ps-2 pe-3 fixed-top`}
         style={{ color: `${props.darkMode ? "white" : ""}` }}
       >
         <div className="d-flex align-items-center">
