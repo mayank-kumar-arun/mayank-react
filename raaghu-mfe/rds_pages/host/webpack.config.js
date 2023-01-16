@@ -117,6 +117,7 @@ module.exports = (env, argv) => {
 					Edition: mfeConfigJSON["edition"].url,
 					Settings: mfeConfigJSON["settings"].url,
 					AuditLogs: mfeConfigJSON["auditLogs"].url,
+					Users: mfeConfigJSON["users"].url,
 					Roles: mfeConfigJSON["roles"].url,
 					OrganizationUnits: mfeConfigJSON["organizationUnits"].url,
 					Language: mfeConfigJSON["language"].url

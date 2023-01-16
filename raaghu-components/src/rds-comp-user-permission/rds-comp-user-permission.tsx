@@ -43,7 +43,6 @@ const RdsCompUserPermission = (props: RdsCompUserPermissionProps) => {
             onActionSelection={props.onActionSelection}
             enablecheckboxselection={props.enablecheckboxselection}
             ></RdsCompDatatable>
-
         </div>
     );
 };
