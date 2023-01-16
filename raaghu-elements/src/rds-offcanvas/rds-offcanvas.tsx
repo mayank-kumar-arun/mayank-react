@@ -1,5 +1,4 @@
 import React, { HtmlHTMLAttributes, ReactNode, useEffect } from "react";
-import RdsIcon from "../rds-icon";
 import "./rds-offcanvas.scss";
 export interface RdsOffcanvasProps {
   placement: "start" | "end" | "top" | "bottom";
@@ -35,7 +34,7 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
   return (
     <>
       {props.offcanvasbutton && (
-        <div
+        <div className="offcanvas_btn"
           style={{ cursor: "pointer" }}
           onClick={props.onclick}
           data-bs-toggle="offcanvas"

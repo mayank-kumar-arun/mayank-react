@@ -41,7 +41,7 @@ Default.args = {
         <RdsButton
           label="Close "
           colorVariant="primary"
-          block={true}
+          block={false}
           data-bs-dismiss="offcanvas"
           tooltipTitle={""}
           type="submit"
