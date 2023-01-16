@@ -36,10 +36,7 @@ Default.args = {
     <>
       <h2 className="p-3">
         Hello Offcanvas Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        A ipsam illum natus impedit similique iusto, ut inventore officia ullam
-        blanditiis accusantium suscipit voluptates reiciendis explicabo
-        provident cumque est ab qui. Lorem ipsum dolor sit amet consectetur
-        adipisicing .
+       
       </h2>
       <div className="col-4 m-4">
         <RdsButton
@@ -58,23 +55,6 @@ Default.args = {
 
       </div>
                 
-              
-   {/* <button
-              type="button"
-              className="btn-close text-reset offcanvas-close"
-            
-              data-bs-dismiss="offcanvas"
-              //aria-label="Close"
-            >Button Button </button> */}
-      {/* <a
-        className="btn btn-primary"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#canvasExample"
-        aria-controls="canvasExample"
-      >
-        Button
-      </a> */}
     </>
   ),
   offcanvasbutton: (

@@ -20,7 +20,11 @@ export interface RdsOffcanvasProps {
 const RdsOffcanvas = (props: RdsOffcanvasProps) => {
   let d = new Date().getMilliseconds();
 
-  let align = `offCanvasClass offcanvas offcanvas-${props.placement}`;
+  let align = ` offcanvas offcanvas-${props.placement} ${
+    props.placement == "start" || props.placement == "end"
+      ? " offCanvas_Class"
+      :" offCanvasClass"
+  }`;
   const Width = `${
     props.placement == "start" || props.placement == "end"
       ? `${props.offcanvaswidth}px`
