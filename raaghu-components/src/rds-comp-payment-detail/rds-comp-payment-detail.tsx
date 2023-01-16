@@ -60,7 +60,7 @@ const RdsCompPaymentDetail = (props:RdsCompPaymentDetailProps) => {
               colorVariant="primary"
               block={true}
               tooltipTitle={""}
-              type="submit"
+              type="button"
               onClick={props.onBack}
               outlineButton={true}
             />

@@ -25,7 +25,7 @@ const RdsCompIntegration = (props: RdsCompIntegrationProps) => {
 							colorVariant="primary"
 							block={true}
 							tooltipTitle={""}
-							type="submit"
+							type="button"
 							outlineButton={true}
 						/>
 					</div>

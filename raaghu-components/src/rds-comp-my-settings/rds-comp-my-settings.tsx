@@ -195,7 +195,7 @@ const RdsCompMySettings = (props: RdsCompMySettingsProps) => {
               colorVariant="primary"
               block={true}
               tooltipTitle={""}
-              type="submit"
+              type="button"
               outlineButton={true}
             />
           </div>
