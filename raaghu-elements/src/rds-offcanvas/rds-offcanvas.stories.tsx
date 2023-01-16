@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import RdsOffcanvas from "./rds-offcanvas";
-import RdsButton from "../rds-button/rds-button"
+import RdsButton from "../rds-button/rds-button";
 
 export default {
   title: "Elements/Offcanvas",
@@ -36,25 +36,21 @@ Default.args = {
     <>
       <h2 className="p-3">
         Hello Offcanvas Lorem ipsum dolor sit amet consectetur adipisicing elit.
-       
       </h2>
       <div className="col-4 m-4">
         <RdsButton
-                    label="Close "
-                    colorVariant="primary"
-                  
-                    block={true}
-                    data-bs-dismiss="offcanvas"
-                    tooltipTitle={""}
-                    type="submit"
-                    size="small"
-                    databstoggle="offcanvas"
-                    databstarget="#canvasExample"
-                    ariacontrols="canvasExample"
-                  />
-
+          label="Close "
+          colorVariant="primary"
+          block={true}
+          data-bs-dismiss="offcanvas"
+          tooltipTitle={""}
+          type="submit"
+          size="small"
+          databstoggle="offcanvas"
+          databstarget="#canvasExample"
+          ariacontrols="canvasExample"
+        />
       </div>
-                
     </>
   ),
   offcanvasbutton: (

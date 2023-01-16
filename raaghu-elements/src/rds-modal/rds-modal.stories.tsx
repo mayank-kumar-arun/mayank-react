@@ -9,63 +9,139 @@ export default {
 } as ComponentMeta<typeof RdsModal>;
 
 const Template: ComponentStory<typeof RdsModal> = (args) => (
-  <RdsModal {...args} />
+  <>
+    <RdsModal {...args}>
+      <p>
+        This is some placeholder content to show the scrolling behavior for
+        modals. Instead of repeating the text the modal, we use an inline style
+        set a minimum height, thereby extending the length of the overall modal
+        and demonstrating the overflow scrolling. When content becomes longer
+        than the height of the viewport, scrolling will move the modal as
+        needed.
+      </p>
+    </RdsModal>
+  </>
+);
+
+const scrollableTemplate: ComponentStory<typeof RdsModal> = (args) => (
+  <>
+    <RdsModal {...args}>
+      <div>
+        <p>
+          This is some placeholder content to show the scrolling behavior for
+          modals. Instead of repeating the text the modal, we use an inline
+          style set a minimum height, thereby extending the length of the
+          overall modal and demonstrating the overflow scrolling. When content
+          becomes longer than the height of the viewport, scrolling will move
+          the modal as needed.
+        </p>
+        <p>
+          This is some placeholder content to show the scrolling behavior for
+          modals. Instead of repeating the text the modal, we use an inline
+          style set a minimum height, thereby extending the length of the
+          overall modal and demonstrating the overflow scrolling. When content
+          becomes longer than the height of the viewport, scrolling will move
+          the modal as needed.
+        </p>
+        <p>
+          This is some placeholder content to show the scrolling behavior for
+          modals. Instead of repeating the text the modal, we use an inline
+          style set a minimum height, thereby extending the length of the
+          overall modal and demonstrating the overflow scrolling. When content
+          becomes longer than the height of the viewport, scrolling will move
+          the modal as needed.
+        </p>
+        <p>
+          This is some placeholder content to show the scrolling behavior for
+          modals. Instead of repeating the text the modal, we use an inline
+          style set a minimum height, thereby extending the length of the
+          overall modal and demonstrating the overflow scrolling. When content
+          becomes longer than the height of the viewport, scrolling will move
+          the modal as needed.
+        </p>
+        <p>
+          This is some placeholder content to show the scrolling behavior for
+          modals. Instead of repeating the text the modal, we use an inline
+          style set a minimum height, thereby extending the length of the
+          overall modal and demonstrating the overflow scrolling. When content
+          becomes longer than the height of the viewport, scrolling will move
+          the modal as needed.
+        </p>
+        <p>
+          This is some placeholder content to show the scrolling behavior for
+          modals. Instead of repeating the text the modal, we use an inline
+          style set a minimum height, thereby extending the length of the
+          overall modal and demonstrating the overflow scrolling. When content
+          becomes longer than the height of the viewport, scrolling will move
+          the modal as needed.
+        </p>
+        <p>
+          This is some placeholder content to show the scrolling behavior for
+          modals. Instead of repeating the text the modal, we use an inline
+          style set a minimum height, thereby extending the length of the
+          overall modal and demonstrating the overflow scrolling. When content
+          becomes longer than the height of the viewport, scrolling will move
+          the modal as needed.
+        </p>
+        <p>
+          This is some placeholder content to show the scrolling behavior for
+          modals. Instead of repeating the text the modal, we use an inline
+          style set a minimum height, thereby extending the length of the
+          overall modal and demonstrating the overflow scrolling. When content
+          becomes longer than the height of the viewport, scrolling will move
+          the modal as needed.
+        </p>
+      </div>
+    </RdsModal>
+  </>
 );
 
 export const Default = Template.bind({});
 Default.args = {
-  label: "button",
-  children: <div>hello</div>,
+  modalId: "modal1",
+  modalAnimation: "modal fade",
+  showModalFooter: true,
+  showModalHeader: true,
+  scrollable: false,
+  verticallyCentered: false,
   modalbutton: <button className="btn btn-primary">Default</button>,
-  showModalHeader: true,
-  showModalFooter: true,
-  staticbackdrop: true,
-  modalData: {
-    modalHeader: "Header",
-    modalContent: "Content",
-  },
 };
 
-export const LongContentModal = Template.bind({});
-LongContentModal.args = {
-  label: "Long Content Modal",
+export const StaticBackdropModal = Template.bind({});
+StaticBackdropModal.args = {
+  modalId: "modal2",
+  modalBackdrop: "static",
+  preventEscapeKey:true,
+  modalAnimation: "modal fade",
+  showModalFooter: true,
+  showModalHeader: true,
+  scrollable: false,
+  verticallyCentered: true,
+  modalbutton: (
+    <button className="btn btn-primary">Static Backdrop Modal</button>
+  ),
+};
+
+export const ScrollableContentModal = scrollableTemplate.bind({});
+ScrollableContentModal.args = {
+  modalId: "modal3",
+  modalAnimation: "modal fade",
+  showModalFooter: true,
+  showModalHeader: true,
+  verticallyCentered: true,
   modalbutton: <button className="btn btn-primary">Long Content Modal</button>,
-  showModalHeader: true,
-  showModalFooter: true,
   scrollable: true,
-  staticbackdrop: true,
-  modalData: {
-    modalHeader: "Header",
-    modalContent:
-      "This is some placeholder content to show the scrolling behavior for modals. We use repeated line breaks to demonstrate how content can exceed minimum inner height, thereby showing inner scrolling. When content becomes longer than the predefined max-height of modal, content will be cropped and scrollable within the modal This is some placeholder content to show the scrolling behavior for modals. We use repeated line breaks to demonstrate how content can exceed minimum inner height, thereby showing inner scrolling. When content becomes longer than the predefined max-height of modal, content will be cropped and scrollable within the modal This is some placeholder content to show the scrolling behavior for modals. We use repeated line breaks to demonstrate how content can exceed minimum inner height, thereby showing inner scrolling. When content becomes longer than the predefined max-height of modal, content will be cropped and scrollable within the modal.",
-  },
-};
-
-export const StaticBackdrop = Template.bind({});
-StaticBackdrop.args = {
-  label: "Backdrop Modal",
-  modalbutton: <button className="btn btn-primary">Backdrop Modal</button>,
-  showModalHeader: true,
-  showModalFooter: true,
-  staticbackdrop: true,
-  modalData: {
-    modalHeader: "Header",
-    modalContent: "Content",
-  },
 };
 
 export const VerticallyCentered = Template.bind({});
 VerticallyCentered.args = {
-  label: "Vertically Centered Modal",
+  modalId: "modal4",
+  modalAnimation: "modal fade",
+  showModalFooter: true,
+  showModalHeader: true,
+  verticallyCentered: true,
+  scrollable: false,
   modalbutton: (
     <button className="btn btn-primary">Vertically Centered Modal</button>
   ),
-  showModalHeader: true,
-  showModalFooter: true,
-  verticallyCentered: true,
-  staticbackdrop: true,
-  modalData: {
-    modalHeader: "Header",
-    modalContent: "Content",
-  },
 };
