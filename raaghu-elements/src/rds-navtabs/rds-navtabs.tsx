@@ -34,14 +34,14 @@ const RdsNavtabs = (props: RdsNavtabsProps) => {
     if (props.isNextPressed === true) setActiveTabKey(props.activeNavTabId);
   }, [props.isNextPressed]);
   return (
-    <div className="navtabs-wrapper-div">
+    <div >
       <ul
         className={
-          "nav" +
+          "nav mobile-ul-tabs flex" +
           (props.type === "pills"
-            ? " nav-pills"
+            ? "  nav-pills"
             : props.type === "tabs"
-            ? " nav-tabs-our-custom"
+            ? " justify-content-start nav-tabs"
             : props.type === "vertical"
             ? " flex-column nav-pills col-3"
             : " nav-tabs") +
@@ -52,7 +52,7 @@ const RdsNavtabs = (props: RdsNavtabsProps) => {
         {props.navtabsItems.map((navtabsItem) => (
           <li className="nav-item" key={navtabsItem.id}>
             <a className={
-                "nav-link pe-4 ps-4 " +
+                "nav-link " +
                 (navtabsItem.id === activeTabKey ||
                   navtabsItem.id === props.activeNavTabId
                   ?( props.type === "tabs" ?" border-bottom border-primary border-3 text-primary ":" active") 
@@ -75,7 +75,7 @@ const RdsNavtabs = (props: RdsNavtabsProps) => {
                   />
                 </span>
               )}
-              <span>{navtabsItem.label}</span>
+              <span className="fw-semibold">{navtabsItem.label}</span>
             </a>
           </li>
         ))}

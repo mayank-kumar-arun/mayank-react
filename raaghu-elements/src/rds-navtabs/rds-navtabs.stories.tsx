@@ -15,20 +15,20 @@ const Template: ComponentStory<typeof RdsNavtabs> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
     navtabsItems: [
-        { label: 'Active', tablink: '#nav-home', ariacontrols: 'nav-home', subText: 'Active subtext' },
-        { label: 'Link', tablink: '#nav-profile', ariacontrols: 'nav-profile' },
-        { label: 'Link', tablink: '#nav-contact', ariacontrols: 'nav-contact', subText: 'Home subtext' },
-        { label: 'Disabled', tablink: '#nav-deabled', disabled: "true", subText: 'Disble subtext' },
+        { label: 'Active', tablink: '#nav-home', ariacontrols: 'nav-home', subText: 'Active subtext',id:"active"  },
+        { label: 'Link', tablink: '#nav-profile', ariacontrols: 'nav-profile', id:"home" },
+        { label: 'Link', tablink: '#nav-contact', ariacontrols: 'nav-contact', subText: 'Home subtext',id:"about" },
+        { label: 'Disabled', tablink: '#nav-deabled', disabled: true, subText: 'Disble subtext', id:"disabled" },
     ],
 };
 
 export const Pills = Template.bind({});
 Pills.args = {
     navtabsItems: [
-        { label: 'Active', tablink: '#nav-home', ariacontrols: 'nav-home', subText: 'Active subtext' },
-        { label: 'Link', tablink: '#nav-profile', ariacontrols: 'nav-profile' },
-        { label: 'Link', tablink: '#nav-contact', ariacontrols: 'nav-contact', subText: 'Home subtext' },
-        { label: 'Disabled', tablink: '#nav-deabled', disabled: "true", subText: 'Disble subtext' },
+        { label: 'Active', tablink: '#nav-home', ariacontrols: 'nav-home', subText: 'Active subtext',  id:"active"  },
+        { label: 'Link', tablink: '#nav-profile', ariacontrols: 'nav-profile' , id:"home"},
+        { label: 'Link', tablink: '#nav-contact', ariacontrols: 'nav-contact', subText: 'Home subtext',  id:"about"  },
+        { label: 'Disabled', tablink: '#nav-deabled', disabled: true, subText: 'Disble subtext', id:"disabled" },
     ],
     type: "pills",
     fill: false,
@@ -41,7 +41,7 @@ Tabs.args = {
         { label: 'Active', tablink: '#nav-home', ariacontrols: 'nav-home', subText: 'Active subtext', id:"active" },
         { label: 'Home', tablink: '#nav-profile', ariacontrols: 'nav-profile', id:"home" },
         { label: 'About', tablink: '#nav-contact', ariacontrols: 'nav-contact', subText: 'Home subtext', id:"about" },
-        { label: 'Disabled', tablink: '#nav-deabled', disabled: "true", subText: 'Disble subtext', id:"disabled" },
+        { label: 'Disabled', tablink: '#nav-deabled', disabled: true, subText: 'Disble subtext', id:"disabled" },
     ],
     type: "tabs",
     fill: false,
@@ -51,10 +51,10 @@ Tabs.args = {
 export const Vertical = Template.bind({});
 Vertical.args = {
     navtabsItems: [
-        { label: 'Active', tablink: '#nav-home', ariacontrols: 'nav-home', subText: 'Active subtext' },
-        { label: 'Link', tablink: '#nav-profile', ariacontrols: 'nav-profile' },
-        { label: 'Link', tablink: '#nav-contact', ariacontrols: 'nav-contact', subText: 'Home subtext' },
-        { label: 'Disabled', tablink: '#nav-deabled', disabled: "true", subText: 'Disble subtext' },
+        { label: 'Active', tablink: '#nav-home', ariacontrols: 'nav-home', subText: 'Active subtext' ,id:"active"  },
+        { label: 'Link', tablink: '#nav-profile', ariacontrols: 'nav-profile', id:"home" },
+        { label: 'Link', tablink: '#nav-contact', ariacontrols: 'nav-contact', subText: 'Home subtext',id:"about" },
+        { label: 'Disabled', tablink: '#nav-deabled', disabled: true, subText: 'Disble subtext',id:"disabled" },
     ],
     type: "vertical",
     fill: false,
@@ -67,7 +67,7 @@ Fill.args = {
         { label: 'Active', tablink: '#nav-home', ariacontrols: 'nav-home', subText: 'Active subtext', id:"active" },
         { label: 'Home', tablink: '#nav-profile', ariacontrols: 'nav-profile', id:"home" },
         { label: 'About', tablink: '#nav-contact', ariacontrols: 'nav-contact', subText: 'Home subtext', id:"about" },
-        { label: 'Disabled', tablink: '#nav-deabled', disabled: "true", subText: 'Disble subtext', id:"disabled" },
+        { label: 'Disabled', tablink: '#nav-deabled', disabled: true, subText: 'Disble subtext', id:"disabled" },
     ],
     type: "default",
     fill: true,
@@ -80,7 +80,7 @@ Justified.args = {
         { label: 'Active', tablink: '#nav-home', ariacontrols: 'nav-home', subText: 'Active subtext', id:"active" },
         { label: 'Home', tablink: '#nav-profile', ariacontrols: 'nav-profile', id:"home" },
         { label: 'About', tablink: '#nav-contact', ariacontrols: 'nav-contact', subText: 'Home subtext', id:"about" },
-        { label: 'Disabled', tablink: '#nav-deabled', disabled: "true", subText: 'Disble subtext', id:"disabled" },
+        { label: 'Disabled', tablink: '#nav-deabled', disabled: true, subText: 'Disble subtext', id:"disabled" },
     ],
     type: "default",
     fill: false,
@@ -93,7 +93,7 @@ WithIcon.args = {
         { label: 'Active', tablink: '#nav-home', ariacontrols: 'nav-home', subText: 'Active subtext', id:"active" },
         { label: 'Home', tablink: '#nav-profile', ariacontrols: 'nav-profile', id:"home" },
         { label: 'About', tablink: '#nav-contact', ariacontrols: 'nav-contact', subText: 'Home subtext', id:"about" },
-        { label: 'Disabled', tablink: '#nav-deabled', disabled: "true", subText: 'Disble subtext', id:"disabled" },
+        { label: 'Disabled', tablink: '#nav-deabled', disabled: true, subText: 'Disble subtext', id:"disabled" },
     ],
     type: "default",
     fill: false,
