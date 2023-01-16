@@ -253,7 +253,7 @@ const RdsCompWebhookSubscription = (props: RdsCompWebhookSubscriptionProps) => {
                 colorVariant="primary"
                 block={true}
                 tooltipTitle={""}
-                type="submit"
+                type="button"
                 size="small"
                 outlineButton={true}
               />

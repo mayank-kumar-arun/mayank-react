@@ -26,6 +26,7 @@ const SettingsCompo = React.lazy(() => import("Settings/Settings"));
 const VisualSettingsCompo = React.lazy(
 	() => import("VisualSetting/VisualSetting")
 );
+const UsersCompo = React.lazy(()=> import ("Users/Users"));
 
 const AuditlogsCompo = React.lazy(() => import("AuditLogs/AuditLogs"));
 const RolesCompo = React.lazy(() => import("Roles/Roles"));
@@ -190,7 +191,7 @@ const Main = () => {
 							key: "3-2-2",
 							label: t("Users"),
 							icon: "users",
-							path: "/user",
+							path: "/users",
 							subTitle: t("Manage users and permissions"),
 						},
 						{
@@ -388,6 +389,10 @@ const Main = () => {
 									<Route
 										path="/audit-logs"
 										element={<AuditlogsCompo></AuditlogsCompo>}
+									></Route>
+									<Route
+										path="/users"
+										element={<UsersCompo />}
 									></Route>
 									<Route
 										path="/role"

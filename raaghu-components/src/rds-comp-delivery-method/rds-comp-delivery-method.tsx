@@ -19,7 +19,7 @@ const RdsCompDeliveryMethod = (props:RdsCompDeliveryMethodProps) => {
     <>
     <ul className="d-flex ulStl" id="rds-delivery">
         { props.sizeDataWithDescription.map((data:any ,index:number)=>(
-            <li 
+            <li  key={data.id}
               className="m-2 border flex-evens">
         <div   onClick={() => {
                     setActiveButton(index);
@@ -52,17 +52,7 @@ const RdsCompDeliveryMethod = (props:RdsCompDeliveryMethodProps) => {
         ))}
     
 </ul>
-<div className="my-4 pt-4 row display-none">
-    <div className="col-6">
-        <RdsButton colorVariant='primary' label ="" block ={true} outlineButton={true} size="medium" tooltipTitle ="bottom" type="button" />
-       
-    </div>
-    <div className="col-6">
-    <RdsButton colorVariant='primary' label ="" block ={true} outlineButton={true} size="medium" tooltipTitle ="bottom" type="button" />
-     
-       
-    </div>
-</div>
+
     </>
   );
 };

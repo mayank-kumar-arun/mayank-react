@@ -50,6 +50,10 @@ declare module "AuditLogs/AuditLogs" {
 	export default AuditLogsComponent;
 }
 
+declare module "Users/Users" {
+	const UsersComponent : React.ComponentType;
+	export default UsersComponent;
+}
 declare module "Roles/Roles" {
 	const RolesComponent : React.ComponentType;
 	export default RolesComponent;
