@@ -63,7 +63,9 @@ const RdsButton = (props: RdsButtonProps) => {
           >
             <span className="d-flex align-items-center justify-content-center">
               {props.icon && (
-                <span style={{ marginRight: "5px" }}>
+                // style={{ marginRight: "5px" }} commented this cuz causing prblm in rolelist refresh
+
+                <span>
                   <RdsIcon
                     colorVariant={props.iconColorVariant}
                     name={props.icon}

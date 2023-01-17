@@ -23,32 +23,32 @@ export interface RdsBadgeProps {
     | "info"
     | "secondary"
     | "dark"
-    |"white";
+    | "white";
   badgeType?: "rectangle" | "circle" | "pill";
-  childrenSide?:"right" |"left";
+  childrenSide?: "right" | "left";
 }
 
 const RdsBadge = (props: RdsBadgeProps) => {
   let fonts =
     props.size == "small" ? "10px" : props.size == "large" ? "18px" : "14px";
   let textColor = "text-" + props.textColor || "dark";
-  let bg = " bg-" + props.colorVariant || "dark";
+  let bg = " badge-" + props.colorVariant || "dark";
   let badgeType =
     props.badgeType == "rectangle"
       ? " rounded-0 "
       : props.badgeType == "pill"
       ? " rounded-pill "
       : " ";
-      let childrenSide= props.childrenSide ||"left"
+  let childrenSide = props.childrenSide || "left";
   return (
     <>
       <span
         className={`mx-1 badge fw-normal ${badgeType} ${textColor} ${bg}`}
         style={{ fontSize: fonts }}
       >
-       {childrenSide=="left" &&<>{props.children}</> }
+        {childrenSide == "left" && <>{props.children}</>}
         {props.label}
-        {childrenSide=="right" &&<>{props.children}</> }
+        {childrenSide == "right" && <>{props.children}</>}
       </span>
       {/* <span
         className={` badge fw-normal badge-primary`}
@@ -83,4 +83,4 @@ export default RdsBadge;
                             ></RdsIcon>
                           </span>
                         </span>
-*/ 
+*/
