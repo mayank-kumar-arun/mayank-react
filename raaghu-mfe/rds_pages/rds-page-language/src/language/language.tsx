@@ -24,7 +24,7 @@ const Language = (props: LanguageProps) => {
 					</rds-comp-alert>
 				</ng-container> */}
 				</div>
-				<div className=" col-md-3 text-end pb-3 desktop-btn d-sm-none d-lg-block">
+				<div className=" col-md-3  pb-3 desktop-btn d-sm-none d-lg-block">
 					<RdsOffcanvas
 						offcanvasbutton={
 							<RdsButton
