@@ -1,11 +1,15 @@
 @import '../style.scss' ;
 
-.offcanvas-backdrop.show {
-    opacity: 0.3 !important;
-}
+
 .offcanvas-header{
-    border-bottom: 1px solid #f5f7fe !important;
+    background-color: primary;
 }
-.offCanvasClass{
-    height: fit-content !important;
+@media (max-width: 767px){
+    #profileOffCanvas{
+        width: 375px !important;
+    }
+}
+.offcanvas_btn{
+    cursor: pointer;
+    width: fit-content;
 }

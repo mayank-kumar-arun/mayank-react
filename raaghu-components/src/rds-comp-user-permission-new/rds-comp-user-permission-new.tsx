@@ -29,7 +29,7 @@ const RdsCompUserPermission = (props: RdsCompUserPermissionProps) => {
         <div>
 
             <div className="d-flex justify-content-end mb-3">
-                <RdsButton type={"button"} colorVariant="primary" label="New User" icon="plus" iconColorVariant="light"/>
+                <RdsButton type={"button"} colorVariant="primary" label="New User" icon="plus" iconHeight="15px" iconFill={false} iconStroke={true} iconWidth="15px" iconColorVariant="light"/>
             </div>
 
             <RdsCompDatatable 

@@ -22,4 +22,5 @@ Default.args = {
   addressLine1: 'Address Line 1',
   addressLine2: 'Address Line 2',
   addressLine3: 'Address Line 3',
+  cardborder:true
 };

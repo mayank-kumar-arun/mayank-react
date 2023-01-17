@@ -126,7 +126,7 @@ const RdsCompPasswordSetting = (props:RdsCompPasswordSettingProps) => {
               colorVariant="primary"
               block={true}
               tooltipTitle={""}
-              type="submit"
+			  type="button"
               outlineButton={true}
             />
             </div>

@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { RdsDropdownList, RdsSelectList, RdsButton } from "../rds-elements";
-import RdsCompDatatable from "../rds-comp-data-table/rds-comp-data-table";
-import "./rds-comp-dynamic-entity-property.scss"
-import { useEffect } from "react";
 
 export interface RdsCompDynamicEntityPropertyProp {
   entityNames: any[];
   reset?: boolean;
   parameterList: any[];
   onSelectedItems(selectedItems: any): any;
+  initialSelectedItems?:{entity:string,
+    parameter:any}
   offcanvasId?:string;
 }
 
@@ -16,10 +15,11 @@ const RdsCompDynamicEntityProperty = (
   props: RdsCompDynamicEntityPropertyProp
   ) => {
     const [entityProps, setEntityProps] = useState({
-      entity: "",
-      parameter: [],
+      entity: props.initialSelectedItems?.entity||'',
+      parameter:props.initialSelectedItems?.parameter ||[],
     });
     const [isReset, setIsReset] =useState(false)
+    
     const onSelectEntityValue = (e: any) => {
       setEntityProps({ ...entityProps, entity: e.target.innerText });
     };
@@ -81,7 +81,7 @@ const RdsCompDynamicEntityProperty = (
                   colorVariant="primary"
                   block={true}
                   tooltipTitle={""}
-                  type="submit"
+                  type="button"
                   size="small"
                   outlineButton={true}
                   databstoggle="offcanvas"

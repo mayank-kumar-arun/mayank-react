@@ -30,9 +30,9 @@ const RdsCheckbox = (props: RdsCheckboxProps) => {
             type="checkbox"
             className={
               props.state == "Indeterminate"
-                ? "form-check-intermediate form-check-input "
+                ? "form-check-input form-check-input-intermediate"
                 : props.state == "ErrorCheckbox"
-                ? " form-check-input form-check-checkbox-input-error"
+                ? " form-check-input form-check-input-error"
                 : "form-check-input"
             }
             value=" "
@@ -47,7 +47,7 @@ const RdsCheckbox = (props: RdsCheckboxProps) => {
             <></>
           ) : (
             <label
-              className={` form-check-label d-inline me-5 ms-2  ${props.labelClass} `}
+              className={` form-check-label me-5 ms-2  ${props.labelClass} `}
               htmlFor="flexCheckDefault"
             >
               {props.label}

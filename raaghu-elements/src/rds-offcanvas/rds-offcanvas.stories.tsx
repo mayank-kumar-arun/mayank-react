@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import RdsOffcanvas from "./rds-offcanvas";
-import RdsButton from "../rds-button/rds-button"
+import RdsButton from "../rds-button/rds-button";
 
 export default {
   title: "Elements/Offcanvas",
@@ -36,45 +36,21 @@ Default.args = {
     <>
       <h2 className="p-3">
         Hello Offcanvas Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        A ipsam illum natus impedit similique iusto, ut inventore officia ullam
-        blanditiis accusantium suscipit voluptates reiciendis explicabo
-        provident cumque est ab qui. Lorem ipsum dolor sit amet consectetur
-        adipisicing .
       </h2>
       <div className="col-4 m-4">
         <RdsButton
-                    label="Close "
-                    colorVariant="primary"
-                  
-                    block={true}
-                    data-bs-dismiss="offcanvas"
-                    tooltipTitle={""}
-                    type="submit"
-                    size="small"
-                    databstoggle="offcanvas"
-                    databstarget="#canvasExample"
-                    ariacontrols="canvasExample"
-                  />
-
+          label="Close "
+          colorVariant="primary"
+          block={false}
+          data-bs-dismiss="offcanvas"
+          tooltipTitle={""}
+          type="submit"
+          size="small"
+          databstoggle="offcanvas"
+          databstarget="#canvasExample"
+          ariacontrols="canvasExample"
+        />
       </div>
-                
-              
-   {/* <button
-              type="button"
-              className="btn-close text-reset offcanvas-close"
-            
-              data-bs-dismiss="offcanvas"
-              //aria-label="Close"
-            >Button Button </button> */}
-      {/* <a
-        className="btn btn-primary"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#canvasExample"
-        aria-controls="canvasExample"
-      >
-        Button
-      </a> */}
     </>
   ),
   offcanvasbutton: (

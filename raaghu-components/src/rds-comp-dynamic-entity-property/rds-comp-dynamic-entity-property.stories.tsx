@@ -12,6 +12,9 @@ const Template: ComponentStory<typeof RdsCompDynamicEntityProperty> = (args) =>
 export const Default = Template.bind({});
 
 Default.args ={
+  initialSelectedItems:{entity:"ANZAngular105Demo.Authorization.Users.User",
+    parameter:[{ label: "Demo 1", },
+      {label: "Demo 2",}]},
  parameterList: [
     {
       label: "Demo 1",

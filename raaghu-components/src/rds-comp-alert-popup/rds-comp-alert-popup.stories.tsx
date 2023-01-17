@@ -8,12 +8,28 @@ export default {
 } as ComponentMeta<typeof RdsCompAlertPopup>;
 
 const Template: ComponentStory<typeof RdsCompAlertPopup> = (args) => (
-  <RdsCompAlertPopup {...args} />
+  <>
+    {/* // Button trigger modal  */}
+    <button
+      type="button"
+      className="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#alert_popup"
+    >
+      Alert popup
+    </button>
+    <RdsCompAlertPopup {...args} />
+  </>
 );
 
 export const Default = Template.bind({});
 
 Default.args = {
-  label: "alert",
-  alertbutton: <button className="btn btn-primary">Click here</button>,
+  alertID: "alert_popup",
+  iconUrl: "delete",
+  colorVariant: "danger",
+  alertConfirmation: "Are you sure to Delete",
+  messageAlert: "The record will be deleted permanently",
+  cancelButtonLabel: "Cancel",
+  deleteButtonLabel: "Delete",
 };

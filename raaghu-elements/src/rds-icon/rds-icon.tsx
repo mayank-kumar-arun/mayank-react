@@ -20,32 +20,32 @@ const RdsIcon = (props: RdsIconProps) => {
   let fillColor: string;
   let strokeColor: string = props.strokeColor || "black";
 
-  if (props.colorVariant == "primary") {
-    // svg.setAttribute('class', 'icon-' + props.colorVariant);
-    fillColor = "#007bff";
-    strokeColor = "#007bff";
-  } else if (props.colorVariant == "secondary") {
-    fillColor = "#6c757d";
-    strokeColor = "#6c757d";
-  } else if (props.colorVariant == "success") {
-    fillColor = "#28a745";
-    strokeColor = "#28a745";
-  } else if (props.colorVariant == "info") {
-    fillColor = "#17a2b8";
-    strokeColor = "#17a2b8";
-  } else if (props.colorVariant == "warning") {
-    fillColor = "#ffc107";
-    strokeColor = "#ffc107";
-  } else if (props.colorVariant == "danger") {
-    fillColor = "#dc3545";
-    strokeColor = "#dc3545";
-  } else if (props.colorVariant == "dark") {
-    fillColor = "#343a40";
-    strokeColor = "#343a40";
-  } else if (props.colorVariant == "light") {
-    fillColor = "#f8f9fa";
-    strokeColor = "#f8f9fa";
-  }
+  // if (props.colorVariant == "primary") {
+  //   // svg.setAttribute('class', 'icon-' + props.colorVariant);
+  //   fillColor = "#007bff";
+  //   strokeColor = "#007bff";
+  // } else if (props.colorVariant == "secondary") {
+  //   fillColor = "#6c757d";
+  //   strokeColor = "#6c757d";
+  // } else if (props.colorVariant == "success") {
+  //   fillColor = "#28a745";
+  //   strokeColor = "#28a745";
+  // } else if (props.colorVariant == "info") {
+  //   fillColor = "#17a2b8";
+  //   strokeColor = "#17a2b8";
+  // } else if (props.colorVariant == "warning") {
+  //   fillColor = "#ffc107";
+  //   strokeColor = "#ffc107";
+  // } else if (props.colorVariant == "danger") {
+  //   fillColor = "#dc3545";
+  //   strokeColor = "#dc3545";
+  // } else if (props.colorVariant == "dark") {
+  //   fillColor = "#343a40";
+  //   strokeColor = "#343a40";
+  // } else if (props.colorVariant == "light") {
+  //   fillColor = "#f8f9fa";
+  //   strokeColor = "#f8f9fa";
+  // }
 
   // console.log(fillColor!);
   // console.log(strokeColor!);

@@ -1,5 +1,4 @@
 import React, { HtmlHTMLAttributes, ReactNode, useEffect } from "react";
-import RdsIcon from "../rds-icon";
 import "./rds-offcanvas.scss";
 export interface RdsOffcanvasProps {
   placement: "start" | "end" | "top" | "bottom";
@@ -18,18 +17,24 @@ export interface RdsOffcanvasProps {
   className?: string;
 }
 const RdsOffcanvas = (props: RdsOffcanvasProps) => {
-  let d = new Date().getMilliseconds();
-
-  let align = `offCanvasClass offcanvas offcanvas-${props.placement}`;
+  let preventEscapeKey =`${props.hasOwnProperty('preventEscapeKey')?props.preventEscapeKey :true}` 
+ let Backdrop = `${props.hasOwnProperty('modalBackdrop')?props.backDrop :true}`
+ 
+  let align = ` offcanvas offcanvas-${props.placement} ${
+    props.placement == "start" || props.placement == "end"
+      ? " offCanvas_Class"
+      : " offCanvasClass"
+  }`;
   const Width = `${
     props.placement == "start" || props.placement == "end"
       ? `${props.offcanvaswidth}px`
       : "100% "
   }`;
+  
   return (
     <>
       {props.offcanvasbutton && (
-        <div
+        <div className="offcanvas_btn"
           style={{ cursor: "pointer" }}
           onClick={props.onclick}
           data-bs-toggle="offcanvas"
@@ -42,8 +47,8 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
       <div
         className={align}
         data-bs-scroll={props.scrolling}
-        data-bs-keyboard={props.preventEscapeKey}
-        data-bs-backdrop={props.backDrop}
+        data-bs-keyboard={preventEscapeKey}
+        data-bs-backdrop={Backdrop}
         data-bs-padding={0}
         tabIndex={-1}
         id={`${props.offId}`}
@@ -64,7 +69,8 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
             ></button>
           </div>
         ) : (
-          <div className="d-flex justify-content-end">
+          
+          <div className="offcanvas-header">
             {" "}
             <button
               type="button"
@@ -76,7 +82,9 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
           </div>
         )}
 
-        <div className={`offcanvas-body ${props.className}`}>{props.children}</div>
+        <div className={`offcanvas-body ${props.className}`}>
+          {props.children}
+        </div>
       </div>
     </>
   );

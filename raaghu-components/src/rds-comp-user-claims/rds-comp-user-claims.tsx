@@ -36,7 +36,7 @@ const RdsCompUserClaim = (props: RdsCompUserClaimsProps) => {
 				<div className="row">
 					<div className="col-md-6 d-flex">
 						<RdsButton
-							type={"button"}
+							 type="button"
 							label="CANCEL"
 							outlineButton={true}
 							colorVariant="primary"

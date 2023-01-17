@@ -1,5 +1,5 @@
 import React from "react";
-import { RdsSelectList, RdsCheckbox } from "../rds-elements";
+import { RdsSelectList, RdsCheckbox , RdsLabel} from "../rds-elements";
 
 export interface RdsCompNewLanguageProps {}
 const RdsCompNewLanguage = (props: RdsCompNewLanguageProps) => {
@@ -27,6 +27,7 @@ const RdsCompNewLanguage = (props: RdsCompNewLanguageProps) => {
     <form>
       <div className="row">
         <div className="col-md-6 mb-3">
+      
           <RdsSelectList
             label="Afar (aa)"
             selectItems={languageNames}
