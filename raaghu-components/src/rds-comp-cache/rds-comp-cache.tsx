@@ -102,7 +102,7 @@ const RdsCompCache = (props: RdsCacheProps) => {
 									data-bs-toggle="modal"
 									data-bs-target="#alert_popup"
 								>
-									Alert popup
+									Delete
 								</button>
 								<RdsCompAlertPopup alertID="alert_popup"></RdsCompAlertPopup>
 							</div>
