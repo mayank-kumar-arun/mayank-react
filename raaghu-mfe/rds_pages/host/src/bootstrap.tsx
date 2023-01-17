@@ -16,5 +16,4 @@ ReactDOM.render(
 		</div>
 	</Provider>,
 	document.getElementById("root")
-	// document.documentElement.setAttribute('theme','light')
 );
