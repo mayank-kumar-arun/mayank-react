@@ -6,6 +6,7 @@ import { store } from "../../../libs/public.api";
 import { Provider } from "react-redux";
 import "./i18n";
 
+
 ReactDOM.render(
 	<Provider store={store}>
 		<div>
@@ -15,4 +16,5 @@ ReactDOM.render(
 		</div>
 	</Provider>,
 	document.getElementById("root")
+	// document.documentElement.setAttribute('theme','light')
 );

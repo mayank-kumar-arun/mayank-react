@@ -115,13 +115,22 @@ const Main = () => {
 		},
 	];
 
-	const { t } = useTranslation();
-
 	// OnClickHandler for language change
-
+	
+	const { t } = useTranslation();
+	const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+	
 	const onClickHandler = (e: any) => {
-		i18n.changeLanguage(e.target.getAttribute("data-name"));
+		console.log(e.target);
+		setCurrentLanguage(e.target.getAttribute("data-name"));
+		console.log("This is to print current language",currentLanguage)
+		
 	};
+
+	useEffect(()=>{
+		i18n.changeLanguage(currentLanguage);
+		console.log("in useEffect",i18n.language);
+	},[currentLanguage])
 
 	// Datas for side nav
 
