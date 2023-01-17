@@ -156,23 +156,24 @@ const Maintainance = () => {
 					{tabcache && (
 						<div className="d-flex justify-content-end">
 							<div className="desktop-btn">
+								<RdsButton
+									type={"button"}
+									colorVariant="primary"
+									size="small"
+									tooltipPlacement="top"
+									label="CLEAR ALL"
+									icon="delete"
+									iconColorVariant="light"
+									iconHeight="15px"
+									iconWidth="15px"
+									iconFill={false}
+									iconStroke={true}
+									databstarget="#maintainance"
+									databstoggle="modal"
+								></RdsButton>
 								<RdsCompAlertPopup
-									alertbutton={
-										<RdsButton
-											type={"button"}
-											colorVariant="primary"
-											size="small"
-											tooltipPlacement="top"
-											label="CLEAR ALL"
-											icon="delete"
-											iconColorVariant="light"
-											iconHeight="15px"
-											iconWidth="15px"
-											iconFill={false}
-											iconStroke={true}
-										></RdsButton>
-									}
-									ondelete={DeleteAllCacheData}
+								  alertID="maintainance"
+									onSuccess={DeleteAllCacheData}
 								></RdsCompAlertPopup>
 							</div>
 							<div
