@@ -57,7 +57,6 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
 
   const onClickHandler = (index: number, val: string) => {
     setSelectedOption(index);
-    console.log("Logging to the console", val, index);
     setIsTouch(true);
   };
   let displayIconWidth = props.displayIconWidth || "16px";
