@@ -28,7 +28,7 @@ const tableHeaders = [
 	},
 ];
 
-const languageTableData = [{id: 1, languageName: 'India', code: 'IND', isenabled: 'true', creationTime: '12-10-1992' },
+const languageTableData = [{id: 1, languageName: 'India', code: 'IND',isenabled: 'true', creationTime: '12-10-1992' },
   { id: 2,languageName: 'India', code: 'IND', isenabled: 'true', creationTime: '12-10-1992' },
   { id: 3,languageName: 'India', code: 'IND', isenabled: 'true', creationTime: '12-10-1992' },
   { id: 4,languageName: 'India', code: 'IND', isenabled: 'false', creationTime: '12-10-1992' },
