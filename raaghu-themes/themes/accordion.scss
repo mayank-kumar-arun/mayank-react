@@ -14,6 +14,7 @@
       border-top-right-radius: 0px;
     }
   }
+  
   // Only set a border-radius on the last item if the accordion is collapsed
   &:last-of-type {
     @include border-bottom-radius($accordion-border-radius);
