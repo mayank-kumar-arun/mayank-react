@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import RdsCompAlertPopup from "../rds-comp-alert-popup/rds-comp-alert-popup";
-import { pagination } from "src/rds-comp-cache/rds-comp-cache.stories";
 import RdsCompDatatable from "../rds-comp-data-table/rds-comp-data-table";
 import RdsCompPermissionTree from "../rds-comp-permission-tree/rds-comp-permission-tree";
 import {
