@@ -11,7 +11,6 @@ const App = () => {
 	const [themes, setThemes] = useState("light");
 
 	const toggleTheme = (e: any)=>{
-		// console.log("Button Clicked!!2", e.target.checked);
 		if(e.target.checked){
 			setThemes("dark");
 		}
