@@ -15,7 +15,7 @@ const Template: ComponentStory<typeof RdsCompRoleList> = (args) => (
 export const Default = Template.bind({});
 
 Default.args = {
-  permission : [
+  permission: [
     {
       name: "Test edition scope feature",
       id: "L1E1",
@@ -131,11 +131,14 @@ Default.args = {
     {
       id: 1,
       selected: false,
+      isDefault: true,
       role: {
         children: (
           <>
             Hello{" "}
-            <RdsBadge label={"Default"} colorVariant={"success"}></RdsBadge>
+            <span className={`d-none`}>
+              <RdsBadge label={"Default"} colorVariant={"success"}></RdsBadge>{" "}
+            </span>
           </>
         ),
       },
@@ -169,7 +172,7 @@ Default.args = {
   ],
   actions: [
     { id: "anything", displayName: "Edit", offId: "Edit" },
-    { id: "delete", displayName: "Delete", modalId: "Delete" },
+    { id: "Del", displayName: "Delete", modalId: "Del" },
   ],
   pagination: true,
 };

@@ -225,7 +225,7 @@ const RdscompRoleList = (props: RdscompRoleListProps) => {
         <RdsCompDatatable
           tableHeaders={props.tableHeaders}
           actions={props.actions}
-          tableData={props.tableData}
+          tableData={data}
           classes="table"
           pagination={props.pagination}
           recordsPerPageSelectListOption={true}
@@ -300,12 +300,6 @@ const RdscompRoleList = (props: RdscompRoleListProps) => {
             </>
           )}
           <div className="" style={{ position: "fixed", bottom: "5%" }}>
-            <div>
-              {/* <RdsBanner
-                    colorVariant="primary"
-                    bannerText="If you are changing your own permissions, you may need to refresh page (F5) to take effect of permission changes on your own screen!"
-                  ></RdsBanner> */}
-            </div>
             <RdsAlert
               alertmessage={
                 "If you are changing your own permissions, you may need to refresh page (F5) to take effect of permission changes on your own screen!"
@@ -333,6 +327,7 @@ const RdscompRoleList = (props: RdscompRoleListProps) => {
             </div>
           </div>
         </RdsOffcanvas>
+        <RdsCompAlertPopup alertID="Del" />
       </div>
     </>
   );

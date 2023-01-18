@@ -10,7 +10,6 @@ import {
 } from "../rds-elements";
 import "./rds-comp-data-table.scss";
 import RdsCompAlertPopup from "../rds-comp-alert-popup/rds-comp-alert-popup";
-
 export interface RdsCompDatatableProps {
   enablecheckboxselection?: boolean;
   classes?: string;
@@ -30,24 +29,28 @@ export interface RdsCompDatatableProps {
     displayName: string;
     id: string;
     offId?: string;
+    modalId?: string;
   }[];
   tableData: any[];
   pagination: boolean;
   recordsPerPage?: number;
   recordsPerPageSelectListOption?: boolean;
-  onActionSelection: (
+  onActionSelection?: (
     clickEvent: any,
     tableDataRow: any,
     tableDataRowIndex: number,
-    action: { displayName: string; id: string; offId?: string }
+    action: {
+      displayName: string;
+      id: string;
+      offId?: string;
+      modalId?: string;
+    }
   ) => void;
-
   // onSortSelection(arg: {
-  // 	sortClickEvent: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>;
-  // 	sortOrder: string;
+  //    sortClickEvent: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>;
+  //    sortOrder: string;
   // }): void;
 }
-
 const RdsCompDatatable = (props: RdsCompDatatableProps) => {
   const [data, setData] = useState(props.tableData);
   const [action, setAction] = useState("");
@@ -61,7 +64,6 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
       setData(props.tableData);
     }
   }, [props.tableData]);
-
   const onPageChangeHandler = (currentPage: number, recordsPerPage: number) => {
     setRowStatus({
       startingRow: (currentPage - 1) * recordsPerPage, //0-index
@@ -72,9 +74,18 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
     clickEvent: any,
     tableDataRow: any,
     tableDataRowIndex: number,
-    action: { displayName: string; id: string; offId?: string }
+    action: {
+      displayName: string;
+      id: string;
+      offId?: string;
+      modalId?: string;
+    }
   ) => {
-    if (action.id == "edit") {
+    if (
+      action.id == "edit" &&
+      action.offId != undefined &&
+      action.modalId != undefined
+    ) {
       let tempData = data.map((Data) => {
         if (Data.id == tableDataRowIndex) {
           return { ...Data, isEndUserEditing: true };
@@ -86,7 +97,6 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
     } else {
       setAction("delete");
     }
-
     props.onActionSelection != undefined &&
       props.onActionSelection(
         clickEvent,
@@ -95,7 +105,6 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
         action
       );
   };
-
   let tempData: any;
   const onInputChangeHandler = (
     e: any,
@@ -142,7 +151,6 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
     });
     setData(tempData);
   };
-
   const handleChange = (e: any) => {
     const { name, checked } = e.target;
     if (name === "allSelect") {
@@ -157,7 +165,6 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
       setData(tempUser);
     }
   };
-
   const onSortClickHandler = (
     event: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>,
     sortOrder: string,
@@ -405,7 +412,6 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
                                   name={"three_dots"}
                                   height="14px"
                                   width="14px"
-                                  colorVariant="black"
                                   stroke={true}
                                   fill={true}
                                   class="bi bi-three-dots-vertical"
@@ -421,22 +427,43 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
                                       index
                                     }
                                   >
-                                    <a
-                                      data-bs-toggle="offcanvas"
-                                      data-bs-target={`#${action?.offId}`}
-                                      aria-controls={action?.offId}
-                                      onClick={(e) => {
-                                        actionOnClickHandler(
-                                          e,
-                                          tableDataRow,
-                                          tableDataRow.id,
-                                          action
-                                        );
-                                      }}
-                                      className="dropdown-item"
-                                    >
-                                      {action.displayName}
-                                    </a>
+                                    {action.modalId != undefined ? (
+                                      <a
+                                        data-bs-toggle="modal"
+                                        data-bs-target={`#${action?.modalId}`}
+                                        aria-controls={action?.modalId}
+                                        onClick={(e) => {
+                                          actionOnClickHandler(
+                                            e,
+                                            tableDataRow,
+                                            tableDataRow.id,
+                                            action
+                                          );
+                                        }}
+                                        className="dropdown-item"
+                                      >
+                                        {action.displayName}
+                                      </a>
+                                    ) : (
+                                      <>
+                                        <a
+                                          data-bs-toggle="offcanvas"
+                                          data-bs-target={`#${action?.offId}`}
+                                          aria-controls={action?.offId}
+                                          onClick={(e) => {
+                                            actionOnClickHandler(
+                                              e,
+                                              tableDataRow,
+                                              tableDataRow.id,
+                                              action
+                                            );
+                                          }}
+                                          className="dropdown-item"
+                                        >
+                                          {action.displayName}
+                                        </a>
+                                      </>
+                                    )}
                                   </li>
                                 ))}
                               </ul>
@@ -493,7 +520,6 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
           </tbody>
         </table>
       </div>
-
       {props.pagination && (
         <div className="RdsCompDataTable__RdsPagination d-flex justify-content-end ">
           <RdsPagination

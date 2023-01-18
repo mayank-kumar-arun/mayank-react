@@ -1,24 +1,12 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import RdsAccordion from "./rds-accordion";
+import RdsAccordionItem from "./rds-accordion-item";
 
 export default {
   title: "Elements/Accordion",
   component: RdsAccordion,
-  argTypes: {
-    colorVariant: {
-      options: [
-        "primary",
-        "secondary",
-        "success",
-        "info",
-        "warning",
-        "danger",
-        "dark",
-      ],
-      control: { type: "select" },
-    },
-  },
+  argTypes: {},
 } as ComponentMeta<typeof RdsAccordion>;
 
 const Template: ComponentStory<typeof RdsAccordion> = (args) => (
@@ -27,37 +15,21 @@ const Template: ComponentStory<typeof RdsAccordion> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  colorVariant: "primary",
-
-  buttonGroupItems: [
-    {
-      id: "accordionOne",
-      bId: "collapseOne",
-      Bodyheading: "",
-      title: "Section 1 title",
-      content: "content1",
-      state: false,
-      select: null,
-    },
-    {
-      id: "accordiontwo",
-      bId: "collapseTwo",
-      Bodyheading: "",
-      title: "Section 2 title",
-      content: "content2",
-      state: false,
-      select: null,
-    },
-    {
-      id: "accordionThree",
-      bId: "collapseThree",
-      Bodyheading: "",
-      title: "Section 3 title",
-      content: "content3",
-      state: false,
-      select: null,
-    },
-  ],
+  accordionType: "Default",
+  accordionId: "1",
+  children: (
+    <>
+      <RdsAccordionItem id={"1"} title={"Section 1 Title"}>
+        <h1>Hello</h1>
+      </RdsAccordionItem>
+      <RdsAccordionItem id={"2"} title={"Section 2 Title"}>
+        <h1>Hello2</h1>
+      </RdsAccordionItem>
+      <RdsAccordionItem id={"3"} title={"Section 3 Title"}>
+        <h1>Hello3</h1>
+      </RdsAccordionItem>
+    </>
+  ),
 };
 
 // export const outline = Template.bind({});
@@ -98,38 +70,22 @@ Default.args = {
 
 export const Flush = Template.bind({});
 Flush.args = {
-  colorVariant: "primary",
-  accordiontype: "flush",
-  Flush: true,
-  buttonGroupItems: [
-    {
-      id: "accordionOne",
-      bId: "collapseOne",
-      hId: "headingOne",
-      title: "Section 1 title",
-      state: false,
-      content: "content1",
-      select: null,
-    },
-    {
-      id: "accordiontwo",
-      bId: "collapseTwo",
-      hId: "headingTwo",
-      title: "Section 2 title",
-      state: false,
-      content: "content2",
-      select: null,
-    },
-    {
-      id: "accordionThree",
-      bId: "collapseThree",
-      hId: "headingThree",
-      title: "Section 3 title",
-      state: false,
-      content: "content3",
-      select: null,
-    },
-  ],
+  accordionType: "flush",
+  accordionId: "1",
+  children: (
+    <>
+      {" "}
+      <RdsAccordionItem id={"1"} title={"Section 1 Title"}>
+        <h1>Hello</h1>
+      </RdsAccordionItem>
+      <RdsAccordionItem id={"2"} title={"Section 2 Title"}>
+        <h1>Hello2</h1>
+      </RdsAccordionItem>
+      <RdsAccordionItem id={"3"} title={"Section 3 Title"}>
+        <h1>Hello3</h1>
+      </RdsAccordionItem>
+    </>
+  ),
 };
 
 // export const AlwaysOpen = Template.bind({});
