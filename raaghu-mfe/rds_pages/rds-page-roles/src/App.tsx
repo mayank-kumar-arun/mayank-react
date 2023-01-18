@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import Roles from "./roles/Roles";
+import Roles from "./Roles/Roles";
 
 const App = () => (
   <Suspense>
