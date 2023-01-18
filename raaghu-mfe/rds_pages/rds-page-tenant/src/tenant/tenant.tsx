@@ -413,7 +413,7 @@ const Tenant = (props: RdsPageTenantProps) => {
   const [showTenantSettings, setShowTenantSettings] = useState(false);
   const offCanvasButton =
     '<RdsButton icon = "plus" iconColorVariant="light" size = "medium" type = "button" colorVariant = "primary" label = "NEW TENANT"/>';
-  return (
+    return (
     <div className="tenant text-uppercase">
       <RdsOffcanvas
         canvasTitle={t("New Tenant")}

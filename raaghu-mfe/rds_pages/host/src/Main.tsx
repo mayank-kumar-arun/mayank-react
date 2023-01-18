@@ -34,7 +34,12 @@ const OrganizationUnitsCompo = React.lazy(
 	() => import("OrganizationUnits/OrganizationUnits")
 );
 const LanguageCompo = React.lazy(() => import("Language/Language"));
-const Main = () => {
+
+export interface MainProps{
+	toggleTheme?: React.MouseEventHandler<HTMLInputElement>;
+}
+
+const Main = (props:MainProps) => {
 	const [isAuth, setIsAuth] = useState(true);
 	const navigate = useNavigate();
 	let accessToken: string | undefined = undefined;
@@ -115,13 +120,18 @@ const Main = () => {
 		},
 	];
 
-	const { t } = useTranslation();
-
 	// OnClickHandler for language change
-
+	
+	const { t } = useTranslation();
+	const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+	
 	const onClickHandler = (e: any) => {
-		i18n.changeLanguage(e.target.getAttribute("data-name"));
+		setCurrentLanguage(e.target.getAttribute("data-name"));
 	};
+
+	useEffect(()=>{
+		i18n.changeLanguage(currentLanguage);
+	},[currentLanguage])
 
 	// Datas for side nav
 
@@ -288,17 +298,13 @@ const Main = () => {
 		);
 		setCurrentSubTitle(subTitle);
 		setCurrentTitle(e.target.getAttribute("data-name"));
-		// console.log(  "printing data",t(e.target.getAttribute("data-name")), t(subTitle))
 	};
 
 	const logout = () => {
 		localStorage.clear();
-		console.log(auth);
 		setIsAuth(false);
 		navigate("/");
 	};
-
-	useEffect(() => {}, []);
 
 	return (
 		<Suspense fallback="loading...">
@@ -321,7 +327,6 @@ const Main = () => {
 					<div className="page d-flex flex-column flex-column-fluid">
 						<div
 							className="header align-items-stretch"
-							style={{ position: "fixed" }}
 						>
 							<RdsCompTopNavigation
 								languageItems={languageItems}
@@ -349,6 +354,7 @@ const Main = () => {
 									<RdsCompSideNavigation
 										sideNavItems={sideNavItems}
 										onClick={sideNavOnClickHandler}
+										toggleTheme={props.toggleTheme}
 									></RdsCompSideNavigation>
 								</div>
 							</div>

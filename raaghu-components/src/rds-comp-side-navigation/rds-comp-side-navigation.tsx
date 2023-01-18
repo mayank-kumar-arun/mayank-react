@@ -5,12 +5,17 @@ import { useTranslation } from "react-i18next";
 export interface RdsCompSideNavigationProps{
   sideNavItems: any[];
   onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  toggleTheme?: React.MouseEventHandler<HTMLInputElement>;
 }
 
 const RdsCompSideNavigation = (props:RdsCompSideNavigationProps) => {
 	const { t } = useTranslation();
 
-  return <RdsSideNav sideNavItems={props.sideNavItems} onClick={props.onClick}></RdsSideNav>;
+  // const toggleTheme =(e: any)=>{
+  //   console.log("Button Clicked", e.target.checked)
+  // }
+
+  return <RdsSideNav sideNavItems={props.sideNavItems} onClick={props.onClick} toggleTheme={props.toggleTheme}></RdsSideNav>;
 };
 
 export default RdsCompSideNavigation;

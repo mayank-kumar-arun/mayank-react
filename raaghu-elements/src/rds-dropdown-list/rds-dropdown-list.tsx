@@ -1,14 +1,12 @@
 import React, { MouseEventHandler, useState } from "react";
 
 import RdsIcon from "../rds-icon";
-import RdsBadge from "../rds-badge"
+import RdsBadge from "../rds-badge";
 import "./rds-dropdown-list.scss";
 import { PROPERTY_TYPES } from "@babel/types";
 import { useEffect } from "react";
 export interface RdsDropdownListProps {
- 
-
- reset?: boolean,
+  reset?: boolean;
   width?: string;
   withIcons?: boolean;
   placeholder?: string;
@@ -37,7 +35,6 @@ export interface RdsDropdownListProps {
 }
 
 const RdsDropdownList = (props: RdsDropdownListProps) => {
-  
   let nextId = 0;
   const [checkedCategoryList, setCheckedCategoryList] = useState<any>([]);
   const [isTouch, setIsTouch] = useState(false);
@@ -65,16 +62,14 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
   let displayIconWidth = props.displayIconWidth || "16px";
   let displayIconHeight = props.displayIconHeight || "12px";
   let displaySize = props.displayNameSize || "12.25px";
-  
+
   const uncheckHandler = (e: any, item: any) => {
-   
     const newChildTreeunits = checkedCategoryList.filter(
       (curItem: any) => curItem.label !== item.label
     );
     setCheckedCategoryList(newChildTreeunits);
   };
   const checkHandler = (e: any, item: any) => {
-  
     let newTempData: any;
 
     newTempData = {
@@ -85,18 +80,20 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
     setCheckedCategoryList((prev: any) => [...prev, newTempData]);
   };
 
- 
   useEffect(() => {
     setIsTouch(false);
     setCheckedCategoryList([]);
-  
   }, [props.reset]);
-   useEffect(() => {
-    props.multiSelect===undefined && props.selectedIndex != undefined && props.selectedIndex(selectedOption);
+  useEffect(() => {
+    props.multiSelect === undefined &&
+      props.selectedIndex != undefined &&
+      props.selectedIndex(selectedOption);
   }, [selectedOption]);
 
   useEffect(() => {
-    props.multiSelect && props.selectedItems != undefined &&props.selectedItems(checkedCategoryList);
+    props.multiSelect &&
+      props.selectedItems != undefined &&
+      props.selectedItems(checkedCategoryList);
   }, [checkedCategoryList]);
   return (
     <div>
@@ -104,58 +101,72 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
         <a
           data-bs-toggle="dropdown"
           aria-expanded="false"
-          style={{
-            textDecoration: "none",
-            cursor: "pointer ",
-            paddingLeft: "0px",
-          }}
         >
           <div
-            className="bDropdown d-flex align-items-center ps-2 justify-content-between"
+            className="d-flex align-items-center ps-2 justify-content-between"
             style={{
               border: `${props.withBorder ? "" : "none"}`,
               background: `${props.darkVariant ? "#212529" : "white"}`,
               color: `${props.darkVariant ? "white" : "#212529"}`,
             }}
           >
-            {checkedCategoryList.length == 0 && props.multiSelect === true && props.placeholder && (
-              <div>
-                <span  className="ms-2 me-2  text-muted">{props.placeholder}</span>
-              </div>
-            )}
-                 {/* multiselected dropdown's badge */}
-                  {props.multiSelect === true&&props.listItems && props.listItems[0]&&<div>
-                    {checkedCategoryList.length != 0 &&
-                      checkedCategoryList.map((item: any) => (
-                        <RdsBadge key={item.id} label={item.label}
+            {checkedCategoryList.length == 0 &&
+              props.multiSelect === true &&
+              props.placeholder && (
+                <div>
+                  <span className="ms-2 me-2  text-muted">
+                    {props.placeholder}
+                  </span>
+                </div>
+              )}
+            {/* multiselected dropdown's badge */}
+            {props.multiSelect === true &&
+              props.listItems &&
+              props.listItems[0] && (
+                <div>
+                  {checkedCategoryList.length != 0 &&
+                    checkedCategoryList.map((item: any) => (
+                      <RdsBadge
+                        key={item.id}
+                        label={item.label}
                         colorVariant="primary"
                         textColor="dark"
                         size="small"
                         // childrenSide="right"
-                         children={<span className="mx-1">
-                        <RdsIcon
-                          name="close"
-                          fill={false}
-                          stroke={true}
-                          height="6px"
-                          width="6px"
-                          onClick={(e) => uncheckHandler(e, item)}
-                          colorVariant={`${
-                            props.darkVariant ? "light" : ""
-                          }`}
-                        ></RdsIcon>
-                      </span>} /> 
-                      
-                      ))}
-                  </div>}
+                        children={
+                          <span className="mx-1">
+                            <RdsIcon
+                              name="close"
+                              fill={false}
+                              stroke={true}
+                              height="6px"
+                              width="6px"
+                              onClick={(e) => uncheckHandler(e, item)}
+                              colorVariant={`${
+                                props.darkVariant ? "light" : ""
+                              }`}
+                            ></RdsIcon>
+                          </span>
+                        }
+                      />
+                    ))}
+                </div>
+              )}
 
-                  {isTouch!=true &&props.placeholder&& props.multiSelect !== true  && (
-              <div>
-                <span className="ms-2 me-2  text-muted">{props.placeholder}</span>
-              </div>
-            )}
-            { isTouch==true &&props.multiSelect !== true&&props.listItems && props.listItems[0] && (
-              <>
+            {isTouch != true &&
+              props.placeholder &&
+              props.multiSelect !== true && (
+                <div>
+                  <span className="ms-2 me-2  text-muted">
+                    {props.placeholder}
+                  </span>
+                </div>
+              )}
+            {isTouch == true &&
+              props.multiSelect !== true &&
+              props.listItems &&
+              props.listItems[0] && (
+                <>
                   <div>
                     {props.listItems[selectedOption].icon && (
                       <span
@@ -181,8 +192,8 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
                       {props.listItems[selectedOption].label}
                     </span>
                   </div>
-              </>
-            )}
+                </>
+              )}
             <div>
               <RdsIcon
                 name="chevron_down"
@@ -196,77 +207,75 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
           </div>
         </a>
 
-{/* DropdownList items */}
+        {/* DropdownList items */}
         <div
           className="dropdown-menu fab-dropdown border-0 shadow mb-1"
-          style={{
-            position: "absolute",
-            width: "100%",
-            background: `${props.darkVariant ? "#212529" : "white"}`,
-          }}
         >
-          
           {props.listItems?.map((language: any, i: any) => (
+            <div
+              key={i}
+              onMouseDown={() => {
+                onClickHandler(i, language.val);
+              }}
+            >
+              <a
+                data-name={language.val}
+                id={i}
+                className="dropdown-item fab-dropdown-item d-flex ps-0"
+                onClick={props.onClick}
+                style={{ cursor: "pointer" }}
+              >
+                {props.multiSelect && (
+                  <div className="ms-3">
+                    <div className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        checked={
+                          checkedCategoryList.filter(
+                            (curElem: any) => curElem.label == language.label
+                          ).length == 1
+                        }
+                        onChange={(e) =>
+                          `${
+                            e.target.checked !== true
+                              ? uncheckHandler(e, language)
+                              : checkHandler(e, language)
+                          }`
+                        }
+                        value=""
+                        id="flexCheckDefault"
+                      />
+                    </div>
+                  </div>
+                )}
+                {language.icon && (
+                  <div
+                    className="ms-2"
+                    style={{
+                      borderRadius: `${
+                        props.insideIconRoundedCorner ? "50%" : "0"
+                      }`,
+                    }}
+                  >
+                    <RdsIcon
+                      name={language.icon}
+                      height={language.iconWidth ? language.iconWidth : "20px"}
+                      width={language.iconWidth ? language.iconWidth : "20px"}
+                      fill={false}
+                      stroke={true}
+                    ></RdsIcon>
+                  </div>
+                )}
 
-       
-       <div key={i}>
-         <a
-           id={i}
-           data-name={language.val}
-           className="dropdown-item fab-dropdown-item d-flex ps-0"
-           onClick={props.onClick}
-           onMouseDown={() => {
-             onClickHandler(i, language.val);
-           }}
-           style={{ cursor: "pointer" }}
-         >
-           {props.multiSelect && (
-             <div className="ms-3">
-              <div className="form-check">
-  <input className="form-check-input" type="checkbox"  checked={checkedCategoryList.filter((curElem:any)=>curElem.label==language.label).length==1}
-                 onChange={(e) =>
-                   `${
-                     e.target.checked !== true
-                       ? uncheckHandler(e, language)
-                       : checkHandler(e, language)
-                   }`
-                 } value="" id="flexCheckDefault"/ >
-  
-</div>
-               
-             </div>
-           )}
-           {language.icon && (
-             <div
-               className="ms-2"
-               style={{
-                 borderRadius: `${
-                   props.insideIconRoundedCorner ? "50%" : "0"
-                 }`,
-               }}
-             >
-               <RdsIcon
-                 name={language.icon}
-                 height={language.iconWidth ? language.iconWidth : "20px"}
-                 width={language.iconWidth ? language.iconWidth : "20px"}
-                 fill={false}
-                 stroke={true}
-               ></RdsIcon>
-             </div>
-           )}
-
-           <span
-             className="ms-1"
-             style={{
-               color: `${props.darkVariant ? "white" : "#212529"}`,
-             }}
-             data-name={language.val}
-           >
-             <div style={{ fontSize: "12px" }}>{language.label} </div>
-           </span>
-         </a>
-       </div>
-     ))}
+                <span
+                  className="ms-1"
+                >
+                  <div data-name={language.val} >{language.label} </div>
+                </span>
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     </div>

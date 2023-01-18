@@ -23,7 +23,6 @@ export interface RdsCompTopNavigationProps {
 
 const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
   const [LinkAccount, setLinkAccount] = useState(false);
-  console.log("hg gh ");
 
   const navtabItems = [
     {
