@@ -126,15 +126,11 @@ const Main = (props:MainProps) => {
 	const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 	
 	const onClickHandler = (e: any) => {
-		console.log(e.target);
 		setCurrentLanguage(e.target.getAttribute("data-name"));
-		console.log("This is to print current language",currentLanguage)
-		
 	};
 
 	useEffect(()=>{
 		i18n.changeLanguage(currentLanguage);
-		console.log("in useEffect",i18n.language);
 	},[currentLanguage])
 
 	// Datas for side nav
@@ -302,23 +298,13 @@ const Main = (props:MainProps) => {
 		);
 		setCurrentSubTitle(subTitle);
 		setCurrentTitle(e.target.getAttribute("data-name"));
-		// console.log(  "printing data",t(e.target.getAttribute("data-name")), t(subTitle))
 	};
 
 	const logout = () => {
 		localStorage.clear();
-		console.log(auth);
 		setIsAuth(false);
 		navigate("/");
 	};
-
-	useEffect(() => {}, []);
-	
-	// toggling themes
-
-	// const toggleTheme =(e:any)=>{
-	// 	console.log("Button Cllicked!!!1", e.target.checked)
-	// }
 
 	return (
 		<Suspense fallback="loading...">
@@ -341,7 +327,6 @@ const Main = (props:MainProps) => {
 					<div className="page d-flex flex-column flex-column-fluid">
 						<div
 							className="header align-items-stretch"
-							// style={{ position: "fixed" }}
 						>
 							<RdsCompTopNavigation
 								languageItems={languageItems}
