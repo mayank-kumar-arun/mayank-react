@@ -2,5 +2,8 @@ import { addons } from "@storybook/addons";
 import customTheme from "./customTheme";
 
 addons.setConfig({
-	theme: customTheme,
+  theme: customTheme,
+  toolbar: {
+    "storybook/background": { hidden: true },
+  },
 });
