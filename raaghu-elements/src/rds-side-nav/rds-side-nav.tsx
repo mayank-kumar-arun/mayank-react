@@ -4,16 +4,17 @@ import RdsSideNavChild from "./rds-side-nav-child";
 import RdsIcon from "../rds-icon/rds-icon";
 import RdsToggle from "../rds-toggle/rds-toggle";
 
-export interface RdsSideNavPros {
+export interface RdsSideNavProps {
   sideNavItems: any[];
   onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  toggleTheme?: React.MouseEventHandler<HTMLInputElement>;
 }
 
-const RdsSideNav = (props: RdsSideNavPros) => {
+const RdsSideNav = (props: RdsSideNavProps) => {
 
-  // const onClickHandler = (e: any)=>{
-
-  //     console.log(e.target.getAttribute("data-name"))
+  // const toggleTheme = (e: any)=>{
+  //   console.log("Just clicked the button")
+  //     console.log(e.target.checked)
   // }
 
   return (
@@ -26,7 +27,7 @@ const RdsSideNav = (props: RdsSideNavPros) => {
           <RdsSideNavChild data={props.sideNavItems} onClickHandler={props.onClick}></RdsSideNavChild>
         </div>
       </nav>
-      <div className="sidenav-footer text-center" style={{width:"290px", bottom:"28px"}}>
+      <div className="sidenav-footer text-center">
         <div className="text-center mb-3">
           <RdsIcon
             name="grid_square"
@@ -38,7 +39,7 @@ const RdsSideNav = (props: RdsSideNavPros) => {
         </div>
         <div className="darkTheme text-center">
           <a className="list d-inline-flex align-items-center text-decoration-none text-uppercase">
-            <RdsToggle iconOnUncheck={"sun"} iconOnCheck={"moon"} ></RdsToggle>
+            <RdsToggle iconOnUncheck={"sun"} iconOnCheck={"moon"} onClick={props.toggleTheme}></RdsToggle>
           </a>
         </div>
       </div>

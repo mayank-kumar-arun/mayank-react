@@ -34,7 +34,12 @@ const OrganizationUnitsCompo = React.lazy(
 	() => import("OrganizationUnits/OrganizationUnits")
 );
 const LanguageCompo = React.lazy(() => import("Language/Language"));
-const Main = () => {
+
+export interface MainProps{
+	toggleTheme?: React.MouseEventHandler<HTMLInputElement>;
+}
+
+const Main = (props:MainProps) => {
 	const [isAuth, setIsAuth] = useState(true);
 	const navigate = useNavigate();
 	let accessToken: string | undefined = undefined;
@@ -308,6 +313,12 @@ const Main = () => {
 	};
 
 	useEffect(() => {}, []);
+	
+	// toggling themes
+
+	// const toggleTheme =(e:any)=>{
+	// 	console.log("Button Cllicked!!!1", e.target.checked)
+	// }
 
 	return (
 		<Suspense fallback="loading...">
@@ -330,7 +341,7 @@ const Main = () => {
 					<div className="page d-flex flex-column flex-column-fluid">
 						<div
 							className="header align-items-stretch"
-							style={{ position: "fixed" }}
+							// style={{ position: "fixed" }}
 						>
 							<RdsCompTopNavigation
 								languageItems={languageItems}
@@ -358,6 +369,7 @@ const Main = () => {
 									<RdsCompSideNavigation
 										sideNavItems={sideNavItems}
 										onClick={sideNavOnClickHandler}
+										toggleTheme={props.toggleTheme}
 									></RdsCompSideNavigation>
 								</div>
 							</div>
