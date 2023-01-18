@@ -12,11 +12,6 @@ export interface RdsSideNavProps {
 
 const RdsSideNav = (props: RdsSideNavProps) => {
 
-  // const toggleTheme = (e: any)=>{
-  //   console.log("Just clicked the button")
-  //     console.log(e.target.checked)
-  // }
-
   return (
     <>
       <nav
