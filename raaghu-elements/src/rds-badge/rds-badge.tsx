@@ -4,83 +4,55 @@ import "./rds-badge.scss";
 export interface RdsBadgeProps {
   label: string;
   children?: ReactNode;
-  size?: "small" | "large" | "medium";
+  size?: "small" | "smaller" | "smallest" | "medium" | "large" | "xlg";
   colorVariant?:
     | "primary"
     | "success"
-    | "danger"
     | "warning"
-    | "light"
-    | "info"
-    | "secondary"
-    | "dark";
-  textColor?:
-    | "primary"
-    | "success"
     | "danger"
-    | "warning"
-    | "light"
     | "info"
-    | "secondary"
     | "dark"
-    | "white";
+    | "light"
+    | "secondary";
   badgeType?: "rectangle" | "circle" | "pill";
   childrenSide?: "right" | "left";
+  positioned?: boolean;
+  showClose?: boolean;
+  onClose?: (Event: React.MouseEvent<HTMLSpanElement>) => void;
 }
 
 const RdsBadge = (props: RdsBadgeProps) => {
-  let fonts =
-    props.size == "small" ? "10px" : props.size == "large" ? "18px" : "14px";
-  let textColor = "text-" + props.textColor || "dark";
-  let bg = " badge-" + props.colorVariant || "dark";
+  let size = props.hasOwnProperty("size") ? props.size : "";
+  let bg = "badge-" + (props.colorVariant || "primary");
   let badgeType =
-    props.badgeType == "rectangle"
-      ? " rounded-0 "
-      : props.badgeType == "pill"
-      ? " rounded-pill "
-      : " ";
+    props.badgeType === "rectangle"
+      ? "rounded rectangle"
+      : props.badgeType === "pill"
+      ? "rounded-pill badge-pill"
+      : props.badgeType === "circle"
+      ? "rounded-circle badge-circle"
+      : "";
   let childrenSide = props.childrenSide || "left";
+  let positioned =
+    props.positioned === true
+      ? "position-absolute badge_icon start-100 translate-middle"
+      : "";
   return (
     <>
-      <span
-        className={`mx-1 badge fw-normal ${badgeType} ${textColor} ${bg}`}
-        style={{ fontSize: fonts }}
-      >
-        {childrenSide == "left" && <>{props.children}</>}
-        {props.label}
-        {childrenSide == "right" && <>{props.children}</>}
+      <span className={size}>
+        <span className={`badge ${bg} ${positioned} ${badgeType} ${size}`}>
+          {childrenSide == "left" && <>{props.children}</>}
+          {props.label}
+          {props.showClose && (
+            <span aria-hidden="true" onClick={props.onClose}>
+              &times;
+            </span>
+          )}
+          {childrenSide == "right" && <>{props.children}</>}
+        </span>
       </span>
-      {/* <span
-        className={` badge fw-normal badge-primary`}
-        style={{ fontSize: fonts }}
-      >
-       {childrenSide=="left" &&<>{props.children}</> }
-        {props.label}
-        {childrenSide=="right" &&<>{props.children}</> }
-      </span> */}
     </>
   );
 };
 
 export default RdsBadge;
-/*
-<span
-                          key={item.id}
-                          className=" p-1 me-2 badge bg-primary text-dark  small "
-                        >
-                          <span>{item.label}</span>
-                          <span className="mx-1">
-                            <RdsIcon
-                              name="close"
-                              fill={false}
-                              stroke={true}
-                              height="6px"
-                              width="6px"
-                              onClick={(e) => uncheckHandler(e, item)}
-                              colorVariant={`${
-                                props.darkVariant ? "light" : ""
-                              }`}
-                            ></RdsIcon>
-                          </span>
-                        </span>
-*/
