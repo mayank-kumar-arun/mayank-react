@@ -315,7 +315,7 @@ const Edition = (props: RdsPageEditionProps) => {
           />
         )}
         {(activeNavTabId == 1 || showTenantSettings == true) && (
-          <RdsCompPermissionTree familyTree={familyTree} />
+          <RdsCompPermissionTree treeData={familyTree}/>
         )}
       </RdsOffcanvas>
       <RdsCompEditionList

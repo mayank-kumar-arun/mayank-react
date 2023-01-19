@@ -1,5 +1,6 @@
 import React from "react";
 import RdsLabel from "../rds-label";
+import RdsBage from "../rds-badge"
 import "./rds-list-group.scss";
 
 export interface RdsListGroupProps {
@@ -28,9 +29,7 @@ const RdsListGroup = (props: RdsListGroupProps) => {
 							>
 								{listItems.label}
 								{props.withBadge && (
-									<span className="badge bg-primary ">
-										{listItems.badgeLabel}
-									</span>
+									<RdsBage label={listItems.badgeLabel} colorVariant ='primary'/>
 								)}
 							</li>
 						</>
@@ -65,9 +64,7 @@ const RdsListGroup = (props: RdsListGroupProps) => {
 										{listItems.label}
 									</label>
 									{props.withBadge && (
-										<span className="badge bg-primary ">
-											{listItems.badgeLabel}
-										</span>
+									<RdsBage label={listItems.badgeLabel} colorVariant ='primary'/>
 									)}
 								</div>
 							</li>

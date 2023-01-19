@@ -65,7 +65,7 @@ const RdsTeamMember = (props: RdsTeamMemberProps) => {
 												colorVariant=""
 											></RdsIcon>
 											<RdsIcon
-												class="mx-2"
+											//	class="mx-2"
 												name={teamItems.twitterIcon}
 												height="27px"
 												fill={false}
