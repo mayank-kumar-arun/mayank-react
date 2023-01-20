@@ -20,26 +20,13 @@ export interface RdsCardProps {
 
 const RdsCard = (props: RdsCardProps) => {
 	const btnColor = "btn btn-md btn-" + (props.colorVariant || "primary");
-
 	let isCenter = props.centerAlign || false;
-	let textAlign = `${isCenter === true ? "card text-center" : "card"}`;
-	let leftAlignCenter = `calc(50% + (-42px))`;
 	let borderColor = `border border-${props.borderColor}`;
 
 	return (
 		<Fragment>
-			<div className={`${textAlign} ${props.borderColor ? borderColor : ""}`}>
+			<div className={`card ${props.borderColor ? borderColor : ""}`}>
 				<div className="headerClass">
-					{/* {props.isImage === true && (
-						<div>
-							<img
-								src={props.imageUrl}
-								id="backImg"
-								className="card-img-top"
-								alt="..."
-							/>
-						</div>
-					)} */}
 					{props.isImage === true ? (
 						<div className="position-relative">
 							<img
@@ -93,15 +80,6 @@ const RdsCard = (props: RdsCardProps) => {
 							)}
 						</>
 					)}
-					{/* {props.isAvatar === true &&
-						isCenter === true &&
-						props.isImage === true && (
-							<img
-								className="img-fluid"
-								style={{ left: leftAlignCenter }}
-								src={props.avatarUrl}
-							></img>
-						)} */}
 				</div>
 
 				{props.isImage || props.isAvatar ? (

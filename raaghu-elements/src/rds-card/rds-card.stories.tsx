@@ -61,8 +61,6 @@ CardWithImage.args = {
 	isImage: true,
 	imageUrl:
 		"https://picsum.photos/seed/picsum/1200/600",
-
-	centerAlign: true,
 };
 export const Avatar = Template.bind({});
 Avatar.args = {
@@ -78,8 +76,8 @@ Avatar.args = {
 		"https://picsum.photos/seed/picsum/1200/600",
 	avatarUrl:
 		"https://placekitten.com/300/300",
-	centerAlign: false,
 	isAvatar: true,
+	centerAlign : false
 };
 export const WithCenteredAvatar = Template.bind({});
 WithCenteredAvatar.args = {
@@ -95,6 +93,6 @@ WithCenteredAvatar.args = {
 		"https://picsum.photos/seed/picsum/1200/600",
 	avatarUrl:
 		"https://placekitten.com/300/300",
-	centerAlign: true,
 	isAvatar: true,
+	centerAlign: true
 };
