@@ -6,8 +6,11 @@ export default {
   title: "Elements/Icon",
   component: RdsIcon,
   argTypes: {
-    
-  },
+      colorVariant: {
+        options: ['primary' ,'success' , 'danger' , 'warning' , 'light' ,'info' , 'secondary' , 'dark'],
+        control: { type: "select" },
+      }
+  }
 } as ComponentMeta<typeof RdsIcon>;
 
 const Template: ComponentStory<typeof RdsIcon> = (args) => (
@@ -17,9 +20,10 @@ const Template: ComponentStory<typeof RdsIcon> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   name: "users",
-  width: '20px',
-  height:"20px",
+  width: "20px",
+  height: "20px",
   fill: true,
   stroke: true,
-  colorVariant:"primary"
+  colorVariant: "primary",
+  isAnimate:true,
 };
