@@ -547,7 +547,7 @@ const NewDynamicProperty = (props: dynamicProps) => {
                 tooltipTitle={""}
                 type="button"
                 size="small"
-                outlineButton={true}
+                isOutline={true}
                 databstoggle="offcanvas"
                 databstarget={`#${props.offId}`}
                 ariacontrols={props.offId}

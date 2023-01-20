@@ -144,7 +144,7 @@ const RdsCompProfileEdit = (props: RdsCompProfileEditProps) => {
               class="me-2"
               label="CANCEL"
               type="button"
-              outlineButton={true}
+              isOutline={true}
               colorVariant="primary"
               size="small"
             ></RdsButton>
@@ -152,7 +152,7 @@ const RdsCompProfileEdit = (props: RdsCompProfileEditProps) => {
               class="me-2"
               label="SAVE"
               type="submit"
-              outlineButton={false}
+              isOutline={false}
               colorVariant="primary"
               size="small"
             ></RdsButton>

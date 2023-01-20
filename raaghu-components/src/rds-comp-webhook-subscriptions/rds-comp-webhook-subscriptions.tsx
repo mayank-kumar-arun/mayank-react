@@ -255,7 +255,7 @@ const RdsCompWebhookSubscription = (props: RdsCompWebhookSubscriptionProps) => {
                 tooltipTitle={""}
                 type="button"
                 size="small"
-                outlineButton={true}
+                isOutline={true}
               />
             </div>
             <div className="col-2">

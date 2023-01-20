@@ -212,7 +212,7 @@ const Maintainance = () => {
 									type={"button"}
 									label="DOWNLOAD ALL"
 									onClick={downloadcsv}
-									outlineButton={true}
+									isOutline={true}
 									colorVariant="primary"
 									tooltipPlacement="top"
 									size="small"

@@ -206,7 +206,7 @@ const Users = () => {
             size="small"
             label="FILTER BY PERMISSION"
             colorVariant="primary"
-            outlineButton={true}
+            isOutline={true}
             class="me-2"
           ></RdsButton>
           <RdsButton
@@ -215,7 +215,7 @@ const Users = () => {
             label="EXPORT TO EXCEL"
             onClick={exportToExcel}
             colorVariant="primary"
-            outlineButton={true}
+            isOutline={true}
             class="me-2"
           ></RdsButton>
           <RdsOffcanvas
@@ -340,7 +340,7 @@ const Users = () => {
                     databsdismiss="offcanvas"
                     type={"button"}
                     size="small"
-                    outlineButton={true}
+                    isOutline={true}
                     colorVariant="primary"
                     class="me-2"
                   ></RdsButton>

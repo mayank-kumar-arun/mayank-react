@@ -84,7 +84,7 @@ const subscriptionhandler=(event:any, item:any)=>{
                 <RdsButton
                   type={"button"}
                   label="Upgrade"
-                  outlineButton={true}
+                  isOutline={true}
                   colorVariant="primary"
                   class="me-2 ms-4 mt-4 upGrade__btn"
                   onClick={(event)=>subscriptionhandler(event ,item)}

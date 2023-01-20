@@ -62,7 +62,7 @@ const RdsCompPaymentDetail = (props:RdsCompPaymentDetailProps) => {
               tooltipTitle={""}
               type="button"
               onClick={props.onBack}
-              outlineButton={true}
+              isOutline={true}
             />
             </div>
             <div className="col-6">

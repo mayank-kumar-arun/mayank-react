@@ -202,7 +202,7 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
             label="CANCEL"
             type="button"
             databsdismiss="offcanvas"
-            outlineButton={true}
+            isOutline={true}
             colorVariant="primary"
             size="small"
           ></RdsButton>
@@ -210,7 +210,7 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
             class="me-2"
             label="SAVE"
             type="submit"
-            outlineButton={false}
+            isOutline={false}
             colorVariant="primary"
             onClick={handleSubmit}
             databsdismiss="offcanvas"
