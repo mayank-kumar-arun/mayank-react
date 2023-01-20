@@ -26,7 +26,7 @@ const SettingsCompo = React.lazy(() => import("Settings/Settings"));
 const VisualSettingsCompo = React.lazy(
 	() => import("VisualSetting/VisualSetting")
 );
-const UsersCompo = React.lazy(()=> import ("Users/Users"));
+const UsersCompo = React.lazy(() => import("Users/Users"));
 
 const AuditlogsCompo = React.lazy(() => import("AuditLogs/AuditLogs"));
 const RolesCompo = React.lazy(() => import("Roles/Roles"));
@@ -34,6 +34,9 @@ const OrganizationUnitsCompo = React.lazy(
 	() => import("OrganizationUnits/OrganizationUnits")
 );
 const LanguageCompo = React.lazy(() => import("Language/Language"));
+const DynamicPropertyCompo = React.lazy(
+	() => import("DynamicProperties/DynamicProperties")
+);
 
 export interface MainProps{
 	toggleTheme?: React.MouseEventHandler<HTMLInputElement>;
@@ -60,9 +63,10 @@ const Main = (props:MainProps) => {
 		// setIsAuth(true);
 		if (accessToken) {
 			setIsAuth(true);
+			navigate("/dashboard");
 		}
-		if (accessToken == undefined && currentPath != "/") {
-			navigate("/");
+		if (accessToken == undefined) {
+			navigate("/login");
 		}
 	}, [accessToken]);
 
@@ -241,6 +245,12 @@ const Main = (props:MainProps) => {
 						},
 						{
 							key: "3-2-8",
+							label: t("Dynamic Properties"),
+							icon: "",
+							path: "/dynamic-properties",
+						},
+						{
+							key: "3-2-9",
 							label: t("Settings"),
 							icon: "setting",
 							path: "/settings",
@@ -303,14 +313,14 @@ const Main = (props:MainProps) => {
 	const logout = () => {
 		localStorage.clear();
 		setIsAuth(false);
-		navigate("/");
+		navigate("/login");
 	};
 
 	return (
 		<Suspense fallback="loading...">
 			<Routes>
 				<Route
-					path="/"
+					path="/login"
 					element={
 						<AuthGuard>
 							<LoginCompo />
@@ -399,10 +409,7 @@ const Main = (props:MainProps) => {
 										path="/audit-logs"
 										element={<AuditlogsCompo></AuditlogsCompo>}
 									></Route>
-									<Route
-										path="/users"
-										element={<UsersCompo />}
-									></Route>
+									<Route path="/users" element={<UsersCompo />}></Route>
 									<Route
 										path="/role"
 										element={<RolesCompo></RolesCompo>}
@@ -415,7 +422,11 @@ const Main = (props:MainProps) => {
 										path="/language"
 										element={<LanguageCompo></LanguageCompo>}
 									></Route>
-									<Route path="*" element={<RdsCompPageNotFound />} />
+									<Route
+										path="/dynamic-properties"
+										element={<DynamicPropertyCompo></DynamicPropertyCompo>}
+									></Route>
+									<Route path="/**/*" element={<RdsCompPageNotFound />} />
 								</Routes>
 							</div>
 							</div>

@@ -2,59 +2,85 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import RdsAvatar from "./rds-avatar";
 
+const colorVariantArgTypes = {
+	colorVariant: {
+		options: [
+			"primary",
+			"secondary",
+			"success",
+			"info",
+			"warning",
+			"danger",
+			"dark",
+			"light",
+		],
+		control: { type: "select" },
+	},
+};
+
+const textAlignArgTypes = {
+	titleAlign: {
+		options: ["horizontal", "vertical"],
+		control: { type: "select" },
+	},
+};
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Elements/Avatar",
-  component: RdsAvatar,
-  argTypes: {
-    titleAlign: {
-      options: ["horizontal", "vertical"],
-      control: { type: "select" },
-    },
-  },
+	title: "Elements/Avatar",
+	component: RdsAvatar,
+	argTypes: {
+		size: {
+			options: ["small", "medium", "large"],
+			control: { type: "radio" },
+		},
+	},
 } as ComponentMeta<typeof RdsAvatar>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof RdsAvatar> = (args: any) => (
-  <RdsAvatar {...args} />
+	<RdsAvatar {...args} colorVariant={args.colorVariant || "default"} />
 );
 
-export const BasicWithInitials = Template.bind({});
+export const Default = Template.bind({});
+Default.args = {
+	size: "medium",
+};
+
+export const withInitials = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-BasicWithInitials.args = {
-  colorVariant: "yellow",
-  firstName: "Sania",
-  lastName: "Sonkaria",
-  size: "medium",
-  height: "48px",
+withInitials.args = {
+	colorVariant: "primary",
+	firstName: "Sania",
+	lastName: "Sonkaria",
+	size: "medium",
 };
 
-export const AvatarWithVerticallyAllignedInfo = Template.bind({});
-AvatarWithVerticallyAllignedInfo.args = {
-  colorVariant: "yellow",
-  firstName: "Sania",
-  lastName: "Sonkaria",
-  size: "medium",
-  isTitle: true,
-  titleAlign: "vertical",
-  role: "Developer",
+withInitials.argTypes = colorVariantArgTypes;
+
+export const withLabel = Template.bind({});
+withLabel.args = {
+	colorVariant: "primary",
+	firstName: "Mayank",
+	lastName: "Kumar",
+	size: "medium",
+	isTitle: true,
+	titleAlign: "horizontal",
+	role: "Developer",
 };
 
-export const AvatarWithHorizontallyAllignedInfo = Template.bind({});
-AvatarWithHorizontallyAllignedInfo.args = {
-  colorVariant: "yellow",
-  firstName: "Sania",
-  lastName: "Sonkaria",
-  size: "medium",
-  isTitle: false,
-  titleAlign: "horizontal",
-  role: "Developer",
+withLabel.argTypes = colorVariantArgTypes;
+withLabel.argTypes = textAlignArgTypes;
+
+export const withProfile = Template.bind({});
+withProfile.args = {
+	size: "small",
+	withProfilePic: true,
+	firstName: "Mayank",
+	lastName: "Kumar",
+	titleAlign: "horizontal",
+	role: "Developer",
+	profilePic:
+		"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU",
 };
 
-export const Profile = Template.bind({});
-Profile.args = {
-  height: "50px",
-  withProfilePic: true,
-  profilePic:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp=CAU",
-};
+withProfile.argTypes = textAlignArgTypes;
