@@ -54,6 +54,7 @@ const RdsIcon = (props: RdsIconProps) => {
   let strokeProps = props.stroke ? strokeColor! : "none";
   let name: string = !props.name ? "" : props.name.toLowerCase();
   let icon = Icons.hasOwnProperty(name) ? Icons[name] : Flags[name];
+  console.log("Printing the value of icon ",typeof(icon) ,icon);  
   let bg = " bg-" + props.background || "light";
   return (
     <>
@@ -69,7 +70,8 @@ const RdsIcon = (props: RdsIconProps) => {
         className={`${props.class} ${bg}`}
         dangerouslySetInnerHTML={{ __html: icon }}
         onClick={props.onClick}
-      ></svg>
+      >
+      </svg>
     </>
   );
 };
