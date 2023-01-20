@@ -44,7 +44,7 @@ const RdsInputGroup = (props: RdsInputGroupProps) => {
                         tooltipTitle={""}
                         type={"submit"}
                         colorVariant={props.buttonColorVariant}
-                        outlineButton={props.outline}
+                        isOutline={props.outline}
                         formName={formName}
                         size={props.size}
                     ></RdsButton>

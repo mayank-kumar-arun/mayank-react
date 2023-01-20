@@ -26,7 +26,7 @@ const RdsCompIntegration = (props: RdsCompIntegrationProps) => {
 							block={true}
 							tooltipTitle={""}
 							type="button"
-							outlineButton={true}
+							isOutline={true}
 						/>
 					</div>
 					<div className="col-2">

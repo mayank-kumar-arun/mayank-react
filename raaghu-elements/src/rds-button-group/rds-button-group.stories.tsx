@@ -39,7 +39,7 @@ CheckboxButtonGroup.args = {
   vertical: false,
   size: "medium",
   colorVariant:"primary",
-  outlineButton:true,
+  isOutline:true,
   role:"checkbox",
   buttonGroupItems: [
     {
@@ -92,7 +92,7 @@ RadioButtonGroup.args = {
   vertical: false,
   size: "medium",
   colorVariant:"primary",
-  outlineButton:true,
+  isOutline:true,
   role:"radio",
   buttonGroupItems: [
     {

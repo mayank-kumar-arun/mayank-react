@@ -263,7 +263,7 @@ const Auditlogs = (props: RdsPageAuditlogsProps) => {
                 type="button"
                 label="Export To Excel"
                 onClick={downloadcsv}
-                outlineButton={true}
+                isOutline={true}
                 colorVariant="primary"
                 tooltipPlacement="top"
                 size="small"
@@ -468,7 +468,7 @@ const Auditlogs = (props: RdsPageAuditlogsProps) => {
                 type="button"
                 label="Export To Excel"
                 onClick={downloadcsv1}
-                outlineButton={true}
+                isOutline={true}
                 colorVariant="primary"
                 tooltipPlacement="top"
                 size="small"

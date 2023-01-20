@@ -109,7 +109,7 @@ const RdsCompProfile = (props: RdsCompProfileProps) => {
 					block={false}
 					tooltipTitle={""}
 					type="submit"
-					outlineButton={true}
+					isOutline={true}
 					onClick={props.onLogout}
 				/>
 			</section>

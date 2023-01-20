@@ -61,7 +61,7 @@ const RdsCompAlertPopup = (props: RdsCompAlertPopupProps) => {
               type="button"
               tooltipTitle=""
               colorVariant="primary"
-              outlineButton={true}
+              isOutline={true}
             />
             <RdsButton
               type="button"

@@ -38,7 +38,7 @@ const RdsCompUserClaim = (props: RdsCompUserClaimsProps) => {
 						<RdsButton
 							 type="button"
 							label="CANCEL"
-							outlineButton={true}
+							isOutline={true}
 							colorVariant="primary"
 							class="me-2 ms-4"
 							size="small"

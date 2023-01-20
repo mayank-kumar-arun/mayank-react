@@ -69,7 +69,7 @@ const RdsCompNewLanguage = (props: RdsCompNewLanguageProps) => {
 								colorVariant="primary"
 								size="small"
 								databsdismiss="offcanvas"
-                outlineButton={true}
+                isOutline={true}
 							></RdsButton>
 						</div>
 						{/* <rds-button [label]="translate.instant('Cancel')" (click)="closeCanvas()" type="button"

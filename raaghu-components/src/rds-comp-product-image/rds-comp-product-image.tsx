@@ -140,7 +140,7 @@ const RdsCompProductImage = (props: RdsCompProductImageProps) => {
             <RdsButton
               colorVariant="primary"
               type="button"
-              outlineButton={true}
+              isOutline={true}
               label="ADD TO BAG"
               block={false}
             ></RdsButton>

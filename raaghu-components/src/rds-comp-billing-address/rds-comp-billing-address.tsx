@@ -282,7 +282,7 @@ const RdsCompBillingAddress = (props: RdsCompBillingAddressProps) => {
 							<RdsButton
 								block={true}
 								size="medium"
-								outlineButton={true}
+								isOutline={true}
 								colorVariant="primary"
 								label="Back"
 								tooltipTitle={""}
