@@ -38,7 +38,7 @@ const RdsLikeDislike = (props: RdsLikeDislikeProps) => {
         <div className="mx-3" onClick={likeHandler}>
           <RdsIcon
             name="like"
-            class="likebtn"
+           // class="likebtn"
             fill={false}
             stroke={true}
             height={props.heightOfIcon}
@@ -54,7 +54,7 @@ const RdsLikeDislike = (props: RdsLikeDislikeProps) => {
         <div className="mx-3" onClick={dislikeHandler}>
           <RdsIcon
             name="dislike"
-            class="dislikebtn"
+            //class="dislikebtn"
             fill={false}
             stroke={true}
             height={props.heightOfIcon}
