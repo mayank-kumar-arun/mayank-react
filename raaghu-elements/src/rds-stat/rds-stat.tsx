@@ -27,7 +27,7 @@ let textColr= 'text-'+props.textColor||"primary"
                     //stroke={item.iconStroke}
                     height={item.iconHeight}
                     width={item.iconWidth}
-                    strokeColor={props.colorVariant}
+                    
                   />
                 </div>
                 <h1 className={"fw-bold mt-4 text-center" +`${textColr}`}>{item.value}</h1>

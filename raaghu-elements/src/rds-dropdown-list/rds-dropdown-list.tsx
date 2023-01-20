@@ -130,28 +130,23 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
                         key={item.id}
                         label={item.label}
                         colorVariant="primary"
-                        textColor="dark"
                         size="small"
-                        // childrenSide="right"
-                        children={
-                          <span className="mx-1">
-                            <RdsIcon
-                              name="close"
-                              fill={false}
-                              stroke={true}
-                              height="6px"
-                              width="6px"
-                              onClick={(e) => uncheckHandler(e, item)}
-                              colorVariant={`${
-                                props.darkVariant ? "light" : ""
-                              }`}
-                            ></RdsIcon>
-                          </span>
-                        }
-                      />
-                    ))}
-                </div>
-              )}
+                       children={<span className="mx-1">
+                        <RdsIcon
+                          name="close"
+                          fill={false}
+                          stroke={true}
+                          height="6px"
+                          width="6px"
+                          onClick={(e) => uncheckHandler(e, item)}
+                          colorVariant={`${
+                            props.darkVariant ? "light" : ""
+                          }`}
+                        ></RdsIcon>
+                      </span>} /> 
+                      
+                      ))}
+                  </div>)}
 
             {isTouch != true &&
               props.placeholder &&

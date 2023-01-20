@@ -1,6 +1,7 @@
 import React from "react";
 import { Icons } from "./Icons";
 import { Flags } from "./flag-icons";
+import { useEffect } from "react";
 
 export interface RdsIconProps {
   width?: string;
@@ -9,70 +10,92 @@ export interface RdsIconProps {
   name?: string;
   fill?: boolean;
   stroke?: boolean;
-  strokeColor?: string;
-  class?: string;
-  background?: string;
+  strokeWidth?: string;
   borderRadius?: string;
   onClick?: (event: React.MouseEvent<SVGSVGElement>) => void;
+  opacity?: string;
+  isAnimate?: boolean;
+  class?: any;
 }
 
 const RdsIcon = (props: RdsIconProps) => {
-  let fillColor: string;
-  let strokeColor: string = props.strokeColor || "black";
-
-  // if (props.colorVariant == "primary") {
-  //   // svg.setAttribute('class', 'icon-' + props.colorVariant);
-  //   fillColor = "#007bff";
-  //   strokeColor = "#007bff";
-  // } else if (props.colorVariant == "secondary") {
-  //   fillColor = "#6c757d";
-  //   strokeColor = "#6c757d";
-  // } else if (props.colorVariant == "success") {
-  //   fillColor = "#28a745";
-  //   strokeColor = "#28a745";
-  // } else if (props.colorVariant == "info") {
-  //   fillColor = "#17a2b8";
-  //   strokeColor = "#17a2b8";
-  // } else if (props.colorVariant == "warning") {
-  //   fillColor = "#ffc107";
-  //   strokeColor = "#ffc107";
-  // } else if (props.colorVariant == "danger") {
-  //   fillColor = "#dc3545";
-  //   strokeColor = "#dc3545";
-  // } else if (props.colorVariant == "dark") {
-  //   fillColor = "#343a40";
-  //   strokeColor = "#343a40";
-  // } else if (props.colorVariant == "light") {
-  //   fillColor = "#f8f9fa";
-  //   strokeColor = "#f8f9fa";
-  // }
-
-  // console.log(fillColor!);
-  // console.log(strokeColor!);
-
-  let fillProps = props.fill ? fillColor! : "none";
-  let strokeProps = props.stroke ? strokeColor! : "none";
   let name: string = !props.name ? "" : props.name.toLowerCase();
   let icon = Icons.hasOwnProperty(name) ? Icons[name] : Flags[name];
-  console.log("Printing the value of icon ",typeof(icon) ,icon);  
-  let bg = " bg-" + props.background || "light";
+
+  const svgElementFromString = (svgContent: string): SVGElement => {
+    let fillColor = "currentColor";
+    const div = document.createElement("DIV");
+    div.innerHTML = svgContent;
+    const svg = div.querySelector("svg");
+    if (!svg) {
+      throw Error("<svg> tag not found");
+    }
+
+    if (props.height) {
+      svg.style.height = props.height;
+    }
+    if (props.width) {
+      svg.style.width = props.width;
+    }
+    if (props.opacity) {
+      svg.style.opacity = props.opacity;
+    }
+    if (props.colorVariant == "primary") {
+      // svg.setAttribute('class', 'icon-' + props.colorVariant);
+      fillColor = "#7E2EEf";
+    } else if (props.colorVariant == "secondary") {
+      fillColor = "#2B0066";
+    } else if (props.colorVariant == "success") {
+      fillColor = "#2EEF59";
+    } else if (props.colorVariant == "info") {
+      fillColor = "#3ef1e8";
+    } else if (props.colorVariant == "warning") {
+      fillColor = "#E3A300";
+    } else if (props.colorVariant == "danger") {
+      fillColor = "#EF2E2E";
+    } else if (props.colorVariant == "dark") {
+      fillColor = "#363636";
+    } else if (props.colorVariant == "light") {
+      fillColor = "#F8F9FA";
+    } else if (props.colorVariant == "review") {
+      fillColor = "#E3A300";
+    } else if (props.colorVariant == "basic") {
+      fillColor = "#00A443";
+    } else if (props.colorVariant == "standard") {
+      fillColor = "#005FA4";
+    } else if (props.colorVariant == "premium") {
+      fillColor = "#660064";
+    } else if (props.colorVariant == "professional") {
+      fillColor = "#F76161";
+    }
+
+    if (props.fill) {
+      svg.style.fill = fillColor;
+    } else {
+      svg.style.fill = "none";
+    }
+
+    if (props.stroke || props.stroke === undefined) {
+      svg.style.stroke = fillColor;
+    } else {
+      svg.style.stroke = "none";
+    }
+    if (props.isAnimate) {
+      svg.classList.add("jiggle");
+    }
+
+    return (
+      svg || document.createElementNS("http://www.w3.org/2000/svg", "path")
+    );
+  };
+  var stringData =
+    icon != undefined ? svgElementFromString(icon).outerHTML : "";
+
   return (
-    <>
-      <svg
-        style={{
-          cursor: "pointer",
-          width: props.width,
-          height: props.height,
-          fill: fillProps!,
-          stroke: strokeProps!,
-          borderRadius: props.borderRadius,
-        }}
-        className={`${props.class} ${bg}`}
-        dangerouslySetInnerHTML={{ __html: icon }}
-        onClick={props.onClick}
-      >
-      </svg>
-    </>
+    <span
+      className={props.class}
+      dangerouslySetInnerHTML={{ __html: stringData }}
+    />
   );
 };
 

@@ -2,8 +2,6 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import RdsButton from "./rds-button";
 
-import { colors } from "../../libs/types";
-
 export default {
   title: "Elements/Button",
   component: RdsButton,
@@ -89,7 +87,7 @@ WithIcon.args = {
 
 export const Outline = Template.bind({});
 Outline.args = {
-  outlineButton: true,
+  isOutline: true,
   colorVariant: "primary",
   label: "BUTTON",
   block: false,
@@ -102,10 +100,12 @@ Tooltip.args = {
   label: "BUTTON",
   block: false,
   size: "medium",
-  tooltip: true,
+  databstoggle : 'tooltip',
+  tooltip:true,
   tooltipPlacement: "right",
   tooltipTitle: "This is tooltip",
 };
+
 
 export const IconWithLabel = Template.bind({});
 IconWithLabel.args = {
