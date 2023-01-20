@@ -50,7 +50,7 @@ const RdsCompNewRole = (props: RdsCompNewRoleProps) => {
 						<div className="m-2">
 							<RdsButton
 								size="small"
-								outlineButton={true}
+								isOutline={true}
 								tooltip={true}
 								tooltipPlacement="top"
 								tooltipTitle="Cancel"
@@ -63,7 +63,7 @@ const RdsCompNewRole = (props: RdsCompNewRoleProps) => {
 						<div className="m-2">
 							<RdsButton
 								size="small"
-								outlineButton={false}
+								isOutline={false}
 								tooltip={true}
 								tooltipPlacement="top"
 								tooltipTitle="Save Data"

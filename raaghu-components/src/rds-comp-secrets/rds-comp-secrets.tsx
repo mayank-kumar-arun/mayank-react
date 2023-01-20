@@ -90,7 +90,7 @@ const RdsCompSecrets = (props: RdsCompSecretsProps) => {
 						<div className="m-2">
 							<RdsButton
 								size="small"
-								outlineButton={true}
+								isOutline={true}
 								tooltip={true}
 								tooltipPlacement="top"
 								tooltipTitle="Cancel"
@@ -103,7 +103,7 @@ const RdsCompSecrets = (props: RdsCompSecretsProps) => {
 						<div className="m-2">
 							<RdsButton
 								size="small"
-								outlineButton={false}
+								isOutline={false}
 								tooltip={true}
 								tooltipPlacement="top"
 								tooltipTitle="Create Data"

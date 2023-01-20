@@ -26,7 +26,7 @@ const RdsCompEditLanguageText = (props: RdsCompEditLanguageTextProps) => {
               block={true}
               tooltipTitle={""}
               type="submit"
-              outlineButton={true}
+              isOutline={true}
             />
           </div>
           <div className="col-2">

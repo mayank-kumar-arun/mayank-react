@@ -198,7 +198,7 @@ const RdsCompShippingAddress = (props: RdsCompShippingAddressProps) => {
 							type="button"
 							label="BACK"
 							block={true}
-							outlineButton={true}
+							isOutline={true}
 							colorVariant="primary"
 							size="small"
 						></RdsButton>
@@ -208,7 +208,7 @@ const RdsCompShippingAddress = (props: RdsCompShippingAddressProps) => {
 							type="button"
 							label="SAVE"
 							block={true}
-							outlineButton={false}
+							isOutline={false}
 							colorVariant="primary"
 							size="small"
 						></RdsButton>

@@ -61,7 +61,7 @@ const RdsEmailSettings = (props: RdsEmailSettingsProps) => {
 							type="button"
 							colorVariant="primary"
 							label="Cancel"
-							outlineButton={true}
+							isOutline={true}
 							size="small"
 						></RdsButton>
 					</div>

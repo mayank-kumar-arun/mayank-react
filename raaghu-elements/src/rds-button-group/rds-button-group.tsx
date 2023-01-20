@@ -3,7 +3,7 @@ import "./rds-button-group.scss";
 import { colors } from "../../libs/types";
 export interface RdsButtonGroupProps {
   vertical: boolean;
-  outlineButton: boolean;
+  isOutline: boolean;
   colorVariant?: colors;
   size: string;
   role: "checkbox" | "radio" | "button";
@@ -19,7 +19,7 @@ const RdsButtonGroup = (props: RdsButtonGroupProps) => {
       : "";
 
   const outlineColorVariant = `${
-    props.outlineButton === true
+    props.isOutline === true
       ? "btn btn-outline-" + props.colorVariant
       : "btn btn-" + props.colorVariant
   }`;

@@ -179,7 +179,7 @@ const RdsCompTenantSettings = (props: RdsCompTenantSettingsProps) => {
               type={"button"}
               label={t("Cancel") || ""}
               databsdismiss="offcanvas"
-              outlineButton
+              isOutline
               colorVariant="primary"
               size="small"
             ></RdsButton>

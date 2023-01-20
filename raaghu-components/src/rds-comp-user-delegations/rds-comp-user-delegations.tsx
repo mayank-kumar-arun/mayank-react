@@ -76,7 +76,7 @@ const RdsUserDelegations = (props: RdsUserDelegationsProps) => {
             <div className="me-2">
               <RdsButton
                 type="button"
-                outlineButton={true}
+                isOutline={true}
                 colorVariant="primary"
                 label="CANCEL"
                 size="small"
@@ -86,7 +86,7 @@ const RdsUserDelegations = (props: RdsUserDelegationsProps) => {
             <div>
               <RdsButton
                 type="submit"
-                outlineButton={false}
+                isOutline={false}
                 colorVariant="primary"
                 label="SAVE"
                 size="small"

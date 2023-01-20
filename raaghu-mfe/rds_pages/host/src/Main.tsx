@@ -341,15 +341,18 @@ const Main = (props:MainProps) => {
 						</div>
 						<div
 							className="
+							page
         d-flex
         flex-column-fluid
         align-items-stretch
         container-fluid
-        px-0
-        main-body"
-							style={{ position: "fixed", top: "4.4453rem" }}
+        px-0"
+							
 						>
-							<div className="aside" id="aside">
+							<div className="d-flex flex-column-fluid align-items-stretch container-fluid px-0 main-body ng-tns-c99-0"
+							style={{marginTop: "58px", }}
+							>
+							<div className="aside ng-tns-c99-0" id="aside">
 								<div className="">
 									<RdsCompSideNavigation
 										sideNavItems={sideNavItems}
@@ -414,6 +417,7 @@ const Main = (props:MainProps) => {
 									></Route>
 									<Route path="*" element={<RdsCompPageNotFound />} />
 								</Routes>
+							</div>
 							</div>
 						</div>
 					</div>
