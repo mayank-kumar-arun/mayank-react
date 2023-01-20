@@ -32,11 +32,8 @@ export const PortConfig = {
 	"settings":{
 		"port":"8010"
 	},
-	"dynamicProperty":{
+	"dynamicProperties":{
 		"port":"8011"
-	},
-	"users":{
-		"port":"8015"
 	},
 	"roles":{
 		"port":"8012"
@@ -46,5 +43,8 @@ export const PortConfig = {
 	},
 	"language":{
 		"port":"8014"
+	},
+	"users":{
+		"port":"8015"
 	}
 }

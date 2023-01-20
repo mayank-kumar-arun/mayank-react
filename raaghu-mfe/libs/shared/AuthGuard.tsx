@@ -18,7 +18,7 @@ export const AuthGuard = (props: AuthGuardProps) => {
 			accessToken = parsedCredentials.accessToken;
 		}
 		if (accessToken == undefined) {
-			<Navigate to="/" replace />;
+			<Navigate to="/login" replace />;
 		}
 		if (accessToken) {
 			

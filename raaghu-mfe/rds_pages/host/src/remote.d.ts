@@ -68,3 +68,8 @@ declare module "Language/Language" {
 	const OrganizationUnitsComponent : React.ComponentType;
 	export default OrganizationUnitsComponent;
 }
+
+declare module "DynamicProperties/DynamicProperties" {
+	const DynamicPropertiesComponent : React.ComponentType;
+	export default DynamicPropertiesComponent;
+}
