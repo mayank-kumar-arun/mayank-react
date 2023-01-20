@@ -45,7 +45,7 @@ const RdsCompWebsiteLog = (props: RdsCompWebsiteLogProps) => {
 														? "danger"
 														: "success"
 												}
-												textColor="white"
+												
 											/>
 										</div>
 										<div>

@@ -1,11 +1,11 @@
-import { E } from "chart.js/dist/chunks/helpers.core";
 import React, { FormEventHandler, useState, useRef } from "react";
 import { RdsButton, RdsCheckbox, RdsInput } from "../rds-elements";
-import img from "./edit-profile.png";
+// import img from "./assets/edit-profile";
 
 export interface RdsCompUserBasicsProps {}
 
 const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
+
   const [values, setValues] = useState({
     name: "",
     surName: "",
@@ -54,7 +54,11 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
       <form className="p-2" onSubmit={handleSubmit}>
         <div className="row align-items-center">
           <div className="col-lg-3 col-md-3 text-center mb-2">
-            <img src={img} alt="Profile Pic" onClick={profilePicHandler}></img>
+            <img
+              src={"img"}
+              alt="Profile Pic"
+              onClick={profilePicHandler}
+            ></img>
           </div>
           <div className="col-lg-9 col-md-9">
             <div className="mb-3">
@@ -197,6 +201,7 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
             class="me-2"
             label="CANCEL"
             type="button"
+            databsdismiss="offcanvas"
             outlineButton={true}
             colorVariant="primary"
             size="small"
@@ -208,6 +213,7 @@ const RdsCompUserBasics = (props: RdsCompUserBasicsProps) => {
             outlineButton={false}
             colorVariant="primary"
             onClick={handleSubmit}
+            databsdismiss="offcanvas"
             size="small"
           ></RdsButton>
         </div>

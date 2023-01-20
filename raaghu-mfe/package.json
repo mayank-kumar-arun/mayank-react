@@ -18,11 +18,14 @@
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "bootstrap": "^5.2.2",
+    "cookieconsent": "^3.1.1",
     "dotenv": "^16.0.2",
     "i18next": "^22.4.6",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^2.1.1",
     "luxon": "^3.1.0",
+    "quill": "^1.3.7",
+    "raaghu-themes": "^0.0.11",
     "react": "^18.2.0",
     "react-big-calendar": "^1.5.2",
     "react-dom": "^18.2.0",
@@ -30,7 +33,8 @@
     "react-i18next": "^12.1.1",
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.3",
-    "redux-persist": "^6.0.0"
+    "redux-persist": "^6.0.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",

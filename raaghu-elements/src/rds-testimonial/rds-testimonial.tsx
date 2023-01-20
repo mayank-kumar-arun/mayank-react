@@ -21,7 +21,7 @@ export const RdsTestimonial = (props: RdsTestimmonialProps) => {
                     height={testimonialItem.iconHeight}
                     width={testimonialItem.iconWidth}
                     colorVariant="primary"
-                    class="fs-6 me-2"
+                   // class="fs-6 me-2"
                   ></RdsIcon>
                 </div>
                 <div className="card-body p-2 my-3">

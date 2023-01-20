@@ -25,6 +25,7 @@ export {default as RdsCompInvoice} from "./rds-comp-invoice/rds-comp-invoice";
 export {default as RdsCompInformation} from "./rds-comp-information/rds-comp-information";
 export {default as RdsCompLinkedAccount} from "./rds-comp-linked-account/rds-comp-linked-account";
 export {default as RdsCompUserPermission} from "./rds-comp-user-permission/rds-comp-user-permission"
+export {default as RdsCompUserBasics} from "./rds-comp-user-basics/rds-comp-user-basics"
 export {default as RdsCompNewLanguage} from "./rds-comp-new-language/rds-comp-new-language";
 export {default as RdsCompDynamicEntityProperty} from './rds-comp-dynamic-entity-property/rds-comp-dynamic-entity-property';
-
+export {default as RdsCompRoleList} from './rds-comp-role-list/rds-comp-role-list'

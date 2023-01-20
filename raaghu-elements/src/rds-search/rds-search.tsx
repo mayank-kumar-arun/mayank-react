@@ -1,5 +1,6 @@
 import React from "react";
-import Icons from "../rds-icon";
+import RdsIcon from "../rds-icon";
+
 import "./rds-search.scss";
 
 export interface RdsSearchProps {
@@ -20,7 +21,7 @@ const RdsSearch = (props: RdsSearchProps) => {
    {iconside =="left" ?
    <>
         <span className={spanClass} id={ariaDescribedby}>
-          <Icons name="search" fill={false} strokeColor="#827f7f" stroke={true} height='17px' width="17px"></Icons>
+          <RdsIcon name="search" fill={false}  stroke={true} height='17px' width="17px" ></RdsIcon>
         </span>
      
       <input
@@ -41,7 +42,7 @@ const RdsSearch = (props: RdsSearchProps) => {
         aria-describedby={ariaDescribedby}
       />
        <span className={spanClass} id={ariaDescribedby}>
-          <Icons name="search" fill={false} strokeColor="#827f7f" stroke={true} height='17px' width="17px"></Icons>
+       <RdsIcon name="search" fill={false}  stroke={true} height='17px' width="17px" ></RdsIcon>
         </span>
      
     
