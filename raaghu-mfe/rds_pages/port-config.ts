@@ -46,5 +46,5 @@ export const PortConfig = {
 	},
 	"users":{
 		"port":"8015"
-	},
+	}
 }
