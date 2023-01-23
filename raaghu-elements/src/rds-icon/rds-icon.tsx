@@ -12,7 +12,7 @@ export interface RdsIconProps {
   stroke?: boolean;
   strokeWidth?: string;
   borderRadius?: string;
-  onClick?: React.MouseEventHandler<HTMLSpanElement>;
+  onClick?: React.MouseEventHandler<HTMLElement>;
   opacity?: string;
   isAnimate?: boolean;
   class?: any;

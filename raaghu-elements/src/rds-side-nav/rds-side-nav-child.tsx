@@ -141,7 +141,6 @@ const Node = ({
         <div
           className="text-decoration-none text-uppercase d-flex align-items-center"
           onClick={(e) => setChildVisibility((v) => !v)}
-          
         >
           <div className="col d-flex align-items-center">
             {count == 1 ? (
