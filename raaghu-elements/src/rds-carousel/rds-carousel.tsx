@@ -1,4 +1,3 @@
-
 import React, { Fragment, useState } from "react";
 import "./rds-carousel.scss";
 import RdsIcon from "../rds-icon/rds-icon";
@@ -14,9 +13,9 @@ export interface RdsCarouselProps {
 const RdsCarousel = (props: RdsCarouselProps) => {
   const Role = `${props.hasOwnProperty("role") ? props.role : "basic"}`;
   let Fade = props.crossFade || false;
-  
- //let length = props.carouselItems.length - 1; 
-  
+
+  //let length = props.carouselItems.length - 1;
+
   return (
     <Fragment>
       {Role == "basic" && (
@@ -25,20 +24,30 @@ const RdsCarousel = (props: RdsCarouselProps) => {
           className={
             Fade === true ? "carousel slide carousel-fade" : "carousel slide "
           }
-          data-bs-ride="false"
+          data-bs-ride="carousel"
         >
           {props.Indicators === true && (
             <div className="carousel-indicators">
-              {props.carouselItems.map((carouselItem) => (
-                <button
-                  type="button"
-                  data-bs-target="#carouselExampleCaptions"
-                  data-bs-slide-to={carouselItem.id - 1}
-                  className={carouselItem.id == 1 ? "active" : ""}
-                  aria-current="true"
-                  aria-label="Slide"
-                ></button>
-              ))}
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="0"
+                className="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
             </div>
           )}
           <div className="carousel-inner">
@@ -53,6 +62,12 @@ const RdsCarousel = (props: RdsCarouselProps) => {
                   className="d-block w-100"
                   alt="..."
                 />
+                <div className="carousel-caption d-none d-md-block">
+                  <h5>First slide label</h5>
+                  <p>
+                    Some representative placeholder content for the first slide.
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -87,7 +102,7 @@ const RdsCarousel = (props: RdsCarouselProps) => {
         </div>
       )}
 
-      {Role == "advanced" && (
+      {/* {Role == "advanced" && (
         <div
           id="carouselExampleCaptions"
           className={
@@ -96,14 +111,15 @@ const RdsCarousel = (props: RdsCarouselProps) => {
           data-bs-ride="false"
         >
           {props.Indicators === true && (
-            <div className="carousel-indicators indicators ">
-              {props.carouselItems.map((carouselItem) => (
+            <div className="carousel-indicators">
+               {props.carouselItems.map((carouselItem) => (
                 <button
+                tabIndex={0}
                   type="button"
                   data-bs-target="#carouselExampleCaptions"
                   data-bs-slide-to={carouselItem.id - 1}
                   className={carouselItem.id == 1 ? "active" : ""}
-                  aria-current="true"
+                  aria-current={carouselItem.id == 1 ? true : false}
                   aria-label="Slide"
                 ></button>
               ))}
@@ -121,7 +137,9 @@ const RdsCarousel = (props: RdsCarouselProps) => {
                   <RdsIcon name="quote" height="20px" width="20px" fill={false} stroke={true} ></RdsIcon>
                   <img
                     src={props.carouselItems[carouselItem.id - 1].imgUrl}
-                    className="iconImage"
+                    width="100"
+                    height="100"
+                    className="justify-self-center rounded-circle m-2"
                     alt="..."
                   />
                    <RdsIcon name="quote_right" height="20px" width="20px" fill={false} stroke={true}></RdsIcon>
@@ -144,7 +162,7 @@ const RdsCarousel = (props: RdsCarouselProps) => {
               data-bs-slide="prev"
             >
               <span
-                className="carousel-control-prev-icon prev-icon"
+                className="carousel-control-prev-icon "
                 aria-hidden="true"
               ></span>
               <span className="visually-hidden">Previous</span>
@@ -165,8 +183,44 @@ const RdsCarousel = (props: RdsCarouselProps) => {
             </button>
           )}
         </div>
-      )}
+      )} */}
     </Fragment>
   );
 };
 export default RdsCarousel;
+// @import "../style.scss";
+
+// .prev-icon {
+//   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+//  }
+
+//  .next-icon {
+//    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+//  }
+//  .prev-icon, .next-icon {
+//   width: 1.5rem !important;
+//   height: 1.2rem !important;
+
+// }
+
+// .iconImage{
+//   height: 100px;
+//   width: 100px;
+//   border-radius: 50px;
+//   justify-self: center;
+//   margin: 10px;
+// }
+// .indicators [data-bs-target] {
+
+//   background-color: #6d6d6d !important;
+
+// }
+// .content{
+//   display: grid;
+//   justify-content: center;
+//   text-align: center;
+// }
+// .subtitle{
+//   margin-left: 4rem;
+//   margin-right: 4rem;
+// }
