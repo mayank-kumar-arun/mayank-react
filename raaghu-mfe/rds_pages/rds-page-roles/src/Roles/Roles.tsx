@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { RdsBadge } from "../../../../../raaghu-elements/src";
 
 import { RdsCompRoleList } from "../../../rds-components";
 
@@ -10,83 +11,110 @@ const Roles = (props: RdsPageRolesProps) => {
   const tableHeaders = [
     {
       displayName: "Role Name",
-
       key: "role",
-
-      datatype: "text",
-
+      datatype: "children",
       dataLength: 30,
-
       required: true,
-
       sortable: true,
+      isEndUserEditing: false,
     },
-
     {
       displayName: "Creation Time",
-
       key: "ctime",
-
       datatype: "text",
-
       dataLength: 5,
-
       required: false,
-
       sortable: true,
+      isEndUserEditing: false,
     },
   ];
 
   const tableData = [
-    { id: 1, selected: false, role: "Admin", ctime: "11/15/2021, 2:44:51 PM" },
+    {
+      id: 1,
 
-    { id: 2, selected: false, role: "Team", ctime: "11/15/2021, 2:44:51 PM" },
-
+      isDefault: false,
+      displayName: "Admin",
+      role: {
+        children: (
+          <>
+            Admin{" "}
+            <RdsBadge label={"Static"} colorVariant={"primary"}></RdsBadge>{" "}
+          </>
+        ),
+      },
+      ctime: "11/15/2021, 2:44:51 PM",
+    },
+    {
+      id: 2,
+      isDefault: false,
+      displayName: "User Prime",
+      role: {
+        children: <>User Prime</>,
+      },
+      ctime: "11/15/2021, 2:44:51 PM",
+    },
     {
       id: 3,
-
-      selected: false,
-
-      role: "Manager",
-
+      isDefault: true,
+      displayName: "Golden Role",
+      role: {
+        children: (
+          <>
+            Golden Role
+            <RdsBadge
+              label={"Default"}
+              colorVariant={"success"}
+            ></RdsBadge>{" "}
+          </>
+        ),
+      },
       ctime: "11/15/2021, 2:44:51 PM",
     },
-
     {
       id: 4,
-
-      selected: false,
-
-      role: "Software Developer",
-
+      isDefault: true,
+      displayName: "Work",
+      role: {
+        children: (
+          <>
+            Work<RdsBadge label={"Default"} colorVariant={"success"}></RdsBadge>{" "}
+          </>
+        ),
+      },
       ctime: "11/15/2021, 2:44:51 PM",
     },
-
     {
       id: 5,
-
-      selected: false,
-
-      role: "UI/UX designer",
-
+      isDefault: true,
+      displayName: "Hello",
+      role: {
+        children: (
+          <>
+            Hello
+            <RdsBadge
+              label={"Default"}
+              colorVariant={"success"}
+            ></RdsBadge>{" "}
+          </>
+        ),
+      },
       ctime: "11/15/2021, 2:44:51 PM",
     },
-
     {
       id: 6,
-
-      selected: false,
-
-      role: "Associate",
-
+      isDefault: false,
+      displayName: "Hello",
+      role: {
+        children: <>Hello</>,
+      },
       ctime: "11/15/2021, 2:44:51 PM",
     },
   ];
 
   const actions = [
     { id: "anything", displayName: "Edit", offId: "Edit" },
-
-    { id: "delete", displayName: "Delete", modalId: "Delete" },
+    { id: "Del", displayName: "Delete", modalId: "Del" },
   ];
 
   const pagination = true;
@@ -247,8 +275,6 @@ const Roles = (props: RdsPageRolesProps) => {
     },
   ];
 
-  // tableHeaders:[ {
-
   //   displayName: "hello",
 
   //   key: "hello",
@@ -300,9 +326,6 @@ const Roles = (props: RdsPageRolesProps) => {
         tableData={tableData}
         actions={actions}
         pagination={pagination}
-        onActionSelection={function (arg: any) {
-          throw new Error("Function not implemented.");
-        }}
         listItems={listItems}
         permission={permission}
       ></RdsCompRoleList>

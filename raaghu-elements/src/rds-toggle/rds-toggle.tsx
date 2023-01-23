@@ -10,25 +10,32 @@ export interface RdsToggleProps {
   onClick?: React.MouseEventHandler<HTMLInputElement>;
   iconOnUncheck: string;
   iconOnCheck: string;
+  small?: boolean;
 }
 
 const RdsToggle = (props: RdsToggleProps) => {
   const [checked, setChecked] = useState(false);
 
-const onChangeHandler =()=>{
-  setChecked((prev)=>(!prev));
-}
+  const onChangeHandler = () => {
+    setChecked((prev) => !prev);
+  };
 
   return (
     <>
-      <label className="toggle-switch">
+      <label
+        className={`${props.small ? "small-toggle-switch" : "toggle-switch"}`}
+      >
         <input
           type="checkbox"
           checked={checked}
           onChange={onChangeHandler}
           onClick={props.onClick}
         />
-        <span className="toggle-switch-slider d-flex align-items-center justify-content-around">
+        <span
+          className={`  ${
+            props.small ? "toggle-small-switch-slider" : "toggle-switch-slider"
+          } d-flex align-items-center justify-content-around`}
+        >
           <div className="position-relative z-3">
             {/* For future reference */}
             {/* {props.isLabel && (
