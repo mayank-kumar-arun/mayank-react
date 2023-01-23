@@ -48,11 +48,9 @@ const RdsCompDynamicEntityProperty = (
             <label className="mb-2">Entity</label>
             <RdsDropdownList
               placeholder="Filter"
-              width="100px"
+             
               multiSelect={false}
-              withBorder={true}
-              reset={isReset}
-              darkVariant={false}
+             reset={isReset}
               listItems={props.entityNames}
               onClick={onSelectEntityValue}
               />
@@ -62,10 +60,8 @@ const RdsCompDynamicEntityProperty = (
                 <label className="mb-2">Parameter</label>
                 <RdsDropdownList
                   placeholder="Filter"
-                  width="100px"
+                 
                   multiSelect={true}
-                  withBorder={true}
-                  darkVariant={false}
                   reset={isReset}
                   listItems={props.parameterList}
                   selectedItems={onselectParameter}

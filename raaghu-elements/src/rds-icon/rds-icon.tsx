@@ -15,7 +15,7 @@ export interface RdsIconProps {
   onClick?: (event: React.MouseEvent<SVGSVGElement>) => void;
   opacity?: string;
   isAnimate?: boolean;
-  class?: any;
+  classes?: any;
 }
 
 const RdsIcon = (props: RdsIconProps) => {
@@ -93,7 +93,7 @@ const RdsIcon = (props: RdsIconProps) => {
 
   return (
     <span
-      className={props.class}
+      className={props.classes}
       dangerouslySetInnerHTML={{ __html: stringData }}
     />
   );

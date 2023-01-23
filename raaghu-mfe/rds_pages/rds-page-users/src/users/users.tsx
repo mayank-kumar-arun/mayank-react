@@ -365,7 +365,6 @@ const Users = () => {
             tableHeaders={tableHeaders}
             tableData={tableData}
             actions={actions}
-            tableBordered={false}
             pagination={true}
             recordsPerPage={5}
             recordsPerPageSelectListOption={true}

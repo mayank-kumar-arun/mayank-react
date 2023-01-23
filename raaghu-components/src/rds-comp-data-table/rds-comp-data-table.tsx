@@ -2,7 +2,7 @@ import { DatasetController } from "chart.js";
 import React, { MouseEvent, useState, useEffect } from "react";
 import {
   RdsIcon,
-  RdsCheckbox,
+  RdsBadge,
   RdsInput,
   RdsButton,
   RdsPagination,
@@ -13,7 +13,6 @@ import RdsCompAlertPopup from "../rds-comp-alert-popup/rds-comp-alert-popup";
 export interface RdsCompDatatableProps {
   enablecheckboxselection?: boolean;
   classes?: string;
-  tableBordered?: boolean;
   tableHeaders: {
     displayName: string;
     key: string;
@@ -46,6 +45,10 @@ export interface RdsCompDatatableProps {
       modalId?: string;
     }
   ) => void;
+  
+   tableStyle?: any ;
+   alignmentType?: any ;
+
   // onSortSelection(arg: {
   //    sortClickEvent: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>;
   //    sortOrder: string;
@@ -183,13 +186,23 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
     setData(sorted);
     sort = true;
   };
-  let Classes = props.classes || " table-hover";
-  const tableBordered = props.tableBordered ? "table-bordered" : "";
+  let Classes = props.classes;
+const classes =(): string[] =>{
+    var classes = ['res-width']
+    if (props.tableStyle !== "light") {
+      var bgColor = 'table-' + props.tableStyle;
+      classes.push(bgColor);
+    }
+    if (props.tableStyle !== 'light' && props.tableStyle !== 'warning' && props.tableStyle !== 'info' && props.tableStyle !== 'white') {
+      classes.push('text-white');
+    }
+    return classes
+  }
   return (
     <>
-      <div className="RdsCompDataTable sm-datatable table-responsive">
+      <div className=" sm-datatable table-responsive">
         <table
-          className={`table h-100 ${Classes} ${tableBordered}`}
+          className={`table  table-hover table-bordered  h-100 ${Classes} `}
           id="sortTable"
           width="400px"
         >
@@ -210,10 +223,12 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
                 </th>
               )}
               {props.tableHeaders.map((tableHeader, index) => (
-                <th key={"tableHeader-" + index} className="px-2 py-3">
-                  <span style={{ fontWeight: 500, color: "black" }}>
+                <th scope="col"  key={"tableHeader-" + index} >
+                  <div className="header d-flex">
+                  <span >
                     {tableHeader.displayName}
                   </span>
+                  <div className="header-options mobile-header-option cursor-pointer ps-1">
                   {tableHeader.sortable && (
                     <span className="px-2">
                       <span
@@ -242,6 +257,8 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
                       </span>
                     </span>
                   )}
+                  </div>
+                  </div>
                 </th>
               ))}
               {props.tableHeaders &&
@@ -295,20 +312,11 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
                             {tableHeader.datatype === "number" &&
                               tableDataRow[tableHeader.key]}
                             {tableHeader.datatype === "badge" && (
-                              <span
-                                className={
-                                  "badge text-bg-" +
-                                  (tableDataRow[tableHeader.key]
-                                    .badgeColorVariant
-                                    ? tableDataRow[tableHeader.key]
-                                        .badgeColorVariant
-                                    : "primary")
-                                }
-                              >
-                                {tableDataRow[tableHeader.key].content
-                                  ? tableDataRow[tableHeader.key].content
-                                  : tableDataRow[tableHeader.key]}
-                              </span>
+                              <RdsBadge colorVariant={tableDataRow[tableHeader.key].badgeColorVariant
+                                      ? tableDataRow[tableHeader.key].badgeColorVariant :"primary"} label ={tableDataRow[tableHeader.key].content
+                                        ? tableDataRow[tableHeader.key].content
+                                        : tableDataRow[tableHeader.key]}
+                                />
                             )}
                             {tableHeader.datatype === "avatarTitleInfo" && (
                               <div className="avatarTitleInfo">
@@ -414,10 +422,10 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
                                   width="14px"
                                   stroke={true}
                                   fill={true}
-                                  class="bi bi-three-dots-vertical"
+                                 // class="bi bi-three-dots-vertical"
                                 />
                               </button>
-                              <ul className="dropdown-menu RdsCompDataTable__Actions__Ul">
+                              <ul className="dropdown-menu ">
                                 {props.actions.map((action, actionIndex) => (
                                   <li
                                     key={
@@ -487,7 +495,7 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
                                 width="14px"
                                 stroke={true}
                                 fill={false}
-                                class="bi bi-check2"
+                               // class="bi bi-check2"
                               />
                             </RdsButton>
                             <RdsButton
@@ -507,7 +515,7 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
                                 width="14px"
                                 stroke={true}
                                 fill={true}
-                                class="bi bi-close"
+                               // class="bi bi-close"
                               />
                             </RdsButton>
                           </div>
@@ -521,7 +529,7 @@ const RdsCompDatatable = (props: RdsCompDatatableProps) => {
         </table>
       </div>
       {props.pagination && (
-        <div className="RdsCompDataTable__RdsPagination d-flex justify-content-end ">
+        <div className=" d-flex justify-content-end ">
           <RdsPagination
             totalRecords={props.tableData.length}
             recordsPerPage={props.recordsPerPage ? props.recordsPerPage : 5}

@@ -37,13 +37,13 @@ const OrganizationParent = ({ organizationchildren }: any) => {
                 </span>
                 <button className="btn btn-primary" onClick={edit}>Edit</button>
                 <span style={{ paddingRight: 12 }}>
-                  <RdsIcon class={"px-4"} name={"plus"} stroke={true} colorVariant={"primary"} height={"15px"} width={"15px"}></RdsIcon>
+                  <RdsIcon  name={"plus"} stroke={true} colorVariant={"primary"} height={"15px"} width={"15px"}></RdsIcon>
                 </span>
                 <span style={{ paddingRight: 12 }}>
-                  <RdsIcon name={"pencil"}  stroke={true} colorVariant={"primary"} height={"15px"}width={"15px"} class={"mx-2"}></RdsIcon>
+                  <RdsIcon name={"pencil"}  stroke={true} colorVariant={"primary"} height={"15px"}width={"15px"} ></RdsIcon>
                 </span>
                 <span>
-                  <RdsIcon name={"delete"} stroke={true} colorVariant={"primary"} height={"15px"} width={"15px"} class={"mx-2"}
+                  <RdsIcon name={"delete"} stroke={true} colorVariant={"primary"} height={"15px"} width={"15px"} 
                   ></RdsIcon>
                 </span>
               </div>
@@ -67,7 +67,6 @@ const OrganizationParent = ({ organizationchildren }: any) => {
               
               <span style={{ paddingRight: 12 }}>
                 <RdsIcon
-                  class={"px-4"}
                   name={"plus"}
                   stroke={true}
                   colorVariant={"primary"}
@@ -82,8 +81,7 @@ const OrganizationParent = ({ organizationchildren }: any) => {
                   colorVariant={"primary"}
                   height={"15px"}
                   width={"15px"}
-                  class={"mx-2"}
-                ></RdsIcon>
+                  ></RdsIcon>
               </span>
               <span>
                 <RdsIcon
@@ -92,7 +90,7 @@ const OrganizationParent = ({ organizationchildren }: any) => {
                   colorVariant={"primary"}
                   height={"15px"}
                   width={"15px"}
-                  class={"mx-2"}
+                 
                 ></RdsIcon>
               </span></div>
               <div>
@@ -110,7 +108,6 @@ const OrganizationParent = ({ organizationchildren }: any) => {
                     </span>
                     <span style={{ paddingRight: 12 }}>
                       <RdsIcon
-                        class={"px-4"}
                         name={"plus"}
                         stroke={true}
                         colorVariant={"primary"}
@@ -125,8 +122,7 @@ const OrganizationParent = ({ organizationchildren }: any) => {
                         colorVariant={"primary"}
                         height={"15px"}
                         width={"15px"}
-                        class={"mx-2"}
-                      ></RdsIcon>
+                         ></RdsIcon>
                     </span>
                     <span>
                       <RdsIcon
@@ -135,8 +131,7 @@ const OrganizationParent = ({ organizationchildren }: any) => {
                         colorVariant={"primary"}
                         height={"15px"}
                         width={"15px"}
-                        class={"mx-2"}
-                      ></RdsIcon>
+                         ></RdsIcon>
                     </span>
                     {subChild.children?.map((subChildInner: any) => {
                       return (
@@ -147,7 +142,6 @@ const OrganizationParent = ({ organizationchildren }: any) => {
 
                           <span style={{ paddingRight: 12 }}>
                             <RdsIcon
-                              class={"px-4"}
                               name={"plus"}
                               stroke={true}
                               colorVariant={"primary"}
@@ -162,8 +156,7 @@ const OrganizationParent = ({ organizationchildren }: any) => {
                               colorVariant={"primary"}
                               height={"15px"}
                               width={"15px"}
-                              class={"mx-2"}
-                            ></RdsIcon>
+                              ></RdsIcon>
                           </span>
                           <span>
                             <RdsIcon
@@ -172,8 +165,7 @@ const OrganizationParent = ({ organizationchildren }: any) => {
                               colorVariant={"primary"}
                               height={"15px"}
                               width={"15px"}
-                              class={"mx-2"}
-                            ></RdsIcon>
+                               ></RdsIcon>
                           </span>
                           {subChildInner.childrenren?.map(
                             (subChildInner2: any) => {

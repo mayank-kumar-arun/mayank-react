@@ -677,10 +677,10 @@ const ViewOperationLogsOffCanvas = (selectedRowData: any) => {
                 label="9" //</div> *ngIf="!selectedRowData.selectedRowData[0].exception" [label]="'success'"
                 colorVariant="success"
               ></RdsBadge>
-              <RdsBadge
+              {/* <RdsBadge
                 size="small"
                 label="9" //</div> *ngIf="selectedRowData.selectedRowData[0].exception" [label]="'HasError'"
-              ></RdsBadge>
+              ></RdsBadge> */}
             </div>
           </div>
         </div>

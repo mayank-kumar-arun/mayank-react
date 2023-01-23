@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import RdsCompLinkedAccount from "../rds-comp-linked-account/rds-comp-linked-account";
 import RdsCompProfile from "../rds-comp-profile/rds-comp-profile";
-import { Link } from "react-router-dom";
 import {
   RdsDropdownList,
   RdsIcon,
@@ -19,6 +18,7 @@ export interface RdsCompTopNavigationProps {
   darkMode?: boolean;
   profileTitle?: string;
   profileName?: string;
+  logo?:string, 
   onLogout?: (Event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -60,132 +60,148 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 
   const ChangeId = (e: any) => {
     setLinkAccount(true);
+    console.log(LinkAccount);
   };
 
   return (
     <div>
-      <nav className={`navbar p-0 fixed-top`}>
-        <div className="container-fluid mobile-fluid">
-          <div className="d-flex align-items-center">
-            <span className="navbar-brand p-0 m-0">
-              <Link
-                to="/dashboard"
-                className="raaghu_icon routerLinkActive-iconname d-flex align-items-center"
-              >
-                <img
-                  className="image"
-                  src="./assets/raaghu_icon.png"
-                  alt="logo"
-                  width="70"
-                ></img>
-                <span className="title fw-bold text-lowercase ms-1 pt-1">
-                  <b>{props.brandName}</b>
-                </span>
-              </Link>
+      <nav
+        className={`navbar d-flex justify-content-between ps-2 pe-3 fixed-top`}
+        // style={{ color: `${props.darkMode ? "white" : ""}` }}
+      >
+        <div className="d-flex align-items-center">
+          <span className="navbar-brand p-0 m-0">
+            <img
+              className="ms-1"
+              src={props?.logo}
+              alt="logo"
+              width="70"
+            ></img>
+            <span className="title fw-bold text-lowercase m-2">
+              <b>{props.brandName}</b>
             </span>
-            <div className="py-0 m-0 breadcrumbs">
-              <div>
-                <a className="nav-link active p-0">{props.navbarTitle}</a>
-              </div>
-              <div className="mob-description">
-                <a className="nav-link text-muted p-0 fs-6">
-                  {props.navbarSubTitle}
-                </a>
-              </div>
+          </span>
+          <div>
+            <div className="text-bold" 
+            // style={{ fontSize: "14px" }}
+            >
+              {props.navbarTitle}
             </div>
+            <div
+            // style={{ fontSize: "11px" }} 
+            className="text-muted"
+            >
+              {props.navbarSubTitle}
+            </div>
+          </div>
+        </div>
+        <div className="d-flex me-2 align-items-center">
+          <RdsDropdownList
+           placeholder={props.languageItems[0].label}
+           icon =  "us"
+           iconFill = {false }
+           iconStroke ={ true}
+            listItems={props.languageItems}
+            onClick={props.onClick}
+          ></RdsDropdownList>
+
+          <div className="me-3 ms-3 position-relative">
+            <a
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              // style={{ textDecoration: "none", cursor: "pointer " }}
+            >
+              <RdsIcon
+                name="notification"
+                height="20px"
+                width="20px"
+                fill={false}
+                stroke={true}
+                // colorVariant={`${props.darkMode ? "light" : ""}`}
+              ></RdsIcon>
+            </a>
+            <div
+              className="dropdown-menu fab-dropdown border-0 shadow p-0 position-absolute"
+              // style={{ width: "18rem", left: "-200%" }}
+            >
+              <RdsNotification
+                notifications={props.notifications!}
+                colorVariant="primary"
+                footerText="2 days ago"
+              ></RdsNotification>
+            </div>
+          </div>
+          <div
+            className="me-3 px-3 border-start border-end"
+            // style={{ cursor: "pointer" }}
+          >
+            <RdsIcon
+              name="gear"
+              height="20px"
+              width="20px"
+              fill={false}
+              stroke={true}
+              colorVariant={`${props.darkMode ? "light" : ""}`}
+            ></RdsIcon>
           </div>
 
-          <div className="d-flex align-items-center">
-            <div
-              id="navbarSupportedContent1"
-              className="ps-5 ms-4 py-0 m-0 d-flex align-items-center"
-            >
-              <div className="me-2">
-                <RdsDropdownList
-                  displayIconRoundedCorner={true}
-                  listItems={props.languageItems}
-                  withBorder={false}
-                  darkVariant={props.darkMode}
-                  onClick={props.onClick}
-                ></RdsDropdownList>
-              </div>
-              <ul className="navbar-nav d-flex flex-row align-items-center ms-auto">
-                <li className="nav-item dropdown pe-3 ps-2 me-1">
-                  <a data-bs-toggle="dropdown" aria-expanded="false">
-                    <RdsIcon
-                      name="notification"
-                      height="20px"
-                      width="20px"
-                      fill={false}
-                      stroke={true}
-                    ></RdsIcon>
-                  </a>
-                  <div className="dropdown-menu fab-dropdown border-0 shadow p-0 position-absolute">
-                    <RdsNotification
-                      notifications={props.notifications!}
-                      colorVariant="primary"
-                      footerText="2 days ago"
-                    ></RdsNotification>
-                  </div>
-                </li>
-                <li>
-                  <a className="me-3 px-3 setting border-start border-end">
-                    <RdsIcon
-                      name="gear"
-                      height="20px"
-                      width="20px"
-                      fill={false}
-                      stroke={true}
-                    ></RdsIcon>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="d-flex me-2 align-items-center">
-              <RdsOffcanvas
-                className="pb-0"
-                placement="end"
-                offcanvaswidth={374}
-                offId="Profile"
-                offcanvasbutton={
-                  <div
-                    className="d-flex align-items-center"
-                    style={{ cursor: "pointer" }}
-                  >
-                    <img
-                      src="./assets/profile-picture-circle.svg"
-                      className="avatar bg-light avatar-sm rounded rounded-circle mb-0"
-                    ></img>
-                    <div className="ms-2">
-                      <div>{props.profileTitle}</div>
-                      <div className="text-muted">{props.profileName}</div>
-                    </div>
-                    <span className="ms-3">
-                      <RdsIcon
-                        name="chevron_down"
-                        height="12px"
-                        width="12px"
-                        fill={false}
-                        stroke={true}
-                      ></RdsIcon>
-                    </span>
-                  </div>
-                }
-                backDrop={true}
-                scrolling={false}
-                preventEscapeKey={false}
-                canvasTitle={""}
+          <RdsOffcanvas
+            className="pb-0"
+            placement="end"
+            offcanvaswidth={374}
+            offId="Profile"
+            offcanvasbutton={
+              <div
+                className="d-flex align-items-center"
+                style={{ cursor: "pointer" }}
               >
-                <RdsCompProfile
-                  navtabItems={navtabItems}
-                  profilePic={""}
-                  userName={"Host Admin"}
-                  userRole={"admin"}
-                  onLogout={props.onLogout}
-                ></RdsCompProfile>
-              </RdsOffcanvas>
-            </div>
-          </div>
+                <img
+                  src="./assets/profile-picture-circle.svg"
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                    borderRadius: "50%",
+                    border: "solid 1px grey",
+                  }}
+                ></img>
+                <div className="ms-2">
+                  <div 
+                  // style={{ fontWeight: 500, fontSize: "11px" }}
+                  >
+                    {props.profileTitle}
+                  </div>
+                  <div
+                    // style={{ fontSize: "9px", fontWeight: "500" }}
+                    className="text-muted"
+                  >
+                    {props.profileName}
+                  </div>
+                </div>
+                <span className="ms-3">
+                  <RdsIcon
+                    name="chevron_down"
+                    height="12px"
+                    width="12px"
+                    fill={false}
+                    stroke={true}
+                    // colorVariant={`${props.darkMode ? "light" : ""}`}
+                  ></RdsIcon>
+                </span>
+              </div>
+            }
+            backDrop={true}
+            scrolling={false}
+            preventEscapeKey={false}
+            canvasTitle={""}
+          >
+            <RdsCompProfile
+              navtabItems={navtabItems}
+              profilePic={""}
+              userName={"Host Admin"}
+              userRole={"admin"}
+              onLogout={props.onLogout}
+            ></RdsCompProfile>
+          </RdsOffcanvas>
         </div>
       </nav>
     </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import RdsCompTopNavigation from "./rds-comp-top-navigation";
-
 export default {
   title: "Components/Top Navigation",
   component: RdsCompTopNavigation,
@@ -17,8 +16,9 @@ Default.args = {
   navbarSubTitle: "Statistics and reports",
   darkMode: false,
   brandName: "Raaghu",
-  profileTitle:"Host Admin",
-  profileName:"Keanu Foster",
+  profileTitle: "Host Admin",
+  profileName: "Keanu Foster",
+  logo: "https://anzstageui.raaghu.io/assets/raaghu_icon.png",
   notifications: [
     {
       status: "success",
