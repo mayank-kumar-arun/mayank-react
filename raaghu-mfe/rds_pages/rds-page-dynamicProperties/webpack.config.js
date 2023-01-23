@@ -65,11 +65,11 @@ module.exports = (env, argv) => {
         "process.env": JSON.stringify(process.env),
       }),
       new ModuleFederationPlugin({
-        name: "dynamicProperty",
+        name: "dynamicProperties",
         filename: "remoteEntry.js",
         exposes: {
         // expose each page
-        "./DynamicProperty": "./src/dynamicProperties/dynamicProperties"
+        "./DynamicProperties": "./src/App"
       },
         shared: {
             ...devdeps,

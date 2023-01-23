@@ -32,8 +32,8 @@ export const MfeConfig = {
 	"settings":{
 		"url":"settings@http://localhost:8010/remoteEntry.js"
 	},
-	"users":{
-		"url":"users@http://localhost:8015/remoteEntry.js"
+	"dynamicProperties":{
+		"url":"dynamicProperties@http://localhost:8011/remoteEntry.js"
 	},
 	"roles":{
 		"url":"roles@http://localhost:8012/remoteEntry.js"
@@ -43,5 +43,8 @@ export const MfeConfig = {
 	},
 	"language":{
 		"url":"language@http://localhost:8014/remoteEntry.js"
+	},
+	"users":{
+		"url":"users@http://localhost:8015/remoteEntry.js"
 	}
 }

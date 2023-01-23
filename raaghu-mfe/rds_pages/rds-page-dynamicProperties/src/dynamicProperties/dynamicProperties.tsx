@@ -468,7 +468,7 @@ const NewDynamicProperty = (props: dynamicProps) => {
           )}
           {aciveTabID == "permisstion" && (
             <div className="m-4">
-              <RdsCompPermissionTree
+              {/* <RdsCompPermissionTree
                 treeData={[
                   {
                     name: "[Test edition scope feature]",
@@ -535,7 +535,7 @@ const NewDynamicProperty = (props: dynamicProps) => {
                     children: [],
                   },
                 ]}
-              />
+              /> */}
             </div>
           )}
           <div className=" footer-buttons row m-3 mt-5">
