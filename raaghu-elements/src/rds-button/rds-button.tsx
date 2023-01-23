@@ -51,7 +51,7 @@ const RdsButton = (props: RdsButtonProps) => {
   const icon1 = props.isRounded ? " rounded-pill " : "";
   const blockWidth = props.block === true ? "w-100" : "";
   const spinner = props.showLoadingSpinner ? " spinner" : "";
-  const classes = `${outline}${mode}${icon}${icon1} ${blockWidth} ${spinner}`;
+  const classes = `${outline}${mode}${icon}${icon1} ${blockWidth} ${spinner} ${props.class}`;
   const btnType = props.type === "submit" ? "submit" : "button";
 
   const buttonClick = (evt: any) => {
