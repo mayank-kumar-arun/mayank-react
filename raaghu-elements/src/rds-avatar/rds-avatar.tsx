@@ -17,6 +17,7 @@ export interface RdsAvatarProps {
 	roundedAvatar?: boolean;
 	roundedPills?: boolean;
 	height?: string;
+	isTitle?: boolean;
 }
 
 const RdsAvatar = (props: RdsAvatarProps) => {
@@ -71,7 +72,7 @@ const RdsAvatar = (props: RdsAvatarProps) => {
 					</div>
 				)}
 
-				{WPP === false && hasName && (
+				{WPP === false && hasName && !props.isTitle && (
 					<div
 						className={`d-flex justify-content-center bg-${backcolor} align-items-center text-white avatar rounded-circle ${imgwidth}`}
 					>
@@ -81,16 +82,20 @@ const RdsAvatar = (props: RdsAvatarProps) => {
 						</span>
 					</div>
 				)}
-				{WPP === true && (
+				{props.isTitle && (
 					<div
 						className=" flex-grow-0 align-items-center"
 						style={{ display: Aligned }}
 					>
-						<img
-							src={withPP}
-							className={`avatar bg-light ${imgwidth} rounded-circle mb-0`}
-						/>
-						<div style={{ marginLeft: "10px" }}>
+						<div
+							className={`d-flex justify-content-center bg-${backcolor} me-2 mb-2 align-items-center text-white avatar rounded-circle ${imgwidth}`}
+						>
+							<span className="fw-bold ">
+								{fLetter}
+								{lLetter}
+							</span>
+						</div>
+						<div>
 							<span className="fw-bold ">
 								{titleFirstName}
 								{titleLastName}
@@ -100,8 +105,25 @@ const RdsAvatar = (props: RdsAvatarProps) => {
 						</div>
 					</div>
 				)}
-
-			
+				{WPP === true && (
+					<div
+						className=" flex-grow-0 align-items-center"
+						style={{ display: Aligned }}
+					>
+						<img
+							src={withPP}
+							className={`avatar bg-light ${imgwidth} rounded-circle me-2 mb-2`}
+						/>
+						<div>
+							<span className="fw-bold ">
+								{titleFirstName}
+								{titleLastName}
+							</span>
+							<br />
+							<span>{titleRole}</span>
+						</div>
+					</div>
+				)}
 			</div>
 		</Fragment>
 	);

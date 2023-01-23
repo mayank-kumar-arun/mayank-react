@@ -21,8 +21,8 @@ Default.args = {
 		selected: true,
 		iconHeight: "30px",
 		iconWidth: "30px",
-		iconFill: false,
-		iconColor: "dark",
+		iconFill: true,
+		iconColor: "warning",
 		iconStroke: true,
 		routeLabel: "View integration"
 	},
