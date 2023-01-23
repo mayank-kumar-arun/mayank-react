@@ -1,19 +1,9 @@
 import React, { Fragment, ReactNode } from "react";
 import RdsIcon from "../rds-icon/rds-icon";
-
+import { colors } from "../../libs/types";
 export interface RdsWidgetProps {
   isRefreshRequired?: boolean;
-  colorVariant?:
-    | "primary"
-    | "success"
-    | "danger"
-    | "warning"
-    | "light"
-    | "info"
-    | "secondary"
-    | "dark"
-    | "gradient-primary"
-    | "white";
+  colorVariant?: colors;
   headerTitle: string;
   children?: ReactNode;
   class?: string;
@@ -40,24 +30,22 @@ const RdsWidget = (props: RdsWidgetProps) => {
   let subTitleColor = "text-" + (props.subTitleColorVariant || "primary");
   let isRefreshIcon = props.isRefreshRequired || false;
   let bg = " bg-" + props.colorVariant;
-  let gradient;
-  if (props.colorVariant == "gradient-primary") {
-    gradient = `linear-gradient(to right, #7e2eef 0%, #01ae9d 100%)`;
-  }
+  // let gradient;
+  // if (props.colorVariant == "gradient-primary") {
+  //   gradient = `linear-gradient(to right, #7e2eef 0%, #01ae9d 100%)`;
+  // }
 
   return (
     <Fragment>
       <div
-        className={`card p-3 shadow-sm ${props.class} gutter-b ${bg} `}
+        className={`card card-stretch shadow-sm ${props.class} gutter-b border-0 ${bg} `}
         style={{
-          background: gradient,
-          border: "none",
           height: `${props.height}`,
           minHeight: `${props.minHeight}`,
           width: `${props.width}`,
         }}
       >
-        <div className="cardHeader mb-2 mt-2 border-0 d-flex justify-content-between">
+        <div className="card-header border-0 d-flex justify-content-between">
           <h5 className={`card-title text-${props.bigNumberColor}`}>
             {props.headerTitle}
           </h5>
@@ -78,7 +66,7 @@ const RdsWidget = (props: RdsWidgetProps) => {
           </div>
         </div>
 
-        <div>
+        {/* <div>
           {props.bigNumber && (
             <h1 className={`text-${props.bigNumberColor}`}>
               {props.bigNumber}
@@ -99,9 +87,9 @@ const RdsWidget = (props: RdsWidgetProps) => {
               <span className="ms-1">{props.subTitle}</span>
             </h6>
           )}
-        </div>
+        </div> */}
         {props.children && (
-          <div className="card-body pt-2 " style={props.style}>
+          <div className="card-body pt-0 " style={props.style}>
             {props.children}
           </div>
         )}

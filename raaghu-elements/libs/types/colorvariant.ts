@@ -7,4 +7,6 @@ export type colors =
   | 'info'
   | 'dark'
   | 'light'
+  | 'gradient-primary'
+  | 'white'
   | string
