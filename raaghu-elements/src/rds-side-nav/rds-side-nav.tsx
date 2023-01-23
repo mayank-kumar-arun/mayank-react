@@ -6,6 +6,7 @@ import RdsIcon from "../rds-icon/rds-icon";
 export interface RdsSideNavProps {
   sideNavItems: any[];
   onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  toggleTheme?: React.MouseEventHandler<HTMLInputElement>;
 }
 
 const RdsSideNav = (props: RdsSideNavProps) => {
@@ -27,6 +28,7 @@ const RdsSideNav = (props: RdsSideNavProps) => {
           callback={handleChildData}
           data={props.sideNavItems}
           onClickHandler={props.onClick}
+          toggleTheme={props.toggleTheme}
         ></RdsSideNavChild>
       </nav>
     </>
