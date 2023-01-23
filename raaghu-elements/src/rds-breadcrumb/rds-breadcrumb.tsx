@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import "./rds-breadcrumb.scss";
 import RdsIcon from "../rds-icon";
 
@@ -9,6 +9,13 @@ export interface breadcrumbprop {
 
 const RdsBreadcrumb = (props: breadcrumbprop) => {
   const Role = `${props.hasOwnProperty("role") ? props.role : "default"}`;
+
+  const [data, setdata] = useState(props.breadItems);
+
+  const onClickHandler = (e: any) => {
+    console.log(e.target.key);
+  };
+
   const divider = {
     marginLeft: "5px",
     marginRight: "5px",
@@ -21,12 +28,13 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
       {Role === "advance" && (
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
-            {props.breadItems.map((breadItem, index) => {
+            {data.map((breadItem, index) => {
               return index == 0 ? (
                 <li
                   key={"breadItem-" + index}
-                  className={`${breadItem.active}`}
+                  className={`breadcrumb-item `}
                   id="breaditem1"
+                  onClick={onClickHandler}
                 >
                   {breadItem.icon && (
                     <span className="me-2">
@@ -40,22 +48,29 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
                       />
                     </span>
                   )}
-                  <a href={breadItem.route} aria-disabled="true">
+                  <span
+                    // href={breadItem.route}
+                    // onClick={(event) => {
+                    //   event.preventDefault();
+                    // }}
+                    // aria-disabled="true"
+                  >
                     {breadItem.label}
-                  </a>
+                  </span>
                 </li>
               ) : (
                 <li
                   key={"breadItem-" + index}
-                  className={`breadcrumb-item ${breadItem.active}`}
+                  className={`breadcrumb-item `}
                   id="breadcrumbItems"
+                  onClick={onClickHandler}
                 >
                   <span style={divider}>
                     <RdsIcon
                       name="chevron_right"
                       stroke={true}
-                      height="7px"
-                      width="4px"
+                      height="12px"
+                      width="18px"
                     />
                   </span>
                   {breadItem.icon && (
@@ -70,9 +85,15 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
                       />
                     </span>
                   )}
-                  <a href={breadItem.route} aria-disabled="true">
+                  <span
+                    // href={breadItem.route}
+                    onClick={(event) => {
+                      event.preventDefault();
+                    }}
+                    aria-disabled="true"
+                  >
                     {breadItem.label}
-                  </a>
+                  </span>
                 </li>
               );
             })}

@@ -21,5 +21,6 @@ Default.args = {
 //   labelOnUncheck: "",
 //   labelOnCheck: "",
   iconOnUncheck: "sun",
-  iconOnCheck: "moon"
+  iconOnCheck: "moon",
+  small:false
 }

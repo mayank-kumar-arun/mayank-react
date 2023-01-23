@@ -117,6 +117,7 @@ Default.args = {
       dataLength: 30,
       required: true,
       sortable: true,
+      isEndUserEditing: false,
     },
     {
       displayName: "Creation Time",
@@ -125,18 +126,45 @@ Default.args = {
       dataLength: 5,
       required: false,
       sortable: true,
+      isEndUserEditing: false,
     },
   ],
   tableData: [
     {
       id: 1,
-      selected: false,
-      isDefault: true,
+
+      isDefault: false,
+      displayName: "Admin",
       role: {
         children: (
           <>
-            Hello{" "}
-            <span className={`d-none`}>
+            Admin{" "}
+            <span className="ms-1">
+              <RdsBadge label={"Static"} colorVariant={"primary"}></RdsBadge>{" "}
+            </span>
+          </>
+        ),
+      },
+      ctime: "11/15/2021, 2:44:51 PM",
+    },
+    {
+      id: 2,
+      isDefault: false,
+      displayName: "User Prime",
+      role: {
+        children: <>User Prime</>,
+      },
+      ctime: "11/15/2021, 2:44:51 PM",
+    },
+    {
+      id: 3,
+      isDefault: true,
+      displayName: "Golden Role",
+      role: {
+        children: (
+          <>
+            Golden Role
+            <span className="ms-1">
               <RdsBadge label={"Default"} colorVariant={"success"}></RdsBadge>{" "}
             </span>
           </>
@@ -144,29 +172,45 @@ Default.args = {
       },
       ctime: "11/15/2021, 2:44:51 PM",
     },
-    { id: 2, selected: false, role: "Team", ctime: "11/15/2021, 2:44:51 PM" },
-    {
-      id: 3,
-      selected: false,
-      role: "Manager",
-      ctime: "11/15/2021, 2:44:51 PM",
-    },
     {
       id: 4,
-      selected: false,
-      role: "Software Developer",
+      isDefault: true,
+      displayName: "Work",
+      role: {
+        children: (
+          <>
+            Work
+            <span className="ms-1">
+              <RdsBadge label={"Default"} colorVariant={"success"}></RdsBadge>{" "}
+            </span>
+          </>
+        ),
+      },
       ctime: "11/15/2021, 2:44:51 PM",
     },
     {
       id: 5,
-      selected: false,
-      role: "UI/UX designer",
+      isDefault: true,
+      displayName: "Hello",
+      role: {
+        children: (
+          <>
+            Hello
+            <span className="ms-1">
+              <RdsBadge label={"Default"} colorVariant={"success"}></RdsBadge>{" "}
+            </span>
+          </>
+        ),
+      },
       ctime: "11/15/2021, 2:44:51 PM",
     },
     {
       id: 6,
-      selected: false,
-      role: "Associate",
+      isDefault: false,
+      displayName: "Hello",
+      role: {
+        children: <>Hello</>,
+      },
       ctime: "11/15/2021, 2:44:51 PM",
     },
   ],

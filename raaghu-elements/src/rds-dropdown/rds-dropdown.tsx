@@ -41,53 +41,6 @@ const RdsDropdown = (props: RdsDropdownProps) => {
 
   return (
     <>
-      {/* <div className={`dropdown ${dropdowndirection} btn-group`}>
-        {props.role == "Dropdown-Button with split" && (
-          <button
-            type="button"
-            className={`btn ${size}  btn-${props.colorVariant}`}
-          >
-            {props.label}
-          </button>
-        )}
-
-        <button
-          className={` 
-            btn btn-${props.colorVariant}  
-            dropdown-toggle 
-             ${size}  ${
-            props.role == "Dropdown-Button with split"
-              ? "dropdown-toggle-split"
-              : ""
-          }`}
-          type="button"
-          id="dropdownMenuButton1"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          {props.role == "Dropdown-Button with split" && (
-            <span className="visually-hidden">Toggle Dropdown</span>
-          )}
-          {props.role == "Dropdown-Button without split" && `${props.label}`}
-        </button>
-
-        <ul
-          style={{ width: "auto" }}
-          className={`dropdown-menu ${
-            props.darkDropdown ? "dropdown-menu-dark" : ""
-          }`}
-          aria-labelledby="dropdownMenuButton1"
-        >
-          {props.listItems.map((listItem) => (
-            <li id={listItem.id}>
-              <a className="dropdown-item" href={listItem.href}>
-                {listItem.value}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div> */}
-
       <div className={`btn-group ${dropdowndirection} `}>
         {props.split && (
           <button
@@ -129,42 +82,6 @@ const RdsDropdown = (props: RdsDropdownProps) => {
           ))}
         </ul>
       </div>
-
-      {/* {props.split && (
-        <div className={`btn-group ${dropdowndirection} `}>
-          <button
-            className={`btn btn-${props.colorVariant} ${size}`}
-            type="button"
-          >
-            {props.label}
-          </button>
-
-          <button
-            type="button"
-            className={`btn btn-${props.colorVariant} dropdown-toggle dropdown-toggle-split ${size}`}
-            data-bs-toggle="dropdown"
-            id={`dropdownMenuButton1${props.id}`}
-            aria-expanded="false"
-          >
-            <span className="visually-hidden">Toggle Dropdown</span>
-          </button>
-          <ul
-            style={{ width: "auto" }}
-            className={`dropdown-menu ${
-              props.darkDropdown ? "dropdown-menu-dark" : ""
-            }`}
-            aria-labelledby={`dropdownMenuButton1${props.id}`}
-          >
-            {props.listItems.map((listItem) => (
-              <li id={listItem.id}>
-                <a className="dropdown-item" href={listItem.href}>
-                  {listItem.value}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )} */}
     </>
   );
 };
