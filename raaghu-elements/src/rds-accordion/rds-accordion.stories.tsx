@@ -32,7 +32,6 @@ Default.args = {
   ),
 };
 
-// export const outline = Template.bind({});
 // outline.args = {
 //   accordiontype: "Outline",
 //   colorVariant: "primary",
@@ -128,38 +127,4 @@ StackOpen.args = {
   ),
 };
 
-// export const AlwaysOpen = Template.bind({});
-// AlwaysOpen.args = {
-//   colorVariant: "primary",
-//   accordiontype: "alwaysOpen",
-//   AlwaysOpen: true,
-//   buttonGroupItems: [
-//     {
-//       id: "accordionOne",
-//       bId: "collapseOne",
-//       hId: "headingOne",
-//       title: "Section 1 title",
-//       state: true,
-//       content: "content1",
-//       select: 2,
-//     },
-//     {
-//       id: "accordiontwo",
-//       bId: "collapseTwo",
-//       hId: "headingTwo",
-//       title: "Section 2 title",
-//       state: true,
-//       content: "content2",
-//       select: 2,
-//     },
-//     {
-//       id: "accordionThree",
-//       bId: "collapseThree",
-//       hId: "headingThree",
-//       title: "Section 3 title",
-//       state: true,
-//       content: "content3",
-//       select: 2,
-//     },
-//   ],
-// };
+
