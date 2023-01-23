@@ -32,7 +32,7 @@ const RdsBigNumber = (props: RdsBigNumberProps) => {
 				<div className="text-start">
            <h1 className={`text-${props.bigNumberColor}`}>{props.bigNumber}</h1>
 					 <h6 className={`text-${props.subTitleColorVariant}`}>
-						  <RdsIcon name={props.icon} fill={props.iconFill} class="ms-1" stroke={props.iconStroke} height={props.iconHeight} width={props.iconWidth}></RdsIcon>
+						  <RdsIcon name={props.icon} fill={props.iconFill} classes="ms-1" stroke={props.iconStroke} height={props.iconHeight} width={props.iconWidth}></RdsIcon>
 							{props.subTitle}
 					 </h6>
 				</div>
