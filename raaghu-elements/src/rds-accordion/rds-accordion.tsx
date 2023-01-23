@@ -19,7 +19,7 @@ const RdsAccordion = (props: RdsAccordionProps) => {
         className={`accordion accordion-${
           props.accordionType === "flush" ? "flush" : ""
         }`}
-        id={`accordionBasic`}
+        id={`x`}
       >
         {props.children}
       </div>

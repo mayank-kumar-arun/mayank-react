@@ -88,6 +88,46 @@ Flush.args = {
   ),
 };
 
+export const AlwaysOpen = Template.bind({});
+AlwaysOpen.args = {
+  accordionType: "",
+  accordionId: "1",
+  children: (
+    <>
+      {" "}
+      <RdsAccordionItem id={"1"} AlwaysOpen={true} title={"Section 1 Title"}>
+        <h1>Hello</h1>
+      </RdsAccordionItem>
+      <RdsAccordionItem id={"2"} AlwaysOpen={true} title={"Section 2 Title"}>
+        <h1>Hello2</h1>
+      </RdsAccordionItem>
+      <RdsAccordionItem id={"3"} AlwaysOpen={true} title={"Section 3 Title"}>
+        <h1>Hello3</h1>
+      </RdsAccordionItem>
+    </>
+  ),
+};
+
+export const StackOpen = Template.bind({});
+StackOpen.args = {
+  accordionType: "",
+  accordionId: "1",
+  children: (
+    <>
+      {" "}
+      <RdsAccordionItem id={"1"} defaultOpen={true} title={"Section 1 Title"}>
+        <h1>Hello</h1>
+      </RdsAccordionItem>
+      <RdsAccordionItem id={"2"} title={"Section 2 Title"}>
+        <h1>Hello2</h1>
+      </RdsAccordionItem>
+      <RdsAccordionItem id={"3"} title={"Section 3 Title"}>
+        <h1>Hello3</h1>
+      </RdsAccordionItem>
+    </>
+  ),
+};
+
 // export const AlwaysOpen = Template.bind({});
 // AlwaysOpen.args = {
 //   colorVariant: "primary",

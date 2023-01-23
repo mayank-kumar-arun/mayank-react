@@ -6,6 +6,8 @@ export interface RdsAccordionItemProps {
   title: string;
   children: React.ReactNode;
   id: any;
+  AlwaysOpen?: boolean;
+  defaultOpen?: boolean;
 }
 
 const RdsAccordionItem = (props: RdsAccordionItemProps) => {
@@ -17,48 +19,28 @@ const RdsAccordionItem = (props: RdsAccordionItemProps) => {
             <button
               type="button"
               data-bs-toggle="collapse"
-              className="accordion-button collapsed"
+              className={`accordion-button ${
+                props.defaultOpen ? "" : "collapsed"
+              }`}
               data-bs-target={`#collapse${props.id}`}
-              aria-expanded="false"
+              aria-expanded={`${props.defaultOpen ? "true" : "false"}`}
               aria-controls={`collapse${props.id}`}
             >
               {props.title}
             </button>
           </h2>
           <div
-            className="accordion-collapse collapse"
+            className={`accordion-collapse collapse ${
+              props.defaultOpen ? "show" : ""
+            }`}
             id={`collapse${props.id}`}
-            data-bs-parent="#accordionBasic"
+            data-bs-parent={`${props.AlwaysOpen ? "" : "#accordionBasic"}`}
             aria-labelledby={`heading${props.id}`}
           >
             <div className="accordion-body">{props.children}</div>
           </div>
         </div>
       </div>
-
-      {/* <div className="accordion-item ">
-        <h2 className="accordion-header" id="headingTwo">
-          <button
-            className="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target={`#collapseTwo${props.id}`}
-            aria-expanded="false"
-            aria-controls="collapseTwo"
-          >
-            {props.title}
-          </button>
-        </h2>
-        <div
-          id={`collapseTwo${props.id}`}
-          className="accordion-collapse collapse"
-          aria-labelledby="headingTwo"
-          data-bs-parent="#accordionExample"
-        >
-          <div className="accordion-body">{props.children}</div>
-        </div>
-      </div> */}
-      {/* </div> */}
     </>
   );
 };
