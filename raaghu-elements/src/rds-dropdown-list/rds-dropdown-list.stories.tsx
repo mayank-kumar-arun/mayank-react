@@ -2,7 +2,6 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import RdsDropdownList from "./rds-dropdown-list";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Elements/DropdownList",
   component: RdsDropdownList,
@@ -16,9 +15,8 @@ export const Default = Template.bind({});
 
 Default.args = {
   placeholder:"Filter",
-  width: "100px",
-  withBorder: true,
-  darkVariant: false,
+ borderDropdown: true,
+ 
   listItems: [
     {
       label: "EN(US)",
@@ -71,10 +69,10 @@ export const WithMultiSelect = Template.bind({});
 WithMultiSelect.args = {
   reset:false, 
   placeholder:"Filter",
-  width: "100px",
   multiSelect:true,
-  withBorder: true,
-  darkVariant: false,
+  borderDropdown: true,
+ 
+
   listItems: [
     {
       label: "EN(US)",
@@ -123,13 +121,9 @@ WithMultiSelect.args = {
 export const WithIcons = Template.bind({});
 
 WithIcons.args = {
-  
-  width: "100px",
-  withBorder: true,
-  darkVariant: false,
-  displaynamesize: "12px",
-  displayiconheight: "20px",
-  displayiconwidth: "20px",
+ 
+  borderDropdown: true,
+ 
   listItems: [
     {
       label: "EN(US)",
@@ -181,4 +175,8 @@ WithIcons.args = {
       iconHeight: "20px",
     },
   ],
+  placeholder:"EN(US)",
+  icon: "us",
+  iconFill:false, 
+  iconStroke:true,
 };
