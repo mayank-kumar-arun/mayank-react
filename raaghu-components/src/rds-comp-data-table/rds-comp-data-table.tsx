@@ -325,7 +325,6 @@ const classes =(): string[] =>{
                                   profilePic={
                                     tableDataRow[tableHeader.key].avatar
                                   }
-                                  isTitle={true}
                                   firstName={
                                     tableDataRow[tableHeader.key].title
                                       ? tableDataRow[tableHeader.key].title
@@ -367,7 +366,6 @@ const classes =(): string[] =>{
                                         profilePic={
                                           tableDataRow[tableHeader.key].avatar
                                         }
-                                        isTitle={false}
                                       />
                                     </div>
                                     <div className="col-6">

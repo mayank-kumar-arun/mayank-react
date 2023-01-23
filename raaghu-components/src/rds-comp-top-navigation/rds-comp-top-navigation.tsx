@@ -67,7 +67,6 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
     <div>
       <nav
         className={`navbar d-flex justify-content-between ps-2 pe-3 fixed-top`}
-        // style={{ color: `${props.darkMode ? "white" : ""}` }}
       >
         <div className="d-flex align-items-center">
           <span className="navbar-brand p-0 m-0">
@@ -82,14 +81,12 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
             </span>
           </span>
           <div>
-            <div className="text-bold" 
-            // style={{ fontSize: "14px" }}
+            <div className="text-bold fs-6" 
             >
               {props.navbarTitle}
             </div>
             <div
-            // style={{ fontSize: "11px" }} 
-            className="text-muted"
+            className="text-muted fs-6"
             >
               {props.navbarSubTitle}
             </div>
@@ -109,7 +106,9 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
             <a
               data-bs-toggle="dropdown"
               aria-expanded="false"
-              // style={{ textDecoration: "none", cursor: "pointer " }}
+              role ='button'
+              tabIndex={0}
+              className ="text-decoration-none"
             >
               <RdsIcon
                 name="notification"
@@ -117,13 +116,10 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
                 width="20px"
                 fill={false}
                 stroke={true}
-                // colorVariant={`${props.darkMode ? "light" : ""}`}
               ></RdsIcon>
             </a>
             <div
-              className="dropdown-menu fab-dropdown border-0 shadow p-0 position-absolute"
-              // style={{ width: "18rem", left: "-200%" }}
-            >
+              className="dropdown-menu fab-dropdown border-0 shadow p-0 position-absolute  ">
               <RdsNotification
                 notifications={props.notifications!}
                 colorVariant="primary"
@@ -133,7 +129,8 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
           </div>
           <div
             className="me-3 px-3 border-start border-end"
-            // style={{ cursor: "pointer" }}
+            role ='button'
+            tabIndex={0}
           >
             <RdsIcon
               name="gear"
@@ -164,14 +161,11 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
                     border: "solid 1px grey",
                   }}
                 ></img>
-                <div className="ms-2">
-                  <div 
-                  // style={{ fontWeight: 500, fontSize: "11px" }}
-                  >
+                <div className="ms-2 fw-bold fs-6">
+                  <div>
                     {props.profileTitle}
                   </div>
                   <div
-                    // style={{ fontSize: "9px", fontWeight: "500" }}
                     className="text-muted"
                   >
                     {props.profileName}
@@ -184,7 +178,6 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
                     width="12px"
                     fill={false}
                     stroke={true}
-                    // colorVariant={`${props.darkMode ? "light" : ""}`}
                   ></RdsIcon>
                 </span>
               </div>
