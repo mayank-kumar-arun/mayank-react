@@ -124,11 +124,8 @@ const RdsCompInformation = (props: RdsCompInformationProps) => {
             <label className="mb-2">Input Type</label>
             <RdsDropdownList
               placeholder="Input Type"
-              width="100px"
               multiSelect={false}
-              withBorder={true}
               reset={isReset}
-              darkVariant={false}
               listItems={props.inputTypeList}
               onClick={onselectchange}
             />

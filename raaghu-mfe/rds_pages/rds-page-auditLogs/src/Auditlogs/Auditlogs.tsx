@@ -674,12 +674,8 @@ const ViewOperationLogsOffCanvas = (selectedRowData: any) => {
             <div className="form-group mb-3">
               <RdsBadge
                 size="small"
-                label="9" //</div> *ngIf="!selectedRowData.selectedRowData[0].exception" [label]="'success'"
+                label="9"
                 colorVariant="success"
-              ></RdsBadge>
-              <RdsBadge
-                size="small"
-                label="9" //</div> *ngIf="selectedRowData.selectedRowData[0].exception" [label]="'HasError'"
               ></RdsBadge>
             </div>
           </div>

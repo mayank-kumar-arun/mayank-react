@@ -3,7 +3,6 @@ import "./rds-banner.scss";
 import RdsIcon from "../rds-icon";
 
 export interface RdsBannerProps {
-  alignCenter?: boolean;
   bannerText?: string;
   sticky?: boolean;
   position?: "top" | "bottom";
@@ -17,66 +16,33 @@ export interface RdsBannerProps {
     | "light"
     | "dark";
   icon?: string;
-  closeButton?: boolean;
+closeButton?: boolean;
+ textAlign: 'start' | 'end' | 'center' ;
+ iconHeight: string ;
+ iconWidth: string ;
+ iconStroke: boolean ;
+ iconFill: boolean ;
 }
 
 const RdsBanner = (props: RdsBannerProps) => {
-  const bannerColor = " bannerStyle bg-" + (props.colorVariant || "primary");
-
-  const text = props.colorVariant != "light" ? " text-white " : " text-dark ";
+ 
   const iconColor = props.colorVariant != "light" ? "light" : "dark";
-  const classesCss: string =
-    "RdsBanner d-flex justify-content-between  alert-primary" +
-    bannerColor +
-    text +
-    +" rounded-0 " +
-    (props.sticky
-      ? props.position === "top"
-        ? " fixed-top"
-        : " fixed-bottom bottom-0"
-      : props.position === "top"
-      ? " sticky-top"
-      : " sticky-bottom");
-
+  let iconStroke=props.iconStroke===false?false:true; 
+  const position =props.position === "top"? " fixed-top": " fixed-bottom bottom-0"
+  let textAlign =props.textAlign?'justify-content-' + props.textAlign:'';
+  let sticky= (props.sticky===true?`m-auto ${position} ` : '');
+  let bgColor = props.colorVariant?'alert-' + `${props.colorVariant} text-dark`:'';
+  let classes = ` ${textAlign} ${sticky} ${bgColor} `;
   return (
-    <Fragment>
-      <div className={classesCss} role="alert">
-        <div
-          className={
-            props.alignCenter
-              ? "w-100 d-flex justify-content-center align-items-center"
-              : "d-flex align-items-center"
-          }
-        >
-          {props.icon && (
-            <span
-              style={{ marginRight: "12px" }}
-              className="d-flex align-items-center"
-            >
-              <RdsIcon
-                name={props.icon ? props.icon : ""}
-                stroke={true}
-                colorVariant={iconColor}
-                height="18px"
-                width="18px"
-              />
-            </span>
-          )}
-          <span>{props.bannerText}</span>
-        </div>
-        {props.closeButton && (
-          <div className="close-button-box d-flex justify-content-center align-items-center">
-            <button
-              type="button"
-              className="btn-close p-0"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-            ></button>
-          </div>
-        )}
-      </div>
-    </Fragment>
+    <>
+    <div className={`alert d-flex align-items-center fade show ${classes}`} role="alert" >
+  <span className="ps-2 d-flex align-items-center">
+    {props.icon && <RdsIcon classes="fs-6 me-2" colorVariant={iconColor} name={props.icon} width={props.iconWidth||'20px'} height={props.iconHeight||'20px'} fill={props.iconFill||false}  stroke={iconStroke} ></RdsIcon>}
+    {props.bannerText}
+  </span>
+</div></>
   );
 };
 
 export default RdsBanner;
+

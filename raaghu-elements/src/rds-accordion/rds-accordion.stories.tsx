@@ -32,7 +32,6 @@ Default.args = {
   ),
 };
 
-// export const outline = Template.bind({});
 // outline.args = {
 //   accordiontype: "Outline",
 //   colorVariant: "primary",
@@ -88,38 +87,42 @@ Flush.args = {
   ),
 };
 
-// export const AlwaysOpen = Template.bind({});
-// AlwaysOpen.args = {
-//   colorVariant: "primary",
-//   accordiontype: "alwaysOpen",
-//   AlwaysOpen: true,
-//   buttonGroupItems: [
-//     {
-//       id: "accordionOne",
-//       bId: "collapseOne",
-//       hId: "headingOne",
-//       title: "Section 1 title",
-//       state: true,
-//       content: "content1",
-//       select: 2,
-//     },
-//     {
-//       id: "accordiontwo",
-//       bId: "collapseTwo",
-//       hId: "headingTwo",
-//       title: "Section 2 title",
-//       state: true,
-//       content: "content2",
-//       select: 2,
-//     },
-//     {
-//       id: "accordionThree",
-//       bId: "collapseThree",
-//       hId: "headingThree",
-//       title: "Section 3 title",
-//       state: true,
-//       content: "content3",
-//       select: 2,
-//     },
-//   ],
-// };
+export const AlwaysOpen = Template.bind({});
+AlwaysOpen.args = {
+  accordionType: "",
+  accordionId: "1",
+  children: (
+    <>
+      {" "}
+      <RdsAccordionItem id={"1"} AlwaysOpen={true} title={"Section 1 Title"}>
+        <h1>Hello</h1>
+      </RdsAccordionItem>
+      <RdsAccordionItem id={"2"} AlwaysOpen={true} title={"Section 2 Title"}>
+        <h1>Hello2</h1>
+      </RdsAccordionItem>
+      <RdsAccordionItem id={"3"} AlwaysOpen={true} title={"Section 3 Title"}>
+        <h1>Hello3</h1>
+      </RdsAccordionItem>
+    </>
+  ),
+};
+
+export const StackOpen = Template.bind({});
+StackOpen.args = {
+  accordionType: "",
+  accordionId: "1",
+  children: (
+    <>
+      {" "}
+      <RdsAccordionItem id={"1"} defaultOpen={true} title={"Section 1 Title"}>
+        <h1>Hello</h1>
+      </RdsAccordionItem>
+      <RdsAccordionItem id={"2"} title={"Section 2 Title"}>
+        <h1>Hello2</h1>
+      </RdsAccordionItem>
+      <RdsAccordionItem id={"3"} title={"Section 3 Title"}>
+        <h1>Hello3</h1>
+      </RdsAccordionItem>
+    </>
+  ),
+};

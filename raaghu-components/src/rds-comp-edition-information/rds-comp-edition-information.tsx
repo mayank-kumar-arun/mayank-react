@@ -136,7 +136,7 @@ const RdsCompEditionInformation = (props: RdsCompEditionInformationProps) => {
           ))}
           {showEditionDropdown && <div className="w-50">
 
-            <RdsDropdownList listItems = {editionDropdownListItems} withBorder = {true} width ="50%"/>
+            <RdsDropdownList listItems = {editionDropdownListItems} borderDropdown = {true} />
           </div>}
           <div className="my-4 d-flex">
             <RdsButton

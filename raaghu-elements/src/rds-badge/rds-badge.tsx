@@ -39,12 +39,12 @@ const RdsBadge = (props: RdsBadgeProps) => {
       : "";
   return (
     <>
-      <span className={size}>
+      <span className={`m-1 ${size}`}>
         <span className={`badge ${bg} ${positioned} ${badgeType} ${size}`}>
           {childrenSide == "left" && <>{props.children}</>}
           {props.label}
           {props.showClose && (
-            <span aria-hidden="true" onClick={props.onClose}>
+            <span className="ms-1" role="button" tabIndex={0} aria-hidden="true" onClick={props.onClose}>
               &times;
             </span>
           )}
