@@ -11,7 +11,6 @@ export interface RdsAvatarProps {
 	lastName?: string;
 	role?: string;
 	colorVariant?: colors;
-	isTitle?: boolean;
 	titleAlign?: string;
 	size?: "small" | "large" | "medium";
 	verticallyAlligned?: boolean;
@@ -26,7 +25,6 @@ const RdsAvatar = (props: RdsAvatarProps) => {
 	let userRole = props.role || "";
 	let backcolor = props.colorVariant || "primary";
 	let tAlign = props.titleAlign;
-	let Title = props.isTitle || false;
 	let WPP = props.withProfilePic || false;
 	let src = props.profilePic || " ";
 
@@ -103,16 +101,7 @@ const RdsAvatar = (props: RdsAvatarProps) => {
 					</div>
 				)}
 
-				{Title === true && hasName && (
-					<div style={{ marginLeft: "10px" }}>
-						<span className="fw-bold ">
-							{titleFirstName}
-							{titleLastName}
-						</span>
-						<br />
-						<span>{titleRole}</span>
-					</div>
-				)}
+			
 			</div>
 		</Fragment>
 	);

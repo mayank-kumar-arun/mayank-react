@@ -15,7 +15,7 @@ export interface RdsIconProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
   opacity?: string;
   isAnimate?: boolean;
-  class?: any;
+  classes?: any;
 }
 
 const RdsIcon = (props: RdsIconProps) => {
@@ -93,9 +93,8 @@ const RdsIcon = (props: RdsIconProps) => {
 
   return (
     <span
-      className={props.class}
+      className={props.classes}
       onClick={props.onClick}
-      style={{ cursor: "pointer" }}
       dangerouslySetInnerHTML={{ __html: stringData }}
     />
   );

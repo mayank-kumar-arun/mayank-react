@@ -14,6 +14,10 @@ export default {
       options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'],
       control: { type: 'select' }
     },
+    textAlign: {
+      options:['start' , 'end' , 'center'] ,
+      control: { type: 'radio' }
+    },
   }
 } as ComponentMeta<typeof RdsBanner>;
 
@@ -21,30 +25,14 @@ const Template: ComponentStory<typeof RdsBanner> = (args) => <RdsBanner {...args
 
 export const Default = Template.bind({});
 Default.args = {
-  alignCenter: false,
-  bannerText: "Hi, This is a banner.",
+  textAlign: 'start',
+  bannerText: 'Big news! We are excited to announce a brand new product.',
   sticky: false,
-  position: "top",
-  colorVariant: "primary"
-};
-
-export const With_icon = Template.bind({});
-With_icon.args = {
-  alignCenter: false,
-  bannerText: "Hi, This is a banner.",
-  sticky: false,
-  position: "top",
-  colorVariant: "primary",
-  icon: "information",
-};
-
-export const With_close_button = Template.bind({});
-With_close_button.args = {
-  alignCenter: false,
-  bannerText: "Hi, This is a banner.",
-  sticky: false,
-  position: "top",
-  colorVariant: "primary",
-  icon: "information",
-  closeButton: true
+  position: 'top',
+  colorVariant: 'info',
+  icon:'information',
+  iconHeight: '20px',
+  iconWidth: '20px',
+  iconStroke: true,
+  iconFill: false
 };
