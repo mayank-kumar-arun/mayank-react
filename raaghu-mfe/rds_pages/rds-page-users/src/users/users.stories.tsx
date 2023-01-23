@@ -1,16 +1,19 @@
 import React from "react";
 import { ComponentStory, ComponentMeta, addDecorator } from "@storybook/react";
-import Roles from "./Roles";
+import RdsPageUsers from "./users";
 import { Provider } from "react-redux";
 import { store } from "../../../../libs/public.api";
 import { BrowserRouter } from "react-router-dom";
+
 export default {
-  title: "Pages/Roles",
-  component: Roles,
-} as ComponentMeta<typeof Roles>;
-const Template: ComponentStory<typeof Roles> = (args) => (
-  <Roles {...args} />
+  title: "Pages/Users",
+  component: RdsPageUsers,
+} as ComponentMeta<typeof RdsPageUsers>;
+
+const Template: ComponentStory<typeof RdsPageUsers> = () => (
+  <RdsPageUsers />
 );
 
 export const Default = Template.bind({});
+
 Default.args = {};
