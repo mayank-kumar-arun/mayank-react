@@ -7,12 +7,13 @@ import {
   RdsBadge,
   RdsBanner,
   RdsButton,
-  RdsIcon,
   RdsInput,
   RdsNavtabs,
   RdsOffcanvas,
   RdsSearch,
 } from "../rds-elements";
+import { useEffect } from "@storybook/addons";
+import { setDate } from "date-fns/esm";
 
 export interface RdscompRoleListProps {
   listItems?: any;
@@ -32,7 +33,7 @@ export interface RdscompRoleListProps {
   pagination: boolean;
   permission: any[];
   enablecheckboxselection?: boolean;
-  onActionSelection(arg: any): any;
+  // onActionSelection(arg: any): any;
   onRefresh?: (Event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   onSearch?: (Event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   onFilterByPermissions?: (id: any) => void;
@@ -43,10 +44,176 @@ const RdscompRoleList = (props: RdscompRoleListProps) => {
   const [activeNavTabId, setActiveNavTabId] = useState(0);
   const [activeNavTabIdE, setActiveNavTabIdE] = useState(0);
   const [data, setdata] = useState(props.tableData);
+  const [name, setname] = useState({
+    displayName: "",
+    isDefault: false,
+    ctime: "",
+    id: "",
+  });
+
+  const onDeleteHandler = () => {
+    let tempData = data.map((element: any) => {
+      if (element.id === name.id) {
+        return;
+      } else {
+        return element;
+      }
+    });
+
+    console.log(tempData);
+    setdata(tempData);
+  };
+
+  const onNewRole = () => {
+    setname({
+      displayName: "",
+      isDefault: false,
+      ctime: "",
+      id: "",
+    });
+  };
+
+  const nameChangeHandler = (e: any) => {
+    setname({ ...name, displayName: e.target.value });
+  };
+
+  const onActionSelection = (
+    clickEvent: any,
+    tableDataRow: any,
+    tableDataRowIndex: number,
+    action: {
+      displayName: string;
+      id: string;
+      offId?: string;
+      modalId?: string;
+    }
+  ) => {
+    setname({
+      ...name,
+      displayName: tableDataRow.displayName,
+      isDefault: tableDataRow.isDefault,
+      id: tableDataRow.id,
+    });
+  };
+
+  const onEditHandler = () => {
+    let tempData = data.map((element: any) => {
+      if (element.id === name.id) {
+        if (name.isDefault) {
+          console.log("hellooooo", name.isDefault);
+          return {
+            ...element,
+            displayName: name.displayName,
+            role: {
+              children: (
+                <>
+                  {name.displayName}
+                  <span className={`ms-1`}>
+                    <RdsBadge
+                      label={"Default"}
+                      colorVariant={"success"}
+                    ></RdsBadge>{" "}
+                  </span>
+                </>
+              ),
+            },
+            isDefault: name.isDefault,
+          };
+        } else {
+          return {
+            ...element,
+            displayName: name.displayName,
+            role: {
+              children: <>{name.displayName}</>,
+            },
+            isDefault: name.isDefault,
+          };
+        }
+      } else {
+        return element;
+      }
+    });
+
+    console.log(tempData);
+    setdata(tempData);
+  };
+
+  const onSaveHandler = (e: any) => {
+    const date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+
+    let currentTime = date.toLocaleString("en-IN", {
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      hour12: true,
+    });
+
+    let currentDate = `${day}/${month}/${year}, ${currentTime}`;
+
+    console.log(name);
+    setname({
+      displayName: name.displayName,
+      isDefault: name.isDefault,
+      ctime: "",
+      id: "",
+    });
+
+    if (name.isDefault) {
+      setdata([
+        ...data,
+        {
+          id: currentDate,
+          displayName: name.displayName,
+          isDefault: name.isDefault,
+          role: {
+            children: (
+              <>
+                {name.displayName}
+                <span className={`ms-1`}>
+                  <RdsBadge
+                    label={"Default"}
+                    colorVariant={"success"}
+                  ></RdsBadge>{" "}
+                </span>
+              </>
+            ),
+          },
+          ctime: currentDate,
+        },
+      ]);
+    } else {
+      setdata([
+        ...data,
+        {
+          id: currentDate,
+          displayName: name.displayName,
+          isDefault: name.isDefault,
+          role: {
+            children: <>{name.displayName}</>,
+          },
+          ctime: currentDate,
+        },
+      ]);
+    }
+    setname({
+      displayName: "",
+      isDefault: false,
+      ctime: "",
+      id: "",
+    });
+  };
+
+  const onCheckBoxHandler = (e: any) => {
+    setname({ ...name, isDefault: e.target.checked });
+  };
+
   return (
     <>
       <div>
-        <div className="d-flex justify-content-end btn-sm  ">
+        <div className="d-flex justify-content-end btn-sm">
           <div className="d-flex justify-content-end">
             <RdsButton
               class="me-3 rounded-pill btn-icon btn-sm"
@@ -106,7 +273,7 @@ const RdscompRoleList = (props: RdscompRoleListProps) => {
             <RdsOffcanvas
               offcanvasbutton={
                 <RdsButton
-                  onClick={props.onNewRole}
+                  onClick={onNewRole}
                   class="btn-sm"
                   type={"button"}
                   colorVariant="primary"
@@ -154,6 +321,8 @@ const RdscompRoleList = (props: RdscompRoleListProps) => {
                       label="Role Name"
                       redAsteriskPresent={true}
                       placeholder={"Role Name"}
+                      onChange={nameChangeHandler}
+                      value={name.displayName}
                     ></RdsInput>
                     <div className="mt-2">
                       <input
@@ -162,6 +331,8 @@ const RdscompRoleList = (props: RdscompRoleListProps) => {
                         id="Default"
                         name="Default"
                         value="Default"
+                        checked={name.isDefault}
+                        onChange={onCheckBoxHandler}
                       />
                       <label className="ms-2" htmlFor="Default">
                         {" "}
@@ -185,12 +356,7 @@ const RdscompRoleList = (props: RdscompRoleListProps) => {
               )}
 
               <div className="" style={{ position: "fixed", bottom: "5%" }}>
-                <div>
-                  {/* <RdsBanner
-                    colorVariant="primary"
-                    bannerText="If you are changing your own permissions, you may need to refresh page (F5) to take effect of permission changes on your own screen!"
-                  ></RdsBanner> */}
-                </div>
+                <div></div>
                 <RdsAlert
                   alertmessage={
                     "If you are changing your own permissions, you may need to refresh page (F5) to take effect of permission changes on your own screen!"
@@ -213,6 +379,7 @@ const RdscompRoleList = (props: RdscompRoleListProps) => {
                       colorVariant="primary"
                       type={"button"}
                       label="Save"
+                      onClick={onSaveHandler}
                     ></RdsButton>
                   </div>
                 </div>
@@ -229,7 +396,7 @@ const RdscompRoleList = (props: RdscompRoleListProps) => {
           pagination={props.pagination}
           recordsPerPageSelectListOption={true}
           recordsPerPage={5}
-          onActionSelection={props.onActionSelection}
+          onActionSelection={onActionSelection}
         ></RdsCompDatatable>
         <RdsOffcanvas
           placement={"end"}
@@ -268,7 +435,9 @@ const RdscompRoleList = (props: RdscompRoleListProps) => {
                 <RdsInput
                   label="Role Name"
                   redAsteriskPresent={true}
-                  placeholder={"Role Name"}
+                  placeholder={"Edit Role Name"}
+                  onChange={nameChangeHandler}
+                  value={name.displayName}
                 ></RdsInput>
                 <div className="mt-2">
                   <input
@@ -276,7 +445,8 @@ const RdscompRoleList = (props: RdscompRoleListProps) => {
                     type="checkbox"
                     id="Default"
                     name="Default"
-                    value="Default"
+                    onChange={onCheckBoxHandler}
+                    checked={name.isDefault}
                   />
                   <label className="ms-2" htmlFor="Default">
                     {" "}
@@ -321,12 +491,13 @@ const RdscompRoleList = (props: RdscompRoleListProps) => {
                   colorVariant="primary"
                   type={"button"}
                   label="Save"
+                  onClick={onEditHandler}
                 ></RdsButton>
               </div>
             </div>
           </div>
         </RdsOffcanvas>
-        <RdsCompAlertPopup alertID="Del" />
+        <RdsCompAlertPopup alertID="Del" onSuccess={onDeleteHandler} />
       </div>
     </>
   );

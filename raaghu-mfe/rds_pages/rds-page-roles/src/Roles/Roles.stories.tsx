@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta, addDecorator } from "@storybook/react";
-import Roles from './Roles'
+import Roles from "./Roles";
 import { Provider } from "react-redux";
 import { store } from "../../../../libs/public.api";
 import { BrowserRouter } from "react-router-dom";

@@ -12,7 +12,7 @@ export interface RdsIconProps {
   stroke?: boolean;
   strokeWidth?: string;
   borderRadius?: string;
-  onClick?: (event: React.MouseEvent<SVGSVGElement>) => void;
+  onClick?: React.MouseEventHandler<HTMLElement>;
   opacity?: string;
   isAnimate?: boolean;
   class?: any;
@@ -94,6 +94,8 @@ const RdsIcon = (props: RdsIconProps) => {
   return (
     <span
       className={props.class}
+      onClick={props.onClick}
+      style={{ cursor: "pointer" }}
       dangerouslySetInnerHTML={{ __html: stringData }}
     />
   );
