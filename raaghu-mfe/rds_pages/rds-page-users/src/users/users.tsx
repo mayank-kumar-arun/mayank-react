@@ -200,7 +200,7 @@ const Users = () => {
   return (
     <div>
       <div className="row">
-        <div className="col-md-12 d-flex justify-content-end mb-2">
+        <div className="col-md-12 d-flex justify-content-end mb-3">
           <RdsButton
             type={"button"}
             size="small"
@@ -361,6 +361,7 @@ const Users = () => {
           </RdsOffcanvas>
         </div>
         <div className="col-md-12 mb-3">
+          <div className="card p-2 h-100 border-0 rounded-0 card-full-stretch">
           <RdsCompDatatable
             tableHeaders={tableHeaders}
             tableData={tableData}
@@ -382,6 +383,7 @@ const Users = () => {
               throw new Error("Function not implemented.");
             }}
           ></RdsCompDatatable>
+          </div>
         </div>
       </div>
     </div>
