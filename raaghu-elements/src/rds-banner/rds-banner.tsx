@@ -20,7 +20,6 @@ closeButton?: boolean;
  textAlign: 'start' | 'end' | 'center' ;
  iconHeight: string ;
  iconWidth: string ;
-// iconSize:string ;
  iconStroke: boolean ;
  iconFill: boolean ;
 }
@@ -34,7 +33,6 @@ const RdsBanner = (props: RdsBannerProps) => {
   let sticky= (props.sticky===true?`m-auto ${position} ` : '');
   let bgColor = props.colorVariant?'alert-' + `${props.colorVariant} text-dark`:'';
   let classes = ` ${textAlign} ${sticky} ${bgColor} `;
-  console.log("iconStroke" , iconStroke)
   return (
     <>
     <div className={`alert d-flex align-items-center fade show ${classes}`} role="alert" >
