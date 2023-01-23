@@ -126,5 +126,3 @@ StackOpen.args = {
     </>
   ),
 };
-
-
