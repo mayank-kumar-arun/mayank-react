@@ -413,7 +413,7 @@ const Tenant = (props: RdsPageTenantProps) => {
   const [showTenantSettings, setShowTenantSettings] = useState(false);
   const offCanvasButton =
     '<RdsButton icon = "plus" iconColorVariant="light" size = "medium" type = "button" colorVariant = "primary" label = "NEW TENANT"/>';
-    return (
+  return (
     <div className="tenant text-uppercase">
       <RdsOffcanvas
         canvasTitle={t("New Tenant")}
@@ -463,11 +463,16 @@ const Tenant = (props: RdsPageTenantProps) => {
           <RdsCompTenantSettings showEditData={true} />
         )}
       </RdsOffcanvas>
-      <RdsCompTenantList
-        tableHeaders={tableHeaders}
-        tableData={tableData}
-        actions={actions}
-      />
+      <div className="card p-2 h-100 border-0 rounded-0 card-full-stretch mt-3">
+        <RdsCompTenantList
+          tableHeaders={tableHeaders}
+          tableData={tableData}
+          actions={actions}
+          pagination={true}
+          recordsPerPage={10}
+          recordsPerPageSelectListOption={true}
+        />
+      </div>
     </div>
   );
 };

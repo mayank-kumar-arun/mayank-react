@@ -141,7 +141,7 @@ const Users = () => {
   const navtabsItems = [
     { label: "User Information", tablink: "#nav-home", id: 0 },
     { label: "Roles", tablink: "#nav-profile", id: 1 },
-    { label: "Organization Units", tablink: "#nav-organization-unit", id: 2 }
+    { label: "Organization Units", tablink: "#nav-organization-unit", id: 2 },
   ];
 
   const offCanvasHandler = () => {};
@@ -355,34 +355,32 @@ const Users = () => {
                 </div>
               </div>
             )}
-            {(activeNavTabId == 2 || showTenantSettings == true) && (
-              <div></div>
-            )}
+            {(activeNavTabId == 2 || showTenantSettings == true) && <div></div>}
           </RdsOffcanvas>
         </div>
         <div className="col-md-12 mb-3">
           <div className="card p-2 h-100 border-0 rounded-0 card-full-stretch">
-          <RdsCompDatatable
-            tableHeaders={tableHeaders}
-            tableData={tableData}
-            actions={actions}
-            tableBordered={false}
-            pagination={true}
-            recordsPerPage={5}
-            recordsPerPageSelectListOption={true}
-            onActionSelection={function (
-              clickEvent: any,
-              tableDataRow: any,
-              tableDataRowIndex: number,
-              action: {
-                displayName: string;
-                id: string;
-                offId?: string | undefined;
-              }
-            ): void {
-              throw new Error("Function not implemented.");
-            }}
-          ></RdsCompDatatable>
+            <RdsCompDatatable
+              tableHeaders={tableHeaders}
+              tableData={tableData}
+              actions={actions}
+              tableBordered={false}
+              pagination={true}
+              recordsPerPage={5}
+              recordsPerPageSelectListOption={true}
+              onActionSelection={function (
+                clickEvent: any,
+                tableDataRow: any,
+                tableDataRowIndex: number,
+                action: {
+                  displayName: string;
+                  id: string;
+                  offId?: string | undefined;
+                }
+              ): void {
+                throw new Error("Function not implemented.");
+              }}
+            ></RdsCompDatatable>
           </div>
         </div>
       </div>
