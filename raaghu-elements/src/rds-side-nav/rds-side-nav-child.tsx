@@ -125,7 +125,7 @@ const Node = ({
                     stroke={true}
                     height="20px"
                     width="20px"
-                    class="me-3"
+                    classes="me-3"
                   ></RdsIcon>
                 </div>
               ) : null}
@@ -151,7 +151,7 @@ const Node = ({
                   stroke={true}
                   height="20px"
                   width="20px"
-                  class="me-3"
+                  classes="me-3"
                 ></RdsIcon>
               </div>
             ) : null}
@@ -164,7 +164,7 @@ const Node = ({
               stroke={true}
               height="10px"
               width="10px"
-              class="ms-4 me-3"
+              classes="ms-4 me-3"
             ></RdsIcon>
           </div>
         </div>
