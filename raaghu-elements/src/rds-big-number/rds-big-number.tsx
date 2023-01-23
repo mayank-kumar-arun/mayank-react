@@ -5,17 +5,18 @@ import "./rds-big-number.scss";
 export interface RdsBigNumberProps {
   colorVariant?: string;
   subTitleColorVariant?: string;
-  bigNumber:string 
+  bigNumber:string ;
+	bigNumberColor?:string;
   subTitle?:string,
   class?:string,
-  icon: string ;
-  iconHeight: string ;
-  iconStroke: boolean;
-  iconFill: boolean ;
-  iconWidth: string ;
-  iconColor :string;
-  children:ReactNode;
-  textAlign: 'text-start' | 'text-center' | 'text-end';
+  icon?: string ;
+  iconHeight?: string ;
+  iconStroke?: boolean;
+  iconFill?: boolean ;
+  iconWidth?: string ;
+  iconColor?:string;
+  children?:ReactNode;
+  textAlign?: 'text-start' | 'text-center' | 'text-end';
 
 }
 
@@ -27,7 +28,17 @@ const RdsBigNumber = (props: RdsBigNumberProps) => {
 	let subTitleColor = "text-" + (props.subTitleColorVariant || "primary");
 	return (
 		<Fragment>
-				<div
+			{!props.children && <div className="card border-0 bg-transparent">
+				<div className="text-start">
+           <h1 className={`text-${props.bigNumberColor}`}>{props.bigNumber}</h1>
+					 <h6 className={`text-${props.subTitleColorVariant}`}>
+						  <RdsIcon name={props.icon} fill={props.iconFill} class="ms-1" stroke={props.iconStroke} height={props.iconHeight} width={props.iconWidth}></RdsIcon>
+							{props.subTitle}
+					 </h6>
+				</div>
+
+			</div>}
+			{props.children && <div
 					className={
 						"border-top  border-3  d-flex justify-content-center align-items-center big-number p-3 gap-4" +
 						borderColor
@@ -46,7 +57,7 @@ const RdsBigNumber = (props: RdsBigNumberProps) => {
 							{props.children}
 						</div>
 					</div>
-				</div>
+				</div>}
 			
 		</Fragment>
 	);
