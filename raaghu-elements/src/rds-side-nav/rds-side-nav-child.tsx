@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import RdsIcon from "../rds-icon";
 import "./rds-side-nav-new.scss";
 import RdsToggle from "../rds-toggle/rds-toggle";
+import RdsDropdown from "../rds-dropdown";
 
 const RdsSideNavChild = ({
   data,
@@ -33,8 +34,6 @@ const RdsSideNavChild = ({
 
   return (
     <>
-      {/* list-unstyled mb-0 py-2 px-4 h-100 */}
-
       <ul
         className={`mb-0 py-2 px-4 h-100 ps-1 ${
           count == 1
@@ -54,37 +53,37 @@ const RdsSideNavChild = ({
               onClickHandler={onClickHandler}
             ></Node>
           ))}
-        <li>
-          <div
-            className={`sidenav-footer text-center ${collapse ? "w-auto" : ""}`}
-          >
-            <div className="ms-3">
-              <div className="text-center mb-3">
-                <RdsIcon
-                  name="grid_square"
-                  height="23px"
-                  width="23px"
-                  stroke={true}
-                  fill={false}
-                  onClick={onCollapse}
-                ></RdsIcon>
-              </div>
-              <div className="darkTheme text-center">
-                <a
-                  className={` d-inline-flex align-items-center text-decoration-none text-uppercase `}
-                >
-                  <RdsToggle
-                    small={collapse}
-                    iconOnUncheck={"sun"}
-                    iconOnCheck={"moon"}
-                    onClick={toggleTheme}
-                  ></RdsToggle>
-                </a>
-              </div>
+      </ul>
+      <span>
+        <div
+          className={`sidenav-footer text-center ${collapse ? "w-auto" : ""}`}
+        >
+          <div className="ms-3">
+            <div className="text-center mb-3">
+              <RdsIcon
+                name="grid_square"
+                height="23px"
+                width="23px"
+                stroke={true}
+                fill={false}
+                onClick={onCollapse}
+              ></RdsIcon>
+            </div>
+            <div className="darkTheme text-center">
+              <a
+                className={` d-inline-flex align-items-center text-decoration-none text-uppercase `}
+              >
+                <RdsToggle
+                  small={collapse}
+                  iconOnUncheck={"sun"}
+                  iconOnCheck={"moon"}
+                  onClick={toggleTheme}
+                ></RdsToggle>
+              </a>
             </div>
           </div>
-        </li>
-      </ul>
+        </div>
+      </span>
     </>
   );
 };
@@ -113,7 +112,9 @@ const Node = ({
         <Link
           to={node.path}
           onClick={onClickHandler}
-          className="routingLink d-inline-flex align-items-center text-decoration-none text-uppercase"
+          className={`routingLink d-inline-flex align-items-center ${
+            count == 1 ? "text-uppercase" : ""
+          }text-decoration-none `}
         >
           <div className="d-flex">
             <div className="col d-flex align-items-center">
@@ -139,7 +140,7 @@ const Node = ({
 
       {hasChild && (
         <div
-          className="text-decoration-none text-uppercase d-flex align-items-center"
+          className="text-decoration-none d-flex align-items-center"
           onClick={(e) => setChildVisibility((v) => !v)}
         >
           <div className="col d-flex align-items-center">
@@ -155,7 +156,11 @@ const Node = ({
                 ></RdsIcon>
               </div>
             ) : null}
-            <div>{!collapse && <>{node.label}</>}</div>
+            <div>
+              {!collapse && (
+                <span className="text-uppercase">{node.label}</span>
+              )}
+            </div>
           </div>
           <div className="me-2">
             <RdsIcon
