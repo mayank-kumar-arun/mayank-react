@@ -141,7 +141,7 @@ const Users = () => {
   const navtabsItems = [
     { label: "User Information", tablink: "#nav-home", id: 0 },
     { label: "Roles", tablink: "#nav-profile", id: 1 },
-    { label: "Organization Units", tablink: "#nav-organization-unit", id: 2 }
+    { label: "Organization Units", tablink: "#nav-organization-unit", id: 2 },
   ];
 
   const offCanvasHandler = () => {};
@@ -355,9 +355,7 @@ const Users = () => {
                 </div>
               </div>
             )}
-            {(activeNavTabId == 2 || showTenantSettings == true) && (
-              <div></div>
-            )}
+            {(activeNavTabId == 2 || showTenantSettings == true) && <div></div>}
           </RdsOffcanvas>
         </div>
         <div className="col-md-12 mb-3">
