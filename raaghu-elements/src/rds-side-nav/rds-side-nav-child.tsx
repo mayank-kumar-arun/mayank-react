@@ -145,16 +145,54 @@ const Node = ({
         >
           <div className="col d-flex align-items-center">
             {count == 1 ? (
-              <div>
-                <RdsIcon
-                  name={node.icon}
-                  fill={false}
-                  stroke={true}
-                  height="20px"
-                  width="20px"
-                  classes="me-3"
-                ></RdsIcon>
-              </div>
+              <>
+                {collapse ? (
+                  <>
+                    <div className="btn-group dropend">
+                      <a
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        // data-bs-offset="3,25"
+                        data-bs-auto-close="outside"
+                        aria-expanded="false"
+                        id="side-dropdown2"
+                      >
+                        <RdsIcon
+                          name={node.icon}
+                          fill={false}
+                          stroke={true}
+                          height="20px"
+                          width="20px"
+                          classes="me-3"
+                        ></RdsIcon>
+                      </a>
+                      <ul
+                        className="dropdown-menu shadow p-3"
+                        aria-labelledby="side-dropdown2"
+                      >
+                        {node.children.map((item: any) => (
+                          <>
+                            <li className="list" id={item.id}>
+                              <a className="dropdown-item" href={item.path}>
+                                {item.label}
+                              </a>
+                            </li>
+                          </>
+                        ))}
+                      </ul>
+                    </div>
+                  </>
+                ) : (
+                  <RdsIcon
+                    name={node.icon}
+                    fill={false}
+                    stroke={true}
+                    height="20px"
+                    width="20px"
+                    classes="me-3"
+                  ></RdsIcon>
+                )}
+              </>
             ) : null}
             <div>
               {!collapse && (
