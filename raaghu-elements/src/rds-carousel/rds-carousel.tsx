@@ -61,12 +61,6 @@ const RdsCarousel = (props: RdsCarouselProps) => {
                   className="d-block w-100"
                   alt="..."
                 />
-                <div className="carousel-caption d-none d-md-block">
-                  <h5>First slide label</h5>
-                  <p>
-                    Some representative placeholder content for the first slide.
-                  </p>
-                </div>
               </div>
             ))}
           </div>
@@ -107,7 +101,7 @@ const RdsCarousel = (props: RdsCarouselProps) => {
           className={
             Fade === true ? "carousel slide carousel-fade" : "carousel slide "
           }
-          data-bs-ride="false"
+          data-bs-ride="slide"
         >
           {props.Indicators === true && (
             <div className="carousel-indicators">
@@ -133,7 +127,7 @@ const RdsCarousel = (props: RdsCarouselProps) => {
                   carouselItem.id == 1 ? "active" : ""
                 }`}
               >
-                <div className="content">
+                <div className="content text-center">
                   <span>
                   <RdsIcon name="quote" height="20px" width="20px" fill={false} stroke={true} ></RdsIcon>
                   <img
@@ -163,7 +157,7 @@ const RdsCarousel = (props: RdsCarouselProps) => {
               data-bs-slide="prev"
             >
               <span
-                className="carousel-control-prev-icon "
+                className="carousel-control-prev-icon  "
                 aria-hidden="true"
               ></span>
               <span className="visually-hidden">Previous</span>

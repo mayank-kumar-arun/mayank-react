@@ -23,7 +23,6 @@ const Template: ComponentStory<typeof RdsCarousel> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  role:"advanced",
   Indicators: true,
   crossFade: true,
   controls: true,
@@ -53,7 +52,9 @@ Advanced.args = {
   Indicators: true,
   crossFade: true,
   controls: true,
+  role:"advanced",
   carouselItems: [
+    
 
     {
       id:1,
