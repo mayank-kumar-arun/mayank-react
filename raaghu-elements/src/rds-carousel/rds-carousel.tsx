@@ -51,6 +51,7 @@ const RdsCarousel = (props: RdsCarouselProps) => {
           <div className="carousel-inner">
             {props.carouselItems.map((carouselItem) => (
               <div
+              key ={carouselItem.id}
                 className={`carousel-item ${
                   carouselItem.id == 1 ? "active" : ""
                 }`}
@@ -112,6 +113,7 @@ const RdsCarousel = (props: RdsCarouselProps) => {
             <div className="carousel-indicators">
                {props.carouselItems.map((carouselItem) => (
                 <button
+                key ={carouselItem.id}
                 tabIndex={0}
                   type="button"
                   data-bs-target="#carouselExampleCaptions"
@@ -126,6 +128,7 @@ const RdsCarousel = (props: RdsCarouselProps) => {
           <div className="carousel-inner">
             {props.carouselItems.map((carouselItem) => (
               <div
+              key ={carouselItem.id}
                 className={`carousel-item ${
                   carouselItem.id == 1 ? "active" : ""
                 }`}
