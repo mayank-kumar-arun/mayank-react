@@ -1,64 +1,10 @@
 @import "../style.scss";
 
-// #sidebar{
-
-//     width: 290px;
-//     background-color: #F5F5FA;
-//     position: relative !important;
-
-// }
-
-// .listsItems{
-//     height: calc(100vh - 200px)!important;
-//     overflow-y: auto;
-//     overflow-x: hidden;
-// }
-
-// .list-style-disc{
-//     list-style-type: disc;
-// }
-// // #sidebar ul {
-
-// // }
-
-// // ul:first-of-type  {
-// //     overflow-y: auto;
-// //     overflow-x: hidden;
-// //   }
-
-// .sidebarList{
-//     padding:0;
-//     width:100%;
-// }
-
-// .sidebarList .listRow {
-//     width: 100%;
-//     // list-style-type: none;
-//     margin: 0;
-// }
-
-// .list{
-//     display: flex;flex-direction: row;
-//     color: #767F86;
-//     height: 35px;
-//     font-size: 0.7rem;
-// }
-
-// // .darkTheme{
-//     // position: absolute;
-//     // top: 88%;
-//     // left: 33%;
-// // }
-
-// .gridIcon{
-//     position: absolute;
-//     top: 80%;
-//     left: 45%;
-// }
-
-// .routingLink{
-//     all: unset;
-//     text-decoration: none;
-// }
-
-
+.dropdown-menu {
+  position: fixed !important;
+  left: 20px !important;
+}
+.list{
+    list-style :disc ;
+    
+}
