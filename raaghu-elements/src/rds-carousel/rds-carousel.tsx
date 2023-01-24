@@ -14,8 +14,6 @@ const RdsCarousel = (props: RdsCarouselProps) => {
   const Role = `${props.hasOwnProperty("role") ? props.role : "basic"}`;
   let Fade = props.crossFade || false;
 
-  //let length = props.carouselItems.length - 1;
-
   return (
     <Fragment>
       {Role == "basic" && (
@@ -102,7 +100,7 @@ const RdsCarousel = (props: RdsCarouselProps) => {
         </div>
       )}
 
-      {/* {Role == "advanced" && (
+      {Role == "advanced" && (
         <div
           id="carouselExampleCaptions"
           className={
@@ -176,51 +174,15 @@ const RdsCarousel = (props: RdsCarouselProps) => {
               data-bs-slide="next"
             >
               <span
-                className="carousel-control-next-icon next-icon"
+                className="carousel-control-next-icon "
                 aria-hidden="true"
               ></span>
               <span className="visually-hidden">Next</span>
             </button>
           )}
         </div>
-      )} */}
+      )}
     </Fragment>
   );
 };
 export default RdsCarousel;
-// @import "../style.scss";
-
-// .prev-icon {
-//   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
-//  }
-
-//  .next-icon {
-//    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
-//  }
-//  .prev-icon, .next-icon {
-//   width: 1.5rem !important;
-//   height: 1.2rem !important;
-
-// }
-
-// .iconImage{
-//   height: 100px;
-//   width: 100px;
-//   border-radius: 50px;
-//   justify-self: center;
-//   margin: 10px;
-// }
-// .indicators [data-bs-target] {
-
-//   background-color: #6d6d6d !important;
-
-// }
-// .content{
-//   display: grid;
-//   justify-content: center;
-//   text-align: center;
-// }
-// .subtitle{
-//   margin-left: 4rem;
-//   margin-right: 4rem;
-// }
