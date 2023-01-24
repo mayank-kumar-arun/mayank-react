@@ -50,8 +50,8 @@ export const withInitials = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 withInitials.args = {
   colorVariant: "primary",
-  firstName: "Sania",
-  lastName: "Sonkaria",
+  firstName: "Wai",
+  lastName: "Technologies",
   size: "medium",
 };
 
@@ -60,9 +60,10 @@ withInitials.argTypes = colorVariantArgTypes;
 export const withLabel = Template.bind({});
 withLabel.args = {
   colorVariant: "primary",
-  firstName: "Mayank",
-  lastName: "Kumar",
+  firstName: "Wai",
+  lastName: "Technologies",
   size: "medium",
+	isTitle: true,
   titleAlign: "horizontal",
   role: "Developer",
 };
@@ -74,8 +75,8 @@ export const withProfile = Template.bind({});
 withProfile.args = {
   size: "small",
   withProfilePic: true,
-  firstName: "Mayank",
-  lastName: "Kumar",
+  firstName: "Wai",
+  lastName: "Technologies",
   titleAlign: "horizontal",
   role: "Developer",
   profilePic:
