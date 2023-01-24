@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 export interface RdsDropdownProps {
   colorVariant: string;
@@ -8,9 +8,10 @@ export interface RdsDropdownProps {
   direction: string;
   role: string;
   listItems: any[];
-  splitButton: boolean;
+
   split: boolean;
   id: string;
+  button: ReactNode;
 }
 
 const RdsDropdown = (props: RdsDropdownProps) => {
@@ -33,12 +34,6 @@ const RdsDropdown = (props: RdsDropdownProps) => {
     dropdowndirection = undefined;
   }
 
-  // const renderTooltip = (props: JSX.IntrinsicAttributes & TooltipProps & React.RefAttributes<HTMLDivElement>) => (
-  //   <Tooltip id="button-tooltip" {...props}>
-  //     Simple tooltip
-  //   </Tooltip>
-  // );
-
   return (
     <>
       <div className={`btn-group ${dropdowndirection} `}>
@@ -51,20 +46,35 @@ const RdsDropdown = (props: RdsDropdownProps) => {
           </button>
         )}
 
-        <button
-          className={`btn btn-${props.colorVariant} ${
-            props.split ? "dropdown-toggle-split" : ""
-          } dropdown-toggle ${size}`}
-          type="button"
-          data-bs-toggle="dropdown"
-          id={`dropdownMenuButton23${props.id}`}
-          aria-expanded="false"
-        >
-          {!props.split && props.label}{" "}
-          {props.split && (
-            <span className="visually-hidden">Toggle Dropdown</span>
-          )}
-        </button>
+        {!props.button ? (
+          <>
+            <button
+              className={`btn btn-${props.colorVariant} ${
+                props.split ? "dropdown-toggle-split" : ""
+              } dropdown-toggle ${size}`}
+              type="button"
+              data-bs-toggle="dropdown"
+              id={`dropdownMenuButton23${props.id}`}
+              aria-expanded="false"
+            >
+              {!props.split && <>{props.label}hhh</>}{" "}
+              {props.split && (
+                <span className="visually-hidden">Toggle Dropdown</span>
+              )}
+            </button>
+          </>
+        ) : (
+          <>
+            <div
+              className={`dropdown-toggle`}
+              data-bs-toggle="dropdown"
+              id={`dropdownMenuButton23${props.id}`}
+              aria-expanded="false"
+            >
+              <>{props.button}</>
+            </div>
+          </>
+        )}
 
         <ul
           style={{ width: "auto" }}
@@ -75,8 +85,8 @@ const RdsDropdown = (props: RdsDropdownProps) => {
         >
           {props.listItems.map((listItem) => (
             <li id={listItem.id}>
-              <a className="dropdown-item" href={listItem.href}>
-                {listItem.value}
+              <a className="dropdown-item" href={listItem.path}>
+                {listItem.label}
               </a>
             </li>
           ))}
