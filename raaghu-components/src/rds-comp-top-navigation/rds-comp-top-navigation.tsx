@@ -154,12 +154,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
               >
                 <img
                   src="./assets/profile-picture-circle.svg"
-                  style={{
-                    width: "20px",
-                    height: "20px",
-                    borderRadius: "50%",
-                    border: "solid 1px grey",
-                  }}
+                  className="avatar bg-light avatar-sm rounded rounded-circle mb-0"
                 ></img>
                 <div className="ms-2 fw-bold fs-6">
                   <div>
