@@ -359,7 +359,7 @@ const Main = (props: MainProps) => {
             >
               <div
                 className="d-flex flex-column-fluid align-items-stretch container-fluid px-0 main-body ng-tns-c99-0"
-                style={{ marginTop: "58px" }}
+                style={{ marginTop: "68px" }}
               >
                 <div className="aside ng-tns-c99-0" id="aside">
                   <div className="">
