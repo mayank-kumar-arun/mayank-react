@@ -30,6 +30,7 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
       ? `${props.offcanvaswidth}px`
       : "100% "
   }`;
+  let isCanvasTitle =props.canvasTitle !== "" && props.canvasTitle !== undefined;
   
   return (
     <>
@@ -55,11 +56,10 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
         aria-labelledby={`'canvas' +${props.offId}`}
         style={{ width: Width }}
       >
-        {props.canvasTitle !== "" && props.canvasTitle !== undefined ? (
-          <div className="offcanvas-header">
-            <h5 className="offcanvas-title" id={`'canvas' +${props.offId}`}>
+         <div className={`${isCanvasTitle?'offcanvas-header':"offcanvas-header border-0"}`}>
+            {isCanvasTitle && <h5 className="offcanvas-title" id={`'canvas' +${props.offId}`}>
               {props.canvasTitle}
-            </h5>
+            </h5>}
             <button
               type="button"
               className="btn-close text-reset offcanvas-close"
@@ -68,20 +68,6 @@ const RdsOffcanvas = (props: RdsOffcanvasProps) => {
               aria-label="Close"
             ></button>
           </div>
-        ) : (
-          
-          <div className="offcanvas-header">
-            {" "}
-            <button
-              type="button"
-              className="btn-close text-reset offcanvas-close"
-              onClick={props.onClose}
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>{" "}
-          </div>
-        )}
-
         <div className={`offcanvas-body ${props.className}`}>
           {props.children}
         </div>
