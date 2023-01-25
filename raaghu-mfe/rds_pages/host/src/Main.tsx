@@ -362,7 +362,7 @@ const Main = (props: MainProps) => {
                 className="d-flex flex-column-fluid align-items-stretch container-fluid px-0 main-body"
               >
                 <div className="aside ng-tns-c99-0" id="aside">
-                  <div className="">
+                  <div className="mx-2 pt-2">
                     <RdsCompSideNavigation
                       sideNavItems={sideNavItems}
                       onClick={sideNavOnClickHandler}

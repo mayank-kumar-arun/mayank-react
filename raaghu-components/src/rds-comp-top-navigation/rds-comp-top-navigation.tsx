@@ -6,6 +6,7 @@ import {
   RdsIcon,
   RdsNotification,
   RdsOffcanvas,
+  RdsAvatar
 } from "../rds-elements";
 
 export interface RdsCompTopNavigationProps {
@@ -66,7 +67,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
   return (
     <div>
       <nav
-        className={`navbar d-flex justify-content-between ps-2 pe-3 fixed-top`}
+        className={`navbar d-flex justify-content-between p-0 ps-2 pe-3 fixed-top`}
       >
         <div className="d-flex align-items-center">
           <span className="navbar-brand p-0 m-0">
@@ -152,7 +153,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
                 className="d-flex align-items-center"
                 style={{ cursor: "pointer" }}
               >
-                <img
+                <img className="avatar bg-light avatar-sm rounded rounded-circle mb-0"
                   src="./assets/profile-picture-circle.svg"
                   className="avatar bg-light avatar-sm rounded rounded-circle mb-0"
                 ></img>
@@ -197,3 +198,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 };
 
 export default RdsCompTopNavigation;
+
+
+
+
