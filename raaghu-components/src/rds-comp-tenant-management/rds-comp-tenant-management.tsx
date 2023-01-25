@@ -73,8 +73,9 @@ const RdsCompTenantManagement = (props: RdsCompTenantManagementProps) => {
             <label>Edition</label>
             <div className="form-group my-2">
               <RdsDropdownList
-               borderDropdown = {true}             
-                listItems={dropdownListItems}
+               borderDropdown = {true}   
+               placeholder='Edition'          
+               listItems={dropdownListItems}
               />
             </div>
           </div>

@@ -362,7 +362,7 @@ const Main = (props: MainProps) => {
                 style={{ marginTop: "58px" }}
               >
                 <div className="aside ng-tns-c99-0" id="aside">
-                  <div className="">
+                  <div className="mx-2 pt-2">
                     <RdsCompSideNavigation
                       sideNavItems={sideNavItems}
                       onClick={sideNavOnClickHandler}

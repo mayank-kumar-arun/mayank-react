@@ -106,7 +106,7 @@ const Settings = (props: RdsCompSettingsProps) => {
   ];
   return (
     <div className="tenant">
-      <div className="d-flex justify-content-end">
+      <div className="d-flex justify-content-end pb-3">
         <RdsButton
           icon="plus"
           iconColorVariant="light"
@@ -120,8 +120,10 @@ const Settings = (props: RdsCompSettingsProps) => {
           iconStroke={true}
         />
       </div>
-
-      <RdsNavtabs
+<div className="row">
+<div className="col-md-12">
+  <div className="card border-0 py-2 px-4 h-100 rounded-0 card-full-stretch ng-tns-c261-1">
+  <RdsNavtabs
         navtabsItems={navtabsItems}
         type="tabs"
         activeNavtabOrder={(activeNavTabId) => {
@@ -147,7 +149,12 @@ const Settings = (props: RdsCompSettingsProps) => {
       {activeNavTabId == 3 && <RdsCompEmail />}
       {activeNavTabId == 4 && <RdsCompInvoice />}
       {activeNavTabId == 5 && <RdsCompOtherSettings />}
-    </div>
+  </div>
+  
+  </div>
+  </div>
+</div>
+   
   );
 };
 
