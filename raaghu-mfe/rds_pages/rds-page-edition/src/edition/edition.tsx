@@ -269,7 +269,8 @@ const Edition = (props: RdsPageEditionProps) => {
   ];
   return (
     <div className="tenant">
-      <RdsOffcanvas
+        <div className="d-flex justify-content-end">
+        <RdsOffcanvas
         canvasTitle="NEW EDITION"
         onclick={offCanvasHandler}
         placement="end"
@@ -318,6 +319,8 @@ const Edition = (props: RdsPageEditionProps) => {
           <RdsCompPermissionTree familyTree={familyTree}/>
         )}
       </RdsOffcanvas>
+      </div>
+      <div className="card p-2 h-100 border-0 rounded-0 card-full-stretch mt-3">
       <RdsCompEditionList
       enablecheckboxselection={false}
         tableHeaders={tableHeaders}
@@ -328,7 +331,7 @@ const Edition = (props: RdsPageEditionProps) => {
         pagination={pagination}
         recordsPerPage={recordsPerPage}
         recordsPerPageSelectListOption={true}
-      />
+      /></div>
     </div>
   );
 };
