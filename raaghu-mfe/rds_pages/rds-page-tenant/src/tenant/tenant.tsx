@@ -413,61 +413,68 @@ const Tenant = (props: RdsPageTenantProps) => {
   const [showTenantSettings, setShowTenantSettings] = useState(false);
   const offCanvasButton =
     '<RdsButton icon = "plus" iconColorVariant="light" size = "medium" type = "button" colorVariant = "primary" label = "NEW TENANT"/>';
-    return (
+  return (
     <div className="tenant text-uppercase">
-      <RdsOffcanvas
-        canvasTitle={t("New Tenant")}
-        onclick={offCanvasHandler}
-        placement="end"
-        offcanvaswidth={830}
-        offcanvasbutton={
-          <div className="d-flex justify-content-end">
-            <RdsButton
-              icon="plus"
-              label={t("New Tenant") || ""}
-              iconColorVariant="light"
-              iconHeight="15px"
-              iconWidth="15px"
-              iconFill={false}
-              iconStroke={true}
-              block={false}
-              size="small"
-              type="button"
-              colorVariant="primary"
-            ></RdsButton>
-          </div>
-        }
-        backDrop={false}
-        scrolling={false}
-        preventEscapeKey={false}
-        offId={"tenant"}
-      >
-        <RdsNavtabs
-          navtabsItems={navtabsItems}
-          type="tabs"
-          isNextPressed={showTenantSettings}
-          activeNavTabId={activeNavTabId}
-          activeNavtabOrder={(activeNavTabId) => {
-            setActiveNavTabId(activeNavTabId), setShowTenantSettings(false);
-          }}
-        />
-        {activeNavTabId == 0 && showTenantSettings === false && (
-          <RdsCompTenantInformation
-            editionList={editionList}
-            tenantInfo={(showTenantSettings) => {
-              setShowTenantSettings(showTenantSettings), setActiveNavTabId(1);
+      <div className="d-flex justify-content-end">
+        <RdsOffcanvas
+          canvasTitle={t("New Tenant")}
+          onclick={offCanvasHandler}
+          placement="end"
+          offcanvaswidth={830}
+          offcanvasbutton={
+            <div className="d-flex justify-content-end">
+              <RdsButton
+                icon="plus"
+                label={t("New Tenant") || ""}
+                iconColorVariant="light"
+                iconHeight="15px"
+                iconWidth="15px"
+                iconFill={false}
+                iconStroke={true}
+                block={false}
+                size="small"
+                type="button"
+                colorVariant="primary"
+              ></RdsButton>
+            </div>
+          }
+          backDrop={false}
+          scrolling={false}
+          preventEscapeKey={false}
+          offId={"tenant"}
+        >
+          <RdsNavtabs
+            navtabsItems={navtabsItems}
+            type="tabs"
+            isNextPressed={showTenantSettings}
+            activeNavTabId={activeNavTabId}
+            activeNavtabOrder={(activeNavTabId) => {
+              setActiveNavTabId(activeNavTabId), setShowTenantSettings(false);
             }}
           />
-        )}
-        {(activeNavTabId == 1 || showTenantSettings == true) && (
-          <RdsCompTenantSettings showEditData={true} />
-        )}
-      </RdsOffcanvas>
-      <RdsCompTenantList
-        tableHeaders={tableHeaders}
-        tableData={tableData}
-        actions={actions}
-      />
+          {activeNavTabId == 0 && showTenantSettings === false && (
+            <RdsCompTenantInformation
+              editionList={editionList}
+              tenantInfo={(showTenantSettings) => {
+                setShowTenantSettings(showTenantSettings), setActiveNavTabId(1);
+              }}
+            />
+          )}
+          {(activeNavTabId == 1 || showTenantSettings == true) && (
+            <RdsCompTenantSettings showEditData={true} />
+          )}
+        </RdsOffcanvas>
+      </div>
+      <div className="card p-2 h-100 border-0 rounded-0 card-full-stretch mt-3">
+        <RdsCompTenantList
+          tableHeaders={tableHeaders}
+          tableData={tableData}
+          actions={actions}
+          pagination={true}
+          recordsPerPage={10}
+          recordsPerPageSelectListOption={true}
+        />
+      </div>
     </div>
   );
 };
