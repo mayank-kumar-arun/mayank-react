@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import RdsCompLinkedAccount from "../rds-comp-linked-account/rds-comp-linked-account";
 import RdsCompProfile from "../rds-comp-profile/rds-comp-profile";
 import {
-  RdsDropdownList,
-  RdsIcon,
-  RdsNotification,
-  RdsOffcanvas,
-  RdsAvatar
+	RdsDropdownList,
+	RdsIcon,
+	RdsNotification,
+	RdsOffcanvas,
+	RdsAvatar,
 } from "../rds-elements";
 
 export interface RdsCompTopNavigationProps {
@@ -23,45 +23,44 @@ export interface RdsCompTopNavigationProps {
 }
 
 const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
-  const [LinkAccount, setLinkAccount] = useState(false);
+	const [LinkAccount, setLinkAccount] = useState(false);
 
-  const navtabItems = [
-    {
-      label: "Manage Linked Accounts",
-      icon: "manage_linked",
-      subText: "Manage accounts linked to your account",
-      id: "nav-LinkAccount",
-    },
-    {
-      label: "Manage Authority Delegation",
-      icon: "manage_authority",
-      subText: "Manage authority accounts",
-      id: "nav-Deligation",
-    },
-    {
-      label: "Login Attempts",
-      icon: "login_attempts",
-      subText: "See recent login attempts for your account",
-      id: "nav-Attempts",
-    },
-    {
-      label: "My Settings",
-      icon: "my_settings",
-      subText: "Change your account settings",
-      id: "nav-Settings",
-    },
-    {
-      label: "Download Collected Data",
-      icon: "download_data",
-      subText: "Download data belongs to your account",
-      id: "nav-DownLoad",
-    },
-  ];
+	const navtabItems = [
+		{
+			label: "Manage Linked Accounts",
+			icon: "manage_linked",
+			subText: "Manage accounts linked to your account",
+			id: "nav-LinkAccount",
+		},
+		{
+			label: "Manage Authority Delegation",
+			icon: "manage_authority",
+			subText: "Manage authority accounts",
+			id: "nav-Deligation",
+		},
+		{
+			label: "Login Attempts",
+			icon: "login_attempts",
+			subText: "See recent login attempts for your account",
+			id: "nav-Attempts",
+		},
+		{
+			label: "My Settings",
+			icon: "my_settings",
+			subText: "Change your account settings",
+			id: "nav-Settings",
+		},
+		{
+			label: "Download Collected Data",
+			icon: "download_data",
+			subText: "Download data belongs to your account",
+			id: "nav-DownLoad",
+		},
+	];
 
-  const ChangeId = (e: any) => {
-    setLinkAccount(true);
-    console.log(LinkAccount);
-  };
+	const ChangeId = (e: any) => {
+		setLinkAccount(true);
+	};
 
   return (
     <div>
@@ -194,7 +193,3 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
 };
 
 export default RdsCompTopNavigation;
-
-
-
-

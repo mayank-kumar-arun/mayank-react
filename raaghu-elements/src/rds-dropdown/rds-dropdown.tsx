@@ -57,7 +57,7 @@ const RdsDropdown = (props: RdsDropdownProps) => {
               id={`dropdownMenuButton23${props.id}`}
               aria-expanded="false"
             >
-              {!props.split && <>{props.label}hhh</>}{" "}
+              {!props.split && <>{props.label}</>}{" "}
               {props.split && (
                 <span className="visually-hidden">Toggle Dropdown</span>
               )}
