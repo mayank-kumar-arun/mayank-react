@@ -153,20 +153,20 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
                 <img className="avatar bg-light avatar-sm rounded rounded-circle mb-0"
                   src="./assets/profile-picture-circle.svg"
                 ></img>
-                <div className="ms-2 fw-bold fs-6">
-                  <div className="text-nowrap">
-                    {props.profileTitle}
+                  <div className="ms-2 fw-bold fs-6">
+                    <div className="text-nowrap">
+                      {props.profileTitle}
+                    </div>
+                    <div
+                      className="text-nowrap text-muted"
+                    >
+                      {props.profileName}
+                    </div>
                   </div>
-                  <div
-                    className="text-nowrap text-muted"
-                  >
-                    {props.profileName}
-                  </div>
-                </div>
-                <span className="ms-3">
-                  <RdsIcon
-                    name="chevron_down"
-                    height="12px"
+                  <span className="ms-3">
+                    <RdsIcon
+                      name="chevron_down"
+                      height="12px"
                     width="12px"
                     fill={false}
                     stroke={true}
