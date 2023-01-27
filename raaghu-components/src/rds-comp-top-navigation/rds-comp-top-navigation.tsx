@@ -16,7 +16,6 @@ export interface RdsCompTopNavigationProps {
   navbarTitle?: string;
   navbarSubTitle?: string;
   brandName?: string;
-  darkMode?: boolean;
   profileTitle?: string;
   profileName?: string;
   logo?:string, 
@@ -102,8 +101,7 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
             listItems={props.languageItems}
             onClick={props.onClick}
           ></RdsDropdownList>
-
-          <div className="me-3 ms-3 position-relative">
+         <div className="me-3 ms-3 position-relative">
             <a
               data-bs-toggle="dropdown"
               aria-expanded="false"
@@ -139,7 +137,6 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
               width="20px"
               fill={false}
               stroke={true}
-              colorVariant={`${props.darkMode ? "light" : ""}`}
             ></RdsIcon>
           </div>
 
@@ -155,14 +152,13 @@ const RdsCompTopNavigation = (props: RdsCompTopNavigationProps) => {
               >
                 <img className="avatar bg-light avatar-sm rounded rounded-circle mb-0"
                   src="./assets/profile-picture-circle.svg"
-                  className="avatar bg-light avatar-sm rounded rounded-circle mb-0"
                 ></img>
                 <div className="ms-2 fw-bold fs-6">
-                  <div>
+                  <div className="text-nowrap">
                     {props.profileTitle}
                   </div>
                   <div
-                    className="text-muted"
+                    className="text-nowrap text-muted"
                   >
                     {props.profileName}
                   </div>

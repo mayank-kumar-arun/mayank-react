@@ -71,9 +71,7 @@ WithMultiSelect.args = {
   placeholder:"Filter",
   multiSelect:true,
   borderDropdown: true,
- 
-
-  listItems: [
+ listItems: [
     {
       label: "EN(US)",
       val: "en",
@@ -123,7 +121,6 @@ export const WithIcons = Template.bind({});
 WithIcons.args = {
  
   borderDropdown: true,
- 
   listItems: [
     {
       label: "EN(US)",

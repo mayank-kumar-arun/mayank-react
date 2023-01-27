@@ -167,7 +167,7 @@ const Node = ({
                         ></RdsIcon>
                       </a>
                       <ul
-                        className="dropdown-menu shadow p-3"
+                        className="dropdown-menu shadow p-3 ms-3 position-fixed "
                         aria-labelledby="side-dropdown2"
                       >
                         {node.children.map((item: any) => (
