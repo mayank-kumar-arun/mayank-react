@@ -55,19 +55,19 @@ Default.args = {
   split: false,
   listItems: [
     {
-      value: "Export To Excel",
+      label: "Export To Excel",
       id: "1",
-      href: "",
+      path: "",
     },
     {
-      value: "Import From Excel",
+      label: "Import From Excel",
       id: "2",
-      href: "",
+      path: "",
     },
     {
-      value: "Click here download sample import file",
+      label: "Click here download sample import file",
       id: "3",
-      href: "",
+      path: "",
     },
   ],
 };
@@ -84,19 +84,19 @@ WithSplit.args = {
   split: true,
   listItems: [
     {
-      value: "Export To Excel",
+      label: "Export To Excel",
       id: "1",
-      href: "",
+      path: "",
     },
     {
-      value: "Import From Excel",
+      label: "Import From Excel",
       id: "2",
-      href: "",
+      path: "",
     },
     {
-      value: "Click here download sample import file",
+      label: "Click here download sample import file",
       id: "3",
-      href: "",
+      path: "",
     },
   ],
 };

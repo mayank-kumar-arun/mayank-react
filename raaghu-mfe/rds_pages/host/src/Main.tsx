@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import i18n from "i18next";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../libs/state-management";
+import "./App.scss"
 
 import {
   RdsCompSideNavigation,
@@ -358,11 +359,10 @@ const Main = (props: MainProps) => {
         px-0"
             >
               <div
-                className="d-flex flex-column-fluid align-items-stretch container-fluid px-0 main-body ng-tns-c99-0"
-                style={{ marginTop: "58px" }}
+                className="d-flex flex-column-fluid align-items-stretch container-fluid px-0 main-body"
               >
                 <div className="aside ng-tns-c99-0" id="aside">
-                  <div className="">
+                  <div className="mx-2 pt-2">
                     <RdsCompSideNavigation
                       sideNavItems={sideNavItems}
                       onClick={sideNavOnClickHandler}
