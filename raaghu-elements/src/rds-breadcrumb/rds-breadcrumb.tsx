@@ -14,7 +14,6 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
   const [data, setdata] = useState(props.breadItems);
 
   const onClickHandler = (key: any) => {
-    console.log(key);
     let tempData = data.map((item: any) => {
       if (key === item.id && !item.disabled) {
         return { ...item, active: !item.active };
@@ -26,13 +25,6 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
     setdata(tempData);
   };
 
-  // const divider = {
-  //   marginLeft: "5px",
-  //   marginRight: "5px",
-  //   color: "#373535e6",
-  //   height: "16px",
-  //   width: "16px",
-  // };
   return (
     <Fragment>
       {Role === "advance" && (
