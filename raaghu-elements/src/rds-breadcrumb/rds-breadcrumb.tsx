@@ -13,17 +13,26 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
 
   const [data, setdata] = useState(props.breadItems);
 
-  const onClickHandler = (e: any) => {
-    console.log(e.target.key);
+  const onClickHandler = (key: any) => {
+    console.log(key);
+    let tempData = data.map((item: any) => {
+      if (key === item.id && !item.disabled) {
+        return { ...item, active: !item.active };
+      } else {
+        return { ...item, active: false };
+      }
+    });
+
+    setdata(tempData);
   };
 
-  const divider = {
-    marginLeft: "5px",
-    marginRight: "5px",
-    color: "#373535e6",
-    height: "16px",
-    width: "16px",
-  };
+  // const divider = {
+  //   marginLeft: "5px",
+  //   marginRight: "5px",
+  //   color: "#373535e6",
+  //   height: "16px",
+  //   width: "16px",
+  // };
   return (
     <Fragment>
       {Role === "advance" && (
@@ -32,10 +41,12 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
             {data.map((breadItem, index) => {
               return index == 0 ? (
                 <li
-                  key={"breadItem-" + index}
-                  className={`breadcrumb-item `}
+                  key={breadItem.id}
+                  className={`breadcrumb-item  ${
+                    breadItem.active ? "active" : ""
+                  }`}
                   id="breaditem1"
-                  onClick={onClickHandler}
+                  onClick={() => onClickHandler(breadItem.id)}
                 >
                   {breadItem.icon && (
                     <span className="me-2">
@@ -45,33 +56,32 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
                         stroke={breadItem.iconstroke}
                         width={breadItem.iconWidth}
                         height={breadItem.iconHeight}
-                        colorVariant={breadItem.iconColor}
+                        colorVariant={`${
+                          breadItem.active && breadItem.iconColor
+                        }`}
                       />
                     </span>
                   )}
-
-
-
-
-                  
-                  <span
+                  <a
                     // href={breadItem.route}
-                    // onClick={(event) => {
-                    //   event.preventDefault();
-                    // }}
-                    // aria-disabled="true"
+                    onClick={(event) => {
+                      event.preventDefault();
+                    }}
+                    aria-disabled="true"
                   >
                     {breadItem.label}
-                  </span>
+                  </a>
                 </li>
               ) : (
                 <li
-                  key={"breadItem-" + index}
-                  className={`breadcrumb-item `}
-                  id="breadcrumbItems"
-                  onClick={onClickHandler}
+                  key={breadItem.id}
+                  className={`breadcrumb-item  ${
+                    breadItem.active ? "active" : ""
+                  }`}
+                  id={`breadcrumbItems+${breadItem.id}`}
+                  onClick={() => onClickHandler(breadItem.id)}
                 >
-                  <span style={divider}>
+                  <span >
                     <RdsIcon
                       name="chevron_right"
                       stroke={true}
@@ -87,11 +97,13 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
                         stroke={breadItem.iconstroke}
                         width={breadItem.iconWidth}
                         height={breadItem.iconHeight}
-                        colorVariant={breadItem.iconColor}
+                        colorVariant={`${
+                          breadItem.active && breadItem.iconColor
+                        }`}
                       />
                     </span>
                   )}
-                  <span
+                  <a
                     // href={breadItem.route}
                     onClick={(event) => {
                       event.preventDefault();
@@ -99,14 +111,14 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
                     aria-disabled="true"
                   >
                     {breadItem.label}
-                  </span>
+                  </a>
                 </li>
               );
             })}
           </ol>
         </nav>
       )}
-      {Role === "default" && (
+      {/* {Role === "default" && (
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             {props.breadItems.map((breadItem, index) => (
@@ -159,7 +171,7 @@ const RdsBreadcrumb = (props: breadcrumbprop) => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </Fragment>
   );
 };
