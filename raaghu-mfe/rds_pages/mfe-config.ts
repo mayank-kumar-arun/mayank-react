@@ -46,5 +46,8 @@ export const MfeConfig = {
 	},
 	"users":{
 		"url":"users@http://localhost:8015/remoteEntry.js"
+	},
+	"iconlist":{
+		"url":"iconlist@http://localhost:8016/remoteEntry.js"
 	}
 }
