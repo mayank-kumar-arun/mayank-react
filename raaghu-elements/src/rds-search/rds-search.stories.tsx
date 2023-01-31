@@ -10,6 +10,10 @@ export default {
         options: ["small", "medium", "large"],
         control: { type: "select" },
       },
+    iconside:{
+      options: ["left", "right"],
+        control: { type: "select" },
+    }
   },
 } as ComponentMeta<typeof RdsSearch>;
 
