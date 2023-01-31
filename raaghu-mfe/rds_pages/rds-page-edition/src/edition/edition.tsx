@@ -14,13 +14,13 @@ import {
 import { EditionUser } from "../../../../libs/state-management/edition/edition-slice";
 interface RdsPageEditionProps {}
 const Edition = (props: RdsPageEditionProps) => {
-	// const editionuser = useAppSelector((state) => state.persistedReducer.edition)
-	// // const dispatch = useDispatch()
-	// const dispatch = useAppDispatch()
-	// useEffect(() => {
-	//   dispatch(EditionUser())
-	//   console.log("hi from edition")
-	// },[])
+	const editionuser = useAppSelector((state) => state.persistedReducer.edition)
+	// const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
+	useEffect(() => {
+	  dispatch(EditionUser() as any)
+	  console.log("hi from edition")
+	},[])
 	const [data, setData] = useState([]);
 	const tableHeaders = [
 		{
@@ -170,31 +170,32 @@ const Edition = (props: RdsPageEditionProps) => {
 	];
 
 	useEffect(() => {
-		const credentials = localStorage.getItem("LoginCredential");
-		if (credentials) {
-			var parsedCredentials = JSON.parse(credentials);
-		}
-		async function getData() {
-			const resp = await axios.get(
-				"https://anzdemoapi.raaghu.io/api/services/app/Edition/GetEditions",
-				{
-					headers: {
-						Authorization: "Bearer " + parsedCredentials.token, //the token is a variable which holds the token
-					},
-				}
-			);
-			console.log(resp.data.result.items);
-			setData(
-				resp.data.result.items.map((item: any) => ({
-					id: item.id,
-					editionName: item.displayName,
-					price: item.annualPrice,
-					trialPeriod: item.trialDayCount,
-					expiringEdition: item.expiringEditionDisplayName,
-				}))
-			);
-		}
-		getData();
+
+		// const credentials = localStorage.getItem("LoginCredential");
+		// if (credentials) {
+		// 	var parsedCredentials = JSON.parse(credentials);
+		// }
+		// async function getData() {
+		// 	const resp = await axios.get(
+		// 		"https://anzdemoapi.raaghu.io/api/services/app/Edition/GetEditions",
+		// 		{
+		// 			headers: {
+		// 				Authorization: "Bearer " + parsedCredentials.token, //the token is a variable which holds the token
+		// 			},
+		// 		}
+		// 	);
+		// 	console.log(resp.data.result.items);
+		// 	setData(
+		// 		resp.data.result.items.map((item: any) => ({
+		// 			id: item.id,
+		// 			editionName: item.displayName,
+		// 			price: item.annualPrice,
+		// 			trialPeriod: item.trialDayCount,
+		// 			expiringEdition: item.expiringEditionDisplayName,
+		// 		}))
+		// 	);
+		// }
+		// getData();
 	}, []);
 	return (
 		<div className="tenant">
@@ -249,7 +250,7 @@ const Edition = (props: RdsPageEditionProps) => {
 			<RdsCompEditionList
 				enablecheckboxselection={false}
 				tableHeaders={tableHeaders}
-				tableData={data}
+				tableData={editionuser.users}
 				actions={actions}
 				onActionSelection={() => {}}
 				onNewTenantClick={() => {}}

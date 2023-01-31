@@ -1,12 +1,11 @@
-import { createSlice, createAsyncThunk, PayloadAction, AsyncThunkAction } from "@reduxjs/toolkit";
-import { EditionServiceProxy , ListResultDtoOfEditionListDto } from "../../shared/service-proxies";
+import { createSlice, createAsyncThunk, PayloadAction} from "@reduxjs/toolkit";
 import axios from 'axios'
-// import { edition } from "./edition.models"
+
 
 
 type InitialState = {
   loading : boolean,
-  users : ListResultDtoOfEditionListDto[],
+  users : any[],
   error : string
 }
 
@@ -15,13 +14,30 @@ const initialState : InitialState = {
   users : [],
   error : ""
 }
-const getEdition =  new EditionServiceProxy();
-console.log(getEdition)
 
-export const EditionUser = createAsyncThunk('Edition/AddUser', async () => {
-  console.log("hi from slice")
-   const result = await getEdition.getEditions();
-   return result
+var credentials = localStorage.getItem("LoginCredential");
+if (credentials) {
+  var parsedCredentials = JSON.parse(credentials);
+}
+
+export const EditionUser = createAsyncThunk('Edition/AddUser',  () => {
+  return axios.get(
+    "https://anzdemoapi.raaghu.io/api/services/app/Edition/GetEditions",
+    {
+      headers: {
+        Authorization: "Bearer " + parsedCredentials.token, //the token is a variable which holds the token
+      },
+    }
+  ).then((response) => 
+     response.data.result.items.map((item: any) => {
+        return {
+          id: item.id,
+					editionName: item.displayName,
+					price: item.annualPrice,
+					trialPeriod: item.trialDayCount,
+					expiringEdition: item.expiringEditionDisplayName,
+        }
+     }))
               
 })
 
@@ -33,9 +49,9 @@ const editionSlice = createSlice({
     builder.addCase(EditionUser.pending, (state) => {
       state.loading = true
     });
-    builder.addCase(EditionUser.fulfilled, (state , action : PayloadAction<ListResultDtoOfEditionListDto>) =>{
+    builder.addCase(EditionUser.fulfilled, (state , action : PayloadAction<any>) =>{
       state.loading = false
-      // state.users = action=
+      state.users = action.payload
       state.error = ''
     });
     builder.addCase(EditionUser.rejected, (state , action) => {
