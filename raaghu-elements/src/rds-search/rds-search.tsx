@@ -7,6 +7,9 @@ export interface RdsSearchProps {
 	placeholder: string;
 	size: string;
   iconside?:"left"|"right" ,
+  value?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onKeyPress?: (event: React.KeyboardEvent) => void;
 }
 
 const RdsSearch = (props: RdsSearchProps) => {
@@ -15,7 +18,8 @@ const RdsSearch = (props: RdsSearchProps) => {
     let searchBarClass = `input-group mb-3 ${props.size=="small"?"input-group-sm": props.size=="large"?"input-group-lg":""}`
     let ariaDescribedby = props.size == "small"? "inputGroup-sizing-sm" : props.size =="large" ?"inputGroup-sizing-lg" :"inputGroup-sizing-default"
     let spanClass = `input-group-text ${iconside =="left"?" iconButton__left ":" iconButton__right "} ${props.size=="medium"?"searchIconMed": props.size=="large"?"searchIconLarge":""}`;
-   
+    
+
   return (
     <div className={searchBarClass}>
    {iconside =="left" ?
@@ -30,6 +34,9 @@ const RdsSearch = (props: RdsSearchProps) => {
         placeholder={props.placeholder}
         aria-label="Recipient's username"
         aria-describedby={ariaDescribedby}
+        defaultValue={props.value}
+        onChange={props.onChange}
+        onKeyDown={props.onKeyPress}
       />
        </>
      :
@@ -40,6 +47,8 @@ const RdsSearch = (props: RdsSearchProps) => {
         placeholder={props.placeholder}
         aria-label="Recipient's username"
         aria-describedby={ariaDescribedby}
+        defaultValue=""
+        onChange={props.onChange}
       />
        <span className={spanClass} id={ariaDescribedby}>
        <RdsIcon name="search" fill={false}  stroke={true} height='17px' width="17px" ></RdsIcon>

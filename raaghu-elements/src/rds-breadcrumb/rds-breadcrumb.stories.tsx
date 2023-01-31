@@ -47,8 +47,9 @@ Default.args = {
   breadItems: [
     {
       label: "Home",
+      id: 1,
       route: "#",
-      disabled: true,
+      disabled: false,
       icon: "home",
       iconFill: false,
       iconstroke: true,
@@ -59,8 +60,9 @@ Default.args = {
     },
     {
       label: "About",
+      id: 2,
       route: "#",
-      disabled: true,
+      disabled: false,
       icon: "information",
       iconFill: false,
       iconstroke: true,
@@ -71,6 +73,7 @@ Default.args = {
     },
     {
       label: "Contact",
+      id: 3,
       active: false,
       disabled: true,
       icon: "phone",

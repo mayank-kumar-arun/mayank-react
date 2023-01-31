@@ -121,7 +121,8 @@ module.exports = (env, argv) => {
 					Roles: mfeConfigJSON["roles"].url,
 					OrganizationUnits: mfeConfigJSON["organizationUnits"].url,
 					Language: mfeConfigJSON["language"].url,
-					DynamicProperties: mfeConfigJSON["dynamicProperties"].url
+					DynamicProperties: mfeConfigJSON["dynamicProperties"].url,
+					IconList: mfeConfigJSON["iconlist"].url
 				},
 				shared: {
 					...devdeps,

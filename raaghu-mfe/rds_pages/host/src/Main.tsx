@@ -38,6 +38,7 @@ const LanguageCompo = React.lazy(() => import("Language/Language"));
 const DynamicPropertyCompo = React.lazy(
   () => import("DynamicProperties/DynamicProperties")
 );
+const IconListCompo = React.lazy(()=>import("IconList/IconList"));
 
 export interface MainProps {
   toggleTheme?: React.MouseEventHandler<HTMLInputElement>;
@@ -430,6 +431,8 @@ const Main = (props: MainProps) => {
                       path="/dynamic-properties"
                       element={<DynamicPropertyCompo></DynamicPropertyCompo>}
                     ></Route>
+                    <Route path="/icons" 
+                    element={<IconListCompo/>}></Route>
                     <Route path="/**/*" element={<RdsCompPageNotFound />} />
                   </Routes>
                 </div>

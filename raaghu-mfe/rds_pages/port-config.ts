@@ -46,5 +46,8 @@ export const PortConfig = {
 	},
 	"users":{
 		"port":"8015"
+	},
+	"iconlist":{
+		"port":"8016"
 	}
 }
