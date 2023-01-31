@@ -17,7 +17,7 @@
     "@types/luxon": "^3.0.2",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
-    "axios": "^1.2.4",
+    "axios": "^1.2.5",
     "bootstrap": "^5.2.2",
     "cookieconsent": "^3.1.1",
     "dotenv": "^16.0.2",
