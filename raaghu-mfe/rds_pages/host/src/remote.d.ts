@@ -73,3 +73,8 @@ declare module "DynamicProperties/DynamicProperties" {
 	const DynamicPropertiesComponent : React.ComponentType;
 	export default DynamicPropertiesComponent;
 }
+
+declare module "IconList/IconList" {
+	const IconListComponent : React.ComponentType;
+	export default IconListComponent;
+}
