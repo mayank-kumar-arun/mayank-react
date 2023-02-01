@@ -7,6 +7,7 @@ import { PROPERTY_TYPES } from "@babel/types";
 import { useEffect } from "react";
 import { Dropdown } from "bootstrap";
 export interface RdsDropdownListProps {
+  id?:string, 
   reset?: boolean;
   icon?: string;
   iconFill?:boolean, 
@@ -35,7 +36,7 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
   const [checkedCategoryList, setCheckedCategoryList] = useState<any>([]);
   const [isTouch, setIsTouch] = useState(false);
   // to fetch the index of the selected language
-
+  let id=props.id ||'dropdown_id'
   const lang = localStorage.getItem("i18nextLng");
   let index = props.listItems.findIndex((item) => item.val === lang);
 
@@ -93,15 +94,13 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
       props.selectedItems(checkedCategoryList);
   }, [checkedCategoryList]);
   return (
-    <div>
-      <div className="position-relative">
-        <a
+      <div className="dropdown w-100 position-relative">
+        <span 
           data-bs-toggle="dropdown"
           aria-expanded="false"
           data-bs-offset={offset} 
         >
-          <div 
-           className={`hiifromheader px-2 py-1 w-100 fw-light fs-5 d-flex align-items-center ps-2 justify-content-between ${border}`}>
+          <div className={`px-2 py-1 fw-light fs-5 d-flex align-items-center ps-2 justify-content-between ${border}`}>
         {/* simple dropdown  */}
            {isTouch !== true &&
               props.placeholder &&
@@ -128,13 +127,7 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
                 <>
                   <div>
                     {props.listItems[selectedOption].icon && (
-                      <span
-                        // style={{
-                        //   borderRadius: `${
-                        //     props.displayIconRoundedCorner ? "50%" : "0"
-                        //   }`,
-                        // }}
-                      >
+                      <span>
                         <RdsIcon
                           name={props.listItems[selectedOption].icon}
                           width={IconWidth}
@@ -183,20 +176,18 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
                 stroke={true}
                 height="6px"
                 width="12px"
-               // colorVariant={`${props.darkVariant ? "light" : ""}`}
               ></RdsIcon>
             </div>
 
 
           </div>
-        </a>
+        </span>
 
         {/* DropdownList items */}
-        <div
-          className="hellofromlist w-100 dropdown-menu fab-dropdown mb-1"
-        >
+        <ul className="dropdown-menu" aria-labelledby={id}>
           {props.listItems?.map((language: any, i: any) => (
-            <div
+            <li
+            className="ps-1"
               key={i}
               onMouseDown={() => {
                 onClickHandler(i, language.val);
@@ -205,12 +196,11 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
               <a
                 data-name={language.val}
                 id={i}
-                className="dropdown-item fab-dropdown-item d-flex ps-0"
+                className="ps-2 dropdown-item fab-dropdown-item d-flex"
                 onClick={props.onClick}
                 style={{ cursor: "pointer" }}
               >
                 {props.multiSelect && (
-                  <div className="ms-3">
                     <div className="form-check">
                       <input
                         className="form-check-input"
@@ -231,17 +221,10 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
                         id="flexCheckDefault"
                       />
                     </div>
-                  </div>
                 )}
                 {language.icon && (
                   <div
-                    className="ms-2"
-                    // style={{
-                    //   borderRadius: `${
-                    //     props.insideIconRoundedCorner ? "50%" : "0"
-                    //   }`,
-                    // }}
-                  >
+                    className="ms-2">
                     <RdsIcon
                       name={language.icon}
                       height={language.iconWidth ? language.iconWidth : "20px"}
@@ -258,11 +241,10 @@ const RdsDropdownList = (props: RdsDropdownListProps) => {
                   <div data-name={language.val} >{language.label} </div>
                 </span>
               </a>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
-    </div>
   );
 };
 

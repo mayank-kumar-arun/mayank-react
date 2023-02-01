@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+//import axios from "axios";
 import {
 	RdsCompEditionList,
 	RdsCompEditionInformation,
@@ -57,120 +57,120 @@ const Edition = (props: RdsPageEditionProps) => {
 	const [activeNavTabId, setActiveNavTabId] = useState(0);
 	const [showTenantSettings, setShowTenantSettings] = useState(false);
 
-	const offCanvasButton =
-		'<RdsButton icon = "plus" iconColorVariant="light" size = "medium" type = "button" colorVariant = "primary" label = "NEW TENANT"/>';
-	const navtabsItems = [
-		{ label: "Edition Information", tablink: "#nav-home", id: 0 },
-		{ label: "Features", tablink: "#nav-profile", id: 1 },
-	];
-	const radioItems = [
-		{
-			label: "First Bill Date",
-			inline: true,
-			id: 1,
-			itemList: [
-				{
-					id: 1,
-					label: "Immediately",
-					checked: true,
-					name: "radio_button",
-				},
-				{
-					id: 2,
-					label: "After Trial Period",
-					checked: false,
-					name: "radio_button",
-				},
-			],
-		},
-		{
-			label: "After Subscription Expiry",
-			id: 2,
-			inline: true,
-			itemList: [
-				{
-					id: 1,
-					label: "Deactivate Tenant",
-					checked: true,
-					name: "radio_button",
-				},
-				{
-					id: 2,
-					label: "Assign To Another Edition",
-					checked: false,
-					name: "radio_button",
-				},
-			],
-		},
-	];
-	const familyTree = [
-		{
-			name: "[Test edition scope feature]",
-			id: "L1E1",
-			isSelected: false,
-			isIntermediate: false,
-			disabled: false,
-			children: [],
-		},
-		{
-			name: "Chat",
-			id: "L1E2",
-			parent_id: 0,
-			isSelected: false,
-			isIntermediate: false,
-			disabled: false,
-			children: [
-				{
-					name: "Chat with host",
-					id: "L2E1",
-					parent_id: 2,
-					isSelected: false,
-					isIntermediate: false,
-					disabled: false,
-					children: [],
-				},
-				{
-					name: "Chat with other tentents",
-					id: "L2E2",
-					parent_id: 2,
-					isSelected: false,
-					isIntermediate: false,
-					disabled: false,
-					children: [],
-				},
-			],
-		},
-		{
-			name: "Maximum user count",
-			id: "L1E6",
-			parent_id: 0,
-			isSelected: false,
-			isIntermediate: false,
-			disabled: false,
-			children: [],
-		},
-		{
-			name: "Test check feature",
-			id: "L1E5",
-			parent_id: 0,
-			isSelected: false,
-			isIntermediate: false,
-			disabled: false,
-			children: [],
-		},
-		{
-			name: "Test check feature",
-			id: "L1E5",
-			parent_id: 0,
-			isSelected: true,
-			isIntermediate: false,
-			disabled: false,
-			children: [],
-		},
-	];
+  const offCanvasButton =
+    '<RdsButton icon = "plus" iconColorVariant="light" size = "medium" type = "button" colorVariant = "primary" label = "NEW TENANT"/>';
+  const navtabsItems = [
+    { label: "Edition Information", tablink: "#nav-home", id: 0 },
+    { label: "Features", tablink: "#nav-profile", id: 1 },
+  ];
+  
+  const radioItems = [
+    {
+      label: "First Bill Date",
+      inline: true,
+      id: 1,
+      itemList: [
+        {
+          id: 1,
+          label: "Immediately",
+          checked: true,
+          name: "radio_button",
+        },
+        {
+          id: 2,
+          label: "After Trial Period",
+          checked: false,
+          name: "radio_button",
+        },
+      ],
+    },
+    {
+      label: "After Subscription Expiry",
+      id: 2,
+      inline: true,
+      itemList: [
+        {
+          id: 1,
+          label: "Deactivate Tenant",
+          checked: true,
+          name: "radio_button",
+        },
+        {
+          id: 2,
+          label: "Assign To Another Edition",
+          checked: false,
+          name: "radio_button",
+        },
+      ],
+    },
+  ];
+  const familyTree = [
+    {
+      name: "[Test edition scope feature]",
+      id: "L1E1",
+      isSelected: false,
+      isIntermediate: false,
+      disabled: false,
+      children: [],
+    },
+    {
+      name: "Chat",
+      id: "L1E2",
+      parent_id: 0,
+      isSelected: false,
+      isIntermediate: false,
+      disabled: false,
+      children: [
+        {
+          name: "Chat with host",
+          id: "L2E1",
+          parent_id: 2,
+          isSelected: false,
+          isIntermediate: false,
+          disabled: false,
+          children: [],
+        },
+        {
+          name: "Chat with other tentents",
+          id: "L2E2",
+          parent_id: 2,
+          isSelected: false,
+          isIntermediate: false,
+          disabled: false,
+          children: [],
+        },
+      ],
+    },
+    {
+      name: "Maximum user count",
+      id: "L1E6",
+      parent_id: 0,
+      isSelected: false,
+      isIntermediate: false,
+      disabled: false,
+      children: [],
+    },
+    {
+      name: "Test check feature",
+      id: "L1E5",
+      parent_id: 0,
+      isSelected: false,
+      isIntermediate: false,
+      disabled: false,
+      children: [],
+    },
+    {
+      name: "Test check feature",
+      id: "L1E5",
+      parent_id: 0,
+      isSelected: true,
+      isIntermediate: false,
+      disabled: false,
+      children: [],
+    },
+  ];
 
-	useEffect(() => {
-
+  useEffect(() => {
 		// const credentials = localStorage.getItem("LoginCredential");
 		// if (credentials) {
 		// 	var parsedCredentials = JSON.parse(credentials);
@@ -197,6 +197,7 @@ const Edition = (props: RdsPageEditionProps) => {
 		// }
 		// getData();
 	}, []);
+  
 	return (
 		<div className="tenant">
 			<RdsOffcanvas

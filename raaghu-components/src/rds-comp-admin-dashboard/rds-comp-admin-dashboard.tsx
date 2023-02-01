@@ -16,10 +16,13 @@ const RdsCompAdminDashboard = () => {
 	};
 
 	const { t } = useTranslation();
-
+    let user ='Host Admin';
 	return (
 		<div>
 			<div className="dark">
+				<div className ="mb-3">
+					<h5><label htmlFor="label" className="fw-bold">Hello, {user} !</label></h5>
+				</div>
 				<div className="row">
 					<div className="col-lg-6 col-md-12">
 						<RdsWidget
