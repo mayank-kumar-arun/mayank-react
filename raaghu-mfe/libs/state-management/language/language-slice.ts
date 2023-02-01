@@ -1,62 +1,120 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
-import { AccountServiceProxy, SendPasswordResetCodeInput } from '../../shared/service-proxies';
-import type { RootState } from '../index'
-import { Countries, Language } from './language-models';
+import {
+  createSlice,
+  createAsyncThunk,
+  PayloadAction,
+  AnyAction,
+} from "@reduxjs/toolkit";
+// import { AnyAsyncThunk } from "@reduxjs/toolkit/dist/matchers";
+import axios from "axios";
+// import {
+//   LanguageServiceProxy,
+//   GetLanguagesOutput,
+// } from "../../shared/service-proxies";
 
-export interface LanguagesState {
-    languages: Language;
-    error: string | null;
-    status: 'pending' | 'loading' | 'error' | 'success';
-}
-
-export interface CountryState {
-    countries: Countries;
-    error: string | null;
-    status: 'pending' | 'loading' | 'error' | 'success';
-}
-
-export interface DefaultLanguageState {
-    defaultLanguage: string;
-}
-
-export const languageInitialState: LanguagesState = {
-    languages: { items: [] },
-    error: null,
-    status: 'pending',
+type InitialState = {
+  loading: boolean;
+  languages: any[];
+  error: string;
+};
+export const initialState: InitialState = {
+  loading: false,
+  languages: [],
+  error: "",
 };
 
-export const countryInitialState: CountryState = {
-    countries: { languageNames: [], flags: [] },
-    error: null,
-    status: 'pending',
-};
+// const getLanguage = new LanguageServiceProxy();
 
+// const fetchLanguagesAction = (): AnyAction => ({
+//   type: "language/fetchLanguages",
+// });
 
+// Generates pending, fulfilled and rejected action types
 
-const languageSlice  = createSlice({
-    name: 'language',
-    initialState: languageInitialState,
-    reducers: {
-        getLanguages(state){
-            
-        },
-        getLanguageSuccess(state){
+var credentials = localStorage.getItem("LoginCredential");
+if (credentials) {
+  var parsedCredentials = JSON.parse(credentials);
+}
 
-        },
-        getLanguageFailure(state){
-
+export const fetchLanguages = createAsyncThunk(
+  "language/fetchLanguages",
+  () => {
+    return axios
+      .get(
+        "https://anzdemoapi.raaghu.io/api/services/app/Language/GetLanguages",
+        {
+          headers: {
+            Authorization: "Bearer " + parsedCredentials.token, //the token is a variable which holds the token
+          },
         }
-    },
-    extraReducers: (builder) => {
-        
-          
-    },
-  })
+      )
+      .then((response) =>
+        response.data.result.items.map((item: any) => {
+          let date = new Date(item.creationTime);
+          let day = date.getDate();
+          let month = date.getMonth() + 1;
+          let year = date.getFullYear();
 
-export const languageReducer = languageSlice.reducer;
-export const languageActions = languageSlice.actions;
+          let currentTime = date.toLocaleString("en-IN", {
+            hour: "numeric",
+            minute: "numeric",
+            second: "numeric",
+            hour12: true,
+          });
 
+          let currentDate = `${day}/${month}/${year}, ${currentTime}`;
 
+          return {
+            id: item.id,
+            languageName: item.displayName,
+            code: item.name,
+            isenabled: item.isDisabled ? "False" : "True",
+            creationTime: currentDate,
+          };
+        })
+      );
+    // console.log(
+    //   "hello this is new data",
+    //   resp.data.result.items.map((item: any) => ({
+    //     id: item.id,
+    //     languageName: item.languageName,
+    //     code: item.name,
+    //     isenabled: !item.isDisabled,
+    //     creationTime: item.creationTime,
+    //   }))
+    // );
+  }
 
+  // async () => {
+  //   console.log("Hi from API via Slice")
+  //   const result = await getLanguage.getLanguages();
+  //   return result;
+  // }
+);
 
+const languageSlice = createSlice({
+  name: "language",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchLanguages.pending, (state) => {
+      state.loading = true;
+    });
+
+    builder.addCase(
+      fetchLanguages.fulfilled,
+      (state, action: PayloadAction<any>) => {
+        state.loading = false;
+        state.languages = action.payload;
+        state.error = "";
+      }
+    );
+
+    builder.addCase(fetchLanguages.rejected, (state, action) => {
+      state.loading = false;
+      state.languages = [];
+      state.error = action.error.message || "Something went wrong";
+    });
+  },
+});
+
+export default languageSlice.reducer;

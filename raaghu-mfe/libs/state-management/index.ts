@@ -3,26 +3,28 @@ import {loginReducer} from './public.api'
 import {forgotPasswordReducer} from './forgot-password/forgotpassword-slice'
 import editionReducer from './edition/edition-slice'
 import {subscriptionReducer} from './subscription/subscription-slice'
+import languageReducer from "./language/language-slice";
 import { useDispatch } from 'react-redux'
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
-  blacklist: ['forgotPassword']
-}
+  blacklist: ["forgotPassword"],
+};
 const rootReducer = combineReducers({
   login: loginReducer,
   forgotPassword: forgotPasswordReducer,
   subscription: subscriptionReducer,
-  edition : editionReducer
+  edition : editionReducer,
+  language: languageReducer,
 })
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
-  reducer: {persistedReducer},
-  middleware: [thunk]
+  reducer: { persistedReducer },
+  middleware: [thunk],
 });
 
 
