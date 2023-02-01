@@ -238,6 +238,7 @@ const RdscompRoleList = (props: RdscompRoleListProps) => {
                   class="me-3 btn-sm"
                   type={"button"}
                   colorVariant="primary"
+                  isOutline={true}
                   label="FILTER BY PERMISSIONS"
                 />
               }
@@ -387,7 +388,7 @@ const RdscompRoleList = (props: RdscompRoleListProps) => {
             </RdsOffcanvas>
           </div>
         </div>
-
+        <div className="card p-2 h-100 border-0 rounded-0 card-full-stretch mt-3">
         <RdsCompDatatable
           tableHeaders={props.tableHeaders}
           actions={props.actions}
@@ -398,6 +399,7 @@ const RdscompRoleList = (props: RdscompRoleListProps) => {
           recordsPerPage={5}
           onActionSelection={onActionSelection}
         ></RdsCompDatatable>
+        </div>
         <RdsOffcanvas
           placement={"end"}
           backDrop={false}

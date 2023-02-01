@@ -19,7 +19,7 @@ export interface RdsAlertProps {
 const RdsAlert = (props: RdsAlertProps) => {
 	const [clicked, setClicked] = useState(false);
     let delay = props.delay;
-	const alertColor = " p-2 alert alert-" + (props.colorVariant || "primary");
+	const alertColor = "p-2 alert alert-" + (props.colorVariant || "primary");
 	const handler = props.hasOwnProperty("delay");
     const bg=" bg-"+(props.colorVariant || "primary")
 	useEffect(() => {
@@ -33,31 +33,23 @@ const RdsAlert = (props: RdsAlertProps) => {
 	const closeHandler = (e: any) => {
 		setClicked(true);
 	};
-    let isShow = `${clicked == true ? " closed " : " shown1 "}`;
+    let isShow = `${clicked == true ? " d-none " : " w-100 "}`;
     let isPosition = props.position == "bottom"? "fixed-bottom": " ";
-	
-	const iconColor =(props.colorVariant =="light")?"dark":"light";
 	return (
 		<Fragment>
-			<div
-				className={`${alertColor} ${isShow} ${isPosition} `}
-				style={props.style}
-				role="alert"
-			>
-				<div className="d-flex justify-content-between" id="alert__1">
+			<div className={`${alertColor} ${isShow} ${isPosition} `} style={props.style} role="alert">
+				<div className="px-2 d-flex justify-content-between" >
 					<div>
-						{props.hasOwnProperty("icon")?
-						<span className={` icon__style  ${bg}`} >
-							<RdsIcon
+						{props.hasOwnProperty("icon")&&
+						<RdsIcon
 								name={props.icon||" "}
 								fill={props.iconFill}
 								stroke={props.iconStroke}
 								height={props.iconHeight}
 								width={props.iconWidth}
-								colorVariant={iconColor}
-							/>
-						</span>:<>{" "}</>}
-						<span className="text-dark">{props.alertmessage}</span>
+								classes='me-2'
+							/>}
+						<span>{props.alertmessage}</span>
 					</div>
 					<div >
 						{props.dismisable === true && (
